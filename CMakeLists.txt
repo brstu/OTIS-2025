@@ -1,9 +1,4 @@
 cmake_minimum_required (VERSION 3.0.0)
-project (OTIS)
 
-# Search for directories simular to "trunk/ii0xxyy/task_0x/src/"
-file(GLOB V_GLOB RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "trunk/ii0*/*/src/")
-foreach(item ${V_GLOB})
-	message( "Find \"${item}\"" )
-	add_subdirectory(${item})
-endforeach()
+project (lab_01_ii02824)
+add_executable(lab_01_ii02818 trunk/ii02818/task_01/src/Lab1OTIS.cpp)
