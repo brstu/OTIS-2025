@@ -1,4 +1,4 @@
 cmake_minimum_required (VERSION 3.0.0)
 
 project (lab_01_ii02818)
-add_executable (lab1OTIS.cpp)
+add_executable (lab1OTIS lab1OTIS.cpp)
