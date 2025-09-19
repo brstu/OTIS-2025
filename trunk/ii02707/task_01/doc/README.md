@@ -49,6 +49,7 @@ class ISimulatedModel
 {
 public:
     virtual void simulate(float y, float u, float t) = 0;
+    virtual ~ISimulatedModel() = default;
 
 };
 class LinearModel : public ISimulatedModel
@@ -57,10 +58,11 @@ public:
     LinearModel(float a, float b)
         : m_a(a), m_b(b) 
     {}
+    ~LinearModel() = default;
 
     void simulate(float y, float u, float t) override
     {   
-        for(int i = 0; i <= t; i++)
+        for(int i = 0; i <= static_cast<int>(t); i++)
         {
             std::cout << i << ' ' << y << std::endl;
             y = m_a * y + m_b * u;
@@ -77,11 +79,12 @@ public:
     NonLinearModel(float a, float b, float c, float d)
             : m_a(a), m_b(b), m_c(c), m_d(d) 
     {}
+    ~NonLinearModel() = default;
 
     void simulate(float y, float u, float t) override
     {
         float prevY = 0;
-        for(int i = 0; i <= t; i++)
+        for(int i = 0; i <= static_cast<int>(t); i++)
         {
             std::cout << i << ' ' << y << std::endl;
             float nextY = m_a * y - m_b * prevY * prevY + m_c * u + m_d * sin(u);
@@ -91,7 +94,10 @@ public:
     }
 
 private:
-    float m_a, m_b, m_c, m_d;
+    float m_a;
+    float m_b;
+    float m_c;
+    float m_d;
 
 };
 
@@ -100,34 +106,35 @@ class IFactoryModel
 {
 public:
     virtual std::unique_ptr<ISimulatedModel> getModel() const = 0;
+    virtual ~IFactoryModel() = default;
 
 };
 class FactoryLinearModel : public IFactoryModel
 {
 public:
-    FactoryLinearModel()
-        : m_a(0.5), m_b(0.5)
-    {}
+    ~FactoryLinearModel() = default;
 
     std::unique_ptr<ISimulatedModel> getModel() const override
     { return std::make_unique<LinearModel>(m_a, m_b); }
 
 private:
-    float m_a, m_b;
+    float m_a = 0.5f;
+    float m_b = 0.5f;
 
 };
 class FactoryNonLinearModel : public IFactoryModel
 {
 public:
-    FactoryNonLinearModel()
-        : m_a(0.5), m_b(0.5), m_c(0.5), m_d(0.5)
-    {}
+    ~FactoryNonLinearModel() = default;
 
     std::unique_ptr<ISimulatedModel> getModel() const override
     { return std::make_unique<NonLinearModel>(m_a, m_b, m_c, m_d); }
 
 private:
-    float m_a, m_b, m_c, m_d;
+    float m_a = 0.5f;
+    float m_b = 0.5f;
+    float m_c = 0.5f;
+    float m_d = 0.5f;
 
 };
 
