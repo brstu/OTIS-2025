@@ -15,7 +15,7 @@ public:
     LinearModel(float a, float b)
         : m_a(a), m_b(b) 
     {}
-    ~LinearModel() = default;
+    ~LinearModel() override = default;
 
     void simulate(float y, float u, float t) override
     {   
@@ -27,7 +27,8 @@ public:
     }
 
 private:
-    float m_a, m_b;
+    float m_a;
+    float m_b;
 
 };
 class NonLinearModel : public ISimulatedModel
@@ -36,7 +37,7 @@ public:
     NonLinearModel(float a, float b, float c, float d)
             : m_a(a), m_b(b), m_c(c), m_d(d) 
     {}
-    ~NonLinearModel() = default;
+    ~NonLinearModel() override = default;
 
     void simulate(float y, float u, float t) override
     {
@@ -69,7 +70,7 @@ public:
 class FactoryLinearModel : public IFactoryModel
 {
 public:
-    ~FactoryLinearModel() = default;
+    ~FactoryLinearModel() override = default;
 
     std::unique_ptr<ISimulatedModel> getModel() const override
     { return std::make_unique<LinearModel>(m_a, m_b); }
@@ -82,7 +83,7 @@ private:
 class FactoryNonLinearModel : public IFactoryModel
 {
 public:
-    ~FactoryNonLinearModel() = default;
+    ~FactoryNonLinearModel() override = default;
 
     std::unique_ptr<ISimulatedModel> getModel() const override
     { return std::make_unique<NonLinearModel>(m_a, m_b, m_c, m_d); }
@@ -100,10 +101,12 @@ int main()
     std::unique_ptr<IFactoryModel> factory;
     std::unique_ptr<ISimulatedModel> model;
     
-    float y, u, t;
     std::cout << "Write necessary data for calculation:" << std::endl;
+    float y;
     std::cout << "y:"; std::cin >> y;
+    float u;
     std::cout << "u:"; std::cin >> u;
+    float t;
     std::cout << "t:"; std::cin >> t;
     std::cout << std::endl;
 
