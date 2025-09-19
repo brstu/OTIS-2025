@@ -39,7 +39,7 @@ where $\tau$ – time discrete moments ($1,2,3{\dots}n$); $a,b,c,d$ – some con
 Task is to write program (**С++**), which simulates this object temperature.
 
 
-Код программы:
+## Код программы:
 ```C++
 #include <iostream>
 #include <math.h>
@@ -171,12 +171,17 @@ int main()
 }
 ```
 
-Результат программы:
-Ввод:
+## Результат программы:
+Ввод данных:
+<br>
 ![Ввод:](input.png)
+<br>
 Вывод линейной симуляции:
+<br>
 ![Вывод линейной симуляции:](output_linear_simulation.png)
+<br>
 Вывод нелинейной симуляции:
+<br>
 ![Вывод нелинейной симуляции:](output_nonlinear_simulation.png)
 
 
