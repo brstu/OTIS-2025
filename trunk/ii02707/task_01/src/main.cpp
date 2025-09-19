@@ -5,7 +5,7 @@
 class ISimulatedModel
 {
 public:
-    virtual void simulate(float y, float u, float t) = 0;
+    virtual void simulate(float y, float u, float t) const = 0;
     virtual ~ISimulatedModel() = default;
 
 };
@@ -17,7 +17,7 @@ public:
     {}
     ~LinearModel() override = default;
 
-    void simulate(float y, float u, float t) override
+    void simulate(float y, float u, float t) const override
     {   
         for(int i = 0; i <= static_cast<int>(t); i++)
         {
@@ -39,7 +39,7 @@ public:
     {}
     ~NonLinearModel() override = default;
 
-    void simulate(float y, float u, float t) override
+    void simulate(float y, float u, float t) const override
     {
         float prevY = 0;
         for(int i = 0; i <= static_cast<int>(t); i++)
@@ -116,8 +116,7 @@ int main()
     model->simulate(y, u, t);
     std::cout << std::endl;
 
-    std::cout << "Nonlinear simulation:" << std::endl;
-    
+    std::cout << "Nonlinear simulation:" << std::endl; 
     factory = std::make_unique<FactoryNonLinearModel>();
     model = factory->getModel();
     model->simulate(y, u, t);
