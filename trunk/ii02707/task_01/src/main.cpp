@@ -4,54 +4,53 @@
 class SimulatedModel
 {
 public:
-    SimulatedModel(double a, double b)
+    SimulatedModel(float a, float b)
         : m_a(a), m_b(b) 
     {}
 
-    virtual void simulate(double y, double u, double t, double i = 1) = 0;
+    virtual void simulate(float y, float u, float t) = 0;
 
 protected:
-    double m_a, m_b;
+    float m_a, m_b;
 
 };
-
 class LinearModel : public SimulatedModel
 {
 public:
-    LinearModel(double a, double b)
+    LinearModel(float a, float b)
         : SimulatedModel(a, b)
     {}
 
-    virtual void simulate(double y, double u, double t, double i = 1) 
+    void simulate(float y, float u, float t) override
     {   
-        if (i != t) 
+        for(float i = 0; i <= t; i++)
         {
             std::cout << i << ' ' << y << std::endl;
-            simulate(m_a * y + m_b * u, u, t, i + 1);
+            y = m_a * y + m_b * u;
         } 
     }
 };
-
 class NonLinearModel : public SimulatedModel
 {
 public:
-    NonLinearModel(double a, double b, double c, double d)
+    NonLinearModel(float a, float b, float c, float d)
             : SimulatedModel(a, b), m_c(c), m_d(d) 
     {}
 
-    virtual void simulate(double y, double u, double t, double i = 1)
+    void simulate(float y, float u, float t) override
     {
-        static double y1 = y;
-        if (i != t) 
+        float prevY = 0;
+        for(float i = 0; i <= t; i++)
         {
             std::cout << i << ' ' << y << std::endl;
-            double nextY = m_a * y - m_b * y1 * y1 + m_c * u + m_d * sin(u);
-            simulate(nextY, u, t, i + 1);
+            float nextY = m_a * y - m_b * prevY * prevY + m_c * u + m_d * sin(u);
+            prevY = y;
+            y = nextY;
         }
     }
 
 private:
-    double m_c, m_d;
+    float m_c, m_d;
 
 };
 
@@ -62,11 +61,12 @@ public:
     FactoryModel()
         : m_a(0.5), m_b(0.5)
     {}
+
     virtual SimulatedModel* getModel() const = 0;
 
 protected:
-    const double m_a;
-    const double m_b;
+    const float m_a;
+    const float m_b;
 
 };
 class FactoryLinearModel : public FactoryModel
@@ -76,7 +76,7 @@ public:
         : FactoryModel()
     {}
 
-    virtual SimulatedModel* getModel() const 
+    SimulatedModel* getModel() const override
     { return new LinearModel(m_a, m_b); }
 
 };
@@ -87,12 +87,12 @@ public:
         : FactoryModel(), m_c(0.5), m_d(0.5)
     {}
 
-    virtual SimulatedModel* getModel() const 
+    SimulatedModel* getModel() const override
     { return new NonLinearModel(m_a, m_b, m_c, m_d); }
 
 private:
-    const double m_c;
-    const double m_d;
+    const float m_c;
+    const float m_d;
 
 };
 
@@ -101,8 +101,8 @@ int main()
     FactoryModel* factory;
     SimulatedModel* model;
     
-    double y, u, t;
-    std::cout << "Write necessary data:" << std::endl;
+    float y, u, t;
+    std::cout << "Write necessary data for calculation:" << std::endl;
     std::cout << "y:"; std::cin >> y;
     std::cout << "u:"; std::cin >> u;
     std::cout << "t:"; std::cin >> t;
@@ -113,16 +113,17 @@ int main()
     model = factory->getModel();
     model->simulate(y, u, t);
     std::cout << std::endl;
+    delete model;
+    delete factory;
 
     std::cout << "Nonlinear simulation:" << std::endl;
     factory = new FactoryNonLinearModel();
     model = factory->getModel();
     model->simulate(y, u, t);
     std::cout << std::endl;
-
-    system("pause");
-
     delete model;
     delete factory;
+
+    system("pause");
     return 0;
 }
