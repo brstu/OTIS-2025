@@ -66,7 +66,7 @@ public:
 
     void simulate(float y, float u, float t) override
     {   
-        for(float i = 0; i <= t; i++)
+        for(int i = 0; i <= t; i++)
         {
             std::cout << i << ' ' << y << std::endl;
             y = m_a * y + m_b * u;
@@ -83,7 +83,7 @@ public:
     void simulate(float y, float u, float t) override
     {
         float prevY = 0;
-        for(float i = 0; i <= t; i++)
+        for(int i = 0; i <= t; i++)
         {
             std::cout << i << ' ' << y << std::endl;
             float nextY = m_a * y - m_b * prevY * prevY + m_c * u + m_d * sin(u);
