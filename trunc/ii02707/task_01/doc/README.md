@@ -1,0 +1,183 @@
+<p align="center"> Министерство образования Республики Беларусь</p>
+<p align="center">Учреждение образования</p>
+<p align="center">“Брестский Государственный технический университет”</p>
+<p align="center">Кафедра ИИТ</p>
+<br><br><br><br><br><br><br>
+<p align="center">Лабораторная работа №1</p>
+<p align="center">По дисциплине “Общая теория интеллектуальных систем”</p>
+<p align="center">Тема: “Моделирования температуры объекта”</p>
+<br><br><br><br><br>
+<p align="right">Выполнил:</p>
+<p align="right">Студент 2 курса</p>
+<p align="right">Группы ИИ-27</p>
+<p align="right">Дорошенко М.Д.</p>
+<p align="right">Проверил:</p>
+<p align="right">Иванюк Д. С.</p>
+<br><br><br><br><br>
+<p align="center">Брест 2025</p>
+
+# Общее задание #
+1. Написать отчет по выполненной лабораторной работе №1 в .md формате (readme.md) и с помощью запроса на внесение изменений (**pull request**) разместить его в следующем каталоге: **trunk\ii0xxyy\task_01\doc** (где **xx** - номер группы, **yy** - номер студента, например **ii02302**).
+2. Исходный код написанной программы разместить в каталоге: **trunk\ii0xxyy\task_01\src**.
+3. Выполнить рецензирование ([review](https://linearb.io/blog/code-review-on-github), [checklist](https://linearb.io/blog/code-review-checklist)) запросов других студентов (минимум 2-е рецензии).
+4. Отразить выполнение работы в файле readme.md в соответствующей строке (например, для студента под порядковым номером 1 - https://github.com/brstu/OTIS-2023/edit/main/readme.md?#L17-L17).
+
+## Task 1. Modeling controlled object ##
+Let's get some object to be controlled. We want to control its temperature, which can be described by this differential equation:
+
+$$\Large\frac{dy(\tau)}{d\tau}=\frac{u(\tau)}{C}+\frac{Y_0-y(\tau)}{RC} $$ (1)
+
+where $\tau$ – time; $y(\tau)$ – input temperature; $u(\tau)$ – input warm; $Y_0$ – room temperature; $C,RC$ – some constants.
+
+After transformation we get these linear (2) and nonlinear (3) models:
+
+$$\Large y_{\tau+1}=ay_{\tau}+bu_{\tau}$$ (2)
+$$\Large y_{\tau+1}=ay_{\tau}-by_{\tau-1}^2+cu_{\tau}+d\sin(u_{\tau-1})$$ (3)
+
+where $\tau$ – time discrete moments ($1,2,3{\dots}n$); $a,b,c,d$ – some constants.
+
+Task is to write program (**С++**), which simulates this object temperature.
+
+
+Код программы:
+```C++
+#include <iostream>
+#include <math.h>
+
+class SimulatedModel
+{
+public:
+    SimulatedModel(double a, double b)
+        : m_a(a), m_b(b) 
+    {}
+
+    virtual void simulate(double y, double u, double t, double i = 1) = 0;
+
+protected:
+    double m_a, m_b;
+
+};
+
+class LinearModel : public SimulatedModel
+{
+public:
+    LinearModel(double a, double b)
+        : SimulatedModel(a, b)
+    {}
+
+    virtual void simulate(double y, double u, double t, double i = 1) 
+    {   
+        if (i != t) 
+        {
+            std::cout << i << ' ' << y << std::endl;
+            simulate(m_a * y + m_b * u, u, t, i + 1);
+        } 
+    }
+};
+
+class NonLinearModel : public SimulatedModel
+{
+public:
+    NonLinearModel(double a, double b, double c, double d)
+            : SimulatedModel(a, b), m_c(c), m_d(d) 
+    {}
+
+    virtual void simulate(double y, double u, double t, double i = 1)
+    {
+        static double y1 = y;
+        if (i != t) 
+        {
+            std::cout << i << ' ' << y << std::endl;
+            double nextY = m_a * y - m_b * y1 * y1 + m_c * u + m_d * sin(u);
+            simulate(nextY, u, t, i + 1);
+        }
+    }
+
+private:
+    double m_c, m_d;
+
+};
+
+
+class FactoryModel
+{
+public:
+    FactoryModel()
+        : m_a(0.5), m_b(0.5)
+    {}
+    virtual SimulatedModel* getModel() const = 0;
+
+protected:
+    const double m_a;
+    const double m_b;
+
+};
+class FactoryLinearModel : public FactoryModel
+{
+public:
+    FactoryLinearModel()
+        : FactoryModel()
+    {}
+
+    virtual SimulatedModel* getModel() const 
+    { return new LinearModel(m_a, m_b); }
+
+};
+class FactoryNonLinearModel : public FactoryModel
+{
+public:
+    FactoryNonLinearModel()
+        : FactoryModel(), m_c(0.5), m_d(0.5)
+    {}
+
+    virtual SimulatedModel* getModel() const 
+    { return new NonLinearModel(m_a, m_b, m_c, m_d); }
+
+private:
+    const double m_c;
+    const double m_d;
+
+};
+
+int main() 
+{
+    FactoryModel* factory;
+    SimulatedModel* model;
+    
+    double y, u, t;
+    std::cout << "Write necessary data:" << std::endl;
+    std::cout << "y:"; std::cin >> y;
+    std::cout << "u:"; std::cin >> u;
+    std::cout << "t:"; std::cin >> t;
+    std::cout << std::endl;
+
+    std::cout << "Linear simulation:" << std::endl;
+    factory = new FactoryLinearModel();
+    model = factory->getModel();
+    model->simulate(y, u, t);
+    std::cout << std::endl;
+
+    std::cout << "Nonlinear simulation:" << std::endl;
+    factory = new FactoryNonLinearModel();
+    model = factory->getModel();
+    model->simulate(y, u, t);
+    std::cout << std::endl;
+
+    system("pause");
+
+    delete model;
+    delete factory;
+    return 0;
+}
+```
+
+Результат программы:
+Ввод:
+![Ввод:](input.png)
+Вывод линейной симуляции:
+![Вывод линейной симуляции:](output_linear_simulation.png)
+Вывод нелинейной симуляции:
+![Вывод нелинейной симуляции:](output_nonlinear_simulation.png)
+
+
+
