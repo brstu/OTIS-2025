@@ -12,7 +12,7 @@
 <p align="right">Группы ИИ-27</p>
 <p align="right">Дорошенко М.Д.</p>
 <p align="right">Проверил:</p>
-<p align="right">Иванюк Д. С.</p>
+<p align="right">Иванюк Д.С.</p>
 <br><br><br><br><br>
 <p align="center">Брест 2025</p>
 
