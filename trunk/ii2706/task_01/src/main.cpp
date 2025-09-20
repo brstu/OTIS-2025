@@ -11,7 +11,7 @@ void liner_funcnt(double& y1)
 	cout << y1 << endl;
 }
 
-void quadro_funct(double& y2, double& y_previous, bool& second_iteration)
+void nonliner_funct(double& y2, double& y_previous, bool& second_iteration)
 {
 	double first_funct_const = 0.1;
 	double second_funct_const = 0.2;
@@ -48,11 +48,11 @@ int main()
 	cout << "Линейная модель\n" << y1 << endl;
 	for (int i = 0; i < n; i++)
 	{
-    liner_funcnt(y1);
+        liner_funcnt(y1);
 	}
 	cout << endl << "Квадратичная модель\n" << y2 << endl;
 	for (int i = 0; i < n; i++)
 	{
-		quadro_funct(y2, y_previous, second_iteration);
+		nonliner_funct(y2, y_previous, second_iteration);
 	}
 }
