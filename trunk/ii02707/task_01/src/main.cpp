@@ -76,8 +76,8 @@ public:
     { return std::make_unique<LinearModel>(m_a, m_b); }
 
 private:
-    float m_a = 0.5f;
-    float m_b = 0.5f;
+    float m_a { 0.5f };
+    float m_b { 0.5f };
 
 };
 class FactoryNonLinearModel : public IFactoryModel
@@ -89,10 +89,10 @@ public:
     { return std::make_unique<NonLinearModel>(m_a, m_b, m_c, m_d); }
 
 private:
-    float m_a = 0.5f;
-    float m_b = 0.5f;
-    float m_c = 0.5f;
-    float m_d = 0.5f;
+    float m_a { 0.5f };
+    float m_b { 0.5f };
+    float m_c { 0.5f };
+    float m_d { 0.5f };
 
 };
 
