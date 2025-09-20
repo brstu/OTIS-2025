@@ -5,7 +5,7 @@
 class ISimulatedModel
 {
 public:
-    virtual void simulate(double y, double u, double t) const = 0;
+    virtual void simulate(double y, const double u, double t) const = 0;
     virtual ~ISimulatedModel() = default;
 
 };
