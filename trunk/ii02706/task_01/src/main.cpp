@@ -2,22 +2,21 @@
 #include <cmath>
 using namespace std;
 
+// Global constants to avoid duplication
+const double first_funct_const = 0.1;
+const double second_funct_const = 0.2;
+const double third_funct_const = 0.3;
+
 void liner_funcnt(double& y1)
 {
-	double first_funct_const = 0.1;
-	double second_funct_const = 0.2;
-	double third_funct_const = 0.3;
 	y1 = first_funct_const * y1 + second_funct_const * third_funct_const;
 	cout << y1 << endl;
 }
 
 void nonliner_funct(double& y2, double& y_previous, bool& second_iteration)
 {
-	double first_funct_const = 0.1;
-	double second_funct_const = 0.2;
-	double third_funct_const = 0.3;
-	double fourth_funct_const = 0.4;
-	double fifth_funct_const = 0.5;
+	const double fourth_funct_const = 0.4;
+	const double fifth_funct_const = 0.5;
 	if (second_iteration)
 	{
 		y_previous = y2;
