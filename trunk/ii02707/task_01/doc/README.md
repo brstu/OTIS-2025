@@ -48,19 +48,19 @@ Task is to write program (**С++**), which simulates this object temperature.
 class ISimulatedModel
 {
 public:
-    virtual void simulate(float y, float u, float t) const = 0;
+    virtual void simulate(double y, double u, double t) const = 0;
     virtual ~ISimulatedModel() = default;
 
 };
 class LinearModel : public ISimulatedModel
 {
 public:
-    LinearModel(float a, float b)
+    LinearModel(double a, double b)
         : m_a(a), m_b(b) 
     {}
     ~LinearModel() override = default;
 
-    void simulate(float y, const float u, float t) const override
+    void simulate(double y, const double u, double t) const override
     {   
         for(int i = 0; i <= static_cast<int>(t); i++)
         {
@@ -70,35 +70,35 @@ public:
     }
 
 private:
-    const float m_a;
-    const float m_b;
+    const double m_a;
+    const double m_b;
 
 };
 class NonLinearModel : public ISimulatedModel
 {
 public:
-    NonLinearModel(float a, float b, float c, float d)
+    NonLinearModel(double a, double b, double c, double d)
             : m_a(a), m_b(b), m_c(c), m_d(d) 
     {}
     ~NonLinearModel() override = default;
 
-    void simulate(float y, const float u, float t) const override
+    void simulate(double y, const double u, double t) const override
     {
-        float prevY = 0;
+        double prevY = 0;
         for(int i = 0; i <= static_cast<int>(t); i++)
         {
             std::cout << i << ' ' << y << std::endl;
-            float nextY = m_a * y - m_b * prevY * prevY + m_c * u + m_d * sin(u);
+            double nextY = m_a * y - m_b * prevY * prevY + m_c * u + m_d * sin(u);
             prevY = y;
             y = nextY;
         }
     }
 
 private:
-    const float m_a;
-    const float m_b;
-    const float m_c;
-    const float m_d;
+    const double m_a;
+    const double m_b;
+    const double m_c;
+    const double m_d;
 
 };
 
@@ -119,8 +119,8 @@ public:
     { return std::make_unique<LinearModel>(m_a, m_b); }
 
 private:
-    float m_a { 0.5f };
-    float m_b { 0.5f };
+    double m_a { 0.5 };
+    double m_b { 0.5 };
 
 };
 class FactoryNonLinearModel : public IFactoryModel
@@ -132,10 +132,10 @@ public:
     { return std::make_unique<NonLinearModel>(m_a, m_b, m_c, m_d); }
 
 private:
-    float m_a { 0.5f };
-    float m_b { 0.5f };
-    float m_c { 0.5f };
-    float m_d { 0.5f };
+    double m_a { 0.5 };
+    double m_b { 0.5 };
+    double m_c { 0.5 };
+    double m_d { 0.5 };
 
 };
 
@@ -145,11 +145,11 @@ int main()
     std::unique_ptr<ISimulatedModel> model;
     
     std::cout << "Write necessary data for calculation:" << std::endl;
-    float y;
+    double y;
     std::cout << "y:"; std::cin >> y;
-    float u;
+    double u;
     std::cout << "u:"; std::cin >> u;
-    float t;
+    double t;
     std::cout << "t:"; std::cin >> t;
     std::cout << std::endl;
 
