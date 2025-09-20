@@ -122,6 +122,5 @@ int main()
     model->simulate(y, u, t);
     std::cout << std::endl;
 
-    std::cin.get();
     return 0;
 }
