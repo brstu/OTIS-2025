@@ -43,7 +43,7 @@ Task is to write program (**С++**), which simulates this object temperature.
 ```C++
 #include <iostream>
 #include <memory>
-#include <math.h>
+#include <cmath>
 
 class ISimulatedModel
 {
@@ -60,7 +60,7 @@ public:
     {}
     ~LinearModel() override = default;
 
-    void simulate(float y, float u, float t) const override
+    void simulate(float y, const float u, float t) const override
     {   
         for(int i = 0; i <= static_cast<int>(t); i++)
         {
@@ -70,8 +70,8 @@ public:
     }
 
 private:
-    float m_a;
-    float m_b;
+    const float m_a;
+    const float m_b;
 
 };
 class NonLinearModel : public ISimulatedModel
@@ -82,7 +82,7 @@ public:
     {}
     ~NonLinearModel() override = default;
 
-    void simulate(float y, float u, float t) const override
+    void simulate(float y, const float u, float t) const override
     {
         float prevY = 0;
         for(int i = 0; i <= static_cast<int>(t); i++)
@@ -95,10 +95,10 @@ public:
     }
 
 private:
-    float m_a;
-    float m_b;
-    float m_c;
-    float m_d;
+    const float m_a;
+    const float m_b;
+    const float m_c;
+    const float m_d;
 
 };
 
@@ -165,7 +165,7 @@ int main()
     model->simulate(y, u, t);
     std::cout << std::endl;
 
-    system("pause");
+    std::cin.get();
     return 0;
 }
 ```
