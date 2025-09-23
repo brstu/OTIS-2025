@@ -97,13 +97,7 @@ private:
 };
 
 template<typename T>
-void validateInput(const std::string &txt, T& value)
-{
-	do
-	{
-		std::cout << "y:"; std::cin >> value;
-	} while(value < 0);
-}
+void validateInput(const std::string &txt, T& value);
 
 int main() 
 {
@@ -132,4 +126,13 @@ int main()
     std::cout << std::endl;
 
     return 0;
+}
+
+template<typename T>
+void validateInput(const std::string &txt, T& value)
+{
+	do
+	{
+		std::cout << txt; std::cin >> value;
+	} while(value < 0);
 }
