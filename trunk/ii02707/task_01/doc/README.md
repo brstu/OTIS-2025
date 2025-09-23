@@ -85,11 +85,12 @@ public:
     void simulate(double y, const double u, int t) const override
     {
         double prevY = y;
-		double prevU = u;
+        double prevU = u;
         for(int i = 0; i <= t; i++)
         {
             std::cout << i << ' ' << y << std::endl;
             double nextY = m_a * y - m_b * prevY * prevY + m_c * u + m_d * sin(prevU);
+            prevU += 0.5;
             prevY = y;
             y = nextY;
         }
@@ -146,8 +147,8 @@ int main()
     std::unique_ptr<ISimulatedModel> model;
     
     const double y = 0;
-	const double u = 1;
-	const int t = 25;
+    const double u = 1;
+    const int t = 25;
 
     std::cout << "Linear simulation:" << std::endl;
     factory = std::make_unique<FactoryLinearModel>();
