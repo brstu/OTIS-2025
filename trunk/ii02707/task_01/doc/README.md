@@ -90,9 +90,9 @@ public:
         {
             std::cout << i << ' ' << y << std::endl;
             double nextY = m_a * y - m_b * prevY * prevY + m_c * u + m_d * sin(prevU);
-            prevU += 0.5;
-            prevY = y;
+            prevU += u_step;
             y = nextY;
+            prevY = y;
         }
     }
 
@@ -101,6 +101,8 @@ private:
     const double m_b;
     const double m_c;
     const double m_d;
+	
+	const double u_step { 0.5 };
 
 };
 
