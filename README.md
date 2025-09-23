@@ -40,134 +40,63 @@ Task is to write program (**С++**), which simulates this object temperature.
 
 
 ## Код программы:
-```C++
+C++
 #include <iostream>
-#include <memory>
 #include <cmath>
 
-class ISimulatedModel
-{
-public:
-    virtual void simulate(double y, const double u, double t) const = 0;
-    virtual ~ISimulatedModel() = default;
+using namespace std;
 
-};
-class LinearModel : public ISimulatedModel
-{
-public:
-    LinearModel(double a, double b)
-        : m_a(a), m_b(b) 
-    {}
-    ~LinearModel() override = default;
+// Линейная модель
+void simulateLinearModel(int n, double a, double b, double u0, double y0) {
+    double y = y0;
 
-    void simulate(double y, const double u, double t) const override
-    {   
-        for(int i = 0; i <= static_cast<int>(t); i++)
-        {
-            std::cout << i << ' ' << y << std::endl;
-            y = m_a * y + m_b * u;
-        } 
+    cout << "\n--- Linear Model ---\n";
+    for (int tau = 0; tau < n; ++tau) {
+        cout << "Time " << tau + 1 << ": " << y << endl;
+        y = a * y + b * u0;
     }
+}
 
-private:
-    const double m_a;
-    const double m_b;
+// Нелинейная модель
+void simulateNonlinearModel(int n, double a, double b, double c, double d, double u0, double y0) {
+    double y = y0;
+    double y_prev = y0;
 
-};
-class NonLinearModel : public ISimulatedModel
-{
-public:
-    NonLinearModel(double a, double b, double c, double d)
-            : m_a(a), m_b(b), m_c(c), m_d(d) 
-    {}
-    ~NonLinearModel() override = default;
-
-    void simulate(double y, const double u, double t) const override
-    {
-        double prevY = 0;
-        for(int i = 0; i <= static_cast<int>(t); i++)
-        {
-            std::cout << i << ' ' << y << std::endl;
-            double nextY = m_a * y - m_b * prevY * prevY + m_c * u + m_d * sin(u);
-            prevY = y;
-            y = nextY;
-        }
+    cout << "\n--- Nonlinear Model ---\n";
+    for (int tau = 0; tau < n; ++tau) {
+        cout << "Time " << tau + 1 << ": " << y << endl;
+        double y_next = a * y - b * pow(y_prev, 2) + c * u0 + d * sin(u0);
+        y_prev = y;
+        y = y_next;
     }
+}
 
-private:
-    const double m_a;
-    const double m_b;
-    const double m_c;
-    const double m_d;
+int main() {
+    int n;
+    double u0, y0;
 
-};
+    // Ввод только шагов и начальных условий
+    cout << "Enter number of time steps n: ";
+    cin >> n;
 
+    cout << "Enter input warm u0: ";
+    cin >> u0;
 
-class IFactoryModel
-{
-public:
-    virtual std::unique_ptr<ISimulatedModel> getModel() const = 0;
-    virtual ~IFactoryModel() = default;
+    cout << "Enter initial temperature y0: ";
+    cin >> y0;
 
-};
-class FactoryLinearModel : public IFactoryModel
-{
-public:
-    ~FactoryLinearModel() override = default;
+    // Константы модели (зашиты в коде)
+    double a = 0.9;
+    double b = 0.1;
+    double c = 0.05;
+    double d = 0.02;
 
-    std::unique_ptr<ISimulatedModel> getModel() const override
-    { return std::make_unique<LinearModel>(m_a, m_b); }
-
-private:
-    double m_a { 0.5 };
-    double m_b { 0.5 };
-
-};
-class FactoryNonLinearModel : public IFactoryModel
-{
-public:
-    ~FactoryNonLinearModel() override = default;
-
-    std::unique_ptr<ISimulatedModel> getModel() const override
-    { return std::make_unique<NonLinearModel>(m_a, m_b, m_c, m_d); }
-
-private:
-    double m_a { 0.5 };
-    double m_b { 0.5 };
-    double m_c { 0.5 };
-    double m_d { 0.5 };
-
-};
-
-int main() 
-{
-    std::unique_ptr<IFactoryModel> factory;
-    std::unique_ptr<ISimulatedModel> model;
-    
-    std::cout << "Write necessary data for calculation:" << std::endl;
-    double y;
-    std::cout << "y:"; std::cin >> y;
-    double u;
-    std::cout << "u:"; std::cin >> u;
-    double t;
-    std::cout << "t:"; std::cin >> t;
-    std::cout << std::endl;
-
-    std::cout << "Linear simulation:" << std::endl;
-    factory = std::make_unique<FactoryLinearModel>();
-    model = factory->getModel();
-    model->simulate(y, u, t);
-    std::cout << std::endl;
-
-    std::cout << "Nonlinear simulation:" << std::endl; 
-    factory = std::make_unique<FactoryNonLinearModel>();
-    model = factory->getModel();
-    model->simulate(y, u, t);
-    std::cout << std::endl;
+    // Запуск обеих моделей
+    simulateLinearModel(n, a, b, u0, y0);
+    simulateNonlinearModel(n, a, b, c, d, u0, y0);
 
     return 0;
 }
-```
 
 ## Результат программы:
 Ввод данных:
