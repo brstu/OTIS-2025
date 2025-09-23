@@ -58,9 +58,8 @@ private:
     const double m_b;
     const double m_c;
     const double m_d;
-	
-	const double u_step { 0.5 };
 
+    const double u_step { 0.5 };
 };
 
 
