@@ -23,7 +23,7 @@
 
 <p align="right">Группы ИИ-28</p>
 
-<p align="right">Асташёнок Д.С.</p>
+<p align="right">Клименко М.С.</p>
 
 <p align="right">Проверил:</p>
 
