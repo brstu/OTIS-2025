@@ -48,8 +48,9 @@ public:
             std::cout << i << ' ' << y << std::endl;
             double nextY = m_a * y - m_b * prevY * prevY + m_c * u + m_d * sin(prevU);
             prevU += u_step;
+            double tempPrevY = y; // store current y before updating
             y = nextY;
-            prevY = y;
+            prevY = tempPrevY;    // update prevY to previous y
         }
     }
 
