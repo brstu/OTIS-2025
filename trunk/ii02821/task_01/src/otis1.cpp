@@ -17,9 +17,6 @@ void simulateLinear(double a, double b, double u, int steps) {
 }
 
 double nextNonlinear(double a, double b, double c, double d, double u, double y, double yPrev) {
-    if (yPrev == 0) {
-        return a * y - b * (yPrev * yPrev) + c * u + d * sin(u);
-    }
     return a * y - b * (yPrev * yPrev) + c * u + d * sin(u);
 }
 
