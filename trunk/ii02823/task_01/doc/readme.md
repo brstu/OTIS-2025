@@ -9,7 +9,7 @@
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
-<p align="right">Группы ИИ-2</p>
+<p align="right">Группы ИИ-28</p>
 <p align="right">Степанюк А.С.</p>
 <p align="right">Проверил:</p>
 <p align="right">Иванюк Д.С.</p>
@@ -101,3 +101,7 @@ Result of the 9st step of non-linear model: 1.32017;
 Result of the 10st step of linear model: 16.9374;
 Result of the 10st step of non-linear model: 1.91168;
 ```
+## Рецензирование запросов других студентов ##
+![Рецензия работы пользователя threenebula23:](https://i.ibb.co/mF8Trkgx/img1.png)
+
+![Комментарий к коду пользователя oniisssss:](https://i.ibb.co/pvTVwcQ6/img2.png)
