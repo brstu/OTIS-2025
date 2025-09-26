@@ -2,10 +2,10 @@
 #include <cmath>
 using namespace std;
 
-double a = 0.5;  
-double b = 0.01;   
-double c = 0.2;  
-double d = 0.4;  
+const double a = 0.5; 
+const double b = 0.01;   
+const double c = 0.2;  
+const double d = 0.4;  
 
 double linearModel(double y, double u) {
     return a * y + b * u;
