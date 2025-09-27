@@ -8,13 +8,13 @@
 <p align="center">Тема: “Моделирования температуры объекта”</p>
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
-<p align="right">Студент 2 курса</p>
-<p align="right">Группы ИИ-25</p>
-<p align="right">Заседатель Н.С.</p>
-<p align="right">Проверила:</p>
-<p align="right">Ситковец Я.С.</p>
+<p align="right">Студентка 2 курса</p>
+<p align="right">Группы ИИ-28</p>
+<p align="right">Жукович Е.Д.</p>
+<p align="right">Проверил:</p>
+<p align="right">Иванюк Д.С.</p>
 <br><br><br><br><br>
-<p align="center">Брест 2024</p>
+<p align="center">Брест 2025</p>
 
 <hr>
 
@@ -44,100 +44,94 @@ Task is to write program (**С++**), which simulates this object temperature.
 Код программы:
 ```C++
 #include <iostream>
+#include <vector>
 #include <cmath>
 
 using namespace std;
 
-// Функция для моделирования линейной системы
-void simulateLinearSystem(double coeffA, double coeffB, double initialValue, double inputValue, int steps) {
-    double currentValue = initialValue;  
-    double controlValue = inputValue;  
+double params[4] = { 0.8, 0.6, 0.4, 2.2 };
+double heat_input = 0.8;
 
-    cout << "n--- Моделирование линейной системы ---n";
-    for (int step = 0; step < steps; ++step) {
-        double nextValue = coeffA * currentValue + coeffB * controlValue;  // Уравнение линейной модели
-        cout << "Шаг " << step + 1 << ": y[" << step + 1 << "] = " << nextValue << endl;
-        currentValue = nextValue;
+vector<double> linearSim(int n, double start_temp) {
+    vector<double> data(n);
+    data[0] = start_temp;
+
+    for (int i = 1; i < n; i++) {
+        data[i] = params[0] * data[i - 1] + params[1] * heat_input;
     }
+    return data;
 }
 
-// Функция для моделирования нелинейной системы
-void simulateNonlinearSystem(double coeffA, double coeffB, double coeffC, double coeffD, double initialValue, double previousValue, double inputValue, int steps) {
-    double currentValue = initialValue;           
-    double lastValue = previousValue; 
-    double controlValue = inputValue;           
+vector<double> nonlinearSim(int n, double start_temp) {
+    vector<double> data(n);
+    data[0] = start_temp;
 
-    cout << "n--- Моделирование нелинейной системы ---n";
-    for (int step = 0; step < steps; ++step) {
-        double nextValue = coeffA * currentValue - coeffB * lastValue * lastValue + coeffC * controlValue + coeffD * sin(controlValue - 1);  // Уравнение нелинейной модели
-        cout << "Шаг " << step + 1 << ": y[" << step + 1 << "] = " << nextValue << endl;
-
-        lastValue = currentValue;  
-        currentValue = nextValue;
+    if (n > 1) {
+        data[1] = params[0] * data[0] + params[2] * heat_input + params[3] * sin(heat_input);
     }
+
+    for (int i = 2; i < n; i++) {
+        data[i] = params[0] * data[i - 1] - params[1] * data[i - 2] * data[i - 2]
+            + params[2] * heat_input + params[3] * sin(heat_input);
+    }
+    return data;
 }
 
 int main() {
-    setlocale(LC_ALL, "Russian");
-    double coeffA, coeffB, coeffC, coeffD;  
-    double initialTemp, inputTemp, previousTemp;  
-    int totalSteps;  
+    double start_temp;
+    int steps;
 
-    cout << "Введите коэффициент a: ";
-    cin >> coeffA;
-    cout << "Введите коэффициент b: ";
-    cin >> coeffB;
-    cout << "Введите коэффициент c (для нелинейной модели): ";
-    cin >> coeffC;
-    cout << "Введите коэффициент d (для нелинейной модели): ";
-    cin >> coeffD;
-    cout << "Введите начальное значение температуры: ";
-    cin >> initialTemp;                                                      
-    cout << "Введите начальное значение предыдущей температуры (для нелинейной модели): ";
-    cin >> previousTemp;
-    cout << "Введите начальное значение управляющего входа: ";
-    cin >> inputTemp;
-    cout << "Введите количество временных шагов: ";
-    cin >> totalSteps;
+    cout << "Enter starting temperature: ";
+    cin >> start_temp;
 
-    simulateLinearSystem(coeffA, coeffB, initialTemp, inputTemp, totalSteps);
-    simulateNonlinearSystem(coeffA, coeffB, coeffC, coeffD, initialTemp, previousTemp, inputTemp, totalSteps);
+    cout << "Enter number of steps: ";
+    cin >> steps;
+
+    while (steps < 1) {
+        cout << "Steps must be 1 or more: ";
+        cin >> steps;
+    }
+
+    vector<double> linear_data = linearSim(steps, start_temp);
+    vector<double> nonlinear_data = nonlinearSim(steps, start_temp);
+
+    cout << "\nLinear Model Results:" << endl;
+    for (int i = 0; i < steps; i++) {
+        cout << "Step " << i << ": " << linear_data[i] << endl;
+    }
+
+    cout << "\nNonlinear Model Results:" << endl;
+    for (int i = 0; i < steps; i++) {
+        cout << "Step " << i << ": " << nonlinear_data[i] << endl;
+    }
 
     return 0;
 }
 ```     
 ```
-Введите значение параметра alpha: 1.2
-Введите значение параметра beta: 0.05
-Введите значение параметра gamma (для нелинейной модели): 0.4
-Введите значение параметра delta (для нелинейной модели): 0.8
-Введите начальное значение температуры temp0: 1
-Введите начальное значение управляющего сигнала control0: 1
-Введите количество шагов моделирования: 11
-Линейная модель:
-Шаг времени 0: Температура = 1.25
-Шаг времени 1: Температура = 1.55
-Шаг времени 2: Температура = 1.91
-Шаг времени 3: Температура = 2.342
-Шаг времени 4: Температура = 2.8604
-Шаг времени 5: Температура = 3.48248
-Шаг времени 6: Температура = 4.22898
-Шаг времени 7: Температура = 5.12477
-Шаг времени 8: Температура = 6.19973
-Шаг времени 9: Температура = 7.48967
-Шаг времени 10: Температура = 9.0376
+Enter starting temperature: 4
+Enter number of steps: 10
 
-Нелинейная модель:
-Шаг времени 0: Температура = 2.22318
-Шаг времени 1: Температура = 3.69099
-Шаг времени 2: Температура = 5.25524
-Шаг времени 3: Температура = 6.69829
-Шаг времени 4: Температура = 7.73025
-Шаг времени 5: Температура = 8.10612
-Шаг времени 6: Температура = 7.81268
-Шаг времени 7: Температура = 7.16294
-Шаг времени 8: Температура = 6.6168
-Шаг времени 9: Температура = 6.44795
-Шаг времени 10: Температура = 6.62162
-```
-![График](./graphics.png)
+Linear Model Results:
+Step 0: 4
+Step 1: 3.68
+Step 2: 3.424
+Step 3: 3.2192
+Step 4: 3.05536
+Step 5: 2.92429
+Step 6: 2.81943
+Step 7: 2.73554
+Step 8: 2.66844
+Step 9: 2.61475
+
+Nonlinear Model Results:
+Step 0: 4
+Step 1: 5.09818
+Step 2: -3.62327
+Step 3: -16.5953
+Step 4: -19.2549
+Step 5: -178.748
+Step 6: -363.552
+Step 7: -19459.6
+Step 8: -94867.7
+Step 9: -2.2728e+08
