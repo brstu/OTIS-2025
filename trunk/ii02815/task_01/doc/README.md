@@ -49,67 +49,74 @@ Task is to write program (**С++**), which simulates this object temperature.
 #include <cmath>
 using namespace std;
 
-double linearModel(double y, double u, double a, double b) {
-	return a * y + b * u;
+double linearModel(double y_current, double u_current, double a, double b) {
+    return a * y_current + b * u_current;
 }
 
-double nonlinearModel(double y, double y_prev, double u, double u_prev, double a, double b, double c, double d) {
-	return a * y - b * y_prev * y_prev + c * u + d * sin(u_prev);
+double nonlinearModel(double y_current, double y_previous, double u_current, double u_previous, double a, double b, double c, double d) {
+    return a * y_current - b * y_previous * y_previous + c * u_current + d * sin(u_previous);
 }
 
 int main() {
-	setlocale(LC_ALL,"RU");
-	double a, b, c, d;
-	double y0, u0;
-	int n;
+    setlocale(LC_ALL, "RU");
 
-	cout << "Введите константы a, b, c, d: ";
-	cin >> a >> b >> c >> d;
+    double a, b, c, d;
+    double y0, u0;
+    int n;
 
-	cout << "Введите начальное значение температуры y(0): ";
-	cin >> y0;
+    cout << "Введите константы a, b, c, d: ";
+    cin >> a >> b >> c >> d;
 
-	cout << "Введите начальное значение теплоты u(0): ";
-	cin >> u0;
+    cout << "Введите начальное значение температуры y(0): ";
+    cin >> y0;
 
-	cout << "Введите число шагов: ";
-	cin >> n;
+    cout << "Введите начальное значение теплоты u(0): ";
+    cin >> u0;
 
-	double y_linear = y0;
-	double y_nonlinear = y0;
-	double u = u0;
+    cout << "Введите число шагов: ";
+    cin >> n;
 
-	cout << "Шаги\tЛинейная модель\tНелинейная модель\n";
+    double y_linear_current = y0;    
+    double y_nonlinear_current = y0;   
+    double u_current = u0;             
 
-	for (int step = 1; step <= n; ++step) {
-		double linear_result = linearModel(y_linear, u, a, b);
-		double nonlinear_result = nonlinearModel(y_nonlinear, y_nonlinear, u, u, a, b, c, d);
+    double y_nonlinear_previous = y0; 
+    double u_previous = u0;       
 
-		cout << step << "\t" << linear_result << "\t\t" << nonlinear_result << "\n";
+    cout << "Шаги\tЛинейная модель\tНелинейная модель\n";
 
-		y_linear = linear_result;
-		y_nonlinear = nonlinear_result;
-	}
+    for (int step = 1; step <= n; ++step) {
+        double linear_result = linearModel(y_linear_current, u_current, a, b);
+        double nonlinear_result = nonlinearModel(y_nonlinear_current, y_nonlinear_previous, u_current, u_previous, a, b, c, d);
 
-	return 0;
+        cout << step << "\t" << linear_result << "\t\t" << nonlinear_result << "\n";
+
+ 
+        y_linear_current = linear_result;
+        y_nonlinear_previous = y_nonlinear_current; 
+        y_nonlinear_current = nonlinear_result;   
+
+        u_previous = u_current;
+
+    }
+    return 0;
 }
-
 ```
 Вывод программы:
 ```
-Введите константы a, b, c, d: 1.2 0.8 0.96 1.6
+Введите константы a, b, c, d: 1.2 0.4 0.67 0.98
 Введите начальное значение температуры y(0): 1
 Введите начальное значение теплоты u(0): 1
 Введите число шагов: 10
 Шаги    Линейная модель Нелинейная модель
-1       2               2.70635
-2       3.2             -0.305502
-3       4.64            1.86509
-4       6.368           1.76162
-5       8.4416          1.93765
-6       10.9299         1.62794
-7       13.9159         2.13974
-8       17.4991         1.21126
-9       21.7989         2.58614
-10      26.9587         0.0592117
+1       1.6             2.29464
+2       2.32            3.84821
+3       3.184           4.00634
+4       4.2208          0.378761
+5       5.46496         -4.47116
+6       6.95795         -3.92813
+7       8.74954         -11.2156
+8       10.8995         -18.1362
+9       13.4793         -70.5849
+10      16.5752         -214.776
 ```
