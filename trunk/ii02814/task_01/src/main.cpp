@@ -105,8 +105,8 @@ void simulateNonLinearModel(const SimulationParams& simParams)
 NonLinearModelParams getDefaultNonLinearParams()
 {
     NonLinearModelParams params;
-    params.yOffset = 0.001;  // Initial offset for previous output value (prevY = y - yOffset)
-    params.uOffset = 1;      // Initial offset for previous input value (prevU = u - uOffset)
+    params.yOffset = 0.001;  // Offset subtracted from current output to compute previous output (prevY = y - yOffset)
+    params.uOffset = 1;      // Offset subtracted from current input to compute previous input (prevU = u - uOffset)
     params.a = 1;            // Linear coefficient for current output (y)
     params.b = 0.5;          // Nonlinear coefficient for squared previous output (prevY²)
     params.c = 0.9;          // Linear coefficient for input (u)
