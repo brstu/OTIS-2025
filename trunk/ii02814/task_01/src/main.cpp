@@ -96,6 +96,7 @@ void simulateNonLinearModel(const SimulationParams& simParams)
         std::cout << i << ' ' << y << std::endl;
         double nextY = params.a * y - params.b * prevY * prevY + params.c * u + params.d * sin(prevU);
         prevU += params.u_step;
+        u += params.u_step;
         y = nextY;
         prevY = y;
     }
