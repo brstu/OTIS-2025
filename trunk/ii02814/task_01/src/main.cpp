@@ -54,9 +54,9 @@ int main()
 SimulationParams getDefaultSimulationParams()
 {
     SimulationParams params;
-    params.y = 0;
-    params.u = 1;
-    params.t = 25;
+    params.y = 0.6;
+    params.u = 60;
+    params.t = 10;
     return params;
 }
 
@@ -76,8 +76,8 @@ void simulateLinearModel(const SimulationParams& simParams)
 LinearModelParams getDefaultLinearParams()
 {
     LinearModelParams params;
-    params.a = 0.5;
-    params.b = 0.5;
+    params.a = 0.1;
+    params.b = 0.8;
     return params;
 }
 
@@ -89,25 +89,28 @@ void simulateNonLinearModel(const SimulationParams& simParams)
     double u = simParams.u;
     int t = simParams.t;
 
-    double prevY = y;
-    double prevU = u;
+    const double yOffset = 0.001;
+    const double uOffset = 1;
+    double prevY = y - yOffset;
+    double prevU = u - uOffset;
     for (int i = 0; i <= t; i++)
     {
         std::cout << i << ' ' << y << std::endl;
-        prevY = y;
         double nextY = params.a * y - params.b * prevY * prevY + params.c * u + params.d * sin(prevU);
-        prevU += params.u_step;
+        prevU = u;
+        u += params.u_step;
+        prevY = y;
         y = nextY;
     }
 }
 NonLinearModelParams getDefaultNonLinearParams()
 {
     NonLinearModelParams params;
-    params.a = 0.5;
+    params.a = 1;
     params.b = 0.5;
-    params.c = 0.5;
-    params.d = 0.5;
-    params.u_step = 0.5;
+    params.c = 0.9;
+    params.d = 2.5;
+    params.u_step = 0.01;
     return params;
 }
 
