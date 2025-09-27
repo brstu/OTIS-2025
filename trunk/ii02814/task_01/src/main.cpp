@@ -97,11 +97,14 @@ void simulateNonLinearModel(const SimulationParams& simParams)
     for (int i = 0; i <= t; i++)
     {
         std::cout << i << ' ' << y << std::endl;
-        double nextY = params.a * y - params.b * prevY * prevY + params.c * u + params.d * sin(prevU);
-        prevU = u;
-        u += params.u_step;
+        // Update all 'prev' variables first
         prevY = y;
+        prevU = u;
+        // Compute nextY using previous values
+        double nextY = params.a * y - params.b * prevY * prevY + params.c * u + params.d * sin(prevU);
+        // Update current variables
         y = nextY;
+        u += params.u_step;
     }
 }
 
