@@ -65,13 +65,11 @@ void simulateLinearModel(const SimulationParams& simParams)
 {
     LinearModelParams params = getDefaultLinearParams();
     double y = simParams.y;
-    double u = simParams.u;
-    int t = simParams.t;
 
-    for (int i = 0; i <= t; i++)
+    for (int i = 0; i <= simParams.t; i++)
     {
         std::cout << i << ' ' << y << std::endl;
-        y = params.a * y + params.b * u;
+        y = params.a * y + params.b * simParams.u;
     }
 }
 
@@ -90,25 +88,31 @@ void simulateNonLinearModel(const SimulationParams& simParams)
     double u = simParams.u;
     int t = simParams.t;
 
+    // Initialize previous output and input values using offsets.
+    // The offsets (yOffset and uOffset) represent the difference between the initial state and the previous state,
+    // allowing the nonlinear model to start with a defined history for y and u.
     double prevY = y - params.yOffset;
     double prevU = u - params.uOffset;
 
     for (int i = 0; i <= t; i++)
     {
         std::cout << i << ' ' << y << std::endl;
-        double nextY = params.a * y - params.b * prevY * prevY + params.c * u + params.d * sin(prevU);
-        prevU = u;
-        u += params.u_step;
+        // Update all 'prev' variables first
         prevY = y;
+        prevU = u;
+        // Compute nextY using previous values
+        double nextY = params.a * y - params.b * prevY * prevY + params.c * u + params.d * sin(prevU);
+        // Update current variables
         y = nextY;
+        u += params.u_step;
     }
 }
 
 NonLinearModelParams getDefaultNonLinearParams()
 {
     NonLinearModelParams params;
-    params.yOffset = 0.001;  // Initial offset for previous output value (prevY = y - yOffset)
-    params.uOffset = 1;      // Initial offset for previous input value (prevU = u - uOffset)
+    params.yOffset = 0.001;  // Offset subtracted from current output to compute previous output (prevY = y - yOffset)
+    params.uOffset = 1;      // Offset subtracted from current input to compute previous input (prevU = u - uOffset)
     params.a = 1;            // Linear coefficient for current output (y)
     params.b = 0.5;          // Nonlinear coefficient for squared previous output (prevY²)
     params.c = 0.9;          // Linear coefficient for input (u)
