@@ -93,6 +93,7 @@ void simulateNonLinearModel(const SimulationParams& simParams)
     const double uOffset = 1;
     double prevY = y - yOffset;
     double prevU = u - uOffset;
+
     for (int i = 0; i <= t; i++)
     {
         std::cout << i << ' ' << y << std::endl;
