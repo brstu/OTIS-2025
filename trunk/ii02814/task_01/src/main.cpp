@@ -65,13 +65,11 @@ void simulateLinearModel(const SimulationParams& simParams)
 {
     LinearModelParams params = getDefaultLinearParams();
     double y = simParams.y;
-    double u = simParams.u;
-    int t = simParams.t;
 
-    for (int i = 0; i <= t; i++)
+    for (int i = 0; i <= simParams.t; i++)
     {
         std::cout << i << ' ' << y << std::endl;
-        y = params.a * y + params.b * u;
+        y = params.a * y + params.b * simParams.u;
     }
 }
 
