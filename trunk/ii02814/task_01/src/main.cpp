@@ -12,6 +12,8 @@ struct LinearModelParams {
 };
 
 struct NonLinearModelParams {
+    double yOffset;
+    double uOffset;
     double a;
     double b;
     double c;
@@ -88,10 +90,8 @@ void simulateNonLinearModel(const SimulationParams& simParams)
     double u = simParams.u;
     int t = simParams.t;
 
-    const double yOffset = 0.001;
-    const double uOffset = 1;
-    double prevY = y - yOffset;
-    double prevU = u - uOffset;
+    double prevY = y - params.yOffset;
+    double prevU = u - params.uOffset;
 
     for (int i = 0; i <= t; i++)
     {
@@ -107,11 +107,13 @@ void simulateNonLinearModel(const SimulationParams& simParams)
 NonLinearModelParams getDefaultNonLinearParams()
 {
     NonLinearModelParams params;
-    params.a = 1;         // Linear coefficient for current output (y)
-    params.b = 0.5;       // Nonlinear coefficient for squared previous output (prevY²)
-    params.c = 0.9;       // Linear coefficient for input (u)
-    params.d = 2.5;       // Nonlinear coefficient for sinusoidal input term
-    params.u_step = 0.01; // Step size for input signal increment
+    params.yOffset = 0.001;  // Initial offset for previous output value (prevY = y - yOffset)
+    params.uOffset = 1;      // Initial offset for previous input value (prevU = u - uOffset)
+    params.a = 1;            // Linear coefficient for current output (y)
+    params.b = 0.5;          // Nonlinear coefficient for squared previous output (prevY²)
+    params.c = 0.9;          // Linear coefficient for input (u)
+    params.d = 2.5;          // Nonlinear coefficient for sinusoidal input term
+    params.u_step = 0.01;    // Step size for input signal increment
     return params;
 }
 
