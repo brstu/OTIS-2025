@@ -53,9 +53,9 @@ int main()
 SimulationParams getDefaultSimulationParams()
 {
     SimulationParams params;
-    params.y = 0.6;
-    params.u = 60;
-    params.t = 10;
+    params.y = 0.6; // Initial output value
+    params.u = 60;  // Input signal value
+    params.t = 10;  // Simulation time steps
     return params;
 }
 
@@ -76,8 +76,8 @@ void simulateLinearModel(const SimulationParams& simParams)
 LinearModelParams getDefaultLinearParams()
 {
     LinearModelParams params;
-    params.a = 0.1;
-    params.b = 0.8;
+    params.a = 0.1; // Coefficient for previous output (y)
+    params.b = 0.8; // Coefficient for input (u)
     return params;
 }
 
@@ -107,11 +107,11 @@ void simulateNonLinearModel(const SimulationParams& simParams)
 NonLinearModelParams getDefaultNonLinearParams()
 {
     NonLinearModelParams params;
-    params.a = 1;
-    params.b = 0.5;
-    params.c = 0.9;
-    params.d = 2.5;
-    params.u_step = 0.01;
+    params.a = 1;         // Linear coefficient for current output (y)
+    params.b = 0.5;       // Nonlinear coefficient for squared previous output (prevY²)
+    params.c = 0.9;       // Linear coefficient for input (u)
+    params.d = 2.5;       // Nonlinear coefficient for sinusoidal input term
+    params.u_step = 0.01; // Step size for input signal increment
     return params;
 }
 
