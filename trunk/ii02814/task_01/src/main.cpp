@@ -35,7 +35,6 @@ NonLinearModelParams getDefaultNonLinearParams();
 
 void simulateModel(ModelType type, const SimulationParams& simParams);
 
-
 int main()
 {
     SimulationParams simParams = getDefaultSimulationParams();
@@ -73,6 +72,7 @@ void simulateLinearModel(const SimulationParams& simParams)
         y = params.a * y + params.b * u;
     }
 }
+
 LinearModelParams getDefaultLinearParams()
 {
     LinearModelParams params;
@@ -80,7 +80,6 @@ LinearModelParams getDefaultLinearParams()
     params.b = 0.8;
     return params;
 }
-
 
 void simulateNonLinearModel(const SimulationParams& simParams)
 {
@@ -104,6 +103,7 @@ void simulateNonLinearModel(const SimulationParams& simParams)
         y = nextY;
     }
 }
+
 NonLinearModelParams getDefaultNonLinearParams()
 {
     NonLinearModelParams params;
