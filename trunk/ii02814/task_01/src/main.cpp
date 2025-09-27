@@ -125,5 +125,8 @@ void simulateModel(ModelType type, const SimulationParams& simParams)
     case NONLINEAR:
         simulateNonLinearModel(simParams);
         break;
+    default:
+        std::cerr << "Error: Invalid ModelType value passed to simulateModel." << std::endl;
+        break;
     }
 }
