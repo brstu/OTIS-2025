@@ -89,7 +89,7 @@ void simulateNonLinearModel(const SimulationParams& simParams)
     double u = simParams.u;
     int t = simParams.t;
 
-    double prevY = y;
+    double prevY = 0;
     double prevU = u;
     for (int i = 0; i <= t; i++)
     {
