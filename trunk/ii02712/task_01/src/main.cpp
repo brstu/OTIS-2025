@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-using namespace std;
+//using namespace std;
 
 const double a = 0.5; 
 const double b = 0.01;   
@@ -17,8 +17,8 @@ double nonlinearModel(double y, double u, double y_pred, double u_pred) {
   
 int main() {
     double y;
-    cout << "Enter the initial temperature : ";
-    cin >> y;
+    std::cout << "Enter the initial temperature : ";
+    std::cin >> y;
     double y_next = y;
     double y_pred;
     double u = 8;
@@ -26,21 +26,22 @@ int main() {
     u_pred = u;
     int steps = 10;
 
-    cout << "The Linear model" << endl;
-    cout << "Time:\tTemperature:" << endl;
+    std::cout << "The Linear model" << std::endl;
+    std::cout << "Time:\tTemperature:" << std::endl;
     for (int i = 0; i < steps; i++) {
         y_pred = y_next;
         y_next = linearModel(y_next, u);
-        cout << i + 1 << "\t" << y_next << endl;
+        std::cout << i + 1 << "\t" << y_next << std::endl;
     }
-    cout << endl;
+    std::cout << std::endl;
     y_next = y;
-    cout << "Nonlinear model:" << endl;
-    cout << "Time:\tTemperature:" << endl;
+    std::cout << "Nonlinear model:" << std::endl;
+    std::cout << "Time:\tTemperature:" << std::endl;
     for (int i = 0; i < steps; i++) {
-        y_next = nonlinearModel(y_next, u, y_pred, u_pred);
-        cout << i + 1 << "\t" << y_next << endl; 
         y_pred = y_next;
+        y_next = nonlinearModel(y_next, u, y_pred, u_pred);
+        std::cout << i + 1 << "\t" << y_next << std::endl; 
+        //y_pred = y_next;
         u_pred = u;
     }
     return 0;
