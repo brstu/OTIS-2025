@@ -17,7 +17,7 @@ double nonlinearModel(double y, double u, double y_pred, double u_pred) {
   
 int main() {
     double y;
-    cout << "enter the initial temperature : ";
+    cout << "Enter the initial temperature : ";
     cin >> y;
     double y_next = y;
     double y_pred;
@@ -26,7 +26,7 @@ int main() {
     u_pred = u;
     int steps = 10;
 
-    cout << "the linear model" << endl;
+    cout << "Linear model" << endl;
     cout << "Time:\tTemperature:" << endl;
     for (int i = 0; i < steps; i++) {
         y_pred = y_next;
@@ -35,13 +35,15 @@ int main() {
     }
     cout << endl;
     y_next = y;
-    cout << "non linear model:" << endl;
+    cout << "Nonlinear model:" << endl;
     cout << "Time:\tTemperature:" << endl;
+    y_pred = y;
+    u_pred = u ;
     for (int i = 0; i < steps; i++) {
         y_next = nonlinearModel(y_next, u, y_pred, u_pred);
         cout << i + 1 << "\t" << y_next << endl; 
-        y_pred = y_next;
-        u_pred = u;
+        //y_pred = y_next;
+        //u_pred = u;
     }
     return 0;
 }
