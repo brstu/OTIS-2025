@@ -88,6 +88,9 @@ void simulateNonLinearModel(const SimulationParams& simParams)
     double u = simParams.u;
     int t = simParams.t;
 
+    // Initialize previous output and input values using offsets.
+    // The offsets (yOffset and uOffset) represent the difference between the initial state and the previous state,
+    // allowing the nonlinear model to start with a defined history for y and u.
     double prevY = y - params.yOffset;
     double prevU = u - params.uOffset;
 
