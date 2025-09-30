@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+    const double a = 0.95;
+    const double b = 0.05;
+    const double y_initial = 23;
+
+    vector<double> u = { 10, 15, 20, 25, 30, 25, 20, 15, 10, 5 };
+
+
+    vector<double> y(u.size() + 1);
+    y[0] = y_initial;
+
+
+    cout << "Time\tu\ty" << endl;
+    cout << "0\t" << "N/A\t" << y[0] << endl;
+
+    for (int tau = 0; tau < u.size(); ++tau) {
+        y[tau + 1] = a * y[tau] + b * u[tau];
+
+        cout << tau + 1 << "\t" << u[tau] << "\t" << y[tau + 1] << endl;
+    }
+
+    return 0;
+}
