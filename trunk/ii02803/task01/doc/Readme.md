@@ -59,16 +59,18 @@ vector<double> fun1(int n, double a, double b, const vector<double>& u, double y
 }
 
 vector<double> fun2(int n, double a, double b, double c, double d,
-                                 const vector<double>& u, double y0, double y1) {
+                    const vector<double>& u, double y0, double y1) {
     vector<double> y(n + 1);
     y[0] = y0;
     y[1] = y1;
 
     for (int t = 1; t < n; t++) {
-        y[t + 1] = a * y[t] - b * (y[t - 1] * y[t - 1]) + c * u[t] + d * sin(u[t - 1]);
+        double y_prev = y[t - 1];  
+        y[t + 1] = a * y[t] - b * (y_prev * y_prev) + c * u[t] + d * sin(u[t - 1]);
     }
     return y;
 }
+
 
 int main() {
     int n; 
@@ -101,8 +103,8 @@ int main() {
     return 0;
 }
 
-Enter number of steps n: 5
-Enter coefficients a, b, c, d: 0.8 0.2 0.3 0.1
+number of steps n: 5
+a, b, c, d: 0.8 0.2 0.3 0.1
 Enter 5 values of the input signal u:
 1 1 1 1 1
 Enter initial conditions y0 and y1: 20 20.5
