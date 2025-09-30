@@ -1,5 +1,4 @@
-cmake_minimum_required (VERSION 3.5)
+cmake_minimum_required (VERSION 3.5.0)
 
 project (lab_01_ii02818)
-
-add_executable(otis_1 lab1OTIS.cpp)
+add_executable( ${PROJECT_NAME} lab1OTIS.cpp)
