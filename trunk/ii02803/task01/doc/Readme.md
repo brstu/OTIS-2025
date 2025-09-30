@@ -8,7 +8,7 @@
 <p align="center">Тема: “Моделирования температуры объекта”</p>
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
-<p align="right">Студентка 2 курса</p>
+<p align="right">Студент 2 курса</p>
 <p align="right">Группы ИИ-28</p>
 <p align="right">Вабищевич И.В</p>
 <p align="right">Проверил:</p>
