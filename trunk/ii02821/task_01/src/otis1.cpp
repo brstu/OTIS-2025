@@ -31,11 +31,7 @@ void simulateNonlinear(double a, double b, double c, double d, double u, int ste
     double y_prev = 0.0;
     double u_prev = 0.0;
     
-    NonlinearParams params;
-    params.a = a;
-    params.b = b;
-    params.c = c;
-    params.d = d;
+    NonlinearParams params{a, b, c, d};
     
     for (int i = 0; i < steps; i++) {
         std::cout << "τ=" << i << ": y=" << y << std::endl;
