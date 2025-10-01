@@ -2,7 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-class func {
+class func
+{
 private:
     double a;
     double b;
@@ -12,17 +13,18 @@ private:
     double t_prev;
     double u_curr;
     double u_prev;
+
 public:
-    func() : a(1), b(1), c(1), d(1) {}
-    func(double a, double b, double c, double d) : a(a), b(b), c(c), d(d) {}
-    void value_set(double t_curr, double t_prev, double u_curr, double u_prev)
+    func() : a(1), b(1), c(1), d(1), t_curr(1), t_prev(0), u_curr(1), u_prev(0) {}
+    func(double a, double b, double c, double d) : a(a), b(b), c(c), d(d), t_curr(3), t_prev(2), u_curr(3), u_prev(2) {}
+    void value_set(double tcurr, double tprev, double ucurr, double uprev)
     {
-        this->t_curr = t_curr;
-        this->t_prev = t_prev;
-        this->u_curr = u_curr;
-        this->u_prev = u_prev;
+        t_curr = tcurr;
+        t_prev = tprev;
+        u_curr = ucurr;
+        u_prev = uprev;
     }
-    std::vector<double> linear(int steps)
+    std::vector<double> linear(int steps) const
     {
         std::vector<double> ans(steps);
         ans[0] = t_curr;
@@ -32,7 +34,7 @@ public:
         }
         return ans;
     }
-    std::vector<double> nonlinear(int steps)
+    std::vector<double> nonlinear(int steps) const
     {
         std::vector<double> ans(steps);
         ans[0] = t_prev;
@@ -44,7 +46,6 @@ public:
         return ans;
     }
 };
-
 
 int main()
 {
