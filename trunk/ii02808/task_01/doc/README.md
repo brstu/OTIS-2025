@@ -50,7 +50,7 @@ Task is to write program (**С++**), which simulates this object temperature.
 using namespace std;
 
 const double params[4] = { 0.8, 0.6, 0.4, 2.2 };
-double heat_input = 0.8;
+const double heat_input = 0.8;
 
 vector<double> linearSim(int n, double start_temp) {
     vector<double> data(n);
