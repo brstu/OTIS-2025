@@ -22,6 +22,10 @@ std::vector<double> simulateLinear(int steps, double y_init, const std::vector<d
 }
 
 std::vector<double> simulateNonlinear(int steps, double y_init, const std::vector<double>& u) {
+    if (steps < 2) {
+        // If steps is less than 2, return a vector with just the initial value
+        return std::vector<double>(steps > 0 ? 1 : 0, y_init);
+    }
     std::vector<double> y(steps);
     y[0] = y_init;
     y[1] = a * y[0] + b * u[0];
