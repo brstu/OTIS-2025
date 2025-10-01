@@ -46,9 +46,9 @@ public:
         for(int i = 0; i <= t; i++) 
         { 
             std::cout << i << ' ' << y << std::endl; 
-            prevY = y; // update prevY to current y before calculating nextY 
             double nextY = m_a * y - m_b * prevY * prevY + m_c * u + m_d * sin(prevU); 
             prevU += u_step; 
+            prevY = y; // update prevY after using it in the calculation
             y = nextY; 
         } 
     } 
