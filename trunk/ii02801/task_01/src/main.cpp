@@ -11,7 +11,7 @@ const double y0_value = 20.0;
 const double C = 1.0;
 
 std::vector<double> simulateLinear(int steps, double y_init, const std::vector<double>& u) {
-    if (steps <= 0 || u.size() == 0) {
+    if (steps <= 0 || u.empty()) {
         // No steps or empty input vector, return empty vector
         return std::vector<double>();
     } else if (steps == 1) {
