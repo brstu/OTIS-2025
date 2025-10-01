@@ -27,7 +27,7 @@ int  main()
 	int  n;
 	cout << "Введите n = ";
 	cin >> n;
-	double  y1 = y;
+	double y1 = y;
 	double y2 = y;
 	for (int i = 0; i < n; i++)
 	{
