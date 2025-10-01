@@ -72,16 +72,9 @@ void simulateNonlinear(double a, double b, double c, double d, double u, int ste
     
     for (int i = 0; i < steps; i++) {
         cout << "τ=" << i << ": y=" << y << endl;
-        
-        if (i == 0) {
-            double y_next = nextNonlinear(a, b, c, d, u, 0, y, 0);
-            y_prev = y;
-            y = y_next;
-        } else {
             double y_next = nextNonlinear(a, b, c, d, u, u_prev, y, y_prev);
             y_prev = y;
             y = y_next;
-        }
         
         u_prev = u; 
     }
