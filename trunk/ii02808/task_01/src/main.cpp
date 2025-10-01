@@ -4,7 +4,7 @@
 
 
 
-const double params[4] = { 0.8, 0.6, 0.4, 2.2 };
+const std::vector<double> params{ 0.8, 0.6, 0.4, 2.2 };
 const double heat_input = 0.8;
 
 std::vector<double> linearSim(int n, double start_temp) {
