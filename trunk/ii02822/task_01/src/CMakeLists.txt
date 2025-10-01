@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.5)
-project (task_01_ii02822)
+cmake_minimum_required (VERSION 3.5.0)
 
-add_executable (output lab_1.cpp)
+project (lab_01_ii02807)
+add_executable ( ${PROJECT_NAME} lab_1.cpp)
