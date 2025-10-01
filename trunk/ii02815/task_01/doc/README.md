@@ -115,19 +115,29 @@ int main() {
 ```
 Вывод программы:
 ```
-Введите константы a, b, c, d: 1.2 0.4 0.67 0.98
-Введите начальное значение температуры y(0): 1
-Введите начальное значение теплоты u(0): 1
-Введите число шагов: 10
-Шаги    Линейная модель Нелинейная модель
-1       1.6             2.29464
-2       2.32            3.84821
-3       3.184           4.00634
-4       4.2208          0.378761
-5       5.46496         -4.47116
-6       6.95795         -3.92813
-7       8.74954         -11.2156
-8       10.8995         -18.1362
-9       13.4793         -70.5849
-10      16.5752         -214.776
+Enter constants a, b, c, d: 0.3 0.8 1.3 1.5
+Enter initial output y0: 1
+Enter initial input u0: 1
+Enter number of steps (n): 10
+Steps   Linear model    Nonlinear model
+Enter input u for step 1: 3
+1       2.7             4.66221
+Enter input u for step 2: 4    
+2       4.01            6.01034
+Enter input u for step 3: 6    
+3       6.003           -8.92104
+Enter input u for step 4: 2     
+4       3.4009          -29.3948
+Enter input u for step 5: 1     
+5       1.82027         -69.8224
+Enter input u for step 6: 9     
+6       7.74608         -699.228
+Enter input u for step 7: 5     
+7       6.32382         -4102.79
+Enter input u for step 8: 4
+8       5.09715         -392363
+Enter input u for step 9: 2
+9       3.12914         -1.3584e+07
+Enter input u for step 10: 3
+10      3.33874         -1.23163e+11
 ```
