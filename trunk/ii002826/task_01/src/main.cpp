@@ -50,7 +50,7 @@ public:
             double nextY = m_a * y - m_b * prevY * prevY + m_c * currU + m_d * sin(prevU);
             prevY = y;
             prevU = currU;
-            currU += u_step;
+            currU += this->u_step;
             y = nextY;
         }
     }
