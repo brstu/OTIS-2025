@@ -93,8 +93,8 @@ int main() {
 
   
     std::cout << "Enter number of steps (n): ";
-    std::cin>> n;
- 
+    std::cin >> n;
+    ModelParameters params;
     params.a = a;
     params.b = b;
     params.c = c;
