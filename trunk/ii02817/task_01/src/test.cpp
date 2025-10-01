@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-using namespace std;
 class func {
 private:
     double a;
@@ -23,9 +22,9 @@ public:
         this->u_curr = u_curr;
         this->u_prev = u_prev;
     }
-    vector<double> linear(int steps)
+    std::vector<double> linear(int steps)
     {
-        vector<double> ans(steps);
+        std::vector<double> ans(steps);
         ans[0] = t_curr;
         for (int i = 1; i < steps; i++)
         {
@@ -33,9 +32,9 @@ public:
         }
         return ans;
     }
-    vector<double> nonlinear(int steps)
+    std::vector<double> nonlinear(int steps)
     {
-        vector<double> ans(steps);
+        std::vector<double> ans(steps);
         ans[0] = t_prev;
         ans[1] = t_curr;
         for (int i = 2; i < steps; i++)
@@ -50,20 +49,20 @@ public:
 int main()
 {
     int steps;
-    cin >> steps;
+    std::cin >> steps;
     func Func(0.2, 0.3, 0.4, 0.5);
     Func.value_set(3, 2, 3, 2);
-    vector<double> temp(steps);
+    std::vector<double> temp(steps);
     temp = Func.linear(steps);
-    cout << "Linear::\n";
+    std::cout << "Linear::\n";
     for (auto i : temp)
     {
-        cout << i << endl;
+        std::cout << i << std::endl;
     }
     temp = Func.nonlinear(steps);
-    cout << "Nonlinear::\n";
+    std::cout << "Nonlinear::\n";
     for (auto i : temp)
     {
-        cout << i << endl;
+        std::cout << i << std::endl;
     }
 }
