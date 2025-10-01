@@ -7,9 +7,11 @@ int main()
 {
     setlocale(LC_ALL, "Ru");
 
-    double y, u, a, b, c, d;
+    double y, u;
     cout << "Enter y and u values:\n";
     cin >> y >> u;
+    
+    double a, b, c, d;
     cout << "Enter a, b, c, d values:\n";
     cin >> a >> b >> c >> d;
 
