@@ -4,7 +4,12 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "RUSSIAN");
-    double u, y, a, b, c, d;
+    double u;
+    double y;
+    double a;
+    double b;
+    double c;
+    double d;
     int count_steps;
 
     cout << "Введите u(входящую теплоту) и y(входящую температуру): " << endl;
@@ -13,7 +18,8 @@ int main()
     cin >> a >> b >> c >> d;
     cout << "Введите количество шагов: " << endl;
     cin >> count_steps;
-    double yl = y, ynl = y;
+    double yl = y;
+    double ynl = y;
     for (int i = 0; i < count_steps; i++)
     {
         yl = a * yl + b * u;
