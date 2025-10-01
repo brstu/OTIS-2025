@@ -19,6 +19,7 @@ void simulateLinear(double a, double b, double u, int steps) {
 double nextNonlinear(double a, double b, double c, double d, double u, double uPrev, double y, double yPrev) {
     return a * y - b * (yPrev * yPrev) + c * u + d * sin(uPrev);
 }
+
 void simulateNonlinear(double a, double b, double c, double d, double u, int steps) {
     cout << "Нелинейная модель" << endl;
     double y = 0.0, yPrev = 0.0;
@@ -29,6 +30,8 @@ void simulateNonlinear(double a, double b, double c, double d, double u, int ste
         yPrev = y;
         y = yNext;
         uPrev = u;
+    } 
+}
 
 int main() {
     double a1 = 0.3, b1 = 0.3, u1 = 0.9;
