@@ -22,14 +22,22 @@ std::vector<double> simulateLinear(int steps, double y_init, const std::vector<d
 }
 
 std::vector<double> simulateNonlinear(int steps, double y_init, const std::vector<double>& u) {
-    if (steps < 2) {
-        // If steps is less than 2, return a vector with just the initial value
-        return std::vector<double>(steps > 0 ? 1 : 0, y_init);
+    if (steps == 0) {
+        // No steps, return empty vector
+        return std::vector<double>();
+    } else if (steps == 1) {
+        // Only initial value
+        return std::vector<double>(1, y_init);
+    } else if (steps == 2) {
+        // Initial value and first computed value
+        std::vector<double> y(2);
+        y[0] = y_init;
+        y[1] = a * y[0] + b * u[0];
+        return y;
     }
     std::vector<double> y(steps);
     y[0] = y_init;
     y[1] = a * y[0] + b * u[0];
-
     for (int t = 2; t < steps; ++t) {
         y[t] = a * y[t - 1] - b * std::pow(y[t - 2], 2) + c * u[t - 1] + d * std::sin(u[t - 2]);
     }
