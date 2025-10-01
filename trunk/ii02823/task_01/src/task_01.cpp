@@ -3,11 +3,15 @@
 
 int main()
 {
-    double y, u;
+    double y;
+    double u;
     std::cout << "Enter y and u values:\n";
     std::cin >> y >> u;
     
-    double a, b, c, d;
+    double a;
+    double b;
+    double c;
+    double d;
     std::cout << "Enter a, b, c, d values:\n";
     std::cin >> a >> b >> c >> d;
 
@@ -15,7 +19,8 @@ int main()
     std::cout << "Enter number of steps n: ";
     std::cin >> n;
 
-    double y1 = y, y2 = y;
+    double y1 = y;
+    double y2 = y;
     for (int i = 0; i < n; i++)
     {
         y1 = a * y1 + b * u;
