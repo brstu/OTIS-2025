@@ -56,7 +56,6 @@ const double d = 0.02;
 
 const double y0_value = 20.0;  
 const double C = 1.0;
-const double RC = 10.0;
 
 std::vector<double> simulateLinear(int steps, double y_init, const std::vector<double>& u) {
     std::vector<double> y(steps);
