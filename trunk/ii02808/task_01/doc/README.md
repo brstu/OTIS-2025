@@ -108,7 +108,6 @@ int main() {
     return 0;
 }
 ```     
-```
 Enter starting temperature: 4
 Enter number of steps: 10
 
