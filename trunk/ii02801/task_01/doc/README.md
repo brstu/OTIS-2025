@@ -70,13 +70,17 @@ std::vector<double> simulateLinear(int steps, double y_init, const std::vector<d
 
 std::vector<double> simulateNonlinear(int steps, double y_init, const std::vector<double>& u) {
     std::vector<double> y(steps);
-    y[0] = y_init;
-    y[1] = a * y[0] + b * u[0];
-
-    for (int t = 2; t < steps; ++t) {
-        y[t] = a * y[t - 1] - b * std::pow(y[t - 2], 2) + c * u[t - 1] + d * std::sin(u[t - 2]);
+    if (steps > 0) {
+        y[0] = y_init;
     }
-
+    if (steps > 1) {
+        y[1] = a * y[0] + b * u[0];
+    }
+    if (steps > 2) {
+        for (int t = 2; t < steps; ++t) {
+            y[t] = a * y[t - 1] - b * std::pow(y[t - 2], 2) + c * u[t - 1] + d * std::sin(u[t - 2]);
+        }
+    }
     return y;
 }
 
