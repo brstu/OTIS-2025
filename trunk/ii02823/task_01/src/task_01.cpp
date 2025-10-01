@@ -5,8 +5,6 @@ using namespace std;
 
 int main()
 {
-    setlocale(LC_ALL, "Ru");
-
     double y, u;
     cout << "Enter y and u values:\n";
     cin >> y >> u;
