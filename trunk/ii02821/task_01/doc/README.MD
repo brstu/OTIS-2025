@@ -60,33 +60,51 @@ void simulateLinear(double a, double b, double u, int steps) {
     }
 }
 
-double nextNonlinear(double a, double b, double c, double d, 
-                    double u, double u_prev, double y, double y_prev) {
-    return a * y - b * (y_prev * y_prev) + c * u + d * sin(u_prev);
+struct NonlinearParams {
+    double a;
+    double b;
+    double c;
+    double d;
+};
+
+double nextNonlinear(const NonlinearParams& params, double u_prev, double y, double y_prev) {
+    return params.a * y - params.b * (y_prev * y_prev) + params.c * 0.8 + params.d * sin(u_prev);
 }
 
 void simulateNonlinear(double a, double b, double c, double d, double u, int steps) {
     cout << "Нелинейная модель" << endl;
-    double y = 0.0, y_prev = 0.0;
+    double y = 0.0;
+    double y_prev = 0.0;
     double u_prev = 0.0;
+    
+    NonlinearParams params;
+    params.a = a;
+    params.b = b;
+    params.c = c;
+    params.d = d;
     
     for (int i = 0; i < steps; i++) {
         cout << "τ=" << i << ": y=" << y << endl;
-            double y_next = nextNonlinear(a, b, c, d, u, u_prev, y, y_prev);
-            y_prev = y;
-            y = y_next;
-        
+        double y_next = nextNonlinear(params, u_prev, y, y_prev);
+        y_prev = y;
+        y = y_next;
         u_prev = u; 
     }
 }
 
 int main() {
-    double a1 = 0.3, b1 = 0.3, u1 = 0.9;
+    double a1 = 0.3;
+    double b1 = 0.3;
+    double u1 = 0.9;
     int n1 = 10;
     simulateLinear(a1, b1, u1, n1);
     cout << endl;
 
-    double a2 = 0.1, b2 = 0.2, c2 = 0.4, d2 = 0.2, u2 = 0.8;
+    double a2 = 0.1;
+    double b2 = 0.2;
+    double c2 = 0.4;
+    double d2 = 0.2;
+    double u2 = 0.8;
     int n2 = 10;
     simulateNonlinear(a2, b2, c2, d2, u2, n2);
 

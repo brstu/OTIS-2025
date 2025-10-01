@@ -16,10 +16,13 @@ void simulateLinear(double a, double b, double u, int steps) {
 }
 
 struct NonlinearParams {
-    double a, b, c, d;
+    double a;
+    double b;
+    double c;
+    double d;
 };
 
-double nextNonlinear(NonlinearParams params, double u_prev, double y, double y_prev) {
+double nextNonlinear(const NonlinearParams& params, double u_prev, double y, double y_prev) {
     return params.a * y - params.b * (y_prev * y_prev) + params.c * 0.8 + params.d * sin(u_prev);
 }
 
@@ -29,7 +32,11 @@ void simulateNonlinear(double a, double b, double c, double d, double u, int ste
     double y_prev = 0.0;
     double u_prev = 0.0;
     
-    NonlinearParams params = {a, b, c, d};
+    NonlinearParams params;
+    params.a = a;
+    params.b = b;
+    params.c = c;
+    params.d = d;
     
     for (int i = 0; i < steps; i++) {
         cout << "τ=" << i << ": y=" << y << endl;
