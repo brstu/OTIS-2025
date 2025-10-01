@@ -14,7 +14,7 @@ double nonlinear(double  y, double  u, double  a, double  b, double  c, double  
 int  main()
 {
 	setlocale(LC_ALL, "Russian");
-	double  y; 
+	double  y;
 	double u;
 	double a;
 	double b;
