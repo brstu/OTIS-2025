@@ -23,7 +23,7 @@
 
 <p align="right">Группы ИИ-28</p>
 
-<p align="right">Асташёнок Д.С.</p>
+<p align="right">Клименко М.С.</p>
 
 <p align="right">Проверил:</p>
 
@@ -92,56 +92,44 @@ Task is to write program (**С++**), which simulates this object temperature.
 Код программы:
 
 ```
-
 #include  <iostream>
 #include  <cmath>
-using  namespace  std;
-
-double lin(double  y, double  u, double  a, double  b)
-{
-
-	return a * y + b * u;
-}
-
-double nonlin(double& y0, double& y1, double u, double a, double b, double c, double d)
-{
-	y0 = y1;
-	y1 = a * y1 - b * pow(y0, 2) + c * u + d * sin(u);
-	return y1;
-}
 
 int  main()
 {
-	setlocale(LC_ALL, "RUS");
-	double  y = 0,
-		u = 0,
-		a = 0,
-		b = 0,
-		c = 0,
-		d = 0;
+	double y = 0;
+	double u = 0;
+	double u_prev = 0;
+	double a = 0;
+	double b = 0;
+	double c = 0;
+	double d = 0;
 
 	int  n = 0;
 
-	cout << "Введите значение температуры (y): ";
-	cin >> y;
-	cout << "Введите значение теплоты (u): ";
-	cin >> u;
-	double y0 = 0,
-		y1 = y,
-		y2 = 0;
-	cout << "Введите константы а, b, c, d: ";
-	cin >> a >> b >> c >> d;
+	std::cout << "Enter input temperature (y): ";
+	std::cin >> y;
+	std::cout << "Enter input warm (u): ";
+	std::cin >> u;
+	double y0 = 0;
+	double y1 = y;
+	double y2 = 0;
+	std::cout << "Enter constants a, b, c, d: ";
+	std::cin >> a >> b >> c >> d;
 
-	cout << "Введите кол-во шагов: ";
-	cin >> n;
+	std::cout << "Enter an amount of steps (n): ";
+	std::cin >> n;
 
 	for (int i = 1; i <= n; i++)
 	{
-		y = lin(y, u, a, b);
-		y2 = nonlin(y0,y1,u,a, b, c, d);
-		cout << "Шаг " << i
-			<< ", Температура линейной функц. = "<< y
-			<< ",Температура нелинейной функц. = " << y2 << endl;
+		y = a * y + b * u;
+		y2 = a * y1 - b * pow(y0, 2) + c * u + d * sin(u_prev);
+		y0 = y1;
+		y1 = y2;
+		u_prev = u;
+		std::cout << "Step " << i
+			<< ", temp of linear function = "<< y
+			<< ", temp of nonlinear function = " << y2 << std::endl;
 	}
 
 	return  0;
@@ -152,21 +140,21 @@ int  main()
 
 ```
 
-Введите значение температуры (y): 2
-Введите значение теплоты (u): 20
-Введите константы а, b, c, d: 0.2
-0.02
-0.4
-0.1
-Введите кол-во шагов: 9
-Шаг 1, Температура линейной функц. = 0.8,Температура нелинейной функц. = 8.41129
-Шаг 2, Температура линейной функц. = 0.56,Температура нелинейной функц. = 8.35856
-Шаг 3, Температура линейной функц. = 0.512,Температура нелинейной функц. = 8.3657
-Шаг 4, Температура линейной функц. = 0.5024,Температура нелинейной функц. = 8.36474
-Шаг 5, Температура линейной функц. = 0.50048,Температура нелинейной функц. = 8.36487
-Шаг 6, Температура линейной функц. = 0.500096,Температура нелинейной функц. = 8.36485
-Шаг 7, Температура линейной функц. = 0.500019,Температура нелинейной функц. = 8.36485
-Шаг 8, Температура линейной функц. = 0.500004,Температура нелинейной функц. = 8.36485
-Шаг 9, Температура линейной функц. = 0.500001,Температура нелинейной функц. = 8.36485
+Enter input temperature (y): 1.523
+Enter input warm (u): 52.14
+Enter constants a, b, c, d: 0.1
+0.2
+0.01
+0.5
+Enter an amount of steps (n): 9
+Step 1, temp of linear function = 10.5803, temp of nonlinear function = 1.15082
+Step 2, temp of linear function = 11.486, temp of nonlinear function = 0.649691
+Step 3, temp of linear function = 11.5766, temp of nonlinear function = 0.798609
+Step 4, temp of linear function = 11.5857, temp of nonlinear function = 0.993956
+Step 5, temp of linear function = 11.5866, temp of nonlinear function = 0.970355
+Step 6, temp of linear function = 11.5867, temp of nonlinear function = 0.897961
+Step 7, temp of linear function = 11.5867, temp of nonlinear function = 0.899993
+Step 8, temp of linear function = 11.5867, temp of nonlinear function = 0.927248
+Step 9, temp of linear function = 11.5867, temp of nonlinear function = 0.929242
 
 ```
