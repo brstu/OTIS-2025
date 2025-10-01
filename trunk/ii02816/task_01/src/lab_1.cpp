@@ -1,7 +1,7 @@
 #include  <iostream>
 #include  <cmath>
 
-using  namespace  std;
+using namespace std;
 
 double linear(double  y, double  u, double  a, double  b)
 {
