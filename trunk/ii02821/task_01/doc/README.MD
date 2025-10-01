@@ -42,7 +42,7 @@ Task is to write program (**C++**), which simulates this object temperature.
 # Выполнение задания #
 
 Код программы:
-```
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -106,7 +106,6 @@ int main() {
     return 0;
 }
   
-```
 Линейная модель
 Time Step | Temperature
 ----------|------------
