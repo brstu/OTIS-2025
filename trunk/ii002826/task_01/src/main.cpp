@@ -41,17 +41,19 @@ public:
  
     void simulate(double y, const double u, int t) const override 
     { 
-        double prevY = y; 
-        double prevU = u; 
-        for(int i = 0; i <= t; i++) 
-        { 
-            std::cout << i << ' ' << y << std::endl; 
-            double nextY = m_a * y - m_b * prevY * prevY + m_c * u + m_d * sin(prevU); 
-            prevU += u_step; 
-            prevY = y; // update prevY after using it in the calculation
-            y = nextY; 
-        } 
-    } 
+        double prevY = y;
+        double prevU = u;
+        double currU = u;
+        for(int i = 0; i <= t; i++)
+        {
+            std::cout << i << ' ' << y << std::endl;
+            double nextY = m_a * y - m_b * prevY * prevY + m_c * currU + m_d * sin(prevU);
+            prevY = y;
+            prevU = currU;
+            currU += u_step;
+            y = nextY;
+        }
+    }
  
 private: 
     const double m_a; 
