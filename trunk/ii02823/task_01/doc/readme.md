@@ -86,24 +86,24 @@ Enter a, b, c, d values:
 Enter number of steps n: 10
 Result of the 1st step of linear model: 2;
 Result of the 1st step of non-linear model: 2.22806;
-Result of the 2st step of linear model: 3.1;
-Result of the 2st step of non-linear model: 0.011101;
-Result of the 3st step of linear model: 4.31;
-Result of the 3st step of non-linear model: 2.04016;
-Result of the 4st step of linear model: 5.641;
-Result of the 4st step of non-linear model: 0.526209;
-Result of the 5st step of linear model: 7.1051;
-Result of the 5st step of non-linear model: 2.35768;
-Result of the 6st step of linear model: 8.71561;
-Result of the 6st step of non-linear model: -0.381291;
-Result of the 7st step of linear model: 10.4872;
-Result of the 7st step of non-linear model: 1.47779;
-Result of the 8st step of linear model: 12.4359;
-Result of the 8st step of non-linear model: 1.68815;
-Result of the 9st step of linear model: 14.5795;
-Result of the 9st step of non-linear model: 1.32017;
-Result of the 10st step of linear model: 16.9374;
-Result of the 10st step of non-linear model: 1.91168;
+Result of the 2nd step of linear model: 3.1;
+Result of the 2nd step of non-linear model: 0.011101;
+Result of the 3rd step of linear model: 4.31;
+Result of the 3rd step of non-linear model: 2.04016;
+Result of the 4th step of linear model: 5.641;
+Result of the 4th step of non-linear model: 0.526209;
+Result of the 5th step of linear model: 7.1051;
+Result of the 5th step of non-linear model: 2.35768;
+Result of the 6th step of linear model: 8.71561;
+Result of the 6th step of non-linear model: -0.381291;
+Result of the 7th step of linear model: 10.4872;
+Result of the 7th step of non-linear model: 1.47779;
+Result of the 8th step of linear model: 12.4359;
+Result of the 8th step of non-linear model: 1.68815;
+Result of the 9th step of linear model: 14.5795;
+Result of the 9th step of non-linear model: 1.32017;
+Result of the 10th step of linear model: 16.9374;
+Result of the 10th step of non-linear model: 1.91168;
 ```
 ## Рецензирование запросов других студентов ##
 ![Рецензия работы пользователя threenebula23:](https://i.ibb.co/mF8Trkgx/img1.png)
