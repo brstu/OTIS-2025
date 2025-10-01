@@ -47,13 +47,13 @@ Task is to write program (**С++**), which simulates this object temperature.
 #include <vector>
 #include <cmath>
 
-using namespace std;
 
-const double params[4] = { 0.8, 0.6, 0.4, 2.2 };
+
+const std::vector<double> params{ 0.8, 0.6, 0.4, 2.2 };
 const double heat_input = 0.8;
 
-vector<double> linearSim(int n, double start_temp) {
-    vector<double> data(n);
+std::vector<double> linearSim(int n, double start_temp) {
+    std::vector<double> data(n);
     data[0] = start_temp;
 
     for (int i = 1; i < n; i++) {
@@ -62,8 +62,8 @@ vector<double> linearSim(int n, double start_temp) {
     return data;
 }
 
-vector<double> nonlinearSim(int n, double start_temp) {
-    vector<double> data(n);
+std::vector<double> nonlinearSim(int n, double start_temp) {
+    std::vector<double> data(n);
     data[0] = start_temp;
 
     if (n > 1) {
@@ -81,28 +81,28 @@ int main() {
     double start_temp;
     int steps;
 
-    cout << "Enter starting temperature: ";
-    cin >> start_temp;
+    std::cout << "Enter starting temperature: ";
+    std::cin >> start_temp;
 
-    cout << "Enter number of steps: ";
-    cin >> steps;
+    std::cout << "Enter number of steps: ";
+    std::cin >> steps;
 
     while (steps < 1) {
-        cout << "Steps must be 1 or more: ";
-        cin >> steps;
+        std::cout << "Steps must be 1 or more: ";
+        std::cin >> steps;
     }
 
-    vector<double> linear_data = linearSim(steps, start_temp);
-    vector<double> nonlinear_data = nonlinearSim(steps, start_temp);
+    std::vector<double> linear_data = linearSim(steps, start_temp);
+    std::vector<double> nonlinear_data = nonlinearSim(steps, start_temp);
 
-    cout << "\nLinear Model Results:" << endl;
+    std::cout << "\nLinear Model Results:" << std::endl;
     for (int i = 0; i < steps; i++) {
-        cout << "Step " << i << ": " << linear_data[i] << endl;
+        std::cout << "Step " << i << ": " << linear_data[i] << std::endl;
     }
 
-    cout << "\nNonlinear Model Results:" << endl;
+    std::cout << "\nNonlinear Model Results:" << std::endl;
     for (int i = 0; i < steps; i++) {
-        cout << "Step " << i << ": " << nonlinear_data[i] << endl;
+        std::cout << "Step " << i << ": " << nonlinear_data[i] << std::endl;
     }
 
     return 0;
@@ -134,3 +134,4 @@ Step 6: -363.552
 Step 7: -19459.6
 Step 8: -94867.7
 Step 9: -2.2728e+08
+
