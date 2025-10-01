@@ -28,12 +28,6 @@ std::vector<double> simulateNonlinear(int steps, double y_init, const std::vecto
     } else if (steps == 1) {
         // Only initial value
         return std::vector<double>(1, y_init);
-    } else if (steps == 2) {
-        // Initial value and first computed value
-        std::vector<double> y(2);
-        y[0] = y_init;
-        y[1] = a * y[0] + b * u[0];
-        return y;
     }
     std::vector<double> y(steps);
     y[0] = y_init;
