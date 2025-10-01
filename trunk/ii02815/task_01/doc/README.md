@@ -56,27 +56,20 @@ struct ModelParameters {
 };
 
 double linearModel(double y_current, double u_current, const ModelParameters& params) {
-    double result;
-    result = params.a * y_current + params.b * u_current;
-    return result;
+    return params.a * y_current + params.b * u_current;
 }
 
 double nonlinearModel(double y_current, double y_previous, double u_current, double u_previous, const ModelParameters& params) {
-    double result;
-    result = params.a * y_current - params.b * y_previous * y_previous + params.c * u_current + params.d * sin(u_previous);
-    return result;
+    return params.a * y_current - params.b * y_previous * y_previous + params.c * u_current + params.d * sin(u_previous);
 }
 
 int main() {
-
     double a;
     double b;
     double c;
     double d;
-
     double y0;
     double u0;
-
     int n;
 
     std::cout << "Enter constants a, b, c, d: ";
@@ -91,14 +84,10 @@ int main() {
     std::cout << "Enter initial input u0: ";
     std::cin >> u0;
 
-  
     std::cout << "Enter number of steps (n): ";
     std::cin >> n;
-    ModelParameters params;
-    params.a = a;
-    params.b = b;
-    params.c = c;
-    params.d = d;
+
+    ModelParameters params{a, b, c, d};
 
     double y_linear_current = y0;
     double y_nonlinear_current = y0;
@@ -121,7 +110,6 @@ int main() {
 
         u_previous = u_current;
     }
-
     return 0;
 }
 ```
