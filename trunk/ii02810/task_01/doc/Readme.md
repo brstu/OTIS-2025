@@ -42,7 +42,7 @@ Task is to write program (**С++**), which simulates this object temperature.
 
 ---
 
-# ВЫПОЛЕНИЕ ЗАДАНИЯ #
+# ВЫПОЛНЕНИЕ ЗАДАНИЯ #
 
 Код программы:
 ```C++
