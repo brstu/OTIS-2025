@@ -1,23 +1,44 @@
 #include <iostream>
+#include <vector>
 #include <cmath>
 
-const double a = 0.9;
-const double b = 0.5;
-const double c1 = 0.1;
-const double c2 = 0.05;
+const long double a = 0.9;
+const long double b = 0.5;
+const long double c1 = 0.1;
+const long double c2 = 0.05;
 
 int main() {
     int steps = 20;
-    double y_linear = 20.0;
-    double y_nonlinear = 20.0;
-    double u = 5.0;
-    std::cout << "Step\tlinear\tNonLinear\n";
+    long double y_linear = 1.5;
+    long double y_nonlinear = 1.5;
+    long double u = 2.0;
+
+    std::vector<long double> linear_values;
+    std::vector<long double> nonlinear_values;
+
+    linear_values.reserve(steps);
+    nonlinear_values.reserve(steps);
+
     for (int t = 0; t < steps; ++t) {
-        double next_linear = a * y_linear + b * u;
-        double next_nonlinear = a * y_nonlinear + b * u + c1 * u * sin(u) + c2 * u * cos(u);
-        std::cout << t << "\t" << next_linear << "\t\t" << next_nonlinear << "\n";
+        long double next_linear = a * y_linear + b * u;
+        long double next_nonlinear = a * y_nonlinear
+                                   - b * y_nonlinear * y_nonlinear
+                                   + c1 * u + c2 * std::sin((double)u);
+
+        linear_values.push_back(next_linear);
+        nonlinear_values.push_back(next_nonlinear);
+
         y_linear = next_linear;
         y_nonlinear = next_nonlinear;
     }
+
+    std::cout.precision(18);
+    std::cout << "Step\tLinear\t\t\tNonLinear\n";
+    for (int t = 0; t < steps; ++t) {
+        std::cout << t << "\t"
+                  << linear_values[t] << "\t"
+                  << nonlinear_values[t] << "\n";
+    }
+
     return 0;
 }

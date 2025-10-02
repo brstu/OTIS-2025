@@ -44,29 +44,45 @@ Task is to write program (**С++**), which simulates this object temperature.
 # Код программы #
 
 #include <iostream>
+#include <vector>
 #include <cmath>
 
-const double a = 0.9;
-const double b = 0.5;
-const double c1 = 0.1;
-const double c2 = 0.05;
+const long double a = 0.9;
+const long double b = 0.5;
+const long double c1 = 0.1;
+const long double c2 = 0.05;
 
 int main() {
     int steps = 20;
-    double y_linear = 20.0;
-    double y_nonlinear = 20.0;
-    double u = 5.0;
+    long double y_linear = 1.5;
+    long double y_nonlinear = 1.5;
+    long double u = 2.0;
 
-    std::cout << "Step\tLinear Model\tNonlinear Model\n";
+    std::vector<long double> linear_values;
+    std::vector<long double> nonlinear_values;
+
+    linear_values.reserve(steps);
+    nonlinear_values.reserve(steps);
 
     for (int t = 0; t < steps; ++t) {
-        double next_linear = a * y_linear + b * u;
-        double next_nonlinear = a * y_nonlinear + b * u + c1 * u * sin(u) + c2 * u * cos(u);
+        long double next_linear = a * y_linear + b * u;
+        long double next_nonlinear = a * y_nonlinear
+                                   - b * y_nonlinear * y_nonlinear
+                                   + c1 * u + c2 * std::sin((double)u);
 
-        std::cout << t << "\t" << next_linear << "\t\t" << next_nonlinear << "\n";
+        linear_values.push_back(next_linear);
+        nonlinear_values.push_back(next_nonlinear);
 
         y_linear = next_linear;
         y_nonlinear = next_nonlinear;
+    }
+
+    std::cout.precision(18);
+    std::cout << "Step\tLinear\t\t\tNonLinear\n";
+    for (int t = 0; t < steps; ++t) {
+        std::cout << t << "\t"
+                  << linear_values[t] << "\t"
+                  << nonlinear_values[t] << "\n";
     }
 
     return 0;
@@ -76,24 +92,24 @@ int main() {
 
 Вывод программы: 
 
-Step    Linear Model    Nonlinear Model
-0   22.5        23.9589
-1   23.25       25.0171
-2   23.925      26.0753
-3   24.5325     27.1335
-4   25.0793     28.1917
-5   25.5714     29.2499
-6   26.0143     30.3081
-7   26.4129     31.3663
-8   26.7716     32.4245
-9   27.0944     33.4827
-10  27.385      34.5409
-11  27.6465     35.5991
-12  27.8818     36.6573
-13  28.0936     37.7155
-14  28.2843     38.7737
-15  28.456      39.8319
-16  28.6104     40.8901
-17  28.7494     41.9483
-18  28.8745     43.0065
-19  28.987      44.0647
+Step    Linear                  NonLinear
+0       2.35000000000000003     0.470464871341284132
+1       3.11500000000000008     0.558214657965354313
+2       3.80350000000000014     0.592056261326414241
+3       4.42315000000000021     0.603050198247151274
+4       4.98083500000000029     0.606375278960756032
+5       5.48275150000000037     0.607357132938597193
+6       5.93447635000000046     0.607644947520325175
+7       6.34102871500000054     0.607729132986087402
+8       6.70692584350000063     0.607753741488752021
+9       7.03623325915000071     0.607760933534372522
+10      7.3326099332350008      0.607763035356933395
+11      7.59934893991150088     0.607763649589387632
+12      7.83941404592035096     0.607763829090627003
+13      8.05547264132831604     0.60776388154739798
+14      8.24992537719548462     0.607763896877162493
+15      8.42493283947593634     0.607763901357073254
+16      8.58243955552834289     0.607763902666264907
+17      8.72419559997550879     0.607763903048857967
+18      8.85177603997795811     0.60776390316066547
+19      8.96659843598016249     0.607763903193339658
