@@ -21,10 +21,7 @@ int main() {
 
     for (int t = 0; t < steps; ++t) {
         long double next_linear = a * y_linear + b * u;
-        long double next_nonlinear = a * y_nonlinear
-                                   - b * y_nonlinear * y_nonlinear
-                                   + c1 * u + c2 * std::sin((double)u);
-
+        long double next_nonlinear = a * y_nonlinear - b * y_nonlinear * y_nonlinear + c1 * u + c2 * std::sinl(u);
         linear_values.push_back(next_linear);
         nonlinear_values.push_back(next_nonlinear);
 
