@@ -6,7 +6,7 @@ int main()
 	double y;
 	double y_prev;
 	double y_next;
-	double u
+	double u;
 	double u_prev;
 	double a;
 	double b;
