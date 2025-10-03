@@ -78,11 +78,12 @@ int main()
 		y = y_next;
 		u_prev = u; // Update u_prev to current input value for next iteration (if u changes per step)
 		std::cout << "Result of the " << i + 1 << " step of non-linear model: " << y << '\n';
-		std::cout << "Enter u for the" << i + 2 << "step: ";
+		std::cout << "Enter u for the " << i + 2 << " step: ";
 		std::cin >> u;
 	}
 	return 0;
 }
+
 ```
 
 ## Результат программы:
