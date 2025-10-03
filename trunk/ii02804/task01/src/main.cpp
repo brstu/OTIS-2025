@@ -30,7 +30,8 @@ void simulateNonlinearModel(int n, double a, double b, double c, double d, doubl
 
 int main() {
     int n;
-    double u0, y0;
+    double u0;
+    double y0;
 
     
     cout << "Enter number of time steps n: ";
