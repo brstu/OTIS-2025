@@ -12,7 +12,7 @@ int main()
 	double c;
 	double d;
 	int n;
-	std::cout << "Enter y (starting temperature) and u (input warmth at every step) values (space-separated): ";
+	std::cout << "Enter y (starting temperature) and u (input warmth at first step) values (space-separated): ";
 	std::cin >> y >> u; 
 	std::cout << "Enter a, b, c, d (constants) values: ";
 	std::cin >> a >> b >> c >> d;
@@ -26,14 +26,15 @@ int main()
 	}
 	y = y_prev;
 	y_prev = 0;
-	double u_prev = u;
 	for (int i = 0; i < n; i++)
 	{
-		std::cout << "Result of the " << i + 1 << " step of non-linear model: " << y << '\n';
 		y_next = a * y - b * y_prev * y_prev + c * u + d * sin(u_prev); // Use previous input value as per specification
 		y_prev = y;
 		y = y_next;
 		u_prev = u; // Update u_prev to current input value for next iteration (if u changes per step)
+		std::cout << "Result of the " << i + 1 << " step of non-linear model: " << y << '\n';
+		std::cout << "Enter u for the" << i + 2 "step: ";
+		std::cin >> u;
 	}
 	return 0;
 }

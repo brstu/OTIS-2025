@@ -55,7 +55,7 @@ int main()
 	double c;
 	double d;
 	int n;
-	std::cout << "Enter y (starting temperature) and u (input warmth at every step) values (space-separated): ";
+	std::cout << "Enter y (starting temperature) and u (input warmth at first step) values (space-separated): ";
 	std::cin >> y >> u; 
 	std::cout << "Enter a, b, c, d (constants) values: ";
 	std::cin >> a >> b >> c >> d;
@@ -69,19 +69,18 @@ int main()
 	}
 	y = y_prev;
 	y_prev = 0;
-	double u_prev = u;
 	for (int i = 0; i < n; i++)
 	{
-		std::cout << "Result of the " << i + 1 << " step of non-linear model: " << y << '\n';
 		y_next = a * y - b * y_prev * y_prev + c * u + d * sin(u_prev); // Use previous input value as per specification
 		y_prev = y;
 		y = y_next;
 		u_prev = u; // Update u_prev to current input value for next iteration (if u changes per step)
+		std::cout << "Result of the " << i + 1 << " step of non-linear model: " << y << '\n';
+		std::cout << "Enter u for the" << i + 2 "step: ";
+		std::cin >> u;
 	}
 	return 0;
 }
-
-
 ```
 
 ## Результат программы:
@@ -96,10 +95,16 @@ Result of the 5 step of linear model: 0.30303
 Result of the 6 step of linear model: 0.30303
 Result of the 7 step of linear model: 0.30303
 Result of the 1 step of non-linear model: 1
+Enter u for the 2 step: 10
 Result of the 2 step of non-linear model: 0.50456
+Enter u for the 3 step: 10
 Result of the 3 step of non-linear model: 0.469605
+Enter u for the 4 step: 10
 Result of the 4 step of non-linear model: 0.491618
+Enter u for the 5 step: 10
 Result of the 5 step of non-linear model: 0.49286
+Enter u for the 6 step: 10
 Result of the 6 step of non-linear model: 0.492238
+Enter u for the 7 step: 10
 Result of the 7 step of non-linear model: 0.492195
 
