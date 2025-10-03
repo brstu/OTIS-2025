@@ -2,7 +2,7 @@
 #include <cmath>
 using namespace std;
 
-void liner_funcnt(double& y1)
+void linear_function(double& y1)
 {
 	double first_funct_const = 0.1;
 	double second_funct_const = 0.2;
@@ -11,7 +11,7 @@ void liner_funcnt(double& y1)
 	cout << y1 << endl;
 }
 
-void quadro_funct(double& y2, double& y_previous, bool& first_iteration)
+void nonlinear_function(double& y2, double& y_previous, bool& first_iteration)
 {
 	double first_funct_const = 0.1;
 	double second_funct_const = 0.2;
@@ -48,11 +48,11 @@ int main()
 	cout << "Линейная модель:\n" << y1 << endl;
 	for (int i = 0; i < n; i++)
 	{
-    liner_funcnt(y1);
+    linear_function(y1);
 	}
 	cout << endl << "Квадратичная модель:\n" << y2 << endl;
 	for (int i = 0; i < n; i++)
 	{
-		quadro_funct(y2, y_previous, first_iteration);
+		nonlinear_function(y2, y_previous, first_iteration);
 	}
 }
