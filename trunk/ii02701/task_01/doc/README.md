@@ -27,7 +27,7 @@ Let's get some object to be controlled. We want to control its temperature, whic
 
 $$\Large\frac{dy(\tau)}{d\tau}=\frac{u(\tau)}{C}+\frac{Y_0-y(\tau)}{RC} $$ (1)
 
-where $\tau$ – time; $y(\tau)$ – input temperature; $u(\tau)$ – input warm; $Y_0$ – room temperature; $C,RC$ – some constants.
+where $\tau$ – time; $y(\tau)$ – input temperature; $u(\tau)$ – input warmth; $Y_0$ – room temperature; $C,RC$ – some constants.
 
 After transformation we get these linear (2) and nonlinear (3) models:
 
@@ -56,7 +56,7 @@ int main()
 	double d;
 	int n;
 
-	std::cout << "Enter y(starting temperature) and u(input warm at every step) values: ";
+	std::cout << "Enter y(starting temperature) and u(input warmth at every step) values: ";
 	std::cin >> y >> u;
 	std::cout << "Enter a, b, c, d(constants) values: ";
 	std::cin >> a >> b >> c >> d;
@@ -83,7 +83,7 @@ int main()
 ```
 
 ## Результат программы:
-Enter y(starting temperature) and u(input warm at every step) values: 1 10
+Enter y(starting temperature) and u(input warmth at every step) values: 1 10
 Enter a, b, c, d(constants) values: 0.01 0.03 0.05 0.01
 Enter number of steps n: 7
 Result of the 1 step of linear model: 0.31
