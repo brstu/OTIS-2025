@@ -35,6 +35,7 @@ int main()
 		y = y_next;
 		std::cout << "Result of the " << i + 1 << " step of non-linear model: " << y << '\n';
 		std::cout << "Enter u for the " << i + 1 << " step: ";
+		u_prev = u; // Update u_prev to current input value for next iteration (if u changes per step)
 		std::cin >> u;
 		u_prev = u; // Update u_prev to current input value for next iteration (if u changes per step)
 	}
