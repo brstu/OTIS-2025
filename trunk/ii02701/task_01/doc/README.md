@@ -41,10 +41,10 @@ Task is to write program (**С++**), which simulates this object temperature.
 
 ## Код программы:
 ```C++
-#include  <iostream>
+#include <iostream>
 #include <cmath>
 
-int  main()
+int main()
 {
 	double y;
 	double y_prev;
