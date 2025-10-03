@@ -73,7 +73,7 @@ int main()
 	for (int i = 0; i < n; i++)
 	{
 		std::cout << "Result of the " << i + 1 << " step of non-linear model: " << y << '\n';
-		y_next = a * y - b * y_prev * y_prev + c * u + d * sin(u);
+		y_next = a * y - b * y_prev * y_prev + c * u + d * sin(u_prev);
 		y_prev = y;
 		y = y_next;
 	}
