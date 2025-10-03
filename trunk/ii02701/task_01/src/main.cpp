@@ -33,7 +33,7 @@ int main()
 		y_next = a * y - b * y_prev * y_prev + c * u + d * sin(u_prev); // Use previous input value as per specification
 		y_prev = y;
 		y = y_next;
-		// If u changes per step, update u_prev here. For now, u is constant.
+		u_prev = u; // Update u_prev to current input value for next iteration (if u changes per step)
 	}
 	return 0;
 }
