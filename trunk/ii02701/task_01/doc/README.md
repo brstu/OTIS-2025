@@ -55,9 +55,8 @@ int main()
 	double c;
 	double d;
 	int n;
-
-	std::cout << "Enter y(starting temperature) and u(input warmth at every step) values: ";
-	std::cin >> y >> u;
+	std::cout << "Enter y (starting temperature) and u (input warmth at every step) values (space-separated): ";
+	std::cin >> y >> u; 
 	std::cout << "Enter a, b, c, d (constants) values: ";
 	std::cin >> a >> b >> c >> d;
 	std::cout << "Enter number of steps n: ";
@@ -70,20 +69,23 @@ int main()
 	}
 	y = y_prev;
 	y_prev = 0;
+	double u_prev = u;
 	for (int i = 0; i < n; i++)
 	{
 		std::cout << "Result of the " << i + 1 << " step of non-linear model: " << y << '\n';
-		y_next = a * y - b * y_prev * y_prev + c * u + d * sin(u);
+		y_next = a * y - b * y_prev * y_prev + c * u + d * sin(u_prev); // Use previous input value as per specification
 		y_prev = y;
 		y = y_next;
+		u_prev = u; // Update u_prev to current input value for next iteration (if u changes per step)
 	}
 	return 0;
 }
 
+
 ```
 
 ## Результат программы:
-Enter y(starting temperature) and u(input warmth at every step) values: 1 10
+Enter y (starting temperature) and u (input warmth at every step) values (space-separated):  1 10
 Enter a, b, c, d (constants) values: 0.01 0.03 0.05 0.01
 Enter number of steps n: 7
 Result of the 1 step of linear model: 0.31
