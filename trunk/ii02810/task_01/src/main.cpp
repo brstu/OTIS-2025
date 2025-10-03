@@ -25,12 +25,11 @@ void UnLinemodel(float a, float b, float c, float d, float y, float y0, float u,
 }
 
 int main() {
-    cout << "Write constants(a,b,c,d,y,u,t):\n";
     float a, b, c, d, y, u, t;
     int i = 1;
-    cout << "Linemodel: \n";
-    cin >> a >> b >> c >> d >> y >> u >> t;
+    cout << "Linemodel: Enter constants (a, b, y, u, t) separated by spaces:\n";
+    cin >> a >> b >> y >> u >> t;
     Linemodel(y, u, t, a, b, i);
-    cout << "UnLinemodel: \n";
-    UnLinemodel(a, b, c, d, y, y, u, i, t);
+    cout << "UnLinemodel: Enter constants (a, b, c, d, y, u, t) separated by spaces:\n";
+    cin >> a >> b >> c >> d >> y >> u >> t;
 }
