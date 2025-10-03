@@ -26,12 +26,14 @@ int main()
 	}
 	y = y_prev;
 	y_prev = 0;
+	double u_prev = u;
 	for (int i = 0; i < n; i++)
 	{
 		std::cout << "Result of the " << i + 1 << " step of non-linear model: " << y << '\n';
-		y_next = a * y - b * y_prev * y_prev + c * u + d * sin(u);//u is equal in every step, so there no sense to add u(t-1)
+		y_next = a * y - b * y_prev * y_prev + c * u + d * sin(u_prev); // Use previous input value as per specification
 		y_prev = y;
 		y = y_next;
+		// If u changes per step, update u_prev here. For now, u is constant.
 	}
 	return 0;
 }
