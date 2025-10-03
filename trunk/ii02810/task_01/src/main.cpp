@@ -13,7 +13,7 @@ struct Params {
 };
 
 void Linemodel(float y, float u, int t, float a, float b, int i = 1) {
-    if (i <= steps) {
+    if (i <= t) {
         Linemodel(a * y + b * u, u, t, a, b, i + 1);
         cout << "y" << i << " = " << y << endl;
     }
