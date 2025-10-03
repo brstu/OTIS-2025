@@ -87,7 +87,7 @@ int main()
 ```
 
 ## Результат программы:
-Enter y (starting temperature) and u (input warmth at every step) values (space-separated):  1 10
+Enter y (starting temperature) and u (input warmth at first step) values (space-separated):  1 10
 Enter a, b, c, d (constants) values: 0.01 0.03 0.05 0.01
 Enter number of steps n: 7
 Result of the 1 step of linear model: 0.31
