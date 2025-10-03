@@ -14,7 +14,7 @@ int main()
 	int n;
 	std::cout << "Enter y (starting temperature) and u (input warmth at every step) values (space-separated): ";
 	std::cin >> y >> u; 
-	std::cout << "Enter a, b, c, d(constants) values: ";
+	std::cout << "Enter a, b, c, d (constants) values: ";
 	std::cin >> a >> b >> c >> d;
 	std::cout << "Enter number of steps n: ";
 	std::cin >> n;
