@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_compile_options(-Wall -Wextra -Wpedantic)
 
 set(SOURCE_FILES
-    src/otis_task_01.cpp
+    otis_task_01.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
