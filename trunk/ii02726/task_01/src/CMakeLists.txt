@@ -1,5 +1,11 @@
-cmake_minimum_required (VERSION 3.10)
+cmake_minimum_required(VERSION 3.10)
 
-project (task_01_ii02726)
+project(Task01_II02726
+    VERSION 1.0.0
+    DESCRIPTION "First lab project by Yushkevich Otis"
+    LANGUAGES CXX
+)
 
-add_executable (yushkevich_otis_1 yushkevich_otis_lab_1.cpp)
+add_executable(otis_lab1
+    yushkevich_otis_lab_1.cpp
+)
