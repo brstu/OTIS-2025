@@ -7,5 +7,5 @@ project(Task01_II02726
 )
 
 add_executable(otis_lab1
-    yushkevich_otis_lab_1.cpp
+        otis_lab_1.cpp
 )
