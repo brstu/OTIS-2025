@@ -9,7 +9,10 @@ int main()
     const int steps = 10;
     std::vector<double> y(steps);
     std::vector<double> u(steps);
-    double a, b, c, d;
+    double a;
+    double b;
+    double c;
+    double d;
 
     std::cout << "Рассчет по линейной модели\n";
     std::cout << "Введите коэффициент a: ";
