@@ -6,6 +6,6 @@ project(Task01_II02726
     LANGUAGES CXX
 )
 
-add_executable(otis_lab1
+add_executable(otis_1
         otis_lab_1.cpp
 )
