@@ -2,7 +2,6 @@
 #include <cmath>
 using namespace std;
 
-// Global constants to avoid duplication
 const double first_funct_const = 0.1;
 const double second_funct_const = 0.2;
 const double third_funct_const = 0.3;
@@ -38,7 +37,9 @@ void nonliner_funct(double& y2, double& y_previous, bool& second_iteration)
 int main()
 {
 	setlocale(LC_ALL, "RUSSIAN");
-	double y1, y2, y_previous;
+	double y1;
+	double y2;
+	double y_previous;
 	bool second_iteration = true;
 	cout << "Введите вашу термепаруту: ";
 	cin >> y1;
