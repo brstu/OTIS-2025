@@ -2,10 +2,10 @@
 #include <cmath>
 
 
-const double a = 0.5; 
-const double b = 0.01;   
-const double c = 0.2;  
-const double d = 0.4;  
+const double a = 0.5;
+const double b = 0.01;
+const double c = 0.2;
+const double d = 0.4;
 
 double linearModel(double y, double u) {
     return a * y + b * u;
@@ -37,9 +37,9 @@ int main() {
     std::cout << "Time:\tTemperature:" << std::endl;
     for (int i = 0; i < steps; i++) {
         y_pred = y_next;
-        u_pred = u ; 
+        u_pred = u;
         y_next = nonlinearModel(y_next, u, y_pred, u_pred);
-        std::cout << i + 1 << "\t" << y_next << std::endl; 
+        std::cout << i + 1 << "\t" << y_next << std::endl;
     }
     return 0;
 }
