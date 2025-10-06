@@ -109,7 +109,7 @@ int  main()
 
 	std::cout << "Enter input temperature (y): ";
 	std::cin >> y;
-	std::cout << "Enter input warm (u): ";
+	std::cout << "Enter input warmth (u): ";
 	std::cin >> u;
 	double y0 = 0;
 	double y1 = y;
