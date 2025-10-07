@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-//commit
+
 
 const double a = 0.5;
 const double b = 0.01;
