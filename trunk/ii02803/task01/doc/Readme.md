@@ -8,8 +8,6 @@
 <p align="center">Тема: “Моделирования температуры объекта”</p>
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
-<<<<<<< HEAD
-<p align="right">Студентка 2 курса</p>
 =======
 <p align="right">Студент 2 курса</p>
 >>>>>>> b47b9bdce0b40ba7de3b2e571827303ebe495122
@@ -110,19 +108,11 @@ int main() {
     return 0;
 }
 
-<<<<<<< HEAD
-Enter number of steps n: 5
-Enter coefficients a, b, c, d: 0.8 0.2 0.3 0.1
-Enter 5 values of the input signal u:
-1 1 1 1 1
-Enter initial conditions y0 and y1: 20 20.5
-=======
 Number of steps n: 5
 a, b, c, d: 0.8 0.2 0.3 0.1
 Enter 5 values of the input signal u:
 1 1 1 1 1
 Initial conditions y0 and y1: 20 20.5
->>>>>>> b47b9bdce0b40ba7de3b2e571827303ebe495122
 
 Time    Linear Model    Nonlinear Model
 0       20              20
@@ -131,7 +121,4 @@ Time    Linear Model    Nonlinear Model
 3       10.728          -134.24
 4       8.7824          -906.2
 5       7.2259          -4330.6
-<<<<<<< HEAD
-=======
 
->>>>>>> b47b9bdce0b40ba7de3b2e571827303ebe495122
