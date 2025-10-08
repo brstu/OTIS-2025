@@ -81,7 +81,7 @@ int main() {
     cout << "Enter initial temperature y(0): ";
     cin >> y0;
 
-    cout << "Enter initial input warmth u(0): ";
+    cout << "Enter initial input warm u(0): ";
     cin >> u0;
 
     cout << "Enter number of steps: ";
