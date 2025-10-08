@@ -73,7 +73,7 @@ $$
 
 # Реализация на C++
 
-```cpp
+```cpp 
 #include <iostream>
 #include <cmath>
 #include <locale>
@@ -129,7 +129,7 @@ void simulateNonlinear(double a, double b, double c, double d, double u, int ste
     p.c = c;
     p.d = d;
     p.u = u;
-    p.uPrev = u;
+    p.uPrev = 0.0;
     p.y = 0.0;
     p.yPrev = 0.0;
 
@@ -138,8 +138,10 @@ void simulateNonlinear(double a, double b, double c, double d, double u, int ste
         std::cout << "t = " << i << ", y = " << p.y << std::endl;
 
         double yNext = nextNonlinear(p);
+
         p.yPrev = p.y;
         p.y = yNext;
+        p.uPrev = p.u;
     }
 }
 
@@ -179,4 +181,5 @@ int main()
 
     return 0;
 }
+
 ```

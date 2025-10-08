@@ -52,10 +52,8 @@ void simulateNonlinear(double a, double b, double c, double d, double u, int ste
     p.b = b;
     p.c = c;
     p.d = d;
-
     p.u = u;
-    p.uPrev = u;
-
+    p.uPrev = 0.0;
     p.y = 0.0;
     p.yPrev = 0.0;
 
@@ -67,6 +65,7 @@ void simulateNonlinear(double a, double b, double c, double d, double u, int ste
 
         p.yPrev = p.y;
         p.y = yNext;
+        p.uPrev = p.u;
     }
 }
 
