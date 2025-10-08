@@ -20,24 +20,32 @@ int main() {
     cin >> a >> b >> c >> d;
     cout << "Enter initial temperature y(0): ";
     cin >> y0;
-    cout << "Enter initial input warm u(0): ";
+    cout << "Enter initial input warmth u(0): ";
     cin >> u0;
     cout << "Enter number of steps: ";
     cin >> n;
 
-    double y_current = y0;
+    double y_current_linear = y0;
+    double y_current_nonlinear = y0;
+    double y_previous_nonlinear = y0;
+
     double u_current = u0;
-    double y_previous = y0;
+    double u_previous = u0;
 
     cout << "Step\tLinear Model\tNonlinear Model\n";
+
     for (int tau = 0; tau < n; tau++) {
-        double linear_result = linearModel(y_current, u_current, a, b);
-        double nonlinear_result = nonlinearModel(y_current, y_previous, u_current, u_current, a, b, c, d);
+
+        double linear_result = linearModel(y_current_linear, u_current, a, b);
+        double nonlinear_result = nonlinearModel(y_current_nonlinear, y_previous_nonlinear, u_current, u_previous, a, b, c, d);
 
         cout << tau + 1 << "\t" << linear_result << "\t\t" << nonlinear_result << "\n";
 
-        y_previous = y_current;
-        y_current = linear_result;
+        y_current_linear = linear_result;
+
+        y_previous_nonlinear = y_current_nonlinear;
+        y_current_nonlinear = nonlinear_result;
+
     }
 
     return 0;
