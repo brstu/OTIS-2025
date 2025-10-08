@@ -60,5 +60,4 @@ int main()
     int n2 = 10;
     simulateNonlinear(a2, b2, c2, d2, u2, n2);
 
-    return 0;
-}
+   
