@@ -1,138 +1,121 @@
 #include <iostream>
-#include <vector>
+#include <memory>
 #include <cmath>
 
-using namespace std;
-
-// --- Структуры параметров ---
-struct LinearParams {
-    double a;
-    double b;
+// Интерфейс модели
+class IModel
+{
+public:
+    virtual void runSimulation(double state, const double input, int steps) const = 0;
+    virtual ~IModel() = default;
 };
 
-struct NonlinearParams {
-    double a;
-    double b;
-    double c;
-    double d;
-    double e;
-    double f;
-    double g;
-};
-
-// --- Линейная модель ---
-vector<double> fun1(int n,
-                    const LinearParams& p,
-                    const vector<double>& u,
-                    double y0)
+// Линейная модель
+class LinearSystem : public IModel
 {
-    vector<double> y(n + 1);
-    y[0] = y0;
+public:
+    LinearSystem(double coeffA, double coeffB) : a(coeffA), b(coeffB) {}
+    ~LinearSystem() override = default;
 
-    for (int t = 0; t < n; t++) {
-        double yt_next = p.a * y[t] + p.b * u[t];
-        y[t + 1] = yt_next;
-    }
-
-    return y;
-}
-
-// --- Нелинейная модель ---
-vector<double> fun2(int n,
-                    const NonlinearParams& p,
-                    const vector<double>& u,
-                    double y0,
-                    double y1)
-{
-    vector<double> y(n + 1);
-    y[0] = y0;
-    y[1] = y1;
-
-    for (int t = 1; t < n; t++) {
-        double current_y = y[t];
-        double previous_y = y[t - 1];
-        double previous_previous_y;
-
-        if (t >= 2) {
-            previous_previous_y = y[t - 2];
-        } else {
-            previous_previous_y = 0.0;
+    void runSimulation(double state, const double input, int steps) const override
+    {
+        std::cout << "Step\tState" << std::endl;
+        for (int i = 0; i <= steps; ++i)
+        {
+            std::cout << i << "\t" << state << std::endl;
+            state = a * state + b * input;
         }
-
-        double current_u = u[t];
-        double previous_u = u[t - 1];
-
-        double squared_previous_y = previous_y * previous_y;
-        double squared_previous_u = previous_u * previous_u;
-        double sin_previous_u = sin(previous_u);
-
-        double yt_next = p.a * current_y
-                       + p.b * squared_previous_y
-                       + p.c * current_u
-                       + p.d * sin_previous_u
-                       + p.e * squared_previous_u
-                       + p.f * previous_previous_y
-                       + p.g;
-
-        y[t + 1] = yt_next;
     }
 
-    return y;
-}
+private:
+    const double a;
+    const double b;
+};
 
-int main() {
-    int n;
-    cout << "Number of steps n: ";
-    cin >> n;
+// Нелинейная модель
+class NonLinearSystem : public IModel
+{
+public:
+    NonLinearSystem(double a, double b, double c, double d)
+        : a(a), b(b), c(c), d(d) {}
+    ~NonLinearSystem() override = default;
 
-    LinearParams lin;
-    cout << "Parameter a (linear model): ";
-    cin >> lin.a;
-    cout << "Parameter b (linear model): ";
-    cin >> lin.b;
-
-    NonlinearParams nlin;
-    cout << "Parameter a (nonlinear model): ";
-    cin >> nlin.a;
-    cout << "Parameter b (nonlinear model): ";
-    cin >> nlin.b;
-    cout << "Parameter c (nonlinear model): ";
-    cin >> nlin.c;
-    cout << "Parameter d (nonlinear model): ";
-    cin >> nlin.d;
-    cout << "Parameter e (nonlinear model): ";
-    cin >> nlin.e;
-    cout << "Parameter f (nonlinear model): ";
-    cin >> nlin.f;
-    cout << "Parameter g (nonlinear model): ";
-    cin >> nlin.g;
-
-    vector<double> u(n + 1);
-    cout << "Enter " << n << " values of the input signal u (u[0] to u[" << n - 1 << "]):\n";
-    for (int i = 0; i < n; i++) {
-        cin >> u[i];
+    void runSimulation(double state, const double input, int steps) const override
+    {
+        std::cout << "Step\tState" << std::endl;
+        double prevState = state;
+        double prevInput = input;
+        for (int i = 0; i <= steps; ++i)
+        {
+            std::cout << i << "\t" << state << std::endl;
+            prevState = state;
+            double nextState = a * state - b * prevState * prevState + c * input + d * std::sin(prevInput);
+            prevInput += inputIncrement;
+            state = nextState;
+        }
     }
 
-    double y0;
-    cout << "Initial condition y0: ";
-    cin >> y0;
-    double y1;
-    cout << "Initial condition y1: ";
-    cin >> y1;
+private:
+    const double a, b, c, d;
+    const double inputIncrement { 0.5 };
+};
 
-    u[n] = y0;
+// Интерфейс фабрики
+class IModelFactory
+{
+public:
+    virtual std::unique_ptr<IModel> createModel() const = 0;
+    virtual ~IModelFactory() = default;
+};
 
-    vector<double> yLinear = fun1(n, lin, u, y0);
-    vector<double> yNonlinear = fun2(n, nlin, u, y0, y1);
-
-    cout << "\nAfter the final input, u[n] is set equal to y0 for consistency.\n";
-    cout << "Time\tLinear Model\tNonlinear Model\n";
-    cout << fixed;
-    cout.precision(4);
-
-    for (int t = 0; t <= n; t++) {
-        cout << t << "\t" << yLinear[t] << "\t\t" << yNonlinear[t] << "\n";
+// Фабрика линейной модели
+class LinearFactory : public IModelFactory
+{
+public:
+    std::unique_ptr<IModel> createModel() const override
+    {
+        return std::make_unique<LinearSystem>(a, b);
     }
+
+private:
+    const double a { 0.5 };
+    const double b { 0.5 };
+};
+
+// Фабрика нелинейной модели
+class NonLinearFactory : public IModelFactory
+{
+public:
+    std::unique_ptr<IModel> createModel() const override
+    {
+        return std::make_unique<NonLinearSystem>(a, b, c, d);
+    }
+
+private:
+    const double a { 0.5 };
+    const double b { 0.5 };
+    const double c { 0.5 };
+    const double d { 0.5 };
+};
+
+int main()
+{
+    std::unique_ptr<IModelFactory> factory;
+    std::unique_ptr<IModel> model;
+
+    const double initialState = 0.0;
+    const double inputSignal = 1.0;
+    const int totalSteps = 25;
+
+    std::cout << "=== Linear System Simulation ===" << std::endl;
+    factory = std::make_unique<LinearFactory>();
+    model = factory->createModel();
+    model->runSimulation(initialState, inputSignal, totalSteps);
+
+    std::cout << "\n=== Nonlinear System Simulation ===" << std::endl;
+    factory = std::make_unique<NonLinearFactory>();
+    model = factory->createModel();
+    model->runSimulation(initialState, inputSignal, totalSteps);
 
     return 0;
 }
