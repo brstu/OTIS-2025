@@ -67,7 +67,7 @@ void simulateNonlinearModel(int n, double a, double b, double c, double d, doubl
     for (int tau = 0; tau < n; ++tau) {
         cout << "Time " << tau + 1 << ": " << y << endl;
 
-       
+        // Prompt user for heat input at each time step
         double u;
         cout << "Enter heat input at time " << tau + 1 << ": ";
         cin >> u;
