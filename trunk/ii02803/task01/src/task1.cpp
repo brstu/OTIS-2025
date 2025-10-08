@@ -47,7 +47,7 @@ vector<double> fun2(int n, const NonlinearParams& p, const vector<double>& u, do
         if (t >= 2) {
             previous_previous_y = y[t - 2];
         } else {
-            previous_previous_y = y0;
+            previous_previous_y = 0.0;
         }
 
         double current_u = u[t];
