@@ -43,13 +43,16 @@ void simulateNonlinear(double a, double b, double c, double d, double uInitial, 
 
 int main()
 {
-    try {
+    try
+    {
         std::locale rus_locale("ru_RU.UTF-8");
         std::cout.imbue(rus_locale);
-    } catch (const std::runtime_error&) {
+    }
+    catch (const std::runtime_error &)
+    {
         std::cerr << "Russian locale ru_RU.UTF-8 not available, using default locale." << std::endl;
     }
-    
+
     double a1 = 0.3, b1 = 0.3, u1 = 0.9;
     int n1 = 10;
     simulateLinear(a1, b1, u1, n1);
@@ -59,5 +62,5 @@ int main()
     double a2 = 0.1, b2 = 0.2, c2 = 0.4, d2 = 0.2, u2 = 0.8;
     int n2 = 10;
     simulateNonlinear(a2, b2, c2, d2, u2, n2);
-
-   
+    return 0;
+}
