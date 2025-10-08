@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <locale>
+#include <stdexcept>
 
 double nextLinear(double a, double b, double u, double y)
 {
@@ -9,6 +10,10 @@ double nextLinear(double a, double b, double u, double y)
 
 void simulateLinear(double a, double b, double u, int steps)
 {
+    if (steps <= 0) {
+        throw std::invalid_argument("Number of steps must be positive");
+    }
+    
     std::cout << "Линейная модель" << std::endl;
     double y = 0.0;
     for (int i = 0; i < steps; i++)
@@ -23,13 +28,16 @@ double nextNonlinear(double a, double b, double c, double d, double u, double uP
     return a * y - b * (yPrev * yPrev) + c * u + d * sin(uPrev);
 }
 
-void simulateNonlinear(double a, double b, double c, double d, double uInitial, int steps)
+void simulateNonlinear(double a, double b, double c, double d, double u, int steps)
 {
+    if (steps <= 0) {
+        throw std::invalid_argument("Number of steps must be positive");
+    }
+    
     std::cout << "Нелинейная модель" << std::endl;
     double y = 0.0;
     double yPrev = 0.0;
-    double u = uInitial;
-    double uPrev = uInitial;
+    double uPrev = u;
 
     for (int i = 0; i < steps; i++)
     {
@@ -53,14 +61,21 @@ int main()
         std::cerr << "Russian locale ru_RU.UTF-8 not available, using default locale." << std::endl;
     }
 
-    double a1 = 0.3, b1 = 0.3, u1 = 0.9;
-    int n1 = 10;
-    simulateLinear(a1, b1, u1, n1);
+    try {
+        double a1 = 0.3, b1 = 0.3, u1 = 0.9;
+        int n1 = 10;
+        simulateLinear(a1, b1, u1, n1);
 
-    std::cout << std::endl;
+        std::cout << std::endl;
 
-    double a2 = 0.1, b2 = 0.2, c2 = 0.4, d2 = 0.2, u2 = 0.8;
-    int n2 = 10;
-    simulateNonlinear(a2, b2, c2, d2, u2, n2);
+        double a2 = 0.1, b2 = 0.2, c2 = 0.4, d2 = 0.2, u2 = 0.8;
+        int n2 = 10;
+        simulateNonlinear(a2, b2, c2, d2, u2, n2);
+        
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return 1;
+    }
+    
     return 0;
 }
