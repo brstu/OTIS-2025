@@ -157,6 +157,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> u[i];
     }
+    // Set the last element to zero to ensure boundary condition for the model
 
     double y0;
     cout << "Initial condition y0: ";
