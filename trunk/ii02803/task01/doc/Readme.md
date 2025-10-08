@@ -49,9 +49,7 @@ where $\tau$ – time discrete moments ($1,2,3{\dots}n$); $a,b,c,d,e,f,g$ – so
 
 using namespace std;
 
-
-const double FINAL_INPUT_VALUE = 0.0;  
-
+// --- Структуры параметров ---
 struct LinearParams {
     double a;
     double b;
@@ -67,7 +65,12 @@ struct NonlinearParams {
     double g;
 };
 
-vector<double> fun1(int n, const LinearParams& p, const vector<double>& u, double y0) {
+// --- Линейная модель ---
+vector<double> fun1(int n,
+                    const LinearParams& p,
+                    const vector<double>& u,
+                    double y0)
+{
     vector<double> y(n + 1);
     y[0] = y0;
 
@@ -79,7 +82,13 @@ vector<double> fun1(int n, const LinearParams& p, const vector<double>& u, doubl
     return y;
 }
 
-vector<double> fun2(int n, const NonlinearParams& p, const vector<double>& u, double y0, double y1) {
+// --- Нелинейная модель ---
+vector<double> fun2(int n,
+                    const NonlinearParams& p,
+                    const vector<double>& u,
+                    double y0,
+                    double y1)
+{
     vector<double> y(n + 1);
     y[0] = y0;
     y[1] = y1;
@@ -149,8 +158,6 @@ int main() {
         cin >> u[i];
     }
 
-    u[n] = FINAL_INPUT_VALUE;
-
     double y0;
     cout << "Initial condition y0: ";
     cin >> y0;
@@ -158,10 +165,13 @@ int main() {
     cout << "Initial condition y1: ";
     cin >> y1;
 
+    u[n] = y0;
+
     vector<double> yLinear = fun1(n, lin, u, y0);
     vector<double> yNonlinear = fun2(n, nlin, u, y0, y1);
 
-    cout << "\nTime\tLinear Model\tNonlinear Model\n";
+    cout << "\nAfter the final input, u[n] is set equal to y0 for consistency.\n";
+    cout << "Time\tLinear Model\tNonlinear Model\n";
     cout << fixed;
     cout.precision(4);
 
