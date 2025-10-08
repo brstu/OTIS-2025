@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <locale>
 
 double nextLinear(double a, double b, double u, double y) {
     return a * y + b * u;
