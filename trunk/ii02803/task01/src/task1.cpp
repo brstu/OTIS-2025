@@ -4,7 +4,9 @@
 
 using namespace std;
 
-// --- Structures for parameters ---
+
+const double FINAL_INPUT_VALUE = 0.0;  
+
 struct LinearParams {
     double a;
     double b;
@@ -20,7 +22,6 @@ struct NonlinearParams {
     double g;
 };
 
-// --- Linear model ---
 vector<double> fun1(int n, const LinearParams& p, const vector<double>& u, double y0) {
     vector<double> y(n + 1);
     y[0] = y0;
@@ -33,7 +34,6 @@ vector<double> fun1(int n, const LinearParams& p, const vector<double>& u, doubl
     return y;
 }
 
-// --- Nonlinear model ---
 vector<double> fun2(int n, const NonlinearParams& p, const vector<double>& u, double y0, double y1) {
     vector<double> y(n + 1);
     y[0] = y0;
@@ -71,7 +71,6 @@ vector<double> fun2(int n, const NonlinearParams& p, const vector<double>& u, do
     return y;
 }
 
-// --- Main function ---
 int main() {
     int n;
     cout << "Number of steps n: ";
@@ -104,12 +103,13 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> u[i];
     }
-    u[n] = 0.0;
+
+    u[n] = FINAL_INPUT_VALUE;
 
     double y0;
-    double y1;
     cout << "Initial condition y0: ";
     cin >> y0;
+    double y1;
     cout << "Initial condition y1: ";
     cin >> y1;
 
