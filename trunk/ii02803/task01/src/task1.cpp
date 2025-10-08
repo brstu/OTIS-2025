@@ -13,37 +13,40 @@ vector<double> fun1(int n, double a, double b, const vector<double>& u, double y
     return y;
 }
 
-vector<double> fun2(int n, double a, double b, double c, double d,
+vector<double> fun2(int n, double a1, double a2, double b1, double b2, double c1, double c2, double d,
                     const vector<double>& u, double y0, double y1) {
     vector<double> y(n + 1);
     y[0] = y0;
     y[1] = y1;
 
-    // Начинаем с t=2, чтобы избежать обращения к u[-1]
-    for (int t = 2; t <= n; t++) {
-        // Используем u[t-1] и u[t-2] для соответствия временным шагам
-        y[t] = a * y[t - 1] - b * (y[t - 2] * y[t - 2]) + c * u[t - 1] + d * sin(u[t - 2]);
+    for (int t = 1; t < n; t++) {
+        y[t + 1] = a1 * y[t] + a2 * y[t - 1] + 
+                   b1 * u[t] + b2 * u[t - 1] + 
+                   c1 * (y[t] * y[t]) + 
+                   c2 * sin(u[t]) + d;
     }
     return y;
 }
 
 int main() {
     int n; 
-    double a, b, c, d;
+    double a, b; 
+    double a1, a2, b1, b2, c1, c2, d; 
 
     cout << "Number of steps n: ";
     cin >> n;
 
-    cout << "a, b, c, d: ";
-    cin >> a >> b >> c >> d;
+    cout << "Parameters for linear model (a, b): ";
+    cin >> a >> b;
 
-    // Создаем вектор u размером n+1, чтобы иметь запас для u[-1]
+    cout << "Parameters for nonlinear model (a1, a2, b1, b2, c1, c2, d): ";
+    cin >> a1 >> a2 >> b1 >> b2 >> c1 >> c2 >> d;
+
     vector<double> u(n + 1);
     cout << "Enter " << n << " values of the input signal u (u[0] to u[" << n-1 << "]):\n";
     for (int i = 0; i < n; i++) {
         cin >> u[i];
     }
-    // Для u[n] можно установить значение по умолчанию (например, 0)
     u[n] = 0.0;
 
     double y0, y1;
@@ -51,9 +54,11 @@ int main() {
     cin >> y0 >> y1;
 
     auto yLinear = fun1(n, a, b, u, y0);
-    auto yNonlinear = fun2(n, a, b, c, d, u, y0, y1);
+    auto yNonlinear = fun2(n, a1, a2, b1, b2, c1, c2, d, u, y0, y1);
 
     cout << "Time\tLinear Model\tNonlinear Model\n";
+    cout << fixed;
+    cout.precision(4);
     for (int t = 0; t <= n; t++) {
         cout << t << "\t" << yLinear[t] << "\t\t" << yNonlinear[t] << "\n";
     }
