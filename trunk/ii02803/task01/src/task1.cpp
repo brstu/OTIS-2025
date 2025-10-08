@@ -4,7 +4,7 @@
 
 using namespace std;
 
-// --- Структуры параметров ---
+// --- Structures for parameters ---
 struct LinearParams {
     double a;
     double b;
@@ -20,17 +20,20 @@ struct NonlinearParams {
     double g;
 };
 
-// --- Линейная модель ---
+// --- Linear model ---
 vector<double> fun1(int n, const LinearParams& p, const vector<double>& u, double y0) {
     vector<double> y(n + 1);
     y[0] = y0;
+
     for (int t = 0; t < n; t++) {
-        y[t + 1] = p.a * y[t] + p.b * u[t];
+        double yt_next = p.a * y[t] + p.b * u[t];
+        y[t + 1] = yt_next;
     }
+
     return y;
 }
 
-// --- Нелинейная модель ---
+// --- Nonlinear model ---
 vector<double> fun2(int n, const NonlinearParams& p, const vector<double>& u, double y0, double y1) {
     vector<double> y(n + 1);
     y[0] = y0;
@@ -39,35 +42,62 @@ vector<double> fun2(int n, const NonlinearParams& p, const vector<double>& u, do
     for (int t = 1; t < n; t++) {
         double current_y = y[t];
         double previous_y = y[t - 1];
-        double previous_previous_y = (t >= 2) ? y[t - 2] : y0;
+        double previous_previous_y;
+
+        if (t >= 2) {
+            previous_previous_y = y[t - 2];
+        } else {
+            previous_previous_y = y0;
+        }
+
         double current_u = u[t];
         double previous_u = u[t - 1];
 
-        y[t + 1] = p.a * current_y +
-                   p.b * previous_y * previous_y +
-                   p.c * current_u +
-                   p.d * sin(previous_u) +
-                   p.e * previous_u * previous_u +
-                   p.f * previous_previous_y +
-                   p.g;
+        double squared_previous_y = previous_y * previous_y;
+        double squared_previous_u = previous_u * previous_u;
+        double sin_previous_u = sin(previous_u);
+
+        double yt_next = p.a * current_y
+                       + p.b * squared_previous_y
+                       + p.c * current_u
+                       + p.d * sin_previous_u
+                       + p.e * squared_previous_u
+                       + p.f * previous_previous_y
+                       + p.g;
+
+        y[t + 1] = yt_next;
     }
+
     return y;
 }
 
-// --- Главная функция ---
+// --- Main function ---
 int main() {
     int n;
-    LinearParams lin;
-    NonlinearParams nlin;
-
     cout << "Number of steps n: ";
     cin >> n;
 
-    cout << "Parameters for linear model (a, b): ";
-    cin >> lin.a >> lin.b;
+    LinearParams lin;
+    cout << "Parameter a (linear model): ";
+    cin >> lin.a;
+    cout << "Parameter b (linear model): ";
+    cin >> lin.b;
 
-    cout << "Parameters for nonlinear model (a, b, c, d, e, f, g): ";
-    cin >> nlin.a >> nlin.b >> nlin.c >> nlin.d >> nlin.e >> nlin.f >> nlin.g;
+    NonlinearParams nlin;
+    cout << "Parameter a (nonlinear model): ";
+    cin >> nlin.a;
+    cout << "Parameter b (nonlinear model): ";
+    cin >> nlin.b;
+    cout << "Parameter c (nonlinear model): ";
+    cin >> nlin.c;
+    cout << "Parameter d (nonlinear model): ";
+    cin >> nlin.d;
+    cout << "Parameter e (nonlinear model): ";
+    cin >> nlin.e;
+    cout << "Parameter f (nonlinear model): ";
+    cin >> nlin.f;
+    cout << "Parameter g (nonlinear model): ";
+    cin >> nlin.g;
 
     vector<double> u(n + 1);
     cout << "Enter " << n << " values of the input signal u (u[0] to u[" << n - 1 << "]):\n";
@@ -76,9 +106,12 @@ int main() {
     }
     u[n] = 0.0;
 
-    double y0, y1;
-    cout << "Initial conditions y0 and y1: ";
-    cin >> y0 >> y1;
+    double y0;
+    double y1;
+    cout << "Initial condition y0: ";
+    cin >> y0;
+    cout << "Initial condition y1: ";
+    cin >> y1;
 
     vector<double> yLinear = fun1(n, lin, u, y0);
     vector<double> yNonlinear = fun2(n, nlin, u, y0, y1);
@@ -86,6 +119,7 @@ int main() {
     cout << "\nTime\tLinear Model\tNonlinear Model\n";
     cout << fixed;
     cout.precision(4);
+
     for (int t = 0; t <= n; t++) {
         cout << t << "\t" << yLinear[t] << "\t\t" << yNonlinear[t] << "\n";
     }
