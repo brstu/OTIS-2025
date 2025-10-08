@@ -148,6 +148,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> u[i];
     }
+    // Set the last element to zero to ensure boundary condition for the model
 
     u[n] = FINAL_INPUT_VALUE;
 
