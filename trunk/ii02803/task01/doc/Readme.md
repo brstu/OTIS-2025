@@ -8,7 +8,11 @@
 <p align="center">Тема: “Моделирования температуры объекта”</p>
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
+<<<<<<< HEAD
 <p align="right">Студентка 2 курса</p>
+=======
+<p align="right">Студент 2 курса</p>
+>>>>>>> b47b9bdce0b40ba7de3b2e571827303ebe495122
 <p align="right">Группы ИИ-28</p>
 <p align="right">Вабищевич И.В</p>
 <p align="right">Проверил:</p>
@@ -59,13 +63,15 @@ vector<double> fun1(int n, double a, double b, const vector<double>& u, double y
 }
 
 vector<double> fun2(int n, double a, double b, double c, double d,
-                                 const vector<double>& u, double y0, double y1) {
+                    const vector<double>& u, double y0, double y1) {
     vector<double> y(n + 1);
     y[0] = y0;
     y[1] = y1;
 
-    for (int t = 1; t < n; t++) {
-        y[t + 1] = a * y[t] - b * (y[t - 1] * y[t - 1]) + c * u[t] + d * sin(u[t - 1]);
+    // Начинаем с t=2, чтобы избежать обращения к u[-1]
+    for (int t = 2; t <= n; t++) {
+        // Используем u[t-1] и u[t-2] для соответствия временным шагам
+        y[t] = a * y[t - 1] - b * (y[t - 2] * y[t - 2]) + c * u[t - 1] + d * sin(u[t - 2]);
     }
     return y;
 }
@@ -80,11 +86,14 @@ int main() {
     cout << "a, b, c, d: ";
     cin >> a >> b >> c >> d;
 
-    vector<double> u(n);
-    cout << "Enter " << n << " values of the input signal u:\n";
+    // Создаем вектор u размером n+1, чтобы иметь запас для u[-1]
+    vector<double> u(n + 1);
+    cout << "Enter " << n << " values of the input signal u (u[0] to u[" << n-1 << "]):\n";
     for (int i = 0; i < n; i++) {
         cin >> u[i];
     }
+    // Для u[n] можно установить значение по умолчанию (например, 0)
+    u[n] = 0.0;
 
     double y0, y1;
     cout << "Initial conditions y0 and y1: ";
@@ -101,11 +110,19 @@ int main() {
     return 0;
 }
 
+<<<<<<< HEAD
 Enter number of steps n: 5
 Enter coefficients a, b, c, d: 0.8 0.2 0.3 0.1
 Enter 5 values of the input signal u:
 1 1 1 1 1
 Enter initial conditions y0 and y1: 20 20.5
+=======
+Number of steps n: 5
+a, b, c, d: 0.8 0.2 0.3 0.1
+Enter 5 values of the input signal u:
+1 1 1 1 1
+Initial conditions y0 and y1: 20 20.5
+>>>>>>> b47b9bdce0b40ba7de3b2e571827303ebe495122
 
 Time    Linear Model    Nonlinear Model
 0       20              20
@@ -114,3 +131,7 @@ Time    Linear Model    Nonlinear Model
 3       10.728          -134.24
 4       8.7824          -906.2
 5       7.2259          -4330.6
+<<<<<<< HEAD
+=======
+
+>>>>>>> b47b9bdce0b40ba7de3b2e571827303ebe495122
