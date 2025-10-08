@@ -33,19 +33,19 @@ vector<double> fun2(double a, double b, double c, double d, double e, double f, 
     for (int t = 1; t < n; t++) {
         double current_y = y[t];
         double previous_y = y[t - 1];
+        double previous_previous_y = (t >= 2) ? y[t - 2] : y0;  
         double current_u = u[t];
         double previous_u = u[t - 1];
         double squared_previous_y = previous_y * previous_y;
-        double squared_current_u = current_u * current_u;
+        double squared_previous_u = previous_u * previous_u;
         double sin_previous_u = sin(previous_u);
-        double cos_current_y = cos(current_y);
         
         y[t + 1] = a * current_y + 
                    b * squared_previous_y + 
                    c * current_u + 
                    d * sin_previous_u + 
-                   e * squared_current_u + 
-                   f * cos_current_y + 
+                   e * squared_previous_u + 
+                   f * previous_previous_y +  
                    g;
     }
     return y;
