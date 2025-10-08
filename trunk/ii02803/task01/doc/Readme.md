@@ -37,9 +37,9 @@ where $\tau$ – time discrete moments ($1,2,3{\dots}n$); $a,b,c,d$ – some con
 
 Task is to write program (**С++**), which simulates this object temperature.
 
-<hr>
+$$\Large y_{\tau+1}=ay_{\tau}+by_{\tau-1}^2+cu_{\tau}+d\sin(u_{\tau-1})+e u_{\tau-1}^2+f y_{\tau-2}+g$$ (3)
 
-# Выполнение задания #
+where $\tau$ – time discrete moments ($1,2,3{\dots}n$); $a,b,c,d,e,f,g$ – some constants.
 
 Код программы:
 ```C++
