@@ -46,28 +46,27 @@ void simulateNonlinear(double a, double b, double c, double d, double u, int ste
     }
 
     std::cout << "Нелинейная модель" << std::endl;
-    double y = 0.0;
-    double yPrev = 0.0;
-    double uPrev = u;
+
+    NonlinearParams p;
+    p.a = a;
+    p.b = b;
+    p.c = c;
+    p.d = d;
+
+    p.u = u;
+    p.uPrev = u;
+
+    p.y = 0.0;
+    p.yPrev = 0.0;
 
     for (int i = 0; i < steps; i++)
     {
-        std::cout << "t = " << i << ", y = " << y << std::endl;
-
-        NonlinearParams p;
-        p.a = a;
-        p.b = b;
-        p.c = c;
-        p.d = d;
-        p.u = u;
-        p.uPrev = uPrev;
-        p.y = y;
-        p.yPrev = yPrev;
+        std::cout << "t = " << i << ", y = " << p.y << std::endl;
 
         double yNext = nextNonlinear(p);
 
-        yPrev = y;
-        y = yNext;
+        p.yPrev = p.y;
+        p.y = yNext;
     }
 }
 
