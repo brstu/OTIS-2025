@@ -63,17 +63,17 @@ public:
 		cin >> this->rc;
 
 	}
-	void equation1(int& t) {
+	void equation1(const int& t) {
 
 		this->temp_change = u.at(t) / c + (y0 - y.at(t)) / rc;
 
 	}
-	void linear(int& t) {
+	void linear(const int& t) {
 
 		this->y.at(t + 1) = a * y.at(t) + b * u.at(t);
 
 	}
-	void nonlinear(int& t) {
+	void nonlinear(const int& t) {
 
 		if (t != 0) {
 			this->y.at(t + 1) = a * y.at(t) - (b * (y.at(t - 1) * y.at(t - 1))) + (c * u.at(t) + d * sin(u.at(t - 1)));
@@ -83,22 +83,22 @@ public:
 		}
 
 	}
-	int getN() {
+	const int getN() {
 
 		return this->k;
 
 	}
-	double getT() {
+	const double getT() {
 
 		return this->t;
 
 	}
-	double getY(int t) {
+	const double getY(int t) {
 
 		return this->y.at(t);
 
 	}
-	double getDelt() {
+	const double getDelt() {
 
 		return this->temp_change;
 
