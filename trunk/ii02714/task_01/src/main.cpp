@@ -1,80 +1,67 @@
-<<<<<<< HEAD
-﻿﻿#include <iostream>
-=======
-﻿#include <iostream>
->>>>>>> 582f740934e7c433572eaa031190b80d7753cd04
+
+#include <iostream>
 #include <cmath>
 #include <vector>
 using namespace std;
 
 class Obj {
 private:
-	int n;
-	double t;
+	int k = 4;
+	double t = 0;
 	vector<double> y;
 	vector<double> u;
-	double y0;
+	double y0 = 25;
 	double temp_change;
-	double a;
-	double b;
-	double c;
-	double d;
-	double c1;
-	double rc;
+	double a = 1;
+	double b = 1;
+	double c = 1;
+	double d = 1;
+	double c1 = 1;
+	double rc = 1;
 public:
 	Obj() {
-		this->n = 4;
-		y.resize(n, 0);
-		u.resize(n, 0);
-		this->t = 0;
-		this->y0 = 25;
-		this->a = this->b = this->c = this->d = this->c1 = this->rc = 1;
+		y.resize(k, 0);
+		u.resize(k, 0);
 	}
 	void input() {
 		cout << "Cin amount of iterations: ";
-		cin >> this->n;
-<<<<<<< HEAD
-		for (auto &n : y) {
+		cin >> this->k;
+		for (auto& n : y) {
 			cout << "\nCin temperatures: ";
 			cin >> n;
 		}
-		for (auto &n : u) {
-=======
-		for (auto n : y) {
-			cout << "\nCin temperatures: ";
-			cin >> n;
+		for (auto& n : u) {
+			for (auto n : y) {
+				cout << "\nCin temperatures: ";
+				cin >> n;
+			}
+			for (auto& n : u) {
+				cout << "\nCin warm: ";
+				cin >> n;
+			}
+			cout << "\nCin room temperature: ";
+			cin >> this->y0;
+			cout << "Cin const a: ";
+			cin >> this->a;
+			cout << "Cin const b: ";
+			cin >> this->b;
+			cout << "Cin const c: ";
+			cin >> this->c;
+			cout << "Cin const d: ";
+			cin >> this->d;
+			cout << "Cin const c1: ";
+			cin >> this->c1;
+			cout << "Cin const rc: ";
+			cin >> this->rc;
 		}
-		for (auto n : u) {
->>>>>>> 582f740934e7c433572eaa031190b80d7753cd04
-			cout << "\nCin warm: ";
-			cin >> n;
-		}
-		cout << "\nCin room temperature: ";
-		cin >> this->y0;
-		cout << "Cin const a: ";
-		cin >> this->a;
-		cout << "Cin const b: ";
-		cin >> this->b;
-		cout << "Cin const c: ";
-		cin >> this->c;
-		cout << "Cin const d: ";
-		cin >> this->d;
-		cout << "Cin const c1: ";
-		cin >> this->c1;
-		cout << "Cin const rc: ";
-		cin >> this->rc;
 	}
-<<<<<<< HEAD
 	void equation1(int& t) {
 		this->temp_change = u.at(t) / c + (y0 - y.at(t)) / rc;
 	}
-	void linear(int& t) {
-=======
 	void eqution1(int& t) {
 		this->temp_change = u.at(t) / c + (y0 - y.at(t)) / rc;
 	}
-	void liner(int& t) {
->>>>>>> 582f740934e7c433572eaa031190b80d7753cd04
+	void linear(int& t) {
 		this->y.at(t + 1) = a * y.at(t) + b * u.at(t);
 	}
 	void nonlinear(int& t) {
@@ -86,9 +73,9 @@ public:
 		}
 	}
 	int getN() {
-		return this->n;
+		return this->k;
 	}
-	int getT() {
+	double getT() {
 		return this->t;
 	}
 	double getY(int t) {
@@ -99,23 +86,19 @@ public:
 	}
 	~Obj() {
 		u.clear();
-<<<<<<< HEAD
 
-=======
->>>>>>> 582f740934e7c433572eaa031190b80d7753cd04
 		y.clear();
 	}
 };
-
 int main()
 {
 	Obj a;
 	a.input();
 	int n = a.getN();
-	int t = a.getT();
-	for (t = 0; t < n; t ++) {
-		a.liner(t);
-		cout << "Temperature at " << t + 1 << " equels: " << a.getY(t + 1) << endl;
+	double t = a.getT();
+	for (int j = 0; j < n; j++) {
+		a.linear(j);
+		cout << "Temperature at " << j + 1 << " equels: " << a.getY(j + 1) << endl;
 	}
 	return 0;
 }
