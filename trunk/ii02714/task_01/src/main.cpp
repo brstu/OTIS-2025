@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿﻿#include <iostream>
+=======
+﻿#include <iostream>
+>>>>>>> 582f740934e7c433572eaa031190b80d7753cd04
 #include <cmath>
 #include <vector>
 using namespace std;
@@ -29,11 +33,19 @@ public:
 	void input() {
 		cout << "Cin amount of iterations: ";
 		cin >> this->n;
+<<<<<<< HEAD
 		for (auto &n : y) {
 			cout << "\nCin temperatures: ";
 			cin >> n;
 		}
 		for (auto &n : u) {
+=======
+		for (auto n : y) {
+			cout << "\nCin temperatures: ";
+			cin >> n;
+		}
+		for (auto n : u) {
+>>>>>>> 582f740934e7c433572eaa031190b80d7753cd04
 			cout << "\nCin warm: ";
 			cin >> n;
 		}
@@ -52,10 +64,17 @@ public:
 		cout << "Cin const rc: ";
 		cin >> this->rc;
 	}
+<<<<<<< HEAD
 	void equation1(int& t) {
 		this->temp_change = u.at(t) / c + (y0 - y.at(t)) / rc;
 	}
 	void linear(int& t) {
+=======
+	void eqution1(int& t) {
+		this->temp_change = u.at(t) / c + (y0 - y.at(t)) / rc;
+	}
+	void liner(int& t) {
+>>>>>>> 582f740934e7c433572eaa031190b80d7753cd04
 		this->y.at(t + 1) = a * y.at(t) + b * u.at(t);
 	}
 	void nonlinear(int& t) {
@@ -80,7 +99,10 @@ public:
 	}
 	~Obj() {
 		u.clear();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 582f740934e7c433572eaa031190b80d7753cd04
 		y.clear();
 	}
 };
