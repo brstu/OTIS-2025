@@ -103,11 +103,6 @@ public:
 		return this->temp_change;
 
 	}
-	~Obj() {
-		u.clear();
-
-		y.clear();
-	}
 };
 int main()
 {
