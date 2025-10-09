@@ -1,13 +1,14 @@
-﻿#include <iostream>
-
+﻿﻿#include <iostream>
+#include <cmath>
+#include <vector>
 using namespace std;
 
 class Obj {
 private:
 	int n;
 	double t;
-	double *y;
-	double *u;
+	vector<double> y;
+	vector<double> u;
 	double y0;
 	double temp_change;
 	double a;
@@ -19,32 +20,22 @@ private:
 public:
 	Obj() {
 		this->n = 4;
-		this->y = new double[n];
-		for (int i = 0; i < n; i++) {
-			 *(y + i) = 0;
-		}
-		this-> u = new double[n];
-		for (int i = 0; i < n; i++) {
-			*(u + i) = 0;
-		}
-	    this->t = 0;
+		y.resize(n, 0);
+		u.resize(n, 0);
+		this->t = 0;
 		this->y0 = 25;
 		this->a = this->b = this->c = this->d = this->c1 = this->rc = 1;
 	}
 	void input() {
-		delete[] y;
-		delete[] u;
 		cout << "Cin amount of iterations: ";
 		cin >> this->n;
-		this->y = new double[n];
-		for (int i = 0; i < n;i++) {
-				cout << "\nCin temperatures: ";
-				cin >> *(y+i);
-			}
-		this->u = new double[n];
-		for (int i = 0; i < n; i++) {
+		for (auto &n : y) {
+			cout << "\nCin temperatures: ";
+			cin >> n;
+		}
+		for (auto &n : u) {
 			cout << "\nCin warm: ";
-			cin >> *(u + i);
+			cin >> n;
 		}
 		cout << "\nCin room temperature: ";
 		cin >> this->y0;
@@ -61,18 +52,18 @@ public:
 		cout << "Cin const rc: ";
 		cin >> this->rc;
 	}
-	void eqution1(int &t) {
-		this->temp_change = u[t] / c + (y0 - y[t]) / rc;
+	void equation1(int& t) {
+		this->temp_change = u.at(t) / c + (y0 - y.at(t)) / rc;
 	}
-	void liner(int& t) {
-		this-> y[t + 1] = a * y[t] + b * u[t];
+	void linear(int& t) {
+		this->y.at(t + 1) = a * y.at(t) + b * u.at(t);
 	}
-	void neliner(int& t) {
+	void nonlinear(int& t) {
 		if (t != 0) {
-			this->y[t + 1] = a * y[t] - (b * (y[t - 1] * y[t - 1])) + (c * u[t] + d * sin(u[t - 1]));
+			this->y.at(t + 1) = a * y.at(t) - (b * (y.at(t - 1) * y.at(t - 1))) + (c * u.at(t) + d * sin(u.at(t - 1)));
 		}
 		else {
-			this->y[t + 1] = a * y[t] - (b * (y[t] * y[t])) + (c * u[t] + d * sin(u[t]));
+			this->y.at(t + 1) = a * y.at(t) - (b * (y.at(t) * y.at(t))) + (c * u.at(t) + d * sin(u.at(t)));
 		}
 	}
 	int getN() {
@@ -82,14 +73,15 @@ public:
 		return this->t;
 	}
 	double getY(int t) {
-		return this->y[t];
+		return this->y.at(t);
 	}
 	double getDelt() {
 		return this->temp_change;
 	}
 	~Obj() {
-		delete[] y;
-		delete[] u;
+		u.clear();
+
+		y.clear();
 	}
 };
 
@@ -99,9 +91,9 @@ int main()
 	a.input();
 	int n = a.getN();
 	int t = a.getT();
-	for (t = 0; t < n; t += a.getDelt()) {
+	for (t = 0; t < n; t ++) {
 		a.liner(t);
-		cout << "Temperature at " << t + 1 << "equels: " << a.getY(t + 1) << endl;
+		cout << "Temperature at " << t + 1 << " equels: " << a.getY(t + 1) << endl;
 	}
 	return 0;
 }
