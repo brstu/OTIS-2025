@@ -24,74 +24,84 @@ public:
 		u.resize(k, 0);
 	}
 	void input() {
-		cout << "Cin amount of iterations: ";
-<<<<<<< HEAD
+		cout << "Enter amount of iterations: ";
 		cin >> this->k;
-=======
-		cin >> this->n;
->>>>>>> 5d1184957240d6c50b03b627c9a95289eed25bc6
-		for (auto& n : y) {
-			cout << "\nCin temperatures: ";
-			cin >> n;
+		for (auto& temp : y) {
+			cout << "\nEnter temperatures: ";
+			cin >> temp;
 		}
-		for (auto& n : u) {
-			for (auto n : y) {
-				cout << "\nCin temperatures: ";
-				cin >> n;
-			}
-<<<<<<< HEAD
-			for (auto& n : u) {
-=======
-			for (auto n : u) {
->>>>>>> 5d1184957240d6c50b03b627c9a95289eed25bc6
-				cout << "\nCin warm: ";
-				cin >> n;
-			}
-			cout << "\nCin room temperature: ";
-			cin >> this->y0;
-			cout << "Cin const a: ";
-			cin >> this->a;
-			cout << "Cin const b: ";
-			cin >> this->b;
-			cout << "Cin const c: ";
-			cin >> this->c;
-			cout << "Cin const d: ";
-			cin >> this->d;
-			cout << "Cin const c1: ";
-			cin >> this->c1;
-			cout << "Cin const rc: ";
-			cin >> this->rc;
-<<<<<<< HEAD
+        for (auto &warm : u) {
+		cout << "\nEnter warm: ";
+	    cin >> warm;
 		}
+        cout << "\nEnter room temperature: ";
+
+        cin >> this->y0;
+
+		cout << "Enter const a: ";
+
+		cin >> this->a;
+
+		cout << "Enter const b: ";
+
+		cin >> this->b;
+
+		cout << "Enter const c: ";
+
+		cin >> this->c;
+
+		cout << "Enter const d: ";
+
+		cin >> this->d;
+
+		cout << "Enter const c1: ";
+
+		cin >> this->c1;
+
+		cout << "Enter const rc: ";
+
+		cin >> this->rc;
+
 	}
 	void equation1(int& t) {
+
 		this->temp_change = u.at(t) / c + (y0 - y.at(t)) / rc;
-	}
-	void eqution1(int& t) {
-		this->temp_change = u.at(t) / c + (y0 - y.at(t)) / rc;
+
 	}
 	void linear(int& t) {
+
 		this->y.at(t + 1) = a * y.at(t) + b * u.at(t);
+
 	}
 	void nonlinear(int& t) {
+
 		if (t != 0) {
 			this->y.at(t + 1) = a * y.at(t) - (b * (y.at(t - 1) * y.at(t - 1))) + (c * u.at(t) + d * sin(u.at(t - 1)));
 		}
 		else {
 			this->y.at(t + 1) = a * y.at(t) - (b * (y.at(t) * y.at(t))) + (c * u.at(t) + d * sin(u.at(t)));
 		}
+
 	}
 	int getN() {
+
 		return this->k;
+
 	}
 	double getT() {
+
 		return this->t;
+
 	}
 	double getY(int t) {
+
 		return this->y.at(t);
+
 	}
 	double getDelt() {
+
 		return this->temp_change;
+
 	}
 	~Obj() {
 		u.clear();
@@ -107,58 +117,7 @@ int main()
 	double t = a.getT();
 	for (int j = 0; j < n; j++) {
 		a.linear(j);
-		cout << "Temperature at " << j + 1 << " equels: " << a.getY(j + 1) << endl;
+		cout << "Temperature at " << j + 1 << " equals: " << a.getY(j + 1) << endl;
 	}
 	return 0;
 }
-=======
-		}
-	}
-		void equation1(int& t) {
-			this->temp_change = u.at(t) / c + (y0 - y.at(t)) / rc;
-		}
-			void eqution1(int& t) {
-				this->temp_change = u.at(t) / c + (y0 - y.at(t)) / rc;
-			}
-			void linear(int& t) {
-				this->y.at(t + 1) = a * y.at(t) + b * u.at(t);
-			}
-			void nonlinear(int& t) {
-				if (t != 0) {
-					this->y.at(t + 1) = a * y.at(t) - (b * (y.at(t - 1) * y.at(t - 1))) + (c * u.at(t) + d * sin(u.at(t - 1)));
-				}
-				else {
-					this->y.at(t + 1) = a * y.at(t) - (b * (y.at(t) * y.at(t))) + (c * u.at(t) + d * sin(u.at(t)));
-				}
-			}
-			int getN() {
-				return this->n;
-			}
-			int getT() {
-				return this->t;
-			}
-			double getY(int t) {
-				return this->y.at(t);
-			}
-			double getDelt() {
-				return this->temp_change;
-			}
-			~Obj() {
-				u.clear();
-
-				y.clear();
-			}
-		};
-		int main()
-		{
-			Obj a;
-			a.input();
-			int n = a.getN();
-			int t = a.getT();
-			for (t = 0; t < n; t++) {
-				a.linear(t);
-				cout << "Temperature at " << t + 1 << " equels: " << a.getY(t + 1) << endl;
-			}
-			return 0;
-		}
->>>>>>> 5d1184957240d6c50b03b627c9a95289eed25bc6
