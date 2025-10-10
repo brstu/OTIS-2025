@@ -30,13 +30,13 @@ public:
 			cout << "\nEnter temperatures: ";
 			cin >> temp;
 		}
-        for (auto &warm : u) {
-		cout << "\nEnter warm: ";
-	    cin >> warm;
+		for (auto& warm : u) {
+			cout << "\nEnter warm: ";
+			cin >> warm;
 		}
-        cout << "\nEnter room temperature: ";
+		cout << "\nEnter room temperature: ";
 
-        cin >> this->y0;
+		cin >> this->y0;
 
 		cout << "Enter const a: ";
 
@@ -63,42 +63,42 @@ public:
 		cin >> this->rc;
 
 	}
-	void equation1(const int& t) {
+	void equation1(const int& place) {
 
-		this->temp_change = u.at(t) / c + (y0 - y.at(t)) / rc;
-
-	}
-	void linear(const int& t) {
-
-		this->y.at(t + 1) = a * y.at(t) + b * u.at(t);
+		this->temp_change = u.at(place) / c + (y0 - y.at(place)) / rc;
 
 	}
-	void nonlinear(const int& t) {
+	void linear(const int& place) {
+
+		this->y.at(place + 1) = a * y.at(place) + b * u.at(place);
+
+	}
+	void nonlinear(const int& place) {
 
 		if (t != 0) {
-			this->y.at(t + 1) = a * y.at(t) - (b * (y.at(t - 1) * y.at(t - 1))) + (c * u.at(t) + d * sin(u.at(t - 1)));
+			this->y.at(place + 1) = a * y.at(place) - (b * (y.at(place - 1) * y.at(place - 1))) + (c * u.at(place) + d * sin(u.at(place - 1)));
 		}
 		else {
-			this->y.at(t + 1) = a * y.at(t) - (b * (y.at(t) * y.at(t))) + (c * u.at(t) + d * sin(u.at(t)));
+			this->y.at(place + 1) = a * y.at(place) - (b * (y.at(place) * y.at(place))) + (c * u.at(place) + d * sin(u.at(place)));
 		}
 
 	}
-	const int getN() {
+	 int getN() const {
 
 		return this->k;
 
 	}
-	const double getT() {
+	 int getT() const {
 
 		return this->t;
 
 	}
-	const double getY(int t) {
+	 double getY(int place) const {
 
-		return this->y.at(t);
+		return this->y.at(place);
 
 	}
-	const double getDelt() {
+	double getDelt() const {
 
 		return this->temp_change;
 
@@ -109,8 +109,8 @@ int main()
 	Obj a;
 	a.input();
 	int n = a.getN();
-	double t = a.getT();
-	for (int j = 0; j < n; j++) {
+	int t = a.getT();
+	for (int j = t; j < n; j++) {
 		a.linear(j);
 		cout << "Temperature at " << j + 1 << " equals: " << a.getY(j + 1) << endl;
 	}
