@@ -7,7 +7,7 @@ using namespace std;
 class Obj {
 private:
 	int k = 4;
-	double t = 0;
+	int t = 0;
 	vector<double> y;
 	vector<double> u;
 	double y0 = 25;
