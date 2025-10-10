@@ -26,6 +26,8 @@ public:
 	void input() {
 		cout << "Enter amount of iterations: ";
 		cin >> this->k;
+		u.resize(k, 0);
+		y.resize(k, 0);
 		for (auto& temp : y) {
 			cout << "\nEnter temperatures: ";
 			cin >> temp;
@@ -69,17 +71,21 @@ public:
 
 	}
 	void linear(const int& place) {
-
-		this->y.at(place + 1) = a * y.at(place) + b * u.at(place);
+		if (place + 1 <= k && place >= 0) {
+			this->y.at(place + 1) = a * y.at(place) + b * u.at(place);
+		}
+		else {
+			cout << "\nEntered place out of range";
+		}
 
 	}
 	void nonlinear(const int& place) {
 
-		if (t != 0) {
+		if (t != 0 && place + 1 <= k) {
 			this->y.at(place + 1) = a * y.at(place) - (b * (y.at(place - 1) * y.at(place - 1))) + (c * u.at(place) + d * sin(u.at(place - 1)));
 		}
 		else {
-			this->y.at(place + 1) = a * y.at(place) - (b * (y.at(place) * y.at(place))) + (c * u.at(place) + d * sin(u.at(place)));
+			cout << "\nEntered place out of range";
 		}
 
 	}
@@ -112,7 +118,15 @@ int main()
 	int t = a.getT();
 	for (int j = t; j < n; j++) {
 		a.linear(j);
-		cout << "Temperature at " << j + 1 << " equals: " << a.getY(j + 1) << endl;
+		cout << "Linear equation: Temperature at " << j + 1 << " equals: " << a.getY(j + 1) << endl;
+		a.equation1(j);
+		cout << "Temperature change at " << j << " is: " << a.getDelt() << endl;
+	}
+	for (int m = t; m < n; m++) {
+		a.nonlinear(m);
+		cout << "Nonlinear equation: Temperature at " << m + 1 << " equals: " << a.getY(m + 1) << endl;
+		a.equation1(m);
+		cout << "Temperature change at " << m << " is: " << a.getDelt() << endl;
 	}
 	return 0;
 }
