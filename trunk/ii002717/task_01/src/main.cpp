@@ -1,60 +1,70 @@
 #include <iostream>
+#include <vector>
 #include <cmath>
+
 const int MAX_STEPS = 101;
-using namespace std;
 
 int main() {
-    setlocale(LC_ALL, "rus");
-    int N;
-    double a, b, c, d;
+    std::setlocale(LC_ALL, "rus");
 
-    cout << "Введите число шагов N (N < 100): ";
-    cin >> N;
+    int N;
+    std::cout << "Введите число шагов N (N < 100): ";
+    std::cin >> N;
     if (N >= 100) {
-        cout << "Ошибка: выход за границу\n";
+        std::cout << "Ошибка: выход за границу\n";
         return 1;
     }
 
-    cout << "Введите константы a, b, c, d: ";
-    cin >> a >> b >> c >> d;
+    double a;
+    double b;
+    double c;
+    double d;
 
-    double u[100];
-    cout << "Введите значения u(t) для t = 0.." << N - 1 << ":\n";
+    std::cout << "Введите константы a, b, c, d: ";
+    std::cin >> a;
+    std::cin >> b;
+    std::cin >> c;
+    std::cin >> d;
+
+    std::vector<double> u(N);
+    std::cout << "Введите значения u(t) для t = 0.." << N - 1 << ":\n";
     for (int t = 0; t < N; ++t) {
-        cout << "u[" << t << "] = ";
-        cin >> u[t];
+        std::cout << "u[" << t << "] = ";
+        std::cin >> u[t];
     }
 
-    double y_lin[MAX_STEPS], y_nl[MAX_STEPS];
+    std::vector<double> y_lin(N + 1);
+    std::vector<double> y_nl(N + 1);
 
-    cout << "Введите начальную температуру y[0]: ";
-    cin >> y_lin[0];
+    std::cout << "Введите начальную температуру y[0]: ";
+    std::cin >> y_lin[0];
     y_nl[0] = y_lin[0];
 
-    cout << "Введите y[1] для нелинейной модели: ";
-    cin >> y_nl[1];
+    std::cout << "Введите y[1] для нелинейной модели: ";
+    std::cin >> y_nl[1];
 
-    // Линейная модель: можно считать для всех t
+    // Линейная модель
     for (int t = 0; t < N; ++t) {
         y_lin[t + 1] = a * y_lin[t] + b * u[t];
     }
 
-    // Нелинейная модель: начинаем с t = 1
+    // Нелинейная модель
     for (int t = 1; t < N; ++t) {
         y_nl[t + 1] = a * y_nl[t]
                     - b * y_nl[t - 1] * y_nl[t - 1]
                     + c * u[t]
-                    + d * sin(u[t - 1]);
+                    + d * std::sin(u[t - 1]);
     }
 
-    cout << "\nРезультаты моделирования:\n";
-    cout << "t  y_lin  y_nl\n";
+    std::cout << "\nРезультаты моделирования:\n";
+    std::cout << "t  y_lin  y_nl\n";
     for (int t = 0; t <= N; ++t) {
-        cout << t << "  " << y_lin[t] << "  " << y_nl[t] << "\n";
+        std::cout << t << "  " << y_lin[t] << "  " << y_nl[t] << "\n";
     }
 
     return 0;
 }
+
 
 
 
