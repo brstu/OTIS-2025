@@ -1,5 +1,4 @@
-cmake_minimum_required(VERSION 3.31 FATAL_ERROR)
+cmake_minimum_required (VERSION 3.5)
+project (task_01_ii02707)
 
-project(task_01_17)
-
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable (ii002717 main.cpp)
