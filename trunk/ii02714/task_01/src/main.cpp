@@ -71,7 +71,7 @@ public:
 
 	}
 	void linear(const int& place) {
-		if (place + 1 <= k && place >= 0) {
+		if (place + 1 < k && place >= 0) {
 			this->y.at(place + 1) = a * y.at(place) + b * u.at(place);
 		}
 		else {
@@ -81,7 +81,7 @@ public:
 	}
 	void nonlinear(const int& place) {
 
-		if (t != 0 && place + 1 <= k) {
+		if (place > 0 && place + 1 <= k) {
 			this->y.at(place + 1) = a * y.at(place) - (b * (y.at(place - 1) * y.at(place - 1))) + (c * u.at(place) + d * sin(u.at(place - 1)));
 		}
 		else {
