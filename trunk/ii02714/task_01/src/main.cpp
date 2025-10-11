@@ -11,7 +11,7 @@ private:
 	vector<double> y;
 	vector<double> u;
 	double y0 = 25;
-	double temp_change;
+	double temp_change = 0;
 	double a = 1;
 	double b = 1;
 	double c = 1;
@@ -28,14 +28,14 @@ public:
 		cin >> this->k;
 		u.resize(k, 0);
 		y.resize(k, 0);
-		for (auto& temp : y) {
-			cout << "\nEnter temperatures: ";
-			cin >> temp;
-		}
+	    cout << "\nEnter temperature: ";
+		cin >> y.at(0);
 		for (auto& warm : u) {
 			cout << "\nEnter warm: ";
 			cin >> warm;
 		}
+		u.resize(k + 1, 0);
+		y.resize(k + 1, 0);
 		cout << "\nEnter room temperature: ";
 
 		cin >> this->y0;
@@ -71,7 +71,7 @@ public:
 
 	}
 	void linear(const int& place) {
-		if (place + 1 < k && place >= 0) {
+		if (place <= k  && place >= 0) {
 			this->y.at(place + 1) = a * y.at(place) + b * u.at(place);
 		}
 		else {
@@ -81,7 +81,7 @@ public:
 	}
 	void nonlinear(const int& place) {
 
-		if (place > 0 && place + 1 <= k) {
+		if (place > 0 && place <= k) {
 			this->y.at(place + 1) = a * y.at(place) - (b * (y.at(place - 1) * y.at(place - 1))) + (c * u.at(place) + d * sin(u.at(place - 1)));
 		}
 		else {
@@ -89,17 +89,17 @@ public:
 		}
 
 	}
-	 int getN() const {
+	int getN() const {
 
 		return this->k;
 
 	}
-	 int getT() const {
+	int getT() const {
 
 		return this->t;
 
 	}
-	 double getY(int place) const {
+	double getY(int place) const {
 
 		return this->y.at(place);
 
@@ -116,17 +116,20 @@ int main()
 	a.input();
 	int n = a.getN();
 	int t = a.getT();
-	for (int j = t; j < n -1; j++) {
+	for (int j = t; j < n; j++) {
 		a.linear(j);
-		cout << "Linear equation: Temperature at " << j + 1 << " equals: " << a.getY(j + 1) << endl;
+		cout << "Linear equation: Temperature at " << j + 1 << " equals: " << a.getY(j) << endl;
 		a.equation1(j);
 		cout << "Temperature change at " << j << " is: " << a.getDelt() << endl;
 	}
-	for (int m = t; m < n -1; m++) {
+	t++;
+	cout << "Nonlinear equation: Temperature at 1" << " equals: " << a.getY(0) << endl;
+	for (int m = t; m < n; m++) {
 		a.nonlinear(m);
-		cout << "Nonlinear equation: Temperature at " << m + 1 << " equals: " << a.getY(m + 1) << endl;
+		cout << "Nonlinear equation: Temperature at " << m + 1 << " equals: " << a.getY(m) << endl;
 		a.equation1(m);
 		cout << "Temperature change at " << m << " is: " << a.getDelt() << endl;
 	}
+	
 	return 0;
 }
