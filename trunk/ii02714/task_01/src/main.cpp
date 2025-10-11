@@ -116,13 +116,13 @@ int main()
 	a.input();
 	int n = a.getN();
 	int t = a.getT();
-	for (int j = t; j < n; j++) {
+	for (int j = t; j < n -1; j++) {
 		a.linear(j);
 		cout << "Linear equation: Temperature at " << j + 1 << " equals: " << a.getY(j + 1) << endl;
 		a.equation1(j);
 		cout << "Temperature change at " << j << " is: " << a.getDelt() << endl;
 	}
-	for (int m = t; m < n; m++) {
+	for (int m = t; m < n -1; m++) {
 		a.nonlinear(m);
 		cout << "Nonlinear equation: Temperature at " << m + 1 << " equals: " << a.getY(m + 1) << endl;
 		a.equation1(m);
