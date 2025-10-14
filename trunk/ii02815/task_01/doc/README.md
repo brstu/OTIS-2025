@@ -47,6 +47,8 @@ Task is to write program (**С++**), which simulates this object temperature.
 ```
 #include <iostream>
 #include <cmath>
+#include <limits>
+#include <string>
 
 struct ModelParameters {
     double a;
@@ -63,6 +65,33 @@ double nonlinearModel(double y_current, double y_previous, double u_current, dou
     return params.a * y_current - params.b * y_previous * y_previous + params.c * u_current + params.d * sin(u_previous);
 }
 
+void clearInput() {
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+
+bool readDouble(const std::string& text, double& value) {
+    std::cout << text;
+    std::cin >> value;
+    while (std::cin.fail()) {
+        clearInput();
+        std::cout << "Invalid input. Please enter a numeric value.\n" << text;
+        std::cin >> value;
+    }
+    return true;
+}
+
+bool readPositiveInt(const std::string& text, int& value) {
+    std::cout << text;
+    std::cin >> value;
+    while (std::cin.fail() || value <= 0) {
+        clearInput();
+        std::cout << "Invalid input. Please enter a positive integer.\n" << text;
+        std::cin >> value;
+    }
+    return true;
+}
+
 int main() {
     double a;
     double b;
@@ -72,42 +101,35 @@ int main() {
     double u0;
     int n;
 
-    std::cout << "Enter constants a, b, c, d: ";
-    std::cin >> a;
-    std::cin >> b;
-    std::cin >> c;
-    std::cin >> d;
-
-    std::cout << "Enter initial output y0: ";
-    std::cin >> y0;
-
-    std::cout << "Enter initial input u0: ";
-    std::cin >> u0;
-
-    std::cout << "Enter number of steps (n): ";
-    std::cin >> n;
+    readDouble("Enter constant a: ", a);
+    readDouble("Enter constant b: ", b);
+    readDouble("Enter constant c: ", c);
+    readDouble("Enter constant d: ", d);
+    readDouble("Enter initial output y0: ", y0);
+    readDouble("Enter initial input u0: ", u0);
+    readPositiveInt("Enter number of steps (n): ", n);
 
     ModelParameters params{a, b, c, d};
 
     double y_linear_current = y0;
     double y_nonlinear_current = y0;
     double y_nonlinear_previous = y0;
-
     double u_previous = u0;
     double u_current;
 
     std::cout << "Steps\tLinear model\tNonlinear model\n";
 
     for (int step = 1; step <= n; ++step) {
-        std::cout << "Enter input u for step " << step << ": ";
-        std::cin >> u_current;
+        readDouble("Enter input u for step " + std::to_string(step) + ": ", u_current);
+
         double linear_result = linearModel(y_linear_current, u_current, params);
         double nonlinear_result = nonlinearModel(y_nonlinear_current, y_nonlinear_previous, u_current, u_previous, params);
+
         std::cout << step << "\t" << linear_result << "\t\t" << nonlinear_result << "\n";
+
         y_linear_current = linear_result;
         y_nonlinear_previous = y_nonlinear_current;
         y_nonlinear_current = nonlinear_result;
-
         u_previous = u_current;
     }
     return 0;
@@ -115,29 +137,28 @@ int main() {
 ```
 Вывод программы:
 ```
-Enter constants a, b, c, d: 0.3 0.8 1.3 1.5
+Enter constant a: 0.3
+Enter constant b: 0.8
+Enter constant c: 1.3
+Enter constant d: 1.6
 Enter initial output y0: 1
 Enter initial input u0: 1
-Enter number of steps (n): 10
+Enter number of steps (n): 8
 Steps   Linear model    Nonlinear model
-Enter input u for step 1: 3
-1       2.7             4.66221
-Enter input u for step 2: 4    
-2       4.01            6.01034
-Enter input u for step 3: 6    
-3       6.003           -8.92104
-Enter input u for step 4: 2     
-4       3.4009          -29.3948
-Enter input u for step 5: 1     
-5       1.82027         -69.8224
-Enter input u for step 6: 9     
-6       7.74608         -699.228
-Enter input u for step 7: 5     
-7       6.32382         -4102.79
-Enter input u for step 8: 4
-8       5.09715         -392363
-Enter input u for step 9: 2
-9       3.12914         -1.3584e+07
-Enter input u for step 10: 3
-10      3.33874         -1.23163e+11
+Enter input u for step 1: 1
+1       1.1             2.14635
+Enter input u for step 2: 2
+2       1.93            3.79026
+Enter input u for step 3: 3
+3       2.979           2.80649
+Enter input u for step 4: 4
+4       4.0937          -5.22512
+Enter input u for step 5: 5
+5       5.22811         -2.57951
+Enter input u for step 6: 6
+6       6.36843         -16.3496
+Enter input u for step 7: 7
+7       7.51053         -1.57506
+Enter input u for step 8: 8
+8       8.65316         -202.869
 ```
