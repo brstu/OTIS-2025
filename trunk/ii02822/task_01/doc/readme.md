@@ -1,11 +1,11 @@
 <p align="center"> Министерство образования Республики Беларусь</p>
 <p align="center">Учреждение образования</p>
-<p align="center">“Брестский Государственный технический университет”</p>
+<p align="center">"Брестский Государственный технический университет"</p>
 <p align="center">Кафедра ИИТ</p>
 <br><br><br><br><br><br><br>
 <p align="center">Лабораторная работа №1</p>
-<p align="center">по дисциплине “Общая теория интеллектуальных систем”</p>
-<p align="center">Тема: “Моделирование температуры объекта”</p>
+<p align="center">по дисциплине "Общая теория интеллектуальных систем"</p>
+<p align="center">Тема: "Моделирование температуры объекта"</p>
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
@@ -41,63 +41,93 @@ where $\tau$ – time discrete moments ($1,2,3{\dots}n$); $a,b,c,d$ – some con
 Task is to write program (**С++**), which simulates this object temperature.
 
 # Выполнение задания #
-Код программы:
+
+## Код программы ##
 ```
 #include <iostream>
 #include <cmath>
-using namespace std;
+
 int main()
 {
-    setlocale(LC_ALL, "RUSSIAN");
-    double u, y, a, b, c, d;
+    double u_current;
+    double u_prev;
+    double y;
+    double a;
+    double b;
+    double c;
+    double d;
     int count_steps;
 
-    cout << "Введите u(входящую теплоту) и y(входящую температуру): " << endl;
-    cin >> u >> y;
-    cout << "Введите константы a, b, c, d: " << endl;
-    cin >> a >> b >> c >> d;
-    cout << "Введите количество шагов: " << endl;
-    cin >> count_steps;
-    double yl = y, ynl = y;
+    std::cout << "Enter initial temperature y: ";
+    if (!(std::cin >> y)) {
+        std::cerr << "Error: Invalid input for y" << std::endl;
+        return 1;
+    }
+
+    std::cout << "Enter initial heat u: ";
+    if (!(std::cin >> u_current)) {
+        std::cerr << "Error: Invalid input for u" << std::endl;
+        return 1;
+    }
+
+    u_prev = u_current;
+
+    std::cout << "Enter constants a, b, c, d: ";
+    if (!(std::cin >> a >> b >> c >> d)) {
+        std::cerr << "Error: Invalid input for constants" << std::endl;
+        return 1;
+    }
+
+    std::cout << "Enter number of steps: ";
+    if (!(std::cin >> count_steps) || count_steps <= 0) {
+        std::cerr << "Error: Invalid number of steps" << std::endl;
+        return 1;
+    }
+
+    double y_linear = y;
+    double y_nonlinear_prev = y;
+    double y_nonlinear = y;
+
+    std::cout << "\nSimulation results:" << std::endl;
+
     for (int i = 0; i < count_steps; i++)
     {
-        yl = a * yl + b * u;
-        ynl = a * ynl - b * ynl * ynl + c * u + d * sin(u);
-        cout << "Результат " << i + 1 << " шага линейной функции: " << yl << ";\n";
-        cout << "Результат " << i + 1 << " шага НЕлинейной функции: " << ynl << ";\n";
+        double y_linear_next = a * y_linear + b * u_current;
+        double y_nonlinear_next = a * y_nonlinear - b * y_nonlinear_prev * y_nonlinear_prev 
+                                + c * u_current + d * std::sin(u_prev);
+
+        std::cout << "Step " << i + 1 << ":" << std::endl;
+        std::cout << "  Linear model: y = " << y_linear_next << std::endl;
+        std::cout << "  Nonlinear model: y = " << y_nonlinear_next << std::endl;
+
+        y_linear = y_linear_next;
+        y_nonlinear_prev = y_nonlinear;
+        y_nonlinear = y_nonlinear_next;
+        u_prev = u_current;
     }
+
     return 0;
 }
+<hr>
 ```
 Вывод программы:
-```Введите u(входящую теплоту) и y(входящую температуру):
-2
-4.33
-Введите константы a, b, c, d:
-1.1
-0.5
-0.88
-1.4
-Введите количество шагов:
-10
-Результат 1 шага линейной функции: 5.763;
-Результат 1 шага НЕлинейной функции: -1.57843;
-Результат 2 шага линейной функции: 7.3393;
-Результат 2 шага НЕлинейной функции: 0.0510131;
-Результат 3 шага линейной функции: 9.07323;
-Результат 3 шага НЕлинейной функции: 3.08783;
-Результат 4 шага линейной функции: 10.9806;
-Результат 4 шага НЕлинейной функции: 1.66228;
-Результат 5 шага линейной функции: 13.0786;
-Результат 5 шага НЕлинейной функции: 3.47994;
-Результат 6 шага линейной функции: 15.3865;
-Результат 6 шага НЕлинейной функции: 0.80597;
-Результат 7 шага линейной функции: 17.9251;
-Результат 7 шага НЕлинейной функции: 3.59479;
-Результат 8 шага линейной функции: 20.7176;
-Результат 8 шага НЕлинейной функции: 0.526029;
-Результат 9 шага линейной функции: 23.7894;
-Результат 9 шага НЕлинейной функции: 3.47329;
-Результат 10 шага линейной функции: 27.1683;
-Результат 10 шага НЕлинейной функции: 0.821752;
+```Enter initial temperature y: 4.33
+Enter initial heat u: 2
+Enter constants a, b, c, d: 1.1 0.5 0.88 1.4
+Enter number of steps: 5
+Step 1:
+  Linear model: y = 5.763
+  Nonlinear model: y = 5.763
+Step 2:
+  Linear model: y = 7.3393
+  Nonlinear model: y = 8.03873
+Step 3:
+  Linear model: y = 9.07323
+  Nonlinear model: y = 10.7607
+Step 4:
+  Linear model: y = 10.9806
+  Nonlinear model: y = 13.8368
+Step 5:
+  Linear model: y = 13.0786
+  Nonlinear model: y = 17.2235
 ```
