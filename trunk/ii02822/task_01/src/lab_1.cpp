@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cmath>
-using namespace std;
 
 int main()
 {
@@ -13,29 +12,29 @@ int main()
     double d;
     int count_steps;
 
-    cout << "Enter initial temperature y: ";
-    if (!(cin >> y)) {
-        cerr << "Error: Invalid input for y" << endl;
+    std::cout << "Enter initial temperature y: ";
+    if (!(std::cin >> y)) {
+        std::cerr << "Error: Invalid input for y" << std::endl;
         return 1;
     }
 
-    cout << "Enter initial heat u: ";
-    if (!(cin >> u_current)) {
-        cerr << "Error: Invalid input for u" << endl;
+    std::cout << "Enter initial heat u: ";
+    if (!(std::cin >> u_current)) {
+        std::cerr << "Error: Invalid input for u" << std::endl;
         return 1;
     }
 
     u_prev = u_current;
 
-    cout << "Enter constants a, b, c, d: ";
-    if (!(cin >> a >> b >> c >> d)) {
-        cerr << "Error: Invalid input for constants" << endl;
+    std::cout << "Enter constants a, b, c, d: ";
+    if (!(std::cin >> a >> b >> c >> d)) {
+        std::cerr << "Error: Invalid input for constants" << std::endl;
         return 1;
     }
 
-    cout << "Enter number of steps: ";
-    if (!(cin >> count_steps) || count_steps <= 0) {
-        cerr << "Error: Invalid number of steps" << endl;
+    std::cout << "Enter number of steps: ";
+    if (!(std::cin >> count_steps) || count_steps <= 0) {
+        std::cerr << "Error: Invalid number of steps" << std::endl;
         return 1;
     }
 
@@ -43,23 +42,25 @@ int main()
     double y_nonlinear_prev = y;
     double y_nonlinear = y;
 
-    cout << "\nInitial conditions:" << endl;
-    cout << "y0 = " << y << ", u0 = " << u_current << endl;
-    cout << "Constants: a=" << a << ", b=" << b << ", c=" << c << ", d=" << d << endl << endl;
+    std::cout << "\nInitial conditions:" << std::endl;
+    std::cout << "y0 = " << y << ", u0 = " << u_current << std::endl;
+    std::cout << "Constants: a=" << a << ", b=" << b << ", c=" << c << ", d=" << d << std::endl << std::endl;
 
     for (int i = 0; i < count_steps; i++)
     {
         if (i > 0) {
             u_prev = u_current;
+            u_current = u_current * 0.95;
         }
 
         double y_linear_next = a * y_linear + b * u_current;
         double y_nonlinear_next = a * y_nonlinear - b * y_nonlinear_prev * y_nonlinear_prev
-            + c * u_current + d * sin(u_prev);
+            + c * u_current + d * std::sin(u_prev);
 
-        cout << "Step " << i + 1 << ":" << endl;
-        cout << "  Linear model: y_" << i + 1 << " = " << y_linear_next << endl;
-        cout << "  Nonlinear model: y_" << i + 1 << " = " << y_nonlinear_next << endl;
+        std::cout << "Step " << i + 1 << ":" << std::endl;
+        std::cout << "  Linear model: y_" << i + 1 << " = " << y_linear_next << std::endl;
+        std::cout << "  Nonlinear model: y_" << i + 1 << " = " << y_nonlinear_next << std::endl;
+        std::cout << "  (u_current = " << u_current << ", u_prev = " << u_prev << ")" << std::endl << std::endl;
 
         y_linear = y_linear_next;
         y_nonlinear_prev = y_nonlinear;
