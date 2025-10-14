@@ -1,4 +1,6 @@
-cmake_minimum_required (VERSION 3.5.0)
+cmake_minimum_required(VERSION 3.10)
+project(lab_01)
 
-project (lab_012822)
-add_executable ( ${PROJECT_NAME} lab_1.cpp)
+set(CMAKE_CXX_STANDARD 11)
+
+add_executable(lab_01_ii02822 lab_1.cpp)
