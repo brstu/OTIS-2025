@@ -39,6 +39,7 @@ int main()
     }
 
     double y_linear = y;
+    // For nonlinear model: assume y_{-1} = y_0 (previous temperature equals initial temperature)
     double y_nonlinear_prev = y;
     double y_nonlinear = y;
 
