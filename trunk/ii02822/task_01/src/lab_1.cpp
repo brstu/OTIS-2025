@@ -42,29 +42,22 @@ int main()
     double y_nonlinear_prev = y;
     double y_nonlinear = y;
 
-    std::cout << "\nInitial conditions:" << std::endl;
-    std::cout << "y0 = " << y << ", u0 = " << u_current << std::endl;
-    std::cout << "Constants: a=" << a << ", b=" << b << ", c=" << c << ", d=" << d << std::endl << std::endl;
+    std::cout << "\nSimulation results:" << std::endl;
 
     for (int i = 0; i < count_steps; i++)
     {
-        if (i > 0) {
-            u_prev = u_current;
-            u_current = u_current * 0.95;
-        }
-
         double y_linear_next = a * y_linear + b * u_current;
         double y_nonlinear_next = a * y_nonlinear - b * y_nonlinear_prev * y_nonlinear_prev
             + c * u_current + d * std::sin(u_prev);
 
         std::cout << "Step " << i + 1 << ":" << std::endl;
-        std::cout << "  Linear model: y_" << i + 1 << " = " << y_linear_next << std::endl;
-        std::cout << "  Nonlinear model: y_" << i + 1 << " = " << y_nonlinear_next << std::endl;
-        std::cout << "  (u_current = " << u_current << ", u_prev = " << u_prev << ")" << std::endl << std::endl;
+        std::cout << "  Linear model: y = " << y_linear_next << std::endl;
+        std::cout << "  Nonlinear model: y = " << y_nonlinear_next << std::endl;
 
         y_linear = y_linear_next;
         y_nonlinear_prev = y_nonlinear;
         y_nonlinear = y_nonlinear_next;
+        u_prev = u_current;
     }
 
     return 0;
