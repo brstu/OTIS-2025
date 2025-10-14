@@ -4,9 +4,13 @@ using namespace std;
 
 int main()
 {
-    double u_current, u_prev;
+    double u_current;
+    double u_prev;
     double y;
-    double a, b, c, d;
+    double a;
+    double b;
+    double c;
+    double d;
     int count_steps;
 
     cout << "Enter initial temperature y: ";
