@@ -2,6 +2,7 @@
 #include <cmath>
 #include <limits>
 #include <string>
+#include <vector>
 
 struct ModelParameters {
     double a;
@@ -23,26 +24,30 @@ void clearInput() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
-bool readDouble(const std::string& text, double& value) {
-    std::cout << text;
-    std::cin >> value;
-    while (std::cin.fail()) {
-        clearInput();
-        std::cout << "Invalid input. Please enter a numeric value.\n" << text;
-        std::cin >> value;
+void readDouble(const std::string& text, double& value) {
+    while (true) {
+        std::cout << text;
+        if (std::cin >> value) {
+            return;
+        }
+        else {
+            std::cout << "Invalid input. Please enter a numeric value.\n";
+            clearInput();
+        }
     }
-    return true;
 }
 
-bool readPositiveInt(const std::string& text, int& value) {
-    std::cout << text;
-    std::cin >> value;
-    while (std::cin.fail() || value <= 0) {
-        clearInput();
-        std::cout << "Invalid input. Please enter a positive integer.\n" << text;
-        std::cin >> value;
+void readPositiveInt(const std::string& text, int& value) {
+    while (true) {
+        std::cout << text;
+        if (std::cin >> value && value > 0) {
+            return;
+        }
+        else {
+            std::cout << "Invalid input. Please enter a positive integer.\n";
+            clearInput();
+        }
     }
-    return true;
 }
 
 int main() {
@@ -62,30 +67,25 @@ int main() {
     readDouble("Enter initial input u0: ", u0);
     readPositiveInt("Enter number of steps (n): ", n);
 
-    ModelParameters params{ a, b, c, d };
+    std::vector<double> u_values(n + 1); 
+    u_values[0] = u0;
 
-    double u_value[1000];
-    if (n > 1000) {
-        std::cout << "Number of steps exceeds maximum allowed." << std::endl;
-        return 1;
-    }
-
-    u_value[0] = u0;
-
-    std::cout << "Enter all input u: " << std::endl ;
+    std::cout << "Enter input u for:\n";
     for (int i = 1; i <= n; ++i) {
-        readDouble("u for step " + std::to_string(i) + ": ", u_value[i]);
+        readDouble("Step " + std::to_string(i) + ": ", u_values[i]);
     }
+
+    ModelParameters params{ a, b, c, d };
 
     double y_linear_current = y0;
     double y_nonlinear_current = y0;
     double y_nonlinear_previous = y0;
     double u_previous = u0;
+    double u_current;
 
-    std::cout << "\nSteps\tLinear model\tNonlinear model\n";
+    std::cout << "Steps\tLinear model\tNonlinear model\n";
     for (int step = 1; step <= n; ++step) {
-        double u_current = u_value[step];
-
+        u_current = u_values[step];
         double linear_result = linearModel(y_linear_current, u_current, params);
         double nonlinear_result = nonlinearModel(y_nonlinear_current, y_nonlinear_previous, u_current, u_previous, params);
 
