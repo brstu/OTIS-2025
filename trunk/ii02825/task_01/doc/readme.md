@@ -46,77 +46,50 @@ Task is to write program (**С++**), which simulates this object temperature.
 #include <iostream>
 #include <cmath>
 
-double linear(double y, double u, double a, double b);
-double non_linear(double y, double u, double a, double b, double c, double d);
+double func_line(double y, double u, double a, double b);
+double func_unline(double y, double u, double a, double b, double c, double d);
 
 int main()
 {
+    setlocale(LC_ALL, "RU");
     double u;
     double y;
-    std::cout << "Enter u(input warm) and y(input temperature): " << std::endl;
+    std::cout << "Введите u и y:" << std::endl;
     std::cin >> u >> y;
 
     double a;
     double b; 
     double c;
     double d;
-    std::cout << "Enter a,b,c,d(some constants): " << std::endl;
+    std::cout << "Введите a,b,c,d: " << std::endl;
     std::cin >> a >> b >> c >> d;
 
     int count;
-    std::cout << "Enter the number of steps: " << std::endl;
+    std::cout << "Введите количетсво шагов: " << std::endl;
     std::cin >> count;
 
-    double yl = y;
-    double ynl = y;
+    double line = y;
+    double unline = y;
     for (int i = 0; i < count; i++)
     {
-        yl = linear(yl, u, a, b);
-        ynl = non_linear(ynl, u, a, b, c, d);
+        line = func_line(line, u, a, b);
+        unline = func_unline(unline, u, a, b, c, d);
 
-        std::cout << "Result of the " << i + 1 << " step of linear model: " << yl << ";\n";
-        std::cout << "Result of the " << i + 1 << " step of non-linear model: " << ynl << ";\n";
+        std::cout << "Результат за количество " << i + 1 << " шагов при использовании линейной модели: " << line << ";\n";
+        std::cout << "Результат за количество " << i + 1 << " шагов при использовании нелинейной модели: " << unline << ";\n";
     }
 
     return 0;
 }
 
-double linear(double y, double u, double a, double b)
+double func_line(double y, double u, double a, double b)
 {
     return a * y + b * u;
 }
 
-double non_linear(double y, double u, double a, double b, double c, double d)
+double func_unline(double y, double u, double a, double b, double c, double d)
 {
     return a * y - b * y * y + c * u + d * std::sin(u);
 }
-```
-Вывод программы:
-```
-Enter u(input warm) and y(input temperature): 
-2 2
-Enter a,b,c,d(some constants): 
-1.1 0.5 0.88 1.4
-Enter the number of steps: 
-8
-Result of the 1 step of linear model: 3.2;
-Result of the 1 step of non-linear model: 3.23302;
-Result of the 2 step of linear model: 4.52;
-Result of the 2 step of non-linear model: 1.36314;
-Result of the 3 step of linear model: 5.972;
-Result of the 3 step of non-linear model: 3.6034;
-Result of the 4 step of linear model: 7.5692;
-Result of the 4 step of non-linear model: 0.504521;
-Result of the 5 step of linear model: 9.32612;
-Result of the 5 step of non-linear model: 3.46072;
-Result of the 6 step of linear model: 11.2587;
-Result of the 6 step of non-linear model: 0.85152;
-Result of the 7 step of linear model: 13.3846;
-Result of the 7 step of non-linear model: 3.60715;
-Result of the 8 step of linear model: 15.7231;
-Result of the 8 step of non-linear model: 0.495128;
-```
-## Рецензирование запросов других студентов ##
-![Рецензия работы пользователя JohnyDepp228:](https://ibb.co/C5qn0wCt)
 
-![Рецензия работы пользователя humoristoff :](https://ibb.co/1tzGXp7h)
+```
