@@ -39,23 +39,25 @@ int main()
     }
 
     double y_linear = y;
-    // For nonlinear model: assume y_{-1} = y_0 (previous temperature equals initial temperature)
     double y_nonlinear_prev = y;
     double y_nonlinear = y;
 
     std::cout << "\nSimulation results:" << std::endl;
-
     for (int i = 0; i < count_steps; i++)
     {
         double y_linear_next = a * y_linear + b * u_current;
+        std::cout << "Step:  " << i + 1 << " linear model" << std::endl;
+        std::cout << " y = " << y_linear_next << std::endl;
+
+        u_prev = u_current;
+        y_linear = y_linear_next;
+    }
+    for (int i = 0; i < count_steps; i++)
+    {
         double y_nonlinear_next = a * y_nonlinear - b * y_nonlinear_prev * y_nonlinear_prev
             + c * u_current + d * std::sin(u_prev);
-
-        std::cout << "Step " << i + 1 << ":" << std::endl;
-        std::cout << "  Linear model: y = " << y_linear_next << std::endl;
-        std::cout << "  Nonlinear model: y = " << y_nonlinear_next << std::endl;
-
-        y_linear = y_linear_next;
+        std::cout << "Step: " << i + 1 << " nonlinear model" << std::endl;
+        std::cout << " y = " << y_nonlinear_next << std::endl;
         y_nonlinear_prev = y_nonlinear;
         y_nonlinear = y_nonlinear_next;
         u_prev = u_current;

@@ -86,23 +86,25 @@ int main()
     }
 
     double y_linear = y;
-    // For nonlinear model: assume y_{-1} = y_0 (previous temperature equals initial temperature)
     double y_nonlinear_prev = y;
     double y_nonlinear = y;
 
     std::cout << "\nSimulation results:" << std::endl;
-
     for (int i = 0; i < count_steps; i++)
     {
         double y_linear_next = a * y_linear + b * u_current;
-        double y_nonlinear_next = a * y_nonlinear - b * y_nonlinear_prev * y_nonlinear_prev 
-                                + c * u_current + d * std::sin(u_prev);
+        std::cout << "Step:  " << i + 1 << " linear model" << std::endl;
+        std::cout << " y = " << y_linear_next << std::endl;
 
-        std::cout << "Step " << i + 1 << ":" << std::endl;
-        std::cout << "  Linear model: y = " << y_linear_next << std::endl;
-        std::cout << "  Nonlinear model: y = " << y_nonlinear_next << std::endl;
-
+        u_prev = u_current;
         y_linear = y_linear_next;
+    }
+    for (int i = 0; i < count_steps; i++)
+    {
+        double y_nonlinear_next = a * y_nonlinear - b * y_nonlinear_prev * y_nonlinear_prev
+            + c * u_current + d * std::sin(u_prev);
+        std::cout << "Step: " << i + 1 << " nonlinear model" << std::endl;
+        std::cout << " y = " << y_nonlinear_next << std::endl;
         y_nonlinear_prev = y_nonlinear;
         y_nonlinear = y_nonlinear_next;
         u_prev = u_current;
@@ -110,28 +112,28 @@ int main()
 
     return 0;
 }
+
 ```
 Вывод программы:
 ```
 Enter initial temperature y: 4.33
-Enter initial heat u: 2
-Enter constants a, b, c, d: 1.1 0.5 0.88 1.4
-Enter number of steps: 5
-
-Simulation results:
-Step 1:
-  Linear model: y = 5.763
-  Nonlinear model: y = 5.763
-Step 2:
-  Linear model: y = 7.3393
-  Nonlinear model: y = 8.03873
-Step 3:
-  Linear model: y = 9.07323
-  Nonlinear model: y = 10.7607
-Step 4:
-  Linear model: y = 10.9806
-  Nonlinear model: y = 13.8368
-Step 5:
-  Linear model: y = 13.0786
-  Nonlinear model: y = 17.2235
+Enter initial heat u: 2.3
+Enter constants a, b, c, d: 1.5 0.88 0.76 2
+Enter number of steps: 4
+Step:  1 linear model
+ y = 8.519
+Step:  2 linear model
+ y = 14.8025
+Step:  3 linear model
+ y = 24.2278
+Step:  4 linear model
+ y = 38.3656
+Step: 1 nonlinear model
+ y = -6.76462
+Step: 2 nonlinear model
+ y = -23.4066
+Step: 3 nonlinear model
+ y = -72.1393
+Step: 4 nonlinear model
+ y = -587.092
 ```
