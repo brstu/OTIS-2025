@@ -42,46 +42,62 @@ Task is to write program (**С++**), which simulates this object temperature.
 ## Код программы:
 ```C++
 #include <iostream>
-#include <vector>
+#include <cmath>
 using namespace std;
+
 int main() {
-    const double a = 0.95;
-    const double b = 0.05;
-    const double y_initial = 23;
+    double a = 0.95;
+    double b = 0.002;
+    double c = 0.05;
+    double d = 0.1;
 
-    vector<double> u = { 10, 15, 20, 25, 30, 25, 20, 15, 10, 5 };
+    double y_linear = 23;
+    double y_nonlinear = 23;
+    double y_nonlinear_prev = 23;
 
+    double u[] = { 10, 15, 20, 25, 30, 25, 20, 15, 10, 5 };
+    int steps = 10;
 
-    vector<double> y(u.size() + 1);
-    y[0] = y_initial;
+    cout << "Model :" << endl;
+    cout << "Time\tu\tLinear\tNonlinear" << endl;
+    cout << "0\t0\t" << y_linear << "\t" << y_nonlinear << endl;
 
+    double u_prev = 0;
 
-    cout << "Time\tu\ty" << endl;
-    cout << "0\t" << "N/A\t" << y[0] << endl;
+    for (int i = 0; i < steps; i++) {
+        double power = u[i];
 
-    for (int tau = 0; tau < u.size(); ++tau) {
-        y[tau + 1] = a * y[tau] + b * u[tau];
+        y_linear = a * y_linear + b * power;
 
-        cout << tau + 1 << "\t" << u[tau] << "\t" << y[tau + 1] << endl;
+        double no = a * y_nonlinear;
+        double ss = b * y_nonlinear_prev * y_nonlinear_prev;
+        double co = c * power;
+        double si = d * sin(u_prev);
+
+        y_nonlinear_prev = y_nonlinear;
+        y_nonlinear = no - ss + co + si;
+        u_prev = power;
+
+        cout << i + 1 << "\t" << power << "\t" << y_linear << "\t" << y_nonlinear << endl;
     }
 
     return 0;
 }
-
 ```
 
 ## Результат программы:
-| Time |   u   |    y     |
-|------|-------|----------|
-|  0   |   0   | 23.0000  |
-|  1   |  10   | 22.3500  |
-|  2   |  15   | 21.9825  |
-|  3   |  20   | 21.8834  |
-|  4   |  25   | 22.0392  |
-|  5   |  30   | 22.4372  |
-|  6   |  25   | 22.5654  |
-|  7   |  20   | 22.4371  |
-|  8   |  15   | 22.0653  |
-|  9   |  10   | 21.4620  |
-|  10  |   5   | 20.6389  |
+| Time | u     | Linear  | Nonlinear |
+|------|-------|---------|-----------|
+| 0    | 0     | 23      | 23        |
+| 1    | 10    | 21.87   | 21.292    |
+| 2    | 15    | 20.8065 | 19.865    |
+| 3    | 20    | 19.8062 | 19.0301   |
+| 4    | 25    | 18.8659 | 18.6306   |
+| 5    | 30    | 17.9826 | 18.4616   |
+| 6    | 25    | 17.1334 | 17.9955   |
+| 7    | 20    | 16.3168 | 17.4008   |
+| 8    | 15    | 15.5309 | 16.7244   |
+| 9    | 10    | 14.7744 | 15.8476   |
+| 10   | 5     | 14.0457 | 14.6914   |
+
 
