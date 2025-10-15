@@ -62,18 +62,29 @@ int main() {
     readDouble("Enter initial input u0: ", u0);
     readPositiveInt("Enter number of steps (n): ", n);
 
-    ModelParameters params{a, b, c, d};
+    ModelParameters params{ a, b, c, d };
+
+    double u_value[1000];
+    if (n > 1000) {
+        std::cout << "Number of steps exceeds maximum allowed." << std::endl;
+        return 1;
+    }
+
+    u_value[0] = u0;
+
+    std::cout << "Enter all input u: " << std::endl ;
+    for (int i = 1; i <= n; ++i) {
+        readDouble("u for step " + std::to_string(i) + ": ", u_value[i]);
+    }
 
     double y_linear_current = y0;
     double y_nonlinear_current = y0;
     double y_nonlinear_previous = y0;
     double u_previous = u0;
-    double u_current;
 
-    std::cout << "Steps\tLinear model\tNonlinear model\n";
-
+    std::cout << "\nSteps\tLinear model\tNonlinear model\n";
     for (int step = 1; step <= n; ++step) {
-        readDouble("Enter input u for step " + std::to_string(step) + ": ", u_current);
+        double u_current = u_value[step];
 
         double linear_result = linearModel(y_linear_current, u_current, params);
         double nonlinear_result = nonlinearModel(y_nonlinear_current, y_nonlinear_previous, u_current, u_previous, params);

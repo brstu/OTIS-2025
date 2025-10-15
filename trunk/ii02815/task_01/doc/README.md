@@ -109,18 +109,29 @@ int main() {
     readDouble("Enter initial input u0: ", u0);
     readPositiveInt("Enter number of steps (n): ", n);
 
-    ModelParameters params{a, b, c, d};
+    ModelParameters params{ a, b, c, d };
+
+    double u_value[1000];
+    if (n > 1000) {
+        std::cout << "Number of steps exceeds maximum allowed." << std::endl;
+        return 1;
+    }
+
+    u_value[0] = u0;
+
+    std::cout << "Enter all input u: " << std::endl ;
+    for (int i = 1; i <= n; ++i) {
+        readDouble("u for step " + std::to_string(i) + ": ", u_value[i]);
+    }
 
     double y_linear_current = y0;
     double y_nonlinear_current = y0;
     double y_nonlinear_previous = y0;
     double u_previous = u0;
-    double u_current;
 
-    std::cout << "Steps\tLinear model\tNonlinear model\n";
-
+    std::cout << "\nSteps\tLinear model\tNonlinear model\n";
     for (int step = 1; step <= n; ++step) {
-        readDouble("Enter input u for step " + std::to_string(step) + ": ", u_current);
+        double u_current = u_value[step];
 
         double linear_result = linearModel(y_linear_current, u_current, params);
         double nonlinear_result = nonlinearModel(y_nonlinear_current, y_nonlinear_previous, u_current, u_previous, params);
@@ -134,6 +145,7 @@ int main() {
     }
     return 0;
 }
+
 ```
 Вывод программы:
 ```
@@ -144,21 +156,23 @@ Enter constant d: 1.6
 Enter initial output y0: 1
 Enter initial input u0: 1
 Enter number of steps (n): 8
+Enter all input u:
+u for step 1: 1
+u for step 2: 2
+u for step 3: 3
+u for step 4: 4
+u for step 5: 5
+u for step 6: 6
+u for step 7: 7
+u for step 8: 8
+
 Steps   Linear model    Nonlinear model
-Enter input u for step 1: 1
 1       1.1             2.14635
-Enter input u for step 2: 2
 2       1.93            3.79026
-Enter input u for step 3: 3
 3       2.979           2.80649
-Enter input u for step 4: 4
 4       4.0937          -5.22512
-Enter input u for step 5: 5
 5       5.22811         -2.57951
-Enter input u for step 6: 6
 6       6.36843         -16.3496
-Enter input u for step 7: 7
 7       7.51053         -1.57506
-Enter input u for step 8: 8
 8       8.65316         -202.869
 ```
