@@ -46,39 +46,50 @@ Task is to write program (**С++**), which simulates this object temperature.
 #include <iostream>
 #include <cmath>
 
+double linear(double y, double u, double a, double b)
+{
+    return a * y + b * u;
+}
+
+double non_linear(double y, double& y_p, double u, double a, double b, double c, double d)
+{
+    y_p = y;
+    return a * y - b * y_p * y_p + c * u + d * std::sin(u);
+}
+
 int main()
 {
-    double y;
+    double y, y_p;
     double u;
-    std::cout << "Enter y and u values:\n";
-    std::cin >> y >> u;
+    std::cout << "Enter Yn-1, Y and U values:\n";
+    std::cin >> y_p  >> y >> u;
     
     double a;
     double b;
     double c;
     double d;
-    std::cout << "Enter a, b, c, d values:\n";
+    std::cout << "Enter A, B, C, D values:\n";
     std::cin >> a >> b >> c >> d;
 
     int n;
-    std::cout << "Enter number of steps n: ";
+    std::cout << "Enter number of steps N: ";
     std::cin >> n;
 
     double y1 = y;
+    
     double y2 = y;
-    double y2_prev = y2;
-    double u_prev = u;
+    double y2_p = y_p;
+
     for (int i = 0; i < n; i++)
     {
-        // If u is meant to change per step, uncomment the next two lines:
-        // std::cout << "Enter u value for step " << i + 1 << ": ";
-        // std::cin >> u_prev;
-        y1 = a * y1 + b * u_prev;
-        y2 = a * y2_prev - b * y2_prev * y2_prev + c * u_prev + d * std::sin(u_prev);
-        std::cout << "Result of the " << i + 1 << "st step of linear model: " << y1 << ";\n";
-        std::cout << "Result of the " << i + 1 << "st step of non-linear model: " << y2 << ";\n";
-        y2_prev = y2;
-        // If u is meant to change per step, update u_prev here.
+        y1 = linear(y1, u, a, b);
+        std::cout << "The " << i << "st step of linear model - " << y1 << std::endl;
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        y2 = non_linear(y2, y2_p, u, a, b, c, d);
+        std::cout << "The " << i << "st step of nonlinear model - " << y2 << std::endl;
     }
 
     return 0;
@@ -86,31 +97,21 @@ int main()
 ```
 Вывод программы:
 ```
-Enter y and u values:
-1 1
-Enter a, b, c, d values:
-1.1 0.9 0.85 1.4
-Enter number of steps n: 10
-Result of the 1st step of linear model: 2;
-Result of the 1st step of non-linear model: 2.22806;
-Result of the 2nd step of linear model: 3.1;
-Result of the 2nd step of non-linear model: 0.011101;
-Result of the 3rd step of linear model: 4.31;
-Result of the 3rd step of non-linear model: 2.04016;
-Result of the 4th step of linear model: 5.641;
-Result of the 4th step of non-linear model: 0.526209;
-Result of the 5th step of linear model: 7.1051;
-Result of the 5th step of non-linear model: 2.35768;
-Result of the 6th step of linear model: 8.71561;
-Result of the 6th step of non-linear model: -0.381291;
-Result of the 7th step of linear model: 10.4872;
-Result of the 7th step of non-linear model: 1.47779;
-Result of the 8th step of linear model: 12.4359;
-Result of the 8th step of non-linear model: 1.68815;
-Result of the 9th step of linear model: 14.5795;
-Result of the 9th step of non-linear model: 1.32017;
-Result of the 10th step of linear model: 16.9374;
-Result of the 10th step of non-linear model: 1.91168;
+Enter Yn-1, Y and U values:
+1 2 3
+Enter A, B, C, D values:
+1 2 3 2
+Enter number of steps N: 5
+The 0st step of linear model - 8
+The 1st step of linear model - 14
+The 2st step of linear model - 20
+The 3st step of linear model - 26
+The 4st step of linear model - 32
+The 0st step of nonlinear model - 3.28224
+The 1st step of nonlinear model - -8.98172
+The 2st step of nonlinear model - -161.042
+The 3st step of nonlinear model - -52020.8
+The 4st step of nonlinear model - -5.41239e+09
 ```
 ## Рецензирование запросов других студентов ##
 ![Рецензия работы пользователя threenebula23:](https://i.ibb.co/mF8Trkgx/img1.png)
