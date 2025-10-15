@@ -22,7 +22,7 @@
 1. Написать отчет по выполненной лабораторной работе №1 в .md формате (readme.md) и с помощью запроса на внесение изменений (**pull request**) разместить его в следующем каталоге: **trunk\ii0xxyy\task_01\doc** (где **xx** - номер группы, **yy** - номер студента, например **ii02302**).
 2. Исходный код написанной программы разместить в каталоге: **trunk\ii0xxyy\task_01\src**.
 3. Выполнить рецензирование (review, checklist) запросов других студентов (минимум 2-е рецензии).
-4. Отразить выполнение работы в файle readme.md в соответствующей строке.
+4. Отразить выполнение работы в файлe readme.md в соответствующей строке.
 
 ## Task 1. Modeling controlled object ##
 Let's get some object to be controlled. We want to control its temperature, which can be described by this differential equation:
