@@ -1,4 +1,14 @@
-﻿cmake_minimum_required (VERSION 3.5)
-project (task_01_ii02819)
+﻿cmake_minimum_required (VERSION 3.8)
 
-add_executable (ii02819_task_01 lab1.cpp)
+if (POLICY CMP0141)
+  cmake_policy(SET CMP0141 NEW)
+  set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
+endif()
+
+project ("task_01")
+
+add_executable (task_01_002819 "lab1.cpp" )
+
+if (CMAKE_VERSION VERSION_GREATER 3.12)
+  set_property(TARGET task_01 PROPERTY CXX_STANDARD 20)
+endif()
