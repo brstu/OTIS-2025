@@ -59,7 +59,8 @@ double non_linear(double y, double& y_p, double u, double a, double b, double c,
 
 int main()
 {
-    double y, y_p;
+    double y;
+    double y_p;
     double u;
     std::cout << "Enter Yn-1, Y and U values:\n";
     std::cin >> y_p  >> y >> u;
