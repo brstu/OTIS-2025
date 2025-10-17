@@ -14,8 +14,8 @@ public:
 
     std::vector<double> simulate(double y, const double u, int t) const override
     {    
-        double prevY = y - y_offset; // calculate prevY to diverse it from the initial y
-        double prevU = u - u_offset; // calculate prevU to diverse it from the initial u
+        double prevY = y - y_offset; // calculate prevY to differentiate it from the initial y
+        double prevU = u - u_offset; // calculate prevU to differentiate it from the initial u
         std::vector<double> results;
         for(int i = 0; i <= t; i++)
         {
