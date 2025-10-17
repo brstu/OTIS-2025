@@ -11,7 +11,7 @@ int main() {
     std::cout << "enter steps: ";
     std::cin >> steps;
     if (steps > max_steps || steps < 2) {
-        std::cout << "incorrect: \n";
+        std::cout << "Error: steps must be between 2 and 100: \n";
         return 1;
     }
 
@@ -46,7 +46,7 @@ int main() {
 
     std::vector<double> y;
 
-    if(model == linear) {
+    if (model == linear) {
         y = linear_func(steps, a, b, u, y0, y1);
     }   else {
         y = nonlinear_func(steps, a, b, c, d, u, y0, y1);
