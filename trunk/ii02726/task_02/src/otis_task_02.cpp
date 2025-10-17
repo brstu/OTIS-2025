@@ -52,7 +52,7 @@ int main() {
         y = nonlinear_func(steps, a, b, c, d, u, y0, y1);
     }
 
-    for (int i = 0; i <= steps; i++) {
+    for (int i = 0; i < steps; i++) {
         std::cout << "step " << i << ": y = " << y[i] << "\n";
     }
 
