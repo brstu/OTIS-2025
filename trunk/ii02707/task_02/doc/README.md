@@ -82,7 +82,7 @@ TEST(TestNonLinearModel, WhenTimeIsFives)
 ![GoogleTest Output]("img/gtest.png")
 
 ## Покрытие тестами (gcovr)
-!['gcovr' Output]("img/gcovr.png")
+!['gcovr' Output](img/gcovr.png)
 
 ## Reviews
 VL-lab-bit
