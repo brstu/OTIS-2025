@@ -15,7 +15,6 @@ int main()
     std::cout << "Linear simulation:" << std::endl;
     factory = std::make_unique<FactoryLinearModel>();
     model = factory->getModel();
-    model->simulate(y, u, t);
     auto linear_result = model->simulate(y, u, t);
     for (const auto& value : linear_result) 
     {
