@@ -1,20 +1,37 @@
-cmake_minimum_required(VERSION 3.5)
+# Минимальная версия CMake
+cmake_minimum_required(VERSION 3.14)
 
-project(task_01_ii02709 LANGUAGES CXX)
+# Название проекта (может быть любым)
+project(lab2_src LANGUAGES CXX)
 
-message(STATUS "CMake configuration started by kozel")
+# Устанавливаем стандарт C++
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(otis_2025 lab2.cpp)
-
-set_target_properties(otis_2025 PROPERTIES
-    CXX_STANDARD 14
-    CXX_STANDARD_REQUIRED YES
-    CXX_EXTENSIONS NO
+# Добавляем статическую библиотеку lab2 из исходников
+# Она содержит реализацию функций из lab2.cpp
+add_library(lab2 STATIC
+    lab2.cpp
 )
 
-option(KOZEL_SPECIAL_FEATURE "Включить особую фичу Kozel" OFF)
+# Указываем, где искать заголовочные файлы (чтобы можно было #include "lab2.h")
+target_include_directories(lab2 PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
 
-if(KOZEL_SPECIAL_FEATURE)
-    target_compile_definitions(otis_2025 PRIVATE KOZEL_FEATURE_ENABLED)
-    message(STATUS "Активирована специальная опция kozel")
+# Создаём исполняемый файл (основную программу)
+add_executable(lab2_app
+    main.cpp
+)
+
+# Линкуем приложение с нашей библиотекой lab2
+target_link_libraries(lab2_app PRIVATE lab2)
+
+# Опционально: включаем предупреждения компилятора
+if (MSVC)
+    target_compile_options(lab2 PRIVATE /W4)
+    target_compile_options(lab2_app PRIVATE /W4)
+else()
+    target_compile_options(lab2 PRIVATE -Wall -Wextra -pedantic)
+    target_compile_options(lab2_app PRIVATE -Wall -Wextra -pedantic)
 endif()
