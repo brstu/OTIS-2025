@@ -1,42 +1,37 @@
-﻿#include <iostream>
-#include <cmath>
+﻿#include<iostream>
+using namespace std;
 
+float a=0.5,
+	b = 0.2,
+	c= 0.15,
+	d = 0.3,
+	u = 1.2;
 int main()
 {
-	double y;
-	double y_prev;
-	double y_next;
-	double u;
-	double u_prev;
-	double a;
-	double b;
-	double c;
-	double d;
-	int n;
-	std::cout << "Enter y (starting temperature) and u (input warmth at first step) values (space-separated): ";
-	std::cin >> y >> u; 
-	std::cout << "Enter a, b, c, d (constants) values: ";
-	std::cin >> a >> b >> c >> d;
-	std::cout << "Enter number of steps n: ";
-	std::cin >> n;
-	y_prev = y;
+	float y0, y1, y2 ,y_temp;
+	cout << "y1 = ?";
+	cin >> y_temp;
+	y1 = y_temp;
+	y0 = y1;
+	int n = 10;
+	cout << endl << "Liner"<<endl;
 	for (int i = 0; i < n; i++)
 	{
-		y = a * y + b * u;
-		std::cout << "Result of the " << i + 1 << " step of linear model: " << y << '\n';
+		cout << "t" << i + 1 << " = ";
+		y2 = a * y1 + b * u;
+		cout << y2 << endl;
+		y0 = y1;
+		y1 = y2;
 	}
-	y = y_prev;
-	y_prev = 0;
-	u_prev = u;
+
+	cout << endl << "unliner:" << endl;
 	for (int i = 0; i < n; i++)
 	{
-		y_next = a * y - b * y_prev * y_prev + c * u + d * sin(u_prev); // Use previous input value as per specification
-		y_prev = y;
-		y = y_next;
-		std::cout << "Result of the " << i + 1 << " step of non-linear model: " << y << '\n';
-		std::cout << "Enter u for the " << i + 1 << " step: ";
-		u_prev = u; // Update u_prev to current input value for next iteration (if u changes per step)
-		std::cin >> u;
+		cout << "t" << i + 1 << " = ";
+		y2 = a * y1 - b * y0 * y0 + c * u + d * sin(u);
+		cout << y2 << endl;
+		y0 = y1;
+		y1 = y2;
 	}
-	return 0;
+
 }
