@@ -79,7 +79,7 @@ TEST(TestNonLinearModel, WhenTimeIsFives)
 ```
 
 ## Результаты юнит-тестирования (GoogleTest)
-![GoogleTest Output]("img/gtest.png")
+![GoogleTest Output](img/gtest.png)
 
 ## Покрытие тестами (gcovr)
 !['gcovr' Output](img/gcovr.png)
