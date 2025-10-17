@@ -37,9 +37,9 @@
 
 TEST(TestLinearModel, WhenTimeIsFive)
 {   
-    const double y = 0;
-    const double u = 1;
-    const int t = 5;
+    const double y = 0; // Initial output value
+    const double u = 1; // Input signal value
+    const int t = 5; // Simulation time steps
 
     auto factory = std::make_unique<FactoryLinearModel>();
     auto model = factory->getModel();
@@ -58,15 +58,15 @@ TEST(TestLinearModel, WhenTimeIsFive)
 
 TEST(TestNonLinearModel, WhenTimeIsFives)
 {   
-    const double y = 0;
-    const double u = 1;
-    const int t = 5;
+    const double y = 0; // Initial output value
+    const double u = 1; // Input signal value
+    const int t = 5; // Simulation time steps
 
     auto factory = std::make_unique<FactoryNonLinearModel>();
     auto model = factory->getModel();
     std::vector<double> calculated_results = model->simulate(y, u, t);
     std::vector<double> accepted_results
-    { 0, 0.920735, 1.03524, 0.936409, 0.82901, 0.641436 };
+    { 0, 0.499999, 0.989713, 1.29059, 1.15428, 0.698974 };
 
     EXPECT_EQ(calculated_results.size(), accepted_results.size());
     

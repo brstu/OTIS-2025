@@ -16,13 +16,21 @@ int main()
     factory = std::make_unique<FactoryLinearModel>();
     model = factory->getModel();
     model->simulate(y, u, t);
+    auto linear_result = model->simulate(y, u, t);
+    for (const auto& value : linear_result) 
+    {
+        std::cout << value << std::endl;
+    }
     std::cout << std::endl;
 
     std::cout << "Nonlinear simulation:" << std::endl; 
     factory = std::make_unique<FactoryNonLinearModel>();
     model = factory->getModel();
-    model->simulate(y, u, t);
-    std::cout << std::endl;
+    auto nonlinear_result = model->simulate(y, u, t);
+    for (const auto& value : nonlinear_result) 
+    {
+        std::cout << value << std::endl;
+    }
 
     return 0;
 }

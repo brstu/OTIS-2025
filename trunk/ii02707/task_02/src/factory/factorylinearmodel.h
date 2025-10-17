@@ -16,7 +16,7 @@ public:
     }
 
 private:
-    const double m_a { 0.5 }; // Initial coefficient for previous LinearModel's output (y)
+    const double m_a { 0.5 }; // Coefficient for previous LinearModel's output (y)
     const double m_b { 0.5 }; // Coefficient for LinearModel's input (u)
 
 };

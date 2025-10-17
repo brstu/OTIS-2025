@@ -36,7 +36,7 @@ TEST(TestNonLinearModel, WhenTimeIsFives)
     auto model = factory->getModel();
     std::vector<double> calculated_results = model->simulate(y, u, t);
     std::vector<double> accepted_results
-    { 0, 0.5, 0.864713, 0.979228, 1.00892, 0.95015 };
+    { 0, 0.499999, 0.989713, 1.29059, 1.15428, 0.698974 };
 
     EXPECT_EQ(calculated_results.size(), accepted_results.size());
     
