@@ -48,7 +48,7 @@ int main() {
 
     if (model == linear) {
         y = linear_func(steps, a, b, u, y0, y1);
-    }   else {
+    } else {
         y = nonlinear_func(steps, a, b, c, d, u, y0, y1);
     }
 
