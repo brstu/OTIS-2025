@@ -1,80 +1,47 @@
 #include <iostream>
-#include <vector>
 #include <cmath>
 
-using namespace std;
-
 int main() {
-    int model_type;
-    cout << "Enter model type (1 for linear, 2 for nonlinear): ";
-    cin >> model_type;
-
-    if (model_type == 1) {
-        double a, b;
-        cout << "Enter parameters a and b: ";
-        cin >> a >> b;
-
-        double y0;
-        cout << "Enter initial temperature y0: ";
-        cin >> y0;
-
-        int n;
-        cout << "Enter number of steps n: ";
-        cin >> n;
-
-        vector<double> u(n);
-        cout << "Enter input sequence u[0] to u[" << n - 1 << "]: ";
-        for (int i = 0; i < n; i++) {
-            cin >> u[i];
-        }
-
-        vector<double> y(n + 1);
-        y[0] = y0;
-        for (int tau = 0; tau < n; tau++) {
-            y[tau + 1] = a * y[tau] + b * u[tau];
-        }
-
-        cout << "Computed temperatures y[0] to y[" << n << "]:" << endl;
-        for (int i = 0; i <= n; i++) {
-            cout << "y[" << i << "] = " << y[i] << endl;
-        }
-
+    std::cout << "First system - Linear" << std::endl;
+    const double a = 0.4; // Coefficient for previous output (y)
+    const double b = 0.3; // Coefficient for input (u)
+    const int n = 15; // Simulation time steps
+    double u = 0.5; // Step size for input signal increment
+    double y_current = 0; // Initialize y_current value
+    
+    for (int tau = 0; tau < n; tau++) {
+        y_current = a * y_current + b * u;
+        std::cout << "y[" << tau + 1 << "] = " << y_current << std::endl;
     }
-    else if (model_type == 2) {
-        double a, b, c, d;
-        cout << "Enter parameters a, b, c, d: ";
-        cin >> a >> b >> c >> d;
+    std::cout << std::endl;
 
-        double y0, y1;
-        cout << "Enter initial temperatures y0 and y1: ";
-        cin >> y0 >> y1;
+    std::cout << "\nSecond system - NonLinear" << std::endl;
+    const double a2 = 0.5; // Coefficient for input (u)
+    const double b2 = 0.2; // Nonlinear coefficient for squared previous output (prevY²)
+    const double c2 = 0.1; // Linear coefficient for input (u)
+    const double d2 = 0.3; // Nonlinear coefficient for sinusoidal input term
+    
+    double u_prev = 1.0; // Step size for input signal previus increment ( u[tau-1] )
+    double u_curr = 2.0; // Step size for input signal current increment ( u[tau] )
+    
+    double y_prev = 25.0; // y[tau-1]
+    double y_curr = 26.0; // y[tau]
+    double y_next;        // y[tau+1]
 
-        int n;
-        cout << "Enter number of steps n: ";
-        cin >> n;
-
-        vector<double> u(n);
-        cout << "Enter input sequence u[0] to u[" << n - 1 << "]: ";
-        for (int i = 0; i < n; i++) {
-            cin >> u[i];
-        }
-
-        vector<double> y(n + 1);
-        y[0] = y0;
-        y[1] = y1;
-        for (int tau = 1; tau < n; tau++) {
-            y[tau + 1] = a * y[tau] - b * pow(y[tau - 1], 2) + c * u[tau] + d * sin(u[tau - 1]);
-        }
-
-        cout << "Computed temperatures y[0] to y[" << n << "]:" << endl;
-        for (int i = 0; i <= n; i++) {
-            cout << "y[" << i << "] = " << y[i] << endl;
-        }
-
-    }
-    else {
-        cout << "Invalid model type selected." << endl;
-        return 1;
+    const double u_offset = 0.3;
+    
+    for (int tau = 1; tau < n; tau++) {
+        y_next = a2 * y_curr - b2 * std::pow(y_prev, 2) + c2 * u_curr + d2 * std::sin(u_prev);
+        
+        std::cout << "y[" << tau + 1 << "] = " << y_next << std::endl;
+        
+        // Update for next iteration
+        y_prev = y_curr;
+        y_curr = y_next;
+        
+        // Update u values (using example sequence)
+        u_prev = u_curr;
+        u_curr += u_offset;
     }
 
     return 0;
