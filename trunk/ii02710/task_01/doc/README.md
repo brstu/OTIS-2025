@@ -110,7 +110,7 @@ y[14] = 0.249999
 y[15] = 0.25
 
 
-Second system - NonLinear
+Second system - Nonlinear
 y[2] = -111.548
 y[3] = -190.471
 y[4] = -2583.32
