@@ -8,7 +8,7 @@ add_executable(main otis_task_02.cpp test.cpp)
 include(FetchContent)
 FetchContent_Declare(
   googletest
-  URL  URL https://github.com/google/googletest/archive/refs/tags/release-1.12.1.zip
+  URL https://github.com/google/googletest/archive/refs/tags/release-1.12.1.zip
   DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
 # For Windows: Prevent overriding the parent project's compiler/linker settings
@@ -16,13 +16,11 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 enable_testing()
 
-find_package(GTest REQUIRED)
-
 add_executable(runTests ../test/test_test.cpp test.cpp)
-target_link_libraries(runTests GTest::GTest GTest::Main pthread)
+target_link_libraries(runTests GTest::gtest GTest::gtest_main pthread)
 
 add_test(NAME runTests COMMAND runTests)
 target_include_directories(runTests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 include(GoogleTest)
-gtest_discover_tests(${CMAKE_PROJECT_NAME})
+gtest_discover_tests(runTests)
