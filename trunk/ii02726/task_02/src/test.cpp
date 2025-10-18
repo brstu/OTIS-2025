@@ -13,7 +13,7 @@ std::vector<double> linear_func(int steps, double a, double b, std::vector<doubl
 }
 
 
-std::vector<double> nonlinear_func(int steps, const abcd str_fun, std::vector<double>& u, double y0, double y1) {
+std::vector<double> nonlinear_func(int steps, const abcd& str_fun, std::vector<double>& u, double y0, double y1) {
     std::vector<double> y(steps);
     if (steps > 0) y[0] = y0;
     if (steps > 1) y[1] = y1;
