@@ -35,11 +35,17 @@
 #include <cmath>
 #include "test.h"
 
+
+
 int main() {
     int max_steps = 100;
     int steps;
-    double a, b, c, d;
-    double y0, y1;
+    double a;
+    double b;
+    double c;
+    double d;
+    double y0;
+    double y1;
 
     std::cout << "enter steps: ";
     std::cin >> steps;
@@ -78,11 +84,12 @@ int main() {
     std::cin >> model;
 
     std::vector<double> y;
+    const abcd str_fun {a,b,c,d};
 
-    if (model == linear) {
+    if (model == 1) {
         y = linear_func(steps, a, b, u, y0, y1);
-    }   else {
-        y = nonlinear_func(steps, a, b, c, d, u, y0, y1);
+    } else {
+        y = nonlinear_func(steps, str_fun, u, y0, y1);
     }
 
     for (int i = 0; i < steps; i++) {
@@ -91,14 +98,13 @@ int main() {
 
     return 0;
 }
-
 #include "test.h"
 #include <gtest/gtest.h>
 #include <vector>
 
 TEST(LinearModelTest, SimpleCase) {
     std::vector<double> u = {0, 1, 2, 3};
-    auto y = linear_func(3, 1.0, 1.0, u, 0.0, 1.0);
+    auto y = linear_func(1, 0.1, 0.4, u, 0.1, 0.2);
     EXPECT_DOUBLE_EQ(y[0], 0.0);
     EXPECT_DOUBLE_EQ(y[1], 1.0);
     EXPECT_DOUBLE_EQ(y[2], 1.0 + 1.0);
@@ -106,12 +112,23 @@ TEST(LinearModelTest, SimpleCase) {
 
 TEST(NonLinearModelTest, SimpleCase) {
     std::vector<double> u = {0, 1, 2, 3};
-    auto y = nonlinear_func(3, 1.0, 1.0, 1.0, 0.0, u, 0.0, 1.0);
+    auto y = nonlinear_func(3, {0.5, 2.0, 0.1, 0.8}, u, 1.0, 1.0);
     EXPECT_DOUBLE_EQ(y[0], 0.0);
     EXPECT_DOUBLE_EQ(y[1], 1.0);
     EXPECT_DOUBLE_EQ(y[2], 1.0*1.0 - 1.0*0.0 + 1.0*1.0 + 0.0);
-}
+}#pragma once
+#include <vector>
 
+struct abcd{
+    double a;
+    double b;
+    double c;
+    double d;
+};
+enum class ModelType { linear = 1, nonlinear = 2};
+
+std::vector<double> linear_func(int steps, double a, double b, std::vector<double>& u, double y0, double y1);
+std::vector<double> nonlinear_func(int steps, const abcd& srt_fun, std::vector<double>& u, double y0, double y1);
 #include "test.h"
 #include <cmath>
 
@@ -127,28 +144,18 @@ std::vector<double> linear_func(int steps, double a, double b, std::vector<doubl
 }
 
 
-std::vector<double> nonlinear_func(int steps, double a, double b, double c, double d, std::vector<double>& u, double y0, double y1) {
+std::vector<double> nonlinear_func(int steps, const abcd& str_fun, std::vector<double>& u, double y0, double y1) {
     std::vector<double> y(steps);
     if (steps > 0) y[0] = y0;
     if (steps > 1) y[1] = y1;
 
     for (int i = 2; i < steps; i++) {
-        y[i] = a * y[i - 1]
-             - b * y[i - 2] * y[i - 2]
-             + c * u[i - 1]
-             + d * std::sin(u[i - 2]);
+        y[i] = str_fun.a * y[i - 1] - str_fun.b * y[i - 2] * y[i - 2] + str_fun.c * u[i - 1] + str_fun.d * std::sin(u[i - 2]);
     }
 
     return y;
 }
 
-#pragma once
-#include <vector>
-
-enum ModelType { linear = 1, nonlinear = 2};
-
-std::vector<double> linear_func(int steps, double a, double b, std::vector<double>& u, double y0, double y1);
-std::vector<double> nonlinear_func(int steps, double a, double b, double c, double d, std::vector<double>& u, double y0, double y1);
 Вывод программы:
 Running main() from ./googletest/src/gtest_main.cc
 [==========] Running 2 tests from 2 test suites.
