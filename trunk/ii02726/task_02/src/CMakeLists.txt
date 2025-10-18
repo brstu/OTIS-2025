@@ -3,19 +3,18 @@ project(task_02)
 
 set(CMAKE_CXX_STANDARD 17)
 
-# Main program
-add_executable(main
-    src/otis_task_02.cpp
-    src/test.cpp
+add_library(task02_lib
+    otis_task_02.cpp
+    test.cpp
 )
+
+target_include_directories(task02_lib PUBLIC .)
 
 add_executable(runTests
-    test/test_test.cpp
-    src/test.cpp
+    ../test/test_test.cpp
 )
 
-target_include_directories(main PRIVATE src)
-target_include_directories(runTests PRIVATE src)
+target_link_libraries(runTests PRIVATE task02_lib)
 
 enable_testing()
 add_test(NAME runTests COMMAND runTests)
