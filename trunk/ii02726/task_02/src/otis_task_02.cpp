@@ -2,11 +2,12 @@
 #include <cmath>
 #include "test.h"
 
+
+
 int main() {
     int max_steps = 100;
     int steps;
-    double a, b, c, d;
-    double y0, y1;
+    double a, b, c, d, y0, y1;
 
     std::cout << "enter steps: ";
     std::cin >> steps;
@@ -45,11 +46,12 @@ int main() {
     std::cin >> model;
 
     std::vector<double> y;
+    abcd str_fun {a,b,c,d};
 
-    if (model == linear) {
+    if (model == 1) {
         y = linear_func(steps, a, b, u, y0, y1);
     } else {
-        y = nonlinear_func(steps, a, b, c, d, u, y0, y1);
+        y = nonlinear_func(steps, str_fun, u, y0, y1);
     }
 
     for (int i = 0; i < steps; i++) {
