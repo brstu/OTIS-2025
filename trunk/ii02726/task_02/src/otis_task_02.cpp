@@ -51,7 +51,7 @@ int main() {
     std::cin >> model;
 
     std::vector<double> y;
-    abcd str_fun {a,b,c,d};
+    const abcd str_fun {a,b,c,d};
 
     if (model == 1) {
         y = linear_func(steps, a, b, u, y0, y1);
