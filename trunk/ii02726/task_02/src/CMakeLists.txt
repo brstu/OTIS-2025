@@ -15,6 +15,7 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 enable_testing()
+
 find_package(GTest REQUIRED)
 
 add_executable(runTests ../test/test_test.cpp test.cpp)
@@ -22,3 +23,6 @@ target_link_libraries(runTests GTest::GTest GTest::Main pthread)
 
 add_test(NAME runTests COMMAND runTests)
 target_include_directories(runTests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+include(GoogleTest)
+gtest_discover_tests(${CMAKE_PROJECT_NAME})
