@@ -21,7 +21,7 @@ int main() {
     const double c2 = 0.1; // Linear coefficient for input (u)
     const double d2 = 0.3; // Nonlinear coefficient for sinusoidal input term
     
-    double u_prev = 1.0; // Step size for input signal previus increment ( u[tau-1] )
+    double u_prev = 1.0; // Step size for input signal previous increment ( u[tau-1] )
     double u_curr = 2.0; // Step size for input signal current increment ( u[tau] )
     
     double y_prev = 25.0; // y[tau-1]
