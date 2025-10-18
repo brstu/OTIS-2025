@@ -4,4 +4,4 @@ project (task_01_ii02710)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable (${CMAKE_PROJECT_NAME} labotis1.cpp)
+add_executable (${PROJECT_NAME} labotis1.cpp)
