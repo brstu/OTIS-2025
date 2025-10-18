@@ -31,7 +31,7 @@ int main() {
     const double u_offset = 0.3;
     
     for (int tau = 1; tau < n; tau++) {
-        y_next = a2 * y_curr - b2 * std::pow(y_prev, 2) + c2 * u_curr + d2 * std::sin(u_prev);
+        y_next = a2 * y_curr - b2 * (y_prev * y_prev) + c2 * u_curr + d2 * std::sin(u_prev);
         
         std::cout << "y[" << tau + 1 << "] = " << y_next << std::endl;
         
