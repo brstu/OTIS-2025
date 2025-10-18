@@ -8,7 +8,7 @@ add_executable(main otis_task_02.cpp test.cpp)
 include(FetchContent)
 FetchContent_Declare(
   googletest
-  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+  URL  URL https://github.com/google/googletest/archive/refs/tags/release-1.12.1.zip
   DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
 # For Windows: Prevent overriding the parent project's compiler/linker settings
