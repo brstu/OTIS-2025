@@ -1,27 +1,28 @@
-cmake_minimum_required(VERSION 3.16)
-project(task_02)
+cmake_minimum_required(VERSION 3.14)
+
+project(lab2_src LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/refs/heads/main.zip
-)
-FetchContent_MakeAvailable(googletest)
-
-enable_testing()
-
-add_library(task02_lib
-    src/otis_task_02.cpp
-    src/test.cpp
+add_library(test STATIC
+    test.cpp
 )
 
-target_include_directories(task02_lib PUBLIC src)
+target_include_directories(test PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
 
-add_executable(runTests test/test_test.cpp)
-target_link_libraries(runTests PRIVATE task02_lib GTest::gtest_main)
+add_executable(otis_task_02_app
+    otis_task_02.cpp
+)
 
-include(GoogleTest)
-gtest_discover_tests(runTests)
+target_link_libraries(otis_task_02_app PRIVATE test)
+
+if (MSVC)
+    target_compile_options(test PRIVATE /W4)
+    target_compile_options(test_app PRIVATE /W4)
+else()
+    target_compile_options(test PRIVATE -Wall -Wextra -pedantic)
+    target_compile_options(test_app PRIVATE -Wall -Wextra -pedantic)
+endif()
