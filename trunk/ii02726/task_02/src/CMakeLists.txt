@@ -1,28 +1,17 @@
-cmake_minimum_required(VERSION 3.14)
-
-project(lab2_src LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.16...3.31)
+project(task_02)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_library(test STATIC
-    test.cpp
-)
+add_executable(main otis_task_02.cpp test.cpp)
 
-target_include_directories(test PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}
-)
+add_subdirectory(${CMAKE_SOURCE_DIR}/extern/googletest)
 
-add_executable(otis_task_02_app
-    otis_task_02.cpp
-)
+enable_testing()
 
-target_link_libraries(otis_task_02_app PRIVATE test)
 
-if (MSVC)
-    target_compile_options(test PRIVATE /W4)
-    target_compile_options(test_app PRIVATE /W4)
-else()
-    target_compile_options(test PRIVATE -Wall -Wextra -pedantic)
-    target_compile_options(test_app PRIVATE -Wall -Wextra -pedantic)
-endif()
+add_executable(runTests ../test/test_test.cpp test.cpp)
+target_link_libraries(runTests gtest gtest_main pthread)
+target_include_directories(runTests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_test(NAME runTests COMMAND runTests)
