@@ -7,7 +7,12 @@
 int main() {
     int max_steps = 100;
     int steps;
-    double a, b, c, d, y0, y1;
+    double a;
+    double b;
+    double c;
+    double d;
+    double y0;
+    double y1;
 
     std::cout << "enter steps: ";
     std::cin >> steps;

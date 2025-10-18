@@ -2,7 +2,10 @@
 #include <vector>
 
 struct abcd{
-    double a, b, c, d;
+    double a;
+    double b;
+    double c;
+    double d;
 };
 enum class ModelType { linear = 1, nonlinear = 2};
 
