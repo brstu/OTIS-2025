@@ -19,10 +19,7 @@ std::vector<double> nonlinear_func(int steps, double a, double b, double c, doub
     if (steps > 1) y[1] = y1;
 
     for (int i = 2; i < steps; i++) {
-        y[i] = a * y[i - 1]
-             - b * y[i - 2] * y[i - 2]
-             + c * u[i - 1]
-             + d * std::sin(u[i - 2]);
+        y[i] = a * y[i - 1] - b * y[i - 2] * y[i - 2] + c * u[i - 1] + d * std::sin(u[i - 2]);
     }
 
     return y;
