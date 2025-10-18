@@ -15,7 +15,7 @@ int main() {
     }
     std::cout << std::endl;
 
-    std::cout << "Second system - NonLinear" << std::endl;
+    std::cout << "\nSecond system - Nonlinear" << std::endl;
     const double a2 = 0.5; // Coefficient for input (u)
     const double b2 = 0.2; // Nonlinear coefficient for squared previous output (prevY²)
     const double c2 = 0.1; // Linear coefficient for input (u)
