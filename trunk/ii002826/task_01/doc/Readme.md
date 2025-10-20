@@ -22,156 +22,85 @@
 3. Выполнить рецензирование ([review](https://linearb.io/blog/code-review-on-github), [checklist](https://linearb.io/blog/code-review-checklist)) запросов других студентов (минимум 2-е рецензии).
 4. Отразить выполнение работы в файле readme.md в соответствующей строке (например, для студента под порядковым номером 1 - https://github.com/brstu/OTIS-2023/edit/main/readme.md?#L17-L17).
 
-## Task 1. Modeling controlled object ##
-Let's get some object to be controlled. We want to control its temperature, which can be described by this differential equation:
-
-$$\Large\frac{dy(\tau)}{d\tau}=\frac{u(\tau)}{C}+\frac{Y_0-y(\tau)}{RC} $$ (1)
-
-where $\tau$ – time; $y(\tau)$ – input temperature; $u(\tau)$ – input warm; $Y_0$ – room temperature; $C,RC$ – some constants.
-
-After transformation we get these linear (2) and nonlinear (3) models:
-
-$$\Large y_{\tau+1}=ay_{\tau}+bu_{\tau}$$ (2)
-$$\Large y_{\tau+1}=ay_{\tau}-by_{\tau-1}^2+cu_{\tau}+d\sin(u_{\tau-1})$$ (3)
-
-where $\tau$ – time discrete moments ($1,2,3{\dots}n$); $a,b,c,d$ – some constants.
-
-Task is to write program (**С++**), which simulates this object temperature.
+Task 1. Modeling controlled object Let's get some object to be controlled. We want to control its temperature, which can be described by this differential equation: (dy(τ)/dτ) = (u(τ)/C) + ((Y[0] - y(τ))/RC) (1) where τ – time; y (τ) – input temperature; u (τ) – input warm; Y0 – room temperature; C , R C – some constants. After transformation we get these linear (2) and nonlinear (3) models: y[τ + 1] = a*y[τ] + b*u[τ] (2) ⁡y[τ + 1] = a*y[τ] - b*y[τ - 1]^2 +c*u[τ] + dsin(u[t - 1]) (3) where τ – time discrete moments ( 1 , 2 , 3 … n ); a, b, c, d – some constants. Task is to write program (С++), which simulates this object temperature.
 
 
 ## Код программы:
 ```C++
 #include <iostream>
-#include <memory>
 #include <cmath>
+#include <vector>
 
-// Базовый класс для моделирования
-class ISimulatedModel {
-public:
-    virtual void simulate(double initial_value, double input, int time_steps) const = 0;
-    virtual ~ISimulatedModel() = default;
-};
+using namespace std;
 
-// Линейная модель: y(t+1) = a*y(t) + b*u(t)
-class LinearModel : public ISimulatedModel {
-public:
-    LinearModel(double coefficient_a, double coefficient_b)
-        : coefficient_a_(coefficient_a), coefficient_b_(coefficient_b) {
-    }
+// Линейная модель
+double linear_model(double y_prev, double u, double a, double b) {
+    return a * y_prev + b * u;
+}
 
-    ~LinearModel() override = default;
+// Нелинейная модель
+double nonlinear_model(double y_prev, double y_prev_2, double u, double a, double b, double c, double d) {
+    return a * y_prev - b * pow(y_prev_2, 2) + c * u + d * sin(u);
+}
 
-    void simulate(double initial_value, double input, int time_steps) const override {
-        double current_value = initial_value;
-
-        for (int step = 0; step <= time_steps; step++) {
-            std::cout << step << " " << current_value << std::endl;
-            current_value = coefficient_a_ * current_value + coefficient_b_ * input;
-        }
-    }
-
-private:
-    const double coefficient_a_;
-    const double coefficient_b_;
-};
-
-// Нелинейная модель: y(t+1) = a*y(t) - b*y(t-1)² + c*u(t) + d*sin(u(t-1))
-class NonLinearModel : public ISimulatedModel {
-public:
-    NonLinearModel(double coefficient_a, double coefficient_b,
-        double coefficient_c, double coefficient_d)
-        : coefficient_a_(coefficient_a), coefficient_b_(coefficient_b),
-        coefficient_c_(coefficient_c), coefficient_d_(coefficient_d) {
-    }
-
-    ~NonLinearModel() override = default;
-
-    void simulate(double initial_value, double input, int time_steps) const override {
-        double current_value = initial_value;
-        double previous_value = initial_value;
-        double previous_input = input;
-        double current_input = input;
-
-        for (int step = 0; step <= time_steps; step++) {
-            std::cout << step << " " << current_value << std::endl;
-
-            double next_value = coefficient_a_ * current_value
-                - coefficient_b_ * previous_value * previous_value
-                + coefficient_c_ * current_input
-                + coefficient_d_ * std::sin(previous_input);
-
-            previous_value = current_value;
-            previous_input = current_input;
-            current_input += input_step_;
-            current_value = next_value;
-        }
-    }
-
-private:
-    const double coefficient_a_;
-    const double coefficient_b_;
-    const double coefficient_c_;
-    const double coefficient_d_;
-    const double input_step_ = 0.5;
-};
-
-// Фабрика для создания моделей
-class IModelFactory {
-public:
-    virtual std::unique_ptr<ISimulatedModel> createModel() const = 0;
-    virtual ~IModelFactory() = default;
-};
-
-// Фабрика линейных моделей
-class LinearModelFactory : public IModelFactory {
-public:
-    ~LinearModelFactory() override = default;
-
-    std::unique_ptr<ISimulatedModel> createModel() const override {
-        return std::make_unique<LinearModel>(linear_coefficient_a, linear_coefficient_b);
-    }
-
-private:
-    const double linear_coefficient_a = 0.5;
-    const double linear_coefficient_b = 0.5;
-};
-
-// Фабрика нелинейных моделей
-class NonLinearModelFactory : public IModelFactory {
-public:
-    ~NonLinearModelFactory() override = default;
-
-    std::unique_ptr<ISimulatedModel> createModel() const override {
-        return std::make_unique<NonLinearModel>(nonlinear_coefficient_a, nonlinear_coefficient_b,
-            nonlinear_coefficient_c, nonlinear_coefficient_d);
-    }
-
-private:
-    const double nonlinear_coefficient_a = 0.5;
-    const double nonlinear_coefficient_b = 0.5;
-    const double nonlinear_coefficient_c = 0.5;
-    const double nonlinear_coefficient_d = 0.5;
-};
-
-// Основная программа
 int main() {
-    const double initial_condition = 0.0;
-    const double input_signal = 1.0;
-    const int simulation_time = 25;
+    setlocale(LC_ALL,"ru");
+    double a, b, c, d;
+    double u;
+    double y_0;
+    int num_steps;
+    int model_choice;
 
-    // Тестирование линейной модели
-    std::cout << "Linear Model Simulation:" << std::endl;
-    auto linear_factory = std::make_unique<LinearModelFactory>();
-    auto linear_model = linear_factory->createModel();
-    linear_model->simulate(initial_condition, input_signal, simulation_time);
-    std::cout << std::endl;
+    // Ввод параметров пользователем
+    cout << "Введите коэффициент а: ";
+    cin >> a;
+    cout << "Введите коэффициент b: ";
+    cin >> b;
+    cout << "Введите коэффициент c (только для нелинейной модели): ";
+    cin >> c;
+    cout << "Введите коэффициент d (только для нелинейной модели): ";
+    cin >> d;
 
-    // Тестирование нелинейной модели
-    std::cout << "Nonlinear Model Simulation:" << std::endl;
-    auto nonlinear_factory = std::make_unique<NonLinearModelFactory>();
-    auto nonlinear_model = nonlinear_factory->createModel();
-    nonlinear_model->simulate(initial_condition, input_signal, simulation_time);
-    std::cout << std::endl;
+    cout << "Введите подаваемое тепло u: ";
+    cin >> u;
+
+    cout << "Введите начальную температуру y_0: ";
+    cin >> y_0;
+
+    cout << "Введите количество шагов для моделирования: ";
+    cin >> num_steps;
+
+    cout << "Выберите модель (1 – Линейная, 2 – Нелинейная): ";
+    cin >> model_choice;
+
+    vector<double> temperatures(num_steps);
+
+    // Инициализация начальных значений
+    double y_1 = y_0;  // y[t]
+    double y_2 = y_0;  // y[t-1] (нужно для нелинейной модели)
+
+    for (int t = 0; t < num_steps; ++t) {
+        temperatures[t] = y_1;
+
+        if (model_choice == 1) {
+            y_1 = linear_model(y_1, u, a, b);
+        }
+        else if (model_choice == 2) {
+            double y_next = nonlinear_model(y_1, y_2, u, a, b, c, d);
+            y_2 = y_1;  // обновляем y[t-1]
+            y_1 = y_next;
+        }
+        else {
+            cout << "Неверный выбор модели!" << endl;
+            return -1;
+        }
+    }
+
+    // Вывод результатов
+    cout << "\nТемпература с течением времени:\n";
+    for (int t = 0; t < num_steps; ++t) {
+        cout << "Шаг " << t + 1 << ": " << temperatures[t] << " C" << endl;
+    }
 
     return 0;
 }```
