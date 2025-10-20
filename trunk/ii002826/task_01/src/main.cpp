@@ -2,7 +2,6 @@
 #include <cmath>
 #include <vector>
 
-
 // Линейная модель
 double linear_model(double y_prev, double u, double a, double b) {
     return a * y_prev + b * u;
@@ -10,7 +9,7 @@ double linear_model(double y_prev, double u, double a, double b) {
 
 // Нелинейная модель
 double nonlinear_model(double y_prev, double y_prev_2, double u, double a, double b, double c, double d) {
-    return a * y_prev - b * pow(y_prev_2, 2) + c * u + d * sin(u);
+    return a * y_prev - b * std::pow(y_prev_2, 2) + c * u + d * std::sin(u);
 }
 
 int main() {
@@ -34,15 +33,15 @@ int main() {
     std::cin >> u;
 
     std::cout << "Enter the initial temperature y_0: ";
-        std::cin >> y_0;
+    std::cin >> y_0;
 
-    std::cout << "Enter the number of steps for the simulation : ";
+    std::cout << "Enter the number of steps for the simulation: ";
     std::cin >> num_steps;
 
-    std::cout << "Select model(1 – Linear, 2 – Nonlinear) : ";
+    std::cout << "Select model (1 – Linear, 2 – Nonlinear): ";
     std::cin >> model_choice;
 
-    vector<double> temperatures(num_steps);
+    std::vector<double> temperatures(num_steps);
 
     // Инициализация начальных значений
     double y_1 = y_0;  // y[t]
@@ -60,7 +59,7 @@ int main() {
             y_1 = y_next;
         }
         else {
-            std::cout << "Wrong model choice!" << endl;
+            std::cout << "Wrong model choice!" << std::endl;
             return -1;
         }
     }
@@ -68,7 +67,7 @@ int main() {
     // Вывод результатов
     std::cout << "\nTemperature over time:\n";
     for (int t = 0; t < num_steps; ++t) {
-        std::cout << "Step " << t + 1 << ": " << temperatures[t] << " C" << endl;
+        std::cout << "Step " << t + 1 << ": " << temperatures[t] << " C" << std::endl;
     }
 
     return 0;
