@@ -2,7 +2,6 @@
 #include <cmath>
 #include <vector>
 
-using namespace std;
 
 // Линейная модель
 double linear_model(double y_prev, double u, double a, double b) {
@@ -22,26 +21,26 @@ int main() {
     int model_choice;
 
     // Ввод параметров пользователем
-    cout << "Enter coefficient a: ";
-    cin >> a;
-    cout << "Enter coefficient b: ";
-    cin >> b;
-    cout << "Enter coefficient c: ";
-    cin >> c;
-    cout << "Enter coefficient d: ";
-    cin >> d;
+    std::cout << "Enter coefficient a: ";
+    std::cin >> a;
+    std::cout << "Enter coefficient b: ";
+    std::cin >> b;
+    std::cout << "Enter coefficient c: ";
+    std::cin >> c;
+    std::cout << "Enter coefficient d: ";
+    std::cin >> d;
 
-    cout << "Enter the supplied heat u: ";
-    cin >> u;
+    std::cout << "Enter the supplied heat u: ";
+    std::cin >> u;
 
-    cout << "Enter the initial temperature y_0: ";
-        cin >> y_0;
+    std::cout << "Enter the initial temperature y_0: ";
+        std::cin >> y_0;
 
-    cout << "Enter the number of steps for the simulation : ";
-    cin >> num_steps;
+    std::cout << "Enter the number of steps for the simulation : ";
+    std::cin >> num_steps;
 
-    cout << "Select model(1 – Linear, 2 – Nonlinear) : ";
-    cin >> model_choice;
+    std::cout << "Select model(1 – Linear, 2 – Nonlinear) : ";
+    std::cin >> model_choice;
 
     vector<double> temperatures(num_steps);
 
@@ -61,15 +60,15 @@ int main() {
             y_1 = y_next;
         }
         else {
-            cout << "Wrong model choice!" << endl;
+            std::cout << "Wrong model choice!" << endl;
             return -1;
         }
     }
 
     // Вывод результатов
-    cout << "\nTemperature over time:\n";
+    std::cout << "\nTemperature over time:\n";
     for (int t = 0; t < num_steps; ++t) {
-        cout << "Step " << t + 1 << ": " << temperatures[t] << " C" << endl;
+        std::cout << "Step " << t + 1 << ": " << temperatures[t] << " C" << endl;
     }
 
     return 0;
