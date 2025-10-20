@@ -2,6 +2,10 @@
 #include <cmath>
 #include <vector>
 
+// Константы для выбора модели
+const int LINEAR_MODEL = 1;
+const int NONLINEAR_MODEL = 2;
+
 // Линейная модель
 double linear_model(double y_prev, double u, double a, double b) {
     return a * y_prev + b * u;
@@ -12,55 +16,46 @@ double nonlinear_model(double y_prev, double y_prev_2, double u, double a, doubl
     return a * y_prev - b * std::pow(y_prev_2, 2) + c * u + d * std::sin(u);
 }
 
-int main() {
-    double a, b, c, d;
-    double u;
-    double y_0;
-    int num_steps;
-    int model_choice;
+// Проверка корректности ввода
+bool read_double(const std::string& prompt, double& value) {
+    std::cout << prompt;
+    if (!(std::cin >> value)) {
+        std::cerr << "Invalid input. Please enter a numeric value." << std::endl;
+        return false;
+    }
+    return true;
+}
 
-    // Ввод параметров пользователем
-    std::cout << "Enter coefficient a: ";
-    std::cin >> a;
-    std::cout << "Enter coefficient b: ";
-    std::cin >> b;
-    std::cout << "Enter coefficient c: ";
-    std::cin >> c;
-    std::cout << "Enter coefficient d: ";
-    std::cin >> d;
+bool read_int(const std::string& prompt, int& value) {
+    std::cout << prompt;
+    if (!(std::cin >> value)) {
+        std::cerr << "Invalid input. Please enter an integer." << std::endl;
+        return false;
+    }
+    return true;
+}
 
-    std::cout << "Enter the supplied heat u: ";
-    std::cin >> u;
-
-    std::cout << "Enter the initial temperature y_0: ";
-    std::cin >> y_0;
-
-    std::cout << "Enter the number of steps for the simulation: ";
-    std::cin >> num_steps;
-
-    std::cout << "Select model (1 – Linear, 2 – Nonlinear): ";
-    std::cin >> model_choice;
-
+// Симуляция процесса
+void simulate(int model_choice, double a, double b, double c, double d, double u, double y_0, int num_steps) {
     std::vector<double> temperatures(num_steps);
 
-    // Инициализация начальных значений
-    double y_1 = y_0;  // y[t]
-    double y_2 = y_0;  // y[t-1] (нужно для нелинейной модели)
+    double y_1 = y_0; // y[t]
+    double y_2 = y_0; // y[t-1]
 
     for (int t = 0; t < num_steps; ++t) {
         temperatures[t] = y_1;
 
-        if (model_choice == 1) {
+        if (model_choice == LINEAR_MODEL) {
             y_1 = linear_model(y_1, u, a, b);
         }
-        else if (model_choice == 2) {
+        else if (model_choice == NONLINEAR_MODEL) {
             double y_next = nonlinear_model(y_1, y_2, u, a, b, c, d);
-            y_2 = y_1;  // обновляем y[t-1]
+            y_2 = y_1;
             y_1 = y_next;
         }
         else {
-            std::cout << "Wrong model choice!" << std::endl;
-            return -1;
+            std::cerr << "Invalid model choice!" << std::endl;
+            return;
         }
     }
 
@@ -69,6 +64,25 @@ int main() {
     for (int t = 0; t < num_steps; ++t) {
         std::cout << "Step " << t + 1 << ": " << temperatures[t] << " C" << std::endl;
     }
+}
+
+int main() {
+    double a, b, c, d, u, y_0;
+    int num_steps;
+    int model_choice;
+
+    // Безопасный ввод данных
+    if (!read_double("Enter coefficient a: ", a)) return 1;
+    if (!read_double("Enter coefficient b: ", b)) return 1;
+    if (!read_double("Enter coefficient c: ", c)) return 1;
+    if (!read_double("Enter coefficient d: ", d)) return 1;
+    if (!read_double("Enter the supplied heat u: ", u)) return 1;
+    if (!read_double("Enter the initial temperature y_0: ", y_0)) return 1;
+    if (!read_int("Enter the number of steps for the simulation: ", num_steps)) return 1;
+    if (!read_int("Select model (1 – Linear, 2 – Nonlinear): ", model_choice)) return 1;
+
+    simulate(model_choice, a, b, c, d, u, y_0, num_steps);
 
     return 0;
 }
+
