@@ -63,7 +63,7 @@ int main() {
     cout << "Enter the supplied heat u: ";
     cin >> u;
 
-    cout << "Enter the initial temperature y_0: ;
+    cout << "Enter the initial temperature y_0: ";
     cin >> y_0;
 
     cout << "Enter the number of steps for the simulation : ";
