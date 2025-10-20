@@ -15,7 +15,10 @@ double nonlinear_model(double y_prev, double y_prev_2, double u, double a, doubl
 }
 
 int main() {
-    setlocale(LC_ALL, "ru");
+    if (setlocale(LC_ALL, "ru") == NULL) {
+        std::cerr << "Ошибка: не удалось установить русскую локаль. Продолжение работы невозможно." << std::endl;
+        return 1;
+    }
     double a, b, c, d;
     double u;
     double y_0;
