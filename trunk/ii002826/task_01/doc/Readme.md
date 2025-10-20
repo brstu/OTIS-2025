@@ -39,8 +39,9 @@ double linear_model(double y_prev, double u, double a, double b) {
 }
 
 // Нелинейная модель
-double nonlinear_model(double y_prev, double y_prev_2, double u, double a, double b, double c, double d) {
-    return a * y_prev - b * pow(y_prev_2, 2) + c * u + d * sin(u);
+// u_prev - управляющее воздействие на предыдущем шаге (u[t-1])
+double nonlinear_model(double y_prev, double y_prev_2, double u, double u_prev, double a, double b, double c, double d) {
+    return a * y_prev - b * std::pow(y_prev_2, 2) + c * u + d * std::sin(u_prev);
 }
 
 int main() {
