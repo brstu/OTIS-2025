@@ -25,8 +25,6 @@ int main() {
     for (int k = 1; k <= steps; ++k) {
         temp_now = A * temp_prev + B * heat_now;
         std::cout << "Шаг " << k << ": температура = " << temp_now << " °C\n";
-        temp_now = A * temp_now + B * heat_now;
-        std::cout << "Шаг " << k << " температура = " << temp_now << " C\n";
         temp_prev = temp_now;
     }
 
