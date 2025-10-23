@@ -68,7 +68,8 @@ int main() {
     std::cout << "\nЛинейная модель\n";
     for (int k = 1; k <= steps; ++k) {
         temp_now = A * temp_now + B * heat_now;
-        std::cout << "Шаг " << k << ": температура = " << temp_now << " °C\n";
+        std::cout << "Шаг " << k << " температура = " << temp_now << " C\n";
+        temp_prev = temp_now;
     }
 
     std::cout << "\nНелинейная модель\n";
@@ -81,16 +82,20 @@ int main() {
         temp_prev = temp_now;
         temp_now = temp_next;
         heat_prev = heat_now;
-        std::cout << "Шаг " << k << ": температура = " << temp_now << " °C\n";
-        std::cout << "Введите новое значение подачи тепла (u): ";
-        std::cin >> heat_now;
+        std::cout << "Шаг " << k << "температура = " << temp_now << " C\n";
+        
+        if (k != steps) {
+            std::cout << "Введите новое значение подачи тепла (u): ";
+            std::cin >> heat_now;
+        }
     }
 
     std::cout << "\nМоделирование завершено.\n";
-    std::cout << "Итоговая температура: " << temp_now << " °C\n";
+    std::cout << "Итоговая температура: " << temp_now << " C\n";
 
     return 0;
 }
+
 
 ```
 
