@@ -25,6 +25,8 @@ int main() {
     for (int k = 1; k <= steps; ++k) {
         temp_now = A * temp_prev + B * heat_now;
         std::cout << "Шаг " << k << ": температура = " << temp_now << " °C\n";
+        temp_now = A * temp_now + B * heat_now;
+        std::cout << "Шаг " << k << " температура = " << temp_now << " C\n";
         temp_prev = temp_now;
     }
 
@@ -38,13 +40,16 @@ int main() {
         temp_prev = temp_now;
         temp_now = temp_next;
         heat_prev = heat_now;
-        std::cout << "Шаг " << k << ": температура = " << temp_now << " °C\n";
-        std::cout << "Введите новое значение подачи тепла (u): ";
-        std::cin >> heat_now;
+        std::cout << "Шаг " << k << "температура = " << temp_now << " C\n";
+        
+        if (k != steps) {
+            std::cout << "Введите новое значение подачи тепла (u): ";
+            std::cin >> heat_now;
+        }
     }
 
     std::cout << "\nМоделирование завершено.\n";
-    std::cout << "Итоговая температура: " << temp_now << " °C\n";
+    std::cout << "Итоговая температура: " << temp_now << " C\n";
 
     return 0;
 }
