@@ -30,7 +30,7 @@ int main() {
 
     std::cout << "\nНелинейная модель\n";
     temp_now = temp_prev;
-    temp_prev = 0.0;
+    temp_prev = temp_now;
     heat_prev = heat_now;
 
     for (int k = 1; k <= steps; ++k) {
