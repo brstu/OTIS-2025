@@ -82,7 +82,7 @@ int main() {
         temp_prev = temp_now;
         temp_now = temp_next;
         heat_prev = heat_now;
-        std::cout << "Шаг " << k << "температура = " << temp_now << " C\n";
+        std::cout << "Шаг " << k << ": температура = " << temp_now << " C\n";
         
         if (k != steps) {
             std::cout << "Введите новое значение подачи тепла (u): ";
