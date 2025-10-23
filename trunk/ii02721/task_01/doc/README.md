@@ -68,7 +68,7 @@ int main() {
     std::cout << "\nЛинейная модель\n";
     for (int k = 1; k <= steps; ++k) {
         temp_now = A * temp_prev + B * heat_now;
-        std::cout << "Шаг " << k << " температура = " << temp_now << " C\n";
+        std::cout << "Шаг " << k << ": температура = " << temp_now << " C\n";
         temp_prev = temp_now;
     }
 
