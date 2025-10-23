@@ -31,6 +31,7 @@ where $\tau$ – time; $y(\tau)$ – input temperature; $u(\tau)$ – input warm
 
 After transformation we get these linear (2) and nonlinear (3) models:
 
+
 $$\Large y_{\tau+1}=ay_{\tau}+bu_{\tau}$$ (2)
 $$\Large y_{\tau+1}=ay_{\tau}-by_{\tau-1}^2+cu_{\tau}+d\sin(u_{\tau-1})$$ (3)
 
