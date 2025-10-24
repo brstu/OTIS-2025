@@ -7,8 +7,6 @@ Obj::Obj() {
 	b = 1;
 	c = 1;
 	d = 1;
-	c1 = 1;
-	rc = 1;
 }
 
 void Obj::input() {
