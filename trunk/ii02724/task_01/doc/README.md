@@ -54,10 +54,10 @@ struct NonLinearModelParams
 	double yOffset;      // Initial offset for previous output value (prevY = y - yOffset)
 	double uOffset;      // Initial offset for previous input value (prevU = u - uOffset)
     double a;            // Linear coefficient for current output (y)
-    double b;            // Linear coefficient for current output (y)
+    double b;            // Nonlinear coefficient for squared previous output (prevY²)
     double c;            // Linear coefficient for input (u)
     double d;            // Nonlinear coefficient for sinusoidal input term
-    double u_step; // Step size for input signal increment
+    double u_step;       // Step size for input signal increment
 };
 
 void simulateLinear(double y, double u, int t, const LinearModelParams& params) 
@@ -75,9 +75,9 @@ void simulateNonLinear(double y, double u, int t, const NonLinearModelParams& pa
     for (int i = 0; i <= t; i++) 
 	{
         std::cout << i << ' ' << y << '\n';
-        prevY = y;
         double nextY = params.a * y - params.b * prevY * prevY + params.c * u + params.d * std::sin(prevU);
         prevU += params.u_step;
+        prevY = y;
         y = nextY;
     }
 }
