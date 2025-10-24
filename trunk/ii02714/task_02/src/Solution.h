@@ -5,31 +5,26 @@
 #include <vector>
 using namespace std;
 
-
 class Obj {
-private:
+public:
 	int k = 4;
 	int t = 0;
 	vector<double> y;
 	vector<double> u;
 	double y0 = 25;
-	double temp_change = 0;
-	double a = 1;
-	double b = 1;
-	double c = 1;
-	double d = 1;
-	double c1 = 1;
-	double rc = 1;
-public:
+	double a;
+	double b;
+	double c;
+	double d;
+	double c1;
+	double rc;
 	Obj();
 	void input();
-	void equation1(const int& place);
 	void linear(const int& place);
 	void nonlinear(const int& place);
 	int getN() const;
 	int getT() const;
 	double getY(int place) const;
-	double getDelt() const;
 };
 
 

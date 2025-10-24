@@ -1,10 +1,14 @@
-#include"Solution.h"
+#include "Solution.h"
 
 Obj::Obj() {
-
 	y.resize(k, 0);
 	u.resize(k, 0);
-
+	a = 1;
+	b = 1;
+	c = 1;
+	d = 1;
+	c1 = 1;
+	rc = 1;
 }
 
 void Obj::input() {
@@ -49,11 +53,6 @@ void Obj::input() {
 	cin >> this->rc;
 
 }
-void Obj::equation1(const int& place) {
-
-	this->temp_change = u.at(place) / c + (y0 - y.at(place)) / rc;
-
-}
 void Obj::linear(const int& place) {
 
 	if (place <= k && place >= 0) {
@@ -87,10 +86,5 @@ int Obj::getT() const {
 double Obj::getY(int place) const {
 
 	return this->y.at(place);
-
-}
-double Obj::getDelt() const {
-
-	return this->temp_change;
 
 }
