@@ -24,7 +24,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 # Тесты
-add_executable(runTests ${CMAKE_CURRENT_SOURCE_DIR}/test/test.cpp)
+add_executable(runTests ${PROJECT_SOURCE_DIR}/test/test.cpp)
 target_link_libraries(runTests PRIVATE solution gtest gtest_main)
 
 # Регистрация тестов
