@@ -7,7 +7,7 @@ TEST(TestClass, linearfun1) {
 	o.u.at(0) = 2.5;
 	o.linear(0);
 	double res = o.y.at(1); 
-    EXPECT_NEAR(res,3.5,0.1);
+    EXPECT_NEAR(res, 3.5,0.1);
 }
 TEST(TestClass, linearfun2) {
 	Obj o;
