@@ -14,10 +14,10 @@ Obj::Obj() {
 void Obj::input() {
 	cout << "Enter amount of iterations: ";
 	cin >> this->k;
-	cout << "\nEnter temperature: ";
-	cin >> y.at(0);
 	u.resize(k + 1, 0);
 	y.resize(k + 1, 0);
+	cout << "\nEnter temperature: ";
+	cin >> y.at(0);
 	for (auto& warm : u) {
 		cout << "\nEnter warm: ";
 		cin >> warm;
