@@ -28,4 +28,4 @@ public:
 };
 
 
-#endif SOLUTION_H_TASK_02
+#endif
