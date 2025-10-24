@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Основная библиотека с классом Obj
-add_library(solution STATIC solution.cpp)
+add_library(solution STATIC Solution.cpp)
 target_include_directories(solution PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 # Основной исполняемый файл 
@@ -24,7 +24,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 # Тесты
-add_executable(runTests ${CMAKE_CURRENT_SOURCE_DIR}..\test\test.cpp)
+add_executable(runTests ${CMAKE_CURRENT_SOURCE_DIR}../test/test.cpp)
 target_link_libraries(runTests PRIVATE solution gtest gtest_main)
 
 # Регистрация тестов
