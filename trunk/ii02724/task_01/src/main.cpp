@@ -1,66 +1,65 @@
 #include <iostream>
 #include <cmath>
 
-// Структуры для хранения параметров моделей
-struct LinearModelParams 
+struct LinearModelParams
 {
     double a; // Coefficient for previous output (y)
     double b; // Coefficient for input (u)
 };
-struct NonLinearModelParams 
+struct NonLinearModelParams
 {
-	double yOffset;      // Initial offset for previous output value (prevY = y - yOffset)
-	double uOffset;      // Initial offset for previous input value (prevU = u - uOffset)
+    double yOffset;      // Initial offset for previous output value (prevY = y - yOffset)
+    double uOffset;      // Initial offset for previous input value (prevU = u - uOffset)
     double a;            // Linear coefficient for current output (y)
-    double b;            // Linear coefficient for current output (y)
+    double b;            // Nonlinear coefficient for squared previous output (prevY²)
     double c;            // Linear coefficient for input (u)
     double d;            // Nonlinear coefficient for sinusoidal input term
-    double u_step; // Step size for input signal increment
+    double u_step;       // Step size for input signal increment
 };
 
-void simulateLinear(double y, double u, int t, const LinearModelParams& params) 
+void simulateLinear(double y, double u, int t, const LinearModelParams& params)
 {
-    for (int i = 0; i <= t; i++) 
-	{
+    for (int i = 0; i <= t; i++)
+    {
         std::cout << i << ' ' << y << '\n';
         y = params.a * y + params.b * u;
     }
 }
-void simulateNonLinear(double y, double u, int t, const NonLinearModelParams& params) 
+void simulateNonLinear(double y, double u, int t, const NonLinearModelParams& params)
 {
     double prevY = y - params.yOffset; // calculate prevY to differentiate it from the initial y
     double prevU = u - params.uOffset; // calculate prevU to differentiate it from the initial u
-    for (int i = 0; i <= t; i++) 
-	{
+    for (int i = 0; i <= t; i++)
+    {
         std::cout << i << ' ' << y << '\n';
-        prevY = y;
         double nextY = params.a * y - params.b * prevY * prevY + params.c * u + params.d * std::sin(prevU);
         prevU += params.u_step;
+        prevY = y;
         y = nextY;
     }
 }
 
 LinearModelParams createLinearModel()
 {
-	LinearModelParams params;
-	params.a = 0.5;
-	params.b = 0.3;
+    LinearModelParams params;
+    params.a = 0.5;
+    params.b = 0.3;
     return params;
 }
-NonLinearModelParams createNonLinearModel() 
+NonLinearModelParams createNonLinearModel()
 {
-	NonLinearModelParams params;
-	params.yOffset = 0.2;  
-    params.uOffset = 1;      
-	params.a = 0.6;
-	params.b = 0.4;
-	params.c = 0.5;
-	params.d = 0.3;
-	params.u_step = 0.35;
+    NonLinearModelParams params;
+    params.yOffset = 0.2;
+    params.uOffset = 1;
+    params.a = 0.6;
+    params.b = 0.4;
+    params.c = 0.5;
+    params.d = 0.3;
+    params.u_step = 0.35;
     return params;
 }
 
-int main() 
+int main()
 {
     const double y = 1.0; // Initial output value
     const double u = 0.8; // Input signal value
