@@ -44,8 +44,6 @@ Task is to write program (**С++**), which simulates this object temperature.
 #include <vector>
 #include <cmath>
 
-const int MAX_STEPS = 101;
-
 int main() {
     std::setlocale(LC_ALL, "rus");
 
@@ -54,7 +52,7 @@ int main() {
     std::cin >> N;
     if (N >= 100) {
         std::cout << "Ошибка: выход за границу\n";
-        return 1;
+        return 0;
     }
 
     double a;
@@ -93,15 +91,15 @@ int main() {
     // Нелинейная модель
     for (int t = 1; t < N; ++t) {
         y_nl[t + 1] = a * y_nl[t]
-                    - b * y_nl[t - 1] * y_nl[t - 1]
-                    + c * u[t]
-                    + d * std::sin(u[t - 1]);
+            - b * y_nl[t - 1] * y_nl[t - 1]
+                + c * u[t]
+                + d * std::sin(u[t - 1]);
     }
 
     std::cout << "\nРезультаты моделирования:\n";
-    std::cout << "t  y_lin  y_nl\n";
+    std::cout << "t \ty_lin \ty_nl\n";
     for (int t = 0; t <= N; ++t) {
-        std::cout << t << "  " << y_lin[t] << "  " << y_nl[t] << "\n";
+        std::cout << t << "\t" << y_lin[t] << "\t" << y_nl[t] << "\n";
     }
 
     return 0;
