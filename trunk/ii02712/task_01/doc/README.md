@@ -22,18 +22,62 @@
 3. Выполнить рецензирование ([review](https://linearb.io/blog/code-review-on-github), [checklist](https://linearb.io/blog/code-review-checklist)) запросов других студентов (минимум 2-е рецензии).
 4. Отразить выполнение работы в файле readme.md в соответствующей строке (например, для студента под порядковым номером 1 - https://github.com/brstu/OTIS-2023/edit/main/readme.md?#L17-L17).
 
-## Task 1. Modeling controlled object ##
-Let's get some object to be controlled. We want to control its temperature, which can be described by this differential equation:
 
-$$\Large\frac{dy(\tau)}{d\tau}=\frac{u(\tau)}{C}+\frac{Y_0-y(\tau)}{RC} $$ (1)
 
-where $\tau$ – time; $y(\tau)$ – input temperature; $u(\tau)$ – input warm; $Y_0$ – room temperature; $C,RC$ – some constants.
+```C++
+#include <iostream>
+#include <cmath>
 
-After transformation we get these linear (2) and nonlinear (3) models:
 
-$$\Large y_{\tau+1}=ay_{\tau}+bu_{\tau}$$ (2)
-$$\Large y_{\tau+1}=ay_{\tau}-by_{\tau-1}^2+cu_{\tau}+d\sin(u_{\tau-1})$$ (3)
+const double a = 0.1;
+const double b = 0.5;
+const double c = 0.2;
+const double d = 0.4;
 
-where $\tau$ – time discrete moments ($1,2,3{\dots}n$); $a,b,c,d$ – some constants.
+double linearModel(double y, double u) {
+    return a * y + b * u;
+}
 
-Task is to write program (**С++**), which simulates this object temperature.
+double nonlinearModel(double y, double u, double y_pred, double u_pred) {
+    return a * y - b * pow(y_pred, 2) + c * u + d * sin(u_pred);
+}
+  
+int main() {
+    double y;
+    std::cout << "Enter the initial temperature: ";
+    std::cin >> y;
+    double y_next = y;
+    double y_pred;
+    double u = 8;
+    std::cout << "Enter the input warm: ";
+    std::cin >> u;
+    double u_pred = u;
+    const int steps = 10;
+
+    std::cout << "The Linear model" << std::endl;
+    std::cout << "Time:\tTemperature:" << std::endl;
+    for (int i = 0; i < steps; ++i) {
+        y_next = linearModel(y_next, u);
+        std::cout << i + 1 << "\t" << y_next << std::endl;
+    }
+    std::cout << std::endl;
+    y_next = y;
+    std::cout << "Nonlinear model:" << std::endl;
+    std::cout << "Time:\tTemperature:" << std::endl;
+    for (int i = 0; i < steps; ++i) {
+        y_pred = y_next;
+        u_pred = u;
+        y_next = nonlinearModel(y_next, u, y_pred, u_pred);
+        std::cout << i + 1 << "\t" << y_next << std::endl;
+    }
+    return 0;
+}
+```
+
+## Linear
+
+![linear output:](linear.png)
+
+## NonLinear
+
+![nonlinear output:](nonlinear.png)
