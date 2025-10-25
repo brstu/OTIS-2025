@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "../Solution.h"
+#include "../src/Solution.h"
 
 TEST(TestClass, linearfun1) {
 	Obj o;

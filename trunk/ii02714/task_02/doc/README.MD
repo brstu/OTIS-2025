@@ -24,3 +24,23 @@
 
 ## Задание 2.##
 В ходе выполнения было написано два теста. Было написано по два теста для каждой функции(nonlinear,linear). Покрытие программы составляет 37%. Замер производился с помощью программы OpenCppCoverage(https://github.com/OpenCppCoverage/OpenCppCoverage/releases).
+Running main() from C:\Users\boss\Desktop\OTIS-2025\trunk\ii02714\task_02\test\build\_deps\googletest-src\googletest\src\gtest_main.cc
+[==========] Running 4 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 2 tests from TestClass
+[ RUN      ] TestClass.linearfun1
+[       OK ] TestClass.linearfun1 (7 ms)
+[ RUN      ] TestClass.linearfun2
+[       OK ] TestClass.linearfun2 (0 ms)
+[----------] 2 tests from TestClass (10 ms total)
+
+[----------] 2 tests from Test2Class
+[ RUN      ] Test2Class.Nonlinearfun1
+[       OK ] Test2Class.Nonlinearfun1 (0 ms)
+[ RUN      ] Test2Class.Nonlinearfun2
+[       OK ] Test2Class.Nonlinearfun2 (0 ms)
+[----------] 2 tests from Test2Class (2 ms total)
+
+[----------] Global test environment tear-down
+[==========] 4 tests from 2 test suites ran. (22 ms total)
+[  PASSED  ] 4 tests.

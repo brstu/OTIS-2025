@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.12)
 project(task_02_ii02714_test)
 
 
@@ -26,12 +26,8 @@ add_executable(
   ${CMAKE_PROJECT_NAME}
   test.cpp
 
-  ../src/model/isimulatedmodel.h
-  ../src/model/linearmodel.h
-  ../src/model/nonlinearmodel.h
-  ../src/factory/ifactorymodel.h
-  ../src/factory/factorylinearmodel.h
-  ../src/factory/factorynonlinearmodel.h
+  ../src/Solution.h
+  ../src/Solution.cpp
 )
 target_link_libraries(
   ${CMAKE_PROJECT_NAME}
