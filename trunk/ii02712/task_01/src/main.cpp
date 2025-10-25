@@ -23,7 +23,7 @@ int main() {
     double u ;
     std::cout << "Enter the input warm: ";
     std::cin >> u;
-    double u_pred = u;    
+    double u_pred ;    
 
     const int steps = 10;
 
