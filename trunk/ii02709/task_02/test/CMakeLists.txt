@@ -26,7 +26,6 @@ add_executable(
   ${PROJECT_NAME}
   test_lab2.cpp
 
-  ../src/lab2.h
   ../src/lab2.cpp
 )
 target_link_libraries(
