@@ -30,59 +30,55 @@
 # Код программы test_lab2.cpp #
 
 #include <gtest/gtest.h>
-#include "lab2.h"
 #include <cmath>
+#include "../src/lab2.h"
 
-TEST(NextLinearTest, Basic) {
-    long double y = 1.5L;
-    long double u = 2.0L;
+TEST(Lab2Test, LinearUpdateWorks) {
+    long double y = 1.5L, u = 2.0L;
     long double expected = lab2::a * y + lab2::b * u;
-    ASSERT_NEAR(lab2::next_linear(y, u), expected, 1e-15L);
+    EXPECT_NEAR(lab2::next_linear(y, u), expected, 1e-9);
 }
 
-TEST(NextNonlinearTest, Basic) {
-    long double y = 1.5L;
-    long double u = 2.0L;
+TEST(Lab2Test, NonlinearUpdateWorks) {
+    long double y = 1.5L, u = 2.0L;
     long double expected = lab2::a * y - lab2::b * y * y + lab2::c1 * u + lab2::c2 * std::sinh(u);
-    ASSERT_NEAR(lab2::next_nonlinear(y, u), expected, 1e-14L);
+    EXPECT_NEAR(lab2::next_nonlinear(y, u), expected, 1e-9);
 }
 
-TEST(SimulateLinearTest, LengthAndValues) {
-    int steps = 5;
-    long double y0 = 1.0L;
-    long double u = 0.5L;
-    auto vals = lab2::simulate_linear(steps, y0, u);
-    ASSERT_EQ((int)vals.size(), steps);
-    // проверить первый элемент
-    long double first_expected = lab2::next_linear(y0, u);
-    ASSERT_NEAR(vals[0], first_expected, 1e-15L);
+TEST(Lab2Test, LinearSimulationNegativeStepsReturnsEmpty) {
+    auto result = lab2::simulate_linear(-1, 1.0L, 2.0L);
+    EXPECT_TRUE(result.empty());
 }
 
-TEST(SimulateNonlinearTest, LengthAndValues) {
-    int steps = 5;
-    long double y0 = 1.0L;
-    long double u = -1.2L; // тест с отрицательным u
-    auto vals = lab2::simulate_nonlinear(steps, y0, u);
-    ASSERT_EQ((int)vals.size(), steps);
-    long double first_expected = lab2::next_nonlinear(y0, u);
-    ASSERT_NEAR(vals[0], first_expected, 1e-14L);
+TEST(Lab2Test, NonlinearSimulationNegativeStepsReturnsEmpty) {
+    auto result = lab2::simulate_nonlinear(-1, 1.0L, 2.0L);
+    EXPECT_TRUE(result.empty());
 }
 
-TEST(SimulateEdgeCases, ZeroSteps) {
-    auto v1 = lab2::simulate_linear(0, 1.0L, 0.0L);
-    auto v2 = lab2::simulate_nonlinear(0, 1.0L, 0.0L);
-    ASSERT_TRUE(v1.empty());
-    ASSERT_TRUE(v2.empty());
+TEST(Lab2Test, LinearSimulationProducesExpectedSequence) {
+    auto result = lab2::simulate_linear(3, 1.0L, 2.0L);
+    ASSERT_EQ(result.size(), 3);
+    EXPECT_NEAR(result[0], 0.9L * 1.0L + 0.5L * 2.0L, 1e-9);  // Шаг 1
+    EXPECT_NEAR(result[1], 0.9L * result[0] + 0.5L * 2.0L, 1e-9);  // Шаг 2
+    EXPECT_NEAR(result[2], 0.9L * result[1] + 0.5L * 2.0L, 1e-9);  // Шаг 3
 }
 
-TEST(SimulateEdgeCases, NegativeSteps) {
-    EXPECT_THROW(lab2::simulate_linear(-1, 1.0L, 0.0L), std::invalid_argument);
-    EXPECT_THROW(lab2::simulate_nonlinear(-5, 1.0L, 0.0L), std::invalid_argument);
+TEST(Lab2Test, NonlinearSimulationProducesExpectedSequence) {
+    auto result = lab2::simulate_nonlinear(3, 1.0L, 2.0L);
+    ASSERT_EQ(result.size(), 3);
+    EXPECT_NEAR(result[0], 0.9L * 1.0L - 0.5L * 1.0L * 1.0L + 0.1L * 2.0L + 0.05L * std::sinh(2.0L), 1e-9);  // Шаг 1
+    EXPECT_NEAR(result[1], 0.9L * result[0] - 0.5L * result[0] * result[0] + 0.1L * 2.0L + 0.05L * std::sinh(2.0L), 1e-9);  // Шаг 2
+    EXPECT_NEAR(result[2], 0.9L * result[1] - 0.5L * result[1] * result[1] + 0.1L * 2.0L + 0.05L * std::sinh(2.0L), 1e-9);  // Шаг 3
 }
 
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+TEST(Lab2Test, LinearSimulationZeroStepsReturnsEmpty) {
+    auto result = lab2::simulate_linear(0, 1.0L, 2.0L);
+    EXPECT_TRUE(result.empty());
+}
+
+TEST(Lab2Test, NonlinearSimulationZeroStepsReturnsEmpty) {
+    auto result = lab2::simulate_nonlinear(0, 1.0L, 2.0L);
+    EXPECT_TRUE(result.empty());
 }
 
 ---
@@ -91,20 +87,17 @@ int main(int argc, char **argv) {
 
 #include <iostream>
 #include <vector>
-#include <iomanip> 
 #include "lab2.h"
 
 int main() {
     int steps = 20;
-    long double y_linear = 1.5L;
-    long double y_nonlinear = 1.5L;
+    long double y0 = 1.5L;
     long double u = 2.0L;
 
-    auto linear_values = lab2::simulate_linear(steps, y_linear, u);
-    auto nonlinear_values = lab2::simulate_nonlinear(steps, y_nonlinear, u);
+    auto linear_values = lab2::simulate_linear(steps, y0, u);
+    auto nonlinear_values = lab2::simulate_nonlinear(steps, y0, u);
 
-    std::cout << std::setprecision(18);
-    std::cout << "Step\tLinear\t\t\tNonLinear\n";
+    std::cout << "Step\tLinear\t\tNonLinear\n";
     for (int t = 0; t < steps; ++t) {
         std::cout << t << "\t" 
                   << linear_values[t] << "\t"
@@ -118,8 +111,7 @@ int main() {
 # Код программы lab2.cpp #
 
 #include "lab2.h"
-#include <cmath>   
-#include <stdexcept>
+#include <cmath>
 
 namespace lab2 {
 
@@ -132,27 +124,23 @@ long double next_nonlinear(long double y_current, long double u) {
 }
 
 std::vector<long double> simulate_linear(int steps, long double y0, long double u) {
-    if (steps < 0) throw std::invalid_argument("steps must be non-negative");
+    if (steps < 0) return {};
     std::vector<long double> values;
-    values.reserve(steps);
     long double y = y0;
     for (int t = 0; t < steps; ++t) {
-        long double next = next_linear(y, u);
-        values.push_back(next);
-        y = next;
+        y = next_linear(y, u);
+        values.push_back(y);
     }
     return values;
 }
 
 std::vector<long double> simulate_nonlinear(int steps, long double y0, long double u) {
-    if (steps < 0) throw std::invalid_argument("steps must be non-negative");
+    if (steps < 0) return {};
     std::vector<long double> values;
-    values.reserve(steps);
     long double y = y0;
     for (int t = 0; t < steps; ++t) {
-        long double next = next_nonlinear(y, u);
-        values.push_back(next);
-        y = next;
+        y = next_nonlinear(y, u);
+        values.push_back(y);
     }
     return values;
 }
@@ -169,21 +157,47 @@ std::vector<long double> simulate_nonlinear(int steps, long double y0, long doub
 #include <vector>
 
 namespace lab2 {
-
 constexpr long double a = 0.9L;
 constexpr long double b = 0.5L;
 constexpr long double c1 = 0.1L;
 constexpr long double c2 = 0.05L;
-
 long double next_linear(long double y_current, long double u);
-
 long double next_nonlinear(long double y_current, long double u);
-
 std::vector<long double> simulate_linear(int steps, long double y0, long double u);
-
 std::vector<long double> simulate_nonlinear(int steps, long double y0, long double u);
 
+}
 
 #endif
+
+---
+
+# Результат тестов #
+
+Running main() from C:\Users\user\OTIS-2025\trunk\ii02709\task_02\test\build\_deps\googletest-src\googletest\src\gtest_main.cc
+[==========] Running 8 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 8 tests from Lab2Test
+[ RUN      ] Lab2Test.LinearUpdateWorks
+[       OK ] Lab2Test.LinearUpdateWorks (0 ms)
+[ RUN      ] Lab2Test.NonlinearUpdateWorks
+[       OK ] Lab2Test.NonlinearUpdateWorks (0 ms)
+[ RUN      ] Lab2Test.LinearSimulationNegativeStepsReturnsEmpty
+[       OK ] Lab2Test.LinearSimulationNegativeStepsReturnsEmpty (0 ms)
+[ RUN      ] Lab2Test.NonlinearSimulationNegativeStepsReturnsEmpty
+[       OK ] Lab2Test.NonlinearSimulationNegativeStepsReturnsEmpty (0 ms)
+[ RUN      ] Lab2Test.LinearSimulationProducesExpectedSequence
+[       OK ] Lab2Test.LinearSimulationProducesExpectedSequence (0 ms)
+[ RUN      ] Lab2Test.NonlinearSimulationProducesExpectedSequence
+[       OK ] Lab2Test.NonlinearSimulationProducesExpectedSequence (0 ms)
+[ RUN      ] Lab2Test.LinearSimulationZeroStepsReturnsEmpty
+[       OK ] Lab2Test.LinearSimulationZeroStepsReturnsEmpty (0 ms)
+[ RUN      ] Lab2Test.NonlinearSimulationZeroStepsReturnsEmpty
+[       OK ] Lab2Test.NonlinearSimulationZeroStepsReturnsEmpty (0 ms)
+[----------] 8 tests from Lab2Test (78 ms total)
+
+[----------] Global test environment tear-down
+[==========] 8 tests from 1 test suite ran. (97 ms total)
+[  PASSED  ] 8 tests.
 
 ---
