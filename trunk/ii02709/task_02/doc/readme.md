@@ -201,3 +201,9 @@ Running main() from C:\Users\user\OTIS-2025\trunk\ii02709\task_02\test\build\_de
 [  PASSED  ] 8 tests.
 
 ---
+
+Review
+
+![alt text](image.png)
+
+---
