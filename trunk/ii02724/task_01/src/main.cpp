@@ -21,8 +21,8 @@ void simulateLinear(double y, double u, int t, const LinearModelParams& params)
 {
     for (int i = 0; i <= t; i++)
     {
-        std::cout << i << ' ' << y << '\n';
         y = params.a * y + params.b * u;
+        std::cout << i << ' ' << y << '\n';
     }
 }
 void simulateNonLinear(double y, double u, int t, const NonLinearModelParams& params)
@@ -31,11 +31,11 @@ void simulateNonLinear(double y, double u, int t, const NonLinearModelParams& pa
     double prevU = u - params.uOffset; // calculate prevU to differentiate it from the initial u
     for (int i = 0; i <= t; i++)
     {
-        std::cout << i << ' ' << y << '\n';
         double nextY = params.a * y - params.b * prevY * prevY + params.c * u + params.d * std::sin(prevU);
         prevU += params.u_step;
         prevY = y;
         y = nextY;
+        std::cout << i << ' ' << y << '\n';
     }
 }
 
@@ -63,7 +63,7 @@ int main()
 {
     const double y = 1.0; // Initial output value
     const double u = 0.8; // Input signal value
-    const int t = 15;     // Simulation time steps
+    const int t = 15;     // количество иттераций
 
     std::cout << "Linear simulation:\n";
     LinearModelParams linearParams = createLinearModel();
