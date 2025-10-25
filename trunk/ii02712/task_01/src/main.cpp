@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cmath>
 
-
 const double a = 0.1;
 const double b = 0.5;
 const double c = 0.2;
@@ -14,17 +13,18 @@ double linearModel(double y, double u) {
 double nonlinearModel(double y, double u, double y_pred, double u_pred) {
     return a * y - b * pow(y_pred, 2) + c * u + d * sin(u_pred);
 }
-  
+
 int main() {
     double y;
     std::cout << "Enter the initial temperature: ";
     std::cin >> y;
     double y_next = y;
-    double y_pred = y;
-    double u = 8;
+    double y_pred;   
+    double u ;
     std::cout << "Enter the input warm: ";
     std::cin >> u;
-    double u_pred = u;
+    double u_pred = u;    
+
     const int steps = 10;
 
     std::cout << "The Linear model" << std::endl;
