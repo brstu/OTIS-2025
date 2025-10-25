@@ -172,7 +172,7 @@ int main()
 	return 0;
 }
 ##Результат
-(res.jpg)
+![Result:](res.jpg)
 ## Reviews
 fedotovd778
 <br>
