@@ -130,3 +130,12 @@ int main() {
 
 Моделирование завершено.
 Итоговая температура: -1.2755e+08 °C
+
+## Reviews
+JohnyDepp228
+<br>
+![Review for JohnyDepp228:](JohnyDepp228.png)
+<br>
+IlyaStepanuk
+<br>
+![Review for IlyaStepanuk:](IlyaStepanuk.png)
