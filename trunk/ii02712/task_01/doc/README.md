@@ -12,7 +12,7 @@
 <p align="right">Группы ИИ-27</p>
 <p align="right">Литовкин Н.А.</p>
 <p align="right">Проверил:</p>
-<p align="right">Иванюк Д.С.</p>
+<p align="right">Дворанинович Д.А.</p>
 <br><br><br><br><br>
 <p align="center">Брест 2025</p>
 
