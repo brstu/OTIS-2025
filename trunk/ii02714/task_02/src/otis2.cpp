@@ -8,10 +8,10 @@ int main()
 	int t = a.getT();
 	for (int j = t; j < n; j++) {
 		a.linear(j);
-		cout << "Linear equation: Temperature at " << j + 1 << " equals: " << a.getY(j) << endl;
+		std::cout << "Linear equation: Temperature at " << j + 1 << " equals: " << a.getY(j);
 	}
 	t++;
-	cout << "Nonlinear equation: Temperature at 1" << " equals: " << a.getY(0) << endl;
+	std::cout << "\nNonlinear equation: Temperature at 1" << " equals: " << a.getY(0);
 	for (int m = t; m < n; m++) {
 		a.nonlinear(m);
 	}
