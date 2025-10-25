@@ -63,7 +63,7 @@ int main()
 {
     const double y = 1.0; // Initial output value
     const double u = 0.8; // Input signal value
-    const int t = 15;     // количество итераций
+    const int t = 15;     // Number of iterations
 
     std::cout << "Linear simulation:\n";
     LinearModelParams linearParams = createLinearModel();
