@@ -3,19 +3,18 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
-using namespace std;
 
 class Obj {
 public:
 	int k = 4;
 	int t = 0;
-	vector<double> y;
-	vector<double> u;
+	std::vector<double> y;
+	std::vector<double> u;
 	double y0 = 25;
-	double a;
-	double b;
-	double c;
-	double d;
+	double a = 1;
+	double b = 1;
+	double c = 1;
+	double d = 1;
 	double c1;
 	double rc;
 	Obj();

@@ -1,12 +1,9 @@
 #include "Solution.h"
+using namespace std;
 
 Obj::Obj() {
 	y.resize(k, 0);
 	u.resize(k, 0);
-	a = 1;
-	b = 1;
-	c = 1;
-	d = 1;
 }
 
 void Obj::input() {
