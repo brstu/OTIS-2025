@@ -6,7 +6,8 @@
 // Тесты для функции compute_linear
 TEST(ComputeLinearTest, BasicCalculation) {
     int N = 3;
-    double a = 0.5, b = 1.0;
+    double a = 0.5;
+    double b = 1.0;
     std::vector<double> u = {1.0, 2.0, 3.0};
     std::vector<double> y_lin(N + 1, 0.0);
     y_lin[0] = 1.0;
@@ -21,7 +22,8 @@ TEST(ComputeLinearTest, BasicCalculation) {
 
 TEST(ComputeLinearTest, SingleStep) {
     int N = 1;
-    double a = 1.0, b = 2.0;
+    double a = 1.0;
+    double b = 2.0;
     std::vector<double> u = {5.0};
     std::vector<double> y_lin(N + 1, 0.0);
     y_lin[0] = 10.0;
@@ -38,7 +40,8 @@ int main(int argc, char **argv) {
 // *НОВЫЙ ТЕСТ*
 TEST(ComputeLinearTest, ZeroSteps) {
     int N = 0; // Проверяем случай, когда цикл не выполняется
-    double a = 1.0, b = 1.0;
+    double a = 1.0;
+    double b = 1.0;
     std::vector<double> u = {};
     std::vector<double> y_lin(1, 10.0); // y[0] = 10.0
 
@@ -49,27 +52,30 @@ TEST(ComputeLinearTest, ZeroSteps) {
     EXPECT_EQ(y_lin.size(), 1); // Размер остался N+1=1
 }
 
-// *НОВЫЙ ТЕСТ*
+
 TEST(ComputeNonLinearTest, SingleStepN2) {
-    int N = 2; // t=1. Вычислится только y[2]
-    double a = 1.0, b = 1.0, c = 1.0, d = 1.0;
-    std::vector<double> u = {1.0, 2.0}; // u[0], u[1]
+    int N = 2; 
+    double a = 1.0;
+    double b = 1.0;
+    double c = 1.0;
+    double d = 1.0;
+    std::vector<double> u = {1.0, 2.0}; 
     std::vector<double> y_nl(N + 1, 0.0);
     y_nl[0] = 5.0; 
     y_nl[1] = 10.0; 
 
     compute_nonlinear(N, a, b, c, d, u, y_nl);
 
-    // y[2] = 1*y[1] - 1*y[0]^2 + 1*u[1] + 1*sin(u[0])
-    // y[2] = 10.0 - 25.0 + 2.0 + sin(1.0) = -13.0 + 0.84147098 = -12.15852902
     EXPECT_NEAR(y_nl[2], -12.15852902, 1e-8);
 }
 
-// *НОВЫЙ ТЕСТ*
 TEST(ComputeNonLinearTest, ZeroOrOneSteps) {
-    // Тест N=1: t начинается с 1, t < 1 - цикл не выполнится
+
     int N = 1; 
-    double a = 1.0, b = 1.0, c = 1.0, d = 1.0;
+    double a = 1.0;
+    double b = 1.0;
+    double c = 1.0;
+    double d = 1.0;
     std::vector<double> u = {1.0};
     std::vector<double> y_nl(N + 1, 0.0);
     y_nl[0] = 5.0; 
@@ -77,7 +83,6 @@ TEST(ComputeNonLinearTest, ZeroOrOneSteps) {
 
     compute_nonlinear(N, a, b, c, d, u, y_nl);
 
-    // Должны остаться только y[0] и y[1], y[2] не существует, т.к. размер N+1=2
     EXPECT_NEAR(y_nl[0], 5.0, 1e-10);
     EXPECT_NEAR(y_nl[1], 10.0, 1e-10);
 }
