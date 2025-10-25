@@ -37,6 +37,7 @@ $$\Large y_{\tau+1}=ay_{\tau}-by_{\tau-1}^2+cu_{\tau}+d\sin(u_{\tau-1})$$ (3)
 where $\tau$ – time discrete moments ($1,2,3{\dots}n$); $a,b,c,d$ – some constants.
 Task is to write program (С++), which simulates this object temperature.
 ## Код программы
+'''
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -170,7 +171,7 @@ cout << "Temperature change at " << m << " is: " << a.getDelt() << endl;
 }	
 return 0;
 }
-
+'''
 
 ## Результат
 ![Result:](res.jpg)
