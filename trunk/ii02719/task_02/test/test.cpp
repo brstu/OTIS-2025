@@ -4,7 +4,10 @@
 
 TEST(LinearTest, CalculatesCorrectly) {
     const int steps = 3;
-    double y[steps], u[steps];
+    std::vector<double> y;
+	y.resize(steps);
+	std::vector<double> u;
+	u.resize(steps);
     y[0] = 10.0;
     u[0] = 5.0;
 
@@ -18,7 +21,10 @@ TEST(LinearTest, CalculatesCorrectly) {
 
 TEST(NonLinearTest, CalculatesCorrectly) {
     const int steps = 4;
-    double y[steps], u[steps];
+    std::vector<double> y;
+	y.resize(steps);
+	std::vector<double> u;
+	u.resize(steps);
     y[0] = 10.0;
     y[1] = 12.0;
     u[0] = 5.0;

@@ -7,8 +7,10 @@ int main()
 	setlocale(LC_ALL, "Russian");
 
 	const int steps = 10;
-	double y[steps];
-	double u[steps];
+	std::vector<double> y;
+	y.resize(steps);
+	std::vector<double> u;
+	u.resize(steps);
 	double a;
 	double b;
 	double c;
