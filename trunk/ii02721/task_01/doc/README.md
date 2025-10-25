@@ -12,7 +12,7 @@
 <p align="right">Группы ИИ-27</p>
 <p align="right">Федотов Д. А.</p>
 <p align="right">Проверил:</p>
-<p align="right">Иванюк Д.С.</p>
+<p align="right">Дворанович Д. А.</p>
 <br><br><br><br><br>
 <p align="center">Брест 2025</p>
 
@@ -68,7 +68,7 @@ int main() {
     std::cout << "\nЛинейная модель\n";
     for (int k = 1; k <= steps; ++k) {
         temp_now = A * temp_prev + B * heat_now;
-        std::cout << "Шаг " << k << ": температура = " << temp_now << " C\n";
+        std::cout << "Шаг " << k << " температура = " << temp_now << " C\n";
         temp_prev = temp_now;
     }
 
@@ -82,7 +82,7 @@ int main() {
         temp_prev = temp_now;
         temp_now = temp_next;
         heat_prev = heat_now;
-        std::cout << "Шаг " << k << ": температура = " << temp_now << " C\n";
+        std::cout << "Шаг " << k << "температура = " << temp_now << " C\n";
         
         if (k != steps) {
             std::cout << "Введите новое значение подачи тепла (u): ";
