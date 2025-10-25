@@ -20,7 +20,7 @@ int main() {
     std::cout << "Enter the initial temperature: ";
     std::cin >> y;
     double y_next = y;
-    double y_pred;
+    double y_pred = y;
     double u = 8;
     std::cout << "Enter the input warm: ";
     std::cin >> u;
