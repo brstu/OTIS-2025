@@ -38,7 +38,7 @@ where $\tau$ – time discrete moments ($1,2,3{\dots}n$); $a,b,c,d$ – some con
 Task is to write program (С++), which simulates this object temperature.
 ## Код программы
 
-'''
+```
 
 #include <iostream>
 #include <cmath>
@@ -174,7 +174,7 @@ cout << "Temperature change at " << m << " is: " << a.getDelt() << endl;
 return 0;
 }
 
-'''
+```
 
 
 ## Результат
