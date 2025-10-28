@@ -1,23 +1,6 @@
 #include <iostream>
-#include <cmath>
 #include <vector>
-
-struct ModelParams {
-    double a;
-    double b;
-    double c;
-    double d;
-};
-
-// Линейная модель
-double linear_model(double y_prev, double u, double a, double b) {
-    return a * y_prev + b * u;
-}
-
-// Нелинейная модель
-double nonlinear_model(double y_prev, double y_prev_2, double u, const ModelParams& p) {
-    return p.a * y_prev - p.b * std::pow(y_prev_2, 2) + p.c * u + p.d * std::sin(u);
-}
+#include "../include/models.h"
 
 int main() {
     ModelParams params{};

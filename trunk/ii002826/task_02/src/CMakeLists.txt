@@ -25,46 +25,65 @@ if(UNIX AND NOT APPLE)
     target_link_libraries(${PROJECT_NAME} PRIVATE m)
 endif()
 
-# Настройка Google Test
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9fd028e5530d6d9d6b7d8be.zip
-)
+# Альтернативный способ подключения Google Test
+option(BUILD_TESTING "Build tests" ON)
 
-FetchContent_MakeAvailable(googletest)
+if(BUILD_TESTING)
+    # Проверяем, установлен ли Google Test
+    find_package(GTest QUIET)
+    
+    if(NOT GTest_FOUND)
+        message(STATUS "GTest not found, using FetchContent to download it")
+        
+        include(FetchContent)
+        FetchContent_Declare(
+            googletest
+            GIT_REPOSITORY https://github.com/google/googletest.git
+            GIT_TAG release-1.12.1
+        )
+        
+        # Для Windows установить эту опцию в true, чтобы избежать предупреждения
+        set(FETCHCONTENT_QUIET OFF)
+        FetchContent_MakeAvailable(googletest)
+    else()
+        message(STATUS "Found GTest: ${GTEST_LIBRARY}")
+    endif()
 
-# Тестовое приложение
-add_executable(
-  model_tests
-  ../test/test_models.cpp
-  main.cpp
-)
+    # Тестовое приложение
+    add_executable(
+        model_tests
+        ../test/test_models.cpp
+        main.cpp
+    )
 
-target_link_libraries(
-  model_tests
-  GTest::gtest_main
-)
+    target_compile_features(model_tests PRIVATE cxx_std_14)
 
-if(UNIX AND NOT APPLE)
-    target_link_libraries(model_tests PRIVATE m)
-endif()
+    if(GTest_FOUND)
+        target_link_libraries(model_tests GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main)
+    else()
+        target_link_libraries(model_tests gtest gtest_main gmock gmock_main)
+    endif()
 
-# Настройка покрытия кода
-if(CMAKE_BUILD_TYPE STREQUAL "Debug" AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    target_compile_options(${PROJECT_NAME} PRIVATE --coverage -g -O0)
-    target_compile_options(model_tests PRIVATE --coverage -g -O0)
-    target_link_libraries(${PROJECT_NAME} PRIVATE --coverage)
-    target_link_libraries(model_tests PRIVATE --coverage)
+    if(UNIX AND NOT APPLE)
+        target_link_libraries(model_tests PRIVATE m pthread)
+    endif()
+
+    # Настройка покрытия кода
+    if(CMAKE_BUILD_TYPE STREQUAL "Debug" AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+        target_compile_options(${PROJECT_NAME} PRIVATE --coverage -g -O0)
+        target_compile_options(model_tests PRIVATE --coverage -g -O0)
+        target_link_libraries(${PROJECT_NAME} PRIVATE --coverage)
+        target_link_libraries(model_tests PRIVATE --coverage)
+    endif()
+
+    enable_testing()
+    add_test(NAME ModelTests COMMAND model_tests)
 endif()
 
 install(TARGETS ${PROJECT_NAME}
     RUNTIME DESTINATION bin
     COMPONENT applications
 )
-
-enable_testing()
-add_test(NAME ModelTests COMMAND model_tests)
 
 message(STATUS "Project ${PROJECT_NAME} configured successfully")
 message(STATUS "C++ compiler: ${CMAKE_CXX_COMPILER}")

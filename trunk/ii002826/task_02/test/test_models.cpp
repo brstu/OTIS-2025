@@ -1,5 +1,5 @@
 ﻿#include <gtest/gtest.h>
-#include <cmath>
+#include "../include/models.h"
 
 // Объявления функций из main.cpp
 struct ModelParams {
