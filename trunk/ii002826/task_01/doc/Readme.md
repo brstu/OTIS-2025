@@ -44,7 +44,6 @@ double nonlinear_model(double y_prev, double y_prev_2, double u, double a, doubl
 }
 
 int main() {
-    setlocale(LC_ALL,"ru");
     double a, b, c, d;
     double u;
     double y_0;
@@ -52,25 +51,25 @@ int main() {
     int model_choice;
 
     // Ввод параметров пользователем
-    cout << "Введите коэффициент а: ";
+    cout << "Enter coefficient a: ";
     cin >> a;
-    cout << "Введите коэффициент b: ";
+    cout << "Enter coefficient b: ";
     cin >> b;
-    cout << "Введите коэффициент c (только для нелинейной модели): ";
+    cout << "Enter coefficient c: ";
     cin >> c;
-    cout << "Введите коэффициент d (только для нелинейной модели): ";
+    cout << "Enter coefficient d: ";
     cin >> d;
 
-    cout << "Введите подаваемое тепло u: ";
+    cout << "Enter the supplied heat u: ";
     cin >> u;
 
-    cout << "Введите начальную температуру y_0: ";
+    cout << "Enter the initial temperature y_0: ;
     cin >> y_0;
 
-    cout << "Введите количество шагов для моделирования: ";
+    cout << "Enter the number of steps for the simulation : ";
     cin >> num_steps;
 
-    cout << "Выберите модель (1 – Линейная, 2 – Нелинейная): ";
+    cout << "Select model(1 – Linear, 2 – Nonlinear) : ";
     cin >> model_choice;
 
     vector<double> temperatures(num_steps);
@@ -91,15 +90,15 @@ int main() {
             y_1 = y_next;
         }
         else {
-            cout << "Неверный выбор модели!" << endl;
+            cout << "Wrong model choice!" << endl;
             return -1;
         }
     }
 
     // Вывод результатов
-    cout << "\nТемпература с течением времени:\n";
+    cout << "\nTemperature over time:\n";
     for (int t = 0; t < num_steps; ++t) {
-        cout << "Шаг " << t + 1 << ": " << temperatures[t] << " C" << endl;
+        cout << "Step " << t + 1 << ": " << temperatures[t] << " C" << endl;
     }
 
     return 0;
