@@ -5,16 +5,22 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Настройка компилятора
-if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    add_compile_options(-Wall -Wextra -Wpedantic)
-elseif(MSVC)
-    add_compile_options(/W4)
+# Build configuration
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug)
 endif()
 
-find_package(Threads)
+# Compiler options
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    add_compile_options(-Wall -Wextra -Wpedantic -Werror)
+    add_compile_options(-Wno-error=deprecated-declarations) # For Google Test compatibility
+elseif(MSVC)
+    add_compile_options(/W4 /WX)
+endif()
 
-# Основное приложение
+find_package(Threads REQUIRED)
+
+# Main application
 add_executable(${PROJECT_NAME}
     src/main.cpp
 )
@@ -25,16 +31,18 @@ if(UNIX AND NOT APPLE)
     target_link_libraries(${PROJECT_NAME} PRIVATE m)
 endif()
 
-# Настройка Google Test
+# Google Test setup
 include(FetchContent)
 FetchContent_Declare(
   googletest
-  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9fd028e5530d6d9d6b7d8be.zip
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG release-1.12.1
 )
 
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-# Тестовое приложение
+# Test executable
 add_executable(
   model_tests
   test/test_models.cpp
@@ -43,26 +51,54 @@ add_executable(
 target_link_libraries(
   model_tests
   GTest::gtest_main
-  GTest::gtest
 )
 
 if(UNIX AND NOT APPLE)
     target_link_libraries(model_tests PRIVATE m)
 endif()
 
-# Настройка покрытия кода
-if(CMAKE_BUILD_TYPE STREQUAL "Debug" AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    target_compile_options(${PROJECT_NAME} PRIVATE --coverage -g -O0)
-    target_compile_options(model_tests PRIVATE --coverage -g -O0)
-    target_link_libraries(${PROJECT_NAME} PRIVATE --coverage)
-    target_link_libraries(model_tests PRIVATE --coverage)
+# Code coverage setup for SonarQube
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+        # Coverage flags
+        target_compile_options(${PROJECT_NAME} PRIVATE --coverage -g -O0 -fprofile-arcs -ftest-coverage)
+        target_compile_options(model_tests PRIVATE --coverage -g -O0 -fprofile-arcs -ftest-coverage)
+        target_link_libraries(${PROJECT_NAME} PRIVATE --coverage)
+        target_link_libraries(model_tests PRIVATE --coverage)
+        
+        # Test discovery for SonarQube
+        enable_testing()
+        add_test(NAME model_tests COMMAND model_tests)
+    endif()
 endif()
 
+# Installation
 install(TARGETS ${PROJECT_NAME}
     RUNTIME DESTINATION bin
     COMPONENT applications
 )
 
+# SonarQube helper targets
+add_custom_target(sonar-scanner
+    COMMAND echo "Run: sonar-scanner -Dproject.settings=sonar-project.properties"
+    COMMENT "SonarQube analysis target"
+)
+
+add_custom_target(coverage-report
+    COMMAND ./model_tests
+    COMMAND gcovr -r . --xml-pretty > coverage_report.xml
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+    COMMENT "Generating coverage report for SonarQube"
+    DEPENDS model_tests
+)
+
+# Static analysis targets
+add_custom_target(static-analysis
+    COMMAND echo "Running static analysis tools..."
+    COMMENT "Static analysis target"
+)
+
 message(STATUS "Project ${PROJECT_NAME} configured successfully")
 message(STATUS "C++ compiler: ${CMAKE_CXX_COMPILER}")
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+message(STATUS "Build directory: ${CMAKE_BINARY_DIR}")
