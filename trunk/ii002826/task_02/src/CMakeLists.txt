@@ -25,7 +25,7 @@ if(UNIX AND NOT APPLE)
     target_link_libraries(${PROJECT_NAME} PRIVATE m)
 endif()
 
-# Альтернативный способ подключения Google Test
+# Настройка Google Test
 option(BUILD_TESTING "Build tests" ON)
 
 if(BUILD_TESTING)
@@ -42,7 +42,6 @@ if(BUILD_TESTING)
             GIT_TAG release-1.12.1
         )
         
-        # Для Windows установить эту опцию в true, чтобы избежать предупреждения
         set(FETCHCONTENT_QUIET OFF)
         FetchContent_MakeAvailable(googletest)
     else()
@@ -53,15 +52,14 @@ if(BUILD_TESTING)
     add_executable(
         model_tests
         ../test/test_models.cpp
-        main.cpp
     )
 
     target_compile_features(model_tests PRIVATE cxx_std_14)
 
     if(GTest_FOUND)
-        target_link_libraries(model_tests GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main)
+        target_link_libraries(model_tests PRIVATE GTest::gtest GTest::gtest_main)
     else()
-        target_link_libraries(model_tests gtest gtest_main gmock gmock_main)
+        target_link_libraries(model_tests PRIVATE gtest gtest_main)
     endif()
 
     if(UNIX AND NOT APPLE)
@@ -70,9 +68,7 @@ if(BUILD_TESTING)
 
     # Настройка покрытия кода
     if(CMAKE_BUILD_TYPE STREQUAL "Debug" AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-        target_compile_options(${PROJECT_NAME} PRIVATE --coverage -g -O0)
         target_compile_options(model_tests PRIVATE --coverage -g -O0)
-        target_link_libraries(${PROJECT_NAME} PRIVATE --coverage)
         target_link_libraries(model_tests PRIVATE --coverage)
     endif()
 

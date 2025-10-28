@@ -1,17 +1,6 @@
 ﻿#include <gtest/gtest.h>
 #include "../include/models.h"
 
-// Объявления функций из main.cpp
-struct ModelParams {
-    double a;
-    double b;
-    double c;
-    double d;
-};
-
-double linear_model(double y_prev, double u, double a, double b);
-double nonlinear_model(double y_prev, double y_prev_2, double u, const ModelParams& p);
-
 // Тесты для линейной модели
 TEST(LinearModelTest, BasicCalculation) {
     double result = linear_model(10.0, 5.0, 0.5, 0.2);
