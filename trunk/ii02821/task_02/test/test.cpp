@@ -2,7 +2,7 @@
 #include <cmath>
 #include "../src/model.h"
 
-// Тесты для линейной модели (ваша функция nextLinear)
+// Тесты для линейной модели
 TEST(LinearModelTest, ZeroInitialValue) {
     EXPECT_NEAR(nextLinear(0.3, 0.3, 0.9, 0.0), 0.27, 1e-6);
 }
@@ -15,7 +15,7 @@ TEST(LinearModelTest, NegativeValues) {
     EXPECT_NEAR(nextLinear(0.5, 0.2, -1.0, 2.0), 0.8, 1e-6);
 }
 
-// Тесты для нелинейной модели (ваша функция nextNonlinear)
+// Тесты для нелинейной модели
 TEST(NonlinearModelTest, ZeroInitialValues) {
     NonlinearParams params{0.1, 0.2, 0.4, 0.2};
     double result = nextNonlinear(params, 0.0, 0.0, 0.0); // u_prev, y, y_prev
