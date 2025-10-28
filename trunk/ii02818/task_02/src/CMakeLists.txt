@@ -5,12 +5,15 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include_directories(../include)
+
+# Основное приложение
 add_executable(${PROJECT_NAME} main.cpp laba2otis.cpp)
 
 if(UNIX AND NOT APPLE)
     target_link_libraries(${PROJECT_NAME} m)
 endif()
 
+# Google Test
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -19,13 +22,18 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-# Тестовое приложение
-add_executable(model_tests ../test/test_lab2.cpp)
+# Тестовое приложение - ДОБАВЬТЕ laba2otis.cpp
+add_executable(model_tests ../test/test_lab2.cpp laba2otis.cpp)  # ← ИСПРАВЛЕНО
+
 target_link_libraries(model_tests gtest gtest_main)
 
 if(UNIX AND NOT APPLE)
     target_link_libraries(model_tests m pthread)
 endif()
+
+# Покрытие кода для тестов
+target_compile_options(model_tests PRIVATE --coverage)
+target_link_libraries(model_tests --coverage)
 
 enable_testing()
 add_test(NAME ModelTests COMMAND model_tests)
