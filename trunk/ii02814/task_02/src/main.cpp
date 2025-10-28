@@ -1,4 +1,4 @@
-#include "ModelSimulation.h"
+#include "modelsimulation.h"
 
 void printResults(const std::vector<double>& results, const std::string& modelName) {
     std::cout << modelName << " simulation results:" << std::endl;

@@ -1,4 +1,4 @@
-#include "ModelSimulation.h"
+#include "modelsimulation.h"
 
 SimulationParams getDefaultSimulationParams()
 {
