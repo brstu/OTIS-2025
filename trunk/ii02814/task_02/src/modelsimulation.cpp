@@ -63,10 +63,8 @@ std::vector<double> simulateNonLinearModel(const SimulationParams& simParams)
 NonLinearModelParams getDefaultNonLinearParams()
 {
     NonLinearModelParams params;
-    params.yOffset = 0.001;  // Offset subtracted from current output to compute previous output (prevY = y - yOffset).
-                            // The value 0.001 is chosen to provide a small initial difference, helping to avoid singularities or zero-derivative issues in nonlinear terms, and to simulate a realistic small perturbation in the system's initial state.
-    params.uOffset = 1;      // Offset subtracted from current input to compute previous input (prevU = u - uOffset).
-                            // The value 1 is selected to represent a typical initial change in input, ensuring the sinusoidal term in the model starts with a nonzero argument, which can help capture transient dynamics in the simulation.
+    params.yOffset = 0.001;  // Small offset for previous output to avoid singularities in nonlinear terms.
+    params.uOffset = 1;      // Offset for previous input to ensure nonzero argument in sinusoidal term.
     params.a = 1;            // Linear coefficient for current output (y)
     params.b = 0.5;          // Nonlinear coefficient for squared previous output (prevY²)
     params.c = 0.9;          // Linear coefficient for input (u)
