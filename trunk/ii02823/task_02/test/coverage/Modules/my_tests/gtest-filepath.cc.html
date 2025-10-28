@@ -1,0 +1,432 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>gtest-filepath.cc</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+    <body onload="prettyPrint()">
+        <h4></h4>
+        <pre class="prettyprint lang-cpp linenums">
+// Copyright 2008, Google Inc.
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+#include "gtest/internal/gtest-filepath.h"
+
+#include &lt;stdlib.h&gt;
+
+#include "gtest/gtest-message.h"
+#include "gtest/internal/gtest-port.h"
+
+#if GTEST_OS_WINDOWS_MOBILE
+#include &lt;windows.h&gt;
+#elif GTEST_OS_WINDOWS
+#include &lt;direct.h&gt;
+#include &lt;io.h&gt;
+#else
+#include &lt;limits.h&gt;
+
+#include &lt;climits&gt;  // Some Linux distributions define PATH_MAX here.
+#endif              // GTEST_OS_WINDOWS_MOBILE
+
+#include "gtest/internal/gtest-string.h"
+
+#if GTEST_OS_WINDOWS
+#define GTEST_PATH_MAX_ _MAX_PATH
+#elif defined(PATH_MAX)
+#define GTEST_PATH_MAX_ PATH_MAX
+#elif defined(_XOPEN_PATH_MAX)
+#define GTEST_PATH_MAX_ _XOPEN_PATH_MAX
+#else
+#define GTEST_PATH_MAX_ _POSIX_PATH_MAX
+#endif  // GTEST_OS_WINDOWS
+
+namespace testing {
+namespace internal {
+
+#if GTEST_OS_WINDOWS
+// On Windows, '\\' is the standard path separator, but many tools and the
+// Windows API also accept '/' as an alternate path separator. Unless otherwise
+// noted, a file path can contain either kind of path separators, or a mixture
+// of them.
+const char kPathSeparator = '\\';
+const char kAlternatePathSeparator = '/';
+const char kAlternatePathSeparatorString[] = "/";
+#if GTEST_OS_WINDOWS_MOBILE
+// Windows CE doesn't have a current directory. You should not use
+// the current directory in tests on Windows CE, but this at least
+// provides a reasonable fallback.
+const char kCurrentDirectoryString[] = "\\";
+// Windows CE doesn't define INVALID_FILE_ATTRIBUTES
+const DWORD kInvalidFileAttributes = 0xffffffff;
+#else
+const char kCurrentDirectoryString[] = ".\\";
+#endif  // GTEST_OS_WINDOWS_MOBILE
+#else
+const char kPathSeparator = '/';
+const char kCurrentDirectoryString[] = "./";
+#endif  // GTEST_OS_WINDOWS
+
+// Returns whether the given character is a valid path separator.
+<span style = "background-color:#dfd">static bool IsPathSeparator(char c) {</span>
+#if GTEST_HAS_ALT_PATH_SEP_
+<span style = "background-color:#dfd">  return (c == kPathSeparator) || (c == kAlternatePathSeparator);</span>
+#else
+  return c == kPathSeparator;
+#endif
+<span style = "background-color:#dfd">}</span>
+
+// Returns the current working directory, or "" if unsuccessful.
+<span style = "background-color:#dfd">FilePath FilePath::GetCurrentDir() {</span>
+#if GTEST_OS_WINDOWS_MOBILE || GTEST_OS_WINDOWS_PHONE ||         \
+    GTEST_OS_WINDOWS_RT || GTEST_OS_ESP8266 || GTEST_OS_ESP32 || \
+    GTEST_OS_XTENSA || GTEST_OS_QURT
+  // These platforms do not have a current directory, so we just return
+  // something reasonable.
+  return FilePath(kCurrentDirectoryString);
+#elif GTEST_OS_WINDOWS
+<span style = "background-color:#dfd">  char cwd[GTEST_PATH_MAX_ + 1] = {'\0'};
+  return FilePath(_getcwd(cwd, sizeof(cwd)) == nullptr ? "" : cwd);</span>
+#else
+  char cwd[GTEST_PATH_MAX_ + 1] = {'\0'};
+  char* result = getcwd(cwd, sizeof(cwd));
+#if GTEST_OS_NACL
+  // getcwd will likely fail in NaCl due to the sandbox, so return something
+  // reasonable. The user may have provided a shim implementation for getcwd,
+  // however, so fallback only when failure is detected.
+  return FilePath(result == nullptr ? kCurrentDirectoryString : cwd);
+#endif  // GTEST_OS_NACL
+  return FilePath(result == nullptr ? "" : cwd);
+#endif  // GTEST_OS_WINDOWS_MOBILE
+<span style = "background-color:#dfd">}</span>
+
+// Returns a copy of the FilePath with the case-insensitive extension removed.
+// Example: FilePath("dir/file.exe").RemoveExtension("EXE") returns
+// FilePath("dir/file"). If a case-insensitive extension is not
+// found, returns a copy of the original FilePath.
+<span style = "background-color:#fdd">FilePath FilePath::RemoveExtension(const char* extension) const {
+  const std::string dot_extension = std::string(".") + extension;
+  if (String::EndsWithCaseInsensitive(pathname_, dot_extension)) {
+    return FilePath(</span>
+        pathname_.substr(0, pathname_.length() - dot_extension.length()));
+  }
+<span style = "background-color:#fdd">  return *this;
+}</span>
+
+// Returns a pointer to the last occurrence of a valid path separator in
+// the FilePath. On Windows, for example, both '/' and '\' are valid path
+// separators. Returns NULL if no path separator was found.
+<span style = "background-color:#fdd">const char* FilePath::FindLastPathSeparator() const {
+  const char* const last_sep = strrchr(c_str(), kPathSeparator);</span>
+#if GTEST_HAS_ALT_PATH_SEP_
+<span style = "background-color:#fdd">  const char* const last_alt_sep = strrchr(c_str(), kAlternatePathSeparator);</span>
+  // Comparing two pointers of which only one is NULL is undefined.
+<span style = "background-color:#fdd">  if (last_alt_sep != nullptr &amp;&amp;</span>
+      (last_sep == nullptr || last_alt_sep &gt; last_sep)) {
+<span style = "background-color:#fdd">    return last_alt_sep;</span>
+  }
+#endif
+<span style = "background-color:#fdd">  return last_sep;
+}</span>
+
+<span style = "background-color:#fdd">size_t FilePath::CalculateRootLength() const {
+  const auto &amp;path = pathname_;
+  auto s = path.begin();
+  auto end = path.end();</span>
+#if GTEST_OS_WINDOWS
+  if (end - s &gt;= 2 &amp;&amp; s[1] == ':' &amp;&amp;
+<span style = "background-color:#fdd">      (end - s == 2 || IsPathSeparator(s[2])) &amp;&amp;</span>
+      (('A' &lt;= s[0] &amp;&amp; s[0] &lt;= 'Z') || ('a' &lt;= s[0] &amp;&amp; s[0] &lt;= 'z'))) {
+    // A typical absolute path like "C:\Windows" or "D:"
+<span style = "background-color:#fdd">    s += 2;
+    if (s != end) {
+      ++s;</span>
+    }
+<span style = "background-color:#fdd">  } else if (end - s &gt;= 3 &amp;&amp; IsPathSeparator(*s) &amp;&amp; IsPathSeparator(*(s + 1))
+             &amp;&amp; !IsPathSeparator(*(s + 2))) {</span>
+    // Move past the "\\" prefix in a UNC path like "\\Server\Share\Folder"
+<span style = "background-color:#fdd">    s += 2;</span>
+    // Skip 2 components and their following separators ("Server\" and "Share\")
+<span style = "background-color:#fdd">    for (int i = 0; i &lt; 2; ++i) {
+      while (s != end) {
+        bool stop = IsPathSeparator(*s);
+        ++s;
+        if (stop) {
+          break;</span>
+        }
+<span style = "background-color:#fdd">      }
+    }
+  } else if (s != end &amp;&amp; IsPathSeparator(*s)) {</span>
+    // A drive-rooted path like "\Windows"
+<span style = "background-color:#fdd">    ++s;</span>
+  }
+#else
+  if (s != end &amp;&amp; IsPathSeparator(*s)) {
+    ++s;
+  }
+#endif
+<span style = "background-color:#fdd">  return static_cast&lt;size_t&gt;(s - path.begin());
+}</span>
+
+// Returns a copy of the FilePath with the directory part removed.
+// Example: FilePath("path/to/file").RemoveDirectoryName() returns
+// FilePath("file"). If there is no directory part ("just_a_file"), it returns
+// the FilePath unmodified. If there is no file part ("just_a_dir/") it
+// returns an empty FilePath ("").
+// On Windows platform, '\' is the path separator, otherwise it is '/'.
+<span style = "background-color:#fdd">FilePath FilePath::RemoveDirectoryName() const {
+  const char* const last_sep = FindLastPathSeparator();
+  return last_sep ? FilePath(last_sep + 1) : *this;
+}</span>
+
+// RemoveFileName returns the directory path with the filename removed.
+// Example: FilePath("path/to/file").RemoveFileName() returns "path/to/".
+// If the FilePath is "a_file" or "/a_file", RemoveFileName returns
+// FilePath("./") or, on Windows, FilePath(".\\"). If the filepath does
+// not have a file, like "just/a/dir/", it returns the FilePath unmodified.
+// On Windows platform, '\' is the path separator, otherwise it is '/'.
+<span style = "background-color:#fdd">FilePath FilePath::RemoveFileName() const {
+  const char* const last_sep = FindLastPathSeparator();
+  std::string dir;
+  if (last_sep) {
+    dir = std::string(c_str(), static_cast&lt;size_t&gt;(last_sep + 1 - c_str()));
+  } else {
+    dir = kCurrentDirectoryString;</span>
+  }
+<span style = "background-color:#fdd">  return FilePath(dir);
+}</span>
+
+// Helper functions for naming files in a directory for xml output.
+
+// Given directory = "dir", base_name = "test", number = 0,
+// extension = "xml", returns "dir/test.xml". If number is greater
+// than zero (e.g., 12), returns "dir/test_12.xml".
+// On Windows platform, uses \ as the separator rather than /.
+FilePath FilePath::MakeFileName(const FilePath&amp; directory,
+                                const FilePath&amp; base_name, int number,
+<span style = "background-color:#fdd">                                const char* extension) {
+  std::string file;
+  if (number == 0) {
+    file = base_name.string() + "." + extension;
+  } else {
+    file =</span>
+        base_name.string() + "_" + StreamableToString(number) + "." + extension;
+  }
+<span style = "background-color:#fdd">  return ConcatPaths(directory, FilePath(file));
+}</span>
+
+// Given directory = "dir", relative_path = "test.xml", returns "dir/test.xml".
+// On Windows, uses \ as the separator rather than /.
+FilePath FilePath::ConcatPaths(const FilePath&amp; directory,
+<span style = "background-color:#fdd">                               const FilePath&amp; relative_path) {
+  if (directory.IsEmpty()) return relative_path;
+  const FilePath dir(directory.RemoveTrailingPathSeparator());
+  return FilePath(dir.string() + kPathSeparator + relative_path.string());
+}</span>
+
+// Returns true if pathname describes something findable in the file-system,
+// either a file, directory, or whatever.
+<span style = "background-color:#fdd">bool FilePath::FileOrDirectoryExists() const {</span>
+#if GTEST_OS_WINDOWS_MOBILE
+  LPCWSTR unicode = String::AnsiToUtf16(pathname_.c_str());
+  const DWORD attributes = GetFileAttributes(unicode);
+  delete[] unicode;
+  return attributes != kInvalidFileAttributes;
+#else
+<span style = "background-color:#fdd">  posix::StatStruct file_stat{};
+  return posix::Stat(pathname_.c_str(), &amp;file_stat) == 0;</span>
+#endif  // GTEST_OS_WINDOWS_MOBILE
+<span style = "background-color:#fdd">}</span>
+
+// Returns true if pathname describes a directory in the file-system
+// that exists.
+<span style = "background-color:#fdd">bool FilePath::DirectoryExists() const {
+  bool result = false;</span>
+#if GTEST_OS_WINDOWS
+  // Don't strip off trailing separator if path is a root directory on
+  // Windows (like "C:\\").
+<span style = "background-color:#fdd">  const FilePath&amp; path(IsRootDirectory() ? *this</span>
+                                         : RemoveTrailingPathSeparator());
+#else
+  const FilePath&amp; path(*this);
+#endif
+
+#if GTEST_OS_WINDOWS_MOBILE
+  LPCWSTR unicode = String::AnsiToUtf16(path.c_str());
+  const DWORD attributes = GetFileAttributes(unicode);
+  delete[] unicode;
+  if ((attributes != kInvalidFileAttributes) &amp;&amp;
+      (attributes &amp; FILE_ATTRIBUTE_DIRECTORY)) {
+    result = true;
+  }
+#else
+<span style = "background-color:#fdd">  posix::StatStruct file_stat{};
+  result =</span>
+      posix::Stat(path.c_str(), &amp;file_stat) == 0 &amp;&amp; posix::IsDir(file_stat);
+#endif  // GTEST_OS_WINDOWS_MOBILE
+
+<span style = "background-color:#fdd">  return result;
+}</span>
+
+// Returns true if pathname describes a root directory. (Windows has one
+// root directory per disk drive. UNC share roots are also included.)
+<span style = "background-color:#fdd">bool FilePath::IsRootDirectory() const {
+  size_t root_length = CalculateRootLength();
+  return root_length &gt; 0 &amp;&amp; root_length == pathname_.size() &amp;&amp;</span>
+         IsPathSeparator(pathname_[root_length - 1]);
+<span style = "background-color:#fdd">}</span>
+
+// Returns true if pathname describes an absolute path.
+<span style = "background-color:#fdd">bool FilePath::IsAbsolutePath() const {
+  return CalculateRootLength() &gt; 0;
+}</span>
+
+// Returns a pathname for a file that does not currently exist. The pathname
+// will be directory/base_name.extension or
+// directory/base_name_&lt;number&gt;.extension if directory/base_name.extension
+// already exists. The number will be incremented until a pathname is found
+// that does not already exist.
+// Examples: 'dir/foo_test.xml' or 'dir/foo_test_1.xml'.
+// There could be a race condition if two or more processes are calling this
+// function at the same time -- they could both pick the same filename.
+FilePath FilePath::GenerateUniqueFileName(const FilePath&amp; directory,
+                                          const FilePath&amp; base_name,
+<span style = "background-color:#fdd">                                          const char* extension) {
+  FilePath full_pathname;
+  int number = 0;</span>
+  do {
+<span style = "background-color:#fdd">    full_pathname.Set(MakeFileName(directory, base_name, number++, extension));
+  } while (full_pathname.FileOrDirectoryExists());
+  return full_pathname;
+}</span>
+
+// Returns true if FilePath ends with a path separator, which indicates that
+// it is intended to represent a directory. Returns false otherwise.
+// This does NOT check that a directory (or file) actually exists.
+<span style = "background-color:#fdd">bool FilePath::IsDirectory() const {
+  return !pathname_.empty() &amp;&amp;</span>
+         IsPathSeparator(pathname_.c_str()[pathname_.length() - 1]);
+<span style = "background-color:#fdd">}</span>
+
+// Create directories so that path exists. Returns true if successful or if
+// the directories already exist; returns false if unable to create directories
+// for any reason.
+<span style = "background-color:#fdd">bool FilePath::CreateDirectoriesRecursively() const {
+  if (!this-&gt;IsDirectory()) {
+    return false;</span>
+  }
+
+<span style = "background-color:#fdd">  if (pathname_.length() == 0 || this-&gt;DirectoryExists()) {
+    return true;</span>
+  }
+
+<span style = "background-color:#fdd">  const FilePath parent(this-&gt;RemoveTrailingPathSeparator().RemoveFileName());
+  return parent.CreateDirectoriesRecursively() &amp;&amp; this-&gt;CreateFolder();
+}</span>
+
+// Create the directory so that path exists. Returns true if successful or
+// if the directory already exists; returns false if unable to create the
+// directory for any reason, including if the parent directory does not
+// exist. Not named "CreateDirectory" because that's a macro on Windows.
+<span style = "background-color:#fdd">bool FilePath::CreateFolder() const {</span>
+#if GTEST_OS_WINDOWS_MOBILE
+  FilePath removed_sep(this-&gt;RemoveTrailingPathSeparator());
+  LPCWSTR unicode = String::AnsiToUtf16(removed_sep.c_str());
+  int result = CreateDirectory(unicode, nullptr) ? 0 : -1;
+  delete[] unicode;
+#elif GTEST_OS_WINDOWS
+<span style = "background-color:#fdd">  int result = _mkdir(pathname_.c_str());</span>
+#elif GTEST_OS_ESP8266 || GTEST_OS_XTENSA || GTEST_OS_QURT
+  // do nothing
+  int result = 0;
+#else
+  int result = mkdir(pathname_.c_str(), 0777);
+#endif  // GTEST_OS_WINDOWS_MOBILE
+
+<span style = "background-color:#fdd">  if (result == -1) {
+    return this-&gt;DirectoryExists();  // An error is OK if the directory exists.</span>
+  }
+<span style = "background-color:#fdd">  return true;  // No error.
+}</span>
+
+// If input name has a trailing separator character, remove it and return the
+// name, otherwise return the name string unmodified.
+// On Windows platform, uses \ as the separator, other platforms use /.
+<span style = "background-color:#fdd">FilePath FilePath::RemoveTrailingPathSeparator() const {
+  return IsDirectory() ? FilePath(pathname_.substr(0, pathname_.length() - 1))</span>
+                       : *this;
+<span style = "background-color:#fdd">}</span>
+
+// Removes any redundant separators that might be in the pathname.
+// For example, "bar///foo" becomes "bar/foo". Does not eliminate other
+// redundancies that might be in a pathname involving "." or "..".
+// Note that "\\Host\Share" does not contain a redundancy on Windows!
+<span style = "background-color:#dfd">void FilePath::Normalize() {
+  auto out = pathname_.begin();</span>
+
+<span style = "background-color:#dfd">  auto i = pathname_.cbegin();</span>
+#if GTEST_OS_WINDOWS
+  // UNC paths are treated specially
+  if (pathname_.end() - i &gt;= 3 &amp;&amp; IsPathSeparator(*i) &amp;&amp;
+<span style = "background-color:#dfd">      IsPathSeparator(*(i + 1)) &amp;&amp; !IsPathSeparator(*(i + 2))) {</span>
+<span style = "background-color:#fdd">    *(out++) = kPathSeparator;
+    *(out++) = kPathSeparator;</span>
+  }
+#endif
+<span style = "background-color:#dfd">  while (i != pathname_.end()) {
+    const char character = *i;
+    if (!IsPathSeparator(character)) {
+      *(out++) = character;
+    } else if (out == pathname_.begin() || *std::prev(out) != kPathSeparator) {
+      *(out++) = kPathSeparator;</span>
+    }
+<span style = "background-color:#dfd">    ++i;
+  }</span>
+
+<span style = "background-color:#dfd">  pathname_.erase(out, pathname_.end());
+}</span>
+
+}  // namespace internal
+}  // namespace testing</pre>
+        <hr />
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th align="center">
+                        <small>Generated by</small>
+                        <a href="https://github.com/OpenCppCoverage/OpenCppCoverage/releases">
+                            <strong>OpenCppCoverage (Version: 0.9.9.0)</strong>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </body>
+</html>

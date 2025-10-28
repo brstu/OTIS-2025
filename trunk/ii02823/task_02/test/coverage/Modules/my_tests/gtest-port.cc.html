@@ -1,0 +1,1420 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>gtest-port.cc</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+    <body onload="prettyPrint()">
+        <h4></h4>
+        <pre class="prettyprint lang-cpp linenums">
+// Copyright 2008, Google Inc.
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+#include "gtest/internal/gtest-port.h"
+
+#include &lt;limits.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+#include &lt;cstdint&gt;
+#include &lt;fstream&gt;
+#include &lt;memory&gt;
+
+#if GTEST_OS_WINDOWS
+#include &lt;io.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;windows.h&gt;
+
+#include &lt;map&gt;  // Used in ThreadLocal.
+#ifdef _MSC_VER
+#include &lt;crtdbg.h&gt;
+#endif  // _MSC_VER
+#else
+#include &lt;unistd.h&gt;
+#endif  // GTEST_OS_WINDOWS
+
+#if GTEST_OS_MAC
+#include &lt;mach/mach_init.h&gt;
+#include &lt;mach/task.h&gt;
+#include &lt;mach/vm_map.h&gt;
+#endif  // GTEST_OS_MAC
+
+#if GTEST_OS_DRAGONFLY || GTEST_OS_FREEBSD || GTEST_OS_GNU_KFREEBSD || \
+    GTEST_OS_NETBSD || GTEST_OS_OPENBSD
+#include &lt;sys/sysctl.h&gt;
+#if GTEST_OS_DRAGONFLY || GTEST_OS_FREEBSD || GTEST_OS_GNU_KFREEBSD
+#include &lt;sys/user.h&gt;
+#endif
+#endif
+
+#if GTEST_OS_QNX
+#include &lt;devctl.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;sys/procfs.h&gt;
+#endif  // GTEST_OS_QNX
+
+#if GTEST_OS_AIX
+#include &lt;procinfo.h&gt;
+#include &lt;sys/types.h&gt;
+#endif  // GTEST_OS_AIX
+
+#if GTEST_OS_FUCHSIA
+#include &lt;zircon/process.h&gt;
+#include &lt;zircon/syscalls.h&gt;
+#endif  // GTEST_OS_FUCHSIA
+
+#include "gtest/gtest-message.h"
+#include "gtest/gtest-spi.h"
+#include "gtest/internal/gtest-internal.h"
+#include "gtest/internal/gtest-string.h"
+#include "src/gtest-internal-inl.h"
+
+namespace testing {
+namespace internal {
+
+#if GTEST_OS_LINUX || GTEST_OS_GNU_HURD
+
+namespace {
+template &lt;typename T&gt;
+T ReadProcFileField(const std::string&amp; filename, int field) {
+  std::string dummy;
+  std::ifstream file(filename.c_str());
+  while (field-- &gt; 0) {
+    file &gt;&gt; dummy;
+  }
+  T output = 0;
+  file &gt;&gt; output;
+  return output;
+}
+}  // namespace
+
+// Returns the number of active threads, or 0 when there is an error.
+size_t GetThreadCount() {
+  const std::string filename =
+      (Message() &lt;&lt; "/proc/" &lt;&lt; getpid() &lt;&lt; "/stat").GetString();
+  return ReadProcFileField&lt;size_t&gt;(filename, 19);
+}
+
+#elif GTEST_OS_MAC
+
+size_t GetThreadCount() {
+  const task_t task = mach_task_self();
+  mach_msg_type_number_t thread_count;
+  thread_act_array_t thread_list;
+  const kern_return_t status = task_threads(task, &amp;thread_list, &amp;thread_count);
+  if (status == KERN_SUCCESS) {
+    // task_threads allocates resources in thread_list and we need to free them
+    // to avoid leaks.
+    vm_deallocate(task, reinterpret_cast&lt;vm_address_t&gt;(thread_list),
+                  sizeof(thread_t) * thread_count);
+    return static_cast&lt;size_t&gt;(thread_count);
+  } else {
+    return 0;
+  }
+}
+
+#elif GTEST_OS_DRAGONFLY || GTEST_OS_FREEBSD || GTEST_OS_GNU_KFREEBSD || \
+    GTEST_OS_NETBSD
+
+#if GTEST_OS_NETBSD
+#undef KERN_PROC
+#define KERN_PROC KERN_PROC2
+#define kinfo_proc kinfo_proc2
+#endif
+
+#if GTEST_OS_DRAGONFLY
+#define KP_NLWP(kp) (kp.kp_nthreads)
+#elif GTEST_OS_FREEBSD || GTEST_OS_GNU_KFREEBSD
+#define KP_NLWP(kp) (kp.ki_numthreads)
+#elif GTEST_OS_NETBSD
+#define KP_NLWP(kp) (kp.p_nlwps)
+#endif
+
+// Returns the number of threads running in the process, or 0 to indicate that
+// we cannot detect it.
+size_t GetThreadCount() {
+  int mib[] = {
+    CTL_KERN,
+    KERN_PROC,
+    KERN_PROC_PID,
+    getpid(),
+#if GTEST_OS_NETBSD
+    sizeof(struct kinfo_proc),
+    1,
+#endif
+  };
+  u_int miblen = sizeof(mib) / sizeof(mib[0]);
+  struct kinfo_proc info;
+  size_t size = sizeof(info);
+  if (sysctl(mib, miblen, &amp;info, &amp;size, NULL, 0)) {
+    return 0;
+  }
+  return static_cast&lt;size_t&gt;(KP_NLWP(info));
+}
+#elif GTEST_OS_OPENBSD
+
+// Returns the number of threads running in the process, or 0 to indicate that
+// we cannot detect it.
+size_t GetThreadCount() {
+  int mib[] = {
+      CTL_KERN,
+      KERN_PROC,
+      KERN_PROC_PID | KERN_PROC_SHOW_THREADS,
+      getpid(),
+      sizeof(struct kinfo_proc),
+      0,
+  };
+  u_int miblen = sizeof(mib) / sizeof(mib[0]);
+
+  // get number of structs
+  size_t size;
+  if (sysctl(mib, miblen, NULL, &amp;size, NULL, 0)) {
+    return 0;
+  }
+
+  mib[5] = static_cast&lt;int&gt;(size / static_cast&lt;size_t&gt;(mib[4]));
+
+  // populate array of structs
+  struct kinfo_proc info[mib[5]];
+  if (sysctl(mib, miblen, &amp;info, &amp;size, NULL, 0)) {
+    return 0;
+  }
+
+  // exclude empty members
+  size_t nthreads = 0;
+  for (size_t i = 0; i &lt; size / static_cast&lt;size_t&gt;(mib[4]); i++) {
+    if (info[i].p_tid != -1) nthreads++;
+  }
+  return nthreads;
+}
+
+#elif GTEST_OS_QNX
+
+// Returns the number of threads running in the process, or 0 to indicate that
+// we cannot detect it.
+size_t GetThreadCount() {
+  const int fd = open("/proc/self/as", O_RDONLY);
+  if (fd &lt; 0) {
+    return 0;
+  }
+  procfs_info process_info;
+  const int status =
+      devctl(fd, DCMD_PROC_INFO, &amp;process_info, sizeof(process_info), nullptr);
+  close(fd);
+  if (status == EOK) {
+    return static_cast&lt;size_t&gt;(process_info.num_threads);
+  } else {
+    return 0;
+  }
+}
+
+#elif GTEST_OS_AIX
+
+size_t GetThreadCount() {
+  struct procentry64 entry;
+  pid_t pid = getpid();
+  int status = getprocs64(&amp;entry, sizeof(entry), nullptr, 0, &amp;pid, 1);
+  if (status == 1) {
+    return entry.pi_thcount;
+  } else {
+    return 0;
+  }
+}
+
+#elif GTEST_OS_FUCHSIA
+
+size_t GetThreadCount() {
+  int dummy_buffer;
+  size_t avail;
+  zx_status_t status =
+      zx_object_get_info(zx_process_self(), ZX_INFO_PROCESS_THREADS,
+                         &amp;dummy_buffer, 0, nullptr, &amp;avail);
+  if (status == ZX_OK) {
+    return avail;
+  } else {
+    return 0;
+  }
+}
+
+#else
+
+<span style = "background-color:#fdd">size_t GetThreadCount() {</span>
+  // There's no portable way to detect the number of threads, so we just
+  // return 0 to indicate that we cannot detect it.
+<span style = "background-color:#fdd">  return 0;
+}</span>
+
+#endif  // GTEST_OS_LINUX
+
+#if GTEST_IS_THREADSAFE &amp;&amp; GTEST_OS_WINDOWS
+
+<span style = "background-color:#fdd">AutoHandle::AutoHandle() : handle_(INVALID_HANDLE_VALUE) {}</span>
+
+<span style = "background-color:#fdd">AutoHandle::AutoHandle(Handle handle) : handle_(handle) {}</span>
+
+<span style = "background-color:#fdd">AutoHandle::~AutoHandle() { Reset(); }</span>
+
+<span style = "background-color:#fdd">AutoHandle::Handle AutoHandle::Get() const { return handle_; }</span>
+
+<span style = "background-color:#fdd">void AutoHandle::Reset() { Reset(INVALID_HANDLE_VALUE); }</span>
+
+<span style = "background-color:#fdd">void AutoHandle::Reset(HANDLE handle) {</span>
+  // Resetting with the same handle we already own is invalid.
+<span style = "background-color:#fdd">  if (handle_ != handle) {
+    if (IsCloseable()) {
+      ::CloseHandle(handle_);</span>
+    }
+<span style = "background-color:#fdd">    handle_ = handle;
+  } else {
+    GTEST_CHECK_(!IsCloseable())</span>
+        &lt;&lt; "Resetting a valid handle to itself is likely a programmer error "
+           "and thus not allowed.";
+  }
+<span style = "background-color:#fdd">}</span>
+
+<span style = "background-color:#fdd">bool AutoHandle::IsCloseable() const {</span>
+  // Different Windows APIs may use either of these values to represent an
+  // invalid handle.
+<span style = "background-color:#fdd">  return handle_ != nullptr &amp;&amp; handle_ != INVALID_HANDLE_VALUE;
+}</span>
+
+Mutex::Mutex()
+<span style = "background-color:#dfd">    : owner_thread_id_(0),
+      type_(kDynamic),
+      critical_section_init_phase_(0),
+      critical_section_(new CRITICAL_SECTION) {
+  ::InitializeCriticalSection(critical_section_);
+}</span>
+
+<span style = "background-color:#dfd">Mutex::~Mutex() {</span>
+  // Static mutexes are leaked intentionally. It is not thread-safe to try
+  // to clean them up.
+<span style = "background-color:#dfd">  if (type_ == kDynamic) {
+    ::DeleteCriticalSection(critical_section_);
+    delete critical_section_;
+    critical_section_ = nullptr;</span>
+  }
+<span style = "background-color:#dfd">}</span>
+
+<span style = "background-color:#dfd">void Mutex::Lock() {
+  ThreadSafeLazyInit();
+  ::EnterCriticalSection(critical_section_);
+  owner_thread_id_ = ::GetCurrentThreadId();
+}</span>
+
+<span style = "background-color:#dfd">void Mutex::Unlock() {
+  ThreadSafeLazyInit();</span>
+  // We don't protect writing to owner_thread_id_ here, as it's the
+  // caller's responsibility to ensure that the current thread holds the
+  // mutex when this is called.
+<span style = "background-color:#dfd">  owner_thread_id_ = 0;
+  ::LeaveCriticalSection(critical_section_);
+}</span>
+
+// Does nothing if the current thread holds the mutex. Otherwise, crashes
+// with high probability.
+<span style = "background-color:#dfd">void Mutex::AssertHeld() {
+  ThreadSafeLazyInit();
+  GTEST_CHECK_(owner_thread_id_ == ::GetCurrentThreadId())</span>
+      &lt;&lt; "The current thread is not holding the mutex @" &lt;&lt; this;
+<span style = "background-color:#dfd">}</span>
+
+namespace {
+
+#ifdef _MSC_VER
+// Use the RAII idiom to flag mem allocs that are intentionally never
+// deallocated. The motivation is to silence the false positive mem leaks
+// that are reported by the debug version of MS's CRT which can only detect
+// if an alloc is missing a matching deallocation.
+// Example:
+//    MemoryIsNotDeallocated memory_is_not_deallocated;
+//    critical_section_ = new CRITICAL_SECTION;
+//
+class MemoryIsNotDeallocated {
+ public:
+<span style = "background-color:#dfd">  MemoryIsNotDeallocated() : old_crtdbg_flag_(0) {
+    old_crtdbg_flag_ = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);</span>
+    // Set heap allocation block type to _IGNORE_BLOCK so that MS debug CRT
+    // doesn't report mem leak if there's no matching deallocation.
+<span style = "background-color:#dfd">    (void)_CrtSetDbgFlag(old_crtdbg_flag_ &amp; ~_CRTDBG_ALLOC_MEM_DF);
+  }</span>
+
+<span style = "background-color:#dfd">  ~MemoryIsNotDeallocated() {</span>
+    // Restore the original _CRTDBG_ALLOC_MEM_DF flag
+<span style = "background-color:#dfd">    (void)_CrtSetDbgFlag(old_crtdbg_flag_);
+  }</span>
+
+ private:
+  int old_crtdbg_flag_;
+
+  MemoryIsNotDeallocated(const MemoryIsNotDeallocated&amp;) = delete;
+  MemoryIsNotDeallocated&amp; operator=(const MemoryIsNotDeallocated&amp;) = delete;
+};
+#endif  // _MSC_VER
+
+}  // namespace
+
+// Initializes owner_thread_id_ and critical_section_ in static mutexes.
+<span style = "background-color:#dfd">void Mutex::ThreadSafeLazyInit() {</span>
+  // Dynamic mutexes are initialized in the constructor.
+<span style = "background-color:#dfd">  if (type_ == kStatic) {
+    switch (</span>
+        ::InterlockedCompareExchange(&amp;critical_section_init_phase_, 1L, 0L)) {
+      case 0:
+        // If critical_section_init_phase_ was 0 before the exchange, we
+        // are the first to test it and need to perform the initialization.
+<span style = "background-color:#dfd">        owner_thread_id_ = 0;</span>
+        {
+          // Use RAII to flag that following mem alloc is never deallocated.
+#ifdef _MSC_VER
+<span style = "background-color:#dfd">          MemoryIsNotDeallocated memory_is_not_deallocated;</span>
+#endif  // _MSC_VER
+<span style = "background-color:#dfd">          critical_section_ = new CRITICAL_SECTION;
+        }
+        ::InitializeCriticalSection(critical_section_);</span>
+        // Updates the critical_section_init_phase_ to 2 to signal
+        // initialization complete.
+<span style = "background-color:#dfd">        GTEST_CHECK_(::InterlockedCompareExchange(&amp;critical_section_init_phase_,</span>
+                                                  2L, 1L) == 1L);
+<span style = "background-color:#dfd">        break;</span>
+      case 1:
+        // Somebody else is already initializing the mutex; spin until they
+        // are done.
+        while (::InterlockedCompareExchange(&amp;critical_section_init_phase_, 2L,
+<span style = "background-color:#fdd">                                            2L) != 2L) {</span>
+          // Possibly yields the rest of the thread's time slice to other
+          // threads.
+<span style = "background-color:#fdd">          ::Sleep(0);
+        }
+        break;</span>
+
+      case 2:
+<span style = "background-color:#dfd">        break;  // The mutex is already initialized and ready for use.</span>
+
+      default:
+<span style = "background-color:#fdd">        GTEST_CHECK_(false)</span>
+            &lt;&lt; "Unexpected value of critical_section_init_phase_ "
+            &lt;&lt; "while initializing a static mutex.";
+    }
+  }
+<span style = "background-color:#dfd">}</span>
+
+namespace {
+
+class ThreadWithParamSupport : public ThreadWithParamBase {
+ public:
+  static HANDLE CreateThread(Runnable* runnable,
+<span style = "background-color:#fdd">                             Notification* thread_can_start) {
+    ThreadMainParam* param = new ThreadMainParam(runnable, thread_can_start);</span>
+    DWORD thread_id;
+<span style = "background-color:#fdd">    HANDLE thread_handle = ::CreateThread(</span>
+        nullptr,  // Default security.
+        0,        // Default stack size.
+        &amp;ThreadWithParamSupport::ThreadMain,
+        param,        // Parameter to ThreadMainStatic
+        0x0,          // Default creation flags.
+        &amp;thread_id);  // Need a valid pointer for the call to work under Win98.
+<span style = "background-color:#fdd">    GTEST_CHECK_(thread_handle != nullptr)</span>
+        &lt;&lt; "CreateThread failed with error " &lt;&lt; ::GetLastError() &lt;&lt; ".";
+<span style = "background-color:#fdd">    if (thread_handle == nullptr) {
+      delete param;</span>
+    }
+<span style = "background-color:#fdd">    return thread_handle;
+  }</span>
+
+ private:
+  struct ThreadMainParam {
+<span style = "background-color:#fdd">    ThreadMainParam(Runnable* runnable, Notification* thread_can_start)
+        : runnable_(runnable), thread_can_start_(thread_can_start) {}</span>
+    std::unique_ptr&lt;Runnable&gt; runnable_;
+    // Does not own.
+    Notification* thread_can_start_;
+  };
+
+<span style = "background-color:#fdd">  static DWORD WINAPI ThreadMain(void* ptr) {</span>
+    // Transfers ownership.
+<span style = "background-color:#fdd">    std::unique_ptr&lt;ThreadMainParam&gt; param(static_cast&lt;ThreadMainParam*&gt;(ptr));
+    if (param-&gt;thread_can_start_ != nullptr)
+      param-&gt;thread_can_start_-&gt;WaitForNotification();
+    param-&gt;runnable_-&gt;Run();
+    return 0;
+  }</span>
+
+  // Prohibit instantiation.
+  ThreadWithParamSupport();
+
+  ThreadWithParamSupport(const ThreadWithParamSupport&amp;) = delete;
+  ThreadWithParamSupport&amp; operator=(const ThreadWithParamSupport&amp;) = delete;
+};
+
+}  // namespace
+
+ThreadWithParamBase::ThreadWithParamBase(Runnable* runnable,
+                                         Notification* thread_can_start)
+<span style = "background-color:#fdd">    : thread_(
+          ThreadWithParamSupport::CreateThread(runnable, thread_can_start)) {}</span>
+
+<span style = "background-color:#fdd">ThreadWithParamBase::~ThreadWithParamBase() { Join(); }</span>
+
+<span style = "background-color:#fdd">void ThreadWithParamBase::Join() {
+  GTEST_CHECK_(::WaitForSingleObject(thread_.Get(), INFINITE) == WAIT_OBJECT_0)</span>
+      &lt;&lt; "Failed to join the thread with error " &lt;&lt; ::GetLastError() &lt;&lt; ".";
+<span style = "background-color:#fdd">}</span>
+
+// Maps a thread to a set of ThreadIdToThreadLocals that have values
+// instantiated on that thread and notifies them when the thread exits.  A
+// ThreadLocal instance is expected to persist until all threads it has
+// values on have terminated.
+class ThreadLocalRegistryImpl {
+ public:
+  // Registers thread_local_instance as having value on the current thread.
+  // Returns a value that can be used to identify the thread from other threads.
+  static ThreadLocalValueHolderBase* GetValueOnCurrentThread(
+<span style = "background-color:#fdd">      const ThreadLocalBase* thread_local_instance) {</span>
+#ifdef _MSC_VER
+<span style = "background-color:#fdd">    MemoryIsNotDeallocated memory_is_not_deallocated;</span>
+#endif  // _MSC_VER
+<span style = "background-color:#fdd">    DWORD current_thread = ::GetCurrentThreadId();
+    MutexLock lock(&amp;mutex_);
+    ThreadIdToThreadLocals* const thread_to_thread_locals =</span>
+        GetThreadLocalsMapLocked();
+<span style = "background-color:#fdd">    ThreadIdToThreadLocals::iterator thread_local_pos =</span>
+        thread_to_thread_locals-&gt;find(current_thread);
+<span style = "background-color:#fdd">    if (thread_local_pos == thread_to_thread_locals-&gt;end()) {
+      thread_local_pos =</span>
+          thread_to_thread_locals
+              -&gt;insert(std::make_pair(current_thread, ThreadLocalValues()))
+              .first;
+<span style = "background-color:#fdd">      StartWatcherThreadFor(current_thread);</span>
+    }
+<span style = "background-color:#fdd">    ThreadLocalValues&amp; thread_local_values = thread_local_pos-&gt;second;
+    ThreadLocalValues::iterator value_pos =</span>
+        thread_local_values.find(thread_local_instance);
+<span style = "background-color:#fdd">    if (value_pos == thread_local_values.end()) {
+      value_pos =</span>
+          thread_local_values
+              .insert(std::make_pair(
+                  thread_local_instance,
+                  std::shared_ptr&lt;ThreadLocalValueHolderBase&gt;(
+                      thread_local_instance-&gt;NewValueForCurrentThread())))
+              .first;
+    }
+<span style = "background-color:#fdd">    return value_pos-&gt;second.get();
+  }</span>
+
+  static void OnThreadLocalDestroyed(
+<span style = "background-color:#dfd">      const ThreadLocalBase* thread_local_instance) {
+    std::vector&lt;std::shared_ptr&lt;ThreadLocalValueHolderBase&gt; &gt; value_holders;</span>
+    // Clean up the ThreadLocalValues data structure while holding the lock, but
+    // defer the destruction of the ThreadLocalValueHolderBases.
+    {
+<span style = "background-color:#dfd">      MutexLock lock(&amp;mutex_);
+      ThreadIdToThreadLocals* const thread_to_thread_locals =</span>
+          GetThreadLocalsMapLocked();
+<span style = "background-color:#dfd">      for (ThreadIdToThreadLocals::iterator it =</span>
+               thread_to_thread_locals-&gt;begin();
+<span style = "background-color:#fdd">           it != thread_to_thread_locals-&gt;end(); ++it) {
+        ThreadLocalValues&amp; thread_local_values = it-&gt;second;
+        ThreadLocalValues::iterator value_pos =</span>
+            thread_local_values.find(thread_local_instance);
+<span style = "background-color:#fdd">        if (value_pos != thread_local_values.end()) {
+          value_holders.push_back(value_pos-&gt;second);
+          thread_local_values.erase(value_pos);</span>
+          // This 'if' can only be successful at most once, so theoretically we
+          // could break out of the loop here, but we don't bother doing so.
+        }
+<span style = "background-color:#fdd">      }</span>
+<span style = "background-color:#dfd">    }</span>
+    // Outside the lock, let the destructor for 'value_holders' deallocate the
+    // ThreadLocalValueHolderBases.
+<span style = "background-color:#dfd">  }</span>
+
+<span style = "background-color:#fdd">  static void OnThreadExit(DWORD thread_id) {
+    GTEST_CHECK_(thread_id != 0) &lt;&lt; ::GetLastError();
+    std::vector&lt;std::shared_ptr&lt;ThreadLocalValueHolderBase&gt; &gt; value_holders;</span>
+    // Clean up the ThreadIdToThreadLocals data structure while holding the
+    // lock, but defer the destruction of the ThreadLocalValueHolderBases.
+    {
+<span style = "background-color:#fdd">      MutexLock lock(&amp;mutex_);
+      ThreadIdToThreadLocals* const thread_to_thread_locals =</span>
+          GetThreadLocalsMapLocked();
+<span style = "background-color:#fdd">      ThreadIdToThreadLocals::iterator thread_local_pos =</span>
+          thread_to_thread_locals-&gt;find(thread_id);
+<span style = "background-color:#fdd">      if (thread_local_pos != thread_to_thread_locals-&gt;end()) {
+        ThreadLocalValues&amp; thread_local_values = thread_local_pos-&gt;second;
+        for (ThreadLocalValues::iterator value_pos =</span>
+                 thread_local_values.begin();
+<span style = "background-color:#fdd">             value_pos != thread_local_values.end(); ++value_pos) {
+          value_holders.push_back(value_pos-&gt;second);
+        }
+        thread_to_thread_locals-&gt;erase(thread_local_pos);</span>
+      }
+<span style = "background-color:#fdd">    }</span>
+    // Outside the lock, let the destructor for 'value_holders' deallocate the
+    // ThreadLocalValueHolderBases.
+<span style = "background-color:#fdd">  }</span>
+
+ private:
+  // In a particular thread, maps a ThreadLocal object to its value.
+  typedef std::map&lt;const ThreadLocalBase*,
+                   std::shared_ptr&lt;ThreadLocalValueHolderBase&gt; &gt;
+      ThreadLocalValues;
+  // Stores all ThreadIdToThreadLocals having values in a thread, indexed by
+  // thread's ID.
+  typedef std::map&lt;DWORD, ThreadLocalValues&gt; ThreadIdToThreadLocals;
+
+  // Holds the thread id and thread handle that we pass from
+  // StartWatcherThreadFor to WatcherThreadFunc.
+  typedef std::pair&lt;DWORD, HANDLE&gt; ThreadIdAndHandle;
+
+<span style = "background-color:#fdd">  static void StartWatcherThreadFor(DWORD thread_id) {</span>
+    // The returned handle will be kept in thread_map and closed by
+    // watcher_thread in WatcherThreadFunc.
+<span style = "background-color:#fdd">    HANDLE thread =</span>
+        ::OpenThread(SYNCHRONIZE | THREAD_QUERY_INFORMATION, FALSE, thread_id);
+<span style = "background-color:#fdd">    GTEST_CHECK_(thread != nullptr);</span>
+    // We need to pass a valid thread ID pointer into CreateThread for it
+    // to work correctly under Win98.
+    DWORD watcher_thread_id;
+<span style = "background-color:#fdd">    HANDLE watcher_thread = ::CreateThread(</span>
+        nullptr,  // Default security.
+        0,        // Default stack size
+        &amp;ThreadLocalRegistryImpl::WatcherThreadFunc,
+        reinterpret_cast&lt;LPVOID&gt;(new ThreadIdAndHandle(thread_id, thread)),
+        CREATE_SUSPENDED, &amp;watcher_thread_id);
+<span style = "background-color:#fdd">    GTEST_CHECK_(watcher_thread != nullptr)</span>
+        &lt;&lt; "CreateThread failed with error " &lt;&lt; ::GetLastError() &lt;&lt; ".";
+    // Give the watcher thread the same priority as ours to avoid being
+    // blocked by it.
+<span style = "background-color:#fdd">    ::SetThreadPriority(watcher_thread,</span>
+                        ::GetThreadPriority(::GetCurrentThread()));
+<span style = "background-color:#fdd">    ::ResumeThread(watcher_thread);
+    ::CloseHandle(watcher_thread);
+  }</span>
+
+  // Monitors exit from a given thread and notifies those
+  // ThreadIdToThreadLocals about thread termination.
+<span style = "background-color:#fdd">  static DWORD WINAPI WatcherThreadFunc(LPVOID param) {
+    const ThreadIdAndHandle* tah =</span>
+        reinterpret_cast&lt;const ThreadIdAndHandle*&gt;(param);
+<span style = "background-color:#fdd">    GTEST_CHECK_(::WaitForSingleObject(tah-&gt;second, INFINITE) == WAIT_OBJECT_0);
+    OnThreadExit(tah-&gt;first);
+    ::CloseHandle(tah-&gt;second);
+    delete tah;
+    return 0;
+  }</span>
+
+  // Returns map of thread local instances.
+<span style = "background-color:#dfd">  static ThreadIdToThreadLocals* GetThreadLocalsMapLocked() {
+    mutex_.AssertHeld();</span>
+#ifdef _MSC_VER
+<span style = "background-color:#dfd">    MemoryIsNotDeallocated memory_is_not_deallocated;</span>
+#endif  // _MSC_VER
+<span style = "background-color:#dfd">    static ThreadIdToThreadLocals* map = new ThreadIdToThreadLocals();
+    return map;
+  }</span>
+
+  // Protects access to GetThreadLocalsMapLocked() and its return value.
+  static Mutex mutex_;
+  // Protects access to GetThreadMapLocked() and its return value.
+  static Mutex thread_map_mutex_;
+};
+
+<span style = "background-color:#dfd">Mutex ThreadLocalRegistryImpl::mutex_(Mutex::kStaticMutex);  // NOLINT
+Mutex ThreadLocalRegistryImpl::thread_map_mutex_(
+    Mutex::kStaticMutex);  // NOLINT</span>
+
+ThreadLocalValueHolderBase* ThreadLocalRegistry::GetValueOnCurrentThread(
+<span style = "background-color:#fdd">    const ThreadLocalBase* thread_local_instance) {
+  return ThreadLocalRegistryImpl::GetValueOnCurrentThread(</span>
+      thread_local_instance);
+<span style = "background-color:#fdd">}</span>
+
+void ThreadLocalRegistry::OnThreadLocalDestroyed(
+<span style = "background-color:#dfd">    const ThreadLocalBase* thread_local_instance) {
+  ThreadLocalRegistryImpl::OnThreadLocalDestroyed(thread_local_instance);
+}</span>
+
+#endif  // GTEST_IS_THREADSAFE &amp;&amp; GTEST_OS_WINDOWS
+
+#if GTEST_USES_POSIX_RE
+
+// Implements RE.  Currently only needed for death tests.
+
+RE::~RE() {
+  if (is_valid_) {
+    // regfree'ing an invalid regex might crash because the content
+    // of the regex is undefined. Since the regex's are essentially
+    // the same, one cannot be valid (or invalid) without the other
+    // being so too.
+    regfree(&amp;partial_regex_);
+    regfree(&amp;full_regex_);
+  }
+  free(const_cast&lt;char*&gt;(pattern_));
+}
+
+// Returns true if and only if regular expression re matches the entire str.
+bool RE::FullMatch(const char* str, const RE&amp; re) {
+  if (!re.is_valid_) return false;
+
+  regmatch_t match;
+  return regexec(&amp;re.full_regex_, str, 1, &amp;match, 0) == 0;
+}
+
+// Returns true if and only if regular expression re matches a substring of
+// str (including str itself).
+bool RE::PartialMatch(const char* str, const RE&amp; re) {
+  if (!re.is_valid_) return false;
+
+  regmatch_t match;
+  return regexec(&amp;re.partial_regex_, str, 1, &amp;match, 0) == 0;
+}
+
+// Initializes an RE from its string representation.
+void RE::Init(const char* regex) {
+  pattern_ = posix::StrDup(regex);
+
+  // Reserves enough bytes to hold the regular expression used for a
+  // full match.
+  const size_t full_regex_len = strlen(regex) + 10;
+  char* const full_pattern = new char[full_regex_len];
+
+  snprintf(full_pattern, full_regex_len, "^(%s)$", regex);
+  is_valid_ = regcomp(&amp;full_regex_, full_pattern, REG_EXTENDED) == 0;
+  // We want to call regcomp(&amp;partial_regex_, ...) even if the
+  // previous expression returns false.  Otherwise partial_regex_ may
+  // not be properly initialized can may cause trouble when it's
+  // freed.
+  //
+  // Some implementation of POSIX regex (e.g. on at least some
+  // versions of Cygwin) doesn't accept the empty string as a valid
+  // regex.  We change it to an equivalent form "()" to be safe.
+  if (is_valid_) {
+    const char* const partial_regex = (*regex == '\0') ? "()" : regex;
+    is_valid_ = regcomp(&amp;partial_regex_, partial_regex, REG_EXTENDED) == 0;
+  }
+  EXPECT_TRUE(is_valid_)
+      &lt;&lt; "Regular expression \"" &lt;&lt; regex
+      &lt;&lt; "\" is not a valid POSIX Extended regular expression.";
+
+  delete[] full_pattern;
+}
+
+#elif GTEST_USES_SIMPLE_RE
+
+// Returns true if and only if ch appears anywhere in str (excluding the
+// terminating '\0' character).
+<span style = "background-color:#fdd">bool IsInSet(char ch, const char* str) {
+  return ch != '\0' &amp;&amp; strchr(str, ch) != nullptr;
+}</span>
+
+// Returns true if and only if ch belongs to the given classification.
+// Unlike similar functions in &lt;ctype.h&gt;, these aren't affected by the
+// current locale.
+<span style = "background-color:#fdd">bool IsAsciiDigit(char ch) { return '0' &lt;= ch &amp;&amp; ch &lt;= '9'; }
+bool IsAsciiPunct(char ch) {
+  return IsInSet(ch, "^-!\"#$%&amp;'()*+,./:;&lt;=&gt;?@[\\]_`{|}~");
+}
+bool IsRepeat(char ch) { return IsInSet(ch, "?*+"); }
+bool IsAsciiWhiteSpace(char ch) { return IsInSet(ch, " \f\n\r\t\v"); }
+bool IsAsciiWordChar(char ch) {
+  return ('a' &lt;= ch &amp;&amp; ch &lt;= 'z') || ('A' &lt;= ch &amp;&amp; ch &lt;= 'Z') ||</span>
+         ('0' &lt;= ch &amp;&amp; ch &lt;= '9') || ch == '_';
+<span style = "background-color:#fdd">}</span>
+
+// Returns true if and only if "\\c" is a supported escape sequence.
+<span style = "background-color:#fdd">bool IsValidEscape(char c) {
+  return (IsAsciiPunct(c) || IsInSet(c, "dDfnrsStvwW"));
+}</span>
+
+// Returns true if and only if the given atom (specified by escaped and
+// pattern) matches ch.  The result is undefined if the atom is invalid.
+<span style = "background-color:#fdd">bool AtomMatchesChar(bool escaped, char pattern_char, char ch) {
+  if (escaped) {  // "\\p" where p is pattern_char.
+    switch (pattern_char) {</span>
+      case 'd':
+<span style = "background-color:#fdd">        return IsAsciiDigit(ch);</span>
+      case 'D':
+<span style = "background-color:#fdd">        return !IsAsciiDigit(ch);</span>
+      case 'f':
+<span style = "background-color:#fdd">        return ch == '\f';</span>
+      case 'n':
+<span style = "background-color:#fdd">        return ch == '\n';</span>
+      case 'r':
+<span style = "background-color:#fdd">        return ch == '\r';</span>
+      case 's':
+<span style = "background-color:#fdd">        return IsAsciiWhiteSpace(ch);</span>
+      case 'S':
+<span style = "background-color:#fdd">        return !IsAsciiWhiteSpace(ch);</span>
+      case 't':
+<span style = "background-color:#fdd">        return ch == '\t';</span>
+      case 'v':
+<span style = "background-color:#fdd">        return ch == '\v';</span>
+      case 'w':
+<span style = "background-color:#fdd">        return IsAsciiWordChar(ch);</span>
+      case 'W':
+<span style = "background-color:#fdd">        return !IsAsciiWordChar(ch);</span>
+    }
+<span style = "background-color:#fdd">    return IsAsciiPunct(pattern_char) &amp;&amp; pattern_char == ch;</span>
+  }
+
+<span style = "background-color:#fdd">  return (pattern_char == '.' &amp;&amp; ch != '\n') || pattern_char == ch;
+}</span>
+
+// Helper function used by ValidateRegex() to format error messages.
+<span style = "background-color:#fdd">static std::string FormatRegexSyntaxError(const char* regex, int index) {
+  return (Message() &lt;&lt; "Syntax error at index " &lt;&lt; index</span>
+                    &lt;&lt; " in simple regular expression \"" &lt;&lt; regex &lt;&lt; "\": ")
+      .GetString();
+<span style = "background-color:#fdd">}</span>
+
+// Generates non-fatal failures and returns false if regex is invalid;
+// otherwise returns true.
+<span style = "background-color:#fdd">bool ValidateRegex(const char* regex) {
+  if (regex == nullptr) {
+    ADD_FAILURE() &lt;&lt; "NULL is not a valid simple regular expression.";
+    return false;</span>
+  }
+
+<span style = "background-color:#fdd">  bool is_valid = true;</span>
+
+  // True if and only if ?, *, or + can follow the previous atom.
+<span style = "background-color:#fdd">  bool prev_repeatable = false;
+  for (int i = 0; regex[i]; i++) {
+    if (regex[i] == '\\') {  // An escape sequence
+      i++;
+      if (regex[i] == '\0') {
+        ADD_FAILURE() &lt;&lt; FormatRegexSyntaxError(regex, i - 1)</span>
+                      &lt;&lt; "'\\' cannot appear at the end.";
+<span style = "background-color:#fdd">        return false;</span>
+      }
+
+<span style = "background-color:#fdd">      if (!IsValidEscape(regex[i])) {
+        ADD_FAILURE() &lt;&lt; FormatRegexSyntaxError(regex, i - 1)</span>
+                      &lt;&lt; "invalid escape sequence \"\\" &lt;&lt; regex[i] &lt;&lt; "\".";
+<span style = "background-color:#fdd">        is_valid = false;</span>
+      }
+<span style = "background-color:#fdd">      prev_repeatable = true;
+    } else {  // Not an escape sequence.
+      const char ch = regex[i];</span>
+
+<span style = "background-color:#fdd">      if (ch == '^' &amp;&amp; i &gt; 0) {
+        ADD_FAILURE() &lt;&lt; FormatRegexSyntaxError(regex, i)</span>
+                      &lt;&lt; "'^' can only appear at the beginning.";
+<span style = "background-color:#fdd">        is_valid = false;
+      } else if (ch == '$' &amp;&amp; regex[i + 1] != '\0') {
+        ADD_FAILURE() &lt;&lt; FormatRegexSyntaxError(regex, i)</span>
+                      &lt;&lt; "'$' can only appear at the end.";
+<span style = "background-color:#fdd">        is_valid = false;
+      } else if (IsInSet(ch, "()[]{}|")) {
+        ADD_FAILURE() &lt;&lt; FormatRegexSyntaxError(regex, i) &lt;&lt; "'" &lt;&lt; ch</span>
+                      &lt;&lt; "' is unsupported.";
+<span style = "background-color:#fdd">        is_valid = false;
+      } else if (IsRepeat(ch) &amp;&amp; !prev_repeatable) {
+        ADD_FAILURE() &lt;&lt; FormatRegexSyntaxError(regex, i) &lt;&lt; "'" &lt;&lt; ch</span>
+                      &lt;&lt; "' can only follow a repeatable token.";
+<span style = "background-color:#fdd">        is_valid = false;</span>
+      }
+
+<span style = "background-color:#fdd">      prev_repeatable = !IsInSet(ch, "^$?*+");</span>
+    }
+<span style = "background-color:#fdd">  }</span>
+
+<span style = "background-color:#fdd">  return is_valid;
+}</span>
+
+// Matches a repeated regex atom followed by a valid simple regular
+// expression.  The regex atom is defined as c if escaped is false,
+// or \c otherwise.  repeat is the repetition meta character (?, *,
+// or +).  The behavior is undefined if str contains too many
+// characters to be indexable by size_t, in which case the test will
+// probably time out anyway.  We are fine with this limitation as
+// std::string has it too.
+bool MatchRepetitionAndRegexAtHead(bool escaped, char c, char repeat,
+<span style = "background-color:#fdd">                                   const char* regex, const char* str) {
+  const size_t min_count = (repeat == '+') ? 1 : 0;
+  const size_t max_count = (repeat == '?') ? 1 : static_cast&lt;size_t&gt;(-1) - 1;</span>
+  // We cannot call numeric_limits::max() as it conflicts with the
+  // max() macro on Windows.
+
+<span style = "background-color:#fdd">  for (size_t i = 0; i &lt;= max_count; ++i) {</span>
+    // We know that the atom matches each of the first i characters in str.
+<span style = "background-color:#fdd">    if (i &gt;= min_count &amp;&amp; MatchRegexAtHead(regex, str + i)) {</span>
+      // We have enough matches at the head, and the tail matches too.
+      // Since we only care about *whether* the pattern matches str
+      // (as opposed to *how* it matches), there is no need to find a
+      // greedy match.
+<span style = "background-color:#fdd">      return true;</span>
+    }
+<span style = "background-color:#fdd">    if (str[i] == '\0' || !AtomMatchesChar(escaped, c, str[i])) return false;
+  }
+  return false;
+}</span>
+
+// Returns true if and only if regex matches a prefix of str. regex must
+// be a valid simple regular expression and not start with "^", or the
+// result is undefined.
+<span style = "background-color:#fdd">bool MatchRegexAtHead(const char* regex, const char* str) {
+  if (*regex == '\0')  // An empty regex matches a prefix of anything.
+    return true;</span>
+
+  // "$" only matches the end of a string.  Note that regex being
+  // valid guarantees that there's nothing after "$" in it.
+<span style = "background-color:#fdd">  if (*regex == '$') return *str == '\0';</span>
+
+  // Is the first thing in regex an escape sequence?
+<span style = "background-color:#fdd">  const bool escaped = *regex == '\\';
+  if (escaped) ++regex;
+  if (IsRepeat(regex[1])) {</span>
+    // MatchRepetitionAndRegexAtHead() calls MatchRegexAtHead(), so
+    // here's an indirect recursion.  It terminates as the regex gets
+    // shorter in each recursion.
+<span style = "background-color:#fdd">    return MatchRepetitionAndRegexAtHead(escaped, regex[0], regex[1], regex + 2,</span>
+                                         str);
+<span style = "background-color:#fdd">  } else {</span>
+    // regex isn't empty, isn't "$", and doesn't start with a
+    // repetition.  We match the first atom of regex with the first
+    // character of str and recurse.
+<span style = "background-color:#fdd">    return (*str != '\0') &amp;&amp; AtomMatchesChar(escaped, *regex, *str) &amp;&amp;</span>
+           MatchRegexAtHead(regex + 1, str + 1);
+  }
+<span style = "background-color:#fdd">}</span>
+
+// Returns true if and only if regex matches any substring of str.  regex must
+// be a valid simple regular expression, or the result is undefined.
+//
+// The algorithm is recursive, but the recursion depth doesn't exceed
+// the regex length, so we won't need to worry about running out of
+// stack space normally.  In rare cases the time complexity can be
+// exponential with respect to the regex length + the string length,
+// but usually it's must faster (often close to linear).
+<span style = "background-color:#fdd">bool MatchRegexAnywhere(const char* regex, const char* str) {
+  if (regex == nullptr || str == nullptr) return false;</span>
+
+<span style = "background-color:#fdd">  if (*regex == '^') return MatchRegexAtHead(regex + 1, str);</span>
+
+  // A successful match can be anywhere in str.
+  do {
+<span style = "background-color:#fdd">    if (MatchRegexAtHead(regex, str)) return true;
+  } while (*str++ != '\0');
+  return false;
+}</span>
+
+// Implements the RE class.
+
+<span style = "background-color:#fdd">RE::~RE() {
+  free(const_cast&lt;char*&gt;(pattern_));
+  free(const_cast&lt;char*&gt;(full_pattern_));
+}</span>
+
+// Returns true if and only if regular expression re matches the entire str.
+<span style = "background-color:#fdd">bool RE::FullMatch(const char* str, const RE&amp; re) {
+  return re.is_valid_ &amp;&amp; MatchRegexAnywhere(re.full_pattern_, str);
+}</span>
+
+// Returns true if and only if regular expression re matches a substring of
+// str (including str itself).
+<span style = "background-color:#fdd">bool RE::PartialMatch(const char* str, const RE&amp; re) {
+  return re.is_valid_ &amp;&amp; MatchRegexAnywhere(re.pattern_, str);
+}</span>
+
+// Initializes an RE from its string representation.
+<span style = "background-color:#fdd">void RE::Init(const char* regex) {
+  pattern_ = full_pattern_ = nullptr;
+  if (regex != nullptr) {
+    pattern_ = posix::StrDup(regex);</span>
+  }
+
+<span style = "background-color:#fdd">  is_valid_ = ValidateRegex(regex);
+  if (!is_valid_) {</span>
+    // No need to calculate the full pattern when the regex is invalid.
+<span style = "background-color:#fdd">    return;</span>
+  }
+
+<span style = "background-color:#fdd">  const size_t len = strlen(regex);</span>
+  // Reserves enough bytes to hold the regular expression used for a
+  // full match: we need space to prepend a '^', append a '$', and
+  // terminate the string with '\0'.
+<span style = "background-color:#fdd">  char* buffer = static_cast&lt;char*&gt;(malloc(len + 3));
+  full_pattern_ = buffer;</span>
+
+<span style = "background-color:#fdd">  if (*regex != '^')
+    *buffer++ = '^';  // Makes sure full_pattern_ starts with '^'.</span>
+
+  // We don't use snprintf or strncpy, as they trigger a warning when
+  // compiled with VC++ 8.0.
+<span style = "background-color:#fdd">  memcpy(buffer, regex, len);
+  buffer += len;</span>
+
+<span style = "background-color:#fdd">  if (len == 0 || regex[len - 1] != '$')
+    *buffer++ = '$';  // Makes sure full_pattern_ ends with '$'.</span>
+
+<span style = "background-color:#fdd">  *buffer = '\0';
+}</span>
+
+#endif  // GTEST_USES_POSIX_RE
+
+const char kUnknownFile[] = "unknown file";
+
+// Formats a source file path and a line number as they would appear
+// in an error message from the compiler used to compile this code.
+<span style = "background-color:#fdd">GTEST_API_ ::std::string FormatFileLocation(const char* file, int line) {
+  const std::string file_name(file == nullptr ? kUnknownFile : file);</span>
+
+<span style = "background-color:#fdd">  if (line &lt; 0) {
+    return file_name + ":";</span>
+  }
+#ifdef _MSC_VER
+<span style = "background-color:#fdd">  return file_name + "(" + StreamableToString(line) + "):";</span>
+#else
+  return file_name + ":" + StreamableToString(line) + ":";
+#endif  // _MSC_VER
+<span style = "background-color:#fdd">}</span>
+
+// Formats a file location for compiler-independent XML output.
+// Although this function is not platform dependent, we put it next to
+// FormatFileLocation in order to contrast the two functions.
+// Note that FormatCompilerIndependentFileLocation() does NOT append colon
+// to the file location it produces, unlike FormatFileLocation().
+GTEST_API_ ::std::string FormatCompilerIndependentFileLocation(const char* file,
+<span style = "background-color:#fdd">                                                               int line) {
+  const std::string file_name(file == nullptr ? kUnknownFile : file);</span>
+
+<span style = "background-color:#fdd">  if (line &lt; 0)
+    return file_name;</span>
+  else
+<span style = "background-color:#fdd">    return file_name + ":" + StreamableToString(line);
+}</span>
+
+GTestLog::GTestLog(GTestLogSeverity severity, const char* file, int line)
+<span style = "background-color:#fdd">    : severity_(severity) {
+  const char* const marker = severity == GTEST_INFO      ? "[  INFO ]"</span>
+                             : severity == GTEST_WARNING ? "[WARNING]"
+                             : severity == GTEST_ERROR   ? "[ ERROR ]"
+                                                         : "[ FATAL ]";
+<span style = "background-color:#fdd">  GetStream() &lt;&lt; ::std::endl</span>
+              &lt;&lt; marker &lt;&lt; " " &lt;&lt; FormatFileLocation(file, line).c_str()
+              &lt;&lt; ": ";
+<span style = "background-color:#fdd">}</span>
+
+// Flushes the buffers and, if severity is GTEST_FATAL, aborts the program.
+<span style = "background-color:#fdd">GTestLog::~GTestLog() {
+  GetStream() &lt;&lt; ::std::endl;
+  if (severity_ == GTEST_FATAL) {
+    fflush(stderr);
+    posix::Abort();</span>
+  }
+<span style = "background-color:#fdd">}</span>
+
+// Disable Microsoft deprecation warnings for POSIX functions called from
+// this class (creat, dup, dup2, and close)
+GTEST_DISABLE_MSC_DEPRECATED_PUSH_()
+
+#if GTEST_HAS_STREAM_REDIRECTION
+
+// Object that captures an output stream (stdout/stderr).
+class CapturedStream {
+ public:
+  // The ctor redirects the stream to a temporary file.
+<span style = "background-color:#fdd">  explicit CapturedStream(int fd) : fd_(fd), uncaptured_fd_(dup(fd)) {</span>
+#if GTEST_OS_WINDOWS
+<span style = "background-color:#fdd">    char temp_dir_path[MAX_PATH + 1] = {'\0'};   // NOLINT
+    char temp_file_path[MAX_PATH + 1] = {'\0'};  // NOLINT</span>
+
+<span style = "background-color:#fdd">    ::GetTempPathA(sizeof(temp_dir_path), temp_dir_path);
+    const UINT success = ::GetTempFileNameA(temp_dir_path, "gtest_redir",</span>
+                                            0,  // Generate unique file name.
+                                            temp_file_path);
+<span style = "background-color:#fdd">    GTEST_CHECK_(success != 0)</span>
+        &lt;&lt; "Unable to create a temporary file in " &lt;&lt; temp_dir_path;
+<span style = "background-color:#fdd">    const int captured_fd = creat(temp_file_path, _S_IREAD | _S_IWRITE);
+    GTEST_CHECK_(captured_fd != -1)</span>
+        &lt;&lt; "Unable to open temporary file " &lt;&lt; temp_file_path;
+<span style = "background-color:#fdd">    filename_ = temp_file_path;</span>
+#else
+    // There's no guarantee that a test has write access to the current
+    // directory, so we create the temporary file in a temporary directory.
+    std::string name_template;
+
+#if GTEST_OS_LINUX_ANDROID
+    // Note: Android applications are expected to call the framework's
+    // Context.getExternalStorageDirectory() method through JNI to get
+    // the location of the world-writable SD Card directory. However,
+    // this requires a Context handle, which cannot be retrieved
+    // globally from native code. Doing so also precludes running the
+    // code as part of a regular standalone executable, which doesn't
+    // run in a Dalvik process (e.g. when running it through 'adb shell').
+    //
+    // The location /data/local/tmp is directly accessible from native code.
+    // '/sdcard' and other variants cannot be relied on, as they are not
+    // guaranteed to be mounted, or may have a delay in mounting.
+    name_template = "/data/local/tmp/";
+#elif GTEST_OS_IOS
+    char user_temp_dir[PATH_MAX + 1];
+
+    // Documented alternative to NSTemporaryDirectory() (for obtaining creating
+    // a temporary directory) at
+    // https://developer.apple.com/library/archive/documentation/Security/Conceptual/SecureCodingGuide/Articles/RaceConditions.html#//apple_ref/doc/uid/TP40002585-SW10
+    //
+    // _CS_DARWIN_USER_TEMP_DIR (as well as _CS_DARWIN_USER_CACHE_DIR) is not
+    // documented in the confstr() man page at
+    // https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man3/confstr.3.html#//apple_ref/doc/man/3/confstr
+    // but are still available, according to the WebKit patches at
+    // https://trac.webkit.org/changeset/262004/webkit
+    // https://trac.webkit.org/changeset/263705/webkit
+    //
+    // The confstr() implementation falls back to getenv("TMPDIR"). See
+    // https://opensource.apple.com/source/Libc/Libc-1439.100.3/gen/confstr.c.auto.html
+    ::confstr(_CS_DARWIN_USER_TEMP_DIR, user_temp_dir, sizeof(user_temp_dir));
+
+    name_template = user_temp_dir;
+    if (name_template.back() != GTEST_PATH_SEP_[0])
+      name_template.push_back(GTEST_PATH_SEP_[0]);
+#else
+    name_template = "/tmp/";
+#endif
+    name_template.append("gtest_captured_stream.XXXXXX");
+
+    // mkstemp() modifies the string bytes in place, and does not go beyond the
+    // string's length. This results in well-defined behavior in C++17.
+    //
+    // The const_cast is needed below C++17. The constraints on std::string
+    // implementations in C++11 and above make assumption behind the const_cast
+    // fairly safe.
+    const int captured_fd = ::mkstemp(const_cast&lt;char*&gt;(name_template.data()));
+    if (captured_fd == -1) {
+      GTEST_LOG_(WARNING)
+          &lt;&lt; "Failed to create tmp file " &lt;&lt; name_template
+          &lt;&lt; " for test; does the test have access to the /tmp directory?";
+    }
+    filename_ = std::move(name_template);
+#endif  // GTEST_OS_WINDOWS
+<span style = "background-color:#fdd">    fflush(nullptr);
+    dup2(captured_fd, fd_);
+    close(captured_fd);
+  }</span>
+
+<span style = "background-color:#fdd">  ~CapturedStream() { remove(filename_.c_str()); }</span>
+
+<span style = "background-color:#fdd">  std::string GetCapturedString() {
+    if (uncaptured_fd_ != -1) {</span>
+      // Restores the original stream.
+<span style = "background-color:#fdd">      fflush(nullptr);
+      dup2(uncaptured_fd_, fd_);
+      close(uncaptured_fd_);
+      uncaptured_fd_ = -1;</span>
+    }
+
+<span style = "background-color:#fdd">    FILE* const file = posix::FOpen(filename_.c_str(), "r");
+    if (file == nullptr) {
+      GTEST_LOG_(FATAL) &lt;&lt; "Failed to open tmp file " &lt;&lt; filename_</span>
+                        &lt;&lt; " for capturing stream.";
+    }
+<span style = "background-color:#fdd">    const std::string content = ReadEntireFile(file);
+    posix::FClose(file);
+    return content;
+  }</span>
+
+ private:
+  const int fd_;  // A stream to capture.
+  int uncaptured_fd_;
+  // Name of the temporary file holding the stderr output.
+  ::std::string filename_;
+
+  CapturedStream(const CapturedStream&amp;) = delete;
+  CapturedStream&amp; operator=(const CapturedStream&amp;) = delete;
+};
+
+GTEST_DISABLE_MSC_DEPRECATED_POP_()
+
+static CapturedStream* g_captured_stderr = nullptr;
+static CapturedStream* g_captured_stdout = nullptr;
+
+// Starts capturing an output stream (stdout/stderr).
+static void CaptureStream(int fd, const char* stream_name,
+<span style = "background-color:#fdd">                          CapturedStream** stream) {
+  if (*stream != nullptr) {
+    GTEST_LOG_(FATAL) &lt;&lt; "Only one " &lt;&lt; stream_name</span>
+                      &lt;&lt; " capturer can exist at a time.";
+  }
+<span style = "background-color:#fdd">  *stream = new CapturedStream(fd);
+}</span>
+
+// Stops capturing the output stream and returns the captured string.
+<span style = "background-color:#fdd">static std::string GetCapturedStream(CapturedStream** captured_stream) {
+  const std::string content = (*captured_stream)-&gt;GetCapturedString();</span>
+
+<span style = "background-color:#fdd">  delete *captured_stream;
+  *captured_stream = nullptr;</span>
+
+<span style = "background-color:#fdd">  return content;
+}</span>
+
+#if defined(_MSC_VER) || defined(__BORLANDC__)
+// MSVC and C++Builder do not provide a definition of STDERR_FILENO.
+const int kStdOutFileno = 1;
+const int kStdErrFileno = 2;
+#else
+const int kStdOutFileno = STDOUT_FILENO;
+const int kStdErrFileno = STDERR_FILENO;
+#endif  // defined(_MSC_VER) || defined(__BORLANDC__)
+
+// Starts capturing stdout.
+<span style = "background-color:#fdd">void CaptureStdout() {
+  CaptureStream(kStdOutFileno, "stdout", &amp;g_captured_stdout);
+}</span>
+
+// Starts capturing stderr.
+<span style = "background-color:#fdd">void CaptureStderr() {
+  CaptureStream(kStdErrFileno, "stderr", &amp;g_captured_stderr);
+}</span>
+
+// Stops capturing stdout and returns the captured string.
+<span style = "background-color:#fdd">std::string GetCapturedStdout() {
+  return GetCapturedStream(&amp;g_captured_stdout);
+}</span>
+
+// Stops capturing stderr and returns the captured string.
+<span style = "background-color:#fdd">std::string GetCapturedStderr() {
+  return GetCapturedStream(&amp;g_captured_stderr);
+}</span>
+
+#endif  // GTEST_HAS_STREAM_REDIRECTION
+
+<span style = "background-color:#fdd">size_t GetFileSize(FILE* file) {
+  fseek(file, 0, SEEK_END);
+  return static_cast&lt;size_t&gt;(ftell(file));
+}</span>
+
+<span style = "background-color:#fdd">std::string ReadEntireFile(FILE* file) {
+  const size_t file_size = GetFileSize(file);
+  char* const buffer = new char[file_size];</span>
+
+<span style = "background-color:#fdd">  size_t bytes_last_read = 0;  // # of bytes read in the last fread()
+  size_t bytes_read = 0;       // # of bytes read so far</span>
+
+<span style = "background-color:#fdd">  fseek(file, 0, SEEK_SET);</span>
+
+  // Keeps reading the file until we cannot read further or the
+  // pre-determined file size is reached.
+  do {
+<span style = "background-color:#fdd">    bytes_last_read =</span>
+        fread(buffer + bytes_read, 1, file_size - bytes_read, file);
+<span style = "background-color:#fdd">    bytes_read += bytes_last_read;
+  } while (bytes_last_read &gt; 0 &amp;&amp; bytes_read &lt; file_size);</span>
+
+<span style = "background-color:#fdd">  const std::string content(buffer, bytes_read);
+  delete[] buffer;</span>
+
+<span style = "background-color:#fdd">  return content;
+}</span>
+
+#if GTEST_HAS_DEATH_TEST
+static const std::vector&lt;std::string&gt;* g_injected_test_argvs =
+    nullptr;  // Owned.
+
+<span style = "background-color:#fdd">std::vector&lt;std::string&gt; GetInjectableArgvs() {
+  if (g_injected_test_argvs != nullptr) {
+    return *g_injected_test_argvs;</span>
+  }
+<span style = "background-color:#fdd">  return GetArgvs();
+}</span>
+
+<span style = "background-color:#fdd">void SetInjectableArgvs(const std::vector&lt;std::string&gt;* new_argvs) {
+  if (g_injected_test_argvs != new_argvs) delete g_injected_test_argvs;
+  g_injected_test_argvs = new_argvs;
+}</span>
+
+<span style = "background-color:#fdd">void SetInjectableArgvs(const std::vector&lt;std::string&gt;&amp; new_argvs) {
+  SetInjectableArgvs(</span>
+      new std::vector&lt;std::string&gt;(new_argvs.begin(), new_argvs.end()));
+<span style = "background-color:#fdd">}</span>
+
+<span style = "background-color:#fdd">void ClearInjectableArgvs() {
+  delete g_injected_test_argvs;
+  g_injected_test_argvs = nullptr;
+}</span>
+#endif  // GTEST_HAS_DEATH_TEST
+
+#if GTEST_OS_WINDOWS_MOBILE
+namespace posix {
+void Abort() {
+  DebugBreak();
+  TerminateProcess(GetCurrentProcess(), 1);
+}
+}  // namespace posix
+#endif  // GTEST_OS_WINDOWS_MOBILE
+
+// Returns the name of the environment variable corresponding to the
+// given flag.  For example, FlagToEnvVar("foo") will return
+// "GTEST_FOO" in the open-source version.
+<span style = "background-color:#dfd">static std::string FlagToEnvVar(const char* flag) {
+  const std::string full_flag =</span>
+      (Message() &lt;&lt; GTEST_FLAG_PREFIX_ &lt;&lt; flag).GetString();
+
+<span style = "background-color:#dfd">  Message env_var;
+  for (size_t i = 0; i != full_flag.length(); i++) {
+    env_var &lt;&lt; ToUpper(full_flag.c_str()[i]);
+  }</span>
+
+<span style = "background-color:#dfd">  return env_var.GetString();
+}</span>
+
+// Parses 'str' for a 32-bit signed integer.  If successful, writes
+// the result to *value and returns true; otherwise leaves *value
+// unchanged and returns false.
+<span style = "background-color:#fdd">bool ParseInt32(const Message&amp; src_text, const char* str, int32_t* value) {</span>
+  // Parses the environment variable as a decimal integer.
+<span style = "background-color:#fdd">  char* end = nullptr;
+  const long long_value = strtol(str, &amp;end, 10);  // NOLINT</span>
+
+  // Has strtol() consumed all characters in the string?
+<span style = "background-color:#fdd">  if (*end != '\0') {</span>
+    // No - an invalid character was encountered.
+<span style = "background-color:#fdd">    Message msg;
+    msg &lt;&lt; "WARNING: " &lt;&lt; src_text</span>
+        &lt;&lt; " is expected to be a 32-bit integer, but actually"
+        &lt;&lt; " has value \"" &lt;&lt; str &lt;&lt; "\".\n";
+<span style = "background-color:#fdd">    printf("%s", msg.GetString().c_str());
+    fflush(stdout);
+    return false;</span>
+  }
+
+  // Is the parsed value in the range of an int32_t?
+<span style = "background-color:#fdd">  const auto result = static_cast&lt;int32_t&gt;(long_value);
+  if (long_value == LONG_MAX || long_value == LONG_MIN ||</span>
+      // The parsed value overflows as a long.  (strtol() returns
+      // LONG_MAX or LONG_MIN when the input overflows.)
+      result != long_value
+      // The parsed value overflows as an int32_t.
+  ) {
+<span style = "background-color:#fdd">    Message msg;
+    msg &lt;&lt; "WARNING: " &lt;&lt; src_text</span>
+        &lt;&lt; " is expected to be a 32-bit integer, but actually"
+        &lt;&lt; " has value " &lt;&lt; str &lt;&lt; ", which overflows.\n";
+<span style = "background-color:#fdd">    printf("%s", msg.GetString().c_str());
+    fflush(stdout);
+    return false;</span>
+  }
+
+<span style = "background-color:#fdd">  *value = result;
+  return true;
+}</span>
+
+// Reads and returns the Boolean environment variable corresponding to
+// the given flag; if it's not set, returns default_value.
+//
+// The value is considered true if and only if it's not "0".
+<span style = "background-color:#dfd">bool BoolFromGTestEnv(const char* flag, bool default_value) {</span>
+#if defined(GTEST_GET_BOOL_FROM_ENV_)
+  return GTEST_GET_BOOL_FROM_ENV_(flag, default_value);
+#else
+<span style = "background-color:#dfd">  const std::string env_var = FlagToEnvVar(flag);
+  const char* const string_value = posix::GetEnv(env_var.c_str());
+  return string_value == nullptr ? default_value</span>
+                                 : strcmp(string_value, "0") != 0;
+#endif  // defined(GTEST_GET_BOOL_FROM_ENV_)
+<span style = "background-color:#dfd">}</span>
+
+// Reads and returns a 32-bit integer stored in the environment
+// variable corresponding to the given flag; if it isn't set or
+// doesn't represent a valid 32-bit integer, returns default_value.
+<span style = "background-color:#dfd">int32_t Int32FromGTestEnv(const char* flag, int32_t default_value) {</span>
+#if defined(GTEST_GET_INT32_FROM_ENV_)
+  return GTEST_GET_INT32_FROM_ENV_(flag, default_value);
+#else
+<span style = "background-color:#dfd">  const std::string env_var = FlagToEnvVar(flag);
+  const char* const string_value = posix::GetEnv(env_var.c_str());
+  if (string_value == nullptr) {</span>
+    // The environment variable is not set.
+<span style = "background-color:#dfd">    return default_value;</span>
+  }
+
+<span style = "background-color:#fdd">  int32_t result = default_value;
+  if (!ParseInt32(Message() &lt;&lt; "Environment variable " &lt;&lt; env_var, string_value,</span>
+                  &amp;result)) {
+<span style = "background-color:#fdd">    printf("The default value %s is used.\n",</span>
+           (Message() &lt;&lt; default_value).GetString().c_str());
+<span style = "background-color:#fdd">    fflush(stdout);
+    return default_value;</span>
+  }
+
+<span style = "background-color:#fdd">  return result;</span>
+#endif  // defined(GTEST_GET_INT32_FROM_ENV_)
+<span style = "background-color:#dfd">}</span>
+
+// As a special case for the 'output' flag, if GTEST_OUTPUT is not
+// set, we look for XML_OUTPUT_FILE, which is set by the Bazel build
+// system.  The value of XML_OUTPUT_FILE is a filename without the
+// "xml:" prefix of GTEST_OUTPUT.
+// Note that this is meant to be called at the call site so it does
+// not check that the flag is 'output'
+// In essence this checks an env variable called XML_OUTPUT_FILE
+// and if it is set we prepend "xml:" to its value, if it not set we return ""
+<span style = "background-color:#dfd">std::string OutputFlagAlsoCheckEnvVar() {
+  std::string default_value_for_output_flag = "";
+  const char* xml_output_file_env = posix::GetEnv("XML_OUTPUT_FILE");
+  if (nullptr != xml_output_file_env) {</span>
+<span style = "background-color:#fdd">    default_value_for_output_flag = std::string("xml:") + xml_output_file_env;</span>
+  }
+<span style = "background-color:#dfd">  return default_value_for_output_flag;
+}</span>
+
+// Reads and returns the string environment variable corresponding to
+// the given flag; if it's not set, returns default_value.
+<span style = "background-color:#dfd">const char* StringFromGTestEnv(const char* flag, const char* default_value) {</span>
+#if defined(GTEST_GET_STRING_FROM_ENV_)
+  return GTEST_GET_STRING_FROM_ENV_(flag, default_value);
+#else
+<span style = "background-color:#dfd">  const std::string env_var = FlagToEnvVar(flag);
+  const char* const value = posix::GetEnv(env_var.c_str());
+  return value == nullptr ? default_value : value;</span>
+#endif  // defined(GTEST_GET_STRING_FROM_ENV_)
+<span style = "background-color:#dfd">}</span>
+
+}  // namespace internal
+}  // namespace testing</pre>
+        <hr />
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th align="center">
+                        <small>Generated by</small>
+                        <a href="https://github.com/OpenCppCoverage/OpenCppCoverage/releases">
+                            <strong>OpenCppCoverage (Version: 0.9.9.0)</strong>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </body>
+</html>
