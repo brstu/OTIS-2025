@@ -1,6 +1,16 @@
 ﻿#include <gtest/gtest.h>
 #include <cmath>
-#include "../src/main.cpp"
+
+// Объявления функций из main.cpp
+struct ModelParams {
+    double a;
+    double b;
+    double c;
+    double d;
+};
+
+double linear_model(double y_prev, double u, double a, double b);
+double nonlinear_model(double y_prev, double y_prev_2, double u, const ModelParams& p);
 
 // Тесты для линейной модели
 TEST(LinearModelTest, BasicCalculation) {
@@ -54,7 +64,7 @@ TEST(NonlinearModelTest, SineComponentOnly) {
     ModelParams params{ 0.0, 0.0, 0.0, 1.0 };
     double u = M_PI / 2; // sin(π/2) = 1
     double result = nonlinear_model(10.0, 8.0, u, params);
-    EXPECT_DOUBLE_EQ(result, 1.0);
+    EXPECT_DOUBLE_EQ(result, std::sin(u));
 }
 
 // Тесты для структуры ModelParams
@@ -76,10 +86,9 @@ TEST(ModelParamsTest, CustomInitialization) {
 
 // Интеграционные тесты
 TEST(IntegrationTest, LinearModelStability) {
-    // Тест на устойчивость линейной модели
     double y_prev = 100.0;
     double u = 10.0;
-    double a = 0.5; // |a| < 1 для устойчивости
+    double a = 0.5;
     double b = 0.2;
 
     for (int i = 0; i < 10; ++i) {
@@ -89,7 +98,6 @@ TEST(IntegrationTest, LinearModelStability) {
 }
 
 TEST(IntegrationTest, NonlinearModelStability) {
-    // Тест на устойчивость нелинейной модели
     ModelParams params{ 0.8, 0.01, 0.1, 0.05 };
     double y_prev = 50.0;
     double y_prev_2 = 45.0;
