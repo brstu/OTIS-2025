@@ -16,7 +16,7 @@ find_package(Threads)
 
 # Основное приложение
 add_executable(${PROJECT_NAME}
-    src/main.cpp
+    main.cpp
 )
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_14)
@@ -37,8 +37,8 @@ FetchContent_MakeAvailable(googletest)
 # Тестовое приложение
 add_executable(
   model_tests
-  test/test_models.cpp
-  src/main.cpp  # Добавляем исходный код для тестирования
+  ../test/test_models.cpp
+  main.cpp
 )
 
 target_link_libraries(
