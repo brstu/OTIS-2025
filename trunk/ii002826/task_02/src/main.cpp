@@ -2,7 +2,7 @@
 #include <vector>
 #include "../include/models.h"
 
-int main() {
+void run_simulation() {
     ModelParams params{};
     double u;
     double y_0;
@@ -48,7 +48,7 @@ int main() {
         }
         else {
             std::cout << "Wrong model choice!" << std::endl;
-            return -1;
+            return;
         }
     }
 
@@ -56,6 +56,9 @@ int main() {
     for (int t = 0; t < num_steps; ++t) {
         std::cout << "Step " << t + 1 << ": " << temperatures[t] << " C" << std::endl;
     }
+}
 
+int main() {
+    run_simulation();
     return 0;
 }
