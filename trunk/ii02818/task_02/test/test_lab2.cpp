@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "C:\Users\sabak\Desktop\Папки\OTIS-2025\trunk\ii02818\task_02\src\lab2otis.h"
+#include "../src/lab2otis.h"
 
 TEST(TemperatureModelTest, ConstructorInitialization) {
     TemperatureModel model(0.1, 0.2, 0.3, 0.4);
