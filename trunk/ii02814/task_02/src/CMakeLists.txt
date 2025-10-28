@@ -11,4 +11,4 @@ set(PROJECT_SOURCES
     modelsimulation.cpp
 )
 
-add_executable(${CMAKE_PROJECT_NAME} ${PROJECT_SOURCES})
+add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
