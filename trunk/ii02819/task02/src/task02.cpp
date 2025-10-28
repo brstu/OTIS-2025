@@ -1,50 +1,57 @@
-﻿#include <iostream>
+#include <iostream>
 #include <cmath>
 #include <vector>
 
 using namespace std;
 
-const double gain = 0.001; // Коэффициент передачи
-const double integration_constant = 50; // Постоянная интегрирования
-const double differentiation_constant = 100; // Постоянная дифференцирования
-const double step = 1; // Шаг
-const double a_coefficient = 0.4;
-const double b_coefficient = 0.4;
-const double c_coefficient = 0.4;
-const double d_coefficient = 0.4;
+// Константы системы управления
+const double k_gain = 0.001;                  // коэффициент усиления
+const double k_integration = 50;              // постоянная интегрирования
+const double k_differentiation = 100;         // постоянная дифференцирования
+const double k_step = 1;                      // шаг дискретизации
+const double coeff_a = 0.4;
+const double coeff_b = 0.4;
+const double coeff_c = 0.4;
+const double coeff_d = 0.4;
 
-void non_linear_system(double desired_value) {
-    double q0 = gain * (1 + differentiation_constant / step);
-    double q1 = -gain * (1 + 2 * differentiation_constant / step - step / integration_constant);
-    double q2 = gain * differentiation_constant / step;
-    vector<double> output_values = { 0, 0, 0 };
-    vector<double> control_signals = { 1, 1 };
+// Моделирование нелинейной системы
+void simulateNonlinearSystem(double target_value) {
+    double factor_q0 = k_gain * (1 + k_differentiation / k_step);
+    double factor_q1 = -k_gain * (1 + 2 * k_differentiation / k_step - k_step / k_integration);
+    double factor_q2 = k_gain * k_differentiation / k_step;
 
-    for (int i = 0; i < integration_constant; i++) {
-        double error0 = desired_value - output_values[output_values.size() - 1];
-        double error1 = desired_value - output_values[output_values.size() - 2];
-        double error2 = desired_value - output_values[output_values.size() - 3];
-        double integral_sum = q0 * error0 + q1 * error1 + q2 * error2;
-        control_signals[0] = control_signals[1] + integral_sum;
-        control_signals[1] = control_signals[0];
-        output_values.push_back(a_coefficient * output_values[output_values.size() - 1] -
-                                b_coefficient * output_values[output_values.size() - 2] * output_values[output_values.size() - 2] +
-                                c_coefficient * control_signals[0] +
-                                d_coefficient * sin(control_signals[1]));
+    vector<double> system_output = {0, 0, 0};
+    vector<double> control_input = {1, 1};
+
+    for (int iteration = 0; iteration < k_integration; iteration++) {
+        double error_curr = target_value - system_output[system_output.size() - 1];
+        double error_prev1 = target_value - system_output[system_output.size() - 2];
+        double error_prev2 = target_value - system_output[system_output.size() - 3];
+
+        double correction = factor_q0 * error_curr + factor_q1 * error_prev1 + factor_q2 * error_prev2;
+
+        control_input[0] = control_input[1] + correction;
+        control_input[1] = control_input[0];
+
+        system_output.push_back(
+            coeff_a * system_output[system_output.size() - 1] -
+            coeff_b * pow(system_output[system_output.size() - 2], 2) +
+            coeff_c * control_input[0] +
+            coeff_d * sin(control_input[1])
+        );
     }
 
-    for (double value : output_values) {
-        double result = value * desired_value / output_values[output_values.size() - 1];
-        cout << result << endl;
+    for (double value : system_output) {
+        double normalized = value * target_value / system_output.back();
+        cout << normalized << endl;
     }
 }
 
 int main() {
     setlocale(LC_ALL, "RUS");
-    double desired_value;
-    cout << "Желаемое начальное значение: ";
-    cin >> desired_value;
-    non_linear_system(desired_value);
+    double user_target;
+    cout << "Введите желаемое значение: ";
+    cin >> user_target;
+    simulateNonlinearSystem(user_target);
     return 0;
 }
-
