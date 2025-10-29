@@ -93,5 +93,5 @@ EXPECT_DOUBLE_EQ(result, 2.0);
 ```
 ## Результаты тестирования ##
 ![Результаты тестирования:](images/img1.png)
-## Покрытие тестами (OpenCppCoverage)##
+## Покрытие тестами (OpenCppCoverage) ##
 ![Покрытие тестами:](images/img2.png)
