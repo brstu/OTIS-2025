@@ -10,7 +10,7 @@
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
 <p align="right">Группы ИИ-28</p>
-<p align="right">Цибульскас Р.С.</p>
+<p align="right">Манцевич Р.С.</p>
 <p align="right">Проверил:</p>
 <p align="right">Дворанинович Д.А.</p>
 <br><br><br><br><br>
@@ -82,6 +82,7 @@ TEST(SimulationTest, NonlinearSimulationRuns) {
 
 ```
 ## Результаты юнит-тестирования (GoogleTest)
+```txt
 [==========] Running 8 tests from 3 test suites.
 [----------] Global test environment set-up.
 [----------] 3 tests from LinearModelTest
@@ -122,6 +123,9 @@ TEST(SimulationTest, NonlinearSimulationRuns) {
 [----------] Global test environment tear-down
 [==========] 8 tests from 3 test suites ran. (75 ms total)
 [  PASSED  ] 8 tests.
+
+```
+```txt
 ## Покрытие тестами (gcovr)
                            GCC Code Coverage Report
 Directory: ../src
@@ -133,3 +137,5 @@ task_02.cpp                                   15       0     0%   4-10,12-18,20
 ------------------------------------------------------------------------------
 TOTAL                                         39      24    61%
 ------------------------------------------------------------------------------
+
+```
