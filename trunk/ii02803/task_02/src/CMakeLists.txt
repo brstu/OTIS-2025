@@ -1,30 +1,35 @@
-cmake_minimum_required(VERSION 3.20)
-project(ii02803_Task02 LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.14)
+project(my_project_ii28)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Пути к исходникам
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+include(FetchContent)
 
-# Основные файлы программы (если нужно собирать основной exe)
-add_executable(ii02803_Task02
-    ${CMAKE_CURRENT_SOURCE_DIR}/functions.cpp
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
 )
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
 
-# ---- Подключение GoogleTest через vcpkg ----
-find_package(GTest CONFIG REQUIRED)
-
-# ---- Тесты ----
-add_executable(runTests_ii02803
-    ${CMAKE_CURRENT_SOURCE_DIR}/functions.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../test/test.cpp
-)
-
-# Линкуем GoogleTest
-target_link_libraries(runTests_ii02803 PRIVATE GTest::gtest GTest::gtest_main)
-
-# Включаем автоматический запуск тестов через ctest
 enable_testing()
+
+add_executable(
+  my_tests
+  ${CMAKE_CURRENT_SOURCE_DIR}/task01.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/../test/test.cpp
+)
+
+target_include_directories(my_tests PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src
+    ${CMAKE_CURRENT_SOURCE_DIR}/../test
+)
+
+target_link_libraries(
+  my_tests
+  GTest::gtest_main
+)
+
 include(GoogleTest)
-gtest_discover_tests(runTests_ii02803)
+gtest_discover_tests(my_tests)
