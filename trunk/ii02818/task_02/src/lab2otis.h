@@ -6,15 +6,20 @@
 
 class TemperatureModel {
 private:
-    double a, b, c, d;
-    double y_curr, y_prev;
-    double u_curr, u_prev;
+    double a;
+    double b;
+    double c; 
+    double d;
+    double y_curr =0;
+    double y_prev =0;
+    double u_curr =0;
+    double u_prev =0;
 
 public:
     TemperatureModel(double a, double b, double c, double d);
     void setInitialState(double y0, double y1, double u0, double u1);
     void updateControl(double u_new);
-    std::vector<double> simulateLinear(int time_steps);
+    const std::vector<double> simulateLinear(int time_steps);
     std::vector<double> simulateNonlinear(int time_steps);
     
     double getA() const { return a; }
