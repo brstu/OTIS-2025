@@ -1,7 +1,6 @@
 {
     "files.associations": {
-task02
+        "random": "cpp",
         "iostream": "cpp"
-        "random": "cpp" main
     }
 }
