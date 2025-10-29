@@ -17,12 +17,13 @@ enable_testing()
 
 add_executable(
   my_tests
-  task_01.cpp
-  ../test/test.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/task_01.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/../test/test.cpp
 )
 
 target_include_directories(my_tests PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/../src
+    ${CMAKE_CURRENT_SOURCE_DIR}/../test
 )
 
 target_link_libraries(
