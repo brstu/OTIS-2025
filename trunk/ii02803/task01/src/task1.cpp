@@ -11,12 +11,12 @@ int main()
     std::cout << "Enter u(input warm) and y(input temperature): " << std::endl;
     std::cin >> u >> y;
 
-    double a;
+    double a1;
     double b; 
     double c;
     double d;
     std::cout << "a,b,c,d: " << std::endl;
-    std::cin >> a >> b >> c >> d;
+    std::cin >> a1 >> b >> c >> d;
 
     int count;
     std::cout << "Number of steps: " << std::endl;
@@ -26,8 +26,8 @@ int main()
     double ynl = y;
     for (int i = 0; i < count; i++)
     {
-        yl = linear(yl, u, a, b);
-        ynl = non_linear(ynl, u, a, b, c, d);
+        yl = linear(yl, u, a1, b);
+        ynl = non_linear(ynl, u, a1, b, c, d);
 
         std::cout <<  i + 1 << " step of linear model: " << yl << ";\n";
         std::cout <<  i + 1 << " step of non-linear model: " << ynl << ";\n";
