@@ -2,56 +2,66 @@
 #include <cmath>
 #include <vector>
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::vector;
 
-// Константы системы управления
-const double k_gain = 0.001;                  // коэффициент усиления
-const double k_integration = 50;              // постоянная интегрирования
-const double k_differentiation = 100;         // постоянная дифференцирования
-const double k_step = 1;                      // шаг дискретизации
-const double coeff_a = 0.4;
-const double coeff_b = 0.4;
-const double coeff_c = 0.4;
-const double coeff_d = 0.4;
+// Параметры регулятора
+const double GAIN = 0.001;       // коэффициент усиления
+const double T_INT = 50;         // постоянная интегрирования
+const double T_DIF = 100;        // постоянная дифференцирования
+const double STEP = 1;           // шаг дискретизации
 
-// Моделирование нелинейной системы
-void simulateNonlinearSystem(double target_value) {
-    double factor_q0 = k_gain * (1 + k_differentiation / k_step);
-    double factor_q1 = -k_gain * (1 + 2 * k_differentiation / k_step - k_step / k_integration);
-    double factor_q2 = k_gain * k_differentiation / k_step;
+// Коэффициенты модели
+const double A = 0.4;
+const double B = 0.4;
+const double C = 0.4;
+const double D = 0.4;
 
-    vector<double> system_output = {0, 0, 0};
-    vector<double> control_input = {1, 1};
+// Функция вычисления управляющего воздействия
+double computeControl(double e0, double e1, double e2) {
+    double q0 = GAIN * (1.0 + T_DIF / STEP);
+    double q1 = -GAIN * (1.0 + 2.0 * T_DIF / STEP - STEP / T_INT);
+    double q2 = GAIN * T_DIF / STEP;
+    return q0 * e0 + q1 * e1 + q2 * e2;
+}
 
-    for (int iteration = 0; iteration < k_integration; iteration++) {
-        double error_curr = target_value - system_output[system_output.size() - 1];
-        double error_prev1 = target_value - system_output[system_output.size() - 2];
-        double error_prev2 = target_value - system_output[system_output.size() - 3];
+// Моделирование системы
+void runSimulation(double target) {
+    vector<double> y = {0.0, 0.0, 0.0};   // выход системы
+    vector<double> u = {1.0, 1.0};        // управляющее воздействие
 
-        double correction = factor_q0 * error_curr + factor_q1 * error_prev1 + factor_q2 * error_prev2;
+    for (int k = 0; k < static_cast<int>(T_INT); ++k) {
+        double e0 = target - y[y.size() - 1];
+        double e1 = target - y[y.size() - 2];
+        double e2 = target - y[y.size() - 3];
 
-        control_input[0] = control_input[1] + correction;
-        control_input[1] = control_input[0];
+        double delta = computeControl(e0, e1, e2);
 
-        system_output.push_back(
-            coeff_a * system_output[system_output.size() - 1] -
-            coeff_b * pow(system_output[system_output.size() - 2], 2) +
-            coeff_c * control_input[0] +
-            coeff_d * sin(control_input[1])
-        );
+        u[0] = u[1] + delta;
+        u[1] = u[0];
+
+        double nextY = A * y.back()
+                     - B * std::pow(y[y.size() - 2], 2)
+                     + C * u[0]
+                     + D * std::sin(u[1]);
+
+        y.push_back(nextY);
     }
 
-    for (double value : system_output) {
-        double normalized = value * target_value / system_output.back();
-        cout << normalized << endl;
+    // Нормализация и вывод
+    double last = y.back();
+    for (double val : y) {
+        cout << val * target / last << endl;
     }
 }
 
 int main() {
-    setlocale(LC_ALL, "RUS");
-    double user_target;
-    cout << "Введите желаемое значение: ";
-    cin >> user_target;
-    simulateNonlinearSystem(user_target);
+    std::setlocale(LC_ALL, "Russian");
+    double desired;
+    cout << "Введите целевое значение: ";
+    cin >> desired;
+    runSimulation(desired);
     return 0;
 }
