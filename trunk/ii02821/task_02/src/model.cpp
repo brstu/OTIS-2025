@@ -10,8 +10,8 @@ void simulateLinear(double a, double b, double u, int steps) {
     std::cout << "Линейная модель" << std::endl;
     double y = 0.0;
     for (int i = 0; i < steps; i++) {
-        std::cout << "τ=" << i << ": y=" << y << std::endl;
-        y = nextLinear(a, b, u, y);
+        y = nextLinear(a, b, u, y);  // Сначала вычисляем
+        std::cout << "τ=" << i << ": y=" << y << std::endl;  // Потом выводим
     }
 }
 
@@ -28,8 +28,10 @@ void simulateNonlinear(double a, double b, double c, double d, double u, int ste
     NonlinearParams params{a, b, c, d};
     
     for (int i = 0; i < steps; i++) {
-        std::cout << "τ=" << i << ": y=" << y << std::endl;
-        double y_next = nextNonlinear(params, u_prev, y, y_prev);
+        double y_next = nextNonlinear(params, u_prev, y, y_prev);  // Сначала вычисляем
+        std::cout << "τ=" << i << ": y=" << y_next << std::endl;  // Потом выводим
+        
+        // Обновляем состояния для следующего шага
         y_prev = y;
         y = y_next;
         u_prev = u; 
