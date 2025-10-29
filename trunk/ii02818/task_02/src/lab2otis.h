@@ -19,8 +19,8 @@ public:
     TemperatureModel(double a, double b, double c, double d);
     void setInitialState(double y0, double y1, double u0, double u1);
     void updateControl(double u_new);
-    const std::vector<double> simulateLinear(int time_steps);
-    std::vector<double> simulateNonlinear(int time_steps);
+    std::vector<double> simulateLinear(int time_steps) const;
+    std::vector<double> simulateNonlinear(int time_steps) const;
     
     double getA() const { return a; }
     double getB() const { return b; }

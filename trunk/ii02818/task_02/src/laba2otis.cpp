@@ -16,28 +16,28 @@ void TemperatureModel::updateControl(double u_new) {
     u_curr = u_new;
 }
 
-const std::vector<double> TemperatureModel::simulateLinear (int time_steps) {
+std::vector<double> TemperatureModel::simulateLinear (int time_steps) const{
     std::vector<double> temperatures(time_steps);
     
     if(time_steps >= 1) temperatures[0] = y_prev;
     if(time_steps >= 2) temperatures[1] = y_curr;
     
-    for(int τ = 2; τ < time_steps; τ++) {
-        temperatures[τ] = a * temperatures[τ-1] + b * u_curr;
+    for(int t = 2; t < time_steps; t++) {
+        temperatures[t] = a * temperatures[t-1] + b * u_curr;
     }
     
     return temperatures;
 }
 
-std::vector<double> TemperatureModel::simulateNonlinear(int time_steps) {
+std::vector<double> TemperatureModel::simulateNonlinear(int time_steps) const {
     std::vector<double> temperatures(time_steps);
     
     if(time_steps >= 1) temperatures[0] = y_prev;
     if(time_steps >= 2) temperatures[1] = y_curr;
     
-    for(int τ = 2; τ < time_steps; τ++) {
-        temperatures[τ] = a * temperatures[τ-1] 
-                        - b * std::pow(temperatures[τ-2], 2) 
+    for(int t = 2; t < time_steps; t++) {
+        temperatures[t] = a * temperatures[t-1] 
+                        - b * std::pow(temperatures[t-2], 2) 
                         + c * u_curr 
                         + d * std::sin(u_prev);
     }
