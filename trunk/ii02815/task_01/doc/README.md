@@ -12,7 +12,7 @@
 <p align="right">Группы ИИ-28</p>
 <p align="right">Корнелюк Я.М.</p>
 <p align="right">Проверил:</p>
-<p align="right">Иванюк Д.С.</p>
+<p align="right">Дворанинович Д.А.</p>
 <br><br><br><br><br>
 <p align="center">Брест 2025</p>
 
