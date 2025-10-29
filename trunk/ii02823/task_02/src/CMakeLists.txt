@@ -17,8 +17,8 @@ enable_testing()
 
 add_executable(
   my_tests
-  test.cpp
-  ../src/task_01.cpp
+  task_01.cpp
+  ../test/test.cpp
 )
 
 target_include_directories(my_tests PRIVATE

@@ -1,4 +1,3 @@
-#include <iostream>
 #include <cmath>
 
 double linear(double y, double u, double a, double b)
