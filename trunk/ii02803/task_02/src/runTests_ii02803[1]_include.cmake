@@ -1,0 +1,5 @@
+if(EXISTS "C:/Users/vimor/OTIS-2025/trunk/ii02803/task_02/src/runTests_ii02803[1]_tests.cmake")
+  include("C:/Users/vimor/OTIS-2025/trunk/ii02803/task_02/src/runTests_ii02803[1]_tests.cmake")
+else()
+  add_test(runTests_ii02803_NOT_BUILT runTests_ii02803_NOT_BUILT)
+endif()

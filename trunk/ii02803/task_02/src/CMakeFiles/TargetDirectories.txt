@@ -1,0 +1,5 @@
+C:/Users/vimor/OTIS-2025/trunk/ii02803/task_02/src/CMakeFiles/ii02803_Task02.dir
+C:/Users/vimor/OTIS-2025/trunk/ii02803/task_02/src/CMakeFiles/runTests_ii02803.dir
+C:/Users/vimor/OTIS-2025/trunk/ii02803/task_02/src/CMakeFiles/RUN_TESTS.dir
+C:/Users/vimor/OTIS-2025/trunk/ii02803/task_02/src/CMakeFiles/ALL_BUILD.dir
+C:/Users/vimor/OTIS-2025/trunk/ii02803/task_02/src/CMakeFiles/ZERO_CHECK.dir

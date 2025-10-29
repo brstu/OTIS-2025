@@ -1,0 +1,10 @@
+^C:\USERS\VIMOR\OTIS-2025\TRUNK\II02803\TASK_02\SRC\CMAKEFILES\7932D2A94BBED67277E9C5BA0A3051BD\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/vimor/OTIS-2025/trunk/ii02803/task_02/src -BC:/Users/vimor/OTIS-2025/trunk/ii02803/task_02/src --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/vimor/OTIS-2025/trunk/ii02803/task_02/src/ii02803_Task02.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
