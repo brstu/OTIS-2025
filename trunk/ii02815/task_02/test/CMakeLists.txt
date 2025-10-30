@@ -2,7 +2,9 @@ cmake_minimum_required(VERSION 3.5)
 project(model_tests)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDebugDLL")
+if(MSVC)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDebugDLL")
+endif()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} --coverage")
@@ -13,7 +15,7 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 FetchContent_Declare(
   googletest
-  URL https://github.com/google/googletest/archive/refs/heads/main.zip
+  URL https://github.com/google/googletest/archive/refs/tags/release-1.12.1.zip
 )
 FetchContent_MakeAvailable(googletest)
 
