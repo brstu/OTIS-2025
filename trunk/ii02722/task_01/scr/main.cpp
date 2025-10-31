@@ -8,7 +8,7 @@ float a = 0.5,
 	u = 1.2;
 int main()
 {
-	float y0, y1, y2 ,y_temp;
+	float y0, y1, y2, y_temp;
 	cout << "y1 = ?";
 	cin >> y_temp;
 	y1 = y_temp;
