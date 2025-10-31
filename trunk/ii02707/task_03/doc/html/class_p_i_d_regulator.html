@@ -9,13 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  extensions: ["tex2jax.js"],
-  jax: ["input/TeX","output/HTML-CSS"],
-});
-</script>
-<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -130,24 +123,24 @@ static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>K<
 
 <p>Calculate next u - input warm according to e &amp; t - and returns it. </p>
 <p>Formula:   </p><p class="formulaDsp">
-\[u(k) = u(k - 1) + \Delta u(k)
-\]
+<picture><source srcset="form_2_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[u(k) = u(k - 1) + \Delta u(k)
+\]" src="form_2.png"/></picture>
 </p>
    <p class="formulaDsp">
-\[\Delta u(k) = q_1 e(k) + q_2 e(k - 1) + q_3 e(k - 2)
-\]
+<picture><source srcset="form_3_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[\Delta u(k) = q_1 e(k) + q_2 e(k - 1) + q_3 e(k - 2)
+\]" src="form_3.png"/></picture>
 </p>
    <p class="formulaDsp">
-\[q_0 = K \left( 1 + \frac{T_D}{T_0} \right)
-\]
+<picture><source srcset="form_4_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[q_0 = K \left( 1 + \frac{T_D}{T_0} \right)
+\]" src="form_4.png"/></picture>
 </p>
    <p class="formulaDsp">
-\[q_1 = -K \left( 1 + 2 \frac{T_D}{T_0} - \frac{T_0}{T} \right)
-\]
+<picture><source srcset="form_5_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[q_1 = -K \left( 1 + 2 \frac{T_D}{T_0} - \frac{T_0}{T} \right)
+\]" src="form_5.png"/></picture>
 </p>
    <p class="formulaDsp">
-\[q_2 = K \frac{T_D}{T_0}
-\]
+<picture><source srcset="form_6_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[q_2 = K \frac{T_D}{T_0}
+\]" src="form_6.png"/></picture>
 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
