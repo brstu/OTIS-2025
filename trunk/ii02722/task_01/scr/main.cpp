@@ -14,7 +14,7 @@ int main()
 	y1 = y_temp;
 	y0 = y1;
 	int n = 10;
-	cout << endl << "Liner"<<endl;
+	cout << endl << "Linear"<<endl;
 	for (int i = 0; i < n; i++)
 	{
 		cout << "t" << i + 1 << " = ";
