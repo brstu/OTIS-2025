@@ -14,7 +14,7 @@
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
-<table  ><th></th><th></th>
+<table  ><th></th><th></th><th></th>
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
@@ -70,32 +70,32 @@ Inheritance diagram for IRegulator:</div>
 <area href="class_p_i_d_regulator.html" title="Class for representing PIDRegulator that controls temperature according to e(t) - deviation of the ou..." alt="PIDRegulator" shape="rect" coords="0,56,86,80"/>
   </map>
 </div></div>
-<table class="memberdecls"><th></th><th></th>
-<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" ></a>
+<table class="memberdecls"><th></th><th></th><th></th>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" >[Link]</a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac6599b2211b5fac7ec1c1f24aa4c3f95" id="r_ac6599b2211b5fac7ec1c1f24aa4c3f95"><td class="memItemLeft"  ><a id="ac6599b2211b5fac7ec1c1f24aa4c3f95" ></a>
+<tr class="memitem:ac6599b2211b5fac7ec1c1f24aa4c3f95" id="r_ac6599b2211b5fac7ec1c1f24aa4c3f95"><td class="memItemLeft"  ><a id="ac6599b2211b5fac7ec1c1f24aa4c3f95" >[Link]</a>
 virtual&#160;</td><td class="memItemRight" ><b>~IRegulator</b> ()=default</td></tr>
 <tr class="memdesc:ac6599b2211b5fac7ec1c1f24aa4c3f95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for safe polymorphic usage. <br /></td></tr>
 <tr class="memitem:a8c7903b82d0442db2ca8274bcc4e8259" id="r_a8c7903b82d0442db2ca8274bcc4e8259"><td class="memItemLeft"  >virtual double&#160;</td><td class="memItemRight" ><a class="el" href="#a8c7903b82d0442db2ca8274bcc4e8259">step</a> (double e, double t)=0</td></tr>
 <tr class="memdesc:a8c7903b82d0442db2ca8274bcc4e8259"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate next u - input warm according to e &amp; t - and returns it.  <br /></td></tr>
-</table><table class="memberdecls"><th></th><th></th>
-<tr class="heading"><td colspan="2"><h2 id="header-pro-static-attribs" class="groupheader"><a id="pro-static-attribs" ></a>
+</table><table class="memberdecls"><th></th><th></th><th></th>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-static-attribs" class="groupheader"><a id="pro-static-attribs" >[Link]</a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a03f15be4dee8a20d3af0b4ac920b76ac" id="r_a03f15be4dee8a20d3af0b4ac920b76ac"><td class="memItemLeft"  ><a id="a03f15be4dee8a20d3af0b4ac920b76ac" ></a>
+<tr class="memitem:a03f15be4dee8a20d3af0b4ac920b76ac" id="r_a03f15be4dee8a20d3af0b4ac920b76ac"><td class="memItemLeft"  ><a id="a03f15be4dee8a20d3af0b4ac920b76ac" >[Link]</a>
 static constexpr double&#160;</td><td class="memItemRight" ><b>K</b> { 0.01 }</td></tr>
 </table>
-<a  id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<a  id="details">[Link]</a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for regulator classes that controls temperature according to e(t) - deviation of the output variable y(t) from the desired value w(t). </p>
-</div><a  id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a8c7903b82d0442db2ca8274bcc4e8259" ></a>
+</div><a  id="doc-func-members">[Link]</a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a8c7903b82d0442db2ca8274bcc4e8259" >[Link]</a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8c7903b82d0442db2ca8274bcc4e8259">&#9670;&#160;</a></span>step()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels"><th></th><th></th>
+<table class="mlabels"><th></th><th></th><th></th>
   <tr>
   <td class="mlabels-left">
-      <table class="memname"><th></th><th></th>
+      <table class="memname"><th></th><th></th><th></th>
         <tr>
           <td class="memname">virtual double IRegulator::step </td>
           <td>(</td>
@@ -116,7 +116,7 @@ static constexpr double&#160;</td><td class="memItemRight" ><b>K</b> { 0.01 }</t
 
 <p>Calculate next u - input warm according to e &amp; t - and returns it. </p>
 <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params"><th></th><th></th>
+  <table class="params"><th></th><th></th><th></th>
     <tr><td class="paramname">e</td><td>Deviation of the output variable y(t) from the desired value w(t). </td></tr>
     <tr><td class="paramname">t</td><td>Time step at which u is computed.</td></tr>
   </table>

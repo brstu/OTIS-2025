@@ -14,7 +14,7 @@
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
-<table  ><th></th><th></th>
+<table  ><th></th><th></th><th></th>
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
@@ -48,44 +48,44 @@ $(function() { codefold.init(); });
   <div class="headertitle"><div class="title">adaptivecontroller.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" ></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" ></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;regulator/iregulator.hpp&quot;</span></div>
-<div class="line"><a id="l00003" ></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;model/isimulatedmodel.hpp&quot;</span></div>
-<div class="line"><a id="l00004" ></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a id="l00005" ></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00006" ></a><span class="lineno">    6</span></div>
+<div class="fragment"><div class="line"><a id="l00001" >[Link]</a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" >[Link]</a><span class="lineno">    2</span><span class="preprocessor">#include &quot;regulator/iregulator.hpp&quot;</span></div>
+<div class="line"><a id="l00003" >[Link]</a><span class="lineno">    3</span><span class="preprocessor">#include &quot;model/isimulatedmodel.hpp&quot;</span></div>
+<div class="line"><a id="l00004" >[Link]</a><span class="lineno">    4</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00005" >[Link]</a><span class="lineno">    5</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00006" >[Link]</a><span class="lineno">    6</span></div>
 <div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
-<div class="line"><a id="l00010" ></a><span class="lineno"><a class="line" href="class_adaptive_controller.html">   10</a></span><span class="keyword">class </span><a class="code hl_function" href="class_adaptive_controller.html#a62bd4bb01fd167c59a67b9a67b7ca25c">AdaptiveController</a></div>
-<div class="line"><a id="l00011" ></a><span class="lineno">   11</span>{</div>
-<div class="line"><a id="l00012" ></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00010" >[Link]</a><span class="lineno"><a class="line" href="class_adaptive_controller.html">   10</a></span><span class="keyword">class </span><a class="code hl_function" href="class_adaptive_controller.html#a62bd4bb01fd167c59a67b9a67b7ca25c">AdaptiveController</a></div>
+<div class="line"><a id="l00011" >[Link]</a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" >[Link]</a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
 <div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
-<div class="line"><a id="l00019" ></a><span class="lineno"><a class="line" href="class_adaptive_controller.html#a62bd4bb01fd167c59a67b9a67b7ca25c">   19</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_adaptive_controller.html#a62bd4bb01fd167c59a67b9a67b7ca25c">AdaptiveController</a>(std::unique_ptr&lt;IRegulator&gt; regulator, std::unique_ptr&lt;ISimulatedModel&gt; model)</div>
-<div class="line"><a id="l00020" ></a><span class="lineno">   20</span>        : m_regulator(std::move(regulator))</div>
-<div class="line"><a id="l00021" ></a><span class="lineno">   21</span>        , m_model(std::move(model))</div>
-<div class="line"><a id="l00022" ></a><span class="lineno">   22</span>    {}</div>
+<div class="line"><a id="l00019" >[Link]</a><span class="lineno"><a class="line" href="class_adaptive_controller.html#a62bd4bb01fd167c59a67b9a67b7ca25c">   19</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_adaptive_controller.html#a62bd4bb01fd167c59a67b9a67b7ca25c">AdaptiveController</a>(std::unique_ptr&lt;IRegulator&gt; regulator, std::unique_ptr&lt;ISimulatedModel&gt; model)</div>
+<div class="line"><a id="l00020" >[Link]</a><span class="lineno">   20</span>        : m_regulator(std::move(regulator))</div>
+<div class="line"><a id="l00021" >[Link]</a><span class="lineno">   21</span>        , m_model(std::move(model))</div>
+<div class="line"><a id="l00022" >[Link]</a><span class="lineno">   22</span>    {}</div>
 </div>
-<div class="line"><a id="l00023" ></a><span class="lineno">   23</span></div>
+<div class="line"><a id="l00023" >[Link]</a><span class="lineno">   23</span></div>
 <div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
-<div class="line"><a id="l00032" ></a><span class="lineno"><a class="line" href="class_adaptive_controller.html#a495a1fe3e4231312f991e4b70d96b34b">   32</a></span>    std::vector&lt;double&gt; <a class="code hl_function" href="class_adaptive_controller.html#a495a1fe3e4231312f991e4b70d96b34b">run</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> w, <span class="keyword">const</span> <span class="keywordtype">int</span> t)</div>
-<div class="line"><a id="l00033" ></a><span class="lineno">   33</span>    {</div>
-<div class="line"><a id="l00034" ></a><span class="lineno">   34</span>        std::vector&lt;double&gt; temperatures;</div>
-<div class="line"><a id="l00035" ></a><span class="lineno">   35</span>        <span class="keywordtype">double</span> e = w; <span class="comment">// e(t) = w(t) - y(t), where y(t) = 0</span></div>
-<div class="line"><a id="l00036" ></a><span class="lineno">   36</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt;= t; i++)</div>
-<div class="line"><a id="l00037" ></a><span class="lineno">   37</span>        {</div>
-<div class="line"><a id="l00038" ></a><span class="lineno">   38</span>            <span class="keywordtype">double</span> u = m_regulator-&gt;step(e, i);</div>
-<div class="line"><a id="l00039" ></a><span class="lineno">   39</span>            <span class="keywordtype">double</span> y = m_model-&gt;step(u);</div>
-<div class="line"><a id="l00040" ></a><span class="lineno">   40</span>            temperatures.push_back(y);</div>
-<div class="line"><a id="l00041" ></a><span class="lineno">   41</span>            e = w - y; <span class="comment">// e(t) = w(t) - y(t)</span></div>
-<div class="line"><a id="l00042" ></a><span class="lineno">   42</span>        }</div>
-<div class="line"><a id="l00043" ></a><span class="lineno">   43</span>        <span class="keywordflow">return</span> temperatures;</div>
-<div class="line"><a id="l00044" ></a><span class="lineno">   44</span>    }</div>
+<div class="line"><a id="l00032" >[Link]</a><span class="lineno"><a class="line" href="class_adaptive_controller.html#a495a1fe3e4231312f991e4b70d96b34b">   32</a></span>    std::vector&lt;double&gt; <a class="code hl_function" href="class_adaptive_controller.html#a495a1fe3e4231312f991e4b70d96b34b">run</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> w, <span class="keyword">const</span> <span class="keywordtype">int</span> t)</div>
+<div class="line"><a id="l00033" >[Link]</a><span class="lineno">   33</span>    {</div>
+<div class="line"><a id="l00034" >[Link]</a><span class="lineno">   34</span>        std::vector&lt;double&gt; temperatures;</div>
+<div class="line"><a id="l00035" >[Link]</a><span class="lineno">   35</span>        <span class="keywordtype">double</span> e = w; <span class="comment">// e(t) = w(t) - y(t), where y(t) = 0</span></div>
+<div class="line"><a id="l00036" >[Link]</a><span class="lineno">   36</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt;= t; i++)</div>
+<div class="line"><a id="l00037" >[Link]</a><span class="lineno">   37</span>        {</div>
+<div class="line"><a id="l00038" >[Link]</a><span class="lineno">   38</span>            <span class="keywordtype">double</span> u = m_regulator-&gt;step(e, i);</div>
+<div class="line"><a id="l00039" >[Link]</a><span class="lineno">   39</span>            <span class="keywordtype">double</span> y = m_model-&gt;step(u);</div>
+<div class="line"><a id="l00040" >[Link]</a><span class="lineno">   40</span>            temperatures.push_back(y);</div>
+<div class="line"><a id="l00041" >[Link]</a><span class="lineno">   41</span>            e = w - y; <span class="comment">// e(t) = w(t) - y(t)</span></div>
+<div class="line"><a id="l00042" >[Link]</a><span class="lineno">   42</span>        }</div>
+<div class="line"><a id="l00043" >[Link]</a><span class="lineno">   43</span>        <span class="keywordflow">return</span> temperatures;</div>
+<div class="line"><a id="l00044" >[Link]</a><span class="lineno">   44</span>    }</div>
 </div>
-<div class="line"><a id="l00045" ></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" ></a><span class="lineno">   46</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00047" ></a><span class="lineno">   47</span>    std::unique_ptr&lt;IRegulator&gt; m_regulator;</div>
-<div class="line"><a id="l00048" ></a><span class="lineno">   48</span>    std::unique_ptr&lt;ISimulatedModel&gt; m_model; </div>
-<div class="line"><a id="l00049" ></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" ></a><span class="lineno">   50</span>};</div>
+<div class="line"><a id="l00045" >[Link]</a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" >[Link]</a><span class="lineno">   46</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00047" >[Link]</a><span class="lineno">   47</span>    std::unique_ptr&lt;IRegulator&gt; m_regulator;</div>
+<div class="line"><a id="l00048" >[Link]</a><span class="lineno">   48</span>    std::unique_ptr&lt;ISimulatedModel&gt; m_model; </div>
+<div class="line"><a id="l00049" >[Link]</a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" >[Link]</a><span class="lineno">   50</span>};</div>
 </div>
 <div class="ttc" id="aclass_adaptive_controller_html_a495a1fe3e4231312f991e4b70d96b34b"><div class="ttname"><a href="class_adaptive_controller.html#a495a1fe3e4231312f991e4b70d96b34b">AdaptiveController::run</a></div><div class="ttdeci">std::vector&lt; double &gt; run(const double w, const int t)</div><div class="ttdoc">Computes a vector of calculated temperatures &amp; returns it according to w &amp; t.</div><div class="ttdef"><b>Definition</b> adaptivecontroller.hpp:32</div></div>
 <div class="ttc" id="aclass_adaptive_controller_html_a62bd4bb01fd167c59a67b9a67b7ca25c"><div class="ttname"><a href="class_adaptive_controller.html#a62bd4bb01fd167c59a67b9a67b7ca25c">AdaptiveController::AdaptiveController</a></div><div class="ttdeci">AdaptiveController(std::unique_ptr&lt; IRegulator &gt; regulator, std::unique_ptr&lt; ISimulatedModel &gt; model)</div><div class="ttdoc">Default constructor for creating AdaptiveController.</div><div class="ttdef"><b>Definition</b> adaptivecontroller.hpp:19</div></div>

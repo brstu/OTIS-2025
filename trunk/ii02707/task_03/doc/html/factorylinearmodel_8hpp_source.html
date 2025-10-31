@@ -14,7 +14,7 @@
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
-<table  ><th></th><th></th>
+<table  ><th></th><th></th><th></th>
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
@@ -48,29 +48,29 @@ $(function() { codefold.init(); });
   <div class="headertitle"><div class="title">factorylinearmodel.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" ></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" ></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;ifactorymodel.hpp&quot;</span></div>
-<div class="line"><a id="l00003" ></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../model/linearmodel.hpp&quot;</span></div>
-<div class="line"><a id="l00004" ></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a id="l00005" ></a><span class="lineno">    5</span></div>
+<div class="fragment"><div class="line"><a id="l00001" >[Link]</a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" >[Link]</a><span class="lineno">    2</span><span class="preprocessor">#include &quot;ifactorymodel.hpp&quot;</span></div>
+<div class="line"><a id="l00003" >[Link]</a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../model/linearmodel.hpp&quot;</span></div>
+<div class="line"><a id="l00004" >[Link]</a><span class="lineno">    4</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00005" >[Link]</a><span class="lineno">    5</span></div>
 <div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
-<div class="line"><a id="l00009" ></a><span class="lineno"><a class="line" href="class_factory_linear_model.html">    9</a></span><span class="keyword">class </span><a class="code hl_function" href="class_factory_linear_model.html#a23bcd741e15fb442a6200ecd2978e859">FactoryLinearModel</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_i_factory_model.html">IFactoryModel</a></div>
-<div class="line"><a id="l00010" ></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00011" ></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00015" ></a><span class="lineno"><a class="line" href="class_factory_linear_model.html#a23bcd741e15fb442a6200ecd2978e859">   15</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_factory_linear_model.html#a23bcd741e15fb442a6200ecd2978e859">FactoryLinearModel</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00016" ></a><span class="lineno">   16</span></div>
-<div class="line"><a id="l00020" ></a><span class="lineno"><a class="line" href="class_factory_linear_model.html#a6fe62581142402290a1833338946788f">   20</a></span>    <a class="code hl_function" href="class_factory_linear_model.html#a6fe62581142402290a1833338946788f">~FactoryLinearModel</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00021" ></a><span class="lineno">   21</span></div>
+<div class="line"><a id="l00009" >[Link]</a><span class="lineno"><a class="line" href="class_factory_linear_model.html">    9</a></span><span class="keyword">class </span><a class="code hl_function" href="class_factory_linear_model.html#a23bcd741e15fb442a6200ecd2978e859">FactoryLinearModel</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_i_factory_model.html">IFactoryModel</a></div>
+<div class="line"><a id="l00010" >[Link]</a><span class="lineno">   10</span>{</div>
+<div class="line"><a id="l00011" >[Link]</a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" >[Link]</a><span class="lineno"><a class="line" href="class_factory_linear_model.html#a23bcd741e15fb442a6200ecd2978e859">   15</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_factory_linear_model.html#a23bcd741e15fb442a6200ecd2978e859">FactoryLinearModel</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00016" >[Link]</a><span class="lineno">   16</span></div>
+<div class="line"><a id="l00020" >[Link]</a><span class="lineno"><a class="line" href="class_factory_linear_model.html#a6fe62581142402290a1833338946788f">   20</a></span>    <a class="code hl_function" href="class_factory_linear_model.html#a6fe62581142402290a1833338946788f">~FactoryLinearModel</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00021" >[Link]</a><span class="lineno">   21</span></div>
 <div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
-<div class="line"><a id="l00027" ></a><span class="lineno"><a class="line" href="class_factory_linear_model.html#ac7ab9bc194d20f8835ba8a02812057f4">   27</a></span>    std::unique_ptr&lt;ISimulatedModel&gt; <a class="code hl_function" href="class_factory_linear_model.html#ac7ab9bc194d20f8835ba8a02812057f4">getDefaultModel</a>()<span class="keyword"> const override</span></div>
-<div class="line"><a id="l00028" ></a><span class="lineno">   28</span><span class="keyword">    </span>{ </div>
-<div class="line"><a id="l00029" ></a><span class="lineno">   29</span>        <span class="keyword">constexpr</span> <span class="keywordtype">double</span> DEFAULT_A = 0.5;</div>
-<div class="line"><a id="l00030" ></a><span class="lineno">   30</span>        <span class="keyword">constexpr</span> <span class="keywordtype">double</span> DEFAULT_B = 0.5;</div>
-<div class="line"><a id="l00031" ></a><span class="lineno">   31</span>        <span class="keywordflow">return</span> std::make_unique&lt;LinearModel&gt;(DEFAULT_A, DEFAULT_B); </div>
-<div class="line"><a id="l00032" ></a><span class="lineno">   32</span>    }</div>
+<div class="line"><a id="l00027" >[Link]</a><span class="lineno"><a class="line" href="class_factory_linear_model.html#ac7ab9bc194d20f8835ba8a02812057f4">   27</a></span>    std::unique_ptr&lt;ISimulatedModel&gt; <a class="code hl_function" href="class_factory_linear_model.html#ac7ab9bc194d20f8835ba8a02812057f4">getDefaultModel</a>()<span class="keyword"> const override</span></div>
+<div class="line"><a id="l00028" >[Link]</a><span class="lineno">   28</span><span class="keyword">    </span>{ </div>
+<div class="line"><a id="l00029" >[Link]</a><span class="lineno">   29</span>        <span class="keyword">constexpr</span> <span class="keywordtype">double</span> DEFAULT_A = 0.5;</div>
+<div class="line"><a id="l00030" >[Link]</a><span class="lineno">   30</span>        <span class="keyword">constexpr</span> <span class="keywordtype">double</span> DEFAULT_B = 0.5;</div>
+<div class="line"><a id="l00031" >[Link]</a><span class="lineno">   31</span>        <span class="keywordflow">return</span> std::make_unique&lt;LinearModel&gt;(DEFAULT_A, DEFAULT_B); </div>
+<div class="line"><a id="l00032" >[Link]</a><span class="lineno">   32</span>    }</div>
 </div>
-<div class="line"><a id="l00033" ></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" ></a><span class="lineno">   34</span>};</div>
+<div class="line"><a id="l00033" >[Link]</a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" >[Link]</a><span class="lineno">   34</span>};</div>
 </div>
 <div class="ttc" id="aclass_factory_linear_model_html_a23bcd741e15fb442a6200ecd2978e859"><div class="ttname"><a href="class_factory_linear_model.html#a23bcd741e15fb442a6200ecd2978e859">FactoryLinearModel::FactoryLinearModel</a></div><div class="ttdeci">FactoryLinearModel()=default</div><div class="ttdoc">Default constructor.</div></div>
 <div class="ttc" id="aclass_factory_linear_model_html_a6fe62581142402290a1833338946788f"><div class="ttname"><a href="class_factory_linear_model.html#a6fe62581142402290a1833338946788f">FactoryLinearModel::~FactoryLinearModel</a></div><div class="ttdeci">~FactoryLinearModel() override=default</div><div class="ttdoc">Virtual destructor for safe polymorphic usage.</div></div>

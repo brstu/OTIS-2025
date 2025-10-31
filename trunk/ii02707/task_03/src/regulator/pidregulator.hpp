@@ -50,7 +50,7 @@ public:
      */
     double step(double e, double t) override
     {
-        int k = t / T0; // k = 0,1,...,t/T0
+        int k = static_cast<int>(t / T0); // k = 0,1,...,t/T0
         m_e[k % m_e.size()] = e;
 
         m_u[1] = q0*m_e[0] + q1*m_e[1] + q2*m_e[2];
