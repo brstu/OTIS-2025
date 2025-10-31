@@ -8,10 +8,9 @@ float a = 0.5,
 	u = 1.2;
 int main()
 {
-	float y0, y1, y2, y_temp;
+	float y0, y1, y2;
 	cout << "y1 = ?";
-	cin >> y_temp;
-	y1 = y_temp;
+	cin >> y1;
 	y0 = y1;
 	int n = 10;
 	cout << endl << "Linear"<<endl;
