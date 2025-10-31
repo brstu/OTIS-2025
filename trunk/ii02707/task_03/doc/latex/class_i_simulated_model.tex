@@ -1,0 +1,91 @@
+\doxysection{ISimulated\+Model Class Reference}
+\hypertarget{class_i_simulated_model}{}\label{class_i_simulated_model}\index{ISimulatedModel@{ISimulatedModel}}
+
+
+Interface for simulated models classes.  
+
+
+
+
+{\ttfamily \#include $<$isimulatedmodel.\+hpp$>$}
+
+Inheritance diagram for ISimulated\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_simulated_model}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_i_simulated_model_a633bd4274072567356203c7f624e464e}\label{class_i_simulated_model_a633bd4274072567356203c7f624e464e} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+ISimulated\+Model} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for safe polymorphic usage. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_i_simulated_model_a69e2339060948388fee8280701baf9c3}{step}} (const double u)=0
+\begin{DoxyCompactList}\small\item\em Calculates next temperature (y) according to the model\textquotesingle{}s formula and returns it. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ double $>$ \mbox{\hyperlink{class_i_simulated_model_a971060b31948ccad0ca2fa06c46b3e21}{simulate}} (double y, const double u, int t)=0
+\begin{DoxyCompactList}\small\item\em Computes a vector of calculated temperatures \& returns it according to y, u, t. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_i_simulated_model_ad01886305c6657a0f8c7854db12a4a61}\label{class_i_simulated_model_ad01886305c6657a0f8c7854db12a4a61} 
+double {\bfseries m\+\_\+y} \{ 0 \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for simulated models classes. 
+
+This abstract class defines a way to calculate next temperature (y) according to the model\textquotesingle{}s formula. 
+
+\label{doc-func-members}
+\Hypertarget{class_i_simulated_model_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_simulated_model_a971060b31948ccad0ca2fa06c46b3e21}\index{ISimulatedModel@{ISimulatedModel}!simulate@{simulate}}
+\index{simulate@{simulate}!ISimulatedModel@{ISimulatedModel}}
+\doxysubsubsection{\texorpdfstring{simulate()}{simulate()}}
+{\footnotesize\ttfamily \label{class_i_simulated_model_a971060b31948ccad0ca2fa06c46b3e21} 
+virtual std\+::vector$<$ double $>$ ISimulated\+Model\+::simulate (\begin{DoxyParamCaption}\item[{double}]{y}{, }\item[{const double}]{u}{, }\item[{int}]{t}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Computes a vector of calculated temperatures \& returns it according to y, u, t. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & Initial temperature. \\
+\hline
+{\em u} & Input warm. \\
+\hline
+{\em t} & Time step at which vector of calculated temperatures is computed.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of calculated temperatures. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_linear_model_a5416ffa606a5a9b75beb3c33536bf410}{Linear\+Model}}, and \mbox{\hyperlink{class_non_linear_model_ac4ec5911cf8264c0a7bc00fb107c1685}{Non\+Linear\+Model}}.
+
+\Hypertarget{class_i_simulated_model_a69e2339060948388fee8280701baf9c3}\index{ISimulatedModel@{ISimulatedModel}!step@{step}}
+\index{step@{step}!ISimulatedModel@{ISimulatedModel}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily \label{class_i_simulated_model_a69e2339060948388fee8280701baf9c3} 
+virtual double ISimulated\+Model\+::step (\begin{DoxyParamCaption}\item[{const double}]{u}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Calculates next temperature (y) according to the model\textquotesingle{}s formula and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Input warm.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Calculated next temperature (y). 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_linear_model_aba1755b56686d7e84c5a3180c082f5aa}{Linear\+Model}}, and \mbox{\hyperlink{class_non_linear_model_ad79cbedb8375089a86fb54172e4a6966}{Non\+Linear\+Model}}.
+

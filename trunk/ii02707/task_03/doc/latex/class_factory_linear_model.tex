@@ -1,0 +1,58 @@
+\doxysection{Factory\+Linear\+Model Class Reference}
+\hypertarget{class_factory_linear_model}{}\label{class_factory_linear_model}\index{FactoryLinearModel@{FactoryLinearModel}}
+
+
+Factory class that produces \doxylink{class_non_linear_model}{Non\+Linear\+Model}.  
+
+
+
+
+{\ttfamily \#include $<$factorylinearmodel.\+hpp$>$}
+
+Inheritance diagram for Factory\+Linear\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_factory_linear_model}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_factory_linear_model_a23bcd741e15fb442a6200ecd2978e859}\label{class_factory_linear_model_a23bcd741e15fb442a6200ecd2978e859} 
+{\bfseries Factory\+Linear\+Model} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_factory_linear_model_a6fe62581142402290a1833338946788f}\label{class_factory_linear_model_a6fe62581142402290a1833338946788f} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Factory\+Linear\+Model} () override=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for safe polymorphic usage. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_simulated_model}{ISimulated\+Model}} $>$ \mbox{\hyperlink{class_factory_linear_model_ac7ab9bc194d20f8835ba8a02812057f4}{get\+Default\+Model}} () const override
+\begin{DoxyCompactList}\small\item\em Creates and returns a default \doxylink{class_linear_model}{Linear\+Model}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_i_factory_model}{IFactory\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IFactory\+Model} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for safe polymorphic usage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Factory class that produces \doxylink{class_non_linear_model}{Non\+Linear\+Model}. 
+
+\label{doc-func-members}
+\Hypertarget{class_factory_linear_model_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_factory_linear_model_ac7ab9bc194d20f8835ba8a02812057f4}\index{FactoryLinearModel@{FactoryLinearModel}!getDefaultModel@{getDefaultModel}}
+\index{getDefaultModel@{getDefaultModel}!FactoryLinearModel@{FactoryLinearModel}}
+\doxysubsubsection{\texorpdfstring{getDefaultModel()}{getDefaultModel()}}
+{\footnotesize\ttfamily \label{class_factory_linear_model_ac7ab9bc194d20f8835ba8a02812057f4} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_simulated_model}{ISimulated\+Model}} $>$ Factory\+Linear\+Model\+::get\+Default\+Model (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates and returns a default \doxylink{class_linear_model}{Linear\+Model}. 
+
+\begin{DoxyReturn}{Returns}
+A unique pointer to a newly created \doxylink{class_linear_model}{Linear\+Model} instance. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_factory_model_af4826f947c2625646f3a900693ac0644}{IFactory\+Model}}.
+

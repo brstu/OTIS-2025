@@ -1,0 +1,42 @@
+\doxysection{linearmodel.\+hpp}
+\hypertarget{linearmodel_8hpp_source}{}\label{linearmodel_8hpp_source}\index{src/model/linearmodel.hpp@{src/model/linearmodel.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}isimulatedmodel.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_linear_model_a4418d08b99107d0bd6060a1111b7ff93}{LinearModel}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_simulated_model}{ISimulatedModel}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_linear_model_a4418d08b99107d0bd6060a1111b7ff93}{LinearModel}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ a,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ b)}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ :\ m\_a(a),\ m\_b(b)\ }
+\DoxyCodeLine{00022\ \ \ \ \ \{\}}
+\DoxyCodeLine{00023\ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_linear_model_a4a9d9e4e2ce4e51ed5a1e70aebdece31}{\string~LinearModel}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_linear_model_aba1755b56686d7e84c5a3180c082f5aa}{step}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ u)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00042\ \textcolor{keyword}{\ \ \ \ }\{\ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ result\ =\ m\_a\ *\ m\_y\ +\ m\_b\ *\ u;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ m\_y\ =\ result;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;\ }
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00057\ \ \ \ \ std::vector<double>\ \mbox{\hyperlink{class_linear_model_a5416ffa606a5a9b75beb3c33536bf410}{simulate}}(\textcolor{keywordtype}{double}\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ u,\ \textcolor{keywordtype}{int}\ t)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00058\ \textcolor{keyword}{\ \ \ \ }\{\ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ std::vector<double>\ results;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ t;\ i++)}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ results.push\_back(y);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ y\ =\ \mbox{\hyperlink{class_linear_model_aba1755b56686d7e84c5a3180c082f5aa}{step}}(u);}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ results;}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ m\_a;\ \textcolor{comment}{//\ Linear\ coefficient\ for\ previous\ output\ (y).}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ m\_b;\ \textcolor{comment}{//\ Linear\ coefficient\ for\ input\ (u).}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \};}
+
+\end{DoxyCode}

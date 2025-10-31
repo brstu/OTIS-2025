@@ -1,0 +1,22 @@
+\doxysection{isimulatedmodel.\+hpp}
+\hypertarget{isimulatedmodel_8hpp_source}{}\label{isimulatedmodel_8hpp_source}\index{src/model/isimulatedmodel.hpp@{src/model/isimulatedmodel.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ \ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_simulated_model}{ISimulatedModel}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_i_simulated_model_a633bd4274072567356203c7f624e464e}{\string~ISimulatedModel}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_i_simulated_model_a69e2339060948388fee8280701baf9c3}{step}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ u)\ =\ 0;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<double>\ \mbox{\hyperlink{class_i_simulated_model_a971060b31948ccad0ca2fa06c46b3e21}{simulate}}(\textcolor{keywordtype}{double}\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ u,\ \textcolor{keywordtype}{int}\ t)\ =\ 0;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{double}\ m\_y\ \{\ 0\ \};\ \textcolor{comment}{//\ Initial\ temperature\ of\ the\ model.}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \};}
+
+\end{DoxyCode}
