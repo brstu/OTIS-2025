@@ -69,4 +69,6 @@ private:
     const double m_a; // Linear coefficient for previous output (y).
     const double m_b; // Linear coefficient for input (u).
 
+    double m_y { 0 }; // Initial temperature of the model. 
+
 };

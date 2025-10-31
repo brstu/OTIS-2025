@@ -1759,7 +1759,6 @@ table.fieldtable {
 	overflow: hidden;
 	margin: 0px;
 	padding-left: 4px;
-	background-image: none;
 	background: var(--page-background-color);
 	border-bottom: 1px solid var(--nav-breadcrumb-separator-color);
 	font-size: var(--nav-font-size-level1);

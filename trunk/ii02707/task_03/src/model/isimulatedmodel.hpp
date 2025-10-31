@@ -35,7 +35,4 @@ public:
      */
     virtual std::vector<double> simulate(double y, const double u, int t) = 0;
 
-protected:
-    double m_y { 0 }; // Initial temperature of the model.
-
 };

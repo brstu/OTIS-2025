@@ -86,4 +86,5 @@ private:
     double m_prevY { 0 }; // initialize with 0
     double m_prevU { 0 }; // initialize with 0
 
+    double m_y { 0 }; // Initial temperature of the model. 
 };

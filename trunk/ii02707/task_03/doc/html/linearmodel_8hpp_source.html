@@ -90,7 +90,9 @@ $(function() { codefold.init(); });
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> m_a; <span class="comment">// Linear coefficient for previous output (y).</span></div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> m_b; <span class="comment">// Linear coefficient for input (u).</span></div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>};</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">double</span> m_y { 0 }; <span class="comment">// Initial temperature of the model. </span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>};</div>
 </div>
 <div class="ttc" id="aclass_i_simulated_model_html"><div class="ttname"><a href="class_i_simulated_model.html">ISimulatedModel</a></div><div class="ttdoc">Interface for simulated models classes.</div><div class="ttdef"><b>Definition</b> isimulatedmodel.hpp:11</div></div>
 <div class="ttc" id="aclass_linear_model_html_a4418d08b99107d0bd6060a1111b7ff93"><div class="ttname"><a href="class_linear_model.html#a4418d08b99107d0bd6060a1111b7ff93">LinearModel::LinearModel</a></div><div class="ttdeci">LinearModel(const double a, const double b)</div><div class="ttdoc">Default constructor for creating LinearModel.</div><div class="ttdef"><b>Definition</b> linearmodel.hpp:20</div></div>
