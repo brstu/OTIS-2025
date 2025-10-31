@@ -1,0 +1,32 @@
+\doxysection{nonlinearmodel.\+h}
+\hypertarget{nonlinearmodel_8h_source}{}\label{nonlinearmodel_8h_source}\index{src/build/cmake/include/model/nonlinearmodel.h@{src/build/cmake/include/model/nonlinearmodel.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <model/isimulatedmodel.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }NonLinearModel\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_simulated_model}{ISimulatedModel}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ NonLinearModel(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ a,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ b,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ c,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ d);}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_non_linear_model_ac558b1556d769c4fee9261ce77ef7f3b}{\string~NonLinearModel}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ std::vector<double>\ simulate(\textcolor{keywordtype}{double}\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ u,\ \textcolor{keywordtype}{int}\ t)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ m\_a;\ \textcolor{comment}{//\ Linear\ coefficient\ for\ current\ output\ (y)}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ m\_b;\ \textcolor{comment}{//\ Nonlinear\ coefficient\ for\ squared\ previous\ output\ (prevY²)}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ m\_c;\ \textcolor{comment}{//\ Linear\ coefficient\ for\ input\ (u)}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ m\_d;\ \textcolor{comment}{//\ Nonlinear\ coefficient\ for\ sinusoidal\ input\ term}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ y\_offset\ \{\ 0.001\ \};\ \textcolor{comment}{//\ Initial\ offset\ for\ previous\ output\ value\ (prevY\ =\ y\ -\/\ yOffset)}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ u\_offset\ \{\ 1\ \};\ \textcolor{comment}{//\ Initial\ offset\ for\ previous\ input\ value\ (prevU\ =\ u\ -\/\ uOffset)}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ u\_step\ \{\ 0.5\ \};\ \textcolor{comment}{//\ Step\ size\ for\ input\ signal\ increment}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \};}
+
+\end{DoxyCode}

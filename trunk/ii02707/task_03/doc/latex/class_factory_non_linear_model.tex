@@ -1,0 +1,76 @@
+\doxysection{Factory\+Non\+Linear\+Model Class Reference}
+\hypertarget{class_factory_non_linear_model}{}\label{class_factory_non_linear_model}\index{FactoryNonLinearModel@{FactoryNonLinearModel}}
+
+
+Factory class that produces \doxylink{class_non_linear_model}{Non\+Linear\+Model}.  
+
+
+
+
+{\ttfamily \#include $<$factorynonlinearmodel.\+hpp$>$}
+
+Inheritance diagram for Factory\+Non\+Linear\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_factory_non_linear_model}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_simulated_model}{ISimulated\+Model}} $>$ \mbox{\hyperlink{class_factory_non_linear_model_a1eedfdc9a5618b820af9f9387ca7797a}{get\+Model}} () const override
+\item 
+\Hypertarget{class_factory_non_linear_model_a443fdad0982aa8aef906787d7be20bac}\label{class_factory_non_linear_model_a443fdad0982aa8aef906787d7be20bac} 
+{\bfseries Factory\+Non\+Linear\+Model} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_factory_non_linear_model_a2d24e63ec60337e62ee82c67ebc83da1}\label{class_factory_non_linear_model_a2d24e63ec60337e62ee82c67ebc83da1} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Factory\+Non\+Linear\+Model} () override=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for safe polymorphic usage. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_simulated_model}{ISimulated\+Model}} $>$ \mbox{\hyperlink{class_factory_non_linear_model_a6378a67bacb2a8da165505e30af54a77}{get\+Default\+Model}} () const override
+\begin{DoxyCompactList}\small\item\em Creates and returns a default \doxylink{class_non_linear_model}{Non\+Linear\+Model}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_i_factory_model}{IFactory\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IFactory\+Model} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for safe polymorphic usage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Factory class that produces \doxylink{class_non_linear_model}{Non\+Linear\+Model}. 
+
+\label{doc-func-members}
+\Hypertarget{class_factory_non_linear_model_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_factory_non_linear_model_a6378a67bacb2a8da165505e30af54a77}\index{FactoryNonLinearModel@{FactoryNonLinearModel}!getDefaultModel@{getDefaultModel}}
+\index{getDefaultModel@{getDefaultModel}!FactoryNonLinearModel@{FactoryNonLinearModel}}
+\doxysubsubsection{\texorpdfstring{getDefaultModel()}{getDefaultModel()}}
+{\footnotesize\ttfamily \label{class_factory_non_linear_model_a6378a67bacb2a8da165505e30af54a77} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_simulated_model}{ISimulated\+Model}} $>$ Factory\+Non\+Linear\+Model\+::get\+Default\+Model (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates and returns a default \doxylink{class_non_linear_model}{Non\+Linear\+Model}. 
+
+\begin{DoxyReturn}{Returns}
+A unique pointer to a newly created \doxylink{class_non_linear_model}{Non\+Linear\+Model} instance. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_factory_model_af4826f947c2625646f3a900693ac0644}{IFactory\+Model}}.
+
+\Hypertarget{class_factory_non_linear_model_a1eedfdc9a5618b820af9f9387ca7797a}\index{FactoryNonLinearModel@{FactoryNonLinearModel}!getModel@{getModel}}
+\index{getModel@{getModel}!FactoryNonLinearModel@{FactoryNonLinearModel}}
+\doxysubsubsection{\texorpdfstring{getModel()}{getModel()}}
+{\footnotesize\ttfamily \label{class_factory_non_linear_model_a1eedfdc9a5618b820af9f9387ca7797a} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_simulated_model}{ISimulated\+Model}} $>$ Factory\+Non\+Linear\+Model\+::get\+Model (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_factory_model}{IFactory\+Model}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/build/cmake/include/factory/factorynonlinearmodel.\+h\item 
+src/factory/factorynonlinearmodel.\+hpp\end{DoxyCompactItemize}

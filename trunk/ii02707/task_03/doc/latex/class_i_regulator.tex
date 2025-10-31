@@ -1,0 +1,68 @@
+\doxysection{IRegulator Class Reference}
+\hypertarget{class_i_regulator}{}\label{class_i_regulator}\index{IRegulator@{IRegulator}}
+
+
+Interface for regulator classes that controls temperature according to e(t) -\/ deviation of the output variable y(t) from the desired value w(t).  
+
+
+
+
+{\ttfamily \#include $<$iregulator.\+hpp$>$}
+
+Inheritance diagram for IRegulator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_regulator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_i_regulator_ac6599b2211b5fac7ec1c1f24aa4c3f95}\label{class_i_regulator_ac6599b2211b5fac7ec1c1f24aa4c3f95} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IRegulator} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for safe polymorphic usage. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_i_regulator_a8c7903b82d0442db2ca8274bcc4e8259}{step}} (double e, double t)=0
+\begin{DoxyCompactList}\small\item\em Calculate next u -\/ input warm according to e \& t -\/ and returns it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_i_regulator_a03f15be4dee8a20d3af0b4ac920b76ac}\label{class_i_regulator_a03f15be4dee8a20d3af0b4ac920b76ac} 
+static constexpr double {\bfseries K} \{ 0.\+01 \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for regulator classes that controls temperature according to e(t) -\/ deviation of the output variable y(t) from the desired value w(t). 
+
+\label{doc-func-members}
+\Hypertarget{class_i_regulator_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_regulator_a8c7903b82d0442db2ca8274bcc4e8259}\index{IRegulator@{IRegulator}!step@{step}}
+\index{step@{step}!IRegulator@{IRegulator}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily \label{class_i_regulator_a8c7903b82d0442db2ca8274bcc4e8259} 
+virtual double IRegulator\+::step (\begin{DoxyParamCaption}\item[{double}]{e}{, }\item[{double}]{t}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Calculate next u -\/ input warm according to e \& t -\/ and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Deviation of the output variable y(t) from the desired value w(t). \\
+\hline
+{\em t} & Time step at which u is computed.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+u -\/ Input warm. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_p_i_d_regulator_aa530c53c060a2a00bcf5c77e2ad33367}{PIDRegulator}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/regulator/iregulator.\+hpp\end{DoxyCompactItemize}

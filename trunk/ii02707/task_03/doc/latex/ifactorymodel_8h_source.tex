@@ -1,0 +1,18 @@
+\doxysection{ifactorymodel.\+h}
+\hypertarget{ifactorymodel_8h_source}{}\label{ifactorymodel_8h_source}\index{src/build/cmake/include/factory/ifactorymodel.h@{src/build/cmake/include/factory/ifactorymodel.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <model/isimulatedmodel.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_factory_model}{IFactoryModel}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{virtual}\ std::unique\_ptr<ISimulatedModel>\ getModel()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_i_factory_model_a7b24bb494392e77d08b96af111965641}{\string~IFactoryModel}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \};}
+
+\end{DoxyCode}

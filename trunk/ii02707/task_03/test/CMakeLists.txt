@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(task_02_ii02707_test)
-
+project(task_03_ii02707_test)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -12,39 +11,42 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-cove
 include(FetchContent)
 FetchContent_Declare(
   googletest
-  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG release-1.12.1
   DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
 # For Windows: Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
-
 enable_testing()
 
+set(PROJECT_SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/test.cpp
 
-add_executable(
-  ${CMAKE_PROJECT_NAME}
-  test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/model/linearmodel.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/model/nonlinearmodel.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/model/isimulatedmodel.hpp
 
-  ../src/model/isimulatedmodel.h
-  ../src/model/linearmodel.h
-  ../src/model/nonlinearmodel.h
-  ../src/factory/ifactorymodel.h
-  ../src/factory/factorylinearmodel.h
-  ../src/factory/factorynonlinearmodel.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/factory/factorylinearmodel.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/factory/factorynonlinearmodel.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/factory/ifactorymodel.hpp
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/regulator/pidregulator.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/regulator/iregulator.hpp
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/adaptivecontroller.hpp
 )
+add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
 target_link_libraries(
-  ${CMAKE_PROJECT_NAME}
+  ${PROJECT_NAME}
   PRIVATE
   gtest
   gtest_main
   gmock
 )
-
-
-target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE --coverage -g -O0)
-target_link_options(${CMAKE_PROJECT_NAME} PRIVATE --coverage)
+target_compile_options(${PROJECT_NAME} PRIVATE --coverage -g -O0)
+target_link_options(${PROJECT_NAME} PRIVATE --coverage)
 
 
 include(GoogleTest)
-gtest_discover_tests(${CMAKE_PROJECT_NAME})
+gtest_discover_tests(${PROJECT_NAME})

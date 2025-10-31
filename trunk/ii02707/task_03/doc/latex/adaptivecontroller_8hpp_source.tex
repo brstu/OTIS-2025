@@ -1,0 +1,39 @@
+\doxysection{adaptivecontroller.\+hpp}
+\hypertarget{adaptivecontroller_8hpp_source}{}\label{adaptivecontroller_8hpp_source}\index{src/adaptivecontroller.hpp@{src/adaptivecontroller.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}regulator/iregulator.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}model/isimulatedmodel.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_adaptive_controller_a62bd4bb01fd167c59a67b9a67b7ca25c}{AdaptiveController}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_adaptive_controller_a62bd4bb01fd167c59a67b9a67b7ca25c}{AdaptiveController}}(std::unique\_ptr<IRegulator>\ regulator,\ std::unique\_ptr<ISimulatedModel>\ model)}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ :\ m\_regulator(std::move(regulator))}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ ,\ m\_model(std::move(model))}
+\DoxyCodeLine{00022\ \ \ \ \ \{\}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00032\ \ \ \ \ std::vector<double>\ \mbox{\hyperlink{class_adaptive_controller_a495a1fe3e4231312f991e4b70d96b34b}{run}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ w,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ t)}
+\DoxyCodeLine{00033\ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ std::vector<double>\ temperatures;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ e\ =\ w;\ \textcolor{comment}{//\ e(t)\ =\ w(t)\ -\/\ y(t),\ where\ y(t)\ =\ 0}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ t;\ i++)}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ u\ =\ m\_regulator-\/>step(e,\ i);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ y\ =\ m\_model-\/>step(u);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ temperatures.push\_back(y);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ e\ =\ w\ -\/\ y;\ \textcolor{comment}{//\ e(t)\ =\ w(t)\ -\/\ y(t)}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ temperatures;}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00047\ \ \ \ \ std::unique\_ptr<IRegulator>\ m\_regulator;}
+\DoxyCodeLine{00048\ \ \ \ \ std::unique\_ptr<ISimulatedModel>\ m\_model;\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \};}
+
+\end{DoxyCode}
