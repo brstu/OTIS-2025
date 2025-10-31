@@ -19,6 +19,7 @@ int main()
 		cout << "t" << i + 1 << " = ";
 		y2 = a * y1 + b * u;
 		cout << y2 << endl;
+		y0 = y1;
 		y1 = y2;
 	}
 
