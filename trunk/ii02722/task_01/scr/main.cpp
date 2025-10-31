@@ -1,4 +1,4 @@
-﻿#include<iostream>
+#include <iostream>
 using namespace std;
 
 float a = 0.5,
