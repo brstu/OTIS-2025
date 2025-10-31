@@ -67,7 +67,7 @@ int main()
 		y1 = y2;
 	}
 
-	cout << endl << "unliner:" << endl;
+	cout << endl << "nonlinear:" << endl;
 	for (int i = 0; i < n; i++)
 	{
 		cout << "t" << i + 1 << " = ";
