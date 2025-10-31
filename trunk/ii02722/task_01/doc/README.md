@@ -82,27 +82,29 @@ int main()
 ```
 
 ## Результат программы:
-Enter y (starting temperature) and u (input warmth at first step) values (space-separated):  1 10
-Enter a, b, c, d (constants) values: 0.01 0.03 0.05 0.01
-Enter number of steps n: 7
-Result of the 1 step of linear model: 0.31
-Result of the 2 step of linear model: 0.3031
-Result of the 3 step of linear model: 0.303031
-Result of the 4 step of linear model: 0.30303
-Result of the 5 step of linear model: 0.30303
-Result of the 6 step of linear model: 0.30303
-Result of the 7 step of linear model: 0.30303
-Result of the 1 step of non-linear model: 1
-Enter u for the 2 step: 10
-Result of the 2 step of non-linear model: 0.50456
-Enter u for the 3 step: 10
-Result of the 3 step of non-linear model: 0.469605
-Enter u for the 4 step: 10
-Result of the 4 step of non-linear model: 0.491618
-Enter u for the 5 step: 10
-Result of the 5 step of non-linear model: 0.49286
-Enter u for the 6 step: 10
-Result of the 6 step of non-linear model: 0.492238
-Enter u for the 7 step: 10
-Result of the 7 step of non-linear model: 0.492195
+y1 = ?
+1
 
+Linear
+t1 = 1.3
+t2 = 0.91
+t3 = 0.757
+t4 = 0.6785
+t5 = 0.63925
+t6 = 0.619625
+t7 = 0.609812
+t8 = 0.604906
+t9 = 0.602453
+t10 = 0.601227
+
+nonlinear:
+t1 = 1.3
+t2 = 0.8775
+t3 = 0.697019
+t4 = 0.613212
+t5 = 0.573222
+t6 = 0.553837
+t7 = 0.544073
+t8 = 0.539191
+t9 = 0.536751
+t10 = 0.535531
