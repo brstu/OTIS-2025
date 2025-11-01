@@ -41,7 +41,6 @@ let dynsection = {
     const summary = $('#'+base+'-summary');
     const content = $('#'+base+'-content');
     const trigger = $('#'+base+'-trigger');
-    const src=$(trigger).attr('src');
     if (content.is(':visible')===true) {
       content.slideUp('fast');
       summary.show();
