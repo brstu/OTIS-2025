@@ -79,7 +79,7 @@ let dynsection = {
     // all rows after the clicked row
     const rows = currentRow.nextAll("tr");
 
-    const re = new RegExp('^row_'+id+'\\d+_$', "i"); //only one sub
+    const re = new RegExp(String.raw`^row_${id}\d+_$`, "i"); //only one sub
 
     // only match elements AFTER this one (can't hide elements before)
     const childRows = rows.filter(function() { return this.id.match(re); });
@@ -175,7 +175,16 @@ let codefold = {
       $(line).removeClass('glow');
       if (start) {
         // if line already ends with a start marker (e.g. trailing {), remove it
-        $(line).html($(line).html().replace(new RegExp('\\s*'+start+'\\s*$','g'),''));
+        function escapeRegExp(str) {
+          return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        const safeStart = escapeRegExp(start);
+        const re = new RegExp(String.raw`\s*${safeStart}\s*$`, 'g');
+
+        const $el = $(line);
+        const html = $el.html();
+        $el.html(html.replace(re, ''));
       }
       // replace minus with plus symbol
       $(line).find('span[class=fold]').addClass('plus').removeClass('minus');
