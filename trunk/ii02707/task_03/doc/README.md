@@ -152,7 +152,7 @@ int main()
 ```
 
 ## Результат программы [ src/main.cpp ]
-![Results](img/results.png)
+![results](images/results.png)
 
 ## Графики
 ### При `T = 0.05 T0 = 1 TD = 10`
@@ -192,7 +192,7 @@ int main()
 - Такое поведение характерно для нестабильной системы с 'неадекватными' параметрами регулятора.
 
 ## Link to documentation
-[documentation](https://chuikam.github.io/OTIS-2025/)
+[https://chuikam.github.io/OTIS-2025/](https://chuikam.github.io/OTIS-2025/)
 
 ## Код юнит-тестов [ test/test.cpp ]
 ```C++

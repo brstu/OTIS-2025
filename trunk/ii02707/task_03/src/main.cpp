@@ -9,7 +9,7 @@
 int main() 
 {
     const double w = 10; // Input warm.
-    const int t = 30;     // Simulation time steps.
+    const int t = 10;     // Simulation time steps.
     
     std::cout << "Linear simulation:" << std::endl;
     auto pidRegulatorForLinearModel = std::make_unique<PIDRegulator>();
