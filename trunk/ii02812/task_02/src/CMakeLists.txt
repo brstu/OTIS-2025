@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.5)
-project(OTIS_task_02_ii02812_src)
+project(task_02_ii02812_source)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
