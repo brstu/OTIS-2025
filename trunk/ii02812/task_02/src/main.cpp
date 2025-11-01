@@ -25,7 +25,6 @@ int  main()
 	double u = 0;
 	double u_prev = 0;
 	double y_lin_prev = 0;
-	double y_lin_next = 0;
 
 
 	Number_Check(y_lin_prev, "Enter input temperature (y): ");
