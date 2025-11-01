@@ -64,5 +64,5 @@ TEST(NonLinearModelTest, NegativeInput) {
 ```
 ## Результаты тестирования ##
 ![Результаты тестирования:](images/google_tests.png)
-## Покрытие тестами (OpenCppCoverage) ##
+## Покрытие тестами (GCC Code Coverage) ##
 ![Покрытие тестами:](images/Coverage.png)
