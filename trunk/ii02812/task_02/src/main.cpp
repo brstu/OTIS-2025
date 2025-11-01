@@ -16,6 +16,7 @@ void Number_Check(N& number, const std::string& message) {
 
 int  main()
 {
+	std::cout << "Hello, i glad to see you :)" << '\n';
 	double y_lin_prev = 0;
 	double y_lin_next = 0;
 	double u = 0;
@@ -51,6 +52,6 @@ int  main()
 			<< ", temp of linear function = " << y_lin_next
 			<< ", temp of nonlinear function = " << y_nonlin_2 << std::endl;
 	}
-
+	std::cout << "Thanks for using this program! :D" << '\n';
 	return  0;
 }
