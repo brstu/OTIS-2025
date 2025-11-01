@@ -44,7 +44,7 @@ int  main()
 	for (int i = 1; i <= n; i++)
 	{
 		y_lin_prev = linear_model(a, b, y_lin_prev, u);
-		y_nonlin_2 = nonlinear_model(a, b, c, d, y_nonlin_0, y_nonlin_1, u, u_prev);
+		y_nonlin_2 = a * y_nonlin_1 - b * std::pow(y_nonlin_0, 2) + c * u + d * std::sin(u_prev);
 		y_nonlin_0 = y_nonlin_1;
 		y_nonlin_1 = y_nonlin_2;
 		u_prev = u;
