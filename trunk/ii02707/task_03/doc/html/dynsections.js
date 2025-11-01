@@ -40,7 +40,6 @@ let dynsection = {
     const base = $(linkObj).attr('id');
     const summary = $('#'+base+'-summary');
     const content = $('#'+base+'-content');
-    const trigger = $('#'+base+'-trigger');
     if (content.is(':visible')===true) {
       content.slideUp('fast');
       summary.show();
