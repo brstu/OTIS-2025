@@ -42,7 +42,6 @@ int  main()
 
 	for (int i = 1; i <= n; i++)
 	{
-		y_lin_next = a * y_lin_prev + b * u;
 		y_lin_prev = linear_model(a, b, y_lin_prev, u);
 		y_nonlin_2 = nonlinear_model(a, b, c, d, y_nonlin_0, y_nonlin_1, u, u_prev);
 		y_nonlin_0 = y_nonlin_1;
