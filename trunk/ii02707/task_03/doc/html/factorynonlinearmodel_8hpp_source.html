@@ -12,13 +12,13 @@
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id="hna9g5mp"><!-- do not remove this div, it is closed by doxygen! -->
-<div id="j9yg65we">
-<table  ><th></th><th></th><th></th><th></th><th></th>
+<div id="fkbo481k"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="5iluta77">
+<table  ><th></th><th></th><th></th><th></th><th></th><th></th>
  <tbody>
- <tr id="vhoqtvb0">
-  <td id="hlgilo97">
-   <div id="7lfo2ggh">AdaptiveController<span id="9d0xzzma">&#160;1.0</span>
+ <tr id="h05ykxig">
+  <td id="colxhfn4">
+   <div id="7ipxufrh">AdaptiveController<span id="00krdvmj">&#160;1.0</span>
    </div>
   </td>
  </tr>
@@ -30,53 +30,53 @@
 <script type="text/javascript">
 $(function() { codefold.init(); });
 </script>
-<div id="vybh986x">
-  <div id="530063ts" class="tabs">
+<div id="ymv4gtxn">
+  <div id="ar9x7vw2" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
     </ul>
   </div>
 </div><!-- main-nav -->
-<div id="j261woau" class="navpath">
+<div id="x8uc82al" class="navpath">
   <ul>
 <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_339115f1b781ea71218b7406990eb67d.html">factory</a></li>  </ul>
 </div>
 </div><!-- top -->
-<div id="u5svfwvj">
+<div id="csqlrdue">
 <div class="header">
   <div class="headertitle"><div class="title">factorynonlinearmodel.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="4lda1ncy" >[Link]</a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="yz7tgokv" >[Link]</a><span class="lineno">    2</span><span class="preprocessor">#include &quot;ifactorymodel.hpp&quot;</span></div>
-<div class="line"><a id="uzprpz75" >[Link]</a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../model/nonlinearmodel.hpp&quot;</span></div>
-<div class="line"><a id="jv3kd3vo" >[Link]</a><span class="lineno">    4</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a id="myu5z3ng" >[Link]</a><span class="lineno">    5</span></div>
-<div class="foldopen" id="npohkeza" data-start="{" data-end="};">
-<div class="line"><a id="mojvqr4y" >[Link]</a><span class="lineno"><a class="line" href="class_factory_non_linear_model.html">    9</a></span><span class="keyword">class </span><a class="code hl_function" href="class_factory_non_linear_model.html#a443fdad0982aa8aef906787d7be20bac">FactoryNonLinearModel</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_i_factory_model.html">IFactoryModel</a></div>
-<div class="line"><a id="njwb5u7f" >[Link]</a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="uov1fsyy" >[Link]</a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="k3t5qtf4" >[Link]</a><span class="lineno"><a class="line" href="class_factory_non_linear_model.html#a443fdad0982aa8aef906787d7be20bac">   15</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_factory_non_linear_model.html#a443fdad0982aa8aef906787d7be20bac">FactoryNonLinearModel</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="rdcyz9ah" >[Link]</a><span class="lineno"><a class="line" href="class_factory_non_linear_model.html#a2d24e63ec60337e62ee82c67ebc83da1">   19</a></span>    <a class="code hl_function" href="class_factory_non_linear_model.html#a2d24e63ec60337e62ee82c67ebc83da1">~FactoryNonLinearModel</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="u4wutggb" >[Link]</a><span class="lineno">   20</span></div>
-<div class="foldopen" id="dtuhxmk8" data-start="{" data-end="}">
-<div class="line"><a id="spluhgc4" >[Link]</a><span class="lineno"><a class="line" href="class_factory_non_linear_model.html#a6378a67bacb2a8da165505e30af54a77">   26</a></span>    std::unique_ptr&lt;ISimulatedModel&gt; <a class="code hl_function" href="class_factory_non_linear_model.html#a6378a67bacb2a8da165505e30af54a77">getDefaultModel</a>()<span class="keyword"> const override</span></div>
-<div class="line"><a id="qh39ov50" >[Link]</a><span class="lineno">   27</span><span class="keyword">    </span>{ </div>
-<div class="line"><a id="sgn3pf5z" >[Link]</a><span class="lineno">   28</span>        <span class="keyword">constexpr</span> <span class="keywordtype">double</span> DEFUALT_A = 0.5;</div>
-<div class="line"><a id="t5wkdqjc" >[Link]</a><span class="lineno">   29</span>        <span class="keyword">constexpr</span> <span class="keywordtype">double</span> DEFUALT_B = 0.5;</div>
-<div class="line"><a id="dfdw834q" >[Link]</a><span class="lineno">   30</span>        <span class="keyword">constexpr</span> <span class="keywordtype">double</span> DEFUALT_C = 0.5;</div>
-<div class="line"><a id="3i0nsm5i" >[Link]</a><span class="lineno">   31</span>        <span class="keyword">constexpr</span> <span class="keywordtype">double</span> DEFUALT_D = 0.5;</div>
-<div class="line"><a id="uhwzn03x" >[Link]</a><span class="lineno">   32</span>        <span class="keywordflow">return</span> std::make_unique&lt;NonLinearModel&gt;(DEFUALT_A, DEFUALT_B, DEFUALT_C, DEFUALT_D); </div>
-<div class="line"><a id="z9ts2axt" >[Link]</a><span class="lineno">   33</span>    }</div>
+<div class="fragment"><div class="line"><a id="e3iry4q5" >[Link]</a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<button class="line"><a id="yz7tgokv" >[Link]</a><span class="lineno">    2</span><span class="preprocessor">#include &quot;ifactorymodel.hpp&quot;</span></button><a id="lbox6neg" >[Link]</a><span class="lineno">    2</span><span class="preprocessor">#include &quot;ifactorymodel.hpp&quot;</span></div>
+<div class="line"><a id="xpjzk3zl" >[Link]</a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../model/nonlinearmodel.hpp&quot;</span></div>
+<div class="line"><a id="maqiizie" >[Link]</a><span class="lineno">    4</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="o5npbxv4" >[Link]</a><span class="lineno">    5</span></div>
+<div class="foldopen" id="l4e98jb6" data-start="{" data-end="};">
+<div class="line"><a id="1wke9cdm" >[Link]</a><span class="lineno"><a class="line" href="class_factory_non_linear_model.html">    9</a></span><span class="keyword">class </span><a class="code hl_function" href="class_factory_non_linear_model.html#a443fdad0982aa8aef906787d7be20bac">FactoryNonLinearModel</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_i_factory_model.html">IFactoryModel</a></div>
+<div class="line"><a id="0gyahq64" >[Link]</a><span class="lineno">   10</span>{</div>
+<div class="line"><a id="jz0xlxft" >[Link]</a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="2wh4j6hh" >[Link]</a><span class="lineno"><a class="line" href="class_factory_non_linear_model.html#a443fdad0982aa8aef906787d7be20bac">   15</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_factory_non_linear_model.html#a443fdad0982aa8aef906787d7be20bac">FactoryNonLinearModel</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="nfg6jt0w" >[Link]</a><span class="lineno"><a class="line" href="class_factory_non_linear_model.html#a2d24e63ec60337e62ee82c67ebc83da1">   19</a></span>    <a class="code hl_function" href="class_factory_non_linear_model.html#a2d24e63ec60337e62ee82c67ebc83da1">~FactoryNonLinearModel</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="bgayizbh" >[Link]</a><span class="lineno">   20</span></div>
+<div class="foldopen" id="aqinq9og" data-start="{" data-end="}">
+<div class="line"><a id="w480k9qd" >[Link]</a><span class="lineno"><a class="line" href="class_factory_non_linear_model.html#a6378a67bacb2a8da165505e30af54a77">   26</a></span>    std::unique_ptr&lt;ISimulatedModel&gt; <a class="code hl_function" href="class_factory_non_linear_model.html#a6378a67bacb2a8da165505e30af54a77">getDefaultModel</a>()<span class="keyword"> const override</span></div>
+<div class="line"><a id="i7tjbask" >[Link]</a><span class="lineno">   27</span><span class="keyword">    </span>{ </div>
+<div class="line"><a id="32mc0tge" >[Link]</a><span class="lineno">   28</span>        <span class="keyword">constexpr</span> <span class="keywordtype">double</span> DEFUALT_A = 0.5;</div>
+<div class="line"><a id="xmokajd3" >[Link]</a><span class="lineno">   29</span>        <span class="keyword">constexpr</span> <span class="keywordtype">double</span> DEFUALT_B = 0.5;</div>
+<div class="line"><a id="d65y6zyb" >[Link]</a><span class="lineno">   30</span>        <span class="keyword">constexpr</span> <span class="keywordtype">double</span> DEFUALT_C = 0.5;</div>
+<div class="line"><a id="zrl62b5q" >[Link]</a><span class="lineno">   31</span>        <span class="keyword">constexpr</span> <span class="keywordtype">double</span> DEFUALT_D = 0.5;</div>
+<div class="line"><a id="is5c875e" >[Link]</a><span class="lineno">   32</span>        <span class="keywordflow">return</span> std::make_unique&lt;NonLinearModel&gt;(DEFUALT_A, DEFUALT_B, DEFUALT_C, DEFUALT_D); </div>
+<div class="line"><a id="q43mpxly" >[Link]</a><span class="lineno">   33</span>    }</div>
 </div>
-<div class="line"><a id="4f864z1h" >[Link]</a><span class="lineno">   34</span> </div>
-<div class="line"><a id="dexp7apl" >[Link]</a><span class="lineno">   35</span>};</div>
+<div class="line"><a id="c1jioc1b" >[Link]</a><span class="lineno">   34</span> </div>
+<div class="line"><a id="h590lt8p" >[Link]</a><span class="lineno">   35</span>};</div>
 </div>
-<div class="ttc" id="phxpqd5p"><div class="ttname"><a href="class_factory_non_linear_model.html#a2d24e63ec60337e62ee82c67ebc83da1">FactoryNonLinearModel::~FactoryNonLinearModel</a></div><div class="ttdeci">~FactoryNonLinearModel() override=default</div><div class="ttdoc">Virtual destructor for safe polymorphic usage.</div></div>
-<div class="ttc" id="0xnb7vpx"><div class="ttname"><a href="class_factory_non_linear_model.html#a443fdad0982aa8aef906787d7be20bac">FactoryNonLinearModel::FactoryNonLinearModel</a></div><div class="ttdeci">FactoryNonLinearModel()=default</div><div class="ttdoc">Default constructor.</div></div>
-<div class="ttc" id="kzra06lu"><div class="ttname"><a href="class_factory_non_linear_model.html#a6378a67bacb2a8da165505e30af54a77">FactoryNonLinearModel::getDefaultModel</a></div><div class="ttdeci">std::unique_ptr&lt; ISimulatedModel &gt; getDefaultModel() const override</div><div class="ttdoc">Creates and returns a default NonLinearModel.</div><div class="ttdef"><b>Definition</b> factorynonlinearmodel.hpp:26</div></div>
-<div class="ttc" id="2xg5p66u"><div class="ttname"><a href="class_i_factory_model.html">IFactoryModel</a></div><div class="ttdoc">Interface for factory classes that produce simulated models.</div><div class="ttdef"><b>Definition</b> ifactorymodel.hpp:12</div></div>
+<div class="ttc" id="9tro4efb"><div class="ttname"><a href="class_factory_non_linear_model.html#a2d24e63ec60337e62ee82c67ebc83da1">FactoryNonLinearModel::~FactoryNonLinearModel</a></div><div class="ttdeci">~FactoryNonLinearModel() override=default</div><div class="ttdoc">Virtual destructor for safe polymorphic usage.</div></div>
+<div class="ttc" id="wfboo6qj"><div class="ttname"><a href="class_factory_non_linear_model.html#a443fdad0982aa8aef906787d7be20bac">FactoryNonLinearModel::FactoryNonLinearModel</a></div><div class="ttdeci">FactoryNonLinearModel()=default</div><div class="ttdoc">Default constructor.</div></div>
+<div class="ttc" id="19qfqk6p"><div class="ttname"><a href="class_factory_non_linear_model.html#a6378a67bacb2a8da165505e30af54a77">FactoryNonLinearModel::getDefaultModel</a></div><div class="ttdeci">std::unique_ptr&lt; ISimulatedModel &gt; getDefaultModel() const override</div><div class="ttdoc">Creates and returns a default NonLinearModel.</div><div class="ttdef"><b>Definition</b> factorynonlinearmodel.hpp:26</div></div>
+<div class="ttc" id="rgpwxain"><div class="ttname"><a href="class_i_factory_model.html">IFactoryModel</a></div><div class="ttdoc">Interface for factory classes that produce simulated models.</div><div class="ttdef"><b>Definition</b> ifactorymodel.hpp:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
