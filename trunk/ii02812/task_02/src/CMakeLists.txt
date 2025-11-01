@@ -6,4 +6,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(PROJECT_SOURCES main.cpp functions.cpp)
 
-add_executable(${CMAKE_PROJECT_NAME} ${PROJECT_SOURCES})
+add_executable(task_02_ii02812_source ${PROJECT_SOURCES})
