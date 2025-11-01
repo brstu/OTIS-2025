@@ -16,12 +16,12 @@ TEST(LinearModelTest, NegativeValues) {
 
 TEST(NonLinearModelTest, BasicCalculation) {
     double res = nonlinear_model(1.0, 1.0, 1.0, 0.0, 2.0, 3.0, 1.0, 0.0);
-    EXPECT_NEAR(res, 1.0 * 3.0 - 1.0 * 4.0 + 1.0 * 1.0 + 0.0, 1e-9);
+    EXPECT_NEAR(res, 1.0 * 3.0 - 1.0 * pow(2.0, 2) + 1.0 * 1.0 + 0.0 * sin(0.0), 1e-9);
 }
 
 TEST(NonLinearModelTest, IncludesSineTerm) {
     double res1 = nonlinear_model(1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, M_PI / 2);
-    EXPECT_NEAR(res1, 1.0 * 1.0 + 1.0 * sin(M_PI / 2), 1e-9);
+    EXPECT_NEAR(res1, 1.0 * 1.0 - 0.0 * 0.0 + 0.0 * 0.0 + 1.0 * sin(M_PI / 2), 1e-9);
 }
 
 TEST(NonLinearModelTest, NegativeInput) {
