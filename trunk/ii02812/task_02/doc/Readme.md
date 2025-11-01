@@ -52,7 +52,7 @@ TEST(NonLinearModelTest, BasicCalculation) {
 
 TEST(NonLinearModelTest, IncludesSineTerm) {
     double res1 = nonlinear_model(1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, M_PI / 2);
-    EXPECT_NEAR(res1, 1.0 * 1.0 + 1.0 * sin(M_PI / 2), 1e-9);
+    EXPECT_NEAR(res1, 1.0 * 1.0 - 0.0 * 0.0 + 0.0 * 0.0 + 1.0 * sin(M_PI / 2), 1e-9);
 }
 
 TEST(NonLinearModelTest, NegativeInput) {
