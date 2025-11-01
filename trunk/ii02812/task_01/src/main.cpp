@@ -1,5 +1,5 @@
-#include  <iostream>
-#include  <cmath>
+#include <iostream>
+#include <cmath>
 #include <limits>
 #include <string>
 
@@ -13,7 +13,7 @@ void Number_Check(N& number, const std::string& message) {
 	}
 }
 
-int  main()
+int main()
 {
 	double y_lin_prev = 0;
 	double y_lin_next = 0;
@@ -24,10 +24,10 @@ int  main()
 	double c = 0;
 	double d = 0;
 
-	int  n = 0;
+	int n = 0;
 
 	Number_Check(y_lin_prev, "Enter input temperature (y): ");
-	Number_Check(u, "Enter input warm (u): ");
+	Number_Check(u, "Enter input warmth (u): ");
 	double y_nonlin_0 = 0;
 	double y_nonlin_1 = y_lin_prev;
 	double y_nonlin_2 = 0;
@@ -41,7 +41,7 @@ int  main()
 	{
 		y_lin_next = a * y_lin_prev + b * u;
 		y_lin_prev = y_lin_next;
-		y_nonlin_2 = a * y_nonlin_1 - b * pow(y_nonlin_0, 2) + c * u + d * sin(u_prev);
+		y_nonlin_2 = a * y_nonlin_1 - b * (y_nonlin_0 * y_nonlin_0) + c * u + d * sin(u_prev);
 		y_nonlin_0 = y_nonlin_1;
 		y_nonlin_1 = y_nonlin_2;
 		u_prev = u;
@@ -50,5 +50,5 @@ int  main()
 			<< ", temp of nonlinear function = " << y_nonlin_2 << std::endl;
 	}
 
-	return  0;
+	return 0;
 }

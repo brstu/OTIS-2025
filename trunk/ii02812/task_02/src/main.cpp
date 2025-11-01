@@ -16,7 +16,7 @@ void Number_Check(N& number, const std::string& message) {
 
 int  main()
 {
-	std::cout << "Hello, i glad to see you :)" << '\n';
+	std::cout << "Hello, I'm glad to see you :)" << '\n';
 	int  steps = 0;
 	double c = 0;
 	double d = 0;
