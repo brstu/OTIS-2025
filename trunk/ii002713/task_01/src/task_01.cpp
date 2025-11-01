@@ -27,7 +27,7 @@ void simulateLinear(double a, double b, double u, int steps) {
 
 // нелинейная модель
 double Nonlinear(const NonlinearParams& p, double u, double uPrev, double y, double yPrev) {
-    return p.a * y - p.b * (yPrev * yPrev) + p.c * u + p.d * sin(uPrev);
+    return p.a * y - p.b * (yPrev * yPrev) + p.c * u + p.d * std::sin(uPrev);
 }
 
 // симуляция нелинейной модели
