@@ -14,7 +14,7 @@
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
-<table  ><th></th><th></th><th></th>
+<table  ><th></th><th></th><th></th><th></th><th></th><th></th>
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
@@ -70,7 +70,7 @@ Inheritance diagram for ISimulatedModel:</div>
 <area href="class_non_linear_model.html" title="Class for representing NonLinearModel." alt="NonLinearModel" shape="rect" coords="116,56,222,80"/>
   </map>
 </div></div>
-<table class="memberdecls"><th></th><th></th><th></th>
+<table class="memberdecls"><th></th><th></th><th></th><th></th><th></th><th></th>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" >[Link]</a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a633bd4274072567356203c7f624e464e" id="r_a633bd4274072567356203c7f624e464e"><td class="memItemLeft"  ><a id="a633bd4274072567356203c7f624e464e" >[Link]</a>
@@ -90,10 +90,10 @@ virtual&#160;</td><td class="memItemRight" ><b>~ISimulatedModel</b> ()=default</
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels"><th></th><th></th><th></th>
+<table class="mlabels"><th></th><th></th><th></th><th></th><th></th><th></th>
   <tr>
   <td class="mlabels-left">
-      <table class="memname"><th></th><th></th><th></th>
+      <table class="memname"><th></th><th></th><th></th><th></th><th></th><th></th>
         <tr>
           <td class="memname">virtual std::vector&lt; double &gt; ISimulatedModel::simulate </td>
           <td>(</td>
@@ -115,11 +115,26 @@ virtual&#160;</td><td class="memItemRight" ><b>~ISimulatedModel</b> ()=default</
 <span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
-</div><div class="memdoc">
+</div><button class="memdoc">
 
 <p>Computes a vector of calculated temperatures &amp; returns it according to y, u, t. </p>
 <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params"><th></th><th></th><th></th>
+  <table class="params"><th></th><th></th><th></th><th></th><th></th>
+    <tr><td class="paramname">y</td><td>Initial temperature. </td></tr>
+    <tr><td class="paramname">u</td><td>Input warm. </td></tr>
+    <tr><td class="paramname">t</td><td>Time step at which vector of calculated temperatures is computed.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of calculated temperatures. </dd></dl>
+
+<p>Implemented in <a class="el" href="class_linear_model.html#a5416ffa606a5a9b75beb3c33536bf410">LinearModel</a>, and <a class="el" href="class_non_linear_model.html#ac4ec5911cf8264c0a7bc00fb107c1685">NonLinearModel</a>.</p>
+
+</button>
+
+<p>Computes a vector of calculated temperatures &amp; returns it according to y, u, t. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params"><th></th><th></th><th></th><th></th><th></th><th></th>
     <tr><td class="paramname">y</td><td>Initial temperature. </td></tr>
     <tr><td class="paramname">u</td><td>Input warm. </td></tr>
     <tr><td class="paramname">t</td><td>Time step at which vector of calculated temperatures is computed.</td></tr>
@@ -137,10 +152,10 @@ virtual&#160;</td><td class="memItemRight" ><b>~ISimulatedModel</b> ()=default</
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels"><th></th><th></th><th></th>
+<table class="mlabels"><th></th><th></th><th></th><th></th><th></th><th></th>
   <tr>
   <td class="mlabels-left">
-      <table class="memname"><th></th><th></th><th></th>
+      <table class="memname"><th></th><th></th><th></th><th></th><th></th><th></th>
         <tr>
           <td class="memname">virtual double ISimulatedModel::step </td>
           <td>(</td>
@@ -157,7 +172,7 @@ virtual&#160;</td><td class="memItemRight" ><b>~ISimulatedModel</b> ()=default</
 
 <p>Calculates next temperature (y) according to the model's formula and returns it. </p>
 <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params"><th></th><th></th><th></th>
+  <table class="params"><th></th><th></th><th></th><th></th><th></th><th></th>
     <tr><td class="paramname">u</td><td>Input warm.</td></tr>
   </table>
   </dd>
