@@ -175,16 +175,7 @@ let codefold = {
       $(line).removeClass('glow');
       if (start) {
         // if line already ends with a start marker (e.g. trailing {), remove it
-        function escapeRegExp(str) {
-          return str.replaceAll(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        }
 
-        const safeStart = escapeRegExp(start);
-        const re = new RegExp(String.raw`\s*${safeStart}\s*$`, 'g');
-
-        const $el = $(line);
-        const html = $el.html();
-        $el.html(html.replace(re, ''));
       }
       // replace minus with plus symbol
       $(line).find('span[class=fold]').addClass('plus').removeClass('minus');
