@@ -17,16 +17,16 @@ void Number_Check(N& number, const std::string& message) {
 int  main()
 {
 	std::cout << "Hello, i glad to see you :)" << '\n';
-	double y_lin_prev = 0;
-	double y_lin_next = 0;
-	double u = 0;
-	double u_prev = 0;
-	double a = 0;
-	double b = 0;
+	int  steps = 0;
 	double c = 0;
 	double d = 0;
+	double a = 0;
+	double b = 0;
+	double u = 0;
+	double u_prev = 0;
+	double y_lin_prev = 0;
+	double y_lin_next = 0;
 
-	int  n = 0;
 
 	Number_Check(y_lin_prev, "Enter input temperature (y): ");
 	Number_Check(u, "Enter input warm (u): ");
@@ -34,19 +34,23 @@ int  main()
 	Number_Check(b, "Enter constant b: ");
 	Number_Check(c, "Enter constant c: ");
 	Number_Check(d, "Enter constant d: ");
-	Number_Check(n, "Enter an amount of steps (n): ");
+	Number_Check(steps, "Enter an amount of steps: ");
 
 	double y_nonlin_0 = 0;
 	double y_nonlin_1 = y_lin_prev;
 	double y_nonlin_2 = 0;
 
 
-	for (int i = 1; i <= n; i++)
+	for (int i = 1; i <= steps; i++)
 	{
 		y_lin_prev = linear_model(a, b, y_lin_prev, u);
+
 		y_nonlin_2 = a * y_nonlin_1 - b * std::pow(y_nonlin_0, 2) + c * u + d * std::sin(u_prev);
+
 		y_nonlin_0 = y_nonlin_1;
+
 		y_nonlin_1 = y_nonlin_2;
+
 		u_prev = u;
 		std::cout << "Step " << i
 			<< ", temp of linear function = " << y_lin_next
