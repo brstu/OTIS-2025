@@ -6,6 +6,6 @@ double linear_model(double a, double b, double y_prev, double u) {
 }
 
 double nonlinear_model(double a, double b, double c, double d,
-    double y0, double y1, double u) {
-    return a * y1 - b * std::pow(y0, 2) + c * u + d * std::sin(u);
+    double y0, double y1, double u, double u_prev) {
+    return a * y1 - b * std::pow(y0, 2) + c * u + d * std::sin(u_prev);
 }
