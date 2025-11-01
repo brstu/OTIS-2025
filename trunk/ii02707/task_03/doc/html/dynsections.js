@@ -176,7 +176,7 @@ let codefold = {
       if (start) {
         // if line already ends with a start marker (e.g. trailing {), remove it
         function escapeRegExp(str) {
-          return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          return str.replaceAll(/[.*+?^${}()|[\]\\]/g, '\\$&');
         }
 
         const safeStart = escapeRegExp(start);
