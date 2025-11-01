@@ -53,7 +53,7 @@ int  main()
 
 		u_prev = u;
 		std::cout << "Step " << i
-			<< ", temp of linear function = " << y_lin_next
+			<< ", temp of linear function = " << y_lin_prev
 			<< ", temp of nonlinear function = " << y_nonlin_2 << std::endl;
 	}
 	std::cout << "Thanks for using this program! :D" << '\n';
