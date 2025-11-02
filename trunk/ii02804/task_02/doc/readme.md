@@ -85,6 +85,6 @@ TEST(NonLinearModelTest, SinusoidalEffect) {
 
 ```
 ## Результаты тестирования ##
-![Результаты тестирования:](<img width="602" height="355" alt="image" src="https://github.com/user-attachments/assets/5f8cbdca-5b77-4b9f-adeb-8a20d8b2d45b" />)
+![Результаты тестирования:](https://github.com/tgoyshik/OTIS-2025/blob/task_02/trunk/ii02804/task_02/doc/images/img1.png)
 ## Покрытие тестами (OpenCppCoverage) ##
 ![Покрытие тестами:](images/img2.png)
