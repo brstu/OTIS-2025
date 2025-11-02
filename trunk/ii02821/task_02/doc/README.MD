@@ -71,7 +71,7 @@ TEST(NonlinearModelTest, ComplexCase) {
     EXPECT_NEAR(result, expected, 1e-6);
 }
 
-// Тесты для симуляции (используем твои настоящие функции)
+// Тесты для симуляции
 TEST(SimulationTest, LinearSimulationRuns) {
     EXPECT_NO_THROW(simulateLinearVec(0.3, 0.3, 0.9, 5));
 }
@@ -95,7 +95,7 @@ TEST(SimulationTest, NonlinearSimulationSize) {
 ```
 ## Результаты юнит-тестирования (GoogleTest)
 ```txt
-[==========] Running 8 tests from 3 test suites.
+[==========] Running 10 tests from 3 test suites.
 [----------] Global test environment set-up.
 [----------] 3 tests from LinearModelTest
 [ RUN      ] LinearModelTest.ZeroInitialValue
@@ -104,7 +104,7 @@ TEST(SimulationTest, NonlinearSimulationSize) {
 [       OK ] LinearModelTest.WithNonZeroY (0 ms)
 [ RUN      ] LinearModelTest.NegativeValues
 [       OK ] LinearModelTest.NegativeValues (0 ms)
-[----------] 3 tests from LinearModelTest (14 ms total)
+[----------] 3 tests from LinearModelTest (0 ms total)
 
 [----------] 3 tests from NonlinearModelTest
 [ RUN      ] NonlinearModelTest.ZeroInitialValues
@@ -113,32 +113,25 @@ TEST(SimulationTest, NonlinearSimulationSize) {
 [       OK ] NonlinearModelTest.WithPreviousValues (0 ms)
 [ RUN      ] NonlinearModelTest.ComplexCase
 [       OK ] NonlinearModelTest.ComplexCase (0 ms)
-[----------] 3 tests from NonlinearModelTest (9 ms total)
-
-[----------] 2 tests from SimulationTest
+[----------] 3 tests from NonlinearModelTest (1 ms total)
+[----------] 4 tests from SimulationTest
 [ RUN      ] SimulationTest.LinearSimulationRuns
-Линейная модель
-τ=0: y=0
-τ=1: y=0.27
-τ=2: y=0.351
-τ=3: y=0.3753
-[       OK ] SimulationTest.LinearSimulationRuns (27 ms)
+[       OK ] SimulationTest.LinearSimulationRuns (0 ms)
 [ RUN      ] SimulationTest.NonlinearSimulationRuns
-τ=0: y=0
-τ=1: y=0
-τ=2: y=0.463471
-τ=3: y=0.509818
-τ=4: y=0.471492
-[       OK ] SimulationTest.NonlinearSimulationRuns (2 ms)
-[----------] 2 tests from SimulationTest (35 ms total)
+[       OK ] SimulationTest.NonlinearSimulationRuns (0 ms)
+[ RUN      ] SimulationTest.LinearSimulationValues
+[       OK ] SimulationTest.LinearSimulationValues (0 ms)
+[ RUN      ] SimulationTest.NonlinearSimulationSize
+[       OK ] SimulationTest.NonlinearSimulationSize (0 ms)
+[----------] 4 tests from SimulationTest (1 ms total)
 
 [----------] Global test environment tear-down
-[==========] 8 tests from 3 test suites ran. (75 ms total)
-[  PASSED  ] 8 tests.
+[==========] 10 tests from 3 test suites ran. (5 ms total)
+[  PASSED  ] 10 tests.
 
 ```
-```txt
 ## Покрытие тестами (gcovr)
+```txt
                            GCC Code Coverage Report
 Directory: ../src
 ------------------------------------------------------------------------------

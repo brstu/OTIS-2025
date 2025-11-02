@@ -37,7 +37,7 @@ TEST(NonlinearModelTest, ComplexCase) {
     EXPECT_NEAR(result, expected, 1e-6);
 }
 
-// Тесты для симуляции (используем твои настоящие функции)
+// Тесты для симуляции
 TEST(SimulationTest, LinearSimulationRuns) {
     EXPECT_NO_THROW(simulateLinearVec(0.3, 0.3, 0.9, 5));
 }

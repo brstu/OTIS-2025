@@ -40,30 +40,3 @@ std::vector<double> simulateNonlinearVec(double a, double b, double c, double d,
     }
     return y;
 }
-
-// Старые функции оставляем для обратной совместимости (если нужно)
-void simulateLinear(double a, double b, double u, int steps) {
-    std::cout << "Линейная модель" << std::endl;
-    double y = 0.0;
-    for (int i = 0; i < steps; i++) {
-        y = nextLinear(a, b, u, y);
-        std::cout << "τ=" << i << ": y=" << y << std::endl;
-    }
-}
-
-void simulateNonlinear(double a, double b, double c, double d, double u, int steps) {
-    std::cout << "Нелинейная модель" << std::endl;
-    double y = 0.0;
-    double y_prev = 0.0;
-    double u_prev = 0.0;
-    
-    NonlinearParams params{a, b, c, d};
-    
-    for (int i = 0; i < steps; i++) {
-        double y_next = nextNonlinear(params, u_prev, y, y_prev);
-        std::cout << "τ=" << i << ": y=" << y_next << std::endl;
-        y_prev = y;
-        y = y_next;
-        u_prev = u; 
-    }
-}
