@@ -1,0 +1,14 @@
+# Target labels
+ googletest-populate
+# Source files and their labels
+D:/OTIS-2025/trunk/ii02804/task_02/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate
+D:/OTIS-2025/trunk/ii02804/task_02/build/_deps/googletest-subbuild/CMakeFiles/f9ba96eee2123535e41237be42b4e2db/googletest-populate.rule
+D:/OTIS-2025/trunk/ii02804/task_02/build/_deps/googletest-subbuild/CMakeFiles/cdf644f6dea01f11cd6dd7dc4034c535/googletest-populate-complete.rule
+D:/OTIS-2025/trunk/ii02804/task_02/build/_deps/googletest-subbuild/CMakeFiles/c5d4124c840cd6493cab1abe3586f4ab/googletest-populate-build.rule
+D:/OTIS-2025/trunk/ii02804/task_02/build/_deps/googletest-subbuild/CMakeFiles/c5d4124c840cd6493cab1abe3586f4ab/googletest-populate-configure.rule
+D:/OTIS-2025/trunk/ii02804/task_02/build/_deps/googletest-subbuild/CMakeFiles/c5d4124c840cd6493cab1abe3586f4ab/googletest-populate-download.rule
+D:/OTIS-2025/trunk/ii02804/task_02/build/_deps/googletest-subbuild/CMakeFiles/c5d4124c840cd6493cab1abe3586f4ab/googletest-populate-install.rule
+D:/OTIS-2025/trunk/ii02804/task_02/build/_deps/googletest-subbuild/CMakeFiles/c5d4124c840cd6493cab1abe3586f4ab/googletest-populate-mkdir.rule
+D:/OTIS-2025/trunk/ii02804/task_02/build/_deps/googletest-subbuild/CMakeFiles/c5d4124c840cd6493cab1abe3586f4ab/googletest-populate-patch.rule
+D:/OTIS-2025/trunk/ii02804/task_02/build/_deps/googletest-subbuild/CMakeFiles/c5d4124c840cd6493cab1abe3586f4ab/googletest-populate-test.rule
+D:/OTIS-2025/trunk/ii02804/task_02/build/_deps/googletest-subbuild/CMakeFiles/c5d4124c840cd6493cab1abe3586f4ab/googletest-populate-update.rule

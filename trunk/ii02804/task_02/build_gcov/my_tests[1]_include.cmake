@@ -1,0 +1,5 @@
+if(EXISTS "D:/OTIS-2025/trunk/ii02804/task_02/build_gcov/my_tests[1]_tests.cmake")
+  include("D:/OTIS-2025/trunk/ii02804/task_02/build_gcov/my_tests[1]_tests.cmake")
+else()
+  add_test(my_tests_NOT_BUILT my_tests_NOT_BUILT)
+endif()

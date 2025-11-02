@@ -1,0 +1,10 @@
+^D:\OTIS-2025\TRUNK\II02804\TASK_02\BUILD\_DEPS\GOOGLETEST-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/OTIS-2025/trunk/ii02804/task_02/build/_deps/googletest-subbuild -BD:/OTIS-2025/trunk/ii02804/task_02/build/_deps/googletest-subbuild --check-stamp-file D:/OTIS-2025/trunk/ii02804/task_02/build/_deps/googletest-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

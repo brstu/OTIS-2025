@@ -34,15 +34,10 @@
 .DS_Store
 .vs/
 out/
-build/
+/build/
 .idea/
 cmake-build-debug/
 
 # Coverage files
 *.gcda
 *.gcno
-
-# Local build folders
-build_src/
-build_test/
-build_gcov/
