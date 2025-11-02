@@ -29,69 +29,62 @@
 5. Также необходимо отразить выполнение работы в общем файле [`readme.md`](https://github.com/brstu/OTIS-2025/blob/main/README.md) в соответствующей строке (например, для студента под порядковым номером 1 - https://github.com/brstu/OTIS-2025/blob/b2d60c2765b369aed21af76af8fa4461da2c8da6/README.md?plain=1#L13).
 ## Код модульных тестов ##
 ```
-#define  _USE_MATH_DEFINES
-#include  <gtest/gtest.h>
-#include  "../src/task_01.h"
-#include  <cmath>
+#define _USE_MATH_DEFINES
+#include <gtest/gtest.h>
+#include "../src/task_01.h"
+#include <cmath>
 
-TEST(LinearModelTest, BasicCase)
-{
-double  y  =  2.0;
-double  u  =  3.0;
-double  a  =  1.5;
-double  b  =  -0.5;
-double  expected  =  a  *  y  +  b  *  u;
-EXPECT_DOUBLE_EQ(linear(y, u, a, b), expected);
+TEST(LinearModelTest, BasicCase) {
+    double y = 2.0;
+    double u = 3.0;
+    double a = 1.5;
+    double b = -0.5;
+    double expected = a * y + b * u;
+    EXPECT_DOUBLE_EQ(linear(y, u, a, b), expected);
 }
 
-TEST(LinearModelTest, ZeroCoefficients)
-{
-EXPECT_DOUBLE_EQ(linear(5.0, 4.0, 0.0, 0.0), 0.0);
+TEST(LinearModelTest, ZeroCoefficients) {
+    EXPECT_DOUBLE_EQ(linear(5.0, 4.0, 0.0, 0.0), 0.0);
 }
 
-TEST(LinearModelTest, NegativeInputs)
-{
-EXPECT_DOUBLE_EQ(linear(-2.0, -3.0, 1.0, 2.0), -2.0  + (-3.0  *  2.0));
-} 
-
-TEST(NonLinearModelTest, BasicCase)
-{
-double  y  =  1.0;
-double  y_p  =  0.0;
-double  u  =  0.5;
-double  a  =  2.0;
-double  b  =  1.0;
-double  c  =  0.5;
-double  d  =  1.0;
-
-double  expected  =  a  *  y  -  b  *  y  *  y  +  c  *  u  +  d  *  std::sin(u);
-double  result  =  non_linear(y, y_p, u, a, b, c, d);
-
-EXPECT_DOUBLE_EQ(result, expected);
-EXPECT_DOUBLE_EQ(y_p, y);
+TEST(LinearModelTest, NegativeInputs) {
+    EXPECT_DOUBLE_EQ(linear(-2.0, -3.0, 1.0, 2.0), -2.0 + (-3.0 * 2.0));
 }
 
-  
+TEST(NonLinearModelTest, BasicCase) {
+    double y = 1.0;
+    double y_p = 0.0;
+    double u = 0.5;
+    double a = 2.0;
+    double b = 1.0;
+    double c = 0.5;
+    double d = 1.0;
 
-TEST(NonLinearModelTest, ZeroCoefficients)
-{
-double  y  =  2.0;
-double  y_p  =  0.0;
-double  u  =  1.0;
-double  result  =  non_linear(y, y_p, u, 0.0, 0.0, 0.0, 0.0);
-EXPECT_DOUBLE_EQ(result, 0.0);
+    double expected = a * y - b * y * y + c * u + d * std::sin(u);
+    double result = non_linear(y, y_p, u, a, b, c, d);
+
+    EXPECT_DOUBLE_EQ(result, expected);
+    EXPECT_DOUBLE_EQ(y_p, y);
 }
 
-TEST(NonLinearModelTest, SinusoidalEffect)
-{
-double  y  =  0.0;
-double  y_p  =  0.0;
-double  u  =  M_PI  /  2;
-double  result  =  non_linear(y, y_p, u, 0.0, 0.0, 0.0, 2.0);
-EXPECT_DOUBLE_EQ(result, 2.0);
+TEST(NonLinearModelTest, ZeroCoefficients) {
+    double y = 2.0;
+    double y_p = 0.0;
+    double u = 1.0;
+    double result = non_linear(y, y_p, u, 0.0, 0.0, 0.0, 0.0);
+    EXPECT_DOUBLE_EQ(result, 0.0);
 }
+
+TEST(NonLinearModelTest, SinusoidalEffect) {
+    double y = 0.0;
+    double y_p = 0.0;
+    double u = M_PI / 2;
+    double result = non_linear(y, y_p, u, 0.0, 0.0, 0.0, 2.0);
+    EXPECT_DOUBLE_EQ(result, 2.0);
+}
+
 ```
 ## Результаты тестирования ##
-![Результаты тестирования:](images/img1.png)
+![Результаты тестирования:](<img width="602" height="355" alt="image" src="https://github.com/user-attachments/assets/5f8cbdca-5b77-4b9f-adeb-8a20d8b2d45b" />)
 ## Покрытие тестами (OpenCppCoverage) ##
 ![Покрытие тестами:](images/img2.png)
