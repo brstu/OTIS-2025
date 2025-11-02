@@ -1,8 +1,8 @@
 #define _USE_MATH_DEFINES
 #include <gtest/gtest.h>
+#include <cmath>
 #include "../src/main.h"
-// Подключаем функции из main.cpp
-
+#include <vector>
 
 TEST(LinearSimTest, BaseCase)
 {
