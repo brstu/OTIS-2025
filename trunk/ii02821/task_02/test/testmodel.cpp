@@ -37,11 +37,24 @@ TEST(NonlinearModelTest, ComplexCase) {
     EXPECT_NEAR(result, expected, 1e-6);
 }
 
-// Тесты для симуляции
+// Тесты для симуляции (используем твои настоящие функции)
 TEST(SimulationTest, LinearSimulationRuns) {
-    EXPECT_NO_THROW(simulateLinear(0.3, 0.3, 0.9, 5));
+    EXPECT_NO_THROW(simulateLinearVec(0.3, 0.3, 0.9, 5));
 }
 
 TEST(SimulationTest, NonlinearSimulationRuns) {
-    EXPECT_NO_THROW(simulateNonlinear(0.1, 0.2, 0.4, 0.2, 0.8, 5));
+    EXPECT_NO_THROW(simulateNonlinearVec(0.1, 0.2, 0.4, 0.2, 0.8, 5));
+}
+
+TEST(SimulationTest, LinearSimulationValues) {
+    auto result = simulateLinearVec(0.3, 0.3, 1.0, 3);
+    EXPECT_EQ(result.size(), 3);
+    EXPECT_NEAR(result[0], 0.0, 1e-6);
+    EXPECT_NEAR(result[1], 0.3, 1e-6);  // 0.3*0 + 0.3*1 = 0.3
+    EXPECT_NEAR(result[2], 0.39, 1e-6); // 0.3*0.3 + 0.3*1 = 0.39
+}
+
+TEST(SimulationTest, NonlinearSimulationSize) {
+    auto result = simulateNonlinearVec(0.1, 0.2, 0.4, 0.2, 0.8, 4);
+    EXPECT_EQ(result.size(), 4);
 }
