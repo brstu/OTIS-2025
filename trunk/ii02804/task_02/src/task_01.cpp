@@ -9,5 +9,5 @@ double linear(double y, double u, double a, double b) {
 // Нелинейная модель
 double non_linear(double y, double& y_p, double u, double a, double b, double c, double d) {
     y_p = y;
-    return a * y - b * y_p * y_p + c * u + d * std::sin(u);
+    return a * y - b * y * y + c * u + d * std::sin(u);
 }
