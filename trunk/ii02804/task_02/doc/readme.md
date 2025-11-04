@@ -91,6 +91,6 @@ TEST(NonLinearModel_ii02804, SinComponentOnlyWorks) {
 
 ```
 ## Результаты тестирования ##
-![Результаты тестирования:](https://github.com/tgoyshik/OTIS-2025/blob/task_02/trunk/ii02804/task_02/doc/images/img1.png)
+![Результаты тестирования:](https://github.com/tgoyshik/OTIS-2025/blob/task_02/trunk/ii02804/task_02/doc/images/img1%20.png)
 ## Покрытие тестами ##
 ![Покрытие тестами:](https://github.com/tgoyshik/OTIS-2025/blob/task_02/trunk/ii02804/task_02/doc/images/img2.png)
