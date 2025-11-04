@@ -32,13 +32,8 @@ TEST(NonLinearModelSuite, ComputesExpectedValue) {
     double c = 0.55;
     double d = 1.05;
 
-<<<<<<< Updated upstream
-    double expected = a * y - b * y_p * y_p + c * u + d * std::sin(u);
-    double result = non_linear(y, y_p, u, a, b, c, d);
-=======
     double expected = a * y - b * y * y + c * u + d * std::sin(u);
     double result = non_linear(y, y_prev, u, a, b, c, d);
->>>>>>> Stashed changes
 
     EXPECT_NEAR(result, expected, 1e-9);
     EXPECT_DOUBLE_EQ(y_prev, y);
