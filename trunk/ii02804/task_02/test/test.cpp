@@ -3,51 +3,59 @@
 #include "../src/task_01.h"
 #include <cmath>
 
-TEST(LinearModelTest, BasicCase) {
-    double y = 2.0;
-    double u = 3.0;
-    double a = 1.5;
-    double b = -0.5;
+// === Тесты линейной модели ===
+TEST(LinearModelSuite, CalculatesCorrectly) {
+    double y = 2.1;
+    double u = 3.2;
+    double a = 1.4;
+    double b = -0.6;
     double expected = a * y + b * u;
-    EXPECT_DOUBLE_EQ(linear(y, u, a, b), expected);
+
+    EXPECT_NEAR(linear(y, u, a, b), expected, 1e-9);
 }
 
-TEST(LinearModelTest, ZeroCoefficients) {
-    EXPECT_DOUBLE_EQ(linear(5.0, 4.0, 0.0, 0.0), 0.0);
+TEST(LinearModelSuite, HandlesZeroCoefficients) {
+    EXPECT_DOUBLE_EQ(linear(5.5, 4.4, 0.0, 0.0), 0.0);
 }
 
-TEST(LinearModelTest, NegativeInputs) {
-    EXPECT_DOUBLE_EQ(linear(-2.0, -3.0, 1.0, 2.0), -2.0 + (-3.0 * 2.0));
+TEST(LinearModelSuite, WorksWithNegatives) {
+    EXPECT_DOUBLE_EQ(linear(-1.5, -2.5, 1.0, 2.0), -1.5 + (-2.5 * 2.0));
 }
 
-TEST(NonLinearModelTest, BasicCase) {
-    double y = 1.0;
-    double y_p = 0.0;
-    double u = 0.5;
-    double a = 2.0;
-    double b = 1.0;
-    double c = 0.5;
-    double d = 1.0;
+// === Тесты нелинейной модели ===
+TEST(NonLinearModelSuite, ComputesExpectedValue) {
+    double y = 0.9;
+    double y_prev = 0.0;
+    double u = 0.45;
+    double a = 2.1;
+    double b = 0.95;
+    double c = 0.55;
+    double d = 1.05;
 
+<<<<<<< Updated upstream
     double expected = a * y - b * y_p * y_p + c * u + d * std::sin(u);
     double result = non_linear(y, y_p, u, a, b, c, d);
+=======
+    double expected = a * y - b * y * y + c * u + d * std::sin(u);
+    double result = non_linear(y, y_prev, u, a, b, c, d);
+>>>>>>> Stashed changes
 
-    EXPECT_DOUBLE_EQ(result, expected);
-    EXPECT_DOUBLE_EQ(y_p, y);
+    EXPECT_NEAR(result, expected, 1e-9);
+    EXPECT_DOUBLE_EQ(y_prev, y);
 }
 
-TEST(NonLinearModelTest, ZeroCoefficients) {
-    double y = 2.0;
-    double y_p = 0.0;
-    double u = 1.0;
-    double result = non_linear(y, y_p, u, 0.0, 0.0, 0.0, 0.0);
-    EXPECT_DOUBLE_EQ(result, 0.0);
+TEST(NonLinearModelSuite, ZeroCoeffsGiveZero) {
+    double y = 2.2;
+    double y_prev = 0.0;
+    double u = 1.1;
+    EXPECT_DOUBLE_EQ(non_linear(y, y_prev, u, 0, 0, 0, 0), 0.0);
 }
 
-TEST(NonLinearModelTest, SinusoidalEffect) {
+TEST(NonLinearModelSuite, SinComponentOnly) {
     double y = 0.0;
-    double y_p = 0.0;
-    double u = M_PI / 2;
-    double result = non_linear(y, y_p, u, 0.0, 0.0, 0.0, 2.0);
-    EXPECT_DOUBLE_EQ(result, 2.0);
+    double y_prev = 0.0;
+    double u = M_PI / 3;  // угол
+    double result = non_linear(y, y_prev, u, 0, 0, 0, 2.2);
+    double expected = 2.2 * std::sin(u);  // учитываем синус
+    EXPECT_NEAR(result, expected, 1e-9);
 }
