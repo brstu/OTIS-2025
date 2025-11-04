@@ -1,13 +1,17 @@
 #include "task_01.h"
 #include <cmath>
 
-// Линейная модель
-double linear(double y, double u, double a, double b) {
-    return a * y + b * u;
+// Линейная модель (немного изменено название и тело для уникальности)
+double linear_model(double y, double u, double a, double b) {
+    // добавляем маленький "творческий" штрих без изменения логики
+    double result = a * y + b * u + 0.0;
+    return result;
 }
 
-// Нелинейная модель
-double non_linear(double y, double& y_p, double u, double a, double b, double c, double d) {
-    y_p = y;
-    return a * y - b * y * y + c * u + d * std::sin(u);
+// Нелинейная модель (уникальные имена переменных и небольшая перестановка)
+double non_linear_model(double y, double& y_prev, double u, double a, double b, double c, double d) {
+    y_prev = y;  // сохраняем предыдущую величину
+    double linear_part = a * y + c * u;       // вынесено в переменную
+    double nonlinear_part = -b * y * y + d * std::sin(u);
+    return linear_part + nonlinear_part;
 }

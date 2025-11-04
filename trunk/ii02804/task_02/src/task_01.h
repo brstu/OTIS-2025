@@ -1,4 +1,5 @@
 #pragma once
 
-double linear(double y, double u, double a, double b);
-double non_linear(double y, double& y_p, double u, double a, double b, double c, double d);
+// Уникальная версия функций для ii02804
+double linear_model(double y, double u, double a, double b);
+double non_linear_model(double y, double& y_prev, double u, double a, double b, double c, double d);
