@@ -27,61 +27,67 @@
 3. Исходный код модифицированной программы разместить в каталоге: **trunk\ii0xxyy\task_02\src**.
 4. В файле `readme.md` отразить количество написанных тестов и процент покрытия кода тестами (использовать любой инструмент для анализа покрытия, например, [gcovr](https://gcovr.com/en/stable/)).
 5. Также необходимо отразить выполнение работы в общем файле [`readme.md`](https://github.com/brstu/OTIS-2025/blob/main/README.md) в соответствующей строке (например, для студента под порядковым номером 1 - https://github.com/brstu/OTIS-2025/blob/b2d60c2765b369aed21af76af8fa4461da2c8da6/README.md?plain=1#L13).
-## Код модульных тестов ##
+## Код тестов ##
 ```
 #define _USE_MATH_DEFINES
 #include <gtest/gtest.h>
 #include "../src/task_01.h"
 #include <cmath>
 
-TEST(LinearModelTest, BasicCase) {
-    double y = 2.0;
-    double u = 3.0;
+// === Тесты линейной модели (linear_model) ===
+TEST(LinearModel_ii02804, ComputesCorrectly) {
+    double y = 2.3;
+    double u = 3.7;
     double a = 1.5;
-    double b = -0.5;
+    double b = -0.8;
     double expected = a * y + b * u;
-    EXPECT_DOUBLE_EQ(linear(y, u, a, b), expected);
+
+    EXPECT_NEAR(linear_model(y, u, a, b), expected, 1e-9);
 }
 
-TEST(LinearModelTest, ZeroCoefficients) {
-    EXPECT_DOUBLE_EQ(linear(5.0, 4.0, 0.0, 0.0), 0.0);
+TEST(LinearModel_ii02804, ZeroCoefficientsReturnZero) {
+    EXPECT_DOUBLE_EQ(linear_model(5.1, 4.2, 0.0, 0.0), 0.0);
 }
 
-TEST(LinearModelTest, NegativeInputs) {
-    EXPECT_DOUBLE_EQ(linear(-2.0, -3.0, 1.0, 2.0), -2.0 + (-3.0 * 2.0));
+TEST(LinearModel_ii02804, HandlesNegativeInputs) {
+    EXPECT_DOUBLE_EQ(linear_model(-1.2, -2.3, 1.0, 2.0), -1.2 + (-2.3 * 2.0));
 }
 
-TEST(NonLinearModelTest, BasicCase) {
+// === Тесты нелинейной модели (non_linear_model) ===
+TEST(NonLinearModel_ii02804, ComputesExpectedValue) {
     double y = 1.0;
-    double y_p = 0.0;
+    double y_prev = 0.0;
     double u = 0.5;
     double a = 2.0;
     double b = 1.0;
-    double c = 0.5;
-    double d = 1.0;
+    double c = 0.6;
+    double d = 1.1;
 
-    double expected = a * y - b * y * y + c * u + d * std::sin(u);
-    double result = non_linear(y, y_p, u, a, b, c, d);
+    double linear_part = a * y + c * u;
+    double nonlinear_part = -b * y * y + d * std::sin(u);
+    double expected = linear_part + nonlinear_part;
 
-    EXPECT_DOUBLE_EQ(result, expected);
-    EXPECT_DOUBLE_EQ(y_p, y);
+    double result = non_linear_model(y, y_prev, u, a, b, c, d);
+    EXPECT_NEAR(result, expected, 1e-9);
+    EXPECT_DOUBLE_EQ(y_prev, y);
 }
 
-TEST(NonLinearModelTest, ZeroCoefficients) {
-    double y = 2.0;
-    double y_p = 0.0;
-    double u = 1.0;
-    double result = non_linear(y, y_p, u, 0.0, 0.0, 0.0, 0.0);
-    EXPECT_DOUBLE_EQ(result, 0.0);
+TEST(NonLinearModel_ii02804, ZeroCoefficientsReturnZero) {
+    double y = 2.4;
+    double y_prev = 0.0;
+    double u = 1.2;
+    EXPECT_DOUBLE_EQ(non_linear_model(y, y_prev, u, 0, 0, 0, 0), 0.0);
 }
 
-TEST(NonLinearModelTest, SinusoidalEffect) {
+TEST(NonLinearModel_ii02804, SinComponentOnlyWorks) {
     double y = 0.0;
-    double y_p = 0.0;
-    double u = M_PI / 2;
-    double result = non_linear(y, y_p, u, 0.0, 0.0, 0.0, 2.0);
-    EXPECT_DOUBLE_EQ(result, 2.0);
+    double y_prev = 0.0;
+    double u = M_PI / 4;
+    double result = non_linear_model(y, y_prev, u, 0, 0, 0, 2.5);
+    double expected = 2.5 * std::sin(u);
+    EXPECT_NEAR(result, expected, 1e-9);
 }
+
 
 ```
 ## Результаты тестирования ##
