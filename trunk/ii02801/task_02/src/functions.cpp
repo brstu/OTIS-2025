@@ -7,7 +7,7 @@ const double b = 0.1;
 const double c = 0.05;
 const double d = 0.02;
 
-std::vector<double> simulateLinear(int steps, double y_init, const std::vector<double>& u) {
+std::vector<double> simulateLinearfunc(int steps, double y_init, const std::vector<double>& u) {
     if (steps <= 0 || u.empty()) {
         return std::vector<double>();
     } else if (steps == 1) {
@@ -28,7 +28,7 @@ std::vector<double> simulateLinear(int steps, double y_init, const std::vector<d
     return y;
 }
 
-std::vector<double> simulateNonlinear(int steps, double y_init, const std::vector<double>& u) {
+std::vector<double> simulateNonlinearfunc(int steps, double y_init, const std::vector<double>& u) {
     if (steps == 0) {
         return std::vector<double>();
     } else if (steps == 1) {

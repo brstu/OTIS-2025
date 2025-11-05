@@ -7,22 +7,22 @@
 // Тесты для simulateLinear()
 // ------------------------------
 
-TEST(SimulateLinearTest, HandlesEmptyInput) {
+TEST(SimulateLinearfuncTest, HandlesEmptyInput) {
     std::vector<double> u;
-    auto result = simulateLinear(5, 10.0, u);
+    auto result = simulateLinearfunc(5, 10.0, u);
     EXPECT_TRUE(result.empty());
 }
 
-TEST(SimulateLinearTest, HandlesSingleStep) {
+TEST(SimulateLinearfuncTest, HandlesSingleStep) {
     std::vector<double> u = {1.0};
-    auto result = simulateLinear(1, 10.0, u);
+    auto result = simulateLinearfunc(1, 10.0, u);
     ASSERT_EQ(result.size(), 1);
     EXPECT_DOUBLE_EQ(result[0], 10.0);
 }
 
-TEST(SimulateLinearTest, ProducesCorrectSequence) {
+TEST(SimulateLinearfuncTest, ProducesCorrectSequence) {
     std::vector<double> u = {5.0, 5.0, 5.0, 5.0};
-    auto result = simulateLinear(5, 10.0, u);
+    auto result = simulateLinearfunc(5, 10.0, u);
 
     ASSERT_EQ(result.size(), 5);
     EXPECT_NEAR(result[1], 0.9 * 10.0 + 0.1 * 5.0, 1e-6);
@@ -33,22 +33,22 @@ TEST(SimulateLinearTest, ProducesCorrectSequence) {
 // Тесты для simulateNonlinear()
 // ------------------------------
 
-TEST(SimulateNonlinearTest, HandlesZeroSteps) {
+TEST(SimulateNonlinearfuncTest, HandlesZeroSteps) {
     std::vector<double> u = {5.0, 5.0};
-    auto result = simulateNonlinear(0, 10.0, u);
+    auto result = simulateNonlinearfunc(0, 10.0, u);
     EXPECT_TRUE(result.empty());
 }
 
-TEST(SimulateNonlinearTest, HandlesOneStep) {
+TEST(SimulateNonlinearfuncTest, HandlesOneStep) {
     std::vector<double> u = {5.0, 5.0};
-    auto result = simulateNonlinear(1, 10.0, u);
+    auto result = simulateNonlinearfunc(1, 10.0, u);
     ASSERT_EQ(result.size(), 1);
     EXPECT_DOUBLE_EQ(result[0], 10.0);
 }
 
-TEST(SimulateNonlinearTest, ProducesCorrectValues) {
+TEST(SimulateNonlinearfuncTest, ProducesCorrectValues) {
     std::vector<double> u = {5.0, 5.0, 5.0};
-    auto result = simulateNonlinear(3, 10.0, u);
+    auto result = simulateNonlinearfunc(3, 10.0, u);
 
     ASSERT_EQ(result.size(), 3);
     EXPECT_NEAR(result[1], 0.9 * 10.0 + 0.1 * 5.0, 1e-6);
