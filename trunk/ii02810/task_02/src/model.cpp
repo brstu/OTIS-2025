@@ -1,23 +1,22 @@
 #include "model.h"
 using namespace std;
 
-void Linemodel(float y, float u, int steps, float a, float b, int i) {
-    if (i <= steps) {
-        Linemodel(a * y + b * u, u, steps, a, b, i + 1);
-        cout << "y" << i << " = " << y << endl;
+std::vector<float> Linemodel(float y, float u, int steps, float a, float b) {
+    std::vector<float> result;
+    for (int i = 0; i < steps; ++i) {
+        y = a * y + b * u;
+        result.push_back(y);
     }
-    else {
-        cout << "end_Linemodel\n";
-    }
+    return result;
 }
 
-void UnLinemodel(const Params& p, float y, float y0, int i) {
-    if (i <= p.steps) {
+std::vector<float> UnLinemodel(const Params& p, float y, float y0) {
+    std::vector<float> result;
+    for (int i = 0; i < p.steps; ++i) {
         float y_next = p.a * y - p.b * y0 * y0 + p.c * p.u + p.d * sin(p.u);
-        UnLinemodel(p, y_next, y, i + 1);
-        cout << "y" << i << " = " << y << endl;
+        result.push_back(y_next);
+        y0 = y;
+        y = y_next;
     }
-    else {
-        cout << "end_UnLinemodel" << endl;
-    }
+    return result;
 }

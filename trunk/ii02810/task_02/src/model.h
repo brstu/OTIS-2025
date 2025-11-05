@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <cmath>
+#include <vector>
 
 struct Params {
     float a;
@@ -11,5 +12,5 @@ struct Params {
     int steps;
 };
 
-void Linemodel(float y, float u, int steps, float a, float b, int i = 1);
-void UnLinemodel(const Params& p, float y, float y0, int i = 1);
+std::vector<float> Linemodel(float y, float u, int steps, float a, float b);
+std::vector<float> UnLinemodel(const Params& p, float y, float y0);
