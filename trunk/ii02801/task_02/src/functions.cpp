@@ -2,7 +2,7 @@
 #include <vector>
 #include "functions.h"
 
-const double a = 0.9;
+const double a1 = 0.9;
 const double b = 0.1;
 const double c = 0.05;
 const double d = 0.02;
@@ -22,7 +22,7 @@ std::vector<double> simulateLinear(int steps, double y_init, const std::vector<d
     y[0] = y_init;
 
     for (int t = 1; t < steps; ++t) {
-        y[t] = a * y[t - 1] + b * u[t - 1];
+        y[t] = a1 * y[t - 1] + b * u[t - 1];
     }
 
     return y;
@@ -37,10 +37,10 @@ std::vector<double> simulateNonlinear(int steps, double y_init, const std::vecto
 
     std::vector<double> y(steps);
     y[0] = y_init;
-    y[1] = a * y[0] + b * u[0];
+    y[1] = a1 * y[0] + b * u[0];
 
     for (int t = 2; t < steps; ++t) {
-        y[t] = a * y[t - 1] - b * std::pow(y[t - 2], 2) + c * u[t - 1] + d * std::sin(u[t - 2]);
+        y[t] = a1 * y[t - 1] - b * std::pow(y[t - 2], 2) + c * u[t - 1] + d * std::sin(u[t - 2]);
     }
 
     return y;
