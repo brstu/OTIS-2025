@@ -9,7 +9,7 @@ int main() {
     double y_next = y;
     double y_pred;   
     double u ;
-    std::cout << "Enter the input warm: ";
+    std::cout << "Enter the input warmth: ";
     std::cin >> u;
     double u_pred ;    
 
