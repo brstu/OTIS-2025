@@ -3,7 +3,7 @@
 #include "../src/task_01.h"
 #include <cmath>
 
-// Тесты линейной модели 
+// Тесты линейной модели
 TEST(LinearModel_ii02804, ComputesCorrectly) {
     double y = 2.3;
     double u = 3.7;
@@ -27,6 +27,7 @@ TEST(NonLinearModel_ii02804, ComputesExpectedValue) {
     double y = 1.0;
     double y_prev = 0.0;
     double u = 0.5;
+    double u_prev = 0.0;
     double a = 2.0;
     double b = 1.0;
     double c = 0.6;
@@ -36,7 +37,7 @@ TEST(NonLinearModel_ii02804, ComputesExpectedValue) {
     double nonlinear_part = -b * y * y + d * std::sin(u);
     double expected = linear_part + nonlinear_part;
 
-    double result = non_linear_model(y, y_prev, u, a, b, c, d);
+    double result = non_linear_model(y, y_prev, u, u_prev, a, b, c, d);
     EXPECT_NEAR(result, expected, 1e-9);
     EXPECT_DOUBLE_EQ(y_prev, y);
 }
@@ -45,14 +46,16 @@ TEST(NonLinearModel_ii02804, ZeroCoefficientsReturnZero) {
     double y = 2.4;
     double y_prev = 0.0;
     double u = 1.2;
-    EXPECT_DOUBLE_EQ(non_linear_model(y, y_prev, u, 0, 0, 0, 0), 0.0);
+    double u_prev = 0.0;
+    EXPECT_DOUBLE_EQ(non_linear_model(y, y_prev, u, u_prev, 0, 0, 0, 0), 0.0);
 }
 
 TEST(NonLinearModel_ii02804, SinComponentOnlyWorks) {
     double y = 0.0;
     double y_prev = 0.0;
     double u = M_PI / 4;
-    double result = non_linear_model(y, y_prev, u, 0, 0, 0, 2.5);
+    double u_prev = 0.0;
+    double result = non_linear_model(y, y_prev, u, u_prev, 0, 0, 0, 2.5);
     double expected = 2.5 * std::sin(u);
     EXPECT_NEAR(result, expected, 1e-9);
 }
