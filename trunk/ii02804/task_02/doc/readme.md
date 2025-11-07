@@ -38,14 +38,13 @@ double linear_model(double y, double u, double a, double b) {
     return a * y + b * u;
 }
 
-// Нелинейная модель с сохранением u_prev
+// Нелинейная модель 
 double non_linear_model(double y, double& y_prev, double u, double& u_prev, double a, double b, double c, double d) {
-    y_prev = y;
+    y_prev = y;  
     double linear_part = a * y + c * u;
-    double nonlinear_part = -b * y * y + d * std::sin(u);  // синус берём от текущего u
-    double result = linear_part + nonlinear_part;
-    u_prev = u;  // обновляем u_prev
-    return result;
+    double nonlinear_part = -b * y * y + d * std::sin(u); 
+    u_prev = u;
+    return linear_part + nonlinear_part;
 }
 
 ```
@@ -66,7 +65,7 @@ double non_linear_model(double y, double& y_prev, double u, double& u_prev, doub
 #include "../src/task_01.h"
 #include <cmath>
 
-// Тесты линейной модели
+// Тесты линейной модели 
 TEST(LinearModel_ii02804, ComputesCorrectly) {
     double y = 2.3;
     double u = 3.7;
@@ -96,13 +95,12 @@ TEST(NonLinearModel_ii02804, ComputesExpectedValue) {
     double c = 0.6;
     double d = 1.1;
 
-    double linear_part = a * y + c * u;
-    double nonlinear_part = -b * y * y + d * std::sin(u);
-    double expected = linear_part + nonlinear_part;
+    double expected = (a * y + c * u) + (-b * y * y + d * std::sin(u));
 
     double result = non_linear_model(y, y_prev, u, u_prev, a, b, c, d);
     EXPECT_NEAR(result, expected, 1e-9);
     EXPECT_DOUBLE_EQ(y_prev, y);
+    EXPECT_DOUBLE_EQ(u_prev, u);
 }
 
 TEST(NonLinearModel_ii02804, ZeroCoefficientsReturnZero) {
@@ -111,6 +109,8 @@ TEST(NonLinearModel_ii02804, ZeroCoefficientsReturnZero) {
     double u = 1.2;
     double u_prev = 0.0;
     EXPECT_DOUBLE_EQ(non_linear_model(y, y_prev, u, u_prev, 0, 0, 0, 0), 0.0);
+    EXPECT_DOUBLE_EQ(y_prev, y);
+    EXPECT_DOUBLE_EQ(u_prev, u);
 }
 
 TEST(NonLinearModel_ii02804, SinComponentOnlyWorks) {
@@ -121,7 +121,10 @@ TEST(NonLinearModel_ii02804, SinComponentOnlyWorks) {
     double result = non_linear_model(y, y_prev, u, u_prev, 0, 0, 0, 2.5);
     double expected = 2.5 * std::sin(u);
     EXPECT_NEAR(result, expected, 1e-9);
+    EXPECT_DOUBLE_EQ(y_prev, y);
+    EXPECT_DOUBLE_EQ(u_prev, u);
 }
+
 
 ```
 ## Результаты тестирования ##
