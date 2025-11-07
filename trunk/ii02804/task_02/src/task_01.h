@@ -1,6 +1,5 @@
 #pragma once
 
-// copilot не разрушал 8 параматров в функции только 7
 struct NonLinearParams {
     double a;
     double b;
