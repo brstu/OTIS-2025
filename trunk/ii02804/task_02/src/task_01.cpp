@@ -10,7 +10,7 @@ double linear_model(double y, double u, double a, double b) {
 
 double non_linear_model(double y, double& y_prev, double u, double& u_prev, double a, double b, double c, double d) {
     y_prev = y;  // сохраняем предыдущую величину
-    double linear_part = a * y + c * u;       // вынесено в переменную
+    double linear_part = a * y + c * u;       // linear component of the model
     double nonlinear_part = -b * y * y + d * std::sin(u_prev);
     u_prev = u;  // сохраняем предыдущую величину управления
     double result = linear_part + nonlinear_part;
