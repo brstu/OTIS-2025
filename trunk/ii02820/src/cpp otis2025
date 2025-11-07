@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    double a = 0.95;
+    double b = 0.002;
+    double c = 0.05;
+    double d = 0.1;
+
+    double y_linear = 23;
+    double y_nonlinear = 23;
+    double y_nonlinear_prev = 23;
+
+    double u[] = { 10, 15, 20, 25, 30, 25, 20, 15, 10, 5 };
+    int steps = 10;
+
+    cout << "Model :" << endl;
+    cout << "Time\tu\tLinear\tNonlinear" << endl;
+    cout << "0\t0\t" << y_linear << "\t" << y_nonlinear << endl;
+
+    double u_prev = 0;
+
+    for (int i = 0; i < steps; i++) {
+        double power = u[i];
+
+        y_linear = a * y_linear + b * power;
+
+        double no = a * y_nonlinear;
+        double ss = b * y_nonlinear_prev * y_nonlinear_prev;
+        double co = c * power;
+        double si = d * sin(u_prev);
+
+        y_nonlinear_prev = y_nonlinear;
+        y_nonlinear = no - ss + co + si;
+        u_prev = power;
+
+        cout << i + 1 << "\t" << power << "\t" << y_linear << "\t" << y_nonlinear << endl;
+    }
+
+    return 0;
+}
