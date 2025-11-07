@@ -3,9 +3,7 @@
 
 // Линейная модель (немного изменено название и тело для уникальности)
 double linear_model(double y, double u, double a, double b) {
-    // добавляем маленький "творческий" штрих без изменения логики
-    double result = a * y + b * u;
-    return result;
+    return a * y + b * u;
 }
 
 double non_linear_model(double y, double& y_prev, double u, double& u_prev, double a, double b, double c, double d) {
