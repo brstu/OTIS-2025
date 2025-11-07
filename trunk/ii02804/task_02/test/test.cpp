@@ -3,7 +3,7 @@
 #include "../src/task_01.h"
 #include <cmath>
 
-// === Тесты линейной модели (linear_model) ===
+// Тесты линейной модели 
 TEST(LinearModel_ii02804, ComputesCorrectly) {
     double y = 2.3;
     double u = 3.7;
@@ -22,7 +22,7 @@ TEST(LinearModel_ii02804, HandlesNegativeInputs) {
     EXPECT_DOUBLE_EQ(linear_model(-1.2, -2.3, 1.0, 2.0), -1.2 + (-2.3 * 2.0));
 }
 
-// === Тесты нелинейной модели (non_linear_model) ===
+// Тесты нелинейной модели
 TEST(NonLinearModel_ii02804, ComputesExpectedValue) {
     double y = 1.0;
     double y_prev = 0.0;
