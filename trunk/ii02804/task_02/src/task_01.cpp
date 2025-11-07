@@ -8,10 +8,11 @@ double linear_model(double y, double u, double a, double b) {
     return result;
 }
 
-// Нелинейная модель (уникальные имена переменных и небольшая перестановка)
-double non_linear_model(double y, double& y_prev, double u, double a, double b, double c, double d) {
+double non_linear_model(double y, double& y_prev, double u, double& u_prev, double a, double b, double c, double d) {
+    y_prev = y;  // сохраняем предыдущую величину
     double linear_part = a * y + c * u;       // вынесено в переменную
-    double nonlinear_part = -b * y * y + d * std::sin(u);
+    double nonlinear_part = -b * y * y + d * std::sin(u_prev);
+    u_prev = u;  // сохраняем предыдущую величину управления
     double result = linear_part + nonlinear_part;
     y_prev = y;  // сохраняем предыдущую величину
     return result;
