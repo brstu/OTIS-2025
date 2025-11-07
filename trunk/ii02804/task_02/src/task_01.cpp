@@ -1,7 +1,7 @@
 #include "task_01.h"
 #include <cmath>
 
-// Линейная модель (немного изменено название и тело для уникальности)
+// Линейная модель: вычисляет линейную комбинацию входов y и u с коэффициентами a и b (a * y + b * u)
 double linear_model(double y, double u, double a, double b) {
     return a * y + b * u;
 }
