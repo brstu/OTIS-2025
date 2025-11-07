@@ -258,46 +258,19 @@ TEST(NonlinearModelTest, NextNonlinearOnlyLinearPart) {
 Запуск основной программы:
 .\build\trunk\ii02807\task_02\src\Debug\simulation_main.exe
 
+Результат программы:
+![Программа](img\Снимок экрана 2025-11-07 195817.png) 
+
+
 Запуск тестов:
 .\build\trunk\ii02807\task_02\src\Debug\unit_tests.exe
 
 Результат выполнения тестов:
-Running main() from C:\Users\MSI\Documents\OTIS-2025\build_deps\googletest-src\googletest\src\gtest_main.cc
-[==========] Running 6 tests from 2 test suites.
-[----------] Global test environment set-up.
-[----------] 3 tests from LinearModelTest
-[ RUN      ] LinearModelTest.NextLinearBasicCalculation
-[       OK ] LinearModelTest.NextLinearBasicCalculation (0 ms)
-[ RUN      ] LinearModelTest.NextLinearZeroInput
-[       OK ] LinearModelTest.NextLinearZeroInput (0 ms)
-[ RUN      ] LinearModelTest.NextLinearBothZero
-[       OK ] LinearModelTest.NextLinearBothZero (0 ms)
-[----------] 3 tests from LinearModelTest (1 ms total)
-
-[----------] 3 tests from NonlinearModelTest
-[ RUN      ] NonlinearModelTest.NextNonlinearBasicCalculation
-[       OK ] NonlinearModelTest.NextNonlinearBasicCalculation (0 ms)
-[ RUN      ] NonlinearModelTest.NextNonlinearAllZero
-[       OK ] NonlinearModelTest.NextNonlinearAllZero (0 ms)
-[ RUN      ] NonlinearModelTest.NextNonlinearOnlyLinearPart
-[       OK ] NonlinearModelTest.NextNonlinearOnlyLinearPart (0 ms)
-[----------] 3 tests from NonlinearModelTest (1 ms total)
-
-[----------] Global test environment tear-down
-[==========] 6 tests from 2 test suites ran. (4 ms total)
-[  PASSED  ] 6 tests.
+![Тесты](img\Снимок экрана 2025-11-07 195859.png) 
+ 
 
 Анализ покрытия кода:
-
-Статистика тестирования:
-- Количество тестов: 6 тестов
-- Процент покрытия кода: ~85%
-
-Обоснование покрытия:
-- Линейная модель: 100% покрытие (3 теста)
-- Нелинейная модель: 100% покрытие (3 теста)
-- Основные функции: nextLinear(), nextNonlinear() - полное покрытие
-- Функции симуляции: частичное покрытие (проверка исключений)
+![Покрытие кода](img\Снимок экрана 2025-11-07 200502.png) 
 
 Вывод:
 В ходе лабораторной работы успешно разработаны модульные тесты для программы. Все 6 тестов проходят успешно, что подтверждает корректность работы программы.

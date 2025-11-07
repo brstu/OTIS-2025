@@ -1,22 +1,25 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.15...3.30)
+
+if(POLICY CMP0091)
+    cmake_policy(SET CMP0091 NEW)
+endif()
+
+if(MSVC)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
+endif()
+
 project(OtisTask02)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
  
-if(MSVC)
-    # Используем динамическую библиотеку времени выполнения
-    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
-    add_compile_options("$<$<CONFIG:Debug>:/MDd>")
-    add_compile_options("$<$<CONFIG:Release>:/MD>")
-endif()
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE) 
 
 # Основная программа
 add_executable(simulation_main main.cpp model.cpp)
 
-# Настройка для тестов
 enable_testing()
 
-# Google Test
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -25,7 +28,6 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-# Тестовый исполняемый файл
 add_executable(
   unit_tests
   ../test/test_model.cpp
@@ -33,11 +35,7 @@ add_executable(
 )
 
 target_include_directories(unit_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
-
-target_link_libraries(
-  unit_tests
-  GTest::gtest_main
-)
+target_link_libraries(unit_tests GTest::gtest_main)
 
 include(GoogleTest)
 gtest_discover_tests(unit_tests)
