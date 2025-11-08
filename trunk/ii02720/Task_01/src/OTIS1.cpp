@@ -5,19 +5,19 @@ using namespace std;
 
 class TemperatureModel {
 private:
-    double a, b, c, d;
-    double y_prev, y_prev2, u_prev;
+    double a;
+    double b;
+    double c;
+    double d;
+    double y_prev;
+    double y_prev2;
+    double u_prev;
 
 public:
-    TemperatureModel(double a_val, double b_val, double c_val, double d_val, double Y0) {
-        a = a_val;
-        b = b_val;
-        c = c_val;
-        d = d_val;
-        y_prev = Y0;
-        y_prev2 = Y0;
-        u_prev = 0;
-    }
+    TemperatureModel(double a_val, double b_val, double c_val, double d_val, double Y0) 
+    : a(a_val), b(b_val), c(c_val), d(d_val), y_prev(Y0), y_prev2(Y0), u_prev(0)
+{
+}
 
     double linear_step(double u) {
         double y = a * y_prev + b * u;
@@ -42,7 +42,7 @@ int main() {
     double d = 0.1;
     double Y0 = 20.0;
     
-    double u[] = {2.0, 3.0, 4.0, 5.0, 4.0, 3.0, 2.0, 1.0, 0.5, 0.0};
+    std::array<double, 10> u = {2.0, 3.0, 4.0, 5.0, 4.0, 3.0, 2.0, 1.0, 0.5, 0.0};
     int n = 10;
     
     TemperatureModel linear_model(a, b_linear, 0, 0, Y0);
