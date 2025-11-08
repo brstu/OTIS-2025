@@ -13,36 +13,36 @@ int main() {
     double y, y_prev, y_next;
     double u, u_prev;
     double a, b, c, d;
-    int n;
+    int steps;
 
-    std::cout << "Enter y (starting temperature) and u (input warmth at first step) values (space-separated): ";
+    std::cout << "Введите начальное значение температуры y и начальное тепло u (через пробел): ";
     std::cin >> y >> u;
 
-    std::cout << "Enter a, b, c, d (constants) values: ";
+    std::cout << "Введите коэффициенты a, b, c, d: ";
     std::cin >> a >> b >> c >> d;
 
-    std::cout << "Enter number of steps n: ";
-    std::cin >> n;
+    std::cout << "Введите количество шагов моделирования: ";
+    std::cin >> steps;
 
     y_prev = y;
-    for (int i = 0; i < n; ++i) {
+    std::cout << "\n--- Линейная модель ---\n";
+    for (int i = 1; i <= steps; ++i) {
         y = linear_step(y, u, a, b);
-        std::cout << "Result of the " << i + 1 << " step of linear model: " << y << '\n';
+        std::cout << "Шаг " << i << ": y = " << y << '\n';
     }
-
 
     y_prev = 0;
     u_prev = u;
-
-    for (int i = 0; i < n; ++i) {
+    std::cout << "\n--- Нелинейная модель ---\n";
+    for (int i = 1; i <= steps; ++i) {
         y_next = nonlinear_step(y, y_prev, u, u_prev, a, b, c, d);
         y_prev = y;
         y = y_next;
 
-        std::cout << "Result of the " << i + 1 << " step of non-linear model: " << y << '\n';
+        std::cout << "Шаг " << i << ": y = " << y << '\n';
 
         u_prev = u;
-        std::cout << "Enter u for the " << i + 1 << " step: ";
+        std::cout << "Введите значение u для следующего шага: ";
         std::cin >> u;
     }
 
