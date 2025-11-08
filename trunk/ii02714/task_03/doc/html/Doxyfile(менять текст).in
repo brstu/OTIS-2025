@@ -1,0 +1,27 @@
+PROJECT_NAME           = "ii002713_task_03"
+PROJECT_NUMBER         = "Лабораторная работа №3"
+PROJECT_BRIEF          = "Модель системы с PID-регулятором"
+OUTPUT_LANGUAGE        = Russian
+
+INPUT                  = @CMAKE_CURRENT_SOURCE_DIR@/src @CMAKE_CURRENT_SOURCE_DIR@/doc/readme.md
+FILE_PATTERNS          = *.h *.cpp *.md
+RECURSIVE              = NO
+
+OUTPUT_DIRECTORY       = @CMAKE_CURRENT_SOURCE_DIR@/html
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+HTML_OUTPUT            = .
+
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = NO
+
+HAVE_DOT               = YES
+DOT_IMAGE_FORMAT       = svg
+DOT_TRANSPARENT        = YES
+GENERATE_TREEVIEW      = YES
+FULL_PATH_NAMES        = NO
+STRIP_FROM_PATH        = @CMAKE_CURRENT_SOURCE_DIR@
+
+USE_MDFILE_AS_MAINPAGE = @CMAKE_CURRENT_SOURCE_DIR@/doc/readme.md
+SEARCHENGINE           = YES
