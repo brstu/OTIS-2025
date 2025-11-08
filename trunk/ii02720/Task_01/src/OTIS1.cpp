@@ -8,15 +8,15 @@ class TemperatureModel {
 private:
     double a;
     double b;
-    double c;
+    double c; 
     double d;
     double y_prev;
     double y_prev2;
-    double u_prev = 0;
+    double u_prev{0};
 
 public:
     TemperatureModel(double a_val, double b_val, double c_val, double d_val, double Y0) 
-    : a(a_val), b(b_val), c(c_val), d(d_val), y_prev(Y0), y_prev2(Y0), u_prev(0)
+        : a(a_val), b(b_val), c(c_val), d(d_val), y_prev(Y0), y_prev2(Y0)
 {
 }
 
