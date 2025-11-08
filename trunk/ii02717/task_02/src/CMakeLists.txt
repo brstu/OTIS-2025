@@ -3,6 +3,7 @@ project(task_02_ii02717)  # Make project name unique
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_BUILD_TYPE Debug)
 
 # Set policy to fix the error
 cmake_policy(SET CMP0079 NEW)
@@ -21,8 +22,15 @@ enable_testing()
 
 # --- Сборка тестового исполняемого файла ---
 # Use unique target name with your student ID
+#CMake_test
 add_executable(runTests_ii02717 ../test/test.cpp module.cpp)
 
+#Main.cpp test
+add_executable(main_ii02717 main.cpp module.cpp)
+target_compile_options(main_ii02717 PRIVATE -fprofile-arcs -ftest-coverage)
+target_link_options(main_ii02717 PRIVATE -fprofile-arcs -ftest-coverage)
+
+add_executable(main_ii02717 main.cpp module.h)
 # Установка опций покрытия для GCC/Clang
 if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     target_compile_options(runTests_ii02717 PRIVATE 
