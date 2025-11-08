@@ -9,10 +9,10 @@
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
-<p align="right">Группы ИИ-27</p>
-<p align="right">Лыщенко К.В.</p>
+<p align="right">Группы ИИ-28</p>
+<p align="right">Люкевич В.Д.</p>
 <p align="right">Проверил:</p>
-<p align="right">Иванюк Д. С.</p>
+<p align="right">Иванюк Д.С.</p>
 <br><br><br><br><br>
 <p align="center">Брест 2025</p>
 
@@ -35,103 +35,28 @@ $$\Large y_{\tau+1}=ay_{\tau}-by_{\tau-1}^2+cu_{\tau}+d\sin(u_{\tau-1})$$ (3)
 
 where $\tau$ – time discrete moments ($1,2,3{\dots}n$); $a,b,c,d$ – some constants.
 
-Task is to write program (**C++**), which simulates this object temperature.
-
+Task is to write program (**С++**), which simulates this object temperature.
 <hr>
 
 # Выполнение задания #
 
 Код программы:
-```
+```C++
 #include <iostream>
+#include <vector>
 #include <cmath>
-
-// параметры нелинейной модели
-struct NonlinearParams {
-    double a;
-    double b;
-    double c;
-    double d;
-};
-
-// линейная модель
-double Linear(double a, double b, double u, double y) {
-    return a * y + b * u;
-}
-
-// симуляция линейной модели
-void simulateLinear(double a, double b, double u, int steps) {
-    std::cout << "Linear model" << std::endl;
-    double y = 0.0;
-    for (int i = 0; i < steps; ++i) {
-        std::cout << "Step " << i << ": " << y << std::endl;
-        y = Linear(a, b, u, y);
-    }
-    std::cout << std::endl;
-}
-
-// нелинейная модель
-double Nonlinear(const NonlinearParams& p, double u, double uPrev, double y, double yPrev) {
-    return p.a * y - p.b * (yPrev * yPrev) + p.c * u + p.d * sin(uPrev);
-}
-
-// симуляция нелинейной модели
-void simulateNonlinear(const NonlinearParams& p, double u, int steps) {
-    std::cout << "Nonlinear model" << std::endl;
-    double y = 0.0;
-    double yPrev = 0.0;
-    double uPrev = 0.0;
-    for (int i = 0; i < steps; ++i) {
-        std::cout << "Step " << i << ": " << y << std::endl;
-        double yNext = Nonlinear(p, u, uPrev, y, yPrev);
-        yPrev = y;
-        uPrev = u;
-        y = yNext;
-    }
-    std::cout << std::endl;
-}
+using namespace std;
 
 int main() {
-    // параметры линейной модели
-    double a1 = 0.1;
-    double b1 = 0.3;
-    double u1 = 0.5;
-    int n1 = 10;
-
-    simulateLinear(a1, b1, u1, n1);
-
-    // параметры нелинейной модели
-    NonlinearParams p{0.7, 0.9, 0.11, 0.13};
-    double u2 = 0.15;
-    int n2 = 10;
-
-    simulateNonlinear(p, u2, n2);
-
-    return 0;
+    int n;
+    double a, b, c, d, y0, u0;
+    cin >> n >> a >> b >> c >> d >> y0 >> u0;
+    vector<double> u(n + 1), y(n + 1);
+    u[0] = u0;
+    y[0] = y0;
+    for (int t = 0; t < n; t++) {
+        cin >> u[t + 1];
+        y[t + 1] = a * y[t] - b * y[t] * y[t] + c * u[t] + d * sin(u[t]);
+    }
+    for (int t = 0; t <= n; t++) cout << t << " " << y[t] << "\n";
 }
-```     
-```
-Linear model
-Step 0: 0
-Step 1: 0.15
-Step 2: 0.165
-Step 3: 0.1665
-Step 4: 0.16665
-Step 5: 0.166665
-Step 6: 0.166666
-Step 7: 0.166667
-Step 8: 0.166667
-Step 9: 0.166667
-
-Nonlinear model
-Step 0: 0
-Step 1: 0.219391
-Step 2: 0.189501
-Step 3: 0.125258
-Step 4: 0.0912882
-Step 5: 0.0857081
-Step 6: 0.0884224
-Step 7: 0.0912114
-Step 8: 0.0927382
-Step 9: 0.0933562
-```
