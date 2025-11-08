@@ -103,18 +103,18 @@ int main() {
     return 0;
 }
 
+## Вывод программы:
+<br> 
+![Output:](Output.jpg)
 
 
-## Результат программы:
-Ввод данных:
+## Reviews:
 <br>
-![Ввод:](input.png)
+Ревью1:
 <br>
-Вывод линейной симуляции:
+![Review1:](review1.jpg)
 <br>
-![Вывод линейной симуляции:](output_linear_simulation.png)
+Ревью2:
 <br>
-Вывод нелинейной симуляции:
-<br>
-![Вывод нелинейной симуляции:](output_nonlinear_simulation.png)
+![Review2:](review2.jpg)
 
