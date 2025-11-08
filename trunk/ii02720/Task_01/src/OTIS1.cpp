@@ -12,7 +12,7 @@ private:
     double d;
     double y_prev;
     double y_prev2;
-    double u_prev;
+    double u_prev = 0;
 
 public:
     TemperatureModel(double a_val, double b_val, double c_val, double d_val, double Y0) 
