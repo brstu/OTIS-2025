@@ -30,7 +30,6 @@ add_executable(main_ii02717 main.cpp module.cpp)
 target_compile_options(main_ii02717 PRIVATE -fprofile-arcs -ftest-coverage)
 target_link_options(main_ii02717 PRIVATE -fprofile-arcs -ftest-coverage)
 
-add_executable(main_ii02717 main.cpp module.h)
 # Установка опций покрытия для GCC/Clang
 if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     target_compile_options(runTests_ii02717 PRIVATE 
