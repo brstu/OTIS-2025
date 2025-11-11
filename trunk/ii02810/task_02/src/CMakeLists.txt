@@ -28,7 +28,7 @@ target_include_directories(my_tests_ii02810 PRIVATE
 )
 
 target_link_libraries(
-  my_tests
+  my_tests_ii02810
   GTest::gtest_main
 )
 
