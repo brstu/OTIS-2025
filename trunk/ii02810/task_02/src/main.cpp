@@ -14,4 +14,5 @@ int main() {
 
     Params p{ a, b, c, d, u, steps };
     UnLinemodel(p, y, y);
+    return 0;
 }
