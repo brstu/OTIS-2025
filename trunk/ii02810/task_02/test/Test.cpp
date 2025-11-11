@@ -36,12 +36,13 @@ TEST(LinemodelTest, ZeroCoefficients) {
 
 TEST(UnLinemodelTest, BasicCase) {
     Params p{2.0f, 1.0f, 0.5f, 1.0f, 0.5f, 1};
-    float y = 1.0f, y0 = 0.0f;
+    float y = 1.0f;
+    float y0 = 0.0f;
 
     auto result = UnLinemodel(p, y, y0);
     ASSERT_EQ(result.size(), 1);
 
-    float expected = p.a * y - p.b * y0 * y0 + p.c * p.u + p.d * sin(p.u);
+    float expected = p.a * y - p.b * y0 * y0 + p.c * p.u + p.d * sinf(p.u);
     EXPECT_NEAR(result[0], expected, 1e-5);
 }
 
