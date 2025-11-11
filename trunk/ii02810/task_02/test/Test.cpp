@@ -42,7 +42,7 @@ TEST(UnLinemodelTest, BasicCase) {
     auto result = UnLinemodel(p, y, y0);
     ASSERT_EQ(result.size(), 1);
 
-    float expected = p.a * y - p.b * y0 * y0 + p.c * p.u + p.d * sinf(p.u);
+    double expected = p.a * y - p.b * y0 * y0 + p.c * p.u + p.d * sin(p.u);
     EXPECT_NEAR(result[0], expected, 1e-5);
 }
 
