@@ -7,5 +7,5 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} --coverage")
 
 add_library(model STATIC model.cpp)
 
-add_executable(main_exec main.cpp)
-target_link_libraries(main_exec model)
+add_executable(ii02815_task_02_main main.cpp)
+target_link_libraries(ii02815_task_02_main model)
