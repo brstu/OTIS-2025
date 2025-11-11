@@ -16,13 +16,13 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-  my_tests
+  my_tests_ii02810
   ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/model.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/../test/Test.cpp
 )
 
-target_include_directories(my_tests PRIVATE
+target_include_directories(my_tests_ii02810 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/../src
     ${CMAKE_CURRENT_SOURCE_DIR}/../test
 )
@@ -33,4 +33,4 @@ target_link_libraries(
 )
 
 include(GoogleTest)
-gtest_discover_tests(my_tests) 
+gtest_discover_tests(my_tests_ii02810) 
