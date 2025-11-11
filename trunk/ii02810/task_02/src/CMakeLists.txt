@@ -17,7 +17,6 @@ enable_testing()
 
 add_executable(
   my_tests_ii02810
-  ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/model.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/../test/Test.cpp
 )
