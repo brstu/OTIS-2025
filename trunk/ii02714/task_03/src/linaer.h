@@ -75,6 +75,12 @@ double Obj::getY(int place) const {
 	return this->y.at(place);
 
 }
+void Obj::SetU(int place,double data) {
+	this->u[place] = data;
+}
+void Obj::SetY(int place, double data) {
+	this->y[place] = data;
+}
 
 
 #endif LIANEAR

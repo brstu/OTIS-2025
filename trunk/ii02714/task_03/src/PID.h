@@ -47,6 +47,9 @@ public:
         Obj::linear(place);
         this->yP[place] = getY(place);
     }
+    void SetY(int place,double data) {
+        this->yP[place] = data;
+    }
     void setE(int place) {
         e[place] = w[place] - yP[place];
     }
@@ -69,6 +72,18 @@ public:
     int iterGet() {
         --iter;
         return iter;
+    }
+    double GetE(int place) {
+        return this->e[place];
+    }
+    double GetYp(int place) {
+        return this->yP[place];
+    }
+    double GetUP(int place) {
+        return this->u[place];
+    }
+    void SetW(int place,double data) {
+        this->w[place] = data;
     }
 
 };

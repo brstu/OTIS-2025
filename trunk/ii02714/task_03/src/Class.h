@@ -31,6 +31,8 @@ public:
 	int getN() const;
 	int getT() const;
 	double getY(int place) const;
+	void SetY(int place,double data);
+	void SetU(int place,double data);
 };
 
 
