@@ -10,12 +10,12 @@ struct ModelParams {
     double d;
 };
 
-// Линейная модель
+// Р›РёРЅРµР№РЅР°СЏ РјРѕРґРµР»СЊ
 inline double linear_model(double y_prev, double u, double a, double b) {
     return a * y_prev + b * u;
 }
 
-// Нелинейная модель
+// ГЌГҐГ«ГЁГ­ГҐГ©Г­Г Гї Г¬Г®Г¤ГҐГ«Гј
 inline double nonlinear_model(double y_prev, double y_prev_2, double u, const ModelParams& p) {
     return p.a * y_prev - p.b * std::pow(y_prev_2, 2) + p.c * u + p.d * std::sin(u);
 }
