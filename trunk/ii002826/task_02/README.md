@@ -191,6 +191,7 @@ int main(int argc, char** argv) {
 }
 
 Результаты тестирования
+<img width="418" height="708" alt="Без имени" src="https://github.com/user-attachments/assets/75afdc85-490f-4f0b-ab16-db6e3fb537c9" />
 
 Количество тестов:
 Всего написано: 15 модульных тестов
