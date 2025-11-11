@@ -44,3 +44,5 @@ cmake-build-debug/
 
 build/
 build_gcov/
+
+task_02/.vscode/
