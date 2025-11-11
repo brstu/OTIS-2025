@@ -1,13 +1,30 @@
 #include <iostream>
 #include <vector>
-#include "../include/models.h"
+
+struct ModelParams {
+    double a;
+    double b;
+    double c;
+    double d;
+};
+
+// Линейная модель
+inline double linear_model(double y_prev, double u, const ModelParams& p) {
+    return p.a * y_prev + p.b * u;
+}
+
+// Нелинейная модель
+inline double nonlinear_model(double y_prev, double y_prev_2, double u, const ModelParams& p) {
+    return p.a * y_prev - p.b * std::pow(y_prev_2, 2) + p.c * u + p.d * std::sin(u);
+}
 
 void run_simulation() {
-    ModelParams params{};
+    ModelParams params;
     double u;
-    double y_0;
     int num_steps;
     int model_choice;
+    double y_1;
+    double y_2;
 
     std::cout << "Enter coefficient a: ";
     std::cin >> params.a;
@@ -21,8 +38,11 @@ void run_simulation() {
     std::cout << "Enter the supplied heat u: ";
     std::cin >> u;
 
-    std::cout << "Enter the initial temperature y_0: ";
-    std::cin >> y_0;
+    std::cout << "Enter the initial temperature y_1: ";
+    std::cin >> y_1;
+
+    std::cout << "Enter the initial temperature y_2: ";
+    std::cin >> y_2;
 
     std::cout << "Enter the number of steps for the simulation: ";
     std::cin >> num_steps;
@@ -32,14 +52,11 @@ void run_simulation() {
 
     std::vector<double> temperatures(num_steps);
 
-    double y_1 = y_0;
-    double y_2 = y_0;
-
     for (int t = 0; t < num_steps; ++t) {
         temperatures[t] = y_1;
 
         if (model_choice == 1) {
-            y_1 = linear_model(y_1, u, params.a, params.b);
+            y_1 = linear_model(y_1, u, params);
         }
         else if (model_choice == 2) {
             double y_next = nonlinear_model(y_1, y_2, u, params);
@@ -60,5 +77,8 @@ void run_simulation() {
 
 int main() {
     run_simulation();
+
+    system("pause");
+
     return 0;
 }

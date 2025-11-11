@@ -1,24 +1,45 @@
 ﻿#include <gtest/gtest.h>
-#include "../include/models.h"
+#include <iostream>
+
+struct ModelParams{
+    double a;
+    double b;
+    double c;
+    double d;
+};
+
+// Линейная модель (только параметры a и b)
+inline double linear_model(double y_prev, double u, const ModelParams& p) {
+    return p.a * y_prev + p.b * u;
+}
+
+// Нелинейная модель
+inline double nonlinear_model(double y_prev, double y_prev_2, double u, const ModelParams& p) {
+    return p.a * y_prev - p.b * std::pow(y_prev_2, 2) + p.c * u + p.d * std::sin(u);
+}
 
 // Тесты для линейной модели
 TEST(LinearModelTest, BasicCalculation) {
-    double result = linear_model(10.0, 5.0, 0.5, 0.2);
+    ModelParams params{ 0.5, 0.2, 0.0, 0.0 };
+    double result = linear_model(10.0, 5.0, params);
     EXPECT_DOUBLE_EQ(result, 0.5 * 10.0 + 0.2 * 5.0);
 }
 
 TEST(LinearModelTest, ZeroInput) {
-    double result = linear_model(0.0, 0.0, 1.0, 1.0);
+    ModelParams params{ 1.0, 1.0, 0.0, 0.0 };
+    double result = linear_model(0.0, 0.0,params);
     EXPECT_DOUBLE_EQ(result, 0.0);
 }
 
 TEST(LinearModelTest, NegativeValues) {
-    double result = linear_model(-5.0, -3.0, 2.0, 1.0);
+    ModelParams params{ 2.0, 1.0, 0.0, 0.0 };
+    double result = linear_model(-5.0, -3.0, params);
     EXPECT_DOUBLE_EQ(result, 2.0 * (-5.0) + 1.0 * (-3.0));
 }
 
 TEST(LinearModelTest, UnitCoefficients) {
-    double result = linear_model(7.5, 2.5, 1.0, 1.0);
+    ModelParams params{ 1.0, 1.0, 0.0, 0.0 };
+    double result = linear_model(7.5, 2.5, params);
     EXPECT_DOUBLE_EQ(result, 7.5 + 2.5);
 }
 
@@ -51,7 +72,7 @@ TEST(NonlinearModelTest, ZeroCoefficients) {
 
 TEST(NonlinearModelTest, SineComponentOnly) {
     ModelParams params{ 0.0, 0.0, 0.0, 1.0 };
-    double u = M_PI / 2; // sin(π/2) = 1
+    double u = 3.14159265358979323846 / 2;
     double result = nonlinear_model(10.0, 8.0, u, params);
     EXPECT_DOUBLE_EQ(result, std::sin(u));
 }
@@ -75,13 +96,12 @@ TEST(ModelParamsTest, CustomInitialization) {
 
 // Интеграционные тесты
 TEST(IntegrationTest, LinearModelStability) {
+    ModelParams params{ 0.5, 0.2, 0.0, 0.0 };
     double y_prev = 100.0;
     double u = 10.0;
-    double a = 0.5;
-    double b = 0.2;
 
     for (int i = 0; i < 10; ++i) {
-        y_prev = linear_model(y_prev, u, a, b);
+        y_prev = linear_model(y_prev, u, params);
         EXPECT_TRUE(std::isfinite(y_prev));
     }
 }
@@ -102,19 +122,34 @@ TEST(IntegrationTest, NonlinearModelStability) {
 
 // Тесты на граничные значения
 TEST(BoundaryTest, LargeValues) {
-    double result = linear_model(1e6, 1e6, 1.0, 1.0);
+    ModelParams params1{ 1.0, 1.0, 0.0, 0.0 };
+    double result = linear_model(1e6, 1e6, params1);
     EXPECT_DOUBLE_EQ(result, 2e6);
 
-    ModelParams params{ 1.0, 1.0, 1.0, 1.0 };
-    result = nonlinear_model(1e6, 1e6, 1e6, params);
+    ModelParams params2{ 1.0, 1.0, 1.0, 1.0 };
+    result = nonlinear_model(1e6, 1e6, 1e6, params2);
     EXPECT_TRUE(std::isfinite(result));
 }
 
 TEST(BoundaryTest, SmallValues) {
-    double result = linear_model(1e-6, 1e-6, 1.0, 1.0);
+    ModelParams params1{ 1.0, 1.0, 0.0, 0.0 };
+    double result = linear_model(1e-6, 1e-6, params1);
     EXPECT_DOUBLE_EQ(result, 2e-6);
 
-    ModelParams params{ 1.0, 1.0, 1.0, 1.0 };
-    result = nonlinear_model(1e-6, 1e-6, 1e-6, params);
+    ModelParams params2{ 1.0, 1.0, 1.0, 1.0 };
+    result = nonlinear_model(1e-6, 1e-6, 1e-6, params2);
     EXPECT_TRUE(std::isfinite(result));
+}
+
+int main(int argc, char** argv) {
+    std::cout << "Running model tests..." << std::endl;
+
+    testing::InitGoogleTest(&argc, argv);
+    int result = RUN_ALL_TESTS();
+
+    std::cout << "Tests completed with result: " << result << std::endl;
+
+    system("pause");
+
+    return result;
 }
