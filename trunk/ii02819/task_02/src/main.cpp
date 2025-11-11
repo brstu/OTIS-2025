@@ -6,11 +6,17 @@ using namespace std;
 int main() {
     setlocale(LC_ALL, "RU");
 
-    double signalInput, startValue;
+    double signalInput;
+    double startValue;
+
     cout << "Введите входной сигнал и начальное значение:" << endl;
     cin >> signalInput >> startValue;
 
-    double alphaParam, betaParam, gammaParam, deltaParam;
+    double alphaParam;
+    double betaParam;
+    double gammaParam;
+    double deltaParam;
+
     cout << "Введите параметры alpha, beta, gamma, delta: " << endl;
     cin >> alphaParam >> betaParam >> gammaParam >> deltaParam;
 
@@ -33,4 +39,5 @@ int main() {
 
     return 0;
 }
+
 
