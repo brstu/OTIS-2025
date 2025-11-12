@@ -1,6 +1,5 @@
 #include "model.h"
 #include <iostream>
-using namespace std;
 
 std::vector<float> Linemodel(float y, float u, int steps, float a, float b) {
     std::vector<float> result;
