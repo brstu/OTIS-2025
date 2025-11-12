@@ -42,4 +42,4 @@ target_link_libraries(
 
 # Автоматический запуск тестов через CTest
 include(GoogleTest)
-gtest_discover_tests(my_tests_ii02804)  
+gtest_discover_tests(my_tests_ii02804)
