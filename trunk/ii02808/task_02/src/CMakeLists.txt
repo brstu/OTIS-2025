@@ -20,13 +20,13 @@ add_executable(
   ${CMAKE_CURRENT_SOURCE_DIR}/../test/test.cpp
 )
 
-target_include_directories(my_tests PRIVATE
+target_include_directories(my_tests_ekadze PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/../src
     ${CMAKE_CURRENT_SOURCE_DIR}/../test
 )
 
 target_link_libraries(
-  my_tests
+  my_tests_ekadze
   GTest::gtest_main
 )
 
