@@ -2,23 +2,6 @@
 #include <iostream>
 #include "../src/main.cpp"
 
-//struct ModelParams {
-//    double a;
-//    double b;
-//    double c;
-//    double d;
-//};
-//
-//// Линейная модель (только параметры a и b)
-//inline double linear_model(double y_prev, double u, const ModelParams& p) {
-//    return p.a * y_prev + p.b * u;
-//}
-//
-//// Нелинейная модель
-//inline double nonlinear_model(double y_prev, double y_prev_2, double u, const ModelParams& p) {
-//    return p.a * y_prev - p.b * std::pow(y_prev_2, 2) + p.c * u + p.d * std::sin(u);
-//}
-
 // Тесты для линейной модели
 TEST(LinearModelTest, BasicCalculation) {
     ModelParams params{ 0.5, 0.2, 0.0, 0.0 };

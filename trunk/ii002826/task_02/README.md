@@ -33,27 +33,10 @@
 Также необходимо отразить выполнение работы в общем файле readme.md в соответствующей строке (например, для студента под порядковым номером 1 -
 
 Код Тестов:
-
+```
 #include <gtest/gtest.h>
 #include <iostream>
 #include "../src/main.cpp"
-
-//struct ModelParams {
-//    double a;
-//    double b;
-//    double c;
-//    double d;
-//};
-//
-//// Линейная модель (только параметры a и b)
-//inline double linear_model(double y_prev, double u, const ModelParams& p) {
-//    return p.a * y_prev + p.b * u;
-//}
-//
-//// Нелинейная модель
-//inline double nonlinear_model(double y_prev, double y_prev_2, double u, const ModelParams& p) {
-//    return p.a * y_prev - p.b * std::pow(y_prev_2, 2) + p.c * u + p.d * std::sin(u);
-//}
 
 // Тесты для линейной модели
 TEST(LinearModelTest, BasicCalculation) {
@@ -190,14 +173,13 @@ int main(int argc, char** argv) {
 
     return result;
 }
+```
+# Результаты тестирования: #
 
-Результаты тестирования:
-
-Место под картинку
 
 <img width="418" height="708" alt="Без имени" src="https://github.com/user-attachments/assets/75afdc85-490f-4f0b-ab16-db6e3fb537c9" />
 
-Количество тестов:
+**Количество тестов:**
 Всего написано: 15 модульных тестов
 Тесты линейной модели: 4 теста
 Тесты нелинейной модели: 5 тестов
@@ -205,13 +187,13 @@ int main(int argc, char** argv) {
 Интеграционные тесты: 2 теста
 Тесты граничных значений: 2 теста
 
-Результат выполнения:
+**Результат выполнения:**
  Пройдено: 15 тестов
  Не пройдено: 0 тестов
 
 Общий результат: 100% тестов пройдено
 
-Статус тестов:
+**Статус тестов:**
 LinearModelTest: 4/4 тестов пройдено
 NonlinearModelTest: 5/5 тестов пройдено
 ModelParamsTest: 2/2 тестов пройдено
@@ -220,13 +202,11 @@ BoundaryTest: 2/2 тестов пройдено
 
 Время выполнения: 12 ms 
 
-Покрытие кода
+# Покрытие кода: #
 
 Для анализа покрытия использовался инструмент gcovr.
 
-Процент покрытия: 
-<<<<<<< Updated upstream
-=======
+**Процент покрытия: **
 
 Место под картинку
->>>>>>> Stashed changes
+
