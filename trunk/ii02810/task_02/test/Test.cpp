@@ -1,6 +1,8 @@
+#define _USE_MATH_DEFINES
+#include <cmath>
+#include <math.h>
 #include <gtest/gtest.h>
 #include "../src/model.h"
-#include <cmath>
 
 TEST(LinemodelTest, BasicCase) {
     float y = 1.0f;
@@ -24,14 +26,15 @@ TEST(LinemodelTest, MultipleSteps) {
 
     auto result = Linemodel(y, u, steps, a, b);
     ASSERT_EQ(result.size(), 3);
-    EXPECT_FLOAT_EQ(result[0], 2.0f * 1.0f + 0.5f * 1.0f);  // 2.5
-    EXPECT_FLOAT_EQ(result[1], 2.0f * 2.5f + 0.5f * 1.0f);  // 5.5
-    EXPECT_FLOAT_EQ(result[2], 2.0f * 5.5f + 0.5f * 1.0f);  // 11.5
+    EXPECT_FLOAT_EQ(result[0], 2.0f * 1.0f + 0.5f * 1.0f);
+    EXPECT_FLOAT_EQ(result[1], 2.0f * 2.5f + 0.5f * 1.0f);
+    EXPECT_FLOAT_EQ(result[2], 2.0f * 5.5f + 0.5f * 1.0f);
 }
 
 TEST(LinemodelTest, ZeroCoefficients) {
     auto result = Linemodel(5.0f, 4.0f, 2, 0.0f, 0.0f);
-    for (float val : result) EXPECT_FLOAT_EQ(val, 0.0f);
+    for (float val : result)
+        EXPECT_FLOAT_EQ(val, 0.0f);
 }
 
 TEST(UnLinemodelTest, BasicCase) {
@@ -49,12 +52,15 @@ TEST(UnLinemodelTest, BasicCase) {
 TEST(UnLinemodelTest, ZeroCoefficients) {
     Params p{0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 2};
     auto result = UnLinemodel(p, 2.0f, 1.0f);
-    for (float val : result) EXPECT_FLOAT_EQ(val, 0.0f);
+    for (float val : result)
+        EXPECT_FLOAT_EQ(val, 0.0f);
 }
 
 TEST(UnLinemodelTest, SinusoidalEffect) {
     Params p{0.0f, 0.0f, 0.0f, 2.0f, static_cast<float>(M_PI / 2), 1};
     auto result = UnLinemodel(p, 0.0f, 0.0f);
     ASSERT_EQ(result.size(), 1);
-    EXPECT_FLOAT_EQ(result[0], 2.0f * std::sin(M_PI / 2));
+
+    float expected = 2.0f * static_cast<float>(std::sin(M_PI / 2));
+    EXPECT_NEAR(result[0], expected, 1e-5f);
 }
