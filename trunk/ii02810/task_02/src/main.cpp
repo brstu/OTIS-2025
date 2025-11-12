@@ -21,7 +21,7 @@ int main() {
         if (result.empty()) {
         cout << "[No output: UnLinemodel returned an empty result, possibly due to invalid 'steps' parameter]";
     }
-     else {
+    else {
         for (const auto& val : result) {
             cout << val << " ";
         }
