@@ -31,7 +31,6 @@ add_executable(
 # Пути для include
 target_include_directories(my_tests_ii02804 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}       
-    ${CMAKE_CURRENT_SOURCE_DIR}/../test
 )
 
 # Линкуем GoogleTest
