@@ -36,23 +36,24 @@
 
 #include <gtest/gtest.h>
 #include <iostream>
+#include "../src/main.cpp"
 
-struct ModelParams{
-    double a;
-    double b;
-    double c;
-    double d;
-};
-
-// Линейная модель (только параметры a и b)
-inline double linear_model(double y_prev, double u, const ModelParams& p) {
-    return p.a * y_prev + p.b * u;
-}
-
-// Нелинейная модель
-inline double nonlinear_model(double y_prev, double y_prev_2, double u, const ModelParams& p) {
-    return p.a * y_prev - p.b * std::pow(y_prev_2, 2) + p.c * u + p.d * std::sin(u);
-}
+//struct ModelParams {
+//    double a;
+//    double b;
+//    double c;
+//    double d;
+//};
+//
+//// Линейная модель (только параметры a и b)
+//inline double linear_model(double y_prev, double u, const ModelParams& p) {
+//    return p.a * y_prev + p.b * u;
+//}
+//
+//// Нелинейная модель
+//inline double nonlinear_model(double y_prev, double y_prev_2, double u, const ModelParams& p) {
+//    return p.a * y_prev - p.b * std::pow(y_prev_2, 2) + p.c * u + p.d * std::sin(u);
+//}
 
 // Тесты для линейной модели
 TEST(LinearModelTest, BasicCalculation) {
@@ -63,7 +64,7 @@ TEST(LinearModelTest, BasicCalculation) {
 
 TEST(LinearModelTest, ZeroInput) {
     ModelParams params{ 1.0, 1.0, 0.0, 0.0 };
-    double result = linear_model(0.0, 0.0,params);
+    double result = linear_model(0.0, 0.0, params);
     EXPECT_DOUBLE_EQ(result, 0.0);
 }
 
@@ -190,7 +191,9 @@ int main(int argc, char** argv) {
     return result;
 }
 
-Результаты тестирования
+Результаты тестирования:
+
+Место под картинку
 
 <img width="418" height="708" alt="Без имени" src="https://github.com/user-attachments/assets/75afdc85-490f-4f0b-ab16-db6e3fb537c9" />
 
@@ -222,3 +225,8 @@ BoundaryTest: 2/2 тестов пройдено
 Для анализа покрытия использовался инструмент gcovr.
 
 Процент покрытия: 
+<<<<<<< Updated upstream
+=======
+
+Место под картинку
+>>>>>>> Stashed changes

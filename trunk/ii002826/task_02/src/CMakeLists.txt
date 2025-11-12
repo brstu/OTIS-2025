@@ -5,8 +5,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Основное приложение
-add_executable(MyExe main.cpp)
+# Тестовое приложение
+add_executable(model_tests ../test/test_models.cpp)
+target_link_libraries(model_tests GTest::gtest GTest::gtest_main)
 
 # Google Test
 include(FetchContent)
@@ -16,10 +17,6 @@ FetchContent_Declare(
   GIT_TAG release-1.12.1
 )
 FetchContent_MakeAvailable(googletest)
-
-# Тестовое приложение
-add_executable(model_tests ../test/test_models.cpp)
-target_link_libraries(model_tests GTest::gtest GTest::gtest_main)
 
 enable_testing()
 add_test(NAME ModelTests COMMAND model_tests)
