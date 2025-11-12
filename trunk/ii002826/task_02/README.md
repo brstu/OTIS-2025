@@ -19,7 +19,7 @@
 <p align="right">Группы ИИ-28</p>
 <p align="right">Шумский И.Н.</p>
 <p align="right">Проверил:</p>
-<p align="right">Иванюк Д.С.</p>
+<p align="right">Дворанинович Д.А.</p>
 <br><br><br><br><br>
 <p align="center">Брест 2025</p>
 
@@ -201,6 +201,10 @@ IntegrationTest: 2/2 тестов пройдено
 BoundaryTest: 2/2 тестов пройдено
 
 Время выполнения: 12 ms 
+
+# Тестовая поломка: #
+
+<img width="858" height="875" alt="Без имени3" src="https://github.com/user-attachments/assets/ec62456c-981b-4b0c-8bc5-9259829e339b" />
 
 # Покрытие кода: #
 
