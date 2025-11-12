@@ -1,10 +1,13 @@
 #pragma once
-#include <iostream>
 #include <cmath>
 #include <vector>
 
 struct Params {
-    float a{}, b{}, c{}, d{}, u{};
+    float a{};
+    float b{};
+    float c{};
+    float d{};
+    float u{};
     int steps{};
 
     Params(float a_, float b_, float c_, float d_, float u_, int steps_)
