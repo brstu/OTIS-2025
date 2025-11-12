@@ -1,9 +1,4 @@
-cmake_minimum_required (VERSION 3.5)
-project(task_02_ii02802_source)
+cmake_minimum_required (VERSION 3.0.0)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-set(PROJECT_SOURCES main.cpp functions.cpp)
-
-add_executable(task_02_ii02802_source ${PROJECT_SOURCES})
+project (lab_01_ii02802)
+add_executable ( ${PROJECT_NAME} main.cpp)

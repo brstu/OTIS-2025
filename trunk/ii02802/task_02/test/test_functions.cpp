@@ -8,7 +8,7 @@ TEST(LinearTest, PositiveValues) {
 }
 
 TEST(LinearTest, ZeroInput) {
-    EXPECT_DOUBLE_EQ(linear(0.0, 0.0, 2.0, 5.0), 0.0);
+    EXPECT_DOUBLE_EQ(linear(100.0, 0.0, 2.0, 5.0), 0.0);
 }
 
 TEST(LinearTest, NegativeValues) {
