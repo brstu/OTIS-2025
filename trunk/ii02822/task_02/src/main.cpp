@@ -4,7 +4,6 @@
 
 int main() {
     double u_current;
-    double u_prev;
     double y;
     double a;
     double b;
@@ -24,8 +23,6 @@ int main() {
         return 1;
     }
 
-    u_prev = u_current;
-
     std::cout << "Enter constants a, b, c, d: ";
     if (!(std::cin >> a >> b >> c >> d)) {
         std::cerr << "Error: Invalid input for constants" << std::endl;
@@ -37,7 +34,6 @@ int main() {
         std::cerr << "Error: Invalid number of steps" << std::endl;
         return 1;
     }
-
 
     double y_linear = y;
     double y_nonlinear_prev = y;
@@ -56,7 +52,6 @@ int main() {
         y_linear = y_linear_next;
         y_nonlinear_prev = y_nonlinear;
         y_nonlinear = y_nonlinear_next;
-        u_prev = u_current;
     }
 
     return 0;
