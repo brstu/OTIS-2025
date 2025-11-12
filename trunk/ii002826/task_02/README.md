@@ -208,5 +208,5 @@ BoundaryTest: 2/2 тестов пройдено
 
 **Процент покрытия: **
 
-Место под картинку
+<img width="1169" height="353" alt="Без имени1" src="https://github.com/user-attachments/assets/aab52a8c-f0db-4fdb-a653-c7252b674770" />
 
