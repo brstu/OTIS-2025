@@ -12,6 +12,11 @@ std::vector<float> Linemodel(float y, float u, int steps, float a, float b) {
 
 std::vector<float> UnLinemodel(const Params& p, float y, float y0) {
     std::vector<float> result;
+    if (p.steps <= 0 || p.steps > 10000) {  // защита от мусора
+        std::cerr << "Ошибка: недопустимое значение p.steps = " << p.steps << std::endl;
+        return result;
+    }
+
     for (int i = 0; i < p.steps; ++i) {
         float y_next = p.a * y - p.b * y0 * y0 + p.c * p.u + p.d * sin(p.u);
         result.push_back(y_next);
@@ -20,3 +25,4 @@ std::vector<float> UnLinemodel(const Params& p, float y, float y0) {
     }
     return result;
 }
+
