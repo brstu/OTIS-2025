@@ -18,7 +18,7 @@ int main() {
     Params p{ a, b, c, d, u, steps };
     auto result = UnLinemodel(p, y, y0);
     std::cout << "UnLinemodel result: ";
-        if (result.empty()) {
+    if (result.empty()) {
         cout << "[No output: UnLinemodel returned an empty result, possibly due to invalid 'steps' parameter]";
     }
     else {
