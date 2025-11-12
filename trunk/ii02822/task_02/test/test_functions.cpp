@@ -31,7 +31,12 @@ TEST(TemperatureModelTest, ValidateSteps) {
 }
 
 TEST(TemperatureModelTest, BoundaryValues) {
-    // Тестирование граничных значений
     EXPECT_DOUBLE_EQ(TemperatureModel::linearModel(0, 0, 0, 0), 0);
     EXPECT_DOUBLE_EQ(TemperatureModel::linearModel(1, 0, 1, 0), 1);
+}
+
+TEST(TemperatureModelTest, ValidateStepsZeroAndNegative) {
+    EXPECT_FALSE(TemperatureModel::validateSteps(0));
+    EXPECT_FALSE(TemperatureModel::validateSteps(-5));
+    EXPECT_FALSE(TemperatureModel::validateSteps(-1));
 }
