@@ -6,7 +6,7 @@
 TEST(LinearModelTest, BasicCalculation) {
     ModelParams params{ 0.5, 0.2, 0.0, 0.0 };
     double result = linear_model(10.0, 5.0, params);
-    EXPECT_DOUBLE_EQ(result, 0.5 * 10.0 + 0.2 * 5.0);
+    EXPECT_DOUBLE_EQ(result, 0.5 * 10.0 + 0.2 * 5.0 );
 }
 
 TEST(LinearModelTest, ZeroInput) {
