@@ -47,7 +47,7 @@ int main() {
 
     for (int i = 0; i < count_steps; i++) {
         double y_linear_next = TemperatureModel::linearModel(y_linear, u_current, a, b);
-        double y_nonlinear_next = TemperatureModel::nonlinearModel(y_nonlinear, y_nonlinear_prev, u_current, u_prev, a, b, c, d);
+        double y_nonlinear_next = TemperatureModel::nonlinearModel(y_nonlinear, y_nonlinear_prev, u_current, a, b, c, d);
 
         std::cout << "Step " << i + 1 << ":" << std::endl;
         std::cout << "  Linear model: y = " << y_linear_next << std::endl;
