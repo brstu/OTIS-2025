@@ -31,4 +31,4 @@ target_link_libraries(
 )
 
 include(GoogleTest)
-gtest_discover_tests(my_tests)
+gtest_discover_tests(my_tests_ekadze)
