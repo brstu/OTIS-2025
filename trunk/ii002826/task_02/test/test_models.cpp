@@ -1,5 +1,6 @@
 ﻿#include <gtest/gtest.h>
 #include <iostream>
+#include <cmath>
 #include "../src/main.cpp"
 
 // Тесты для линейной модели
