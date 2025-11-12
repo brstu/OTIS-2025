@@ -3,7 +3,13 @@
 #include "functions.h"
 
 int main() {
-    double u_current, u_prev, y, a, b, c, d;
+    double u_current;
+    double u_prev;
+    double y;
+    double a;
+    double b;
+    double c;
+    double d;
     int count_steps;
 
     std::cout << "Enter initial temperature y: ";
