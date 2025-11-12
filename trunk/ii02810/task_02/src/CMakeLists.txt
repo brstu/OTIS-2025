@@ -31,5 +31,5 @@ target_link_libraries(
   GTest::gtest_main
 )
 
-# include(GoogleTest)
-# gtest_discover_tests(my_tests_ii02810) 
+include(GoogleTest)
+gtest_discover_tests(my_tests_ii02810) 
