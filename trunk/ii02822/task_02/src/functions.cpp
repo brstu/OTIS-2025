@@ -5,7 +5,10 @@ double TemperatureModel::linearModel(double y_prev, double u, double a, double b
     return a * y_prev + b * u;
 }
 
-double TemperatureModel::nonlinearModel(double y_prev, double y_prev2, double u, double u_prev, double a, double b, double c, double d) {
+// cppcheck-suppress tooManyParameters
+double TemperatureModel::nonlinearModel(
+    double y_prev, double y_prev2, double u, double u_prev,
+    double a, double b, double c, double d) {
     return a * y_prev - b * y_prev2 * y_prev2 + c * u + d * std::sin(u_prev);
 }
 
