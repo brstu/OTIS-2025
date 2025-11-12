@@ -64,7 +64,8 @@ TEST(LinemodelTest, ZeroCoefficients) {
 
 TEST(UnLinemodelTest, BasicCase) {
     Params p{2.0f, 1.0f, 0.5f, 1.0f, 0.5f, 1};
-    float y = 1.0f, y0 = 0.0f;
+    float y = 1.0f;
+    float y0 = 0.0f;
 
     auto result = UnLinemodel(p, y, y0);
     ASSERT_EQ(result.size(), 1);
@@ -83,7 +84,7 @@ TEST(UnLinemodelTest, SinusoidalEffect) {
     Params p{0.0f, 0.0f, 0.0f, 2.0f, static_cast<float>(M_PI / 2), 1};
     auto result = UnLinemodel(p, 0.0f, 0.0f);
     ASSERT_EQ(result.size(), 1);
-    EXPECT_FLOAT_EQ(result[0], 2.0f * std::sin(M_PI / 2));
+    EXPECT_NEAR(result[0], 2.0f * std::sin(M_PI / 2), 1e-5);
 }
 ```
 ## Тестовое покрытие

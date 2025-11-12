@@ -1,6 +1,5 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
-#include <math.h>
 #include <gtest/gtest.h>
 #include "../src/model.h"
 
