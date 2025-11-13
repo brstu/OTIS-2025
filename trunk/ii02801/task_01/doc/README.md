@@ -5,18 +5,20 @@
 <br><br><br><br><br><br><br>
 <p align="center">Лабораторная работа №1</p>
 <p align="center">по дисциплине “Общая теория интеллектуальных систем”</p>
-<p align="center">Тема: “Моделирования температуры объекта”</p>
+<p align="center">Тема: “Моделирование температуры объекта”</p>
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
 <p align="right">Группы ИИ-28</p>
-<p align="right">Клименко М.С.</p>
+<p align="right">Артыш Е.А.</p>
 <p align="right">Проверил:</p>
 <p align="right">Иванюк Д.С.</p>
 <br><br><br><br><br>
 <p align="center">Брест 2025</p>
 
+
 <hr>
+
 
 # Общее задание #
 1. Написать отчет по выполненной лабораторной работе №1 в .md формате (readme.md) и с помощью запроса на внесение изменений (**pull request**) разместить его в следующем каталоге: **trunk\ii0xxyy\task_01\doc** (где **xx** - номер группы, **yy** - номер студента, например **ii02302**).
@@ -45,78 +47,93 @@ Task is to write program (**С++**), which simulates this object temperature.
 ```
 #include <iostream>
 #include <cmath>
-#include <limits>
-#include <string>
+#include <vector>
 
-template <typename N>
-void Number_Check(N& number, const std::string& message) {
-	std::cout << message;
-	while (!(std::cin >> number)) {
-		std::cin.clear(); 
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		std::cout << "Input correct number: ";
-	}
+const double a = 0.9;
+const double b = 0.1;
+const double c = 0.05;
+const double d = 0.02;
+
+const double y0_value = 20.0;  
+const double C = 1.0;
+
+std::vector<double> simulateLinear(int steps, double y_init, const std::vector<double>& u) {
+    std::vector<double> y(steps);
+    y[0] = y_init;
+
+    for (int t = 1; t < steps; ++t) {
+        y[t] = a * y[t - 1] + b * u[t - 1];
+    }
+
+    return y;
 }
 
-int main()
-{
-	double y_lin_prev = 0;
-	double y_lin_next = 0;
-	double u = 0;
-	double u_prev = 0;
-	double a = 0;
-	double b = 0;
-	double c = 0;
-	double d = 0;
+std::vector<double> simulateNonlinear(int steps, double y_init, const std::vector<double>& u) {
+    if (steps == 0) {
+        // No steps, return empty vector
+        return std::vector<double>();
+    } else if (steps == 1) {
+        // Only initial value
+        return std::vector<double>(1, y_init);
+    } else if (steps == 2) {
+        // Initial value and first computed value
+        std::vector<double> y(2);
+        y[0] = y_init;
+        y[1] = a * y[0] + b * u[0];
+        return y;
+    }
+    std::vector<double> y(steps);
+    y[0] = y_init;
+    y[1] = a * y[0] + b * u[0];
+    for (int t = 2; t < steps; ++t) {
+        y[t] = a * y[t - 1] - b * std::pow(y[t - 2], 2) + c * u[t - 1] + d * std::sin(u[t - 2]);
+    }
 
-	int n = 0;
+    return y;
+}
 
-	Number_Check(y_lin_prev, "Enter input temperature (y): ");
-	Number_Check(u, "Enter input warmth (u): ");
-	double y_nonlin_0 = 0;
-	double y_nonlin_1 = y_lin_prev;
-	double y_nonlin_2 = 0;
-	Number_Check(a, "Enter constant a: ");
-	Number_Check(b, "Enter constant b: ");
-	Number_Check(c, "Enter constant c: ");
-	Number_Check(d, "Enter constant d: ");
-	Number_Check(n, "Enter an amount of steps (n): ");
 
-	for (int i = 1; i <= n; i++)
-	{
-		y_lin_next = a * y_lin_prev + b * u;
-		y_lin_prev = y_lin_next;
-		y_nonlin_2 = a * y_nonlin_1 - b * (y_nonlin_0 * y_nonlin_0) + c * u + d * sin(u_prev);
-		y_nonlin_0 = y_nonlin_1;
-		y_nonlin_1 = y_nonlin_2;
-		u_prev = u;
-		std::cout << "Step " << i
-			<< ", temp of linear function = " << y_lin_next
-			<< ", temp of nonlinear function = " << y_nonlin_2 << std::endl;
-	}
+int main() {
+    int steps = 20;
+    double y_init = 25.0;
 
-	return 0;
+    std::vector<double> u(steps, 5.0);
+
+    auto y_linear = simulateLinear(steps, y_init, u);
+    auto y_nonlinear = simulateNonlinear(steps, y_init, u);
+
+    std::cout << "Time\tLinear\tNonlinear\n";
+    for (int t = 0; t < steps; ++t) {
+        std::cout << t << "\t" << y_linear[t] << "\t" << y_nonlinear[t] << "\n";
+    }
+
+    return 0;
 }
 
 ```
 Вывод программы:
 ```
-Enter input temperature (y): йцуыв
-Input correct number: 1.25
-Enter input warm (u): 2.1
-Enter constant a: 0.1
-Enter constant b: 0.2
-Enter constant c: 0.01
-Enter constant d: 0.5
-Enter an amount of steps (n): 9
-Step 1, temp of linear function = 0.545, temp of nonlinear function = 0.146
-Step 2, temp of linear function = 0.4745, temp of nonlinear function = 0.154705
-Step 3, temp of linear function = 0.46745, temp of nonlinear function = 0.463812
-Step 4, temp of linear function = 0.466745, temp of nonlinear function = 0.494199
-Step 5, temp of linear function = 0.466675, temp of nonlinear function = 0.459
-Step 6, temp of linear function = 0.466667, temp of nonlinear function = 0.449658
-Step 7, temp of linear function = 0.466667, temp of nonlinear function = 0.455434
-Step 8, temp of linear function = 0.466667, temp of nonlinear function = 0.45771
-Step 9, temp of linear function = 0.466667, temp of nonlinear function = 0.456892
+Time	Linear	Nonlinear
+0	25	25
+1	23	23
+2	21.2	-41.5692
+3	19.58	-90.0814
+4	18.122	-253.642
+5	16.8098	-1039.51
+6	15.6288	-7368.76
+7	14.5659	-114691
+8	13.6093	-5.53309e+06
+9	12.7484	-1.32037e+09
+10	11.9736	-3.0627e+12
+11	11.2762	-1.74341e+17
+12	10.6486	-9.38012e+23
+13	10.0837	-3.03947e+33
+14	9.57536	-8.79866e+46
+15	9.11782	-9.23839e+65
+16	8.70604	-7.74164e+92
+17	8.33544	-8.53479e+130
+18	8.00189	-5.9933e+184
+19	7.7017	-7.28426e+260
+
 
 ```
