@@ -89,10 +89,14 @@ public:
 private:
     PIDConfig cfg_;
     // Коэффициенты инкрементной формы
-    double q0_{0.0}, q1_{0.0}, q2_{0.0};
+    double q0_{0.0};
+    double q1_{0.0};
+    double q2_{0.0};
     // Состояния
     double u_k_{0.0};
-    double e_k_{0.0}, e_k1_{0.0}, e_k2_{0.0};
+    double e_k_{0.0};
+    double e_k1_{0.0};
+    double e_k2_{0.0};
 
     void compute_q();
     double saturate(double v) const;
