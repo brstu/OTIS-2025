@@ -54,15 +54,17 @@ add_custom_command(TARGET pid_sim POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/../doc/img
 )
 
-# ---- Doxygen ----
-find_package(Doxygen REQUIRED)
+find_package(Doxygen)
 
-set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/../doc/Doxyfile)
-set(DOXYGEN_OUT ${CMAKE_CURRENT_SOURCE_DIR}/../doc/html)
+if(DOXYGEN_FOUND)
+    set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/../doc/Doxyfile)
+    set(DOXYGEN_OUT ${CMAKE_CURRENT_SOURCE_DIR}/../doc/html)
 
-add_custom_target(doc_doxygen
-    COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_IN}
-    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../doc
-    COMMENT "Generating API documentation with Doxygen"
-    VERBATIM
-)
+    add_custom_target(doc_doxygen
+        COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_IN}
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../doc
+        COMMENT "Generating API documentation with Doxygen"
+        VERBATIM
+    )
+endif()
+
