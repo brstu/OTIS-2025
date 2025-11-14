@@ -104,7 +104,7 @@ git checkout 69858165c3b5fb26ca783950c74bfe7bddd64a00
 ![regedit](img/docker-containers.png)
 <br>
 Запустим проект: `docker compose up --no-build`<br>
-Ожидаем некоторое время, когда в консоли появиться сообщение/тескт в конце:
+Ожидаем некоторое время, когда в консоли появиться сообщение/текст в конце:
 <br>
 ![cmd's output](img/cmd-output.png)
 <br>
