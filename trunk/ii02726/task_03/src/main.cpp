@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
     cfg.u_max = 100.0;
     cfg.anti_windup = true;
 
-    auto w_func = [](int k) -> double {
+    auto w_func = [](int k) {
         if (k < 20) return 0.0;
         return 80.0;
     };
@@ -29,12 +29,12 @@ int main(int argc, char** argv) {
     double a = 0.95;
     double b = 0.05;
 
-    auto plant_step_linear = [a, b](int k, double u_k, double y_k1, double /*y_k2*/) -> double {
+    auto plant_step_linear = [a, b](int /*k*/, double u_k, double y_k1, double /*y_k2*/) {
         return a * y_k1 + b * u_k;
     };
 
     abcd nl{1.0, 0.0005, 0.05, 0.01};
-    auto plant_step_nonlinear = [nl](int k, double u_k, double y_k1, double y_k2) -> double {
+    auto plant_step_nonlinear = [nl](int /*k*/, double u_k, double y_k1, double y_k2) {
         return nl.a * y_k1 - nl.b * y_k2 * y_k2 + nl.c * u_k + nl.d * std::sin(u_k);
     };
 
