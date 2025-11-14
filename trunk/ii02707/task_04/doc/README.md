@@ -99,7 +99,7 @@ git checkout 69858165c3b5fb26ca783950c74bfe7bddd64a00
 `docker desktop start`
 
 Получим контейнеры с **DockerHub**: `docker compose pull`<br>
-После выполненной команды получились сдедующие контейнеры:
+После выполненной команды получились следующие контейнеры:
 <br>
 ![regedit](img/docker-containers.png)
 <br>
