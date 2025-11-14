@@ -98,19 +98,20 @@ git checkout 69858165c3b5fb26ca783950c74bfe7bddd64a00
 Во-первых запустим Docker Desktop:
 `docker desktop start`
 
-Затем пишем наши заветные команды в cmd:
-```
-docker compose pull
-docker compose up --no-build
-```
+Получим контейнеры с **DockerHub**: `docker compose pull`<br>
+После выполненной команды получились сдедующие контейнеры:
+<br>
+![regedit](img/docker-containers.png)
+<br>
+Запустим проект: `docker compose up --no-build`<br>
 Ожидаем некоторое время, когда в консоли появиться сообщение/тескт в конце:
 <br>
 ![cmd's output](img/cmd-output.png)
 <br>
 После этого, можно открыть браузер и ввести, в зависимости от того, что Вам хочется просмотреть, URL:
 
-### sc-web - localhost:8000
+### sc-web - `localhost:8000`
 ![sc-web](img/web-sc.png)
 
-### dialogue web UI - localhost:3033
+### dialogue web UI - `localhost:3033`
 ![dialogue web UI](img/ui.png)
