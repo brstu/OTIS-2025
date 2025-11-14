@@ -34,6 +34,15 @@
 .DS_Store
 .vs/
 out/
-build/
+/build/
 .idea/
 cmake-build-debug/
+
+# Coverage files
+*.gcda
+*.gcno
+
+build/
+build_gcov/
+
+task_02/.vscode/
