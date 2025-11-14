@@ -46,8 +46,6 @@ double PID::step(double e_k) {
     double delta_u = q0_ * e_k_ + q1_ * e_k1_ + q2_ * e_k2_;
     double u_next  = u_k_ + delta_u;
 
-    // Анти‑windup: если произошла сатурация, корректируем интегральную часть,
-    // в инкрементной форме это реализуется ограничением самого u(k).
     if (cfg_.anti_windup && cfg_.u_max > 0.0) {
         u_next = saturate(u_next);
     }

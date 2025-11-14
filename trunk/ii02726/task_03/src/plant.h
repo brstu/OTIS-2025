@@ -45,4 +45,4 @@ std::vector<double> linear_func(int steps, double a, double b,
 std::vector<double> nonlinear_func(int steps, const abcd& str_fun,
                                    const std::vector<double>& u, double y0, double y1);
 
-#endif // PLANT_H
+#endif

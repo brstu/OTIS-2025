@@ -88,11 +88,9 @@ public:
 
 private:
     PIDConfig cfg_;
-    // Коэффициенты инкрементной формы
     double q0_{0.0};
     double q1_{0.0};
     double q2_{0.0};
-    // Состояния
     double u_k_{0.0};
     double e_k_{0.0};
     double e_k1_{0.0};
@@ -102,4 +100,4 @@ private:
     double saturate(double v) const;
 };
 
-#endif // PID_H
+#endif

@@ -6,12 +6,10 @@ option(ENABLE_TESTS "Build tests" ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Собирать бинарники прямо в src
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
-# Основная библиотека (файлы лежат в src/)
 add_library(pid_lib
     pid.cpp
     plant.cpp
@@ -19,11 +17,9 @@ add_library(pid_lib
 )
 target_include_directories(pid_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
-# Исполняемый файл (main.cpp лежит в src/)
 add_executable(pid_sim main.cpp)
 target_link_libraries(pid_sim PRIVATE pid_lib)
 
-# GoogleTest
 if(ENABLE_TESTS)
     include(FetchContent)
     FetchContent_Declare(
@@ -36,7 +32,6 @@ if(ENABLE_TESTS)
 
     enable_testing()
 
-    # Тесты лежат в ../test/
     add_executable(pid_tests
         ../test/pid_test.cpp
         ../test/plant_test.cpp
@@ -48,7 +43,6 @@ if(ENABLE_TESTS)
     gtest_discover_tests(pid_tests)
 endif()
 
-# Вывод CSV: убедимся, что каталоги существуют
 add_custom_command(TARGET pid_sim POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/../doc/data
     COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/../doc/img

@@ -16,11 +16,11 @@ using SetpointFunc = std::function<double(int)>;
  */
 struct SimResult {
     double T0{0.1};
-    std::vector<double> t;  ///< Время
-    std::vector<double> w;  ///< Задание
-    std::vector<double> y;  ///< Выход объекта
-    std::vector<double> u;  ///< Управляющее воздействие
-    std::vector<double> e;  ///< Ошибка
+    std::vector<double> t; 
+    std::vector<double> w;  
+    std::vector<double> y;
+    std::vector<double> u;
+    std::vector<double> e;
 };
 
 /**
@@ -47,4 +47,4 @@ SimResult run_simulation(int steps, double T0, const PIDConfig& pid,
  */
 void save_csv(const std::string& path, const SimResult& r);
 
-#endif // SIM_H
+#endif

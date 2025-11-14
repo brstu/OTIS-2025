@@ -36,7 +36,7 @@ SimResult run_simulation(int steps, double T0, const PIDConfig& pid_cfg,
     for (int k = 2; k < steps; ++k) {
         res.t[k] = k * T0;
         res.w[k] = w_func(k);
-        res.e[k] = res.w[k] - res.y[k - 1]; // ошибка между заданием и прошлым выходом
+        res.e[k] = res.w[k] - res.y[k - 1];
         res.u[k] = pid.step(res.e[k]);
         res.y[k] = plant_step(k, res.u[k], res.y[k - 1], res.y[k - 2]);
     }
