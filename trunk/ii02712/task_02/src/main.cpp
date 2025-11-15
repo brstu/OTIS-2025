@@ -7,7 +7,6 @@ int main() {
     double y_next = 0;
     double y_pred;   
     double u = 1;  
-
     std::cout << "The Linear model" << std::endl;
     for (int i = 0; i < steps; i++) {
         y_next = linearModel(y_next, u);

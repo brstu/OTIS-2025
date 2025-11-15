@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Building Tests"
+echo "Building Application"
 cmake -S ./ -B ./build
 cmake --build ./build
-echo "Finish building Tests"
+echo "Finish building Application"
