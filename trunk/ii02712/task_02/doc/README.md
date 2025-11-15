@@ -13,8 +13,8 @@
 <p align="right">Литовкин Н.А.</p>
 <p align="right">Проверил:</p>
 <p align="right">Дворанинович Д.А.</p>
-<br><br><br><br><br>
-<p align="center">Брест 2025</p>
+<br><br><br><br><br>                                               
+<p align="center">Брест 2025</p>                
 
 
 # Общее задание #
@@ -86,3 +86,5 @@ igor7123
 ![Review igor7123](img/igor7123.png)
 v1tyokkk
 ![Review v1tyokkk](img/v1tyokkk.png)
+
+Вывод: Научился писать модульные тесты для программы, разработанной в лабораторной работе №1.

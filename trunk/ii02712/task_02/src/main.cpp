@@ -3,33 +3,25 @@
 #include "functions.h"
 
 int main() {
-    double y;
-    std::cout << "Enter the initial temperature: ";
-    std::cin >> y;
-    double y_next = y;
+    const int steps = 15;
+    double y_next = 0;
     double y_pred;   
-    double u ;
-    std::cout << "Enter the input warm: ";
-    std::cin >> u;
-    double u_pred ;    
-
-    const int steps = 10;
+    double u = 1;  
 
     std::cout << "The Linear model" << std::endl;
-    std::cout << "Time:\tTemperature:" << std::endl;
-    for (int i = 0; i < steps; ++i) {
+    for (int i = 0; i < steps; i++) {
         y_next = linearModel(y_next, u);
-        std::cout << i + 1 << "\t" << y_next << std::endl;
+        std::cout << i << "\t" << y_next << std::endl;
     }
     std::cout << std::endl;
-    y_next = y;
+    y_next = 0;
+    double u_pred;  
     std::cout << "Nonlinear model:" << std::endl;
-    std::cout << "Time:\tTemperature:" << std::endl;
-    for (int i = 0; i < steps; ++i) {
+    for (int i = 0; i < steps; i++) {
         y_pred = y_next;
         u_pred = u;
         y_next = nonlinearModel(y_next, u, y_pred, u_pred);
-        std::cout << i + 1 << "\t" << y_next << std::endl;
+        std::cout << i << "\t" << y_next << std::endl;
     }
     return 0;
 }
