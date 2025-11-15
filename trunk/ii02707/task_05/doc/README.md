@@ -14,3 +14,8 @@
 
 3. Написать отчет по выполненной работе в .md формате (readme.md) и с помощью
 `pull request` разместить его в следующем каталоге: trunk\ii0xxyy\task_05\doc.
+
+
+## Ход работы
+
+## Pull Request for OSTIS/NIKA
