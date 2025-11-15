@@ -46,4 +46,8 @@ int main()
 	u[1] = u[0] * 0.8; //Коэффициент понижения температуры объекта
 
 	nonLinear(a, b, c, d, y, u, steps);
+
+	std::cout << "Нажмите Enter для выхода...";
+	std::cin.ignore();
+	std::cin.get();
 }

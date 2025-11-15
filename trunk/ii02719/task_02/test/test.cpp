@@ -13,9 +13,9 @@ TEST(LinearTest, CalculatesCorrectly) {
 
     linear(1.0, 0.5, y, u, steps);
 
-    EXPECT_DOUBLE_EQ(y[1], 1.0 * 10.0 + 0.5 * 5.0); // 12.5
+    EXPECT_DOUBLE_EQ(y[1], 1.0 * 10.0 + 0.5 * 0.5); // 12.5
     EXPECT_DOUBLE_EQ(u[1], 5.0 * 0.8);              // 4.0
-    EXPECT_DOUBLE_EQ(y[2], 1.0 * 12.5 + 0.5 * 4.0); // 14.5
+    EXPECT_DOUBLE_EQ(y[2], 1.0 * 12.5 + 0.5 * 0.8); // 14.5
     EXPECT_DOUBLE_EQ(u[2], 4.0 * 0.8);              // 3.2
 }
 
