@@ -1,0 +1,12 @@
+PROJECT_NAME           = "Лабораторная работа №3: ПИД-регулятор (ii02709)"
+OUTPUT_DIRECTORY       = doc
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+INPUT                  = src
+RECURSIVE              = NO
+FILE_PATTERNS          = *.h *.cpp
+GENERATE_TREEVIEW      = YES
+EXCLUDE                = test
+QUIET                  = YES
+WARNINGS               = YES
+WARN_IF_DOC_ERROR      = YES
