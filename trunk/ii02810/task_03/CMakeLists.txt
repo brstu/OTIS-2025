@@ -14,15 +14,15 @@ FetchContent_MakeAvailable(googletest)
 
 add_executable(pid_sim_ii02810
     src/main.cpp
-    src/pid_controller.cpp
-    src/heater_model.cpp
+    src/pid.cpp
+    src/model.cpp
 )
 
 enable_testing()
 add_executable(pid_tests_ii02810
-    test/pid_tests.cpp
-    src/pid_controller.cpp
-    src/heater_model.cpp
+    test/tests.cpp
+    src/pid.cpp
+    src/model.cpp
 )
 target_link_libraries(pid_tests_ii02810 GTest::gtest_main)
 add_test(NAME pid_tests_ii02810 COMMAND pid_tests_ii02810)
