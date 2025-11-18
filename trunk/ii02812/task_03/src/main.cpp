@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @brief Консольное приложение моделирования PID-регулятора и линейного объекта.
+ * @brief РљРѕРЅСЃРѕР»СЊРЅРѕРµ РїСЂРёР»РѕР¶РµРЅРёРµ РјРѕРґРµР»РёСЂРѕРІР°РЅРёСЏ PID-СЂРµРіСѓР»СЏС‚РѕСЂР° Рё Р»РёРЅРµР№РЅРѕРіРѕ РѕР±СЉРµРєС‚Р°.
  */
 
 #include <iostream>
@@ -10,10 +10,10 @@
 #include "lin_model.h"
 
  /**
-  * @brief Проверка корректности ввода числового значения.
-  * @tparam N Числовой тип.
-  * @param number Переменная, в которую записывается ввод.
-  * @param message Сообщение пользователю.
+  * @brief РџСЂРѕРІРµСЂРєР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё РІРІРѕРґР° С‡РёСЃР»РѕРІРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ.
+  * @tparam N Р§РёСЃР»РѕРІРѕР№ С‚РёРї.
+  * @param number РџРµСЂРµРјРµРЅРЅР°СЏ, РІ РєРѕС‚РѕСЂСѓСЋ Р·Р°РїРёСЃС‹РІР°РµС‚СЃСЏ РІРІРѕРґ.
+  * @param message РЎРѕРѕР±С‰РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ.
   */
 template <typename N>
 void validate(N& number, const std::string& message) {
@@ -40,7 +40,7 @@ int main() {
 
     validate(y_prev, "Enter input temperature (y): ");
     validate(a, "Enter constant a (for linear model): ");
-    validate(b, "Enter constant b (for linear model: ");
+    validate(b, "Enter constant b (for linear model): ");
     validate(w, "Enter target temperature (w): ");
     validate(n, "Enter an amount of steps (n): ");
 

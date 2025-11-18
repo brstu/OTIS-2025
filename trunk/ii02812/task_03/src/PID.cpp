@@ -1,6 +1,10 @@
 /**
  * @file PID.cpp
+<<<<<<< HEAD
  * @brief Ðåàëèçàöèÿ äèñêðåòíîãî PID-ðåãóëÿòîðà.
+=======
+ * @brief Ð ÐµÐ°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ñ Ð´Ð¸ÑÐºÑ€ÐµÑ‚Ð½Ð¾Ð³Ð¾ PID-Ñ€ÐµÐ³ÑƒÐ»ÑÑ‚Ð¾Ñ€Ð°.
+>>>>>>> 235f543de1e891ea0b5921e2b58d0728432e8324
  */
 
 #include "PID.h"
@@ -25,4 +29,8 @@ double PID::u_calc(double e) {
 	}
 	std::cout << "Not valid value of 'q' !\n";
 	return 0.0;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 235f543de1e891ea0b5921e2b58d0728432e8324
