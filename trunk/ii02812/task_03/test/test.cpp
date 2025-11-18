@@ -1,5 +1,5 @@
 /**
- * @file tests.cpp
+ * @file test.cpp
  * @brief Набор модульных тестов для класса PID и линейной модели.
  */
 
@@ -115,14 +115,12 @@ TEST(PIDTest, ConstantError) {
     PID pid(1.0, 2.0, 0.5, 1.0);
 
     double constant_error = 2.0;
-    double u_prev = 0.0;
 
     for (int i = 0; i < 5; i++) {
         double u = pid.u_calc(constant_error);
         if (i > 0) {
             EXPECT_NE(u, 0.0);
         }
-        u_prev = u;
     }
 }
 

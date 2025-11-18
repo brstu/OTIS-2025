@@ -1,5 +1,5 @@
 /**
- * @file pid.h
+ * @file PID.h
  * @brief Заголовочный файл класса дискретного PID-регулятора.
  *
  * Данный PID работает в форме приращений:
@@ -30,7 +30,6 @@ private:
 	double q2;  ///< Дискретный коэффициент q2.
 
 	double u_prev = 0.0;   ///< Предыдущее значение управляющего воздействия.
-	double e = 0.0;        ///< Текущая ошибка.
 	double e_prev_1 = 0.0; ///< Ошибка предыдущего шага.
 	double e_prev_2 = 0.0; ///< Ошибка шага k-2.
 	bool valid = false;    ///< Флаг корректности состояния.
@@ -46,7 +45,7 @@ public:
 	 * @param in_Td Время дифференцирования.
 	 * @param in_T0 Период дискретизации.
 	 */
-	PID(double in_K, double in_T, double in_Td, double in_T0);
+	PID(double in_K, double in_T, double in_T0, double in_Td);
 
 	/**
 	 * @brief Вычисляет управляющее воздействие по текущей ошибке.
@@ -64,7 +63,7 @@ public:
 	/**
 	 * @brief Деструктор.
 	 */
-	~PID();
+	~PID() = default;
 };
 
 #endif // PID_H

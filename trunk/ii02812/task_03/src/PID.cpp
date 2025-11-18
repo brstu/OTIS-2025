@@ -1,17 +1,16 @@
 /**
- * @file pid.cpp
+ * @file PID.cpp
  * @brief Реализация дискретного PID-регулятора.
  */
 
 #include "PID.h"
 #include <iostream>
 
-PID::PID(double in_K, double in_T, double in_Td, double in_T0) : 
-	K(in_K), T(in_T), Td(in_Td), T0(in_T0) {
+PID::PID(double in_K, double in_T, double in_T0, double in_Td) : 
+	K(in_K), T(in_T), T0(in_T0), Td(in_Td), valid(true) {
 	q0 = K * (1.0 + Td / T0);
 	q1 = -K * (1 + 2 * Td / T0 - T0 / T);
 	q2 = K * Td / T0;
-	valid = true;
 }
 
 
@@ -27,5 +26,3 @@ double PID::u_calc(double e) {
 	std::cout << "Not valid value of 'q' !\n";
 	return 0.0;
 }
-
-PID::~PID(){}
