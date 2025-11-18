@@ -27,4 +27,4 @@ double PID::u_calc(double e) {
 	return 0.0;
 }
 
-PID::~PID(){}
+PID::~PID(){} = default;
