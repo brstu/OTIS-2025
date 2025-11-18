@@ -6,9 +6,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(FetchContent)
 FetchContent_Declare(
-    googletest
-    URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
+  googletest
+  URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
 )
+
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
@@ -17,27 +18,22 @@ add_executable(pid_sim_ii02810
     pid_controller.cpp
     heater_model.cpp
 )
-
 target_include_directories(pid_sim_ii02810 PRIVATE .)
 
 enable_testing()
-
 add_executable(pid_tests_ii02810
     ../test/pid_tests.cpp
     pid_controller.cpp
     heater_model.cpp
 )
-
 target_include_directories(pid_tests_ii02810 PRIVATE .)
 target_link_libraries(pid_tests_ii02810 GTest::gtest_main)
-
 add_test(NAME pid_tests_ii02810 COMMAND pid_tests_ii02810)
 
 find_package(Doxygen OPTIONAL_COMPONENTS dot)
 if(DOXYGEN_FOUND)
     doxygen_add_docs(doxygen_html
-        pid_controller.h pid_controller.cpp heater_model.h heater_model.cpp main.cpp
-        ALL
-        COMMENT "Генерация Doxygen"
+        . ALL
+        COMMENT "Генерация документации Doxygen"
     )
 endif()
