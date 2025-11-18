@@ -63,7 +63,7 @@ public:
 	/**
 	 * @brief Деструктор.
 	 */
-	~PID();
+	~PID() = default;
 };
 
 #endif // PID_H
