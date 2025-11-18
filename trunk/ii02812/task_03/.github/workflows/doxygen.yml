@@ -1,0 +1,32 @@
+name: Deploy Doxygen (ii02812)
+on:
+  push:
+    branches: [ task03 ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install doxygen
+        run: sudo apt-get update && sudo apt-get install -y doxygen graphviz
+
+      - name: Generate docs
+        run: doxygen Doxyfile
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: doc/html
+
+      - uses: actions/deploy-pages@v4
