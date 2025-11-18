@@ -24,12 +24,22 @@ double PIDController::calculate(double setpoint, double measured)
     double delta_u = q0 * e + q1 * e_prev1_ + q2 * e_prev2_;
     double u_new = u_prev_ + delta_u;
 
-    if (u_new > u_max_ || u_new < u_min_) {
-        if ((u_new > u_max_ && delta_u > 0) || (u_new < u_min_ && delta_u < 0)) {
-            delta_u = 0.0;
-        }
+    bool saturation = false;
+
+    if (u_new > u_max_) {
+        u_new = u_max_;
+        if (delta_u > 0) saturation = true;
+    } else if (u_new < u_min_) {
+        u_new = u_min_;
+        if (delta_u < 0) saturation = true;
+    } else {
+
     }
-    u_new = std::clamp(u_new, u_min_, u_max_);
+
+
+    if (saturation) {
+        u_new = u_prev_;
+    }
 
     e_prev2_ = e_prev1_;
     e_prev1_ = e;
