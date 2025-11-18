@@ -1,0 +1,45 @@
+\doxysection{Os\+Stack\+Trace\+Getter\+Interface Class Reference}
+\hypertarget{class_os_stack_trace_getter_interface}{}\label{class_os_stack_trace_getter_interface}\index{OsStackTraceGetterInterface@{OsStackTraceGetterInterface}}
+Inheritance diagram for Os\+Stack\+Trace\+Getter\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_os_stack_trace_getter_interface}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_os_stack_trace_getter_interface_a0c41724e4e47647a7fe2ace8e70c0ec7}\label{class_os_stack_trace_getter_interface_a0c41724e4e47647a7fe2ace8e70c0ec7} 
+virtual std\+::string {\bfseries Current\+Stack\+Trace} (int max\+\_\+depth, int skip\+\_\+count)=0
+\item 
+\Hypertarget{class_os_stack_trace_getter_interface_a791bd120428b5a53d5eeba1b27296a39}\label{class_os_stack_trace_getter_interface_a791bd120428b5a53d5eeba1b27296a39} 
+virtual void {\bfseries Upon\+Leaving\+GTest} ()=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const char \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{class_os_stack_trace_getter_interface_a669c49ce9ae05935e70bddb35a81ceb8}{k\+Elided\+Frames\+Marker}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_os_stack_trace_getter_interface_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_os_stack_trace_getter_interface_a669c49ce9ae05935e70bddb35a81ceb8}\index{OsStackTraceGetterInterface@{OsStackTraceGetterInterface}!kElidedFramesMarker@{kElidedFramesMarker}}
+\index{kElidedFramesMarker@{kElidedFramesMarker}!OsStackTraceGetterInterface@{OsStackTraceGetterInterface}}
+\doxysubsubsection{\texorpdfstring{kElidedFramesMarker}{kElidedFramesMarker}}
+{\footnotesize\ttfamily \label{class_os_stack_trace_getter_interface_a669c49ce9ae05935e70bddb35a81ceb8} 
+const char \texorpdfstring{$\ast$}{*}const testing\+::internal\+::\+Os\+Stack\+Trace\+Getter\+Interface\+::k\+Elided\+Frames\+Marker\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}...\ "{}}\ GTEST\_NAME\_\ \textcolor{stringliteral}{"{}\ internal\ frames\ ..."{}}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+test/build/\+\_\+deps/googletest-\/src/googletest/src/gtest-\/internal-\/inl.\+h\item 
+test/build/\+\_\+deps/googletest-\/src/googletest/src/gtest.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,19 @@
+\doxysection{src/\+PID.h File Reference}
+\hypertarget{_p_i_d_8h}{}\label{_p_i_d_8h}\index{src/PID.h@{src/PID.h}}
+
+
+Заголовочный файл класса дискретного PID-\/регулятора.  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_p_i_d}{PID}}
+\begin{DoxyCompactList}\small\item\em Класс дискретного PID-\/регулятора. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Заголовочный файл класса дискретного PID-\/регулятора. 
+
+Данный \doxylink{class_p_i_d}{PID} работает в форме приращений\+:   \[    \Delta u = q_0 e(k) + q_1 e(k-1) + q_2 e(k-2)
+\] где коэффициенты q0, q1, q2 вычисляются через параметры K, T, T0, Td. 
