@@ -18,6 +18,9 @@ jobs:
     - name: Setup Doxygen
       run: sudo apt-get install -y doxygen
       
+    - name: Create .nojekyll file
+      run: touch trunk/ii02812/task_03/doc/html/.nojekyll
+      
     - name: Generate Docs
       run: doxygen Doxyfile
       
