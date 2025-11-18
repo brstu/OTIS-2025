@@ -3,7 +3,7 @@
  * @brief Набор модульных тестов для класса PID и линейной модели.
  */
 
-#include "../src/pid.h"
+#include "../src/PID.h"
 #include "../src/lin_model.h"
 #include <gtest/gtest.h>
 #include <cmath>

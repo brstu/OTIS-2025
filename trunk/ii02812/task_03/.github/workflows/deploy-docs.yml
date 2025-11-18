@@ -1,0 +1,33 @@
+name: Deploy Doxygen Documentation(ii02812)
+
+on:
+  push:
+    branches: [ task03 ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Doxygen
+      run: sudo apt-get install -y doxygen
+      
+    - name: Generate Docs
+      run: doxygen Doxyfile
+      
+    - name: Setup Pages
+      uses: actions/configure-pages@v3
+      
+    - name: Upload to Pages
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: D:/GID/OTIS-2025/trunk/ii02812/task_03/doc/html/
+        
+    - name: Deploy to Pages
+      uses: actions/deploy-pages@v2
