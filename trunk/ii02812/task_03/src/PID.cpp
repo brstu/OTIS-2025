@@ -26,5 +26,3 @@ double PID::u_calc(double e) {
 	std::cout << "Not valid value of 'q' !\n";
 	return 0.0;
 }
-
-PID::~PID(){} = default;
