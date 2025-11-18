@@ -20,4 +20,4 @@
   */
 double linear_model(double y_prev, double u, double a, double b);
 
-#endif LIN_MODEL_H // LIN_MODEL_H
+#endif
