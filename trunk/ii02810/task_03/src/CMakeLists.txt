@@ -13,24 +13,21 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 add_executable(pid_sim_ii02810
-    src/main.cpp
-    src/pid.cpp
-    src/model.cpp
+    main.cpp
+  pid.cpp
+  model.cpp
 )
 
 enable_testing()
 add_executable(pid_tests_ii02810
-    test/tests.cpp
-    src/pid.cpp
-    src/model.cpp
+  ../test/tests.cpp
+  pid.cpp
+  model.cpp
 )
 target_link_libraries(pid_tests_ii02810 GTest::gtest_main)
 add_test(NAME pid_tests_ii02810 COMMAND pid_tests_ii02810)
 
 find_package(Doxygen OPTIONAL_COMPONENTS dot)
 if(DOXYGEN_FOUND)
-    doxygen_add_docs(doc_html
-        src test doc
-        ALL COMMENT "Генерация документации Doxygen"
-    )
+  doxygen_add_docs(doc_html ../doc ALL COMMENT "Doxygen")
 endif()
