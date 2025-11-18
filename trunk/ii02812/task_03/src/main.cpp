@@ -4,6 +4,8 @@
  */
 
 #include <iostream>
+#include <limits>
+#include <string>
 #include "PID.h"
 #include "lin_model.h"
 
