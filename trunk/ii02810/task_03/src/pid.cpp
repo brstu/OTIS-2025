@@ -29,13 +29,11 @@ double PIDController::calculate(double setpoint, double measured)
     if (u_new > u_max_) {
         u_new = u_max_;
         if (delta_u > 0) saturation = true;
-    } else if (u_new < u_min_) {
+    } 
+    else if (u_new < u_min_) {
         u_new = u_min_;
         if (delta_u < 0) saturation = true;
-    } else {
-
     }
-
 
     if (saturation) {
         u_new = u_prev_;
@@ -43,7 +41,7 @@ double PIDController::calculate(double setpoint, double measured)
 
     e_prev2_ = e_prev1_;
     e_prev1_ = e;
-    u_prev_ = u_new;
+    u_prev_  = u_new;
 
     return u_new;
 }
