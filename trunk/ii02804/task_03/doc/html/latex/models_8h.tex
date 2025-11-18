@@ -1,0 +1,80 @@
+\doxysection{src/models.h File Reference}
+\hypertarget{models_8h}{}\label{models_8h}\index{src/models.h@{src/models.h}}
+
+
+Линейная и нелинейная функции  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{models_8h_a44c4aee6a5d69f767ffb09b2a7bf0904}{linear\+\_\+model}} (double y, double u, double a, double b)
+\begin{DoxyCompactList}\small\item\em Линейная функция \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{models_8h_a99880457d1eba112875e80664be5ca66}{non\+\_\+linear\+\_\+model}} (double y, double \&y\+\_\+prev, double u, double \&u\+\_\+prev, double a, double b, double c, double d)
+\begin{DoxyCompactList}\small\item\em Нелинейная модель объекта \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Линейная и нелинейная функции 
+
+
+
+\label{doc-func-members}
+\Hypertarget{models_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{models_8h_a44c4aee6a5d69f767ffb09b2a7bf0904}\index{models.h@{models.h}!linear\_model@{linear\_model}}
+\index{linear\_model@{linear\_model}!models.h@{models.h}}
+\doxysubsubsection{\texorpdfstring{linear\_model()}{linear\_model()}}
+{\footnotesize\ttfamily \label{models_8h_a44c4aee6a5d69f767ffb09b2a7bf0904} 
+double linear\+\_\+model (\begin{DoxyParamCaption}\item[{double}]{y}{, }\item[{double}]{u}{, }\item[{double}]{a}{, }\item[{double}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Линейная функция 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & текущее состояние \\
+\hline
+{\em u} & количество тепла \\
+\hline
+{\em a} & коэффициент \\
+\hline
+{\em b} & коэффициент \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+новое состояние 
+\end{DoxyReturn}
+\Hypertarget{models_8h_a99880457d1eba112875e80664be5ca66}\index{models.h@{models.h}!non\_linear\_model@{non\_linear\_model}}
+\index{non\_linear\_model@{non\_linear\_model}!models.h@{models.h}}
+\doxysubsubsection{\texorpdfstring{non\_linear\_model()}{non\_linear\_model()}}
+{\footnotesize\ttfamily \label{models_8h_a99880457d1eba112875e80664be5ca66} 
+double non\+\_\+linear\+\_\+model (\begin{DoxyParamCaption}\item[{double}]{y}{, }\item[{double \&}]{y\+\_\+prev}{, }\item[{double}]{u}{, }\item[{double \&}]{u\+\_\+prev}{, }\item[{double}]{a}{, }\item[{double}]{b}{, }\item[{double}]{c}{, }\item[{double}]{d}{}\end{DoxyParamCaption})}
+
+
+
+Нелинейная модель объекта 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & текущее состояние \\
+\hline
+{\em y\+\_\+prev} & предыдущее состояние \\
+\hline
+{\em u} & количество тепла \\
+\hline
+{\em u\+\_\+prev} & предыдущее количество тепла \\
+\hline
+{\em a} & коэффициент \\
+\hline
+{\em b} & коэффициент \\
+\hline
+{\em c} & коэффициент \\
+\hline
+{\em d} & коэффициент \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+новое состояние 
+\end{DoxyReturn}
