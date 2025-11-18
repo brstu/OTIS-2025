@@ -4,7 +4,7 @@
  */
 
 #include <iostream>
-#include "pid.h"
+#include "PID.h"
 #include "lin_model.h"
 
  /**
