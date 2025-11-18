@@ -19,7 +19,7 @@ jobs:
       run: sudo apt-get install -y doxygen
       
     - name: Create .nojekyll file
-      run: touch trunk/ii02812/task_03/doc/html/.nojekyll
+      run: touch D:/GID/OTIS-2025/trunk/ii02812/task_03/doc/html/.nojekyll
       
     - name: Generate Docs
       run: doxygen Doxyfile
