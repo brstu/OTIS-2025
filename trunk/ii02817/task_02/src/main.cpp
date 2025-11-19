@@ -56,7 +56,7 @@ public:
         }
         for (int i = 2; i < steps; i++)
         {
-            ans[i] = a * ans[i - 1] - b * pow(ans[i - 2], 2) + c * u_curr + d * sin(u_prev);
+            ans[i] = a * ans[i - 1] - b * std::pow(ans[i - 2], 2) + c * u_curr + d * std::sin(u_prev);
         }
         return ans;
     }
