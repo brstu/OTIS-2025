@@ -1,0 +1,23 @@
+name: Doxygen GitHub Pages
+
+on:
+  push:
+    branches: [ task_03 ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Doxygen Action
+        uses: mattnotmitt/doxygen-action@v1
+        with:
+          doxyfile-path: ./trunk/ii02810/task_03/Doxyfile
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./trunk/ii02810/task_03/doc/html
+          destination_dir: task_03_ii02810
