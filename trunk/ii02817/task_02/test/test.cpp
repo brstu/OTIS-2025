@@ -6,277 +6,271 @@
 
 #include "../src/main.cpp"
 
-namespace FunctionTests
+namespace QuantumSystemTests
 {
-    class LinearFunctionTest : public ::testing::Test
+    class LinearQuantumTest : public ::testing::Test
     {
     protected:
         void SetUp() override
         {
-            // Common setup for linear tests
+            // Common setup for linear quantum tests
         }
 
-        func createLinearFunc(double a, double b)
+        QuantumDynamicModel createLinearQuantum(double qf, double te)
         {
-            return func(a, b, 0.0, 0.0);
+            return QuantumDynamicModel(qf, te, 0.0, 0.0);
         }
     };
 
-    class NonLinearFunctionTest : public ::testing::Test
+    class NonLinearQuantumTest : public ::testing::Test
     {
     protected:
         void SetUp() override
         {
-            // Common setup for nonlinear tests
+            // Common setup for nonlinear quantum tests
         }
 
-        func createNonLinearFunc(double a, double b, double c, double d)
+        QuantumDynamicModel createNonLinearQuantum(double qf, double te, double cr, double cf)
         {
-            return func(a, b, c, d);
+            return QuantumDynamicModel(qf, te, cr, cf);
         }
     };
 
-    // Linear Function Tests
-    TEST_F(LinearFunctionTest, BasicLinearComputation)
+    // Linear Quantum Tests
+    TEST_F(LinearQuantumTest, BasicQuantumComputation)
     {
-        auto f = createLinearFunc(1.5, -0.5);
-        f.value_set(2.0, 0.0, 3.0, 0.0);
+        auto quantum_system = createLinearQuantum(1.5, -0.5);
+        quantum_system.configure_quantum_states(2.0, 0.0, 3.0, 0.0);
 
-        auto result = f.linear(2);
-        ASSERT_GE(result.size(), 2);
-        double expected = 1.5 * 2.0 + (-0.5) * 3.0;
-        EXPECT_DOUBLE_EQ(result[1], expected);
+        auto quantum_result = quantum_system.compute_quantum_wavefunction(2);
+        ASSERT_GE(quantum_result.size(), 2);
+        double quantum_expected = 1.5 * 2.0 + (-0.5) * 3.0;
+        EXPECT_DOUBLE_EQ(quantum_result[1], quantum_expected);
     }
 
-    TEST_F(LinearFunctionTest, LinearWithZeroCoefficients)
+    TEST_F(LinearQuantumTest, QuantumWithZeroCoefficients)
     {
-        auto f = createLinearFunc(0.0, 0.0);
-        f.value_set(5.0, 0.0, 4.0, 0.0);
+        auto quantum_system = createLinearQuantum(0.0, 0.0);
+        quantum_system.configure_quantum_states(5.0, 0.0, 4.0, 0.0);
 
-        auto result = f.linear(2);
-        ASSERT_GE(result.size(), 2);
-        EXPECT_DOUBLE_EQ(result[1], 0.0);
+        auto quantum_result = quantum_system.compute_quantum_wavefunction(2);
+        ASSERT_GE(quantum_result.size(), 2);
+        EXPECT_DOUBLE_EQ(quantum_result[1], 0.0);
     }
 
-    TEST_F(LinearFunctionTest, LinearWithNegativeInputs)
+    TEST_F(LinearQuantumTest, QuantumWithNegativeInputs)
     {
-        auto f = createLinearFunc(1.0, 2.0);
-        f.value_set(-2.0, 0.0, -3.0, 0.0);
+        auto quantum_system = createLinearQuantum(1.0, 2.0);
+        quantum_system.configure_quantum_states(-2.0, 0.0, -3.0, 0.0);
 
-        auto result = f.linear(2);
-        ASSERT_GE(result.size(), 2);
-        double expected = 1.0 * (-2.0) + 2.0 * (-3.0);
-        EXPECT_DOUBLE_EQ(result[1], expected);
+        auto quantum_result = quantum_system.compute_quantum_wavefunction(2);
+        ASSERT_GE(quantum_result.size(), 2);
+        double quantum_expected = 1.0 * (-2.0) + 2.0 * (-3.0);
+        EXPECT_DOUBLE_EQ(quantum_result[1], quantum_expected);
     }
 
-    TEST_F(LinearFunctionTest, LinearSingleStepComputation)
+    TEST_F(LinearQuantumTest, QuantumSingleOscillation)
     {
-        auto f = createLinearFunc(1.0, 1.0);
-        f.value_set(1.0, 0.0, 1.0, 0.0);
+        auto quantum_system = createLinearQuantum(1.0, 1.0);
+        quantum_system.configure_quantum_states(1.0, 0.0, 1.0, 0.0);
 
-        auto result = f.linear(1);
-        ASSERT_EQ(result.size(), 1);
-        EXPECT_DOUBLE_EQ(result[0], 1.0);
+        auto quantum_result = quantum_system.compute_quantum_wavefunction(1);
+        ASSERT_EQ(quantum_result.size(), 1);
+        EXPECT_DOUBLE_EQ(quantum_result[0], 1.0);
     }
 
-    TEST_F(LinearFunctionTest, LinearWithZeroSteps)
+    TEST_F(LinearQuantumTest, QuantumWithZeroOscillations)
     {
-        auto f = createLinearFunc(1.0, 1.0);
-        f.value_set(1.0, 0.0, 1.0, 0.0);
+        auto quantum_system = createLinearQuantum(1.0, 1.0);
+        quantum_system.configure_quantum_states(1.0, 0.0, 1.0, 0.0);
 
-        auto result_zero = f.linear(0);
+        auto result_zero = quantum_system.compute_quantum_wavefunction(0);
         EXPECT_TRUE(result_zero.empty());
 
-        auto result_negative = f.linear(-1);
+        auto result_negative = quantum_system.compute_quantum_wavefunction(-1);
         EXPECT_TRUE(result_negative.empty());
     }
 
-    TEST_F(LinearFunctionTest, LinearMultiStepProgression)
+    TEST_F(LinearQuantumTest, QuantumMultiOscillationProgression)
     {
-        auto f = createLinearFunc(2.0, 1.0);
-        f.value_set(1.0, 0.0, 2.0, 0.0);
+        auto quantum_system = createLinearQuantum(2.0, 1.0);
+        quantum_system.configure_quantum_states(1.0, 0.0, 2.0, 0.0);
 
-        auto result = f.linear(5);
-        ASSERT_EQ(result.size(), 5);
+        auto quantum_result = quantum_system.compute_quantum_wavefunction(5);
+        ASSERT_EQ(quantum_result.size(), 5);
 
-        std::vector<double> expected_values = {1.0, 4.0, 10.0, 22.0, 46.0};
-        for (size_t i = 0; i < expected_values.size(); ++i)
+        std::vector<double> expected_quantum_states = {1.0, 4.0, 10.0, 22.0, 46.0};
+        for (size_t i = 0; i < expected_quantum_states.size(); ++i)
         {
-            EXPECT_DOUBLE_EQ(result[i], expected_values[i]);
+            EXPECT_DOUBLE_EQ(quantum_result[i], expected_quantum_states[i]);
         }
     }
 
-    TEST_F(LinearFunctionTest, LinearWithExtremeValues)
+    TEST_F(LinearQuantumTest, QuantumWithExtremeValues)
     {
-        auto f = createLinearFunc(1e10, -1e10);
-        f.value_set(1e-10, 0.0, 1e-10, 0.0);
+        auto quantum_system = createLinearQuantum(1e10, -1e10);
+        quantum_system.configure_quantum_states(1e-10, 0.0, 1e-10, 0.0);
 
-        auto result = f.linear(3);
-        ASSERT_GE(result.size(), 3);
-        EXPECT_NEAR(result[1], 0.0, 1e-6); // Should be approximately zero
+        auto quantum_result = quantum_system.compute_quantum_wavefunction(3);
+        ASSERT_GE(quantum_result.size(), 3);
+        EXPECT_NEAR(quantum_result[1], 0.0, 1e-6);
     }
 
-    // Non-Linear Function Tests
-    TEST_F(NonLinearFunctionTest, BasicNonLinearComputation)
+    // Non-Linear Quantum Tests
+    TEST_F(NonLinearQuantumTest, BasicChaoticComputation)
     {
-        auto f = createNonLinearFunc(2.0, 1.0, 0.5, 1.0);
-        f.value_set(1.0, 0.0, 0.5, 0.5);
+        auto chaotic_system = createNonLinearQuantum(2.0, 1.0, 0.5, 1.0);
+        chaotic_system.configure_quantum_states(1.0, 0.0, 0.5, 0.5);
 
-        auto result = f.nonlinear(3);
-        ASSERT_GE(result.size(), 3);
-        double expected = 2.0 * 1.0 - 1.0 * std::pow(0.0, 2) + 0.5 * 0.5 + 1.0 * std::sin(0.5);
-        EXPECT_DOUBLE_EQ(result[2], expected);
+        auto chaotic_result = chaotic_system.compute_chaotic_resonance(3);
+        ASSERT_GE(chaotic_result.size(), 3);
+        double chaotic_expected = 2.0 * 1.0 - 1.0 * std::pow(0.0, 2) + 0.5 * 0.5 + 1.0 * std::sin(0.5);
+        EXPECT_DOUBLE_EQ(chaotic_result[2], chaotic_expected);
     }
 
-    TEST_F(NonLinearFunctionTest, NonLinearWithZeroCoefficients)
+    TEST_F(NonLinearQuantumTest, ChaoticWithZeroCoefficients)
     {
-        auto f = createNonLinearFunc(0.0, 0.0, 0.0, 0.0);
-        f.value_set(2.0, 1.0, 1.0, 1.0);
+        auto chaotic_system = createNonLinearQuantum(0.0, 0.0, 0.0, 0.0);
+        chaotic_system.configure_quantum_states(2.0, 1.0, 1.0, 1.0);
 
-        auto result = f.nonlinear(3);
-        ASSERT_GE(result.size(), 3);
-        EXPECT_DOUBLE_EQ(result[2], 0.0);
+        auto chaotic_result = chaotic_system.compute_chaotic_resonance(3);
+        ASSERT_GE(chaotic_result.size(), 3);
+        EXPECT_DOUBLE_EQ(chaotic_result[2], 0.0);
     }
 
-    TEST_F(NonLinearFunctionTest, NonLinearTwoStepComputation)
+    TEST_F(NonLinearQuantumTest, ChaoticTwoOscillationComputation)
     {
-        auto f = createNonLinearFunc(1.0, 1.0, 1.0, 1.0);
-        f.value_set(1.0, 0.5, 1.0, 0.5);
+        auto chaotic_system = createNonLinearQuantum(1.0, 1.0, 1.0, 1.0);
+        chaotic_system.configure_quantum_states(1.0, 0.5, 1.0, 0.5);
 
-        auto result = f.nonlinear(2);
-        ASSERT_EQ(result.size(), 2);
-        EXPECT_DOUBLE_EQ(result[0], 0.5);
-        EXPECT_DOUBLE_EQ(result[1], 1.0);
+        auto chaotic_result = chaotic_system.compute_chaotic_resonance(2);
+        ASSERT_EQ(chaotic_result.size(), 2);
+        EXPECT_DOUBLE_EQ(chaotic_result[0], 0.5);
+        EXPECT_DOUBLE_EQ(chaotic_result[1], 1.0);
     }
 
-    TEST_F(NonLinearFunctionTest, NonLinearWithZeroSteps)
+    TEST_F(NonLinearQuantumTest, ChaoticWithZeroOscillations)
     {
-        auto f = createNonLinearFunc(1.0, 1.0, 1.0, 1.0);
-        f.value_set(1.0, 0.5, 1.0, 0.5);
+        auto chaotic_system = createNonLinearQuantum(1.0, 1.0, 1.0, 1.0);
+        chaotic_system.configure_quantum_states(1.0, 0.5, 1.0, 0.5);
 
-        auto result_zero = f.nonlinear(0);
+        auto result_zero = chaotic_system.compute_chaotic_resonance(0);
         EXPECT_TRUE(result_zero.empty());
 
-        auto result_negative = f.nonlinear(-1);
+        auto result_negative = chaotic_system.compute_chaotic_resonance(-1);
         EXPECT_TRUE(result_negative.empty());
     }
 
-    TEST_F(NonLinearFunctionTest, NonLinearSingleStep)
+    TEST_F(NonLinearQuantumTest, ChaoticSingleOscillation)
     {
-        auto f = createNonLinearFunc(1.0, 1.0, 1.0, 1.0);
-        f.value_set(1.0, 0.5, 1.0, 0.5);
+        auto chaotic_system = createNonLinearQuantum(1.0, 1.0, 1.0, 1.0);
+        chaotic_system.configure_quantum_states(1.0, 0.5, 1.0, 0.5);
 
-        auto result = f.nonlinear(1);
-        ASSERT_EQ(result.size(), 1);
-        EXPECT_DOUBLE_EQ(result[0], 0.5);
+        auto chaotic_result = chaotic_system.compute_chaotic_resonance(1);
+        ASSERT_EQ(chaotic_result.size(), 1);
+        EXPECT_DOUBLE_EQ(chaotic_result[0], 0.5);
     }
 
-    TEST_F(NonLinearFunctionTest, NonLinearMultiStepProgression)
+    TEST_F(NonLinearQuantumTest, ChaoticMultiOscillationProgression)
     {
-        auto f = createNonLinearFunc(2.0, 1.0, 1.0, 1.0);
-        f.value_set(2.0, 1.0, 3.0, 2.0);
+        auto chaotic_system = createNonLinearQuantum(2.0, 1.0, 1.0, 1.0);
+        chaotic_system.configure_quantum_states(2.0, 1.0, 3.0, 2.0);
 
-        auto result = f.nonlinear(5);
-        ASSERT_EQ(result.size(), 5);
+        auto chaotic_result = chaotic_system.compute_chaotic_resonance(5);
+        ASSERT_EQ(chaotic_result.size(), 5);
 
-        EXPECT_DOUBLE_EQ(result[0], 1.0);
-        EXPECT_DOUBLE_EQ(result[1], 2.0);
+        EXPECT_DOUBLE_EQ(chaotic_result[0], 1.0);
+        EXPECT_DOUBLE_EQ(chaotic_result[1], 2.0);
 
-        double expected_step2 = 2.0 * 2.0 - 1.0 * std::pow(1.0, 2) + 1.0 * 3.0 + 1.0 * std::sin(2.0);
-        EXPECT_DOUBLE_EQ(result[2], expected_step2);
+        double expected_oscillation = 2.0 * 2.0 - 1.0 * std::pow(1.0, 2) + 1.0 * 3.0 + 1.0 * std::sin(2.0);
+        EXPECT_DOUBLE_EQ(chaotic_result[2], expected_oscillation);
     }
 
-    TEST_F(NonLinearFunctionTest, NonLinearSinusoidalDominance)
+    TEST_F(NonLinearQuantumTest, ChaoticSinusoidalDominance)
     {
-        auto f = createNonLinearFunc(0.0, 0.0, 0.0, 2.0);
-        f.value_set(0.0, 0.0, 0.0, M_PI / 2);
+        auto chaotic_system = createNonLinearQuantum(0.0, 0.0, 0.0, 2.0);
+        chaotic_system.configure_quantum_states(0.0, 0.0, 0.0, M_PI / 2);
 
-        auto result = f.nonlinear(3);
-        ASSERT_GE(result.size(), 3);
-        EXPECT_DOUBLE_EQ(result[2], 2.0);
+        auto chaotic_result = chaotic_system.compute_chaotic_resonance(3);
+        ASSERT_GE(chaotic_result.size(), 3);
+        EXPECT_DOUBLE_EQ(chaotic_result[2], 2.0);
     }
 
-    TEST_F(NonLinearFunctionTest, NonLinearSpecialCaseValues)
+    TEST_F(NonLinearQuantumTest, ChaoticSpecialCaseValues)
     {
-        auto f = createNonLinearFunc(0.0, 0.0, 0.0, 0.0);
-        f.value_set(1.0, 2.0, 3.0, 4.0);
+        auto chaotic_system = createNonLinearQuantum(0.0, 0.0, 0.0, 0.0);
+        chaotic_system.configure_quantum_states(1.0, 2.0, 3.0, 4.0);
 
-        auto result = f.nonlinear(4);
-        ASSERT_EQ(result.size(), 4);
+        auto chaotic_result = chaotic_system.compute_chaotic_resonance(4);
+        ASSERT_EQ(chaotic_result.size(), 4);
 
-        std::vector<double> expected = {2.0, 1.0, 0.0, 0.0};
-        for (size_t i = 0; i < expected.size(); ++i)
+        std::vector<double> expected_chaotic_states = {2.0, 1.0, 0.0, 0.0};
+        for (size_t i = 0; i < expected_chaotic_states.size(); ++i)
         {
-            EXPECT_DOUBLE_EQ(result[i], expected[i]);
+            EXPECT_DOUBLE_EQ(chaotic_result[i], expected_chaotic_states[i]);
         }
     }
 
-    TEST_F(NonLinearFunctionTest, NonLinearWithPrecisionBoundaries)
+    TEST_F(NonLinearQuantumTest, ChaoticWithPrecisionBoundaries)
     {
-        auto f = createNonLinearFunc(std::numeric_limits<double>::epsilon(),
-                                     std::numeric_limits<double>::min(),
-                                     std::numeric_limits<double>::max(),
-                                     1.0);
-        f.value_set(1.0, 1.0, 1.0, 1.0);
+        auto chaotic_system = createNonLinearQuantum(std::numeric_limits<double>::epsilon(),
+                                                     std::numeric_limits<double>::min(),
+                                                     std::numeric_limits<double>::max(),
+                                                     1.0);
+        chaotic_system.configure_quantum_states(1.0, 1.0, 1.0, 1.0);
 
-        auto result = f.nonlinear(3);
-        ASSERT_GE(result.size(), 3);
-        // Test that computation doesn't crash with extreme values
-        EXPECT_TRUE(std::isfinite(result[2]));
+        auto chaotic_result = chaotic_system.compute_chaotic_resonance(3);
+        ASSERT_GE(chaotic_result.size(), 3);
+        EXPECT_TRUE(std::isfinite(chaotic_result[2]));
     }
 
     // Constructor and Default Behavior Tests
-    TEST(FunctionConstructorTest, DefaultConstructorInitialization)
+    TEST(QuantumConstructorTest, DefaultConstructorInitialization)
     {
-        func f;
+        QuantumDynamicModel quantum_system;
 
-        auto result_linear = f.linear(1);
-        auto result_nonlinear = f.nonlinear(2);
+        auto linear_quantum_result = quantum_system.compute_quantum_wavefunction(1);
+        auto chaotic_quantum_result = quantum_system.compute_chaotic_resonance(2);
 
-        ASSERT_EQ(result_linear.size(), 1);
-        ASSERT_EQ(result_nonlinear.size(), 2);
+        ASSERT_EQ(linear_quantum_result.size(), 1);
+        ASSERT_EQ(chaotic_quantum_result.size(), 2);
     }
 
-    TEST(FunctionConstructorTest, ParameterizedConstructorValidation)
+    TEST(QuantumConstructorTest, ParameterizedConstructorValidation)
     {
-        func f(1.5, 2.5, 3.5, 4.5);
+        QuantumDynamicModel quantum_system(1.5, 2.5, 3.5, 4.5);
 
-        // Verify that the object is created and can perform computations
-        auto result = f.linear(2);
-        ASSERT_GE(result.size(), 2);
-        EXPECT_TRUE(std::isfinite(result[1]));
+        auto quantum_result = quantum_system.compute_quantum_wavefunction(2);
+        ASSERT_GE(quantum_result.size(), 2);
+        EXPECT_TRUE(std::isfinite(quantum_result[1]));
     }
 
-    // Mixed Function Tests
-    TEST(FunctionMixedTest, LinearThenNonLinearSequence)
+    // Mixed Quantum Tests
+    TEST(QuantumMixedTest, LinearThenChaoticSequence)
     {
-        func f(1.0, 2.0, 3.0, 4.0);
-        f.value_set(1.0, 2.0, 3.0, 4.0);
+        QuantumDynamicModel quantum_system(1.0, 2.0, 3.0, 4.0);
+        quantum_system.configure_quantum_states(1.0, 2.0, 3.0, 4.0);
 
-        auto linear_result = f.linear(3);
-        auto nonlinear_result = f.nonlinear(3);
+        auto linear_quantum_result = quantum_system.compute_quantum_wavefunction(3);
+        auto chaotic_quantum_result = quantum_system.compute_chaotic_resonance(3);
 
-        ASSERT_EQ(linear_result.size(), 3);
-        ASSERT_EQ(nonlinear_result.size(), 3);
-
-        // Ensure both methods produce valid but different results
-        EXPECT_NE(linear_result[2], nonlinear_result[2]);
+        ASSERT_EQ(linear_quantum_result.size(), 3);
+        ASSERT_EQ(chaotic_quantum_result.size(), 3);
+        EXPECT_NE(linear_quantum_result[2], chaotic_quantum_result[2]);
     }
 
-    TEST(FunctionMixedTest, ValueSetPersistence)
+    TEST(QuantumMixedTest, QuantumStatePersistence)
     {
-        func f(1.0, 1.0, 1.0, 1.0);
+        QuantumDynamicModel quantum_system(1.0, 1.0, 1.0, 1.0);
 
-        // Set values and test
-        f.value_set(2.0, 3.0, 4.0, 5.0);
-        auto result1 = f.nonlinear(2);
+        quantum_system.configure_quantum_states(2.0, 3.0, 4.0, 5.0);
+        auto quantum_result1 = quantum_system.compute_chaotic_resonance(2);
 
-        // Set different values and test again
-        f.value_set(1.0, 1.0, 1.0, 1.0);
-        auto result2 = f.nonlinear(2);
+        quantum_system.configure_quantum_states(1.0, 1.0, 1.0, 1.0);
+        auto quantum_result2 = quantum_system.compute_chaotic_resonance(2);
 
-        ASSERT_EQ(result1.size(), 2);
-        ASSERT_EQ(result2.size(), 2);
-        EXPECT_NE(result1[1], result2[1]);
+        ASSERT_EQ(quantum_result1.size(), 2);
+        ASSERT_EQ(quantum_result2.size(), 2);
+        EXPECT_NE(quantum_result1[1], quantum_result2[1]);
     }
-} // namespace FunctionTests
+} // namespace QuantumSystemTests
