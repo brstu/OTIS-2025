@@ -25,9 +25,6 @@
 
 ## Task 1. Modeling controlled object
 
-=======
-## Task 1. Modeling controlled object ##
->>>>>>> d029c6f9678c8f4524c51c3dc6742b844501aad1
 Let's get some object to be controlled. We want to control its temperature, which can be described by this differential equation:
 
 $$\Large\frac{dy(\tau)}{d\tau}=\frac{u(\tau)}{C}+\frac{Y_0-y(\tau)}{RC} $$ (1)
