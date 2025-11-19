@@ -1,9 +1,0 @@
-ModelTest.LinearZeroParams 1 0.0197708
-ModelTest.LinearBasic 1 0.01513
-ModelTest.NonlinearWithoutControlTerms 0 0
-ModelTest.NonlinearWithSin 0 0
-PIDTest.ZeroError 1 0.0132166
-PIDTest.ConstantError 1 0.0147736
----
-ModelTest.NonlinearWithoutControlTerms
-ModelTest.NonlinearWithSin
