@@ -69,8 +69,4 @@ int main()
     {
         std::cout << i << std::endl;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> d029c6f9678c8f4524c51c3dc6742b844501aad1
