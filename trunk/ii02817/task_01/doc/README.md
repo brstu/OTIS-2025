@@ -16,31 +16,14 @@
 <br><br><br><br><br>
 <p align="center">Брест 2025</p>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 # Общее задание
 
-=======
-# Общее задание #
->>>>>>> 623bb0f585dbc601ad38cb3f85b1c7227b177384
-=======
-
-=======
-# Общее задание #
->>>>>>> d029c6f9678c8f4524c51c3dc6742b844501aad1
 1. Написать отчет по выполненной лабораторной работе №1 в .md формате (readme.md) и с помощью запроса на внесение изменений (**pull request**) разместить его в следующем каталоге: **trunk\ii0xxyy\task_01\doc** (где **xx** - номер группы, **yy** - номер студента, например **ii02302**).
 2. Исходный код написанной программы разместить в каталоге: **trunk\ii0xxyy\task_01\src**.
 3. Выполнить рецензирование ([review](https://linearb.io/blog/code-review-on-github), [checklist](https://linearb.io/blog/code-review-checklist)) запросов других студентов (минимум 2-е рецензии).
 4. Отразить выполнение работы в файле readme.md в соответствующей строке (например, для студента под порядковым номером 1 - https://github.com/brstu/OTIS-2023/edit/main/readme.md?#L17-L17).
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ## Task 1. Modeling controlled object
-
-=======
-## Task 1. Modeling controlled object ##
->>>>>>> 623bb0f585dbc601ad38cb3f85b1c7227b177384
-=======
 
 =======
 ## Task 1. Modeling controlled object ##
