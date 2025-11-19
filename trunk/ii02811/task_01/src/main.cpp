@@ -40,7 +40,7 @@ int main(){
     cout << "\nn\ty1\ty2" << endl;
     for(int i = 0; i < n; i++){
         y1 = x(y1, u, a, b);
-        int yb = y2;
+        double yb = y2;
         y2 = x1(y2, u, a, b, c, d, yx);
         yx = yb;
 
