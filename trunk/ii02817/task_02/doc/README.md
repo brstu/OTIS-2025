@@ -281,36 +281,36 @@ namespace FunctionTests
     // Mixed Function Tests
     TEST(FunctionMixedTest, LinearThenNonLinearSequence)
     {
-        func f(1.0, 2.0, 3.0, 4.0);
-        f.value_set(1.0, 2.0, 3.0, 4.0);
+        QuantumDynamicModel model(1.0, 2.0, 3.0, 4.0);
+        model.set_parameters(1.0, 2.0, 3.0, 4.0);
 
-        auto linear_result = f.linear(3);
-        auto nonlinear_result = f.nonlinear(3);
+        auto wavefunction_result = model.compute_quantum_wavefunction(3);
+        auto resonance_result = model.compute_chaotic_resonance(3);
 
-        ASSERT_EQ(linear_result.size(), 3);
-        ASSERT_EQ(nonlinear_result.size(), 3);
+        ASSERT_EQ(wavefunction_result.size(), 3);
+        ASSERT_EQ(resonance_result.size(), 3);
 
         // Ensure both methods produce valid but different results
-        EXPECT_NE(linear_result[2], nonlinear_result[2]);
+        EXPECT_NE(wavefunction_result[2], resonance_result[2]);
     }
 
-    TEST(FunctionMixedTest, ValueSetPersistence)
+    TEST(QuantumDynamicModelTest, ParameterSetPersistence)
     {
-        func f(1.0, 1.0, 1.0, 1.0);
+        QuantumDynamicModel model(1.0, 1.0, 1.0, 1.0);
 
-        // Set values and test
-        f.value_set(2.0, 3.0, 4.0, 5.0);
-        auto result1 = f.nonlinear(2);
+        // Set parameters and test
+        model.set_parameters(2.0, 3.0, 4.0, 5.0);
+        auto result1 = model.compute_chaotic_resonance(2);
 
-        // Set different values and test again
-        f.value_set(1.0, 1.0, 1.0, 1.0);
-        auto result2 = f.nonlinear(2);
+        // Set different parameters and test again
+        model.set_parameters(1.0, 1.0, 1.0, 1.0);
+        auto result2 = model.compute_chaotic_resonance(2);
 
         ASSERT_EQ(result1.size(), 2);
         ASSERT_EQ(result2.size(), 2);
         EXPECT_NE(result1[1], result2[1]);
     }
-} // namespace FunctionTests
+} // namespace QuantumDynamicModelTests
 ```
 
 ## Результаты юнит-тестирования (GoogleTest)
