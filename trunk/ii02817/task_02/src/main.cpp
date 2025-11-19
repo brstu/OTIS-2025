@@ -32,10 +32,7 @@ public:
             return {};
 
         std::vector<double> ans(steps);
-        if (steps >= 1)
-        {
-            ans[0] = t_curr;
-        }
+        ans[0] = t_curr;
         for (int i = 1; i < steps; i++)
         {
             ans[i] = a * ans[i - 1] + b * u_curr;
