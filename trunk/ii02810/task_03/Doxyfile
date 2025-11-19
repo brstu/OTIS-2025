@@ -1,9 +1,11 @@
-PROJECT_NAME           = "Лабораторная работа №3 – ПИД-регулятор"
+PROJECT_NAME           = "Лабораторная работа №3 – ПИД-регулятор (ii02810)"
 OUTPUT_DIRECTORY       = doc
-GENERATE_LATEX         = NO
-EXTRACT_ALL            = YES
-RECURSIVE              = YES
 GENERATE_HTML          = YES
 HTML_OUTPUT            = html
+GENERATE_LATEX         = NO
 INPUT                  = src
 FILE_PATTERNS          = *.h *.cpp
+RECURSIVE              = YES
+EXTRACT_ALL            = YES
+SOURCE_BROWSER         = YES
+GENERATE_TREEVIEW      = YES
