@@ -16,7 +16,7 @@ private:
 
 public:
     func() : a(1), b(1), c(1), d(1), t_curr(1), t_prev(0), u_curr(1), u_prev(0) {}
-    func(double a, double b, double c, double d) : a(a), b(b), c(c), d(d), t_curr(3), t_prev(2), u_curr(3), u_prev(2) {}
+    func(double a, double b, double c, double d) : a(a), b(b), c(c), d(d), t_curr(1), t_prev(0), u_curr(1), u_prev(0) {}
 
     void value_set(double tcurr, double tprev, double ucurr, double uprev)
     {
