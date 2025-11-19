@@ -1,4 +1,4 @@
-name: Deploy Doxygen documentation(ii02812)
+name: Deploy GitHub Pages
 
 on:
   push:
@@ -17,22 +17,20 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Doxygen and Graphviz
+      - name: Prepare Pages content
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y doxygen graphviz
-
-      - name: Generate Doxygen documentation
-        run: doxygen Doxyfile
+          mkdir site
+          cp -r * site/ || true
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: doc/html
+          path: site
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
