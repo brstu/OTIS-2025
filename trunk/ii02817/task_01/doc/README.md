@@ -40,18 +40,8 @@ where $\tau$ – time discrete moments ($1,2,3{\dots}n$); $a,b,c,d$ – some con
 
 Task is to write program (**С++**), which simulates this object temperature.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-## Код программы:
-
-=======
 
 ## Код программы:
->>>>>>> 623bb0f585dbc601ad38cb3f85b1c7227b177384
-=======
-
-## Код программы:
->>>>>>> d029c6f9678c8f4524c51c3dc6742b844501aad1
 ```C++
 #include <iostream>
 #include <iostream>
