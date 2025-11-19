@@ -22,7 +22,7 @@
 
  @licend  The above is the entire license notice for the JavaScript code in this file
 */
-var NAVTREE =
+let NAVTREE =
 [
   [ "My Project", "index.html", [
     [ "Classes", "annotated.html", [
@@ -39,11 +39,11 @@ var NAVTREE =
   ] ]
 ];
 
-var NAVTREEINDEX =
+let NAVTREEINDEX =
 [
 "annotated.html"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronization';
-var SYNCOFFMSG = 'click to enable panel synchronization';
-var LISTOFALLMEMBERS = 'List of all members';
+let SYNCONMSG = 'click to disable panel synchronization';
+let SYNCOFFMSG = 'click to enable panel synchronization';
+let LISTOFALLMEMBERS = 'List of all members';

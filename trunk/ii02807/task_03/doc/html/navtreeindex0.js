@@ -1,4 +1,4 @@
-var NAVTREEINDEX0 =
+let NAVTREEINDEX0 =
 {
 "annotated.html":[0,0],
 "class_p_i_d.html":[0,0,0],

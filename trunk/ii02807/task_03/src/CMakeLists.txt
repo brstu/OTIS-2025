@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.10...3.27)
 
 project(task_03_ii02807_source)
 
@@ -10,4 +10,3 @@ add_executable(task_03_ii02807_source
     pid.cpp
     model.cpp
 )
- 
