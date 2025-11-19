@@ -37,38 +37,38 @@
 
 #include "../src/main.cpp"
 
-namespace FunctionTests
+namespace QuantumDynamicModelTests
 {
-    class LinearFunctionTest : public ::testing::Test
+    class QuantumWavefunctionTest : public ::testing::Test
     {
     protected:
         void SetUp() override
         {
-            // Common setup for linear tests
+            // Common setup for quantum wavefunction tests
         }
 
-        func createLinearFunc(double a, double b)
+        QuantumDynamicModel createQuantumModel(double param1, double param2)
         {
-            return func(a, b, 0.0, 0.0);
+            return QuantumDynamicModel(param1, param2);
         }
     };
 
-    class NonLinearFunctionTest : public ::testing::Test
+    class ChaoticResonanceTest : public ::testing::Test
     {
     protected:
         void SetUp() override
         {
-            // Common setup for nonlinear tests
+            // Common setup for chaotic resonance tests
         }
 
-        func createNonLinearFunc(double a, double b, double c, double d)
+        QuantumDynamicModel createChaoticModel(double param1, double param2)
         {
-            return func(a, b, c, d);
+            return QuantumDynamicModel(param1, param2);
         }
     };
 
-    // Linear Function Tests
-    TEST_F(LinearFunctionTest, BasicLinearComputation)
+    // Quantum Wavefunction Tests
+    TEST_F(QuantumWavefunctionTest, BasicQuantumComputation)
     {
         auto f = createLinearFunc(1.5, -0.5);
         f.value_set(2.0, 0.0, 3.0, 0.0);
