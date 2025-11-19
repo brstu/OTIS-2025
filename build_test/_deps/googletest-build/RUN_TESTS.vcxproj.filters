@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\MSI\Documents\OTIS-2025\build_test\CMakeFiles\ae97804ff1b4f6a5e6156f557a3d6afd\RUN_TESTS_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{7921B48B-8E99-326F-96E4-74D027730132}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

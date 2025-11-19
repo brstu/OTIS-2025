@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\MSI\Documents\OTIS-2025\trunk\ii02807\task_03\test\test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\MSI\Documents\OTIS-2025\trunk\ii02807\task_03\src\pid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\MSI\Documents\OTIS-2025\trunk\ii02807\task_03\src\model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\MSI\Documents\OTIS-2025\trunk\ii02807\task_03\test\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3950AB72-7994-3B63-BA52-C0D9B836DAF6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,10 @@
+^C:\USERS\MSI\DOCUMENTS\OTIS-2025\BUILD_TEST\CMAKEFILES\5DD15B722F24EA86996C55A1491C22BF\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/MSI/Documents/OTIS-2025/trunk/ii02807/task_03/test -BC:/Users/MSI/Documents/OTIS-2025/build_test --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/MSI/Documents/OTIS-2025/build_test/task_03_ii02807_test.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

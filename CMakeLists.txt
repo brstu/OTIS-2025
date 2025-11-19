@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.0.0)
+cmake_minimum_required (VERSION 3.20)
 project (OTIS)
 
 # Search for directories simular to "trunk/ii0xxyy/task_0x/src/"

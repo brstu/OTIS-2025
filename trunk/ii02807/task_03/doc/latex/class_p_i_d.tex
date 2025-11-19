@@ -1,0 +1,98 @@
+\doxysection{PID Class Reference}
+\hypertarget{class_p_i_d}{}\label{class_p_i_d}\index{PID@{PID}}
+
+
+\doxylink{class_p_i_d}{PID} controller class.  
+
+
+
+
+{\ttfamily \#include $<$pid.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_i_d_a2147e32f6e109025650c9d7271b013ee}{PID}} (double K, double T, double Td, double T0)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_p_i_d}{PID} controller. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_p_i_d_a980f21e5c28912b5c968e60c8ddfa089}{compute}} (double e)
+\begin{DoxyCompactList}\small\item\em Compute control signal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_p_i_d}{PID} controller class. 
+
+Implements a simple \doxylink{class_p_i_d}{PID} controller with parameters\+:
+\begin{DoxyItemize}
+\item K\+: proportional gain
+\item T\+: integral time
+\item Td\+: derivative time
+\item T0\+: sampling period 
+\end{DoxyItemize}
+
+\label{doc-constructors}
+\Hypertarget{class_p_i_d_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_p_i_d_a2147e32f6e109025650c9d7271b013ee}\index{PID@{PID}!PID@{PID}}
+\index{PID@{PID}!PID@{PID}}
+\doxysubsubsection{\texorpdfstring{PID()}{PID()}}
+{\footnotesize\ttfamily \label{class_p_i_d_a2147e32f6e109025650c9d7271b013ee} 
+PID\+::\+PID (\begin{DoxyParamCaption}\item[{double}]{K}{, }\item[{double}]{T}{, }\item[{double}]{Td}{, }\item[{double}]{T0}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_p_i_d}{PID} controller. 
+
+Constructor implementation for \doxylink{class_p_i_d}{PID} controller.
+
+
+\begin{DoxyParams}{Parameters}
+{\em K} & proportional gain \\
+\hline
+{\em T} & integral time \\
+\hline
+{\em Td} & derivative time \\
+\hline
+{\em T0} & sampling period \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_p_i_d_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_p_i_d_a980f21e5c28912b5c968e60c8ddfa089}\index{PID@{PID}!compute@{compute}}
+\index{compute@{compute}!PID@{PID}}
+\doxysubsubsection{\texorpdfstring{compute()}{compute()}}
+{\footnotesize\ttfamily \label{class_p_i_d_a980f21e5c28912b5c968e60c8ddfa089} 
+double PID\+::compute (\begin{DoxyParamCaption}\item[{double}]{e}{}\end{DoxyParamCaption})}
+
+
+
+Compute control signal. 
+
+Compute control signal using \doxylink{class_p_i_d}{PID} formula.
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & current error \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+control signal u
+\end{DoxyReturn}
+u = K \texorpdfstring{$\ast$}{*} ( e + (T0/T) \texorpdfstring{$\ast$}{*} integral + (Td/\+T0) \texorpdfstring{$\ast$}{*} derivative )
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & current error \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+control signal u 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pid.\+h\item 
+pid.\+cpp\end{DoxyCompactItemize}

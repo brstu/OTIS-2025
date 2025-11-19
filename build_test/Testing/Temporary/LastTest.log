@@ -1,0 +1,184 @@
+Start testing: Nov 18 21:42 Беларусь (зима)
+----------------------------------------------------------
+1/6 Testing: ModelTest.LinearZeroParams
+1/6 Test: ModelTest.LinearZeroParams
+Command: "C:/Users/MSI/Documents/OTIS-2025/build_test/Debug/task_03_ii02807_test.exe" "--gtest_filter=ModelTest.LinearZeroParams" "--gtest_also_run_disabled_tests"
+Directory: C:/Users/MSI/Documents/OTIS-2025/build_test
+"ModelTest.LinearZeroParams" start time: Nov 18 21:42 Беларусь (зима)
+Output:
+----------------------------------------------------------
+Running main() from C:\Users\MSI\Documents\OTIS-2025\build_test\_deps\googletest-src\googletest\src\gtest_main.cc
+Note: Google Test filter = ModelTest.LinearZeroParams
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ModelTest
+[ RUN      ] ModelTest.LinearZeroParams
+[       OK ] ModelTest.LinearZeroParams (0 ms)
+[----------] 1 test from ModelTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (4 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"ModelTest.LinearZeroParams" end time: Nov 18 21:42 Беларусь (зима)
+"ModelTest.LinearZeroParams" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/6 Testing: ModelTest.LinearBasic
+2/6 Test: ModelTest.LinearBasic
+Command: "C:/Users/MSI/Documents/OTIS-2025/build_test/Debug/task_03_ii02807_test.exe" "--gtest_filter=ModelTest.LinearBasic" "--gtest_also_run_disabled_tests"
+Directory: C:/Users/MSI/Documents/OTIS-2025/build_test
+"ModelTest.LinearBasic" start time: Nov 18 21:42 Беларусь (зима)
+Output:
+----------------------------------------------------------
+Running main() from C:\Users\MSI\Documents\OTIS-2025\build_test\_deps\googletest-src\googletest\src\gtest_main.cc
+Note: Google Test filter = ModelTest.LinearBasic
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ModelTest
+[ RUN      ] ModelTest.LinearBasic
+[       OK ] ModelTest.LinearBasic (0 ms)
+[----------] 1 test from ModelTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"ModelTest.LinearBasic" end time: Nov 18 21:42 Беларусь (зима)
+"ModelTest.LinearBasic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: ModelTest.NonlinearWithoutControlTerms
+3/6 Test: ModelTest.NonlinearWithoutControlTerms
+Command: "C:/Users/MSI/Documents/OTIS-2025/build_test/Debug/task_03_ii02807_test.exe" "--gtest_filter=ModelTest.NonlinearWithoutControlTerms" "--gtest_also_run_disabled_tests"
+Directory: C:/Users/MSI/Documents/OTIS-2025/build_test
+"ModelTest.NonlinearWithoutControlTerms" start time: Nov 18 21:42 Беларусь (зима)
+Output:
+----------------------------------------------------------
+Running main() from C:\Users\MSI\Documents\OTIS-2025\build_test\_deps\googletest-src\googletest\src\gtest_main.cc
+Note: Google Test filter = ModelTest.NonlinearWithoutControlTerms
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ModelTest
+[ RUN      ] ModelTest.NonlinearWithoutControlTerms
+C:\Users\MSI\Documents\OTIS-2025\trunk\ii02807\task_03\test\test.cpp(19): error: Expected equality of these values:
+  y_next
+    Which is: 0
+  1.0*2.0 - 1.0*(2.0*2.0)
+    Which is: -2
+
+[  FAILED  ] ModelTest.NonlinearWithoutControlTerms (4 ms)
+[----------] 1 test from ModelTest (4 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (5 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] ModelTest.NonlinearWithoutControlTerms
+
+ 1 FAILED TEST
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Failed.
+"ModelTest.NonlinearWithoutControlTerms" end time: Nov 18 21:42 Беларусь (зима)
+"ModelTest.NonlinearWithoutControlTerms" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: ModelTest.NonlinearWithSin
+4/6 Test: ModelTest.NonlinearWithSin
+Command: "C:/Users/MSI/Documents/OTIS-2025/build_test/Debug/task_03_ii02807_test.exe" "--gtest_filter=ModelTest.NonlinearWithSin" "--gtest_also_run_disabled_tests"
+Directory: C:/Users/MSI/Documents/OTIS-2025/build_test
+"ModelTest.NonlinearWithSin" start time: Nov 18 21:42 Беларусь (зима)
+Output:
+----------------------------------------------------------
+Running main() from C:\Users\MSI\Documents\OTIS-2025\build_test\_deps\googletest-src\googletest\src\gtest_main.cc
+Note: Google Test filter = ModelTest.NonlinearWithSin
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ModelTest
+[ RUN      ] ModelTest.NonlinearWithSin
+C:\Users\MSI\Documents\OTIS-2025\trunk\ii02807\task_03\test\test.cpp(24): error: The difference between y_next and 1.0 is 0.57079632679489656, which exceeds 1e-9, where
+y_next evaluates to 1.5707963267948966,
+1.0 evaluates to 1, and
+1e-9 evaluates to 1.0000000000000001e-09.
+
+[  FAILED  ] ModelTest.NonlinearWithSin (1 ms)
+[----------] 1 test from ModelTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] ModelTest.NonlinearWithSin
+
+ 1 FAILED TEST
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Failed.
+"ModelTest.NonlinearWithSin" end time: Nov 18 21:42 Беларусь (зима)
+"ModelTest.NonlinearWithSin" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: PIDTest.ZeroError
+5/6 Test: PIDTest.ZeroError
+Command: "C:/Users/MSI/Documents/OTIS-2025/build_test/Debug/task_03_ii02807_test.exe" "--gtest_filter=PIDTest.ZeroError" "--gtest_also_run_disabled_tests"
+Directory: C:/Users/MSI/Documents/OTIS-2025/build_test
+"PIDTest.ZeroError" start time: Nov 18 21:42 Беларусь (зима)
+Output:
+----------------------------------------------------------
+Running main() from C:\Users\MSI\Documents\OTIS-2025\build_test\_deps\googletest-src\googletest\src\gtest_main.cc
+Note: Google Test filter = PIDTest.ZeroError
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PIDTest
+[ RUN      ] PIDTest.ZeroError
+[       OK ] PIDTest.ZeroError (0 ms)
+[----------] 1 test from PIDTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"PIDTest.ZeroError" end time: Nov 18 21:42 Беларусь (зима)
+"PIDTest.ZeroError" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/6 Testing: PIDTest.ConstantError
+6/6 Test: PIDTest.ConstantError
+Command: "C:/Users/MSI/Documents/OTIS-2025/build_test/Debug/task_03_ii02807_test.exe" "--gtest_filter=PIDTest.ConstantError" "--gtest_also_run_disabled_tests"
+Directory: C:/Users/MSI/Documents/OTIS-2025/build_test
+"PIDTest.ConstantError" start time: Nov 18 21:42 Беларусь (зима)
+Output:
+----------------------------------------------------------
+Running main() from C:\Users\MSI\Documents\OTIS-2025\build_test\_deps\googletest-src\googletest\src\gtest_main.cc
+Note: Google Test filter = PIDTest.ConstantError
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PIDTest
+[ RUN      ] PIDTest.ConstantError
+[       OK ] PIDTest.ConstantError (0 ms)
+[----------] 1 test from PIDTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"PIDTest.ConstantError" end time: Nov 18 21:42 Беларусь (зима)
+"PIDTest.ConstantError" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 18 21:42 Беларусь (зима)

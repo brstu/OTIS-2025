@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/MSI/Documents/OTIS-2025/build_test/cmake_install.cmake",
+		"C:/Users/MSI/Documents/OTIS-2025/build_test/_deps/googletest-build/cmake_install.cmake",
+		"C:/Users/MSI/Documents/OTIS-2025/build_test/_deps/googletest-build/googlemock/cmake_install.cmake",
+		"C:/Users/MSI/Documents/OTIS-2025/build_test/_deps/googletest-build/googletest/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

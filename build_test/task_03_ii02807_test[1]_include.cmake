@@ -1,0 +1,5 @@
+if(EXISTS "C:/Users/MSI/Documents/OTIS-2025/build_test/task_03_ii02807_test[1]_tests.cmake")
+  include("C:/Users/MSI/Documents/OTIS-2025/build_test/task_03_ii02807_test[1]_tests.cmake")
+else()
+  add_test(task_03_ii02807_test_NOT_BUILT task_03_ii02807_test_NOT_BUILT)
+endif()

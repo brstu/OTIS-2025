@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\MSI\Documents\OTIS-2025\build_test\_deps\googletest-subbuild\CMakeFiles\85ff9c67e652813ffe7f3d74ba7fc077\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{D086D746-B9C7-323B-BA3A-9D91FE64C74E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
