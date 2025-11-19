@@ -36,6 +36,7 @@
 
 #include "../src/main.cpp"
 
+<<<<<<< HEAD
 TEST(Linear, Base)
 {
     func f(1.5, -0.5, 0.0, 0.0);
