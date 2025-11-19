@@ -9,10 +9,10 @@ private:
     double b;
     double c;
     double d;
-    double t_curr;
-    double t_prev;
-    double u_curr;
-    double u_prev;
+    double t_curr;  // Current value of the output/state variable at time step n
+    double t_prev;  // Previous value of the output/state variable at time step n-1
+    double u_curr;  // Current value of the input variable at time step n
+    double u_prev;  // Previous value of the input variable at time step n-1
 
 public:
     func() : a(1), b(1), c(1), d(1), t_curr(1), t_prev(0), u_curr(1), u_prev(0) {}
