@@ -217,4 +217,4 @@ TEST(NonLinear, SpecialValues)
 
 ## Покрытие тестами (gcovr)
 
-!['gcovr' Output](img/image.png)
+!['gcovr' Output](img/image2.png)

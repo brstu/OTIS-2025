@@ -2,179 +2,281 @@
 #include <gtest/gtest.h>
 #include <cmath>
 #include <vector>
+#include <limits>
 
 #include "../src/main.cpp"
 
-TEST(Linear, Base)
+namespace FunctionTests
 {
-    func f(1.5, -0.5, 0.0, 0.0);
-    f.value_set(2.0, 0.0, 3.0, 0.0);
+    class LinearFunctionTest : public ::testing::Test
+    {
+    protected:
+        void SetUp() override
+        {
+            // Common setup for linear tests
+        }
 
-    std::vector<double> result = f.linear(2);
-    ASSERT_GE(result.size(), 2);
-    double expected = 1.5 * 2.0 + (-0.5) * 3.0;
-    EXPECT_DOUBLE_EQ(result[1], expected);
-}
+        func createLinearFunc(double a, double b)
+        {
+            return func(a, b, 0.0, 0.0);
+        }
+    };
 
-TEST(Linear, Zero)
-{
-    func f(0.0, 0.0, 0.0, 0.0);
-    f.value_set(5.0, 0.0, 4.0, 0.0);
+    class NonLinearFunctionTest : public ::testing::Test
+    {
+    protected:
+        void SetUp() override
+        {
+            // Common setup for nonlinear tests
+        }
 
-    std::vector<double> result = f.linear(2);
-    ASSERT_GE(result.size(), 2);
-    EXPECT_DOUBLE_EQ(result[1], 0.0);
-}
+        func createNonLinearFunc(double a, double b, double c, double d)
+        {
+            return func(a, b, c, d);
+        }
+    };
 
-TEST(Linear, Minus)
-{
-    func f(1.0, 2.0, 0.0, 0.0);
-    f.value_set(-2.0, 0.0, -3.0, 0.0);
+    // Linear Function Tests
+    TEST_F(LinearFunctionTest, BasicLinearComputation)
+    {
+        auto f = createLinearFunc(1.5, -0.5);
+        f.value_set(2.0, 0.0, 3.0, 0.0);
 
-    std::vector<double> result = f.linear(2);
-    ASSERT_GE(result.size(), 2);
-    double expected = 1.0 * (-2.0) + 2.0 * (-3.0);
-    EXPECT_DOUBLE_EQ(result[1], expected);
-}
+        auto result = f.linear(2);
+        ASSERT_GE(result.size(), 2);
+        double expected = 1.5 * 2.0 + (-0.5) * 3.0;
+        EXPECT_DOUBLE_EQ(result[1], expected);
+    }
 
-TEST(NonLinear, Base)
-{
-    func f(2.0, 1.0, 0.5, 1.0);
-    f.value_set(1.0, 0.0, 0.5, 0.5);
+    TEST_F(LinearFunctionTest, LinearWithZeroCoefficients)
+    {
+        auto f = createLinearFunc(0.0, 0.0);
+        f.value_set(5.0, 0.0, 4.0, 0.0);
 
-    std::vector<double> result = f.nonlinear(3);
-    ASSERT_GE(result.size(), 3);
-    double expected = 2.0 * 1.0 - 1.0 * std::pow(0.0, 2) + 0.5 * 0.5 + 1.0 * std::sin(0.5);
-    EXPECT_DOUBLE_EQ(result[2], expected);
-}
+        auto result = f.linear(2);
+        ASSERT_GE(result.size(), 2);
+        EXPECT_DOUBLE_EQ(result[1], 0.0);
+    }
 
-TEST(NonLinear, Zero)
-{
-    func f(0.0, 0.0, 0.0, 0.0);
-    f.value_set(2.0, 1.0, 1.0, 1.0);
+    TEST_F(LinearFunctionTest, LinearWithNegativeInputs)
+    {
+        auto f = createLinearFunc(1.0, 2.0);
+        f.value_set(-2.0, 0.0, -3.0, 0.0);
 
-    std::vector<double> result = f.nonlinear(3);
-    ASSERT_GE(result.size(), 3);
-    EXPECT_DOUBLE_EQ(result[2], 0.0);
-}
+        auto result = f.linear(2);
+        ASSERT_GE(result.size(), 2);
+        double expected = 1.0 * (-2.0) + 2.0 * (-3.0);
+        EXPECT_DOUBLE_EQ(result[1], expected);
+    }
 
-TEST(Linear, Min)
-{
-    func f(1.0, 1.0, 0.0, 0.0);
-    f.value_set(1.0, 0.0, 1.0, 0.0);
+    TEST_F(LinearFunctionTest, LinearSingleStepComputation)
+    {
+        auto f = createLinearFunc(1.0, 1.0);
+        f.value_set(1.0, 0.0, 1.0, 0.0);
 
-    std::vector<double> result = f.linear(1);
-    ASSERT_EQ(result.size(), 1);
-    EXPECT_DOUBLE_EQ(result[0], 1.0);
-}
+        auto result = f.linear(1);
+        ASSERT_EQ(result.size(), 1);
+        EXPECT_DOUBLE_EQ(result[0], 1.0);
+    }
 
-TEST(NonLinear, Min)
-{
-    func f(1.0, 1.0, 1.0, 1.0);
-    f.value_set(1.0, 0.5, 1.0, 0.5);
+    TEST_F(LinearFunctionTest, LinearWithZeroSteps)
+    {
+        auto f = createLinearFunc(1.0, 1.0);
+        f.value_set(1.0, 0.0, 1.0, 0.0);
 
-    std::vector<double> result = f.nonlinear(2);
-    ASSERT_EQ(result.size(), 2);
-    EXPECT_DOUBLE_EQ(result[0], 0.5);
-    EXPECT_DOUBLE_EQ(result[1], 1.0);
-}
+        auto result_zero = f.linear(0);
+        EXPECT_TRUE(result_zero.empty());
 
-TEST(Constructor, Default)
-{
-    func f;
+        auto result_negative = f.linear(-1);
+        EXPECT_TRUE(result_negative.empty());
+    }
 
-    std::vector<double> result_linear = f.linear(1);
-    std::vector<double> result_nonlinear = f.nonlinear(2);
+    TEST_F(LinearFunctionTest, LinearMultiStepProgression)
+    {
+        auto f = createLinearFunc(2.0, 1.0);
+        f.value_set(1.0, 0.0, 2.0, 0.0);
 
-    ASSERT_EQ(result_linear.size(), 1);
-    ASSERT_EQ(result_nonlinear.size(), 2);
-}
+        auto result = f.linear(5);
+        ASSERT_EQ(result.size(), 5);
 
-TEST(Linear, ZeroSteps)
-{
-    func f(1.0, 1.0, 0.0, 0.0);
-    f.value_set(1.0, 0.0, 1.0, 0.0);
+        std::vector<double> expected_values = {1.0, 4.0, 10.0, 22.0, 46.0};
+        for (size_t i = 0; i < expected_values.size(); ++i)
+        {
+            EXPECT_DOUBLE_EQ(result[i], expected_values[i]);
+        }
+    }
 
-    std::vector<double> result = f.linear(0);
-    EXPECT_TRUE(result.empty());
+    TEST_F(LinearFunctionTest, LinearWithExtremeValues)
+    {
+        auto f = createLinearFunc(1e10, -1e10);
+        f.value_set(1e-10, 0.0, 1e-10, 0.0);
 
-    result = f.linear(-1);
-    EXPECT_TRUE(result.empty());
-}
+        auto result = f.linear(3);
+        ASSERT_GE(result.size(), 3);
+        EXPECT_NEAR(result[1], 0.0, 1e-6); // Should be approximately zero
+    }
 
-TEST(NonLinear, ZeroSteps)
-{
-    func f(1.0, 1.0, 1.0, 1.0);
-    f.value_set(1.0, 0.5, 1.0, 0.5);
+    // Non-Linear Function Tests
+    TEST_F(NonLinearFunctionTest, BasicNonLinearComputation)
+    {
+        auto f = createNonLinearFunc(2.0, 1.0, 0.5, 1.0);
+        f.value_set(1.0, 0.0, 0.5, 0.5);
 
-    std::vector<double> result = f.nonlinear(0);
-    EXPECT_TRUE(result.empty());
+        auto result = f.nonlinear(3);
+        ASSERT_GE(result.size(), 3);
+        double expected = 2.0 * 1.0 - 1.0 * std::pow(0.0, 2) + 0.5 * 0.5 + 1.0 * std::sin(0.5);
+        EXPECT_DOUBLE_EQ(result[2], expected);
+    }
 
-    result = f.nonlinear(-1);
-    EXPECT_TRUE(result.empty());
-}
+    TEST_F(NonLinearFunctionTest, NonLinearWithZeroCoefficients)
+    {
+        auto f = createNonLinearFunc(0.0, 0.0, 0.0, 0.0);
+        f.value_set(2.0, 1.0, 1.0, 1.0);
 
-TEST(NonLinear, OneStep)
-{
-    func f(1.0, 1.0, 1.0, 1.0);
-    f.value_set(1.0, 0.5, 1.0, 0.5);
+        auto result = f.nonlinear(3);
+        ASSERT_GE(result.size(), 3);
+        EXPECT_DOUBLE_EQ(result[2], 0.0);
+    }
 
-    std::vector<double> result = f.nonlinear(1);
-    ASSERT_EQ(result.size(), 1);
-    EXPECT_DOUBLE_EQ(result[0], 0.5);
-}
+    TEST_F(NonLinearFunctionTest, NonLinearTwoStepComputation)
+    {
+        auto f = createNonLinearFunc(1.0, 1.0, 1.0, 1.0);
+        f.value_set(1.0, 0.5, 1.0, 0.5);
 
-TEST(Linear, MultipleSteps)
-{
-    func f(2.0, 1.0, 0.0, 0.0);
-    f.value_set(1.0, 0.0, 2.0, 0.0);
+        auto result = f.nonlinear(2);
+        ASSERT_EQ(result.size(), 2);
+        EXPECT_DOUBLE_EQ(result[0], 0.5);
+        EXPECT_DOUBLE_EQ(result[1], 1.0);
+    }
 
-    std::vector<double> result = f.linear(5);
-    ASSERT_EQ(result.size(), 5);
+    TEST_F(NonLinearFunctionTest, NonLinearWithZeroSteps)
+    {
+        auto f = createNonLinearFunc(1.0, 1.0, 1.0, 1.0);
+        f.value_set(1.0, 0.5, 1.0, 0.5);
 
-    EXPECT_DOUBLE_EQ(result[0], 1.0);
-    EXPECT_DOUBLE_EQ(result[1], 2.0 * 1.0 + 1.0 * 2.0);  // 4.0
-    EXPECT_DOUBLE_EQ(result[2], 2.0 * 4.0 + 1.0 * 2.0);  // 10.0
-    EXPECT_DOUBLE_EQ(result[3], 2.0 * 10.0 + 1.0 * 2.0); // 22.0
-    EXPECT_DOUBLE_EQ(result[4], 2.0 * 22.0 + 1.0 * 2.0); // 46.0
-}
+        auto result_zero = f.nonlinear(0);
+        EXPECT_TRUE(result_zero.empty());
 
-TEST(NonLinear, MultipleSteps)
-{
-    func f(2.0, 1.0, 1.0, 1.0);
-    f.value_set(2.0, 1.0, 3.0, 2.0);
+        auto result_negative = f.nonlinear(-1);
+        EXPECT_TRUE(result_negative.empty());
+    }
 
-    std::vector<double> result = f.nonlinear(5);
-    ASSERT_EQ(result.size(), 5);
+    TEST_F(NonLinearFunctionTest, NonLinearSingleStep)
+    {
+        auto f = createNonLinearFunc(1.0, 1.0, 1.0, 1.0);
+        f.value_set(1.0, 0.5, 1.0, 0.5);
 
-    EXPECT_DOUBLE_EQ(result[0], 1.0);
-    EXPECT_DOUBLE_EQ(result[1], 2.0);
+        auto result = f.nonlinear(1);
+        ASSERT_EQ(result.size(), 1);
+        EXPECT_DOUBLE_EQ(result[0], 0.5);
+    }
 
-    double expected_step2 = 2.0 * 2.0 - 1.0 * std::pow(1.0, 2) + 1.0 * 3.0 + 1.0 * std::sin(2.0);
-    EXPECT_DOUBLE_EQ(result[2], expected_step2);
-}
+    TEST_F(NonLinearFunctionTest, NonLinearMultiStepProgression)
+    {
+        auto f = createNonLinearFunc(2.0, 1.0, 1.0, 1.0);
+        f.value_set(2.0, 1.0, 3.0, 2.0);
 
-TEST(NonLinear, SinusoidalEffect)
-{
-    func f(0.0, 0.0, 0.0, 2.0);
-    f.value_set(0.0, 0.0, 0.0, M_PI / 2);
+        auto result = f.nonlinear(5);
+        ASSERT_EQ(result.size(), 5);
 
-    std::vector<double> result = f.nonlinear(3);
-    ASSERT_GE(result.size(), 3);
+        EXPECT_DOUBLE_EQ(result[0], 1.0);
+        EXPECT_DOUBLE_EQ(result[1], 2.0);
 
-    EXPECT_DOUBLE_EQ(result[2], 2.0);
-}
+        double expected_step2 = 2.0 * 2.0 - 1.0 * std::pow(1.0, 2) + 1.0 * 3.0 + 1.0 * std::sin(2.0);
+        EXPECT_DOUBLE_EQ(result[2], expected_step2);
+    }
 
-TEST(NonLinear, SpecialValues)
-{
-    func f(0.0, 0.0, 0.0, 0.0);
-    f.value_set(1.0, 2.0, 3.0, 4.0);
+    TEST_F(NonLinearFunctionTest, NonLinearSinusoidalDominance)
+    {
+        auto f = createNonLinearFunc(0.0, 0.0, 0.0, 2.0);
+        f.value_set(0.0, 0.0, 0.0, M_PI / 2);
 
-    std::vector<double> result = f.nonlinear(4);
-    ASSERT_EQ(result.size(), 4);
+        auto result = f.nonlinear(3);
+        ASSERT_GE(result.size(), 3);
+        EXPECT_DOUBLE_EQ(result[2], 2.0);
+    }
 
-    EXPECT_DOUBLE_EQ(result[0], 2.0);
-    EXPECT_DOUBLE_EQ(result[1], 1.0);
-    EXPECT_DOUBLE_EQ(result[2], 0.0);
-    EXPECT_DOUBLE_EQ(result[3], 0.0);
-}
+    TEST_F(NonLinearFunctionTest, NonLinearSpecialCaseValues)
+    {
+        auto f = createNonLinearFunc(0.0, 0.0, 0.0, 0.0);
+        f.value_set(1.0, 2.0, 3.0, 4.0);
+
+        auto result = f.nonlinear(4);
+        ASSERT_EQ(result.size(), 4);
+
+        std::vector<double> expected = {2.0, 1.0, 0.0, 0.0};
+        for (size_t i = 0; i < expected.size(); ++i)
+        {
+            EXPECT_DOUBLE_EQ(result[i], expected[i]);
+        }
+    }
+
+    TEST_F(NonLinearFunctionTest, NonLinearWithPrecisionBoundaries)
+    {
+        auto f = createNonLinearFunc(std::numeric_limits<double>::epsilon(),
+                                     std::numeric_limits<double>::min(),
+                                     std::numeric_limits<double>::max(),
+                                     1.0);
+        f.value_set(1.0, 1.0, 1.0, 1.0);
+
+        auto result = f.nonlinear(3);
+        ASSERT_GE(result.size(), 3);
+        // Test that computation doesn't crash with extreme values
+        EXPECT_TRUE(std::isfinite(result[2]));
+    }
+
+    // Constructor and Default Behavior Tests
+    TEST(FunctionConstructorTest, DefaultConstructorInitialization)
+    {
+        func f;
+
+        auto result_linear = f.linear(1);
+        auto result_nonlinear = f.nonlinear(2);
+
+        ASSERT_EQ(result_linear.size(), 1);
+        ASSERT_EQ(result_nonlinear.size(), 2);
+    }
+
+    TEST(FunctionConstructorTest, ParameterizedConstructorValidation)
+    {
+        func f(1.5, 2.5, 3.5, 4.5);
+
+        // Verify that the object is created and can perform computations
+        auto result = f.linear(2);
+        ASSERT_GE(result.size(), 2);
+        EXPECT_TRUE(std::isfinite(result[1]));
+    }
+
+    // Mixed Function Tests
+    TEST(FunctionMixedTest, LinearThenNonLinearSequence)
+    {
+        func f(1.0, 2.0, 3.0, 4.0);
+        f.value_set(1.0, 2.0, 3.0, 4.0);
+
+        auto linear_result = f.linear(3);
+        auto nonlinear_result = f.nonlinear(3);
+
+        ASSERT_EQ(linear_result.size(), 3);
+        ASSERT_EQ(nonlinear_result.size(), 3);
+
+        // Ensure both methods produce valid but different results
+        EXPECT_NE(linear_result[2], nonlinear_result[2]);
+    }
+
+    TEST(FunctionMixedTest, ValueSetPersistence)
+    {
+        func f(1.0, 1.0, 1.0, 1.0);
+
+        // Set values and test
+        f.value_set(2.0, 3.0, 4.0, 5.0);
+        auto result1 = f.nonlinear(2);
+
+        // Set different values and test again
+        f.value_set(1.0, 1.0, 1.0, 1.0);
+        auto result2 = f.nonlinear(2);
+
+        ASSERT_EQ(result1.size(), 2);
+        ASSERT_EQ(result2.size(), 2);
+        EXPECT_NE(result1[1], result2[1]);
+    }
+} // namespace FunctionTests
