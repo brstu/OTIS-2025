@@ -213,7 +213,7 @@ TEST(NonLinear, SpecialValues)
 
 ## Результаты юнит-тестирования (GoogleTest)
 
-![GoogleTest Output](img/image.png)
+![GoogleTest Output](img/image1.png)
 
 ## Покрытие тестами (gcovr)
 
