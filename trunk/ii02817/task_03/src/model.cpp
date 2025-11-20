@@ -5,20 +5,20 @@ PlantModel::PlantModel(double a, double b, double c, double d)
 {
 }
 
-void PlantModel::setParameters(double a, double b, double c, double d)
+void PlantModel::setParameters(double na, double nb, double nc, double nd)
 {
-    this->a = a;
-    this->b = b;
-    this->c = c;
-    this->d = d;
+    this->a = na;
+    this->b = nb;
+    this->c = nc;
+    this->d = nd;
 }
 
-void PlantModel::setState(double tcurr, double tprev, double ucurr, double uprev)
+void PlantModel::setState(double ntcurr, double ntprev, double nucurr, double nuprev)
 {
-    t_curr = tcurr;
-    t_prev = tprev;
-    u_curr = ucurr;
-    u_prev = uprev;
+    t_curr = ntcurr;
+    t_prev = ntprev;
+    u_curr = nucurr;
+    u_prev = nuprev;
 }
 
 double PlantModel::getOutput() const

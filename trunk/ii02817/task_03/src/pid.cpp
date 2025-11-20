@@ -7,12 +7,12 @@ PIDController::PIDController(double K, double Ti, double Td, double T0)
     setParameters(K, Ti, Td, T0);
 }
 
-void PIDController::setParameters(double K, double Ti, double Td, double T0)
+void PIDController::setParameters(double nK, double nTi, double nTd, double nT0)
 {
-    this->K = K;
-    this->Ti = Ti;
-    this->Td = Td;
-    this->T0 = T0;
+    this->K = nK;
+    this->Ti = nTi;
+    this->Td = nTd;
+    this->T0 = nT0;
 
     // Вычисление коэффициентов по рекуррентным формулам
     q0 = K * (1.0 + Td / T0);
@@ -20,10 +20,10 @@ void PIDController::setParameters(double K, double Ti, double Td, double T0)
     q2 = K * Td / T0;
 }
 
-void PIDController::setLimits(double u_min, double u_max)
+void PIDController::setLimits(double nu_min, double nu_max)
 {
-    this->u_min = u_min;
-    this->u_max = u_max;
+    this->u_min = nu_min;
+    this->u_max = nu_max;
 }
 
 void PIDController::reset()
