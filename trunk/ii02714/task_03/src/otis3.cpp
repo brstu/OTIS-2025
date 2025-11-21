@@ -13,5 +13,6 @@ int main()
         p.SetU(i);
         p.SetY(i);
     }
+    return 0;
 }
 
