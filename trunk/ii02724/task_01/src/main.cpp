@@ -6,9 +6,15 @@ using namespace std;
 int main()
 {
 
-    double current_temp, previous_temp, next_temp;
-    double current_heat, previous_heat;
-    double param_a, param_b, param_c, param_d;
+    double current_temp;
+    double previous_temp;
+    double next_temp;
+    double current_heat;
+    double previous_heat;
+    double param_a;
+    double param_b;
+    double param_c;
+    double param_d;
     int steps_count;
 
 
