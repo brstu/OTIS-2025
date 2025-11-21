@@ -1,8 +1,8 @@
 ﻿#include <iostream>
 #include <vector>
-#include "C:\Users\Boss\Desktop\OTIS-2025\trunk\ii02714\task_03\src\linear.h"
-#include "C:\Users\Boss\Desktop\OTIS-2025\trunk\ii02714\task_03\src\Class.h"
-#include "C:\Users\Boss\source\repos\otis3\otis3\PID.h"
+#include "../src/linear.h"
+#include "../src/Class.h"
+#include "../src/PID.h"
 
 
 int main()

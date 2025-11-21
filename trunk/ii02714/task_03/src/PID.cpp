@@ -1,8 +1,8 @@
 ﻿#include <iostream>
 #include <vector>
-#include "C:\Users\Boss\Desktop\OTIS-2025\trunk\ii02714\task_03\src\linaer.h"
-#include "C:\Users\Boss\Desktop\OTIS-2025\trunk\ii02714\task_03\src\Class.h"
-#include "C:\Users\Boss\Desktop\OTIS-2025\trunk\ii02714\task_03\src\PID.h"
+#include "../src/linaer.h"
+#include "../src/Class.h"
+#include "../src/PID.h"
 
 
 class PID : public Obj {
