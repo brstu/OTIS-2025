@@ -83,5 +83,5 @@ void Obj::SetY(int place, double data) {
 }
 
 
-#endif LINEAR
+#endif 
 
