@@ -30,7 +30,7 @@
 
 
 ## Ход работы
-В ходе данной лабораторной работы я внес вклад в проект `The OSTIS Applications`, репозитория [ostis-apps/nika](https://github.com/ostis-apps/nika). 
+В ходе данной лабораторной работы я внес вклад в репозиторий [ostis-apps/nika](https://github.com/ostis-apps/nika) проекта `The OSTIS Applications`.
 
 ## Внесенный вклад
 
