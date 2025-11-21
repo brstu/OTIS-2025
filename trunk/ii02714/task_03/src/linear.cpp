@@ -1,5 +1,5 @@
-﻿#ifndef LIANEAR
-#define LIANEAR
+﻿#ifndef LINEAR
+#define LINEAR
 #include "CLASS.H"
 #include "LINEAR.H"
 
@@ -84,5 +84,5 @@ void Obj::SetY(int place, double data) {
 }
 
 
-#endif LIANEAR
+#endif LINEAR
 
