@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="ru">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src</compoundname>
+    <innerfile refid="df/d0a/main_8cpp">main.cpp</innerfile>
+    <innerfile refid="dd/d30/module_8cpp">module.cpp</innerfile>
+    <innerfile refid="d5/d16/module_8h">module.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src/"/>
+  </compounddef>
+</doxygen>
