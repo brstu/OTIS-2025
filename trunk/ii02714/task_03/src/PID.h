@@ -1,3 +1,5 @@
+#ifndef PID
+#define PID
 #include <iostream>
 #include <vector>
 #include "C:\Users\Boss\Desktop\OTIS-2025\trunk\ii02714\task_03\src\linaer.h"
@@ -8,16 +10,16 @@ class PID : public Obj {
 private:
 	std::vector<double> e;
 	std::vector<double> yP;
-	std::vector<double> w;//целевое значение
+	std::vector<double> w;//Г¶ГҐГ«ГҐГўГ®ГҐ Г§Г­Г Г·ГҐГ­ГЁГҐ
 	std::vector<double> u;
 	std::vector<double> deltU;
-	double Td;//постоянная дефф
-	double To;//шаг по кванту
-	double T;//шаг
+	double Td;//ГЇГ®Г±ГІГ®ГїГ­Г­Г Гї Г¤ГҐГґГґ
+	double To;//ГёГ ГЈ ГЇГ® ГЄГўГ Г­ГІГі
+	double T;//ГёГ ГЈ
 	double q0;
 	double q1;
 	double q2;
-	double k;//кэф передачи
+	double k;//ГЄГЅГґ ГЇГҐГ°ГҐГ¤Г Г·ГЁ
 	int iter;
 public:
 	PID(double data, double data2);
@@ -38,3 +40,4 @@ public:
 	double GetQs2();
 
 };
+#endif CLASS
