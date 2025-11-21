@@ -8,6 +8,20 @@
 #ifndef MODULE_H
 #define MODULE_H
 
+#include <array>
+
+/**
+ * @brief Структура для хранения переменных состояния системы
+ */
+struct StateVariables {
+    std::array<double, 3> y;    ///< Массив температур: y(k), y(k-1), y(k-2)
+    std::array<double, 2> u;    ///< Массив управлений: u(k), u(k-1)
+    double e_prev;              ///< Предыдущая ошибка регулирования
+    double e_prev2;             ///< Предпредыдущая ошибка регулирования  
+    double u_prev;              ///< Предыдущее управляющее воздействие
+    double e_k;                 ///< Текущая ошибка регулирования
+};
+
 /**
  * @brief Расчет коэффициентов ПИД-регулятора для дискретной формы
  * @param K Коэффициент усиления объекта
@@ -93,18 +107,11 @@ double calculateError(double setpoint, double current_value);
 
 /**
  * @brief Обновление переменных состояния для следующей итерации
- * @param[in,out] y Массив выходных значений объекта
- * @param[in,out] u Массив управляющих воздействий
- * @param[in,out] e_prev Предыдущая ошибка регулирования
- * @param[in,out] e_prev2 Предпредыдущая ошибка регулирования
- * @param[in,out] u_prev Предыдущее управляющее воздействие
- * @param e_k Текущая ошибка регулирования
+ * @param[in,out] state Структура с переменными состояния
  * 
  * Функция сдвигает массивы и переменные состояния для подготовки
  * к следующему шагу расчета, сохраняя историю значений.
  */
-void updateStateVariables(double y[], double u[], 
-                         double& e_prev, double& e_prev2, double& u_prev,
-                         double e_k);
+void updateStateVariables(StateVariables& state);
 
 #endif
