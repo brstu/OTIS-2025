@@ -1,6 +1,4 @@
-﻿#ifndef LINEAR
-#define LINEAR
-#include "Class.h"
+﻿#include "Class.h"
 
 using std::cout;
 using std::cin;
@@ -82,6 +80,4 @@ void Obj::SetY(int place, double data) {
 	this->y[place] = data;
 }
 
-
-#endif 
 
