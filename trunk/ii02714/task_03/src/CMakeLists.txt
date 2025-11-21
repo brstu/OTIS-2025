@@ -2,16 +2,12 @@ cmake_minimum_required (VERSION 4.2)
 project(otis3 LANGUAGES CXX)
 
 
-add_executable(otis3 
-	./otis3.cpp
-	)
-
 add_library(linear 
-	./linear.h
+	./linear.cpp
 	)
 
 add_library(PID 
-	./PID.h
+	./PID.cpp
 	)
 
 add_executable(OTIS3

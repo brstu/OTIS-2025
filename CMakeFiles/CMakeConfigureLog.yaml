@@ -679,3 +679,328 @@ events:
       Microsoft (R) Incremental Linker Version 14.44.35215.0
       Copyright (C) Microsoft Corporation.  All rights reserved.
 ...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.19045 - AMD64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/"
+    found: "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\boss\\AppData\\Local\\Microsoft\\WindowsApps"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/otis3"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: /DWIN32;/D_WINDOWS;/EHsc
+      Id flags:  
+      
+      The output was:
+      0
+      Версия MSBuild 17.11.9+a69bbaaf5 для .NET Framework
+      Сборка начата 21.11.2025 18:24:12.
+      
+      Проект "C:\\Users\\boss\\Desktop\\OTIS-2025\\CMakeFiles\\4.2.0-rc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" в узле 1 (целевые объекты по умолчанию).
+      PrepareForBuild:
+        Создание каталога "Debug\\".
+        Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
+        Создание каталога "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Создание "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
+        Обращение к "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> C:\\Users\\boss\\Desktop\\OTIS-2025\\CMakeFiles\\4.2.0-rc1\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Файл "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" удаляется.
+        Обращение к "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
+      Сборка проекта "C:\\Users\\boss\\Desktop\\OTIS-2025\\CMakeFiles\\4.2.0-rc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" завершена (целевые объекты по умолчанию).
+      
+      Сборка успешно завершена.
+          Предупреждений: 0
+          Ошибок: 0
+      
+      Прошло времени 00:00:02.38
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        C:/Users/boss/Desktop/OTIS-2025/CMakeFiles/4.2.0-rc1/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:103 (__resolve_linker_path)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "link"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/bin/Hostx64/x64/"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/javapath/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/boss/AppData/Local/Microsoft/WindowsApps/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/bin/Hostx64/x64/link.com"
+    found: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/bin/Hostx64/x64/link.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\boss\\AppData\\Local\\Microsoft\\WindowsApps"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/otis3"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lld-link"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/bin/Hostx64/x64/"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/javapath/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/boss/AppData/Local/Microsoft/WindowsApps/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/bin/Hostx64/x64/lld-link.com"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/bin/Hostx64/x64/lld-link.exe"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/bin/Hostx64/x64/lld-link"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/javapath/lld-link.com"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/javapath/lld-link.exe"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/javapath/lld-link"
+      - "C:/Windows/System32/lld-link.com"
+      - "C:/Windows/System32/lld-link.exe"
+      - "C:/Windows/System32/lld-link"
+      - "C:/Windows/lld-link.com"
+      - "C:/Windows/lld-link.exe"
+      - "C:/Windows/lld-link"
+      - "C:/Windows/System32/wbem/lld-link.com"
+      - "C:/Windows/System32/wbem/lld-link.exe"
+      - "C:/Windows/System32/wbem/lld-link"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link"
+      - "C:/Windows/System32/OpenSSH/lld-link.com"
+      - "C:/Windows/System32/OpenSSH/lld-link.exe"
+      - "C:/Windows/System32/OpenSSH/lld-link"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link"
+      - "C:/Program Files/dotnet/lld-link.com"
+      - "C:/Program Files/dotnet/lld-link.exe"
+      - "C:/Program Files/dotnet/lld-link"
+      - "C:/Program Files/Git/cmd/lld-link.com"
+      - "C:/Program Files/Git/cmd/lld-link.exe"
+      - "C:/Program Files/Git/cmd/lld-link"
+      - "C:/Program Files/CMake/bin/lld-link.com"
+      - "C:/Program Files/CMake/bin/lld-link.exe"
+      - "C:/Program Files/CMake/bin/lld-link"
+      - "C:/Users/boss/AppData/Local/Microsoft/WindowsApps/lld-link.com"
+      - "C:/Users/boss/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
+      - "C:/Users/boss/AppData/Local/Microsoft/WindowsApps/lld-link"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\boss\\AppData\\Local\\Microsoft\\WindowsApps"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/otis3"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/boss/Desktop/OTIS-2025/CMakeFiles/CMakeScratch/TryCompile-iug5i0"
+      binary: "C:/Users/boss/Desktop/OTIS-2025/CMakeFiles/CMakeScratch/TryCompile-iug5i0"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/boss/Desktop/OTIS-2025/CMakeFiles/CMakeScratch/TryCompile-iug5i0'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_104ca.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        ╨Т╨╡╤А╤Б╨╕╤П MSBuild 17.11.9+a69bbaaf5 ╨┤╨╗╤П .NET Framework
+        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 21.11.2025 18:24:15.
+        
+        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\boss\\Desktop\\OTIS-2025\\CMakeFiles\\CMakeScratch\\TryCompile-iug5i0\\cmTC_104ca.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+        PrepareForBuild:
+          ╨б╤В╤А╤Г╨║╤В╤Г╤А╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨▓╤Л╨▓╨╛╨┤ ╨▓╨║╨╗╤О╤З╨╡╨╜. ╨д╨╛╤А╨╝╨░╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨┤╨╕╨░╨│╨╜╨╛╤Б╤В╨╕╨║╨╕ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А╨░ ╨▒╤Г╨┤╨╡╤В ╨╛╤В╤А╨░╨╢╨░╤В╤М ╨╕╨╡╤А╨░╤А╤Е╨╕╤О ╨╛╤И╨╕╨▒╨╛╨║. ╨Я╨╛╨┤╤А╨╛╨▒╨╜╨╡╨╡ ╤Б╨╝. https://aka.ms/cpp/structured-output.
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\boss\\Desktop\\OTIS-2025\\CMakeFiles\\CMakeScratch\\TryCompile-iug5i0\\Debug\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_104ca.dir\\Debug\\cmTC_104ca.tlog\\".
+        InitializeBuildStatus:
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_104ca.dir\\Debug\\cmTC_104ca.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_104ca.dir\\Debug\\cmTC_104ca.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_104ca.dir\\Debug\\\\" /Fd"C:\\Users\\boss\\Desktop\\OTIS-2025\\CMakeFiles\\CMakeScratch\\TryCompile-iug5i0\\cmTC_104ca.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
+          ╨Ю╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╤Г╤О╤Й╨╕╨╣ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А Microsoft (R) C/C++ ╨▓╨╡╤А╤Б╨╕╨╕ 19.41.34123 ╨┤╨╗╤П x64
+          (C) ╨Ъ╨╛╤А╨┐╨╛╤А╨░╤Ж╨╕╤П ╨Ь╨░╨╣╨║╤А╨╛╤Б╨╛╤Д╤В (Microsoft Corporation).  ╨Т╤Б╨╡ ╨┐╤А╨░╨▓╨░ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╤Л.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_104ca.dir\\Debug\\\\" /Fd"C:\\Users\\boss\\Desktop\\OTIS-2025\\CMakeFiles\\CMakeScratch\\TryCompile-iug5i0\\cmTC_104ca.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\boss\\Desktop\\OTIS-2025\\CMakeFiles\\CMakeScratch\\TryCompile-iug5i0\\Debug\\cmTC_104ca.exe" /INCREMENTAL /ILK:"cmTC_104ca.dir\\Debug\\cmTC_104ca.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/boss/Desktop/OTIS-2025/CMakeFiles/CMakeScratch/TryCompile-iug5i0/Debug/cmTC_104ca.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/boss/Desktop/OTIS-2025/CMakeFiles/CMakeScratch/TryCompile-iug5i0/Debug/cmTC_104ca.lib" /MACHINE:X64 cmTC_104ca.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_104ca.vcxproj -> C:\\Users\\boss\\Desktop\\OTIS-2025\\CMakeFiles\\CMakeScratch\\TryCompile-iug5i0\\Debug\\cmTC_104ca.exe
+        FinalizeBuildStatus:
+          ╨д╨░╨╣╨╗ "cmTC_104ca.dir\\Debug\\cmTC_104ca.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_104ca.dir\\Debug\\cmTC_104ca.tlog\\cmTC_104ca.lastbuildstate".
+        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\boss\\Desktop\\OTIS-2025\\CMakeFiles\\CMakeScratch\\TryCompile-iug5i0\\cmTC_104ca.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+        
+        ╨б╨▒╨╛╤А╨║╨░ ╤Г╤Б╨┐╨╡╤И╨╜╨╛ ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░.
+            ╨Я╤А╨╡╨┤╤Г╨┐╤А╨╡╨╢╨┤╨╡╨╜╨╕╨╣: 0
+            ╨Ю╤И╨╕╨▒╨╛╨║: 0
+        
+        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:01.23
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.41.34123.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+...
