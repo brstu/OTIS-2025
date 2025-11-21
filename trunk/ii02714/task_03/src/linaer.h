@@ -1,6 +1,6 @@
 #ifndef LINEAR
 #define LINEAR
-#include "../src/Class.H"
+#include "../src/Class.h"
 
 void Obj::input();
 void Obj::linear(const int& place);
