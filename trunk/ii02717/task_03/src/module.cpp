@@ -9,6 +9,19 @@
 #include <cmath>
 
 /**
+ * @brief Структура для хранения параметров управления
+ */
+struct ControlParams {
+    double q0;
+    double q1;
+    double q2;
+    double e_k;
+    double e_prev;
+    double e_prev2;
+    double u_prev;
+};
+
+/**
  * @brief Расчет коэффициентов ПИД-регулятора для дискретной формы
  */
 void calculatePidCoefficients(double K, double T, double Td, double T0, 
@@ -24,8 +37,24 @@ void calculatePidCoefficients(double K, double T, double Td, double T0,
 double calculateControl(double q0, double q1, double q2,
                        double e_k, double e_prev, double e_prev2, 
                        double u_prev) {
-    double delta_u = q0 * e_k + q1 * e_prev + q2 * e_prev2;
-    double u_k = u_prev + delta_u;
+    ControlParams params;
+    params.q0 = q0;
+    params.q1 = q1;
+    params.q2 = q2;
+    params.e_k = e_k;
+    params.e_prev = e_prev;
+    params.e_prev2 = e_prev2;
+    params.u_prev = u_prev;
+    
+    return calculateControlWithParams(params);
+}
+
+/**
+ * @brief Расчет управляющего воздействия с использованием структуры параметров
+ */
+double calculateControlWithParams(const ControlParams& params) {
+    double delta_u = params.q0 * params.e_k + params.q1 * params.e_prev + params.q2 * params.e_prev2;
+    double u_k = params.u_prev + delta_u;
     return applyControlLimits(u_k);
 }
 
@@ -69,15 +98,14 @@ void updateStateVariables(double y[], double u[],
                          double& e_prev, double& e_prev2, double& u_prev,
                          double e_k) {
     // Обновление истории температур (y[2] - старейшее, y[0] - новейшее)
-    y[2] = y[1];  // y(k-2) ← y(k-1)
-    y[1] = y[0];  // y(k-1) ← y(k)
+    y[0] = y[1];  // y(k) ← y(k-1)
+    y[1] = y[2];  // y(k-1) ← y(k)
     
     // Обновление истории управлений
-    u[2] = u[1];  // u(k-2) ← u(k-1)
-    u[1] = u[0];  // u(k-1) ← u(k)
+    u[0] = u[1];  // u(k) ← u(k-1)
     
     // Обновление переменных ПИД-регулятора
     e_prev2 = e_prev;  // e(k-2) ← e(k-1)
     e_prev = e_k;      // e(k-1) ← e(k)
-    u_prev = u[0];     // u(k-1) ← u(k)
+    u_prev = u[1];     // u(k-1) ← u(k)
 }

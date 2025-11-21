@@ -4,7 +4,9 @@
 
 // Тест 1: Проверка расчета коэффициентов ПИД
 TEST(PIDTest, CoefficientsCalculation) {
-    double q0, q1, q2;
+    double q0;
+    double q1;
+    double q2;
     calculatePidCoefficients(0.8, 10.0, 0.3, 1.0, q0, q1, q2);
     
     EXPECT_NEAR(q0, 1.04, 0.001);   // 0.8*(1 + 0.3/1) = 1.04
