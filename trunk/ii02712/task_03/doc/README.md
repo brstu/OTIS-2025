@@ -181,6 +181,10 @@ TEST(TestPIDRegulatorUsingNonLinearModel, WhenStepsIsFour)
 ![non2](images/non2.png)
 - Поведение характерно для нестабильной системы с 'неадекватными' параметрами регулятора.
 
+## Documentation
+
+https://sstiff.github.io/OTIS-2025/
+
 ## Консоль и выводы 
 
 ### Консоль с выполнением test
