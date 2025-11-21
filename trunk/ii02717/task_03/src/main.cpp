@@ -20,6 +20,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <array>
 #include "module.h"
 
 /**
@@ -72,9 +73,9 @@ int main() {
 
     // === 5. Инициализация переменных ===
     /// @brief Массив температур: y[0], y[1], y[2] - история температур (y(k), y(k-1), y(k-2))
-    double y[3] = { y0, y1 };
+    std::array<double, 3> y = { y0, y1 };
     /// @brief Массив управлений: u[0], u[1] - история управляющих воздействий (u(k), u(k-1))
-    double u[2] = { 0, 0 };
+    std::array<double, 2> u = { 0, 0 };
 
     /// @brief Предыдущее управляющее воздействие u(k-1)
     double u_prev = 0;
@@ -121,10 +122,15 @@ int main() {
 
         // Обновление переменных состояния
         /// @brief Обновление истории температур, управлений и ошибок для следующего шага
-        updateStateVariables(y, u, e_prev, e_prev2, u_prev, e_k);
+        StateVariables state = {y, u, e_prev, e_prev2, u_prev, e_k};
+        updateStateVariables(state);
+        y = state.y;
+        u = state.u;
+        e_prev = state.e_prev;
+        e_prev2 = state.e_prev2;
+        u_prev = state.u_prev;
     }
 
     std::cout << "\nМоделирование завершено!" << std::endl;
     return 0;
 }
-//
