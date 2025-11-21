@@ -34,7 +34,7 @@
 
 ## Внесенный вклад
 
-Внес правки в документацию на русском языке некоторых агентов: weatherAgent.ru.md и findWordInSetByFirstLetter.ru.md
+Исправлены опечатки и улучшено форматирование в документации на русском языке для некоторых агентов: weatherAgent.ru.md и findWordInSetByFirstLetter.ru.md
 ![my pull-request](img/pull-request.png)
 
 ## Pull-request
