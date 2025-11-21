@@ -17,7 +17,7 @@ void calculatePidCoefficients(double K, double T, double Td, double T0,
     q1 = -K * (1 + 2 * Td / T0 - T0 / T);
     q2 = K * Td / T0;
 }
-выфвыф
+
 /**
  * @brief Расчет управляющего воздействия ПИД-регулятором
  */
