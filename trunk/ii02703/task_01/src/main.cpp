@@ -2,7 +2,13 @@
 #include <cmath>
 
 int main() {
-    double y, y_prev, u, u_prev, a, b, c, d;
+    double y;
+    double u;
+    double a;
+    double b;
+    double c;
+    double d;
+
     int n;
 
     std::cout << "Enter start temperature and heat: ";
@@ -12,7 +18,7 @@ int main() {
     std::cout << "Steps: ";
     std::cin >> n;
 
-    
+
     double y_lin = y;
     std::cout << "\nLinear model:\n";
     for (int i = 0; i < n; i++) {
@@ -20,7 +26,7 @@ int main() {
         std::cout << "Step " << i + 1 << ": " << y_lin << std::endl;
     }
 
-    
+
     double y_curr = y;
     double y_prev_nl = y;
     double u_prev_nl = u;
