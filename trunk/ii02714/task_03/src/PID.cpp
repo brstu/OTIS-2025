@@ -4,10 +4,7 @@
 #include "../src/Class.h"
 #include "../src/PID.h"
 
-
-class PID : public Obj {
-public:
-	PID(double data, double data2) {
+	PID::PID(double data, double data2) {
 		this->iter = 10;
 		e.resize(iter);
 		yP.resize(iter);
@@ -25,7 +22,7 @@ public:
 		this->e[1] = 0;
 		this->e[2] = 0;
 	}
-	PID() {
+	PID::PID() {
 		this->iter = 10;
 		e.resize(iter);
 		yP.resize(iter);
@@ -43,28 +40,28 @@ public:
 		Obj::input();
 		SetQs();
 	}
-	void SetW() {
+	PID::void SetW() {
 		for (int i = 0; i < 10; i++) {
 			std::cout << "Enter w:" << std::endl;
 			std::cin >> w[i];
 		}
 	}
-	void SetY(int place) {
+	PID::void SetY(int place) {
 		Obj::linear(place);
 		this->yP[place] = getY(place);
 	}
-	void SetY(int place, double data) {
+	PID::void SetY(int place, double data) {
 		this->yP[place] = data;
 	}
-	void setE(int place) {
+	PID::void setE(int place) {
 		e[place] = w[place] - yP[place];
 	}
-	void SetQs() {
+	PID::void SetQs() {
 		this->q0 = k * (1 + Td / To);
 		this->q1 = -k * (1 + 2 * (Td / To) - To / T);
 		this->q2 = k * (Td / To);
 	}
-	void SetU(int place) {
+	PID::void SetU(int place) {
 		int placeE = 0;
 		int placeQ = 0;
 		if (place == 0) {
@@ -83,30 +80,28 @@ public:
 		deltU[place] = q0 * e[placeE] + q1 * e[placeE - 1] + q2 * e[placeE - 2];
 		u[placeQ] = u[placeQ - 1] + deltU[place];
 	}
-	int iterGet() {
+	PID::int iterGet() {
 		--iter;
 		return iter;
 	}
-	double GetE(int place) {
+	PID::double GetE(int place) {
 		return this->e[place];
 	}
-	double GetYp(int place) {
+	PID::double GetYp(int place) {
 		return this->yP[place];
 	}
-	double GetUP(int place) {
+	PID::double GetUP(int place) {
 		return this->u[place];
 	}
-	void SetW(int place, double data) {
+	PID::void SetW(int place, double data) {
 		this->w[place] = data;
 	}
-	double GetQs0() {
+	PID::double GetQs0() {
 		return this->q0;
 	}
-	double GetQs1() {
+	PID::double GetQs1() {
 		return this->q1;
 	}
-	double GetQs2() {
+	PID::double GetQs2() {
 		return this->q2;
 	}
-
-};
