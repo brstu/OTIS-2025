@@ -40,28 +40,28 @@
 		Obj::input();
 		SetQs();
 	}
-	PID::void SetW() {
+	void PID::SetW() {
 		for (int i = 0; i < 10; i++) {
 			std::cout << "Enter w:" << std::endl;
 			std::cin >> w[i];
 		}
 	}
-	PID::void SetY(int place) {
+	void PID::SetY(int place) {
 		Obj::linear(place);
 		this->yP[place] = getY(place);
 	}
-	PID::void SetY(int place, double data) {
+	void PID::SetY(int place, double data) {
 		this->yP[place] = data;
 	}
-	PID::void setE(int place) {
+	void PID::setE(int place) {
 		e[place] = w[place] - yP[place];
 	}
-	PID::void SetQs() {
+	void PID::SetQs() {
 		this->q0 = k * (1 + Td / To);
 		this->q1 = -k * (1 + 2 * (Td / To) - To / T);
 		this->q2 = k * (Td / To);
 	}
-	PID::void SetU(int place) {
+	void PID::SetU(int place) {
 		int placeE = 0;
 		int placeQ = 0;
 		if (place == 0) {
@@ -80,28 +80,28 @@
 		deltU[place] = q0 * e[placeE] + q1 * e[placeE - 1] + q2 * e[placeE - 2];
 		u[placeQ] = u[placeQ - 1] + deltU[place];
 	}
-	PID::int iterGet() {
+	int PID::iterGet() {
 		--iter;
 		return iter;
 	}
-	PID::double GetE(int place) {
+	double PID::GetE(int place) {
 		return this->e[place];
 	}
-	PID::double GetYp(int place) {
+	double PID::GetYp(int place) {
 		return this->yP[place];
 	}
-	PID::double GetUP(int place) {
+	double PID::GetUP(int place) {
 		return this->u[place];
 	}
-	PID::void SetW(int place, double data) {
+	void PID::SetW(int place, double data) {
 		this->w[place] = data;
 	}
-	PID::double GetQs0() {
+	double PID::GetQs0() {
 		return this->q0;
 	}
-	PID::double GetQs1() {
+    double PID::GetQs1() {
 		return this->q1;
 	}
-	PID::double GetQs2() {
+	double PID::GetQs2() {
 		return this->q2;
 	}

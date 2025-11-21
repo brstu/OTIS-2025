@@ -40,4 +40,4 @@ public:
 	double GetQs2();
 
 };
-#endif CLASS
+#endif PID
