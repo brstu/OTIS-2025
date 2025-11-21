@@ -407,3 +407,6 @@ _main.cc
 [----------] Global test environment tear-down
 [==========] 4 tests from 2 test suites ran. (3 ms total)
 [  PASSED  ] 4 tests.
+
+## Результат действия программы:
+https://igor7123.github.io/try-githubpages/
