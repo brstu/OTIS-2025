@@ -1,3 +1,21 @@
+<p align="center">Министерство образования Республики Беларусь</p>
+<p align="center">Учреждение образования</p>
+<p align="center">“Брестский Государственный технический университет”</p>
+<p align="center">Кафедра ИИТ</p>
+<br><br><br><br><br><br><br>
+<p align="center">Лабораторная работа №5</p>
+<p align="center">По дисциплине “Общая теория интеллектуальных систем”</p>
+<p align="center">Тема: “Внесение своего вклада в The OSTIS или в The OSTIS Applications”</p>
+<br><br><br><br><br>
+<p align="right">Выполнил:</p>
+<p align="right">Студент 2 курса</p>
+<p align="right">Группы ИИ-27</p>
+<p align="right">Дорошенко М.Д.</p>
+<p align="right">Проверил:</p>
+<p align="right">Дворанинович Д.А.</p>
+<br><br><br><br><br>
+<p align="center">Брест 2025</p>
+
 # Задание: Работа с проектами #
 1. Изучить следующие открытые проекты:
     1.1. The [OSTIS](https://github.com/ostis-ai) Technology project;
@@ -12,5 +30,13 @@
 
 
 ## Ход работы
+В ходе данной лабораторной работы я внес вклад в проект `The OSTIS Applications`, репозитория [ostis-apps/nika](https://github.com/ostis-apps/nika). 
 
-## Pull Request for OSTIS/NIKA
+## Внесенный вклад
+
+Внес правки в документацию на русском языке некоторых агентов: weatherAgent.ru.md и findWordInSetByFirstLetter.ru.md
+![my pull-request](img/pull-request.png)
+
+## Pull-request
+
+Ссылка на мой pull-request в `ostis-apps/nika`: [https://github.com/ostis-apps/nika/pull/377/files](https://github.com/ostis-apps/nika/pull/377/files).
