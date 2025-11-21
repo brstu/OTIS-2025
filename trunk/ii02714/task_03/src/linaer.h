@@ -1,5 +1,5 @@
-#ifndef LIANEAR
-#define LIANEAR
+#ifndef LINEAR
+#define LINEAR
 #include "Class.H"
 
 void Obj::input();
