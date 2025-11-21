@@ -37,16 +37,9 @@ void calculatePidCoefficients(double K, double T, double Td, double T0,
 double calculateControl(double q0, double q1, double q2,
                        double e_k, double e_prev, double e_prev2, 
                        double u_prev) {
-    ControlParams params;
-    params.q0 = q0;
-    params.q1 = q1;
-    params.q2 = q2;
-    params.e_k = e_k;
-    params.e_prev = e_prev;
-    params.e_prev2 = e_prev2;
-    params.u_prev = u_prev;
-    
-    return calculateControlWithParams(params);
+    double delta_u = q0 * e_k + q1 * e_prev + q2 * e_prev2;
+    double u_k = u_prev + delta_u;
+    return applyControlLimits(u_k);
 }
 
 /**
