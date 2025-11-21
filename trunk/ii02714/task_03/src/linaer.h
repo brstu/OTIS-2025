@@ -1,6 +1,6 @@
 #ifndef LIANEAR
 #define LIANEAR
-#include "CLASS.H"
+#include "Class.H"
 
 void Obj::input();
 void Obj::linear(const int& place);
