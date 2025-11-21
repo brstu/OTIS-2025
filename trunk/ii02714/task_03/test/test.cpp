@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "C:\Users\boss\Desktop\OTIS-2025\trunk\ii02714\task_03\src\Class.h"
-#include "C:\Users\boss\Desktop\OTIS-2025\trunk\ii02714\task_03\src\linaer.h"
+#include "C:\Users\boss\Desktop\OTIS-2025\trunk\ii02714\task_03\src\linear.h"
 #include "C:\Users\boss\Desktop\OTIS-2025\trunk\ii02714\task_03\src\PID.h"
 
 TEST(TestClass, linearfun1) {
