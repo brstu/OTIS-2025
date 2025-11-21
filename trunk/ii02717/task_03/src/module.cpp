@@ -21,11 +21,9 @@ void calculatePidCoefficients(double K, double T, double Td, double T0,
 /**
  * @brief Расчет управляющего воздействия ПИД-регулятором
  */
-double calculateControl(double q0, double q1, double q2,
-                       double e_k, double e_prev, double e_prev2, 
-                       double u_prev) {
-    double delta_u = q0 * e_k + q1 * e_prev + q2 * e_prev2;
-    double u_k = u_prev + delta_u;
+double calculateControl(const ControlParams& params) {
+    double delta_u = params.q0 * params.e_k + params.q1 * params.e_prev + params.q2 * params.e_prev2;
+    double u_k = params.u_prev + delta_u;
     return applyControlLimits(u_k);
 }
 
@@ -41,9 +39,8 @@ double applyControlLimits(double u) {
 /**
  * @brief Расчет нелинейной модели объекта управления
  */
-double calculateNonlinearModel(double a, double b, double c, double d,
-                             double y1, double y0, double u1, double u0) {
-    double y2 = a * y1 - b * y0 * y0 + c * u1 + d * sin(u0);
+double calculateNonlinearModel(const ModelParams& params) {
+    double y2 = params.a * params.y1 - params.b * params.y0 * params.y0 + params.c * params.u1 + params.d * sin(params.u0);
     return applyTemperatureProtection(y2);
 }
 

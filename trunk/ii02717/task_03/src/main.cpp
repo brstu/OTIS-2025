@@ -87,7 +87,7 @@ int main() {
     double T0 = 1.0;
 
     // === 6. Вычисление коэффициентов ПИД ===
-    /// @brief Коэффициенты ПИД-регулятора в дискретной формы
+    /// @brief Коэффициенты ПИД-регулятора в дискретной форме
     double q0;
     double q1;
     double q2;
@@ -106,11 +106,13 @@ int main() {
 
         // Расчет управления
         /// @brief Управляющее воздействие u(k) = u(k-1) + q0*e(k) + q1*e(k-1) + q2*e(k-2)
-        u[1] = calculateControl(q0, q1, q2, e_k, e_prev, e_prev2, u_prev);
+        ControlParams controlParams = {q0, q1, q2, e_k, e_prev, e_prev2, u_prev};
+        u[1] = calculateControl(controlParams);
 
         // Расчет новой температуры
         /// @brief Новая температура по нелинейной модели y(k) = a*y(k-1) - b*y(k-2)^2 + c*u(k-1) + d*sin(u(k-2))
-        y[2] = calculateNonlinearModel(a, b, c, d, y[1], y[0], u[1], u[0]);
+        ModelParams modelParams = {a, b, c, d, y[1], y[0], u[1], u[0]};
+        y[2] = calculateNonlinearModel(modelParams);
 
         // Вывод в консоль
         /// @brief Вывод результатов каждые 10 шагов для мониторинга

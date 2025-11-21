@@ -11,6 +11,33 @@
 #include <array>
 
 /**
+ * @brief Структура для хранения параметров управления ПИД-регулятором
+ */
+struct ControlParams {
+    double q0;      ///< Коэффициент q0 ПИД-регулятора
+    double q1;      ///< Коэффициент q1 ПИД-регулятора
+    double q2;      ///< Коэффициент q2 ПИД-регулятора
+    double e_k;     ///< Текущая ошибка регулирования
+    double e_prev;  ///< Ошибка на предыдущем шаге
+    double e_prev2; ///< Ошибка на предпредыдущем шаге
+    double u_prev;  ///< Управление на предыдущем шаге
+};
+
+/**
+ * @brief Структура для хранения параметров нелинейной модели
+ */
+struct ModelParams {
+    double a;       ///< Коэффициент a нелинейной модели
+    double b;       ///< Коэффициент b нелинейной модели
+    double c;       ///< Коэффициент c нелинейной модели
+    double d;       ///< Коэффициент d нелинейной модели
+    double y1;      ///< Выход объекта на предыдущем шаге (y(k-1))
+    double y0;      ///< Выход объекта на предпредыдущем шаге (y(k-2))
+    double u1;      ///< Управление на предыдущем шаге (u(k-1))
+    double u0;      ///< Управление на предпредыдущем шаге (u(k-2))
+};
+
+/**
  * @brief Структура для хранения переменных состояния системы
  */
 struct StateVariables {
@@ -40,21 +67,13 @@ void calculatePidCoefficients(double K, double T, double Td, double T0,
 
 /**
  * @brief Расчет управляющего воздействия ПИД-регулятором
- * @param q0 Коэффициент q0 ПИД-регулятора
- * @param q1 Коэффициент q1 ПИД-регулятора
- * @param q2 Коэффициент q2 ПИД-регулятора
- * @param e_k Текущая ошибка регулирования
- * @param e_prev Ошибка на предыдущем шаге
- * @param e_prev2 Ошибка на предпредыдущем шаге
- * @param u_prev Управление на предыдущем шаге
+ * @param params Структура с параметрами управления
  * @return Рассчитанное управляющее воздействие
  * 
  * Функция реализует алгоритм ПИД-регулятора в дискретной форме:
  * u(k) = u(k-1) + q0*e(k) + q1*e(k-1) + q2*e(k-2)
  */
-double calculateControl(double q0, double q1, double q2,
-                       double e_k, double e_prev, double e_prev2, 
-                       double u_prev);
+double calculateControl(const ControlParams& params);
 
 /**
  * @brief Применение ограничений к управляющему воздействию
@@ -68,21 +87,13 @@ double applyControlLimits(double u);
 
 /**
  * @brief Расчет нелинейной модели объекта управления
- * @param a Коэффициент a нелинейной модели
- * @param b Коэффициент b нелинейной модели
- * @param c Коэффициент c нелинейной модели
- * @param d Коэффициент d нелинейной модели
- * @param y1 Выход объекта на предыдущем шаге (y(k-1))
- * @param y0 Выход объекта на предпредыдущем шаге (y(k-2))
- * @param u1 Управление на предыдущем шаге (u(k-1))
- * @param u0 Управление на предпредыдущем шаге (u(k-2))
+ * @param params Структура с параметрами модели
  * @return Текущее значение выхода объекта
  * 
  * Функция реализует нелинейную модель объекта вида:
  * y(k) = a*y(k-1) - b*y(k-2)^2 + c*u(k-1) + d*sin(u(k-2))
  */
-double calculateNonlinearModel(double a, double b, double c, double d,
-                             double y1, double y0, double u1, double u0);
+double calculateNonlinearModel(const ModelParams& params);
 
 /**
  * @brief Защита от отрицательной температуры
