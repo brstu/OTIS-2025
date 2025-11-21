@@ -1,5 +1,5 @@
-#ifndef PID
-#define PID
+#ifndef PID_H
+#define PID_H
 #include <iostream>
 #include <vector>
 #include "../src/Class.h"
