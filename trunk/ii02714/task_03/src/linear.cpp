@@ -1,7 +1,6 @@
 ﻿#ifndef LINEAR
 #define LINEAR
 #include "Class.h"
-#include "linaer.h"
 
 using std::cout;
 using std::cin;
