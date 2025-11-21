@@ -9,5 +9,5 @@ int Obj::getN() const;
 double Obj::getY(int place) const;
 void Obj::SetU(int place,double data);
 void Obj::SetY(int place, double data);
-#endif LIANEAR
+#endif LINEAR
 
