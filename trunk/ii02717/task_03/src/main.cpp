@@ -127,3 +127,4 @@ int main() {
     std::cout << "\nМоделирование завершено!" << std::endl;
     return 0;
 }
+//
