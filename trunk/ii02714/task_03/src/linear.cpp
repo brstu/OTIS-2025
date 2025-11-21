@@ -1,7 +1,7 @@
 ﻿#ifndef LINEAR
 #define LINEAR
-#include "Class.H"
-#include "linear.H"
+#include "Class.h"
+#include "linear.h"
 
 using std::cout;
 using std::cin;
