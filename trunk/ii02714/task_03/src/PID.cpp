@@ -1,6 +1,5 @@
 ﻿#include <iostream>
 #include <vector>
-#include "../src/linaer.h"
 #include "../src/Class.h"
 #include "../src/PID.h"
 
