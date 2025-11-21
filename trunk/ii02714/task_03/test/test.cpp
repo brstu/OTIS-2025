@@ -1,7 +1,7 @@
 #include "pch.h"
-#include "C:\Users\boss\Desktop\OTIS-2025\trunk\ii02714\task_03\src\Class.h"
-#include "C:\Users\boss\Desktop\OTIS-2025\trunk\ii02714\task_03\src\linear.h"
-#include "C:\Users\boss\Desktop\OTIS-2025\trunk\ii02714\task_03\src\PID.h"
+#include "../src/Class.h"
+#include "../src/linear.h"
+#include "../src/PID.h"
 
 TEST(TestClass, linearfun1) {
 	Obj o;

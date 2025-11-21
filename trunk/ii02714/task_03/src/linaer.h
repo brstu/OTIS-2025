@@ -1,13 +1,30 @@
 #ifndef LINEAR
 #define LINEAR
 #include "../src/Class.h"
-
-void Obj::input();
-void Obj::linear(const int& place);
-void Obj::nonlinear(const int& place);
-int Obj::getN() const;
-double Obj::getY(int place) const;
-void Obj::SetU(int place,double data);
-void Obj::SetY(int place, double data);
-#endif LINEAR
+class Obj {
+private:
+	int k = 4;
+	int t = 0;
+	vector<double> y;
+	vector<double> u;
+	double y0 = 25;
+	double temp_change = 0;
+	double a = 1;
+	double b = 1;
+	double c = 1;
+	double d = 1;
+	double c1 = 1;
+	double rc = 1;
+public:
+	Obj();
+	void input();
+	void equation1(const int& place);
+	void linear(const int& place);
+	void nonlinear(const int& place);
+	int getN() const;
+	int getT() const;
+	double getY(int place) const;
+	double getDelt() const;
+};
+#endif 
 
