@@ -18,7 +18,6 @@ TEST(PIDTest, ControlLimits) {
     EXPECT_DOUBLE_EQ(applyControlLimits(-50), 0);    // Нижнее ограничение
     EXPECT_DOUBLE_EQ(applyControlLimits(75), 75);    // Нормальное значение
 }
-выфвфы
 // Тест 3: Проверка нелинейной модели
 TEST(ModelTest, NonlinearModel) {
     double y2 = calculateNonlinearModel(0.9, 0.005, 1.0, 0.1, 20.1, 20.0, 25.0, 0.0);
