@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "../src/Class.h"
-#include "../src/linear.h"
 #include "../src/PID.h"
 
 TEST(TestClass, linearfun1) {
