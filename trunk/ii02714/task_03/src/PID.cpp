@@ -3,8 +3,9 @@
 #include "../src/Class.h"
 #include "../src/PID.h"
 
-	PID::PID(double data, double data2) {
-		this->iter = 10;
+	PID::PID(double data, double data2)
+		: iter(10),T(0.01),To(0,01),Td(1),k(0,1)
+	{
 		e.resize(iter);
 		yP.resize(iter);
 		w.resize(iter);
@@ -12,26 +13,19 @@
 		deltU.resize(iter);
 		SetW(3, data);
 		SetY(3, data2);
-		this->T = 0.01;
-		this->To = 0.01;
-		this->k = 0.1;
-		this->Td = 1;
 		this->u[0] = 1;
 		this->e[0] = 0;
 		this->e[1] = 0;
 		this->e[2] = 0;
 	}
-	PID::PID() {
-		this->iter = 10;
+	PID::PID() 
+		:iter(10), T(0.01), To(0, 01), Td(1), k(0, 1)
+	{
 		e.resize(iter);
 		yP.resize(iter);
 		w.resize(iter);
 		u.resize(iter);
 		deltU.resize(iter);
-		this->T = 0.01;
-		this->To = 0.01;
-		this->k = 0.1;
-		this->Td = 1;
 		this->u[0] = 0;
 		this->e[0] = 0;
 		this->e[1] = 0;
@@ -83,24 +77,24 @@
 		--iter;
 		return iter;
 	}
-	double PID::GetE(int place) {
+	double PID::GetE(int place) const {
 		return this->e[place];
 	}
-	double PID::GetYp(int place) {
+	double PID::GetYp(int place) const{ 
 		return this->yP[place];
 	}
-	double PID::GetUP(int place) {
+	double PID::GetUP(int place) const{
 		return this->u[place];
 	}
 	void PID::SetW(int place, double data) {
 		this->w[place] = data;
 	}
-	double PID::GetQs0() {
+	double PID::GetQs0() const{
 		return this->q0;
 	}
-    double PID::GetQs1() {
+    double PID::GetQs1() const {
 		return this->q1;
 	}
-	double PID::GetQs2() {
+	double PID::GetQs2() const{
 		return this->q2;
 	}

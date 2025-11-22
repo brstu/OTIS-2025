@@ -25,18 +25,18 @@ public:
 	PID();
 	void SetW();
 	void SetY(int place);
-	void SetY(int place, double data);
+	void SetY(int place, double data) override;
 	void setE(int place);
 	void SetQs();
-	void SetU(int place);
+	void SetU(int place) override;
 	int iterGet();
-	double GetE(int place);
-	double GetYp(int place);
-	double GetUP(int place);
+	double GetE(int place) const;
+	double GetYp(int place) const;
+	double GetUP(int place) const;
 	void SetW(int place, double data);
-	double GetQs0();
-	double GetQs1();
-	double GetQs2();
+	double GetQs0() const;
+	double GetQs1() const;
+	double GetQs2() const;
 
 };
 #endif
