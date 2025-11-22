@@ -12,17 +12,18 @@ private:
 	std::vector<double> w;
 	std::vector<double> u;
 	std::vector<double> deltU;
-	double Td;
-	double To;
-	double T;
+	double Td{ 1 };
+	double To{ 0.01 };
+	double T{ 0.01 };
 	double q0;
 	double q1;
 	double q2;
-	double k;
-	int iter;
+	double k{ 0.1 };
+	int iter{ 10 };
 public:
 	PID(double data, double data2);
 	PID();
+	~PID() override = default;
 	void SetW();
 	void SetY(int place);
 	void SetY(int place, double data) override;

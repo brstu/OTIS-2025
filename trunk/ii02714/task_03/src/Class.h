@@ -25,6 +25,7 @@ public:
 		y.resize(k, 0);
 		u.resize(k, 0);
 	}
+	virtual ~Obj() = default;
 	void input();
 	void linear(const int& place);
 	void nonlinear(const int& place);
