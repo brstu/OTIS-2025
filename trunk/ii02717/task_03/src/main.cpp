@@ -17,7 +17,6 @@
  * 4. Расчет ошибки, управляющего воздействия и новой температуры
  * 5. Вывод результатов моделирования
  */
-
 #include <iostream>
 #include <iomanip>
 #include <array>
@@ -39,8 +38,7 @@
  *       y(k) = a*y(k-1) - b*y(k-2)^2 + c*u(k-1) + d*sin(u(k-2))
  */
 int main() {
-    setlocale(LC_ALL, "rus");
-
+    setlocale(LC_ALL, "Russian");
     // === 1. Ввод параметров модели объекта (из 1 лабы) ===
     /// @brief Параметры нелинейной модели объекта a, b, c, d
     double a;
