@@ -29,7 +29,7 @@ public:
 	void SetY(int place, double data) override;
 	void setE(int place);
 	void SetQs();
-	void SetU(int place);
+	void SetUl(int place);
 	int iterGet();
 	double GetE(int place) const;
 	double GetYp(int place) const;

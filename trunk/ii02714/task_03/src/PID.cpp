@@ -52,7 +52,7 @@
 		this->q1 = -k * (1 + 2 * (Td / To) - To / T);
 		this->q2 = k * (Td / To);
 	}
-	void PID::SetU(int place) {
+	void PID::SetUl(int place) {
 		int placeE = 0;
 		int placeQ = 0;
 		if (place == 0) {
