@@ -37,3 +37,9 @@ out/
 build/
 .idea/
 cmake-build-debug/
+
+# Doxygen documentation
+doc/html/
+doc/xml/
+doc/latex/
+*.doxygen
