@@ -401,25 +401,131 @@ TEST(PID_Ruslan_Test, ResetAndSetDt) {
 }
 ```
 ## Результаты юнит-тестирования (GoogleTest)
-[==========] Running 6 tests from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 6 tests from PIDTest
-[ RUN      ] PIDTest.BasicResponse
-[       OK ] PIDTest.BasicResponse (0 ms)
-[ RUN      ] PIDTest.InvalidDtInitializesInvDt
-PID::PID: invalid dt <= 0, using DEFAULT_DT=0.01
-[       OK ] PIDTest.InvalidDtInitializesInvDt (12 ms)
-[ RUN      ] PIDTest.DerivativeScaling
-[       OK ] PIDTest.DerivativeScaling (0 ms)
-[ RUN      ] PIDTest.InvalidOutputLimitsIgnored
-PID::setOutputLimits ignored invalid limits: min > max
-[       OK ] PIDTest.InvalidOutputLimitsIgnored (0 ms)
-[ RUN      ] PIDTest.IntegralLimitsWork
-[       OK ] PIDTest.IntegralLimitsWork (0 ms)
-[ RUN      ] PIDTest.ResetAndSetDt
-[       OK ] PIDTest.ResetAndSetDt (0 ms)
-[----------] 6 tests from PIDTest (26 ms total)
+UpdateCTestConfiguration  from :D:/study/otis/OTIS-2025/trunk/ii02821/task_03_mantsevich/build/DartConfiguration.tcl
+Test project D:/study/otis/OTIS-2025/trunk/ii02821/task_03_mantsevich/build
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: PID_Ruslan_Test.BasicResponse
 
-[----------] Global test environment tear-down
-[==========] 6 tests from 1 test suite ran. (32 ms total)
-[  PASSED  ] 6 tests.
+1: Test command: D:\study\otis\OTIS-2025\trunk\ii02821\task_03_mantsevich\build\runTests_ruslan_task03.exe "--gtest_filter=PID_Ruslan_Test.BasicResponse" "--gtest_also_run_disabled_tests"
+1: Working Directory: D:/study/otis/OTIS-2025/trunk/ii02821/task_03_mantsevich/build
+1: Test timeout computed to be: 10000000
+1: Running main() from D:\study\otis\OTIS-2025\trunk\ii02821\task_03_mantsevich\build\_deps\googletest-src\googletest\src\gtest_main.cc
+1: Note: Google Test filter = PID_Ruslan_Test.BasicResponse
+1: [==========] Running 1 test from 1 test suite.
+1: [----------] Global test environment set-up.
+1: [----------] 1 test from PID_Ruslan_Test
+1: [ RUN      ] PID_Ruslan_Test.BasicResponse
+1: [       OK ] PID_Ruslan_Test.BasicResponse (0 ms)
+1: [----------] 1 test from PID_Ruslan_Test (0 ms total)
+1:
+1: [----------] Global test environment tear-down
+1: [==========] 1 test from 1 test suite ran. (0 ms total)
+1: [  PASSED  ] 1 test.
+1/6 Test #1: PID_Ruslan_Test.BasicResponse ................   Passed    0.01 sec
+test 2
+    Start 2: PID_Ruslan_Test.InvalidDtInitializesInvDt
+
+2: Test command: D:\study\otis\OTIS-2025\trunk\ii02821\task_03_mantsevich\build\runTests_ruslan_task03.exe "--gtest_filter=PID_Ruslan_Test.InvalidDtInitializesInvDt" "--gtest_also_run_disabled_tests"
+2: Working Directory: D:/study/otis/OTIS-2025/trunk/ii02821/task_03_mantsevich/build
+2: Test timeout computed to be: 10000000
+2: Running main() from D:\study\otis\OTIS-2025\trunk\ii02821\task_03_mantsevich\build\_deps\googletest-src\googletest\src\gtest_main.cc
+2: Note: Google Test filter = PID_Ruslan_Test.InvalidDtInitializesInvDt
+2: [==========] Running 1 test from 1 test suite.
+2: [----------] Global test environment set-up.
+2: [----------] 1 test from PID_Ruslan_Test
+2: [ RUN      ] PID_Ruslan_Test.InvalidDtInitializesInvDt
+2: PID_ruslan::PID_ruslan: invalid dt <= 0, using DEFAULT_DT=0.01
+2: [       OK ] PID_Ruslan_Test.InvalidDtInitializesInvDt (0 ms)
+2: [----------] 1 test from PID_Ruslan_Test (0 ms total)
+2:
+2: [----------] Global test environment tear-down
+2: [==========] 1 test from 1 test suite ran. (0 ms total)
+2: [  PASSED  ] 1 test.
+2/6 Test #2: PID_Ruslan_Test.InvalidDtInitializesInvDt ....   Passed    0.01 sec
+test 3
+    Start 3: PID_Ruslan_Test.DerivativeScaling
+
+3: Test command: D:\study\otis\OTIS-2025\trunk\ii02821\task_03_mantsevich\build\runTests_ruslan_task03.exe "--gtest_filter=PID_Ruslan_Test.DerivativeScaling" "--gtest_also_run_disabled_tests"
+3: Working Directory: D:/study/otis/OTIS-2025/trunk/ii02821/task_03_mantsevich/build
+3: Test timeout computed to be: 10000000
+3: Running main() from D:\study\otis\OTIS-2025\trunk\ii02821\task_03_mantsevich\build\_deps\googletest-src\googletest\src\gtest_main.cc   
+3: Note: Google Test filter = PID_Ruslan_Test.DerivativeScaling
+3: [==========] Running 1 test from 1 test suite.
+3: [----------] Global test environment set-up.
+3: [----------] 1 test from PID_Ruslan_Test
+3: [ RUN      ] PID_Ruslan_Test.DerivativeScaling
+3: [       OK ] PID_Ruslan_Test.DerivativeScaling (0 ms)
+3: [----------] 1 test from PID_Ruslan_Test (0 ms total)
+3:
+3: [----------] Global test environment tear-down
+3: [==========] 1 test from 1 test suite ran. (0 ms total)
+3: [  PASSED  ] 1 test.
+3/6 Test #3: PID_Ruslan_Test.DerivativeScaling ............   Passed    0.01 sec
+test 4
+    Start 4: PID_Ruslan_Test.InvalidOutputLimitsIgnored
+
+4: Test command: D:\study\otis\OTIS-2025\trunk\ii02821\task_03_mantsevich\build\runTests_ruslan_task03.exe "--gtest_filter=PID_Ruslan_Test.InvalidOutputLimitsIgnored" "--gtest_also_run_disabled_tests"
+4: Working Directory: D:/study/otis/OTIS-2025/trunk/ii02821/task_03_mantsevich/build
+4: Test timeout computed to be: 10000000
+4: Running main() from D:\study\otis\OTIS-2025\trunk\ii02821\task_03_mantsevich\build\_deps\googletest-src\googletest\src\gtest_main.cc   
+4: Note: Google Test filter = PID_Ruslan_Test.InvalidOutputLimitsIgnored
+4: [==========] Running 1 test from 1 test suite.
+4: [----------] Global test environment set-up.
+4: [----------] 1 test from PID_Ruslan_Test
+4: [ RUN      ] PID_Ruslan_Test.InvalidOutputLimitsIgnored
+4: PID_ruslan::setOutputLimits ignored invalid limits: min > max
+4: [       OK ] PID_Ruslan_Test.InvalidOutputLimitsIgnored (0 ms)
+4: [----------] 1 test from PID_Ruslan_Test (0 ms total)
+4:
+4: [----------] Global test environment tear-down
+4: [==========] 1 test from 1 test suite ran. (0 ms total)
+4: [  PASSED  ] 1 test.
+4/6 Test #4: PID_Ruslan_Test.InvalidOutputLimitsIgnored ...   Passed    0.01 sec
+test 5
+    Start 5: PID_Ruslan_Test.IntegralLimitsWork
+
+5: Test command: D:\study\otis\OTIS-2025\trunk\ii02821\task_03_mantsevich\build\runTests_ruslan_task03.exe "--gtest_filter=PID_Ruslan_Test.IntegralLimitsWork" "--gtest_also_run_disabled_tests"
+5: Working Directory: D:/study/otis/OTIS-2025/trunk/ii02821/task_03_mantsevich/build
+5: Test timeout computed to be: 10000000
+5: Running main() from D:\study\otis\OTIS-2025\trunk\ii02821\task_03_mantsevich\build\_deps\googletest-src\googletest\src\gtest_main.cc   
+5: Note: Google Test filter = PID_Ruslan_Test.IntegralLimitsWork
+5: [==========] Running 1 test from 1 test suite.
+5: [----------] Global test environment set-up.
+5: [----------] 1 test from PID_Ruslan_Test
+5: [ RUN      ] PID_Ruslan_Test.IntegralLimitsWork
+5: [       OK ] PID_Ruslan_Test.IntegralLimitsWork (0 ms)
+5: [----------] 1 test from PID_Ruslan_Test (0 ms total)
+5:
+5: [----------] Global test environment tear-down
+5: [==========] 1 test from 1 test suite ran. (0 ms total)
+5: [  PASSED  ] 1 test.
+5/6 Test #5: PID_Ruslan_Test.IntegralLimitsWork ...........   Passed    0.01 sec
+test 6
+    Start 6: PID_Ruslan_Test.ResetAndSetDt
+
+6: Test command: D:\study\otis\OTIS-2025\trunk\ii02821\task_03_mantsevich\build\runTests_ruslan_task03.exe "--gtest_filter=PID_Ruslan_Test.ResetAndSetDt" "--gtest_also_run_disabled_tests"
+6: Working Directory: D:/study/otis/OTIS-2025/trunk/ii02821/task_03_mantsevich/build
+6: Test timeout computed to be: 10000000
+6: Running main() from D:\study\otis\OTIS-2025\trunk\ii02821\task_03_mantsevich\build\_deps\googletest-src\googletest\src\gtest_main.cc   
+6: Note: Google Test filter = PID_Ruslan_Test.ResetAndSetDt
+6: [==========] Running 1 test from 1 test suite.
+6: [----------] Global test environment set-up.
+6: [----------] 1 test from PID_Ruslan_Test
+6: [ RUN      ] PID_Ruslan_Test.ResetAndSetDt
+6: [       OK ] PID_Ruslan_Test.ResetAndSetDt (0 ms)
+6: [----------] 1 test from PID_Ruslan_Test (0 ms total)
+6:
+6: [----------] Global test environment tear-down
+6: [==========] 1 test from 1 test suite ran. (0 ms total)
+6: [  PASSED  ] 1 test.
+6/6 Test #6: PID_Ruslan_Test.ResetAndSetDt ................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 6
+
+Total Test time (real) =   0.08 sec
