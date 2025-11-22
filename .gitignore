@@ -43,3 +43,8 @@ doc/html/
 doc/xml/
 doc/latex/
 *.doxygen
+
+build/
+*/build/
+*/build*/
+*/*/build*/
