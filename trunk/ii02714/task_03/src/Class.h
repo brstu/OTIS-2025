@@ -32,7 +32,7 @@ public:
 	int getT() const;
 	double getY(int place) const;
 	virtual void SetY(int place, double data);
-	virtual void SetU(int place,double data);
+	void SetU(int place,double data);
 };
 
 

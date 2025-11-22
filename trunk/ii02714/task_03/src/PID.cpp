@@ -4,7 +4,7 @@
 #include "../src/PID.h"
 
 	PID::PID(double data, double data2)
-		: iter(10),T(0.01),To(0,01),Td(1),k(0,1)
+		: iter(10),T(0.01),To(0.01),Td(1),k(0.1)
 	{
 		e.resize(iter);
 		yP.resize(iter);
@@ -19,7 +19,7 @@
 		this->e[2] = 0;
 	}
 	PID::PID() 
-		:iter(10), T(0.01), To(0, 01), Td(1), k(0, 1)
+		:iter(10), T(0.01), To(0.01), Td(1), k(0.1)
 	{
 		e.resize(iter);
 		yP.resize(iter);
