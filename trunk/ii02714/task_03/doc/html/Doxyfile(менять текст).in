@@ -1,4 +1,4 @@
-PROJECT_NAME           = "ii002713_task_03"
+PROJECT_NAME           = "otis3"
 PROJECT_NUMBER         = "Лабораторная работа №3"
 PROJECT_BRIEF          = "Модель системы с PID-регулятором"
 OUTPUT_LANGUAGE        = Russian
