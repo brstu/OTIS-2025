@@ -1,0 +1,3 @@
+D:/study/otis/OTIS-2025/trunk/ii02821/task_03_mantsevich/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
+D:/study/otis/OTIS-2025/trunk/ii02821/task_03_mantsevich/build/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
+D:/study/otis/OTIS-2025/trunk/ii02821/task_03_mantsevich/build/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir

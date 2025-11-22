@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/study/otis/OTIS-2025/trunk/ii02821/task_03_mantsevich/build/cmake_install.cmake",
+		"D:/study/otis/OTIS-2025/trunk/ii02821/task_03_mantsevich/build/_deps/googletest-build/cmake_install.cmake",
+		"D:/study/otis/OTIS-2025/trunk/ii02821/task_03_mantsevich/build/_deps/googletest-build/googlemock/cmake_install.cmake",
+		"D:/study/otis/OTIS-2025/trunk/ii02821/task_03_mantsevich/build/_deps/googletest-build/googletest/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

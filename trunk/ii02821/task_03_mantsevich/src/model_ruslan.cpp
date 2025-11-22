@@ -1,35 +1,35 @@
 /**
  * @file model_ruslan.cpp
  * @brief Implementation of dynamic model class
- * @author Ruslan
- * @date 2024
+ * @author Mantsevich R.S.
+ * @date 2025
  */
 
-#include "model_ruslan.h"
+#include "thermal_model_mantsevich.h"
 
 /**
  * @brief Constructor for dynamic model
- * @param y0 Initial state value
+ * @param initial_temp Initial temperature value
  */
-Model_ruslan::Model_ruslan(double y0) noexcept
-    : y(y0) {}
+ThermalModelMantsevich::ThermalModelMantsevich(double initial_temp) noexcept
+    : temperature(initial_temp) {}
 
 /**
- * @brief Get current state of the model
- * @return Current state value
+ * @brief Get current temperature of the model
+ * @return Current temperature value
  */
-double Model_ruslan::getY() const noexcept {
-    return y;
+double ThermalModelMantsevich::getTemperature() const noexcept {
+    return temperature;
 }
 
 /**
- * @brief Update model state
- * @param u Input control signal
+ * @brief Update model temperature
+ * @param heat_input Input heat signal
  * @param dt Time step
- * @return Updated state value
+ * @return Updated temperature value
  */
-double Model_ruslan::update(double u, double dt) noexcept {
-    // simple integrator dynamic model: y += u * dt
-    y += u * dt;
-    return y;
+double ThermalModelMantsevich::update(double heat_input, double dt) noexcept {
+    // simple integrator dynamic model: temperature += heat_input * dt
+    temperature += heat_input * dt;
+    return temperature;
 }

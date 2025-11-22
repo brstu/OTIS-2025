@@ -1,0 +1,5 @@
+if(EXISTS "D:/study/otis/OTIS-2025/trunk/ii02821/task_03_mantsevich/build/runTests_ruslan_task03[1]_tests.cmake")
+  include("D:/study/otis/OTIS-2025/trunk/ii02821/task_03_mantsevich/build/runTests_ruslan_task03[1]_tests.cmake")
+else()
+  add_test(runTests_ruslan_task03_NOT_BUILT runTests_ruslan_task03_NOT_BUILT)
+endif()

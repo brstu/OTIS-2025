@@ -1,0 +1,2 @@
+C:\msys64\ucrt64\bin\ar.exe qc libpid_ruslan.a CMakeFiles/pid_ruslan.dir/pid_ruslan.cpp.obj
+C:\msys64\ucrt64\bin\ranlib.exe libpid_ruslan.a

@@ -1,0 +1,2 @@
+C:\msys64\ucrt64\bin\ar.exe qc libmodel_ruslan.a CMakeFiles/model_ruslan.dir/model_ruslan.cpp.obj
+C:\msys64\ucrt64\bin\ranlib.exe libmodel_ruslan.a
