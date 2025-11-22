@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\pid_sim_ruslan.dir/objects.a
-C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\pid_sim_ruslan.dir/objects.a @CMakeFiles\pid_sim_ruslan.dir\objects1.rsp
-C:\msys64\ucrt64\bin\c++.exe -O3 -DNDEBUG -Wl,--whole-archive CMakeFiles\pid_sim_ruslan.dir/objects.a -Wl,--no-whole-archive -o pid_sim_ruslan.exe -Wl,--out-implib,libpid_sim_ruslan.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\pid_sim_ruslan.dir\linkLibs.rsp
