@@ -38,21 +38,20 @@
  *       y(k) = a*y(k-1) - b*y(k-2)^2 + c*u(k-1) + d*sin(u(k-2))
  */
 int main() {
-    setlocale(LC_ALL, "Russian");
     // === 1. Ввод параметров модели объекта (из 1 лабы) ===
     /// @brief Параметры нелинейной модели объекта a, b, c, d
     double a;
     double b;
     double c;
     double d;
-    std::cout << "Введите параметры модели a,b,c,d: ";
+    std::cout << "Parameters for modeling a,b,c,d: ";
     std::cin >> a >> b >> c >> d;
 
     // === 2. Ввод начальных условий ===
     /// @brief Начальные значения температуры y[0] и y[1]
     double y0;
     double y1;
-    std::cout << "Введите начальные условия y[0], y[1]: ";
+    std::cout << "Nachalnie uslovia y[0], y[1]: ";
     std::cin >> y0 >> y1;
 
     // === 3. Ввод параметров ПИД-регулятора ===
@@ -60,13 +59,13 @@ int main() {
     double K;
     double T;
     double Td;
-    std::cout << "Введите параметры ПИД K,T,Td: ";
+    std::cout << "Parameters PID K,T,Td: ";
     std::cin >> K >> T >> Td;
 
     // === 4. Ввод желаемой температуры ===
     /// @brief Заданное значение температуры (уставка)
     double setpoint;
-    std::cout << "Введите желаемую температуру: ";
+    std::cout << "Zelaemaya temperatura: ";
     std::cin >> setpoint;
 
     // === 5. Инициализация переменных ===
@@ -91,11 +90,11 @@ int main() {
     double q2;
     calculatePidCoefficients(K, T, Td, T0, q0, q1, q2);
 
-    std::cout << "Коэффициенты ПИД: q0=" << q0 << ", q1=" << q1 << ", q2=" << q2 << std::endl;
+    std::cout << "Koeficienti PID: q0=" << q0 << ", q1=" << q1 << ", q2=" << q2 << std::endl;
 
     // === 7. Основной цикл моделирования ===
     /// @brief Основной цикл моделирования системы управления на 50 шагов
-    std::cout << "\nНачало моделирования...\n";
+    std::cout << "\nStart modeling...\n";
 
     for (int k = 1; k <= 50; k++) {
         // Расчет ошибки
@@ -115,9 +114,9 @@ int main() {
         // Вывод в консоль
         /// @brief Вывод результатов каждые 10 шагов для мониторинга
         if (k % 10 == 0) {
-            std::cout << "Шаг " << k << ": Температура = " << std::fixed << std::setprecision(4) << y[1]
-                << ", Управление = " << u[1]
-                << ", Ошибка = " << e_k << std::endl;
+            std::cout << "Shag " << k << ": Temperatura = " << std::fixed << std::setprecision(4) << y[1]
+                << ", Upravlenie = " << u[1]
+                << ", Oshibka = " << e_k << std::endl;
         }
 
         // Обновление переменных состояния
@@ -131,6 +130,6 @@ int main() {
         u_prev = state.u_prev;
     }
 
-    std::cout << "\nМоделирование завершено!" << std::endl;
+    std::cout << "\nModelirovanie zaversheno!" << std::endl;
     return 0;
 }
