@@ -9,16 +9,16 @@ class PID : public Obj {
 private:
 	std::vector<double> e;
 	std::vector<double> yP;
-	std::vector<double> w;//öåëåâîå çíà÷åíèå
+	std::vector<double> w;
 	std::vector<double> u;
 	std::vector<double> deltU;
-	double Td;//ïîñòîÿííàÿ äåôô
-	double To;//øàã ïî êâàíòó
-	double T;//øàã
+	double Td;
+	double To;
+	double T;
 	double q0;
 	double q1;
 	double q2;
-	double k;//êýô ïåðåäà÷è
+	double k;
 	int iter;
 public:
 	PID(double data, double data2);
