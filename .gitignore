@@ -75,3 +75,6 @@ googletest_build/
 _deps/
 third_party/googletest-*/
 
+/third_party/googletest-main/
+
+
