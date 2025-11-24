@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include <cmath>
 #include "../src/pid_contr.h"
 
 // Тест с прямыми коэффициентами q0, q1, q2 (исправленная версия)
