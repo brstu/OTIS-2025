@@ -1,4 +1,4 @@
-name: Deploy Documentation to GitHub Pages
+name: Deploy with Jekyll
 
 on:
   push:
@@ -21,13 +21,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+          
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        
-      - name: Upload documentation
-        uses: actions/upload-pages-artifact@v3
         with:
-          path: ./trunk/ii02815/task_03/docs/html
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./trunk/ii02815/task_03/docs/html
+          destination: ./_site
+          
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
 
   deploy:
     environment:
