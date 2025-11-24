@@ -106,7 +106,7 @@
 В отчете также привести графики для разных заданий температуры объекта, пояснить полученные результаты.
 
 
-## Код программы [ src/main.cpp ]
+## Кoд прoгрaммы main.cpp
 ```C++
 #include <iostream>
 
@@ -151,7 +151,7 @@ int main()
 }
 ```
 
-## Результат программы main.cpp 
+## Результaт прoгрaммы main.cpp 
 ![results](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/result1.png)
 
 ## Графики
