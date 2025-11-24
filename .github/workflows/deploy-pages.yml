@@ -3,16 +3,11 @@ name: Deploy with Jekyll
 on:
   push:
     branches: ["task_03"]
-  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   build:
@@ -21,17 +16,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@bd4f49f6bc2d7546e4e1b6b29d15d21a86ac9e26
-        with:
-          ruby-version: '3.1'
-          bundler-cache: true
-          
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          
+        
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
