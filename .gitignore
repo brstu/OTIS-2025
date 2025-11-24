@@ -75,9 +75,3 @@ googletest_build/
 _deps/
 third_party/googletest-*/
 
-# =========================
-# Doxygen output
-# =========================
-html/
-latex/
-doxygen.log

@@ -1,0 +1,26 @@
+\doxysection{pid.\+h}
+\hypertarget{pid_8h_source}{}\label{pid_8h_source}\index{src/pid.h@{src/pid.h}}
+\mbox{\hyperlink{pid_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifndef\ PID\_H}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ PID\_H}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_p_i_d_ae485beadac60aad9a99a1f8368d25581}{PID}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_p_i_d_ae485beadac60aad9a99a1f8368d25581}{PID}}(\textcolor{keywordtype}{double}\ K,\ \textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ TD,\ \textcolor{keywordtype}{double}\ dt);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_p_i_d_a204b64e74cbc37afd8173b3bdd79647a}{update}}(\textcolor{keywordtype}{double}\ e);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{double}\ K,\ T,\ TD,\ dt;\ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{double}\ e\_prev1\ =\ 0.0;\ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{double}\ e\_prev2\ =\ 0.0;\ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{double}\ u\_prev\ =\ 0.0;\ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{double}\ q0,\ q1,\ q2;\ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PID\_H}}
+
+\end{DoxyCode}
