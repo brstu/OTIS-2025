@@ -1,8 +1,9 @@
 #include <gtest/gtest.h>
 #include <cmath>
+#include <array>
 #include "../src/pid_contr.h"
 
-// Тест с прямыми коэффициентами q0, q1, q2 (исправленная версия)
+// Тест с прямыми коэффициентами q0, q1, q2
 TEST(PIDValueTest, DirectCoefficients) {
     PID pid(1.0, -0.5, 0.2);  // q0=1.0, q1=-0.5, q2=0.2
     
@@ -32,17 +33,14 @@ TEST(PIDValueTest, DirectCoefficients) {
 
 // Тест с конструктором через K, Ti, Td, T0
 TEST(PIDValueTest, FromKTdT0) {
-    double K = 0.5, Ti = 4.0, Td = 0.3, T0 = 1.4;
+    double K = 0.5;
+    double Ti = 4.0;
+    double Td = 0.3;
+    double T0 = 1.4;
+    
     PID pid(K, Ti, Td, T0);
-    
-    // Проверим расчет коэффициентов
-    double expected_q0 = K * (1.0 + T0/Ti + Td/T0);
-    double expected_q1 = -K * (1.0 + 2.0*Td/T0 - T0/Ti);
-    double expected_q2 = K * Td/T0;
-    
     pid.reset();
-    
-    // Тестируем вычисления
+
     double u1 = pid.compute(1.0);
     EXPECT_TRUE(std::isfinite(u1));
     
@@ -50,16 +48,13 @@ TEST(PIDValueTest, FromKTdT0) {
     EXPECT_TRUE(std::isfinite(u2));
 }
 
-
 // Тест сброса состояния
 TEST(PIDTest, ResetFunctionality) {
     PID pid(1.0, 1.0, 0.1, 0.1);
-    
-    // Выполняем вычисления
+
     pid.compute(1.0);
     pid.compute(1.0);
-    
-    // Сбрасываем
+
     pid.reset();
     
     // Создаем новый PID для сравнения
@@ -75,7 +70,7 @@ TEST(PIDTest, ResetFunctionality) {
 // Тест с нулевой ошибкой
 TEST(PIDTest, ZeroError) {
     PID pid(1.0, 1.0, 0.0, 0.1);
-    pid.reset();  // Сбрасываем перед тестом
+    pid.reset();
     
     double u = pid.compute(0.0);  // Нулевая ошибка
     
@@ -91,7 +86,6 @@ TEST(PIDTest, ConstantError) {
     double u3 = pid.compute(1.0);
     
     // При постоянной ошибке управление должно меняться
-    // из-за интегральной составляющей
     EXPECT_NE(u1, u2);
     EXPECT_NE(u2, u3);
 }
@@ -100,9 +94,9 @@ TEST(PIDTest, ConstantError) {
 TEST(PIDBasicTest, SequenceOfComputations) {
     PID pid(1.0, 0.1, 0.01, 0.1);
     
-    double results[3];
-    for (int i = 0; i < 3; i++) {
-        results[i] = pid.compute(1.0);
+    std::array<double, 3> results;
+    for (auto& result : results) {
+        result = pid.compute(1.0);
     }
     
     // Все результаты должны быть разными
@@ -126,7 +120,6 @@ TEST(PIDValueTest, BoundaryCases) {
     EXPECT_TRUE(std::isfinite(u_small));
 }
 
-// Главная функция для GoogleTest
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

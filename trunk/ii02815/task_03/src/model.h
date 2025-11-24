@@ -8,7 +8,7 @@
 
 /**
  * @struct ModelParameters
- * @brief Параметры для математичких моделей
+ * @brief Параметры для математических моделей
  */
 struct ModelParameters {
     double a;
@@ -19,17 +19,17 @@ struct ModelParameters {
 
 /**
  * @brief Линейная модель
- * @param y_current Текуший температура
- * @param u_current Текущий воздействие  
+ * @param y_current Текущий температура
+ * @param u_current Текущее воздействие  
  * @param params Параметры модели
  */
 double linearModel(double y_current, double u_current, const ModelParameters& params);
 
 /**
- * @brief Нелиненая модель
- * @param y_current Текуший температура
+ * @brief Нелинейная модель
+ * @param y_current Текущий температура
  * @param y_previous предыдущая температура
- * @param u_current Текущий воздействие
+ * @param u_current Текущее воздействие
  * @param u_previous предыдущее воздействие
  * @param params Параметры модели
  */
