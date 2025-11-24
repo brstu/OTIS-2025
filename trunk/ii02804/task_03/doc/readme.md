@@ -109,46 +109,29 @@
 ## Кoд прoгрaммы main.cpp
 ```C++
 #include <iostream>
+#include "pid.h"
+#include "models.h"
 
-#include "factory/factorylinearmodel.hpp"
-#include "factory/factorynonlinearmodel.hpp"
+int main() {
+    double y = 0.0, y_prev = 0.0;
+    double u_prev = 0.0;
 
-#include "adaptivecontroller.hpp"
-#include "regulator/pidregulator.hpp"
+    PID pid(0.5, 2.0, 0.3, 0.1); 
+    double w = 1.0;
 
-int main() 
-{
-    const double w = 10;  // Input warm.
-    const int t = 5;     // Simulation time steps.
-    
-    std::cout << "Linear simulation:" << std::endl;
-    auto pidRegulatorForLinearModel = std::make_unique<PIDRegulator>();
-    auto linearFactory = std::make_unique<FactoryLinearModel>();
-    auto linearModel = linearFactory->getDefaultModel();
+    for (int k = 0; k < 200; ++k) { 
+        double e = w - y;
+        double u = pid.update(e);
 
-    auto linearController = std::make_unique<AdaptiveController>(std::move(pidRegulatorForLinearModel), std::move(linearModel)); 
-    auto linear_result = linearController->run(w, t);
-    for (const auto& value : linear_result) 
-    {
-        std::cout << value << std::endl;
-    }
-    std::cout << std::endl;
+        y = non_linear_model(y, y_prev, u, u_prev,
+                             1.0, 0.05, 0.2, 0.1);
 
-
-    std::cout << "Nonlinear simulation:" << std::endl; 
-    auto pidRegulatorForNonLinearModel = std::make_unique<PIDRegulator>();
-    auto nonlinearFactory = std::make_unique<FactoryNonLinearModel>();
-    auto nonlinearModel = nonlinearFactory->getDefaultModel();
-
-    auto nonlinearController = std::make_unique<AdaptiveController>(std::move(pidRegulatorForNonLinearModel), std::move(nonlinearModel)); 
-    auto nonlinear_result = nonlinearController->run(w, t);
-    for (const auto& value : nonlinear_result) 
-    {
-        std::cout << value << std::endl;
+        std::cout << k << "\t" << y << "\t" << u << std::endl;
     }
 
     return 0;
 }
+
 ```
 
 ## Результaт прoгрaммы main.cpp 
