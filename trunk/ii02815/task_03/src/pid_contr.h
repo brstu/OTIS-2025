@@ -15,9 +15,9 @@ private:
     double q0;          ///< Коэффициент при текущей ошибке
     double q1;          ///< Коэффициент при предыдущей ошибке
     double q2;          ///< Коэффициент при ошибке два шага назад
-    double u_prev;      ///< Предыдущее воздействие u(k-1)
-    double e_prev1;     ///< Предыдущая ошибка e(k-1)
-    double e_prev2;     ///< Ошибка два шага назад e(k-2)
+    double u_prev=0.0;      ///< Предыдущее воздействие u(k-1)
+    double e_prev1=0.0;     ///< Предыдущая ошибка e(k-1)
+    double e_prev2=0.0;     ///< Ошибка два шага назад e(k-2)
 
 public:
     /**
@@ -26,7 +26,7 @@ public:
     PID(double q0, double q1, double q2);
     
     /**
-     * @brief Конструктор PID-htuekznjhf
+     * @brief Конструктор PID-регулятора
      * @param K Коэффициент усиления
      * @param Ti Время интегрирования
      * @param Td Время дифференцирования
@@ -42,7 +42,7 @@ public:
     double compute(double e);
     
     /**
-     * @brief рестарт состояние регулятора
+     * @brief сброс состояния регулятора
      */
     void reset();
 };
