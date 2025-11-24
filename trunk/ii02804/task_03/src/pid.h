@@ -1,30 +1,22 @@
 /// @file pid.h
 /// @brief Класс ПИД-регулятора
 
+#ifndef PID_H
+#define PID_H
+
 /// Класс ПИД-регулятора
 class PID {
 public:
-    /**
-     * @brief Конструктор ПИД-регулятора
-     * @param K коэффициент усиления
-     * @param T постоянная интегрирования
-     * @param TD постоянная дифференцирования
-     * @param dt шаг дискретизации
-     */
     PID(double K, double T, double TD, double dt);
 
-    /**
-     * @brief Вычисляет текущее управляющее воздействие
-     * @param e текущая ошибка (разница между заданным и текущим значением)
-     * @return новое значение управляющего воздействия
-     */
     double update(double e);
 
 private:
-    double K, T, TD, dt; ///< Параметры регулятора
-    double e_prev1 = 0.0; ///< Предыдущая ошибка e(k-1)
-    double e_prev2 = 0.0; ///< Предыдущая ошибка e(k-2)
-    double u_prev = 0.0;  ///< Предыдущее значение управления u(k-1)
-
-    double q0, q1, q2;    ///< Коэффициенты рекуррентной формулы
+    double K, T, TD, dt;
+    double e_prev1 = 0.0;
+    double e_prev2 = 0.0;
+    double u_prev = 0.0;
+    double q0, q1, q2;
 };
+
+#endif // PID_H

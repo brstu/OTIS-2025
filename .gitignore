@@ -46,3 +46,38 @@ build/
 build_gcov/
 
 task_02/.vscode/
+
+
+
+# =========================
+# Additional build directories
+# =========================
+build_test/
+bin/
+lib/
+*.a
+*.obj
+*.exe
+
+# =========================
+# CMake temporary files
+# =========================
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+
+# =========================
+# GoogleTest build
+# =========================
+googletest_build/
+_deps/
+third_party/googletest-*/
+
+# =========================
+# Doxygen output
+# =========================
+html/
+latex/
+doxygen.log

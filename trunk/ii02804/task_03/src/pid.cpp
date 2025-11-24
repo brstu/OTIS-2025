@@ -3,8 +3,9 @@
 PID::PID(double K, double T, double TD, double dt)
     : K(K), T(T), TD(TD), dt(dt)
 {
-    q0 = K * (1 + dt / T + TD / dt);
-    q1 = -K * (1 + 2 * TD / dt);
+    // Коэффициенты для дискретного ПИД
+    q0 = K * (1.0 + dt / T + TD / dt);
+    q1 = -K * (1.0 + 2.0 * TD / dt);
     q2 = K * TD / dt;
 }
 
