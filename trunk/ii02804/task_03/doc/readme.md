@@ -152,7 +152,7 @@ int main()
 ```
 
 ## Результат программы [ src/main.cpp ]
-![results](images/results.png)
+![results](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/result1.png)
 
 ## Графики
 ### При `T = 0.05 T0 = 1 TD = 10`
