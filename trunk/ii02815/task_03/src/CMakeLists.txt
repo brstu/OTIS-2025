@@ -39,5 +39,5 @@ model.cpp
 
 target_link_libraries(ii02815_pid_tests gtest_main)
 
-target_include_directories(pid_simulation PRIVATE .)
-target_include_directories(pid_tests PRIVATE .)
+target_include_directories(ii02815_pid_simulation PRIVATE .)
+target_include_directories(ii02815_pid_tests PRIVATE .)
