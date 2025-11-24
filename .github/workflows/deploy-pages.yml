@@ -27,7 +27,7 @@ jobs:
       - name: Upload documentation
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./trunk/ii02815/task_03/docs
+          path: ./trunk/ii02815/task_03/docs/html
 
   deploy:
     environment:
