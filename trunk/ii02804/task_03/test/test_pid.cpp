@@ -8,7 +8,6 @@
 #include <gtest/gtest.h>
 #include <cmath>
 
-// ----------------- LinearModel tests -----------------
 TEST(LinearModelTest, PositiveValues) {
     EXPECT_DOUBLE_EQ(linear_model(2.0, 3.0, 1.0, 4.0), 2.0 * 1.0 + 3.0 * 4.0);
 }
@@ -26,7 +25,7 @@ TEST(LinearModelTest, MixedValues) {
     EXPECT_DOUBLE_EQ(result, 0.5 * 6 + 0.2 * 8);
 }
 
-// ----------------- PID tests -----------------
+
 TEST(PIDTest, CoefficientsCalculation) {
     double K = 0.5;
     double T = 2.0;
@@ -63,7 +62,7 @@ TEST(PIDTest, ZeroError) {
     EXPECT_DOUBLE_EQ(u1, 0.0);
 }
 
-// ----------------- PID + System tests -----------------
+
 TEST(PIDSystemTest, SystemStabilization) {
     PID pid(1.5, 3.0, 0.2, 1.0);
 
@@ -102,7 +101,6 @@ TEST(PIDSystemTest, ConvergenceTest) {
     EXPECT_LT(errors.back(), errors.front());
 }
 
-// ----------------- Additional PID tests -----------------
 TEST(PIDTest, ExtremeCoefficients) {
     PID pid_small(0.001, 0.001, 0.001, 0.001);
     double u_small = pid_small.u_calc(1.0);
