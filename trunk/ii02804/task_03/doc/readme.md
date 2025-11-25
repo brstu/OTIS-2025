@@ -9,8 +9,8 @@
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
-<p align="right">Группы ИИ-27</p>
-<p align="right">Дорошенко М.Д.</p>
+<p align="right">Группы ИИ-28/24</p>
+<p align="right">Клименко М.C.</p>
 <p align="right">Проверил:</p>
 <p align="right">Дворанинович Д.А.</p>
 <br><br><br><br><br>
@@ -105,28 +105,52 @@
 На **C++** реализовать программу, моделирующую рассмотренный выше ПИД-регулятор.  В качестве объекта управления использовать математическую модель, полученную в предыдущей работе.
 В отчете также привести графики для разных заданий температуры объекта, пояснить полученные результаты.
 
-
-## Кoд прoгрaммы main.cpp
+## Код программы [ src/lab3.cpp ]
 ```C++
 #include <iostream>
 #include "pid.h"
-#include "models.h"
+#include "lin_model.h"
 
+template <typename N>
+void validate(N& number, const std::string& message) {
+    std::cout << message;
+    while (!(std::cin >> number)) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Input correct number: ";
+    }
+}
 int main() {
-    double y = 0.0, y_prev = 0.0;
-    double u_prev = 0.0;
 
-    PID pid(0.5, 2.0, 0.3, 0.1); 
-    double w = 1.0;
+    double y_prev;
+    double y;
+    double a;
+    double b;
+    double w;
+    int n;
 
-    for (int k = 0; k < 200; ++k) { 
-        double e = w - y;
-        double u = pid.update(e);
+    double K = 0.5;
+    double T = 2.0;
+    double Td = 0.3;
+    double T0 = 1.0;
 
-        y = non_linear_model(y, y_prev, u, u_prev,
-                             1.0, 0.05, 0.2, 0.1);
+    validate(y_prev, "Enter input temperature (y): ");
+    validate(a, "Enter constant a (for linear model): ");
+    validate(b, "Enter constant b (for linear model: ");
+    validate(w, "Enter target temperature (w): ");
+    validate(n, "Enter an amount of steps (n): ");
 
-        std::cout << k << "\t" << y << "\t" << u << std::endl;
+    PID pid(K, T, Td, T0);
+    for (int i = 0; i < n; i++) {
+        double e = w - y_prev;
+        double u = pid.u_calc(e);
+        y = linear_model(y_prev, u, a, b);
+        y_prev = y;
+
+        std::cout << "Step " << i + 1
+            << "  e = " << e << '\t'
+            << "  u = " << u << '\t'
+            << "  y = " << y << '\n';
     }
 
     return 0;
@@ -134,94 +158,180 @@ int main() {
 
 ```
 
-## Результaт прoгрaммы main.cpp 
-![results](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/result1.png)
+## Результат программы [ src/main.cpp ]
+![Result](images/res.png)
 
-## Графики
-### При `T = 0.05 T0 = 1 TD = 10`
-Линейная модель:
-<br>
-![g1](images/g1.png)
-<br>
-Нелинейная модель:
-<br>
-![g2](images/g2.png)
+## График
+### При `K = 0.5 T = 4.0 T0 = 1.5 TD = 0.2 a = 0.9 b = 0.3 y0 = 15.234 w = 25.7562`
 
-### При `T = 0.1 T0 = 5 TD = 20`
-Линейная модель:
+![schedule1](images/schedule1.png)
 <br>
-![g3](images/g3.png)
-<br>
-Нелинейная модель:
-<br>
-![g4](images/g4.png)
+
 
 ## Вывод полученных данных при использовании ПИД-регулятора
 
-### Линейная модель (`T = 0.05, T0 = 1, TD = 10`)
-- Система демонстрирует **устойчивый переходный процесс** с небольшим перерегулированием.
-- Выход выходит на установившееся значение ≈ 2.85 без колебаний — **хорошая стабильность**.
-
-### Нелинейная модель (`T = 0.05, T0 = 1, TD = 10`)
-- Наличие **сильных колебаний** указывает на неустойчивость или недостаточную настройку регулятора.
-- Система не сходится — **необходима корректировка параметров ПИД**.
-
-### Линейная модель (`T = 0.1, T0 = 5, TD = 20`)
-- Процесс более инерционный, но также **сходится к установившемуся значению ≈ 5.0**.
-- Перерегулирование выше, чем в первом случае — **увеличение времени дискретизации влияет на динамику**.
-
-### Нелинейная модель (`T = 0.1, T0 = 5, TD = 20`)
-- График показывает **аномальные значения** (порядка `-1E+168`), что указывает на **расходимость системы** или **ошибку моделирования**.
-- Такое поведение характерно для нестабильной системы с 'неадекватными' параметрами регулятора.
 
 ## Link to documentation
-[https://chuikam.github.io/OTIS-2025/](https://chuikam.github.io/OTIS-2025/)
+<<<<<<< HEAD
+[https://v1tyokkk.github.io/OTIS-2025/](https://v1tyokkk.github.io/OTIS-2025/)
+=======
+[https://mishanya2281337.github.io/OTIS-2025/](https://mishanya2281337.github.io/OTIS-2025/)
+>>>>>>> 83f0486b5328c343d8ee651963c2361c12ba888b
 
-## Кoд юнит-тестoв test_pid.cpp
+## Код юнит-тестов [ test/testlab3.cpp ]
 ```C++
+#include "../src/pid.h"
+#include "../src/lin_model.h"
 #include <gtest/gtest.h>
-#include "pid.h"
-#include "models.h"
+#include <cmath>
 
-TEST(PID, ZeroErrorProducesZeroOutput) {
-    PID pid(10, 0.1, 50, 0.01);
-
-    double u = pid.update(0.0);
-    EXPECT_NEAR(u, 0.0, 1e-9);
+TEST(LinearModelTest, PositiveValues) {
+    EXPECT_DOUBLE_EQ(linear_model(2.0, 3.0, 1.0, 4.0), 2.0 * 1.0 + 3.0 * 4.0);
 }
 
-TEST(PID, StepErrorGivesPositiveOutput) {
-    PID pid(10, 0.1, 50, 0.01);
-
-    double u = pid.update(1.0);
-    EXPECT_GT(u, 0.0);
+TEST(LinearModelTest, ZeroInput) {
+    EXPECT_DOUBLE_EQ(linear_model(1.5, 2.0, 0.0, 0.0), 0.0);
 }
 
-TEST(Model, NonLinearChangesWithInput) {
-    double y = 0, y_prev = 0, u_prev = 0;
-
-    double y1 = non_linear_model(y, y_prev, 1.0, u_prev,
-                                 1.0, 0.2, 0.5, 0.1);
-    double y2 = non_linear_model(y1, y_prev, 2.0, u_prev,
-                                 1.0, 0.2, 0.5, 0.1);
-
-    EXPECT_NE(y1, y2);
+TEST(LinearModelTest, NegativeValues) {
+    EXPECT_DOUBLE_EQ(linear_model(-1.0, 2.0, 3.0, -4.0), -1.0 * 3.0 + 2.0 * -4.0);
 }
+
+TEST(LinearModelTest, MixedValues) {
+    double result = linear_model(6, 8, 0.5, 0.2);
+    EXPECT_DOUBLE_EQ(result, 0.5 * 6 + 0.2 * 8);
+}
+
+TEST(PIDTest, CoefficientsCalculation) {
+    double K = 0.5;
+    double T = 2.0;
+    double Td = 0.3;
+    double T0 = 1.0;
+
+    PID pid(K, T, Td, T0);
+
+    double expected_q0 = K * (1.0 + Td / T0);
+    double expected_q1 = -K * (1 + 2 * Td / T0 - T0 / T);
+    double expected_q2 = K * Td / T0;
+
+    double u1 = pid.u_calc(0.7);
+    double expected_u = 0.0 + expected_q0 * 0.7 + expected_q1 * 0.0 + expected_q2 * 0.0;
+
+    EXPECT_NEAR(u1, expected_u, 1e-10);
+}
+
+TEST(PIDTest, SequentialCalculations) {
+    PID pid(1.0, 1.0, 0.1, 0.1);
+
+    double u1 = pid.u_calc(1.0);
+    double u2 = pid.u_calc(0.5);
+    double u3 = pid.u_calc(0.2);
+
+    EXPECT_NE(u1, u2);
+    EXPECT_NE(u2, u3);
+}
+
+TEST(PIDTest, ZeroError) {
+    PID pid(1.0, 1.0, 0.1, 0.1);
+
+    double u1 = pid.u_calc(0.0);
+    EXPECT_DOUBLE_EQ(u1, 0.0);
+}
+
+TEST(PIDSystemTest, SystemStabilization) {
+    PID pid(1.5, 3.0, 0.2, 1.0);
+
+    double y_prev = 15.0;
+    double w = 35.0;
+    double a = 0.8;
+    double b = 0.1;
+    double y = y_prev;
+
+    for (int i = 0; i < 50; i++) {
+        double e = w - y;
+        double u = pid.u_calc(e);
+        y = linear_model(y, u, a, b);
+    }
+
+    EXPECT_NEAR(y, w, 2.0);
+}
+
+TEST(PIDSystemTest, ConvergenceTest) {
+    PID pid(0.8, 2.0, 0.1, 0.5);
+
+    double y = 10.0;
+    double w = 25.0;
+    double a = 0.9;
+    double b = 0.15;
+
+    std::vector<double> errors;
+
+    for (int i = 0; i < 30; i++) {
+        double e = w - y;
+        errors.push_back(std::abs(e));
+        double u = pid.u_calc(e);
+        y = linear_model(y, u, a, b);
+    }
+
+    EXPECT_LT(errors.back(), errors.front());
+}
+
+
+TEST(PIDTest, ExtremeCoefficients) {
+
+    PID pid_small(0.001, 0.001, 0.001, 0.001);
+    double u_small = pid_small.u_calc(1.0);
+    EXPECT_NEAR(u_small, 0.002, 1e-10); 
+
+    PID pid_large(10.0, 10.0, 10.0, 10.0);
+    double u_large = pid_large.u_calc(1.0);
+    EXPECT_NEAR(u_large, 20.0, 1e-10);
+}
+
+TEST(PIDTest, ConstantError) {
+    PID pid(1.0, 2.0, 0.5, 1.0);
+
+    double constant_error = 2.0;
+    double u_prev = 0.0;
+
+    for (int i = 0; i < 5; i++) {
+        double u = pid.u_calc(constant_error);
+        if (i > 0) {
+            EXPECT_NE(u, 0.0);
+        }
+        u_prev = u;
+    }
+}
+
+TEST(PIDTest, NegativeError) {
+    PID pid(1.0, 1.0, 0.1, 0.1);
+
+    double u_positive = pid.u_calc(1.0);
+    PID pid_negative(1.0, 1.0, 0.1, 0.1);
+    double u_negative = pid_negative.u_calc(-1.0);
+
+    EXPECT_LT(u_negative, 0.0);
+    EXPECT_GT(u_positive, 0.0);
+}
+
+TEST(PIDTest, InvalidState) {
+    PID pid(1.0, 1.0, 1.0, 1.0);
+
+    pid.invalidate();
+
+    double u = pid.u_calc(1.0);
+    EXPECT_DOUBLE_EQ(u, 0.0);
+}
+
 
 ```
+## Результаты юнит-тестирования (GoogleTest)
+![GoogleTest](images/g_tests.png)
 
-## Результaты юнит-тестирoвaния (GoogleTest)
-![GoogleTest Output](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/result2.png)
+## Покрытие GCC Code Coverage
 
-## Покрытие тестами (gcovr)
-!['gcovr' Output](images/gcovr.png)
-
-## Reviews
-igor7123
-<br>
-![Review for igor7123](images/igor7123.png)
-<br>
-tstepannovikov
-<br>
-![Review for :](images/tstepannovikov.png)
-
+<<<<<<< HEAD
+![GCC Coverage](images/coverage.png)
+=======
+![GCC Coverage](images/coverage.png)
+>>>>>>> 83f0486b5328c343d8ee651963c2361c12ba888b
