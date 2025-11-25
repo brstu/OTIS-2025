@@ -1,0 +1,58 @@
+\doxysection{src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+
+
+Консольное приложение моделирования PID-\/регулятора и линейного объекта.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}pid.\+h"{}}\newline
+{\ttfamily \#include "{}models.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename N$>$ }\\void \mbox{\hyperlink{main_8cpp_ad8ed36bedd369991aa6d95e9ebc039f2}{validate}} (N \&number, const std\+::string \&message)
+\begin{DoxyCompactList}\small\item\em Проверка корректности ввода числового значения. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Консольное приложение моделирования PID-\/регулятора и линейного объекта. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{main_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_ad8ed36bedd369991aa6d95e9ebc039f2}\index{main.cpp@{main.cpp}!validate@{validate}}
+\index{validate@{validate}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{validate()}{validate()}}
+{\footnotesize\ttfamily \label{main_8cpp_ad8ed36bedd369991aa6d95e9ebc039f2} 
+template$<$typename N$>$ \\
+void validate (\begin{DoxyParamCaption}\item[{N \&}]{number}{, }\item[{const std\+::string \&}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Проверка корректности ввода числового значения. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em N} & Числовой тип. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em number} & Переменная для записи. \\
+\hline
+{\em message} & Сообщение пользователю. \\
+\hline
+\end{DoxyParams}

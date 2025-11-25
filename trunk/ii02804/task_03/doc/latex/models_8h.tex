@@ -1,80 +1,41 @@
 \doxysection{src/models.h File Reference}
 \hypertarget{models_8h}{}\label{models_8h}\index{src/models.h@{src/models.h}}
-
-
-Линейная и нелинейная модели объекта управления  
-
-
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \mbox{\hyperlink{models_8h_a44c4aee6a5d69f767ffb09b2a7bf0904}{linear\+\_\+model}} (double y, double u, double a, double b)
-\begin{DoxyCompactList}\small\item\em Линейная модель объекта \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{models_8h_a99880457d1eba112875e80664be5ca66}{non\+\_\+linear\+\_\+model}} (double y, double \&y\+\_\+prev, double u, double \&u\+\_\+prev, double a, double b, double c, double d)
-\begin{DoxyCompactList}\small\item\em Нелинейная модель объекта \end{DoxyCompactList}\end{DoxyCompactItemize}
-
-
-\doxysubsection{Detailed Description}
-Линейная и нелинейная модели объекта управления 
-
+double \mbox{\hyperlink{models_8h_a3a4dd6c50779f1727c00ad5357bfb367}{linear\+\_\+model}} (double y\+\_\+prev, double u, double a, double b)
+\begin{DoxyCompactList}\small\item\em Линейная динамическая модель. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \label{doc-func-members}
 \Hypertarget{models_8h_doc-func-members}
 \doxysubsection{Function Documentation}
-\Hypertarget{models_8h_a44c4aee6a5d69f767ffb09b2a7bf0904}\index{models.h@{models.h}!linear\_model@{linear\_model}}
+\Hypertarget{models_8h_a3a4dd6c50779f1727c00ad5357bfb367}\index{models.h@{models.h}!linear\_model@{linear\_model}}
 \index{linear\_model@{linear\_model}!models.h@{models.h}}
 \doxysubsubsection{\texorpdfstring{linear\_model()}{linear\_model()}}
-{\footnotesize\ttfamily \label{models_8h_a44c4aee6a5d69f767ffb09b2a7bf0904} 
-double linear\+\_\+model (\begin{DoxyParamCaption}\item[{double}]{y}{, }\item[{double}]{u}{, }\item[{double}]{a}{, }\item[{double}]{b}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{models_8h_a3a4dd6c50779f1727c00ad5357bfb367} 
+double linear\+\_\+model (\begin{DoxyParamCaption}\item[{double}]{y\+\_\+prev}{, }\item[{double}]{u}{, }\item[{double}]{a}{, }\item[{double}]{b}{}\end{DoxyParamCaption})}
 
 
 
-Линейная модель объекта 
+Линейная динамическая модель. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em y} & текущее значение выхода \\
-\hline
-{\em u} & управляющее воздействие \\
-\hline
-{\em a} & коэффициент при y \\
-\hline
-{\em b} & коэффициент при u \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-новое значение выхода y 
-\end{DoxyReturn}
-\Hypertarget{models_8h_a99880457d1eba112875e80664be5ca66}\index{models.h@{models.h}!non\_linear\_model@{non\_linear\_model}}
-\index{non\_linear\_model@{non\_linear\_model}!models.h@{models.h}}
-\doxysubsubsection{\texorpdfstring{non\_linear\_model()}{non\_linear\_model()}}
-{\footnotesize\ttfamily \label{models_8h_a99880457d1eba112875e80664be5ca66} 
-double non\+\_\+linear\+\_\+model (\begin{DoxyParamCaption}\item[{double}]{y}{, }\item[{double \&}]{y\+\_\+prev}{, }\item[{double}]{u}{, }\item[{double \&}]{u\+\_\+prev}{, }\item[{double}]{a}{, }\item[{double}]{b}{, }\item[{double}]{c}{, }\item[{double}]{d}{}\end{DoxyParamCaption})}
-
-
-
-Нелинейная модель объекта 
+Вычисляет новое состояние объекта по формуле\+: y(k) = a \texorpdfstring{$\ast$}{*} y(k-\/1) + b \texorpdfstring{$\ast$}{*} u(k)
 
 
 \begin{DoxyParams}{Parameters}
-{\em y} & текущее значение выхода \\
+{\em y\+\_\+prev} & Предыдущее состояние объекта. \\
 \hline
-{\em y\+\_\+prev} & предыдущее значение выхода (обновляется внутри) \\
+{\em u} & Управляющее воздействие. \\
 \hline
-{\em u} & управляющее воздействие \\
+{\em a} & Коэффициент влияния предыдущего состояния. \\
 \hline
-{\em u\+\_\+prev} & предыдущее значение управляющего воздействия (обновляется внутри) \\
-\hline
-{\em a} & линейный коэффициент при y \\
-\hline
-{\em b} & коэффициент нелинейного члена y\texorpdfstring{$^\wedge$}{\string^}2 \\
-\hline
-{\em c} & линейный коэффициент при u \\
-\hline
-{\em d} & коэффициент синусного нелинейного члена \\
+{\em b} & Коэффициент влияния управляющего воздействия. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-новое значение выхода y 
+Новое состояние объекта.
 \end{DoxyReturn}
+Линейная динамическая модель.
+
+Формула\+: y(k) = a \texorpdfstring{$\ast$}{*} y(k-\/1) + b \texorpdfstring{$\ast$}{*} u(k) 

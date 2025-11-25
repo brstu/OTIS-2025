@@ -92,23 +92,27 @@ $(function(){initNavTree('class_p_i_d.html','','class_p_i_d-members'); });
 </div><!--header-->
 <div class="contents">
 
-<p>Класс дискретного ПИД-регулятора  
+<p>Класс дискретного PID-регулятора.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="pid_8h_source.html">pid.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae485beadac60aad9a99a1f8368d25581" id="r_ae485beadac60aad9a99a1f8368d25581"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae485beadac60aad9a99a1f8368d25581">PID</a> (double K, double T, double TD, double dt)</td></tr>
-<tr class="memdesc:ae485beadac60aad9a99a1f8368d25581"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор ПИД-регулятора  <br /></td></tr>
-<tr class="memitem:a204b64e74cbc37afd8173b3bdd79647a" id="r_a204b64e74cbc37afd8173b3bdd79647a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a204b64e74cbc37afd8173b3bdd79647a">update</a> (double e)</td></tr>
-<tr class="memdesc:a204b64e74cbc37afd8173b3bdd79647a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выполнить один шаг регулятора  <br /></td></tr>
+<tr class="memitem:aacca14c5560f75725cac1788543d1c02" id="r_aacca14c5560f75725cac1788543d1c02"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacca14c5560f75725cac1788543d1c02">PID</a> (double in_K, double in_T, double in_Td, double in_T0)</td></tr>
+<tr class="memdesc:aacca14c5560f75725cac1788543d1c02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор PID-регулятора. Параметры передаются в порядке K, T, Td, T0.  <br /></td></tr>
+<tr class="memitem:a18ad640cecad68bc30c3956a8fb4feff" id="r_a18ad640cecad68bc30c3956a8fb4feff"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18ad640cecad68bc30c3956a8fb4feff">u_calc</a> (double e)</td></tr>
+<tr class="memdesc:a18ad640cecad68bc30c3956a8fb4feff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вычисляет управляющее воздействие по текущей ошибке.  <br /></td></tr>
+<tr class="memitem:a9ba3d7e1eb718cb419f547dacf3f31ed" id="r_a9ba3d7e1eb718cb419f547dacf3f31ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ba3d7e1eb718cb419f547dacf3f31ed">invalidate</a> ()</td></tr>
+<tr class="memdesc:a9ba3d7e1eb718cb419f547dacf3f31ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Делает коэффициенты недействительными (для тестов).  <br /></td></tr>
+<tr class="memitem:acf00e3c3f9b79aab9e548fe67bc06be2" id="r_acf00e3c3f9b79aab9e548fe67bc06be2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf00e3c3f9b79aab9e548fe67bc06be2">~PID</a> ()=default</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Класс дискретного ПИД-регулятора </p>
+<div class="textblock"><p>Класс дискретного PID-регулятора. </p>
+<p>Поддерживает работу с ошибками текущего шага, предыдущего и предпредыдущего. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae485beadac60aad9a99a1f8368d25581" name="ae485beadac60aad9a99a1f8368d25581"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae485beadac60aad9a99a1f8368d25581">&#9670;&#160;</a></span>PID()</h2>
+<a id="aacca14c5560f75725cac1788543d1c02" name="aacca14c5560f75725cac1788543d1c02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacca14c5560f75725cac1788543d1c02">&#9670;&#160;</a></span>PID()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -116,48 +120,91 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">PID::PID </td>
           <td>(</td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>K</em></span>, </td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>in_K</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>T</em></span>, </td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>in_T</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>TD</em></span>, </td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>in_Td</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>dt</em></span>&#160;)</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>in_T0</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Конструктор ПИД-регулятора </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">K</td><td>пропорциональный коэффициент </td></tr>
-    <tr><td class="paramname">T</td><td>интегральная постоянная </td></tr>
-    <tr><td class="paramname">TD</td><td>дифференциальная постоянная </td></tr>
-    <tr><td class="paramname">dt</td><td>шаг дискретизации </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Конструктор PID-регулятора. Параметры передаются в порядке K, T, Td, T0. </p>
+
+</div>
+</div>
+<a id="acf00e3c3f9b79aab9e548fe67bc06be2" name="acf00e3c3f9b79aab9e548fe67bc06be2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf00e3c3f9b79aab9e548fe67bc06be2">&#9670;&#160;</a></span>~PID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">PID::~PID </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a204b64e74cbc37afd8173b3bdd79647a" name="a204b64e74cbc37afd8173b3bdd79647a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a204b64e74cbc37afd8173b3bdd79647a">&#9670;&#160;</a></span>update()</h2>
+<a id="a9ba3d7e1eb718cb419f547dacf3f31ed" name="a9ba3d7e1eb718cb419f547dacf3f31ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ba3d7e1eb718cb419f547dacf3f31ed">&#9670;&#160;</a></span>invalidate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PID::invalidate </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Делает коэффициенты недействительными (для тестов). </p>
+
+</div>
+</div>
+<a id="a18ad640cecad68bc30c3956a8fb4feff" name="a18ad640cecad68bc30c3956a8fb4feff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18ad640cecad68bc30c3956a8fb4feff">&#9670;&#160;</a></span>u_calc()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double PID::update </td>
+          <td class="memname">double PID::u_calc </td>
           <td>(</td>
           <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>e</em></span></td><td>)</td>
           <td></td>
@@ -165,20 +212,20 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Выполнить один шаг регулятора </p>
+<p>Вычисляет управляющее воздействие по текущей ошибке. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">e</td><td>ошибка управления </td></tr>
+    <tr><td class="paramname">e</td><td>Ошибка регулирования. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>управляющее воздействие u </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Новое значение управляющего сигнала. </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="pid_8h_source.html">pid.h</a></li>
-<li>src/<b>pid.cpp</b></li>
+<li>src/<a class="el" href="pid_8cpp.html">pid.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,22 +1,63 @@
+/**
+ * @file main.cpp
+ * @brief Консольное приложение моделирования PID-регулятора и линейного объекта.
+ */
+
 #include <iostream>
-#include "pid.h"
-#include "models.h"
+#include <limits>
+#include <string>
+
+#include "pid.h"       /
+#include "models.h"    
+
+/**
+ * @brief Проверка корректности ввода числового значения.
+ * @tparam N Числовой тип.
+ * @param number Переменная для записи.
+ * @param message Сообщение пользователю.
+ */
+template <typename N>
+void validate(N& number, const std::string& message) {
+    std::cout << message;
+    while (!(std::cin >> number)) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Input correct number: ";
+    }
+}
 
 int main() {
-    double y = 0.0, y_prev = 0.0;
-    double u_prev = 0.0;
 
-    PID pid(0.5, 2.0, 0.3, 0.1); 
-    double w = 1.0;
+    double y_prev;
+    double y;
+    double a;
+    double b;
+    double w;
+    int n;
 
-    for (int k = 0; k < 200; ++k) { 
-        double e = w - y;
-        double u = pid.update(e);
+    double K = 0.5;
+    double T = 2.0;
+    double Td = 0.3;
+    double T0 = 1.0;
 
-        y = non_linear_model(y, y_prev, u, u_prev,
-                             1.0, 0.05, 0.2, 0.1);
+    validate(y_prev, "Enter input temperature (y): ");
+    validate(a, "Enter constant a (for linear model): ");
+    validate(b, "Enter constant b (for linear model): ");
+    validate(w, "Enter target temperature (w): ");
+    validate(n, "Enter an amount of steps (n): ");
 
-        std::cout << k << "\t" << y << "\t" << u << std::endl;
+    PID pid(K, T, Td, T0);
+
+    for (int i = 0; i < n; i++) {
+        double e = w - y_prev;
+        double u = pid.u_calc(e);
+        y = linear_model(y_prev, u, a, b);
+        y_prev = y;
+
+        std::cout << "Step " << i + 1
+                  << "  e = " << e << '\t'
+                  << "  u = " << u << '\t'
+                  << "  y = " << y << '\n';
     }
 
     return 0;

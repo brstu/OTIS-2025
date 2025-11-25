@@ -91,37 +91,49 @@ $(function(){initNavTree('pid_8h_source.html','',''); });
   <div class="headertitle"><div class="title">pid.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="pid_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef PID_H</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define PID_H</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span></div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_p_i_d.html">   10</a></span><span class="keyword">class </span><a class="code hl_function" href="class_p_i_d.html#ae485beadac60aad9a99a1f8368d25581">PID</a> {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_function" href="class_p_i_d.html#ae485beadac60aad9a99a1f8368d25581">PID</a>(<span class="keywordtype">double</span> K, <span class="keywordtype">double</span> T, <span class="keywordtype">double</span> TD, <span class="keywordtype">double</span> dt);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_p_i_d.html#a204b64e74cbc37afd8173b3bdd79647a">update</a>(<span class="keywordtype">double</span> e);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">double</span> K, T, TD, dt;    </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">double</span> e_prev1 = 0.0;   </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">double</span> e_prev2 = 0.0;   </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">double</span> u_prev = 0.0;    </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">double</span> q0, q1, q2;      </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
+<a href="pid_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PID_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PID_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_p_i_d.html">   11</a></span><span class="keyword">class </span><a class="code hl_function" href="class_p_i_d.html#aacca14c5560f75725cac1788543d1c02">PID</a> {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">double</span> K;   </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">double</span> T;   </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">double</span> Td;  </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">double</span> T0;  </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">double</span> q0;  </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">double</span> q1;  </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">double</span> q2;  </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">double</span> u_prev = 0.0;   </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">double</span> e_prev_1 = 0.0; </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">double</span> e_prev_2 = 0.0; </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">bool</span> valid = <span class="keyword">false</span>;    </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_function" href="class_p_i_d.html#aacca14c5560f75725cac1788543d1c02">PID</a>(<span class="keywordtype">double</span> in_K, <span class="keywordtype">double</span> in_T, <span class="keywordtype">double</span> in_Td, <span class="keywordtype">double</span> in_T0);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_p_i_d.html#a18ad640cecad68bc30c3956a8fb4feff">u_calc</a>(<span class="keywordtype">double</span> e);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_p_i_d.html#a9ba3d7e1eb718cb419f547dacf3f31ed">   44</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_p_i_d.html#a9ba3d7e1eb718cb419f547dacf3f31ed">invalidate</a>() { valid = <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_p_i_d.html#acf00e3c3f9b79aab9e548fe67bc06be2">   46</a></span>    <a class="code hl_function" href="class_p_i_d.html#acf00e3c3f9b79aab9e548fe67bc06be2">~PID</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
 </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#endif </span><span class="comment">// PID_H</span></div>
-<div class="ttc" id="aclass_p_i_d_html_a204b64e74cbc37afd8173b3bdd79647a"><div class="ttname"><a href="class_p_i_d.html#a204b64e74cbc37afd8173b3bdd79647a">PID::update</a></div><div class="ttdeci">double update(double e)</div><div class="ttdoc">Выполнить один шаг регулятора</div><div class="ttdef"><b>Definition</b> pid.cpp:12</div></div>
-<div class="ttc" id="aclass_p_i_d_html_ae485beadac60aad9a99a1f8368d25581"><div class="ttname"><a href="class_p_i_d.html#ae485beadac60aad9a99a1f8368d25581">PID::PID</a></div><div class="ttdeci">PID(double K, double T, double TD, double dt)</div><div class="ttdoc">Конструктор ПИД-регулятора</div><div class="ttdef"><b>Definition</b> pid.cpp:3</div></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#endif </span><span class="comment">// PID_H</span></div>
+<div class="ttc" id="aclass_p_i_d_html_a18ad640cecad68bc30c3956a8fb4feff"><div class="ttname"><a href="class_p_i_d.html#a18ad640cecad68bc30c3956a8fb4feff">PID::u_calc</a></div><div class="ttdeci">double u_calc(double e)</div><div class="ttdoc">Вычисляет управляющее воздействие по текущей ошибке.</div><div class="ttdef"><b>Definition</b> pid.cpp:14</div></div>
+<div class="ttc" id="aclass_p_i_d_html_a9ba3d7e1eb718cb419f547dacf3f31ed"><div class="ttname"><a href="class_p_i_d.html#a9ba3d7e1eb718cb419f547dacf3f31ed">PID::invalidate</a></div><div class="ttdeci">void invalidate()</div><div class="ttdoc">Делает коэффициенты недействительными (для тестов).</div><div class="ttdef"><b>Definition</b> pid.h:44</div></div>
+<div class="ttc" id="aclass_p_i_d_html_aacca14c5560f75725cac1788543d1c02"><div class="ttname"><a href="class_p_i_d.html#aacca14c5560f75725cac1788543d1c02">PID::PID</a></div><div class="ttdeci">PID(double in_K, double in_T, double in_Td, double in_T0)</div><div class="ttdoc">Конструктор PID-регулятора. Параметры передаются в порядке K, T, Td, T0.</div><div class="ttdef"><b>Definition</b> pid.cpp:4</div></div>
+<div class="ttc" id="aclass_p_i_d_html_acf00e3c3f9b79aab9e548fe67bc06be2"><div class="ttname"><a href="class_p_i_d.html#acf00e3c3f9b79aab9e548fe67bc06be2">PID::~PID</a></div><div class="ttdeci">~PID()=default</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>src</b></li><li class="navelem"><a href="pid_8h.html">pid.h</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="pid_8h.html">pid.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>

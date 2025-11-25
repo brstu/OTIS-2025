@@ -1,0 +1,26 @@
+\doxysection{src/models.cpp File Reference}
+\hypertarget{models_8cpp}{}\label{models_8cpp}\index{src/models.cpp@{src/models.cpp}}
+{\ttfamily \#include "{}models.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{models_8cpp_a3a4dd6c50779f1727c00ad5357bfb367}{linear\+\_\+model}} (double y\+\_\+prev, double u, double a, double b)
+\begin{DoxyCompactList}\small\item\em Вычисляет новое состояние линейной модели. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{models_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{models_8cpp_a3a4dd6c50779f1727c00ad5357bfb367}\index{models.cpp@{models.cpp}!linear\_model@{linear\_model}}
+\index{linear\_model@{linear\_model}!models.cpp@{models.cpp}}
+\doxysubsubsection{\texorpdfstring{linear\_model()}{linear\_model()}}
+{\footnotesize\ttfamily \label{models_8cpp_a3a4dd6c50779f1727c00ad5357bfb367} 
+double linear\+\_\+model (\begin{DoxyParamCaption}\item[{double}]{y\+\_\+prev}{, }\item[{double}]{u}{, }\item[{double}]{a}{, }\item[{double}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Вычисляет новое состояние линейной модели. 
+
+Линейная динамическая модель.
+
+Формула\+: y(k) = a \texorpdfstring{$\ast$}{*} y(k-\/1) + b \texorpdfstring{$\ast$}{*} u(k) 

@@ -2,7 +2,7 @@
 \hypertarget{class_p_i_d}{}\label{class_p_i_d}\index{PID@{PID}}
 
 
-Класс дискретного ПИД-\/регулятора  
+Класс дискретного PID-\/регулятора.  
 
 
 
@@ -12,65 +12,76 @@
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_p_i_d_ae485beadac60aad9a99a1f8368d25581}{PID}} (double K, double T, double TD, double dt)
-\begin{DoxyCompactList}\small\item\em Конструктор ПИД-\/регулятора \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_p_i_d_a204b64e74cbc37afd8173b3bdd79647a}{update}} (double e)
-\begin{DoxyCompactList}\small\item\em Выполнить один шаг регулятора \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_p_i_d_aacca14c5560f75725cac1788543d1c02}{PID}} (double in\+\_\+K, double in\+\_\+T, double in\+\_\+\+Td, double in\+\_\+\+T0)
+\begin{DoxyCompactList}\small\item\em Конструктор PID-\/регулятора. Параметры передаются в порядке K, T, Td, T0. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_p_i_d_a18ad640cecad68bc30c3956a8fb4feff}{u\+\_\+calc}} (double e)
+\begin{DoxyCompactList}\small\item\em Вычисляет управляющее воздействие по текущей ошибке. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_i_d_a9ba3d7e1eb718cb419f547dacf3f31ed}{invalidate}} ()
+\begin{DoxyCompactList}\small\item\em Делает коэффициенты недействительными (для тестов). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_p_i_d_acf00e3c3f9b79aab9e548fe67bc06be2}{\texorpdfstring{$\sim$}{\string~}\+PID}} ()=default
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Класс дискретного ПИД-\/регулятора 
+Класс дискретного PID-\/регулятора. 
+
+Поддерживает работу с ошибками текущего шага, предыдущего и предпредыдущего. 
 
 \label{doc-constructors}
 \Hypertarget{class_p_i_d_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_p_i_d_ae485beadac60aad9a99a1f8368d25581}\index{PID@{PID}!PID@{PID}}
+\Hypertarget{class_p_i_d_aacca14c5560f75725cac1788543d1c02}\index{PID@{PID}!PID@{PID}}
 \index{PID@{PID}!PID@{PID}}
 \doxysubsubsection{\texorpdfstring{PID()}{PID()}}
-{\footnotesize\ttfamily \label{class_p_i_d_ae485beadac60aad9a99a1f8368d25581} 
-PID\+::\+PID (\begin{DoxyParamCaption}\item[{double}]{K}{, }\item[{double}]{T}{, }\item[{double}]{TD}{, }\item[{double}]{dt}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_p_i_d_aacca14c5560f75725cac1788543d1c02} 
+PID\+::\+PID (\begin{DoxyParamCaption}\item[{double}]{in\+\_\+K}{, }\item[{double}]{in\+\_\+T}{, }\item[{double}]{in\+\_\+\+Td}{, }\item[{double}]{in\+\_\+\+T0}{}\end{DoxyParamCaption})}
 
 
 
-Конструктор ПИД-\/регулятора 
+Конструктор PID-\/регулятора. Параметры передаются в порядке K, T, Td, T0. 
 
+\Hypertarget{class_p_i_d_acf00e3c3f9b79aab9e548fe67bc06be2}\index{PID@{PID}!````~PID@{\texorpdfstring{$\sim$}{\string~}PID}}
+\index{````~PID@{\texorpdfstring{$\sim$}{\string~}PID}!PID@{PID}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PID()}{\string~PID()}}
+{\footnotesize\ttfamily \label{class_p_i_d_acf00e3c3f9b79aab9e548fe67bc06be2} 
+PID\+::\texorpdfstring{$\sim$}{\string~}\+PID (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
-\begin{DoxyParams}{Parameters}
-{\em K} & пропорциональный коэффициент \\
-\hline
-{\em T} & интегральная постоянная \\
-\hline
-{\em TD} & дифференциальная постоянная \\
-\hline
-{\em dt} & шаг дискретизации \\
-\hline
-\end{DoxyParams}
 
 
 \label{doc-func-members}
 \Hypertarget{class_p_i_d_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_p_i_d_a204b64e74cbc37afd8173b3bdd79647a}\index{PID@{PID}!update@{update}}
-\index{update@{update}!PID@{PID}}
-\doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily \label{class_p_i_d_a204b64e74cbc37afd8173b3bdd79647a} 
-double PID\+::update (\begin{DoxyParamCaption}\item[{double}]{e}{}\end{DoxyParamCaption})}
+\Hypertarget{class_p_i_d_a9ba3d7e1eb718cb419f547dacf3f31ed}\index{PID@{PID}!invalidate@{invalidate}}
+\index{invalidate@{invalidate}!PID@{PID}}
+\doxysubsubsection{\texorpdfstring{invalidate()}{invalidate()}}
+{\footnotesize\ttfamily \label{class_p_i_d_a9ba3d7e1eb718cb419f547dacf3f31ed} 
+void PID\+::invalidate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Выполнить один шаг регулятора 
+Делает коэффициенты недействительными (для тестов). 
+
+\Hypertarget{class_p_i_d_a18ad640cecad68bc30c3956a8fb4feff}\index{PID@{PID}!u\_calc@{u\_calc}}
+\index{u\_calc@{u\_calc}!PID@{PID}}
+\doxysubsubsection{\texorpdfstring{u\_calc()}{u\_calc()}}
+{\footnotesize\ttfamily \label{class_p_i_d_a18ad640cecad68bc30c3956a8fb4feff} 
+double PID\+::u\+\_\+calc (\begin{DoxyParamCaption}\item[{double}]{e}{}\end{DoxyParamCaption})}
+
+
+
+Вычисляет управляющее воздействие по текущей ошибке. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em e} & ошибка управления \\
+{\em e} & Ошибка регулирования. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-управляющее воздействие u 
+Новое значение управляющего сигнала. 
 \end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 src/\mbox{\hyperlink{pid_8h}{pid.\+h}}\item 
-src/pid.\+cpp\end{DoxyCompactItemize}
+src/\mbox{\hyperlink{pid_8cpp}{pid.\+cpp}}\end{DoxyCompactItemize}
