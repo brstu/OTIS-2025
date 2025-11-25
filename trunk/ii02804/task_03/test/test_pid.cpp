@@ -4,7 +4,7 @@
  */
 
 #include "../src/pid.h"
-#include "../src/models.h"   // вместо lin_model.h
+#include "../src/models.h"   
 #include <gtest/gtest.h>
 #include <cmath>
 
