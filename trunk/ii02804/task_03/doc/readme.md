@@ -10,7 +10,7 @@
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
 <p align="right">Группы ИИ-28/24</p>
-<p align="right">Клименко М.C.</p>
+<p align="right">Гойшик Т.Д.</p>
 <p align="right">Проверил:</p>
 <p align="right">Дворанинович Д.А.</p>
 <br><br><br><br><br>
@@ -197,8 +197,13 @@ int main() {
 
 ## Код юнит-тестов [ test/testlab3.cpp ]
 ```C++
+/**
+ * @file test_pid.cpp
+ * @brief Набор модульных тестов для класса PID и линейной модели.
+ */
+
 #include "../src/pid.h"
-#include "../src/lin_model.h"
+#include "../src/models.h"   
 #include <gtest/gtest.h>
 #include <cmath>
 
@@ -218,6 +223,7 @@ TEST(LinearModelTest, MixedValues) {
     double result = linear_model(6, 8, 0.5, 0.2);
     EXPECT_DOUBLE_EQ(result, 0.5 * 6 + 0.2 * 8);
 }
+
 
 TEST(PIDTest, CoefficientsCalculation) {
     double K = 0.5;
@@ -254,6 +260,7 @@ TEST(PIDTest, ZeroError) {
     double u1 = pid.u_calc(0.0);
     EXPECT_DOUBLE_EQ(u1, 0.0);
 }
+
 
 TEST(PIDSystemTest, SystemStabilization) {
     PID pid(1.5, 3.0, 0.2, 1.0);
@@ -293,9 +300,7 @@ TEST(PIDSystemTest, ConvergenceTest) {
     EXPECT_LT(errors.back(), errors.front());
 }
 
-
 TEST(PIDTest, ExtremeCoefficients) {
-
     PID pid_small(0.001, 0.001, 0.001, 0.001);
     double u_small = pid_small.u_calc(1.0);
     EXPECT_NEAR(u_small, 0.002, 1e-10); 
@@ -309,14 +314,11 @@ TEST(PIDTest, ConstantError) {
     PID pid(1.0, 2.0, 0.5, 1.0);
 
     double constant_error = 2.0;
-    double u_prev = 0.0;
-
     for (int i = 0; i < 5; i++) {
         double u = pid.u_calc(constant_error);
         if (i > 0) {
             EXPECT_NE(u, 0.0);
         }
-        u_prev = u;
     }
 }
 
@@ -335,7 +337,6 @@ TEST(PIDTest, InvalidState) {
     PID pid(1.0, 1.0, 1.0, 1.0);
 
     pid.invalidate();
-
     double u = pid.u_calc(1.0);
     EXPECT_DOUBLE_EQ(u, 0.0);
 }
