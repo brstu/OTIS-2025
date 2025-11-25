@@ -15,5 +15,4 @@ TEST(PIDTest, ZeroInput) {
     pid.reset();
     double u = pid.update(0.0);
     EXPECT_DOUBLE_EQ(u, 0.0);
-    system("pause");
 }
