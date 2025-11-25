@@ -1,19 +1,10 @@
-﻿#include "functions.h"
-#include <cmath>
+﻿#include <cmath>
+#include "functions.h"
 
-double TemperatureModel::linearModel(double y_prev, double u, double a, double b) {
-    return a * y_prev + b * u;
+double linear(double y, double u, double a, double b) {
+    return a * y + b * u;
 }
 
-double TemperatureModel::nonlinearModel(double y_prev, double y_prev2, double u,
-    double a, double b, double c, double d) {
-    return a * y_prev - b * y_prev2 * y_prev2 + c * u + d * std::sin(u);
-}
-
-bool TemperatureModel::validateInput(double value) {
-    return !std::isnan(value) && std::isfinite(value);
-}
-
-bool TemperatureModel::validateSteps(int steps) {
-    return steps > 0;
+double non_linear(double y, double u, double a, double b, double c, double d) {
+    return a * y - b * y * y + c * u + d * std::sin(u);
 }
