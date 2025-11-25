@@ -344,12 +344,12 @@ TEST(PIDTest, InvalidState) {
 
 ```
 ## Результаты юнит-тестирования (GoogleTest)
-![GoogleTest](images/g_tests.png)
+![GoogleTest](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/test.png)
 
 ## Покрытие GCC Code Coverage
 
 <<<<<<< HEAD
 ![GCC Coverage](images/coverage.png)
 =======
-![GCC Coverage](images/coverage.png)
+![GCC Coverage](images/coverage.png
 >>>>>>> 83f0486b5328c343d8ee651963c2361c12ba888b
