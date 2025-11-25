@@ -2,10 +2,11 @@
 #include <iostream>
 
 PID::PID(double in_K, double in_T, double in_Td, double in_T0)
-    : K(in_K), T(in_T), Td(in_Td), T0(in_T0),
-      u_prev(0.0), e_prev_1(0.0), e_prev_2(0.0), valid(true)
+    : K(in_K), T(in_T), Td(in_Td), T0(in_T0)
 {
-    // Формулы расчета коэффициентов именно как в оригинальном проекте
+    valid = true;
+
+    // Формулы расчета коэффициентов 
     q0 = K * (1.0 + Td / T0);
     q1 = -K * (1.0 + 2.0 * Td / T0 - T0 / T);
     q2 = K * Td / T0;
