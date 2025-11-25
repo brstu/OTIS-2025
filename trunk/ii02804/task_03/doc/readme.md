@@ -351,5 +351,4 @@ TEST(PIDTest, InvalidState) {
 <<<<<<< HEAD
 ![GCC Coverage](images/coverage.png)
 =======
-![GCC Coverage](images/coverage.png
 
