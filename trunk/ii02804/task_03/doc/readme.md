@@ -107,10 +107,24 @@
 
 ## Код программы [ src/lab3.cpp ]
 ```C++
-#include <iostream>
-#include "pid.h"
-#include "lin_model.h"
+/**
+ * @file main.cpp
+ * @brief Консольное приложение моделирования PID-регулятора и линейного объекта.
+ */
 
+#include <iostream>
+#include <limits>
+#include <string>
+
+#include "pid.h"       /
+#include "models.h"    
+
+/**
+ * @brief Проверка корректности ввода числового значения.
+ * @tparam N Числовой тип.
+ * @param number Переменная для записи.
+ * @param message Сообщение пользователю.
+ */
 template <typename N>
 void validate(N& number, const std::string& message) {
     std::cout << message;
@@ -120,6 +134,7 @@ void validate(N& number, const std::string& message) {
         std::cout << "Input correct number: ";
     }
 }
+
 int main() {
 
     double y_prev;
@@ -136,11 +151,12 @@ int main() {
 
     validate(y_prev, "Enter input temperature (y): ");
     validate(a, "Enter constant a (for linear model): ");
-    validate(b, "Enter constant b (for linear model: ");
+    validate(b, "Enter constant b (for linear model): ");
     validate(w, "Enter target temperature (w): ");
     validate(n, "Enter an amount of steps (n): ");
 
     PID pid(K, T, Td, T0);
+
     for (int i = 0; i < n; i++) {
         double e = w - y_prev;
         double u = pid.u_calc(e);
@@ -148,13 +164,14 @@ int main() {
         y_prev = y;
 
         std::cout << "Step " << i + 1
-            << "  e = " << e << '\t'
-            << "  u = " << u << '\t'
-            << "  y = " << y << '\n';
+                  << "  e = " << e << '\t'
+                  << "  u = " << u << '\t'
+                  << "  y = " << y << '\n';
     }
 
     return 0;
 }
+
 
 ```
 
