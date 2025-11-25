@@ -1,13 +1,17 @@
 cmake_minimum_required(VERSION 3.16)
-project(task_03_ii0xxyy)
+project(task_03_ii002826)
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Main executable
-add_executable(pid_sim src/main.cpp src/pid.cpp src/model.cpp)
+# Основная программа
+add_executable(pid_sim
+    src/main.cpp
+    src/pid.cpp
+    src/model.cpp
+)
 
-# GoogleTest
+# Google Test
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -17,6 +21,13 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 enable_testing()
 
-add_executable(pid_tests test/test_pid.cpp src/pid.cpp)
+# Тесты
+add_executable(pid_tests
+    test/test_pid.cpp
+    src/pid.cpp
+    src/model.cpp
+)
+
 target_link_libraries(pid_tests GTest::gtest_main)
+
 add_test(NAME PIDTests COMMAND pid_tests)
