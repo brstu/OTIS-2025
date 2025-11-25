@@ -31,7 +31,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: trunk/ii02804/task_03/doc/html
+          path: trunk/ii02804/task_03/doc/html/
 
   deploy:
     environment:
