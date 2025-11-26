@@ -1,13 +1,13 @@
 /**
- * @file pid_controller.h
+ * @file pid.h
  * @brief Дискретный ПИД-регулятор
  *
  * Реализация дискретного ПИД-регулятора по рекуррентным формулам
  */
-#include <vector>
+
 #ifndef PID_H
 #define PID_H
-
+#include <vector>
 /**
  * @class PIDController
  * @brief Дискретный ПИД-регулятор

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="dir_fab6b50ab53d2252dd2f2ee13d3adcce" kind="dir">
+    <compoundname>src/build/_deps/googletest-src/googletest/test</compoundname>
+    <innerfile refid="googletest-param-test-test_8h">googletest-param-test-test.h</innerfile>
+    <innerfile refid="gtest-typed-test__test_8h">gtest-typed-test_test.h</innerfile>
+    <innerfile refid="production_8h">production.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/test/"/>
+  </compounddef>
+</doxygen>

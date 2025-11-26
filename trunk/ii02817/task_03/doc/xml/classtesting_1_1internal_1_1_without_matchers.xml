@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1internal_1_1_without_matchers" kind="class" language="C++" prot="public">
+    <compoundname>testing::internal::WithoutMatchers</compoundname>
+    <includes refid="gmock-internal-utils_8h" local="no">gmock-internal-utils.h</includes>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_without_matchers_1ab4bc9ba864d2daed9c186e7d472dfaed" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>testing::internal::WithoutMatchers::WithoutMatchers</definition>
+        <argsstring>()</argsstring>
+        <name>WithoutMatchers</name>
+        <qualifiedname>testing::internal::WithoutMatchers::WithoutMatchers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/internal/gmock-internal-utils.h" line="286" column="3" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/internal/gmock-internal-utils.h" bodystart="286" bodyend="286"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classtesting_1_1internal_1_1_without_matchers_1aec6c0de08b3c9096e2365c023664a848" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="gtest-port_8h_1aa73be6f0ba4a7456180a94904ce17790" kindref="member">GTEST_API_</ref> WithoutMatchers</type>
+        <definition>GTEST_API_ WithoutMatchers GetWithoutMatchers</definition>
+        <argsstring>()</argsstring>
+        <name>GetWithoutMatchers</name>
+        <qualifiedname>testing::internal::WithoutMatchers::GetWithoutMatchers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/internal/gmock-internal-utils.h" line="287" column="37"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googlemock/include/gmock/internal/gmock-internal-utils.h" line="284" column="1" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/internal/gmock-internal-utils.h" bodystart="284" bodyend="288"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1internal_1_1_without_matchers_1aec6c0de08b3c9096e2365c023664a848" prot="private" virt="non-virtual"><scope>testing::internal::WithoutMatchers</scope><name>GetWithoutMatchers</name></member>
+      <member refid="classtesting_1_1internal_1_1_without_matchers_1ab4bc9ba864d2daed9c186e7d472dfaed" prot="private" virt="non-virtual"><scope>testing::internal::WithoutMatchers</scope><name>WithoutMatchers</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

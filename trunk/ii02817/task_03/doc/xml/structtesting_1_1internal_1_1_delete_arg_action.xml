@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structtesting_1_1internal_1_1_delete_arg_action" kind="struct" language="C++" prot="public">
+    <compoundname>testing::internal::DeleteArgAction</compoundname>
+    <includes refid="gmock-actions_8h" local="no">gmock-actions.h</includes>
+    <templateparamlist>
+      <param>
+        <type>size_t</type>
+        <declname>k</declname>
+        <defname>k</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtesting_1_1internal_1_1_delete_arg_action_1abb545f85ccbe49eaabb71471517dc887" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void testing::internal::DeleteArgAction&lt; k &gt;::operator()</definition>
+        <argsstring>(const Args &amp;... args) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>testing::internal::DeleteArgAction::operator()</qualifiedname>
+        <param>
+          <type>const Args &amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1721" column="8" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1721" bodyend="1723"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1719" column="1" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1719" bodyend="1724"/>
+    <listofallmembers>
+      <member refid="structtesting_1_1internal_1_1_delete_arg_action_1abb545f85ccbe49eaabb71471517dc887" prot="public" virt="non-virtual"><scope>testing::internal::DeleteArgAction</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

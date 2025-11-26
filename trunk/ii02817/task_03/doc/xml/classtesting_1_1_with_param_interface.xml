@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1_with_param_interface" kind="class" language="C++" prot="public">
+    <compoundname>testing::WithParamInterface</compoundname>
+    <derivedcompoundref refid="classtesting_1_1_test_with_param" prot="public" virt="non-virtual">testing::TestWithParam&lt; T &gt;</derivedcompoundref>
+    <includes refid="gtest_8h" local="no">gtest.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classtesting_1_1_with_param_interface_1a343febaaebf1f025bda484f841d4fec1" prot="public" static="no">
+        <type>T</type>
+        <definition>typedef T testing::WithParamInterface&lt; T &gt;::ParamType</definition>
+        <argsstring></argsstring>
+        <name>ParamType</name>
+        <qualifiedname>testing::WithParamInterface::ParamType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest.h" line="1666" column="13" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest.h" bodystart="1666" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classtesting_1_1_with_param_interface_1ad105a728ce26e1d52d863dedca8a7898" prot="private" static="yes" mutable="no">
+        <type>const <ref refid="classtesting_1_1_with_param_interface_1a343febaaebf1f025bda484f841d4fec1" kindref="member">ParamType</ref> *</type>
+        <definition>const ParamType* testing::WithParamInterface&lt; T &gt;::parameter_</definition>
+        <argsstring></argsstring>
+        <name>parameter_</name>
+        <qualifiedname>testing::WithParamInterface::parameter_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest.h" line="1684" column="26" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest.h" bodystart="1684" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classtesting_1_1_with_param_interface_1a7543eb7df89f00fff517dba24bc11dd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class TestClass</type>
+          </param>
+        </templateparamlist>
+        <type>class</type>
+        <definition>friend class internal::ParameterizedTestFactory</definition>
+        <argsstring></argsstring>
+        <name>internal::ParameterizedTestFactory</name>
+        <qualifiedname>testing::WithParamInterface::ParameterizedTestFactory</qualifiedname>
+        <param>
+          <type><ref refid="classtesting_1_1internal_1_1_parameterized_test_factory" kindref="compound">internal::ParameterizedTestFactory</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest.h" line="1688" column="16" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest.h" bodystart="1688" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtesting_1_1_with_param_interface_1a4e170bd42fa5e8ce48b80cee6bb52e26" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual testing::WithParamInterface&lt; T &gt;::~WithParamInterface</definition>
+        <argsstring>()</argsstring>
+        <name>~WithParamInterface</name>
+        <qualifiedname>testing::WithParamInterface::~WithParamInterface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest.h" line="1667" column="11" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest.h" bodystart="1667" bodyend="1667"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classtesting_1_1_with_param_interface_1a14a1882601b41bd53cdcb36e5e36de3d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classtesting_1_1_with_param_interface_1a343febaaebf1f025bda484f841d4fec1" kindref="member">ParamType</ref> &amp;</type>
+        <definition>static const ParamType &amp; testing::WithParamInterface&lt; T &gt;::GetParam</definition>
+        <argsstring>()</argsstring>
+        <name>GetParam</name>
+        <qualifiedname>testing::WithParamInterface::GetParam</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest.h" line="1671" column="26" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest.h" bodystart="1671" bodyend="1676"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classtesting_1_1_with_param_interface_1a471e12a61e83347675b649465bc5aabc" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void testing::WithParamInterface&lt; T &gt;::SetParam</definition>
+        <argsstring>(const ParamType *parameter)</argsstring>
+        <name>SetParam</name>
+        <qualifiedname>testing::WithParamInterface::SetParam</qualifiedname>
+        <param>
+          <type>const <ref refid="classtesting_1_1_with_param_interface_1a343febaaebf1f025bda484f841d4fec1" kindref="member">ParamType</ref> *</type>
+          <declname>parameter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest.h" line="1681" column="15" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest.h" bodystart="1681" bodyend="1681"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>testing::TestWithParam&lt; T &gt;</label>
+        <link refid="classtesting_1_1_test_with_param"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>testing::WithParamInterface&lt; T &gt;</label>
+        <link refid="classtesting_1_1_with_param_interface"/>
+      </node>
+    </inheritancegraph>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest.h" line="1664" column="1" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest.h" bodystart="1664" bodyend="1689"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1_with_param_interface_1a14a1882601b41bd53cdcb36e5e36de3d" prot="public" virt="non-virtual"><scope>testing::WithParamInterface</scope><name>GetParam</name></member>
+      <member refid="classtesting_1_1_with_param_interface_1a7543eb7df89f00fff517dba24bc11dd5" prot="public" virt="non-virtual"><scope>testing::WithParamInterface</scope><name>internal::ParameterizedTestFactory</name></member>
+      <member refid="classtesting_1_1_with_param_interface_1ad105a728ce26e1d52d863dedca8a7898" prot="private" virt="non-virtual"><scope>testing::WithParamInterface</scope><name>parameter_</name></member>
+      <member refid="classtesting_1_1_with_param_interface_1a343febaaebf1f025bda484f841d4fec1" prot="public" virt="non-virtual"><scope>testing::WithParamInterface</scope><name>ParamType</name></member>
+      <member refid="classtesting_1_1_with_param_interface_1a471e12a61e83347675b649465bc5aabc" prot="private" virt="non-virtual"><scope>testing::WithParamInterface</scope><name>SetParam</name></member>
+      <member refid="classtesting_1_1_with_param_interface_1a4e170bd42fa5e8ce48b80cee6bb52e26" prot="public" virt="virtual"><scope>testing::WithParamInterface</scope><name>~WithParamInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

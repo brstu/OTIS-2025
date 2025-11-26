@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1internal_1_1_default_per_thread_test_part_result_reporter" kind="class" language="C++" prot="public">
+    <compoundname>testing::internal::DefaultPerThreadTestPartResultReporter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">TestPartResultReporterInterface</basecompoundref>
+    <includes refid="gtest-internal-inl_8h" local="no">gtest-internal-inl.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtesting_1_1internal_1_1_default_per_thread_test_part_result_reporter_1a44f8ce831e79b6b25197ce8e4f2e08d6" prot="private" static="no" mutable="no">
+        <type><ref refid="classtesting_1_1internal_1_1_unit_test_impl" kindref="compound">UnitTestImpl</ref> *const</type>
+        <definition>UnitTestImpl* const testing::internal::DefaultPerThreadTestPartResultReporter::unit_test_</definition>
+        <argsstring></argsstring>
+        <name>unit_test_</name>
+        <qualifiedname>testing::internal::DefaultPerThreadTestPartResultReporter::unit_test_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest-internal-inl.h" line="492" column="22" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest-internal-inl.h" bodystart="492" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_default_per_thread_test_part_result_reporter_1a968a846e5a90d2ffea8b2ce2746099bd" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>testing::internal::DefaultPerThreadTestPartResultReporter::DefaultPerThreadTestPartResultReporter</definition>
+        <argsstring>(UnitTestImpl *unit_test)</argsstring>
+        <name>DefaultPerThreadTestPartResultReporter</name>
+        <qualifiedname>testing::internal::DefaultPerThreadTestPartResultReporter::DefaultPerThreadTestPartResultReporter</qualifiedname>
+        <param>
+          <type><ref refid="classtesting_1_1internal_1_1_unit_test_impl" kindref="compound">UnitTestImpl</ref> *</type>
+          <declname>unit_test</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest-internal-inl.h" line="486" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_default_per_thread_test_part_result_reporter_1abc9fbfe0dd643ffb9fccb117745c2c21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::DefaultPerThreadTestPartResultReporter::ReportTestPartResult</definition>
+        <argsstring>(const TestPartResult &amp;result) override</argsstring>
+        <name>ReportTestPartResult</name>
+        <qualifiedname>testing::internal::DefaultPerThreadTestPartResultReporter::ReportTestPartResult</qualifiedname>
+        <param>
+          <type>const TestPartResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest-internal-inl.h" line="489" column="8"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_default_per_thread_test_part_result_reporter_1af7ef70d891b96c66bc7c1a91ccee4ae2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>testing::internal::DefaultPerThreadTestPartResultReporter::DefaultPerThreadTestPartResultReporter</definition>
+        <argsstring>(const DefaultPerThreadTestPartResultReporter &amp;)=delete</argsstring>
+        <name>DefaultPerThreadTestPartResultReporter</name>
+        <qualifiedname>testing::internal::DefaultPerThreadTestPartResultReporter::DefaultPerThreadTestPartResultReporter</qualifiedname>
+        <param>
+          <type>const DefaultPerThreadTestPartResultReporter &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest-internal-inl.h" line="494" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_default_per_thread_test_part_result_reporter_1a0cdc2193d04cdeee133c30bc0eae0bb7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classtesting_1_1internal_1_1_default_per_thread_test_part_result_reporter_1a968a846e5a90d2ffea8b2ce2746099bd" kindref="member">DefaultPerThreadTestPartResultReporter</ref> &amp;</type>
+        <definition>DefaultPerThreadTestPartResultReporter &amp; testing::internal::DefaultPerThreadTestPartResultReporter::operator=</definition>
+        <argsstring>(const DefaultPerThreadTestPartResultReporter &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>testing::internal::DefaultPerThreadTestPartResultReporter::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classtesting_1_1internal_1_1_default_per_thread_test_part_result_reporter_1a968a846e5a90d2ffea8b2ce2746099bd" kindref="member">DefaultPerThreadTestPartResultReporter</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest-internal-inl.h" line="496" column="42"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>TestPartResultReporterInterface</label>
+      </node>
+      <node id="1">
+        <label>testing::internal::DefaultPerThreadTestPartResultReporter</label>
+        <link refid="classtesting_1_1internal_1_1_default_per_thread_test_part_result_reporter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>TestPartResultReporterInterface</label>
+      </node>
+      <node id="1">
+        <label>testing::internal::DefaultPerThreadTestPartResultReporter</label>
+        <link refid="classtesting_1_1internal_1_1_default_per_thread_test_part_result_reporter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/build/_deps/googletest-src/googletest/src/gtest-internal-inl.h" line="483" column="1" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest-internal-inl.h" bodystart="484" bodyend="498"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1internal_1_1_default_per_thread_test_part_result_reporter_1a968a846e5a90d2ffea8b2ce2746099bd" prot="public" virt="non-virtual"><scope>testing::internal::DefaultPerThreadTestPartResultReporter</scope><name>DefaultPerThreadTestPartResultReporter</name></member>
+      <member refid="classtesting_1_1internal_1_1_default_per_thread_test_part_result_reporter_1af7ef70d891b96c66bc7c1a91ccee4ae2" prot="private" virt="non-virtual"><scope>testing::internal::DefaultPerThreadTestPartResultReporter</scope><name>DefaultPerThreadTestPartResultReporter</name></member>
+      <member refid="classtesting_1_1internal_1_1_default_per_thread_test_part_result_reporter_1a0cdc2193d04cdeee133c30bc0eae0bb7" prot="private" virt="non-virtual"><scope>testing::internal::DefaultPerThreadTestPartResultReporter</scope><name>operator=</name></member>
+      <member refid="classtesting_1_1internal_1_1_default_per_thread_test_part_result_reporter_1abc9fbfe0dd643ffb9fccb117745c2c21" prot="public" virt="non-virtual"><scope>testing::internal::DefaultPerThreadTestPartResultReporter</scope><name>ReportTestPartResult</name></member>
+      <member refid="classtesting_1_1internal_1_1_default_per_thread_test_part_result_reporter_1a44f8ce831e79b6b25197ce8e4f2e08d6" prot="private" virt="non-virtual"><scope>testing::internal::DefaultPerThreadTestPartResultReporter</scope><name>unit_test_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

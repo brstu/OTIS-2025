@@ -1,0 +1,410 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1internal_1_1_floating_point" kind="class" language="C++" prot="public">
+    <compoundname>testing::internal::FloatingPoint</compoundname>
+    <includes refid="gtest-internal_8h" local="no">gtest-internal.h</includes>
+    <innerclass refid="uniontesting_1_1internal_1_1_floating_point_1_1_floating_point_union" prot="private">testing::internal::FloatingPoint::FloatingPointUnion</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename RawType</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classtesting_1_1internal_1_1_floating_point_1abf228bf6cd48f12c8b44c85b4971a731" prot="public" static="no">
+        <type><ref refid="classtesting_1_1internal_1_1_type_with_size" kindref="compound">TypeWithSize</ref>&lt; sizeof(RawType)&gt;<ref refid="classtesting_1_1internal_1_1_type_with_size" kindref="compound">::UInt</ref></type>
+        <definition>typedef TypeWithSize&lt;sizeof(RawType)&gt;::UInt testing::internal::FloatingPoint&lt; RawType &gt;::Bits</definition>
+        <argsstring></argsstring>
+        <name>Bits</name>
+        <qualifiedname>testing::internal::FloatingPoint::Bits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="249" column="40" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="249" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classtesting_1_1internal_1_1_floating_point_1ab819d2e8f93e9e482373999f0f8d71b9" prot="public" static="yes" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t testing::internal::FloatingPoint&lt; RawType &gt;::kBitCount</definition>
+        <argsstring></argsstring>
+        <name>kBitCount</name>
+        <qualifiedname>testing::internal::FloatingPoint::kBitCount</qualifiedname>
+        <initializer>= 8 * sizeof(RawType)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="254" column="23" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtesting_1_1internal_1_1_floating_point_1a0b756a6d2a4f5f5b41ca79651c06c043" prot="public" static="yes" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t testing::internal::FloatingPoint&lt; RawType &gt;::kFractionBitCount</definition>
+        <argsstring></argsstring>
+        <name>kFractionBitCount</name>
+        <qualifiedname>testing::internal::FloatingPoint::kFractionBitCount</qualifiedname>
+        <initializer>=
+      std::numeric_limits&lt;RawType&gt;::digits - 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="257" column="23" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtesting_1_1internal_1_1_floating_point_1a1973d843c00781053d3073daa8a40119" prot="public" static="yes" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t testing::internal::FloatingPoint&lt; RawType &gt;::kExponentBitCount</definition>
+        <argsstring></argsstring>
+        <name>kExponentBitCount</name>
+        <qualifiedname>testing::internal::FloatingPoint::kExponentBitCount</qualifiedname>
+        <initializer>= <ref refid="classtesting_1_1internal_1_1_floating_point_1ab819d2e8f93e9e482373999f0f8d71b9" kindref="member">kBitCount</ref> - 1 - <ref refid="classtesting_1_1internal_1_1_floating_point_1a0b756a6d2a4f5f5b41ca79651c06c043" kindref="member">kFractionBitCount</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="261" column="23" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtesting_1_1internal_1_1_floating_point_1aca98b5ea6f2222a66a82e52421682efa" prot="public" static="yes" mutable="no">
+        <type>const <ref refid="classtesting_1_1internal_1_1_floating_point_1abf228bf6cd48f12c8b44c85b4971a731" kindref="member">Bits</ref></type>
+        <definition>const Bits testing::internal::FloatingPoint&lt; RawType &gt;::kSignBitMask</definition>
+        <argsstring></argsstring>
+        <name>kSignBitMask</name>
+        <qualifiedname>testing::internal::FloatingPoint::kSignBitMask</qualifiedname>
+        <initializer>= static_cast&lt;<ref refid="classtesting_1_1internal_1_1_floating_point_1abf228bf6cd48f12c8b44c85b4971a731" kindref="member">Bits</ref>&gt;(1) &lt;&lt; (<ref refid="classtesting_1_1internal_1_1_floating_point_1ab819d2e8f93e9e482373999f0f8d71b9" kindref="member">kBitCount</ref> - 1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="264" column="21" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="264" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtesting_1_1internal_1_1_floating_point_1a0ac75d4ffd24f14bca452abe8a718da1" prot="public" static="yes" mutable="no">
+        <type>const <ref refid="classtesting_1_1internal_1_1_floating_point_1abf228bf6cd48f12c8b44c85b4971a731" kindref="member">Bits</ref></type>
+        <definition>const Bits testing::internal::FloatingPoint&lt; RawType &gt;::kFractionBitMask</definition>
+        <argsstring></argsstring>
+        <name>kFractionBitMask</name>
+        <qualifiedname>testing::internal::FloatingPoint::kFractionBitMask</qualifiedname>
+        <initializer>= ~static_cast&lt;<ref refid="classtesting_1_1internal_1_1_floating_point_1abf228bf6cd48f12c8b44c85b4971a731" kindref="member">Bits</ref>&gt;(0) &gt;&gt;
+                                       (<ref refid="classtesting_1_1internal_1_1_floating_point_1a1973d843c00781053d3073daa8a40119" kindref="member">kExponentBitCount</ref> + 1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="267" column="21" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="267" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtesting_1_1internal_1_1_floating_point_1a66065dfc4d5f41100f686159637af23b" prot="public" static="yes" mutable="no">
+        <type>const <ref refid="classtesting_1_1internal_1_1_floating_point_1abf228bf6cd48f12c8b44c85b4971a731" kindref="member">Bits</ref></type>
+        <definition>const Bits testing::internal::FloatingPoint&lt; RawType &gt;::kExponentBitMask</definition>
+        <argsstring></argsstring>
+        <name>kExponentBitMask</name>
+        <qualifiedname>testing::internal::FloatingPoint::kExponentBitMask</qualifiedname>
+        <initializer>= ~(<ref refid="classtesting_1_1internal_1_1_floating_point_1aca98b5ea6f2222a66a82e52421682efa" kindref="member">kSignBitMask</ref> | <ref refid="classtesting_1_1internal_1_1_floating_point_1a0ac75d4ffd24f14bca452abe8a718da1" kindref="member">kFractionBitMask</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="271" column="21" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="271" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtesting_1_1internal_1_1_floating_point_1adeb0569a334b30329f1edf732f21c5ea" prot="public" static="yes" mutable="no">
+        <type>const uint32_t</type>
+        <definition>const uint32_t testing::internal::FloatingPoint&lt; RawType &gt;::kMaxUlps</definition>
+        <argsstring></argsstring>
+        <name>kMaxUlps</name>
+        <qualifiedname>testing::internal::FloatingPoint::kMaxUlps</qualifiedname>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="285" column="25" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="285" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtesting_1_1internal_1_1_floating_point_1a2e0b6bd427248b91476f3fca281f7104" prot="private" static="no" mutable="no">
+        <type>FloatingPointUnion</type>
+        <definition>FloatingPointUnion testing::internal::FloatingPoint&lt; RawType &gt;::u_</definition>
+        <argsstring></argsstring>
+        <name>u_</name>
+        <qualifiedname>testing::internal::FloatingPoint::u_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="389" column="22" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="389" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_floating_point_1a0dabf840863e0df84046f171c891fe71" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>testing::internal::FloatingPoint&lt; RawType &gt;::FloatingPoint</definition>
+        <argsstring>(const RawType &amp;x)</argsstring>
+        <name>FloatingPoint</name>
+        <qualifiedname>testing::internal::FloatingPoint::FloatingPoint</qualifiedname>
+        <param>
+          <type>const RawType &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="293" column="12" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="293" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_floating_point_1aed49c6dadf8dff4f65fbebef29bb1ae9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classtesting_1_1internal_1_1_floating_point_1abf228bf6cd48f12c8b44c85b4971a731" kindref="member">Bits</ref> &amp;</type>
+        <definition>const Bits &amp; testing::internal::FloatingPoint&lt; RawType &gt;::bits</definition>
+        <argsstring>() const</argsstring>
+        <name>bits</name>
+        <qualifiedname>testing::internal::FloatingPoint::bits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="315" column="14" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="315" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_floating_point_1af6bf8fab8df572ecb137a3516ff390ae" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classtesting_1_1internal_1_1_floating_point_1abf228bf6cd48f12c8b44c85b4971a731" kindref="member">Bits</ref></type>
+        <definition>Bits testing::internal::FloatingPoint&lt; RawType &gt;::exponent_bits</definition>
+        <argsstring>() const</argsstring>
+        <name>exponent_bits</name>
+        <qualifiedname>testing::internal::FloatingPoint::exponent_bits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="318" column="8" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="318" bodyend="318"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_floating_point_1aa17337e50a2ac855719bc0676529558f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classtesting_1_1internal_1_1_floating_point_1abf228bf6cd48f12c8b44c85b4971a731" kindref="member">Bits</ref></type>
+        <definition>Bits testing::internal::FloatingPoint&lt; RawType &gt;::fraction_bits</definition>
+        <argsstring>() const</argsstring>
+        <name>fraction_bits</name>
+        <qualifiedname>testing::internal::FloatingPoint::fraction_bits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="321" column="8" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="321" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_floating_point_1afb8a816bb598225d775caaf43a893ef0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classtesting_1_1internal_1_1_floating_point_1abf228bf6cd48f12c8b44c85b4971a731" kindref="member">Bits</ref></type>
+        <definition>Bits testing::internal::FloatingPoint&lt; RawType &gt;::sign_bit</definition>
+        <argsstring>() const</argsstring>
+        <name>sign_bit</name>
+        <qualifiedname>testing::internal::FloatingPoint::sign_bit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="324" column="8" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="324" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_floating_point_1a1fc654fd206efa98e480aa1e034f30d5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool testing::internal::FloatingPoint&lt; RawType &gt;::is_nan</definition>
+        <argsstring>() const</argsstring>
+        <name>is_nan</name>
+        <qualifiedname>testing::internal::FloatingPoint::is_nan</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="327" column="8" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="327" bodyend="331"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_floating_point_1a965214c1af2f9ac5adb1393794aa81e5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool testing::internal::FloatingPoint&lt; RawType &gt;::AlmostEquals</definition>
+        <argsstring>(const FloatingPoint &amp;rhs) const</argsstring>
+        <name>AlmostEquals</name>
+        <qualifiedname>testing::internal::FloatingPoint::AlmostEquals</qualifiedname>
+        <param>
+          <type>const <ref refid="classtesting_1_1internal_1_1_floating_point_1a0dabf840863e0df84046f171c891fe71" kindref="member">FloatingPoint</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="339" column="8" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="339" bodyend="346"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_floating_point_1a145158f48d527cfc83150cc53bfd979f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float testing::internal::FloatingPoint&lt; float &gt;::Max</definition>
+        <argsstring>()</argsstring>
+        <name>Max</name>
+        <qualifiedname>testing::internal::FloatingPoint::Max</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="395" column="28" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="395" bodyend="397"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_floating_point_1a93b5901a99236ad6eded827f76bf3a44" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double testing::internal::FloatingPoint&lt; double &gt;::Max</definition>
+        <argsstring>()</argsstring>
+        <name>Max</name>
+        <qualifiedname>testing::internal::FloatingPoint::Max</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="399" column="29" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="399" bodyend="401"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_floating_point_1ac551f793522e54fbd8a25acb79eac5b1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>RawType</type>
+        <definition>static RawType testing::internal::FloatingPoint&lt; RawType &gt;::ReinterpretBits</definition>
+        <argsstring>(const Bits bits)</argsstring>
+        <name>ReinterpretBits</name>
+        <qualifiedname>testing::internal::FloatingPoint::ReinterpretBits</qualifiedname>
+        <param>
+          <type>const <ref refid="classtesting_1_1internal_1_1_floating_point_1abf228bf6cd48f12c8b44c85b4971a731" kindref="member">Bits</ref></type>
+          <declname>bits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="300" column="18" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="300" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_floating_point_1a460027cc19cf01ae8e09cc3796b2b575" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>RawType</type>
+        <definition>static RawType testing::internal::FloatingPoint&lt; RawType &gt;::Infinity</definition>
+        <argsstring>()</argsstring>
+        <name>Infinity</name>
+        <qualifiedname>testing::internal::FloatingPoint::Infinity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="307" column="18" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="307" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_floating_point_1aae5954d8a57d3ff0987c6930cb68e114" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>RawType</type>
+        <definition>static RawType testing::internal::FloatingPoint&lt; RawType &gt;::Max</definition>
+        <argsstring>()</argsstring>
+        <name>Max</name>
+        <qualifiedname>testing::internal::FloatingPoint::Max</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="310" column="18"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_floating_point_1a2cf0e39c6ebf026bc0353100d031ca85" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classtesting_1_1internal_1_1_floating_point_1abf228bf6cd48f12c8b44c85b4971a731" kindref="member">Bits</ref></type>
+        <definition>static Bits testing::internal::FloatingPoint&lt; RawType &gt;::SignAndMagnitudeToBiased</definition>
+        <argsstring>(const Bits &amp;sam)</argsstring>
+        <name>SignAndMagnitudeToBiased</name>
+        <qualifiedname>testing::internal::FloatingPoint::SignAndMagnitudeToBiased</qualifiedname>
+        <param>
+          <type>const <ref refid="classtesting_1_1internal_1_1_floating_point_1abf228bf6cd48f12c8b44c85b4971a731" kindref="member">Bits</ref> &amp;</type>
+          <declname>sam</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="370" column="15" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="370" bodyend="378"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_floating_point_1afe00f9f26ad2929a061f7e07b8a5071a" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classtesting_1_1internal_1_1_floating_point_1abf228bf6cd48f12c8b44c85b4971a731" kindref="member">Bits</ref></type>
+        <definition>static Bits testing::internal::FloatingPoint&lt; RawType &gt;::DistanceBetweenSignAndMagnitudeNumbers</definition>
+        <argsstring>(const Bits &amp;sam1, const Bits &amp;sam2)</argsstring>
+        <name>DistanceBetweenSignAndMagnitudeNumbers</name>
+        <qualifiedname>testing::internal::FloatingPoint::DistanceBetweenSignAndMagnitudeNumbers</qualifiedname>
+        <param>
+          <type>const <ref refid="classtesting_1_1internal_1_1_floating_point_1abf228bf6cd48f12c8b44c85b4971a731" kindref="member">Bits</ref> &amp;</type>
+          <declname>sam1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classtesting_1_1internal_1_1_floating_point_1abf228bf6cd48f12c8b44c85b4971a731" kindref="member">Bits</ref> &amp;</type>
+          <declname>sam2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="382" column="15" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="382" bodyend="387"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="245" column="1" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="245" bodyend="390"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1a965214c1af2f9ac5adb1393794aa81e5" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>AlmostEquals</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1abf228bf6cd48f12c8b44c85b4971a731" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>Bits</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1aed49c6dadf8dff4f65fbebef29bb1ae9" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>bits</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1afe00f9f26ad2929a061f7e07b8a5071a" prot="private" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>DistanceBetweenSignAndMagnitudeNumbers</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1af6bf8fab8df572ecb137a3516ff390ae" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>exponent_bits</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1a0dabf840863e0df84046f171c891fe71" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>FloatingPoint</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1aa17337e50a2ac855719bc0676529558f" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>fraction_bits</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1a460027cc19cf01ae8e09cc3796b2b575" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>Infinity</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1a1fc654fd206efa98e480aa1e034f30d5" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>is_nan</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1ab819d2e8f93e9e482373999f0f8d71b9" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>kBitCount</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1a1973d843c00781053d3073daa8a40119" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>kExponentBitCount</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1a66065dfc4d5f41100f686159637af23b" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>kExponentBitMask</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1a0b756a6d2a4f5f5b41ca79651c06c043" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>kFractionBitCount</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1a0ac75d4ffd24f14bca452abe8a718da1" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>kFractionBitMask</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1adeb0569a334b30329f1edf732f21c5ea" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>kMaxUlps</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1aca98b5ea6f2222a66a82e52421682efa" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>kSignBitMask</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1aae5954d8a57d3ff0987c6930cb68e114" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>Max</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1a145158f48d527cfc83150cc53bfd979f" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>Max</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1a93b5901a99236ad6eded827f76bf3a44" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>Max</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1ac551f793522e54fbd8a25acb79eac5b1" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>ReinterpretBits</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1afb8a816bb598225d775caaf43a893ef0" prot="public" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>sign_bit</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1a2cf0e39c6ebf026bc0353100d031ca85" prot="private" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>SignAndMagnitudeToBiased</name></member>
+      <member refid="classtesting_1_1internal_1_1_floating_point_1a2e0b6bd427248b91476f3fca281f7104" prot="private" virt="non-virtual"><scope>testing::internal::FloatingPoint</scope><name>u_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

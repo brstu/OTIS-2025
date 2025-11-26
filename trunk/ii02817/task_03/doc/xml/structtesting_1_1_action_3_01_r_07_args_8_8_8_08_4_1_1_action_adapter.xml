@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structtesting_1_1_action_3_01_r_07_args_8_8_8_08_4_1_1_action_adapter" kind="struct" language="C++" prot="private">
+    <compoundname>testing::Action&lt; R(Args...)&gt;::ActionAdapter</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtesting_1_1_action_3_01_r_07_args_8_8_8_08_4_1_1_action_adapter_1a66bd48347cc23954b264dbb4c06593df" prot="public" static="no" mutable="no">
+        <type>::std::shared_ptr&lt; <ref refid="classtesting_1_1_action_interface" kindref="compound">ActionInterface</ref>&lt; F &gt; &gt;</type>
+        <definition>::std::shared_ptr&lt;ActionInterface&lt;F&gt; &gt; testing::Action&lt; R(Args...)&gt;::ActionAdapter::impl_</definition>
+        <argsstring></argsstring>
+        <name>impl_</name>
+        <qualifiedname>testing::Action&lt; R(Args...)&gt;::ActionAdapter::impl_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="737" column="23" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="737" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtesting_1_1_action_3_01_r_07_args_8_8_8_08_4_1_1_action_adapter_1aeed624475b6f918c215025c587d54407" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>InArgs</declname>
+            <defname>InArgs</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structtesting_1_1internal_1_1_function" kindref="compound">internal::Function</ref>&lt; F &gt;<ref refid="classtesting_1_1_action_3_01_r_07_args_8_8_8_08_4_1aa6848fedb346ec3e57cc6055ca8a0a99" kindref="member">::Result</ref></type>
+        <definition>internal::Function&lt; F &gt;::Result testing::Action&lt; R(Args...)&gt;::ActionAdapter::operator()</definition>
+        <argsstring>(InArgs &amp;&amp;... args)</argsstring>
+        <name>operator()</name>
+        <qualifiedname>testing::Action&lt; R(Args...)&gt;::ActionAdapter::operator()</qualifiedname>
+        <param>
+          <type>InArgs &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="740" column="42" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="740" bodyend="743"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="735" column="3" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="735" bodyend="744"/>
+    <listofallmembers>
+      <member refid="structtesting_1_1_action_3_01_r_07_args_8_8_8_08_4_1_1_action_adapter_1a66bd48347cc23954b264dbb4c06593df" prot="public" virt="non-virtual"><scope>testing::Action&lt; R(Args...)&gt;::ActionAdapter</scope><name>impl_</name></member>
+      <member refid="structtesting_1_1_action_3_01_r_07_args_8_8_8_08_4_1_1_action_adapter_1aeed624475b6f918c215025c587d54407" prot="public" virt="non-virtual"><scope>testing::Action&lt; R(Args...)&gt;::ActionAdapter</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

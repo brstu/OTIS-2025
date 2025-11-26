@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="dir_2489e865b287438034cc4c0c1ca320a2" kind="dir">
+    <compoundname>src/build/_deps/googletest-src/googlemock/test</compoundname>
+    <innerfile refid="gmock-matchers__test_8h">gmock-matchers_test.h</innerfile>
+    <innerfile refid="gmock__link__test_8h">gmock_link_test.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googlemock/test/"/>
+  </compounddef>
+</doxygen>

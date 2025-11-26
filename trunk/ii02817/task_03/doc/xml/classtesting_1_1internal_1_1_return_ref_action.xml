@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1internal_1_1_return_ref_action" kind="class" language="C++" prot="public">
+    <compoundname>testing::internal::ReturnRefAction</compoundname>
+    <includes refid="gmock-actions_8h" local="no">gmock-actions.h</includes>
+    <innerclass refid="classtesting_1_1internal_1_1_return_ref_action_1_1_impl" prot="private">testing::internal::ReturnRefAction::Impl</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtesting_1_1internal_1_1_return_ref_action_1ad63d08b72518c2059e0cc99c006cd620" prot="private" static="no" mutable="no">
+        <type>T &amp;</type>
+        <definition>T&amp; testing::internal::ReturnRefAction&lt; T &gt;::ref_</definition>
+        <argsstring></argsstring>
+        <name>ref_</name>
+        <qualifiedname>testing::internal::ReturnRefAction::ref_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1176" column="5" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1176" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_return_ref_action_1a1384b1cd78f3069f0493e2302f143701" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>testing::internal::ReturnRefAction&lt; T &gt;::ReturnRefAction</definition>
+        <argsstring>(T &amp;ref)</argsstring>
+        <name>ReturnRefAction</name>
+        <qualifiedname>testing::internal::ReturnRefAction::ReturnRefAction</qualifiedname>
+        <param>
+          <type>T &amp;</type>
+          <declname>ref</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1145" column="12" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1145" bodyend="1145"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_return_ref_action_1a48e5d411097707e558af62eb68edc162" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>testing::internal::ReturnRefAction&lt; T &gt;::operator Action&lt; F &gt;</definition>
+        <argsstring>() const</argsstring>
+        <name>operator Action&lt; F &gt;</name>
+        <qualifiedname>testing::internal::ReturnRefAction::operator Action&lt; F &gt;</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1150" column="3" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1150" bodyend="1158"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1142" column="1" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1142" bodyend="1177"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1internal_1_1_return_ref_action_1a48e5d411097707e558af62eb68edc162" prot="public" virt="non-virtual"><scope>testing::internal::ReturnRefAction</scope><name>operator Action&lt; F &gt;</name></member>
+      <member refid="classtesting_1_1internal_1_1_return_ref_action_1ad63d08b72518c2059e0cc99c006cd620" prot="private" virt="non-virtual"><scope>testing::internal::ReturnRefAction</scope><name>ref_</name></member>
+      <member refid="classtesting_1_1internal_1_1_return_ref_action_1a1384b1cd78f3069f0493e2302f143701" prot="public" virt="non-virtual"><scope>testing::internal::ReturnRefAction</scope><name>ReturnRefAction</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

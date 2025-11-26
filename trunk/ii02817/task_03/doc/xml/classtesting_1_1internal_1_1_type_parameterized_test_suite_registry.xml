@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1internal_1_1_type_parameterized_test_suite_registry" kind="class" language="C++" prot="public">
+    <compoundname>testing::internal::TypeParameterizedTestSuiteRegistry</compoundname>
+    <includes refid="gtest-param-util_8h" local="no">gtest-param-util.h</includes>
+    <innerclass refid="structtesting_1_1internal_1_1_type_parameterized_test_suite_registry_1_1_type_parameterized_test_suite_info" prot="private">testing::internal::TypeParameterizedTestSuiteRegistry::TypeParameterizedTestSuiteInfo</innerclass>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtesting_1_1internal_1_1_type_parameterized_test_suite_registry_1a23da4b4cbd411f4c54e2f2ea0eefe7f3" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, TypeParameterizedTestSuiteInfo &gt;</type>
+        <definition>std::map&lt;std::string, TypeParameterizedTestSuiteInfo&gt; testing::internal::TypeParameterizedTestSuiteRegistry::suites_</definition>
+        <argsstring></argsstring>
+        <name>suites_</name>
+        <qualifiedname>testing::internal::TypeParameterizedTestSuiteRegistry::suites_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h" line="780" column="12" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h" bodystart="780" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_type_parameterized_test_suite_registry_1a8a41503ac32be0f634583a2e7ee1159a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::TypeParameterizedTestSuiteRegistry::RegisterTestSuite</definition>
+        <argsstring>(const char *test_suite_name, CodeLocation code_location)</argsstring>
+        <name>RegisterTestSuite</name>
+        <qualifiedname>testing::internal::TypeParameterizedTestSuiteRegistry::RegisterTestSuite</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>test_suite_name</declname>
+        </param>
+        <param>
+          <type><ref refid="structtesting_1_1internal_1_1_code_location" kindref="compound">CodeLocation</ref></type>
+          <declname>code_location</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h" line="761" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_type_parameterized_test_suite_registry_1ad6413d7c6df0b08e54aa1bbd166fc949" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::TypeParameterizedTestSuiteRegistry::RegisterInstantiation</definition>
+        <argsstring>(const char *test_suite_name)</argsstring>
+        <name>RegisterInstantiation</name>
+        <qualifiedname>testing::internal::TypeParameterizedTestSuiteRegistry::RegisterInstantiation</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>test_suite_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h" line="765" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_type_parameterized_test_suite_registry_1ad3b086596f2a84f3344fe1558126afbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::TypeParameterizedTestSuiteRegistry::CheckForInstantiations</definition>
+        <argsstring>()</argsstring>
+        <name>CheckForInstantiations</name>
+        <qualifiedname>testing::internal::TypeParameterizedTestSuiteRegistry::CheckForInstantiations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h" line="769" column="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h" line="758" column="1" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h" bodystart="758" bodyend="781"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1internal_1_1_type_parameterized_test_suite_registry_1ad3b086596f2a84f3344fe1558126afbb" prot="public" virt="non-virtual"><scope>testing::internal::TypeParameterizedTestSuiteRegistry</scope><name>CheckForInstantiations</name></member>
+      <member refid="classtesting_1_1internal_1_1_type_parameterized_test_suite_registry_1ad6413d7c6df0b08e54aa1bbd166fc949" prot="public" virt="non-virtual"><scope>testing::internal::TypeParameterizedTestSuiteRegistry</scope><name>RegisterInstantiation</name></member>
+      <member refid="classtesting_1_1internal_1_1_type_parameterized_test_suite_registry_1a8a41503ac32be0f634583a2e7ee1159a" prot="public" virt="non-virtual"><scope>testing::internal::TypeParameterizedTestSuiteRegistry</scope><name>RegisterTestSuite</name></member>
+      <member refid="classtesting_1_1internal_1_1_type_parameterized_test_suite_registry_1a23da4b4cbd411f4c54e2f2ea0eefe7f3" prot="private" virt="non-virtual"><scope>testing::internal::TypeParameterizedTestSuiteRegistry</scope><name>suites_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
