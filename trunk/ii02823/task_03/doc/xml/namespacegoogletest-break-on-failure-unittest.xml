@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="namespacegoogletest-break-on-failure-unittest" kind="namespace" language="Python">
+    <compoundname>googletest-break-on-failure-unittest</compoundname>
+    <innerclass refid="classgoogletest-break-on-failure-unittest_1_1_g_test_break_on_failure_unit_test" prot="public">googletest-break-on-failure-unittest::GTestBreakOnFailureUnitTest</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacegoogletest-break-on-failure-unittest_1ac691a1147780270cb084b51d9cbcfdd4" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str googletest-break-on-failure-unittest.IS_WINDOWS</definition>
+        <argsstring></argsstring>
+        <name>IS_WINDOWS</name>
+        <qualifiedname>googletest-break-on-failure-unittest.IS_WINDOWS</qualifiedname>
+        <initializer>=  &apos;nt&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" line="46" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-break-on-failure-unittest_1ad9f1b313de456378bbb667e67ea92e03" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str googletest-break-on-failure-unittest.BREAK_ON_FAILURE_ENV_VAR</definition>
+        <argsstring></argsstring>
+        <name>BREAK_ON_FAILURE_ENV_VAR</name>
+        <qualifiedname>googletest-break-on-failure-unittest.BREAK_ON_FAILURE_ENV_VAR</qualifiedname>
+        <initializer>=  &apos;GTEST_BREAK_ON_FAILURE&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" line="49" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-break-on-failure-unittest_1a013baf202661e3fa2eb77aaae85dc629" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str googletest-break-on-failure-unittest.BREAK_ON_FAILURE_FLAG</definition>
+        <argsstring></argsstring>
+        <name>BREAK_ON_FAILURE_FLAG</name>
+        <qualifiedname>googletest-break-on-failure-unittest.BREAK_ON_FAILURE_FLAG</qualifiedname>
+        <initializer>=  &apos;gtest_break_on_failure&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" line="52" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-break-on-failure-unittest_1a9b32364afac29738c40afae76b826705" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str googletest-break-on-failure-unittest.THROW_ON_FAILURE_ENV_VAR</definition>
+        <argsstring></argsstring>
+        <name>THROW_ON_FAILURE_ENV_VAR</name>
+        <qualifiedname>googletest-break-on-failure-unittest.THROW_ON_FAILURE_ENV_VAR</qualifiedname>
+        <initializer>=  &apos;GTEST_THROW_ON_FAILURE&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" line="55" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-break-on-failure-unittest_1a6c6b60d3efbb92aa510e5fd4c367e58f" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str googletest-break-on-failure-unittest.CATCH_EXCEPTIONS_ENV_VAR</definition>
+        <argsstring></argsstring>
+        <name>CATCH_EXCEPTIONS_ENV_VAR</name>
+        <qualifiedname>googletest-break-on-failure-unittest.CATCH_EXCEPTIONS_ENV_VAR</qualifiedname>
+        <initializer>=  &apos;GTEST_CATCH_EXCEPTIONS&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" line="58" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-break-on-failure-unittest_1a03b507a984f7e7076a3aa3ed3548bdc8" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>googletest-break-on-failure-unittest.EXE_PATH</definition>
+        <argsstring></argsstring>
+        <name>EXE_PATH</name>
+        <qualifiedname>googletest-break-on-failure-unittest.EXE_PATH</qualifiedname>
+        <initializer>=  <ref refid="namespacegtest__test__utils_1a239f43ff0e44144cb5a1e14f3453c273" kindref="member">gtest_test_utils.GetTestExecutablePath</ref>(
+    &apos;<ref refid="namespacegoogletest" kindref="compound">googletest</ref>-break-on-failure-unittest_&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" line="61" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-break-on-failure-unittest_1ada5297aa07c010145fcb4df402ab713d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>googletest-break-on-failure-unittest.environ</definition>
+        <argsstring></argsstring>
+        <name>environ</name>
+        <qualifiedname>googletest-break-on-failure-unittest.environ</qualifiedname>
+        <initializer>=  <ref refid="namespacegtest__test__utils_1ab0f2d4a3e90400abb93fd0808047a0a4" kindref="member">gtest_test_utils.environ</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" line="65" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-break-on-failure-unittest_1abc1b16aef18f9120cbfa46f044a8b05e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>googletest-break-on-failure-unittest.SetEnvVar</definition>
+        <argsstring></argsstring>
+        <name>SetEnvVar</name>
+        <qualifiedname>googletest-break-on-failure-unittest.SetEnvVar</qualifiedname>
+        <initializer>=  <ref refid="namespacegtest__test__utils_1abece99ff6c6b9c882ab12c15793898bf" kindref="member">gtest_test_utils.SetEnvVar</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" line="66" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" bodystart="66" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacegoogletest-break-on-failure-unittest_1ac13fc67f4d83bca3a621e97f2bf2c402" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-break-on-failure-unittest.Run</definition>
+        <argsstring>(command)</argsstring>
+        <name>Run</name>
+        <qualifiedname>googletest-break-on-failure-unittest.Run</qualifiedname>
+        <param>
+          <type>command</type>
+          <defname>command</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Runs a command; returns 1 if it was killed by a signal, or 0 otherwise.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" line="76" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" bodystart="76" bodyend="88"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

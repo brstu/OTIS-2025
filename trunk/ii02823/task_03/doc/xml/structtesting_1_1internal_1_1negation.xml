@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structtesting_1_1internal_1_1negation" kind="struct" language="C++" prot="public">
+    <compoundname>testing::internal::negation</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::integral_constant&lt; bool, bool(!P::value)&gt;</basecompoundref>
+    <includes refid="gmock-actions_8h" local="no">gmock-actions.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename P</type>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>std::integral_constant&lt; bool, bool(!P::value)&gt;</label>
+      </node>
+      <node id="1">
+        <label>testing::internal::negation&lt; P &gt;</label>
+        <link refid="structtesting_1_1internal_1_1negation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>std::integral_constant&lt; bool, bool(!P::value)&gt;</label>
+      </node>
+      <node id="1">
+        <label>testing::internal::negation&lt; P &gt;</label>
+        <link refid="structtesting_1_1internal_1_1negation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="269" column="1" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="271" bodyend="271"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

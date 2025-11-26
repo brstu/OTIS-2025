@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="gmock-generated-actions_8h" kind="file" language="C++">
+    <compoundname>gmock-generated-actions.h</compoundname>
+    <includedby refid="gmock-more-actions_8h" local="yes">src/build/_deps/googletest-src/googlemock/include/gmock/gmock-more-actions.h</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/build/_deps/googletest-src/googlemock/include/gmock/gmock-more-actions.h</label>
+        <link refid="gmock-more-actions_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/build/_deps/googletest-src/googlemock/include/gmock/gmock.h</label>
+        <link refid="gmock_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/build/_deps/googletest-src/googlemock/include/gmock/internal/custom/gmock-generated-actions.h</label>
+        <link refid="gmock-generated-actions_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/build/_deps/googletest-src/googlemock/src/gmock-all.cc</label>
+        <link refid="gmock-all_8cc"/>
+      </node>
+      <node id="5">
+        <label>src/build/_deps/googletest-src/googlemock/src/gmock-internal-utils.cc</label>
+        <link refid="gmock-internal-utils_8cc"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/build/_deps/googletest-src/googlemock/src/gmock-spec-builders.cc</label>
+        <link refid="gmock-spec-builders_8cc"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>src/build/_deps/googletest-src/googlemock/src/gmock.cc</label>
+        <link refid="gmock_8cc"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>src/build/_deps/googletest-src/googlemock/src/gmock_main.cc</label>
+        <link refid="gmock__main_8cc"/>
+      </node>
+      <node id="9">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-actions_test.cc</label>
+        <link refid="gmock-actions__test_8cc"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-cardinalities_test.cc</label>
+        <link refid="gmock-cardinalities__test_8cc"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-function-mocker_test.cc</label>
+        <link refid="gmock-function-mocker__test_8cc"/>
+      </node>
+      <node id="13">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-internal-utils_test.cc</label>
+        <link refid="gmock-internal-utils__test_8cc"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-matchers-arithmetic_test.cc</label>
+        <link refid="gmock-matchers-arithmetic__test_8cc"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-matchers-comparisons_test.cc</label>
+        <link refid="gmock-matchers-comparisons__test_8cc"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-matchers-containers_test.cc</label>
+        <link refid="gmock-matchers-containers__test_8cc"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-matchers-misc_test.cc</label>
+        <link refid="gmock-matchers-misc__test_8cc"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-matchers_test.h</label>
+        <link refid="gmock-matchers__test_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-more-actions_test.cc</label>
+        <link refid="gmock-more-actions__test_8cc"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-nice-strict_test.cc</label>
+        <link refid="gmock-nice-strict__test_8cc"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-pp-string_test.cc</label>
+        <link refid="gmock-pp-string__test_8cc"/>
+      </node>
+      <node id="22">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-spec-builders_test.cc</label>
+        <link refid="gmock-spec-builders__test_8cc"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_all_test.cc</label>
+        <link refid="gmock__all__test_8cc"/>
+      </node>
+      <node id="23">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_ex_test.cc</label>
+        <link refid="gmock__ex__test_8cc"/>
+      </node>
+      <node id="24">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_leak_test_.cc</label>
+        <link refid="gmock__leak__test___8cc"/>
+      </node>
+      <node id="26">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_link2_test.cc</label>
+        <link refid="gmock__link2__test_8cc"/>
+      </node>
+      <node id="27">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_link_test.cc</label>
+        <link refid="gmock__link__test_8cc"/>
+      </node>
+      <node id="25">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_link_test.h</label>
+        <link refid="gmock__link__test_8h"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_output_test_.cc</label>
+        <link refid="gmock__output__test___8cc"/>
+      </node>
+      <node id="29">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_stress_test.cc</label>
+        <link refid="gmock__stress__test_8cc"/>
+      </node>
+      <node id="30">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_test.cc</label>
+        <link refid="gmock__test_8cc"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>IWYU<sp/>pragma:<sp/>private,<sp/>include<sp/>&quot;gmock/gmock.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>IWYU<sp/>pragma:<sp/>friend<sp/>gmock/.*</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>GOOGLEMOCK_INCLUDE_GMOCK_INTERNAL_CUSTOM_GMOCK_GENERATED_ACTIONS_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GOOGLEMOCK_INCLUDE_GMOCK_INTERNAL_CUSTOM_GMOCK_GENERATED_ACTIONS_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>GOOGLEMOCK_INCLUDE_GMOCK_INTERNAL_CUSTOM_GMOCK_GENERATED_ACTIONS_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/build/_deps/googletest-src/googlemock/include/gmock/internal/custom/gmock-generated-actions.h"/>
+  </compounddef>
+</doxygen>

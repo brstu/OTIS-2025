@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structtesting_1_1_once_action_3_01_result_07_args_8_8_8_08_4_1_1_ignore_incoming_arguments" kind="struct" language="C++" prot="private">
+    <compoundname>testing::OnceAction&lt; Result(Args...)&gt;::IgnoreIncomingArguments</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename Callable</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtesting_1_1_once_action_3_01_result_07_args_8_8_8_08_4_1_1_ignore_incoming_arguments_1a61dcc983bf46a556bad0c4969a4fbf22" prot="public" static="no" mutable="no">
+        <type>Callable</type>
+        <definition>Callable testing::OnceAction&lt; Result(Args...)&gt;::IgnoreIncomingArguments&lt; Callable &gt;::callable</definition>
+        <argsstring></argsstring>
+        <name>callable</name>
+        <qualifiedname>testing::OnceAction&lt; Result(Args...)&gt;::IgnoreIncomingArguments::callable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="553" column="14" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="553" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtesting_1_1_once_action_3_01_result_07_args_8_8_8_08_4_1_1_ignore_incoming_arguments_1a526670d14b1132f26814f6a532592836" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacetesting_1_1internal_1a1df86d7075d2b6456e37074cb8951625" kindref="member">internal::call_result_t</ref>&lt; Callable &gt;</type>
+        <definition>internal::call_result_t&lt; Callable &gt; testing::OnceAction&lt; Result(Args...)&gt;::IgnoreIncomingArguments&lt; Callable &gt;::operator()</definition>
+        <argsstring>(Args &amp;&amp;...)</argsstring>
+        <name>operator()</name>
+        <qualifiedname>testing::OnceAction&lt; Result(Args...)&gt;::IgnoreIncomingArguments::operator()</qualifiedname>
+        <param>
+          <type>Args &amp;&amp;</type>
+          <declname>...</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="549" column="29" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="549" bodyend="551"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="548" column="3" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="548" bodyend="554"/>
+    <listofallmembers>
+      <member refid="structtesting_1_1_once_action_3_01_result_07_args_8_8_8_08_4_1_1_ignore_incoming_arguments_1a61dcc983bf46a556bad0c4969a4fbf22" prot="public" virt="non-virtual"><scope>testing::OnceAction&lt; Result(Args...)&gt;::IgnoreIncomingArguments</scope><name>callable</name></member>
+      <member refid="structtesting_1_1_once_action_3_01_result_07_args_8_8_8_08_4_1_1_ignore_incoming_arguments_1a526670d14b1132f26814f6a532592836" prot="public" virt="non-virtual"><scope>testing::OnceAction&lt; Result(Args...)&gt;::IgnoreIncomingArguments</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

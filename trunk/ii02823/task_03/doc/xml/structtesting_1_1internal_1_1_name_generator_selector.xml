@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structtesting_1_1internal_1_1_name_generator_selector" kind="struct" language="C++" prot="public">
+    <compoundname>testing::internal::NameGeneratorSelector</compoundname>
+    <includes refid="gtest-internal_8h" local="no">gtest-internal.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Provided</type>
+        <defval><ref refid="structtesting_1_1internal_1_1_default_name_generator" kindref="compound">DefaultNameGenerator</ref></defval>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structtesting_1_1internal_1_1_name_generator_selector_1af733dd040c8239a488f8a7f131a3d8e2" prot="public" static="no">
+        <type>Provided</type>
+        <definition>typedef Provided testing::internal::NameGeneratorSelector&lt; Provided &gt;::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>testing::internal::NameGeneratorSelector::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="683" column="20" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="683" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="682" column="1" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="682" bodyend="684"/>
+    <listofallmembers>
+      <member refid="structtesting_1_1internal_1_1_name_generator_selector_1af733dd040c8239a488f8a7f131a3d8e2" prot="public" virt="non-virtual"><scope>testing::internal::NameGeneratorSelector</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

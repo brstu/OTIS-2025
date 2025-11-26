@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structtesting_1_1gtest__printers__test_1_1_big" kind="struct" language="C++" prot="public">
+    <compoundname>testing::gtest_printers_test::Big</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtesting_1_1gtest__printers__test_1_1_big_1a863911a8ec5c3bbe79c44d399f1de61f" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char testing::gtest_printers_test::Big::array[257]</definition>
+        <argsstring>[257]</argsstring>
+        <name>array</name>
+        <qualifiedname>testing::gtest_printers_test::Big::array</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" line="1279" column="8" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" bodystart="1279" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtesting_1_1gtest__printers__test_1_1_big_1adb57fb0e14adb81177e3bfd7ed39966c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>testing::gtest_printers_test::Big::Big</definition>
+        <argsstring>()</argsstring>
+        <name>Big</name>
+        <qualifiedname>testing::gtest_printers_test::Big::Big</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" line="1278" column="3" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" bodystart="1278" bodyend="1278"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" line="1277" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" bodystart="1277" bodyend="1280"/>
+    <listofallmembers>
+      <member refid="structtesting_1_1gtest__printers__test_1_1_big_1a863911a8ec5c3bbe79c44d399f1de61f" prot="public" virt="non-virtual"><scope>testing::gtest_printers_test::Big</scope><name>array</name></member>
+      <member refid="structtesting_1_1gtest__printers__test_1_1_big_1adb57fb0e14adb81177e3bfd7ed39966c" prot="public" virt="non-virtual"><scope>testing::gtest_printers_test::Big</scope><name>Big</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

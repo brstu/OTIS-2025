@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="dir_9f63a2b2c5cea0d6da6fce074ebdf64a" kind="dir">
+    <compoundname>src/build/_deps/googletest-src/googletest/include/gtest</compoundname>
+    <innerdir refid="dir_94d90954a380ce84511b92ea84762aee">src/build/_deps/googletest-src/googletest/include/gtest/internal</innerdir>
+    <innerfile refid="gtest-assertion-result_8h">gtest-assertion-result.h</innerfile>
+    <innerfile refid="gtest-death-test_8h">gtest-death-test.h</innerfile>
+    <innerfile refid="gtest-matchers_8h">gtest-matchers.h</innerfile>
+    <innerfile refid="gtest-message_8h">gtest-message.h</innerfile>
+    <innerfile refid="gtest-param-test_8h">gtest-param-test.h</innerfile>
+    <innerfile refid="gtest-printers_8h">gtest-printers.h</innerfile>
+    <innerfile refid="gtest-spi_8h">gtest-spi.h</innerfile>
+    <innerfile refid="gtest-test-part_8h">gtest-test-part.h</innerfile>
+    <innerfile refid="gtest-typed-test_8h">gtest-typed-test.h</innerfile>
+    <innerfile refid="gtest_8h">gtest.h</innerfile>
+    <innerfile refid="gtest__pred__impl_8h">gtest_pred_impl.h</innerfile>
+    <innerfile refid="gtest__prod_8h">gtest_prod.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/"/>
+  </compounddef>
+</doxygen>

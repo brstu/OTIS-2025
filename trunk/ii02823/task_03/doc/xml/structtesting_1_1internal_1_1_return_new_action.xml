@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structtesting_1_1internal_1_1_return_new_action" kind="struct" language="C++" prot="public">
+    <compoundname>testing::internal::ReturnNewAction</compoundname>
+    <includes refid="gmock-actions_8h" local="no">gmock-actions.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>typename...</type>
+        <declname>Params</declname>
+        <defname>Params</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtesting_1_1internal_1_1_return_new_action_1a5a56f8a1df9ca8e8ae631aa7c859b469" prot="public" static="no" mutable="no">
+        <type>std::tuple&lt; Params... &gt;</type>
+        <definition>std::tuple&lt;Params...&gt; testing::internal::ReturnNewAction&lt; T, Params &gt;::params</definition>
+        <argsstring></argsstring>
+        <name>params</name>
+        <qualifiedname>testing::internal::ReturnNewAction::params</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1657" column="14" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1657" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtesting_1_1internal_1_1_return_new_action_1a58b60fa03e0967269de353200a1cb67c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T * testing::internal::ReturnNewAction&lt; T, Params &gt;::operator()</definition>
+        <argsstring>() const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>testing::internal::ReturnNewAction::operator()</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1650" column="5" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1650" bodyend="1656"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1649" column="1" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1649" bodyend="1658"/>
+    <listofallmembers>
+      <member refid="structtesting_1_1internal_1_1_return_new_action_1a58b60fa03e0967269de353200a1cb67c" prot="public" virt="non-virtual"><scope>testing::internal::ReturnNewAction</scope><name>operator()</name></member>
+      <member refid="structtesting_1_1internal_1_1_return_new_action_1a5a56f8a1df9ca8e8ae631aa7c859b469" prot="public" virt="non-virtual"><scope>testing::internal::ReturnNewAction</scope><name>params</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

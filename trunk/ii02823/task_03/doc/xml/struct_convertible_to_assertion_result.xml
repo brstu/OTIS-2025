@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="struct_convertible_to_assertion_result" kind="struct" language="C++" prot="public">
+    <compoundname>ConvertibleToAssertionResult</compoundname>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_convertible_to_assertion_result_1a0f816f2f25ecaf29a95b3cfd4033e105" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ConvertibleToAssertionResult::operator AssertionResult</definition>
+        <argsstring>() const</argsstring>
+        <name>operator AssertionResult</name>
+        <qualifiedname>ConvertibleToAssertionResult::operator AssertionResult</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest_unittest.cc" line="5091" column="3" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest_unittest.cc" bodystart="5091" bodyend="5091"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/test/gtest_unittest.cc" line="5090" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest_unittest.cc" bodystart="5090" bodyend="5092"/>
+    <listofallmembers>
+      <member refid="struct_convertible_to_assertion_result_1a0f816f2f25ecaf29a95b3cfd4033e105" prot="public" virt="non-virtual"><scope>ConvertibleToAssertionResult</scope><name>operator AssertionResult</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

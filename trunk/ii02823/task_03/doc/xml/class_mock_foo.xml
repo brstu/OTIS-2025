@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_mock_foo" kind="class" language="C++" prot="public">
+    <compoundname>MockFoo</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">FooInterface</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_mock_foo_1a2821e632963d0ea4af66a7ce7ed36a8f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MockFoo::MockFoo</definition>
+        <argsstring>()</argsstring>
+        <name>MockFoo</name>
+        <qualifiedname>MockFoo::MockFoo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/test/gmock_output_test_.cc" line="58" column="3" bodyfile="src/build/_deps/googletest-src/googlemock/test/gmock_output_test_.cc" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mock_foo_1a8f323a65afd93c0605a02b278b101d18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MockFoo::MOCK_METHOD3</definition>
+        <argsstring>(Bar, char(const std::string &amp;s, int i, double x))</argsstring>
+        <name>MOCK_METHOD3</name>
+        <qualifiedname>MockFoo::MOCK_METHOD3</qualifiedname>
+        <param>
+          <type>Bar</type>
+        </param>
+        <param>
+          <type>char(const std::string &amp;s, int i, double x)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/test/gmock_output_test_.cc" line="60" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mock_foo_1ae1d53263d5efcf38fda3990302fac6ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MockFoo::MOCK_METHOD2</definition>
+        <argsstring>(Bar2, bool(int x, int y))</argsstring>
+        <name>MOCK_METHOD2</name>
+        <qualifiedname>MockFoo::MOCK_METHOD2</qualifiedname>
+        <param>
+          <type>Bar2</type>
+        </param>
+        <param>
+          <type>bool(int x, int y)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/test/gmock_output_test_.cc" line="61" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mock_foo_1af1e0c374cadacdaa7ca69f9c38d85543" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MockFoo::MOCK_METHOD2</definition>
+        <argsstring>(Bar3, void(int x, int y))</argsstring>
+        <name>MOCK_METHOD2</name>
+        <qualifiedname>MockFoo::MOCK_METHOD2</qualifiedname>
+        <param>
+          <type>Bar3</type>
+        </param>
+        <param>
+          <type>void(int x, int y)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/test/gmock_output_test_.cc" line="62" column="3"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_mock_foo_1ad382b5de4b944a34f74c86a7983a6b81" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MockFoo::MockFoo</definition>
+        <argsstring>(const MockFoo &amp;)=delete</argsstring>
+        <name>MockFoo</name>
+        <qualifiedname>MockFoo::MockFoo</qualifiedname>
+        <param>
+          <type>const <ref refid="class_mock_foo" kindref="compound">MockFoo</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/test/gmock_output_test_.cc" line="65" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mock_foo_1acf9fd04bf4f7e7bd4fa40df74c5de9dd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_mock_foo" kindref="compound">MockFoo</ref> &amp;</type>
+        <definition>MockFoo &amp; MockFoo::operator=</definition>
+        <argsstring>(const MockFoo &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>MockFoo::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_mock_foo" kindref="compound">MockFoo</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/test/gmock_output_test_.cc" line="66" column="11"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>MockFoo</label>
+        <link refid="class_mock_foo"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>anonymous:</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>MockFoo</label>
+        <link refid="class_mock_foo"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>anonymous:</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/build/_deps/googletest-src/googlemock/test/gmock_output_test_.cc" line="56" column="1" bodyfile="src/build/_deps/googletest-src/googlemock/test/gmock_output_test_.cc" bodystart="56" bodyend="67"/>
+    <listofallmembers>
+      <member refid="class_mock_foo_1ae1d53263d5efcf38fda3990302fac6ab" prot="public" virt="non-virtual"><scope>MockFoo</scope><name>MOCK_METHOD2</name></member>
+      <member refid="class_mock_foo_1af1e0c374cadacdaa7ca69f9c38d85543" prot="public" virt="non-virtual"><scope>MockFoo</scope><name>MOCK_METHOD2</name></member>
+      <member refid="class_mock_foo_1a8f323a65afd93c0605a02b278b101d18" prot="public" virt="non-virtual"><scope>MockFoo</scope><name>MOCK_METHOD3</name></member>
+      <member refid="class_mock_foo_1a2821e632963d0ea4af66a7ce7ed36a8f" prot="public" virt="non-virtual"><scope>MockFoo</scope><name>MockFoo</name></member>
+      <member refid="class_mock_foo_1ad382b5de4b944a34f74c86a7983a6b81" prot="private" virt="non-virtual"><scope>MockFoo</scope><name>MockFoo</name></member>
+      <member refid="class_mock_foo_1acf9fd04bf4f7e7bd4fa40df74c5de9dd" prot="private" virt="non-virtual"><scope>MockFoo</scope><name>operator=</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

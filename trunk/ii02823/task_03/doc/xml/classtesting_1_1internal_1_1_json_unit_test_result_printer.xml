@@ -1,0 +1,434 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1internal_1_1_json_unit_test_result_printer" kind="class" language="C++" prot="public">
+    <compoundname>testing::internal::JsonUnitTestResultPrinter</compoundname>
+    <basecompoundref refid="classtesting_1_1_empty_test_event_listener" prot="public" virt="non-virtual">testing::EmptyTestEventListener</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a0471c1f94083f864b5e4d98fd9e80207" prot="private" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string testing::internal::JsonUnitTestResultPrinter::output_file_</definition>
+        <argsstring></argsstring>
+        <name>output_file_</name>
+        <qualifiedname>testing::internal::JsonUnitTestResultPrinter::output_file_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="4498" column="21" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4498" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a273623decde1be18db45e95594f9d501" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>testing::internal::JsonUnitTestResultPrinter::JsonUnitTestResultPrinter</definition>
+        <argsstring>(const char *output_file)</argsstring>
+        <name>JsonUnitTestResultPrinter</name>
+        <qualifiedname>testing::internal::JsonUnitTestResultPrinter::JsonUnitTestResultPrinter</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>output_file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="4446" column="12" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4506" bodyend="4511"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a9716a1dd5a3608181748c1b6f039c365" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void testing::internal::JsonUnitTestResultPrinter::OnTestIterationEnd</definition>
+        <argsstring>(const UnitTest &amp;unit_test, int iteration) override</argsstring>
+        <name>OnTestIterationEnd</name>
+        <qualifiedname>testing::internal::JsonUnitTestResultPrinter::OnTestIterationEnd</qualifiedname>
+        <reimplements refid="classtesting_1_1_empty_test_event_listener_1aae9c5c61e476f0c421402fb1dde434d2">OnTestIterationEnd</reimplements>
+        <param>
+          <type>const <ref refid="class_unit_test" kindref="compound">UnitTest</ref> &amp;</type>
+          <declname>unit_test</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iteration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="4448" column="8" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4513" bodyend="4520"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a7dcd37f4feff122ff05d4fc716949ca2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::JsonUnitTestResultPrinter::PrintJsonTestList</definition>
+        <argsstring>(::std::ostream *stream, const std::vector&lt; TestSuite * &gt; &amp;test_suites)</argsstring>
+        <name>PrintJsonTestList</name>
+        <qualifiedname>testing::internal::JsonUnitTestResultPrinter::PrintJsonTestList</qualifiedname>
+        <param>
+          <type>::std::ostream *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; <ref refid="class_test_suite" kindref="compound">TestSuite</ref> * &gt; &amp;</type>
+          <declname>test_suites</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="4451" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4843" bodyend="4867"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a1db1a765a0ed6402d9585f2fe131fde6" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string testing::internal::JsonUnitTestResultPrinter::EscapeJson</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>EscapeJson</name>
+        <qualifiedname>testing::internal::JsonUnitTestResultPrinter::EscapeJson</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="4456" column="22" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4523" bodyend="4560"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a63dcc481aba7d2305fad8ad9d4d8090c" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::JsonUnitTestResultPrinter::OutputJsonKey</definition>
+        <argsstring>(std::ostream *stream, const std::string &amp;element_name, const std::string &amp;name, const std::string &amp;value, const std::string &amp;indent, bool comma=true)</argsstring>
+        <name>OutputJsonKey</name>
+        <qualifiedname>testing::internal::JsonUnitTestResultPrinter::OutputJsonKey</qualifiedname>
+        <param>
+          <type>std::ostream *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>element_name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>indent</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>comma</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="4460" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4591" bodyend="4607"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a312b071e5ed3913b854490b1e427d326" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::JsonUnitTestResultPrinter::OutputJsonKey</definition>
+        <argsstring>(std::ostream *stream, const std::string &amp;element_name, const std::string &amp;name, int value, const std::string &amp;indent, bool comma=true)</argsstring>
+        <name>OutputJsonKey</name>
+        <qualifiedname>testing::internal::JsonUnitTestResultPrinter::OutputJsonKey</qualifiedname>
+        <param>
+          <type>std::ostream *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>element_name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>indent</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>comma</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="4464" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4609" bodyend="4622"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a4f8a37da48f6b0783e5ee0c761286d68" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::JsonUnitTestResultPrinter::OutputJsonTestSuiteForTestResult</definition>
+        <argsstring>(::std::ostream *stream, const TestResult &amp;result)</argsstring>
+        <name>OutputJsonTestSuiteForTestResult</name>
+        <qualifiedname>testing::internal::JsonUnitTestResultPrinter::OutputJsonTestSuiteForTestResult</qualifiedname>
+        <param>
+          <type>::std::ostream *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_test_result" kindref="compound">TestResult</ref> &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="4472" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4625" bodyend="4664"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a0e2c78c5dec3b4810c132483e66b9a27" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::JsonUnitTestResultPrinter::OutputJsonTestResult</definition>
+        <argsstring>(::std::ostream *stream, const TestResult &amp;result)</argsstring>
+        <name>OutputJsonTestResult</name>
+        <qualifiedname>testing::internal::JsonUnitTestResultPrinter::OutputJsonTestResult</qualifiedname>
+        <param>
+          <type>::std::ostream *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_test_result" kindref="compound">TestResult</ref> &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="4476" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4714" bodyend="4741"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_json_unit_test_result_printer_1aca28dc59e9fbf804c9efa97e022d15e1" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::JsonUnitTestResultPrinter::OutputJsonTestInfo</definition>
+        <argsstring>(::std::ostream *stream, const char *test_suite_name, const TestInfo &amp;test_info)</argsstring>
+        <name>OutputJsonTestInfo</name>
+        <qualifiedname>testing::internal::JsonUnitTestResultPrinter::OutputJsonTestInfo</qualifiedname>
+        <param>
+          <type>::std::ostream *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>test_suite_name</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_test_info" kindref="compound">TestInfo</ref> &amp;</type>
+          <declname>test_info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="4480" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4667" bodyend="4712"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_json_unit_test_result_printer_1ab4fe00e4900f5189beba931f035ae48c" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::JsonUnitTestResultPrinter::PrintJsonTestSuite</definition>
+        <argsstring>(::std::ostream *stream, const TestSuite &amp;test_suite)</argsstring>
+        <name>PrintJsonTestSuite</name>
+        <qualifiedname>testing::internal::JsonUnitTestResultPrinter::PrintJsonTestSuite</qualifiedname>
+        <param>
+          <type>::std::ostream *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_test_suite" kindref="compound">TestSuite</ref> &amp;</type>
+          <declname>test_suite</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="4485" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4744" bodyend="4784"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a18b5f31f180d47044871e0dd4ec38a00" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::JsonUnitTestResultPrinter::PrintJsonUnitTest</definition>
+        <argsstring>(::std::ostream *stream, const UnitTest &amp;unit_test)</argsstring>
+        <name>PrintJsonUnitTest</name>
+        <qualifiedname>testing::internal::JsonUnitTestResultPrinter::PrintJsonUnitTest</qualifiedname>
+        <param>
+          <type>::std::ostream *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_unit_test" kindref="compound">UnitTest</ref> &amp;</type>
+          <declname>unit_test</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="4489" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4787" bodyend="4841"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_json_unit_test_result_printer_1af6c2baf27486ffa5ac7fd328044ec235" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string testing::internal::JsonUnitTestResultPrinter::TestPropertiesAsJson</definition>
+        <argsstring>(const TestResult &amp;result, const std::string &amp;indent)</argsstring>
+        <name>TestPropertiesAsJson</name>
+        <qualifiedname>testing::internal::JsonUnitTestResultPrinter::TestPropertiesAsJson</qualifiedname>
+        <param>
+          <type>const <ref refid="class_test_result" kindref="compound">TestResult</ref> &amp;</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>indent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="4494" column="22" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4870" bodyend="4880"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a66b5e4d46f3fcb0af55dd8d49ab49b49" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>testing::internal::JsonUnitTestResultPrinter::JsonUnitTestResultPrinter</definition>
+        <argsstring>(const JsonUnitTestResultPrinter &amp;)=delete</argsstring>
+        <name>JsonUnitTestResultPrinter</name>
+        <qualifiedname>testing::internal::JsonUnitTestResultPrinter::JsonUnitTestResultPrinter</qualifiedname>
+        <param>
+          <type>const JsonUnitTestResultPrinter &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="4500" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a76569d7105da57451a057a0ccab92be0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a273623decde1be18db45e95594f9d501" kindref="member">JsonUnitTestResultPrinter</ref> &amp;</type>
+        <definition>JsonUnitTestResultPrinter &amp; testing::internal::JsonUnitTestResultPrinter::operator=</definition>
+        <argsstring>(const JsonUnitTestResultPrinter &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>testing::internal::JsonUnitTestResultPrinter::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a273623decde1be18db45e95594f9d501" kindref="member">JsonUnitTestResultPrinter</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="4501" column="29"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>testing::EmptyTestEventListener</label>
+        <link refid="classtesting_1_1_empty_test_event_listener"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>testing::TestEventListener</label>
+        <link refid="classtesting_1_1_test_event_listener"/>
+      </node>
+      <node id="1">
+        <label>testing::internal::JsonUnitTestResultPrinter</label>
+        <link refid="classtesting_1_1internal_1_1_json_unit_test_result_printer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>testing::EmptyTestEventListener</label>
+        <link refid="classtesting_1_1_empty_test_event_listener"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>testing::TestEventListener</label>
+        <link refid="classtesting_1_1_test_event_listener"/>
+      </node>
+      <node id="1">
+        <label>testing::internal::JsonUnitTestResultPrinter</label>
+        <link refid="classtesting_1_1internal_1_1_json_unit_test_result_printer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="4444" column="1" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4444" bodyend="4503"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a1db1a765a0ed6402d9585f2fe131fde6" prot="private" virt="non-virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>EscapeJson</name></member>
+      <member refid="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a273623decde1be18db45e95594f9d501" prot="public" virt="non-virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>JsonUnitTestResultPrinter</name></member>
+      <member refid="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a66b5e4d46f3fcb0af55dd8d49ab49b49" prot="private" virt="non-virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>JsonUnitTestResultPrinter</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a9b4e781c0b38065a55c2fd163724ba69" prot="public" virt="virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OnEnvironmentsSetUpEnd</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a6e498ae763ac8c1a46bd861e0b7ff3f5" prot="public" virt="virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OnEnvironmentsSetUpStart</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1ad9984052e82c3ae26395a2d9480326d2" prot="public" virt="virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OnEnvironmentsTearDownEnd</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a320780451eac9178434b7c77d948ecbd" prot="public" virt="virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OnEnvironmentsTearDownStart</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1abe05cc74c1081ed51e2c84b73013299e" prot="public" virt="virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OnTestCaseEnd</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a7f9a84967fde01000b7a56e9e84b6052" prot="public" virt="virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OnTestCaseStart</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a200fee280ddf30644aa5b1056edc2563" prot="public" virt="virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OnTestDisabled</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a709d7077c086c877d214231bc520ef90" prot="public" virt="virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OnTestEnd</name></member>
+      <member refid="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a9716a1dd5a3608181748c1b6f039c365" prot="public" virt="virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OnTestIterationEnd</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a31edf103561e8b4d747656bc2d927661" prot="public" virt="virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OnTestIterationStart</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1ab95992f0a0b3741d59a24c3a7115fa60" prot="public" virt="virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OnTestPartResult</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1aaa9d683e8e0c850af67a0b92d785ddb9" prot="public" virt="virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OnTestProgramEnd</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1ac3f5033fcd82080edb45f546ce9854fe" prot="public" virt="virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OnTestProgramStart</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a1d8c7f3f1f92826f668edae1bc5aadf4" prot="public" virt="virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OnTestStart</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1aefdb73682d290791461e186d864db718" prot="public" virt="virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OnTestSuiteEnd</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a1e32e4bd4857822b6b50e6900aa5c651" prot="public" virt="virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OnTestSuiteStart</name></member>
+      <member refid="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a76569d7105da57451a057a0ccab92be0" prot="private" virt="non-virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>operator=</name></member>
+      <member refid="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a0471c1f94083f864b5e4d98fd9e80207" prot="private" virt="non-virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>output_file_</name></member>
+      <member refid="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a63dcc481aba7d2305fad8ad9d4d8090c" prot="private" virt="non-virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OutputJsonKey</name></member>
+      <member refid="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a312b071e5ed3913b854490b1e427d326" prot="private" virt="non-virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OutputJsonKey</name></member>
+      <member refid="classtesting_1_1internal_1_1_json_unit_test_result_printer_1aca28dc59e9fbf804c9efa97e022d15e1" prot="private" virt="non-virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OutputJsonTestInfo</name></member>
+      <member refid="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a0e2c78c5dec3b4810c132483e66b9a27" prot="private" virt="non-virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OutputJsonTestResult</name></member>
+      <member refid="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a4f8a37da48f6b0783e5ee0c761286d68" prot="private" virt="non-virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>OutputJsonTestSuiteForTestResult</name></member>
+      <member refid="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a7dcd37f4feff122ff05d4fc716949ca2" prot="public" virt="non-virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>PrintJsonTestList</name></member>
+      <member refid="classtesting_1_1internal_1_1_json_unit_test_result_printer_1ab4fe00e4900f5189beba931f035ae48c" prot="private" virt="non-virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>PrintJsonTestSuite</name></member>
+      <member refid="classtesting_1_1internal_1_1_json_unit_test_result_printer_1a18b5f31f180d47044871e0dd4ec38a00" prot="private" virt="non-virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>PrintJsonUnitTest</name></member>
+      <member refid="classtesting_1_1internal_1_1_json_unit_test_result_printer_1af6c2baf27486ffa5ac7fd328044ec235" prot="private" virt="non-virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>TestPropertiesAsJson</name></member>
+      <member refid="classtesting_1_1_test_event_listener_1a4512d19e7a108ec4926239ec1ea85d63" prot="public" virt="virtual"><scope>testing::internal::JsonUnitTestResultPrinter</scope><name>~TestEventListener</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

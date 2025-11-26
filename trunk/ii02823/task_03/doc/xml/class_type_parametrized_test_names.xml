@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_type_parametrized_test_names" kind="class" language="C++" prot="public">
+    <compoundname>TypeParametrizedTestNames</compoundname>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_type_parametrized_test_names_1a30ba58d5ba65e0727239454ae8364815" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>static std::string TypeParametrizedTestNames::GetName</definition>
+        <argsstring>(int i)</argsstring>
+        <name>GetName</name>
+        <qualifiedname>TypeParametrizedTestNames::GetName</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="317" column="22" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" bodystart="317" bodyend="324"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="314" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" bodystart="314" bodyend="325"/>
+    <listofallmembers>
+      <member refid="class_type_parametrized_test_names_1a30ba58d5ba65e0727239454ae8364815" prot="public" virt="non-virtual"><scope>TypeParametrizedTestNames</scope><name>GetName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

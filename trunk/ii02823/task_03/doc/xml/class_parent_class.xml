@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_parent_class" kind="class" language="C++" prot="public">
+    <compoundname>ParentClass</compoundname>
+    <derivedcompoundref refid="class_child_class_with_stream_operator" prot="public" virt="non-virtual">ChildClassWithStreamOperator</derivedcompoundref>
+    <derivedcompoundref refid="class_child_class_without_stream_operator" prot="public" virt="non-virtual">ChildClassWithoutStreamOperator</derivedcompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ChildClassWithStreamOperator</label>
+        <link refid="class_child_class_with_stream_operator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ChildClassWithoutStreamOperator</label>
+        <link refid="class_child_class_without_stream_operator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ParentClass</label>
+        <link refid="class_parent_class"/>
+      </node>
+    </inheritancegraph>
+    <location file="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" line="86" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" bodystart="86" bodyend="86"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

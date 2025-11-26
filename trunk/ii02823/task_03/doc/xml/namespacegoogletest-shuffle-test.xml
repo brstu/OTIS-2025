@@ -1,0 +1,375 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="namespacegoogletest-shuffle-test" kind="namespace" language="Python">
+    <compoundname>googletest-shuffle-test</compoundname>
+    <innerclass refid="classgoogletest-shuffle-test_1_1_g_test_shuffle_unit_test" prot="public">googletest-shuffle-test::GTestShuffleUnitTest</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacegoogletest-shuffle-test_1aaa6556c1d42101405b6dc40120a8d558" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>googletest-shuffle-test.COMMAND</definition>
+        <argsstring></argsstring>
+        <name>COMMAND</name>
+        <qualifiedname>googletest-shuffle-test.COMMAND</qualifiedname>
+        <initializer>=  <ref refid="namespacegtest__test__utils_1a239f43ff0e44144cb5a1e14f3453c273" kindref="member">gtest_test_utils.GetTestExecutablePath</ref>(&apos;<ref refid="namespacegoogletest" kindref="compound">googletest</ref>-shuffle-test_&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="37" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-shuffle-test_1a7a1f030d92f12102135cc040d7db665b" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str googletest-shuffle-test.TOTAL_SHARDS_ENV_VAR</definition>
+        <argsstring></argsstring>
+        <name>TOTAL_SHARDS_ENV_VAR</name>
+        <qualifiedname>googletest-shuffle-test.TOTAL_SHARDS_ENV_VAR</qualifiedname>
+        <initializer>=  &apos;GTEST_TOTAL_SHARDS&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="40" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-shuffle-test_1ac03a674836d594356e774fbfecd976be" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str googletest-shuffle-test.SHARD_INDEX_ENV_VAR</definition>
+        <argsstring></argsstring>
+        <name>SHARD_INDEX_ENV_VAR</name>
+        <qualifiedname>googletest-shuffle-test.SHARD_INDEX_ENV_VAR</qualifiedname>
+        <initializer>=  &apos;GTEST_SHARD_INDEX&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="41" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-shuffle-test_1a47adc4aebb22ea576258d47d668f0724" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str googletest-shuffle-test.TEST_FILTER</definition>
+        <argsstring></argsstring>
+        <name>TEST_FILTER</name>
+        <qualifiedname>googletest-shuffle-test.TEST_FILTER</qualifiedname>
+        <initializer>=  &apos;A*.A:A*.B:C*&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="43" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-shuffle-test_1a81ef160d77cc04634a4c4dee2257aa19" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list googletest-shuffle-test.ALL_TESTS</definition>
+        <argsstring></argsstring>
+        <name>ALL_TESTS</name>
+        <qualifiedname>googletest-shuffle-test.ALL_TESTS</qualifiedname>
+        <initializer>=  []</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="45" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-shuffle-test_1a139508332a2fce934a41df9a6c2b2426" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list googletest-shuffle-test.ACTIVE_TESTS</definition>
+        <argsstring></argsstring>
+        <name>ACTIVE_TESTS</name>
+        <qualifiedname>googletest-shuffle-test.ACTIVE_TESTS</qualifiedname>
+        <initializer>=  []</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="46" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-shuffle-test_1a64c2029cc53f8e30ffbe8f063b19596e" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list googletest-shuffle-test.FILTERED_TESTS</definition>
+        <argsstring></argsstring>
+        <name>FILTERED_TESTS</name>
+        <qualifiedname>googletest-shuffle-test.FILTERED_TESTS</qualifiedname>
+        <initializer>=  []</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="47" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-shuffle-test_1a366d969733d027bc719c01be5e4320c8" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list googletest-shuffle-test.SHARDED_TESTS</definition>
+        <argsstring></argsstring>
+        <name>SHARDED_TESTS</name>
+        <qualifiedname>googletest-shuffle-test.SHARDED_TESTS</qualifiedname>
+        <initializer>=  []</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="48" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-shuffle-test_1ad370fd5f9285bc7f0e0cdfa6547b83f2" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list googletest-shuffle-test.SHUFFLED_ALL_TESTS</definition>
+        <argsstring></argsstring>
+        <name>SHUFFLED_ALL_TESTS</name>
+        <qualifiedname>googletest-shuffle-test.SHUFFLED_ALL_TESTS</qualifiedname>
+        <initializer>=  []</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="50" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-shuffle-test_1ace88109d48e71fb142bd212d676ea039" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list googletest-shuffle-test.SHUFFLED_ACTIVE_TESTS</definition>
+        <argsstring></argsstring>
+        <name>SHUFFLED_ACTIVE_TESTS</name>
+        <qualifiedname>googletest-shuffle-test.SHUFFLED_ACTIVE_TESTS</qualifiedname>
+        <initializer>=  []</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="51" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-shuffle-test_1a40b3d44626a2600f58f70bfd8362c779" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list googletest-shuffle-test.SHUFFLED_FILTERED_TESTS</definition>
+        <argsstring></argsstring>
+        <name>SHUFFLED_FILTERED_TESTS</name>
+        <qualifiedname>googletest-shuffle-test.SHUFFLED_FILTERED_TESTS</qualifiedname>
+        <initializer>=  []</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="52" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-shuffle-test_1ae1b92f7d58889a71c042a206d6659da9" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list googletest-shuffle-test.SHUFFLED_SHARDED_TESTS</definition>
+        <argsstring></argsstring>
+        <name>SHUFFLED_SHARDED_TESTS</name>
+        <qualifiedname>googletest-shuffle-test.SHUFFLED_SHARDED_TESTS</qualifiedname>
+        <initializer>=  []</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="53" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="53" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacegoogletest-shuffle-test_1aa71f27db38cb37fa33d991649839a55c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-shuffle-test.AlsoRunDisabledTestsFlag</definition>
+        <argsstring>()</argsstring>
+        <name>AlsoRunDisabledTestsFlag</name>
+        <qualifiedname>googletest-shuffle-test.AlsoRunDisabledTestsFlag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="56" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegoogletest-shuffle-test_1ad3ae053fcdcf564057875c9a20707512" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-shuffle-test.FilterFlag</definition>
+        <argsstring>(test_filter)</argsstring>
+        <name>FilterFlag</name>
+        <qualifiedname>googletest-shuffle-test.FilterFlag</qualifiedname>
+        <param>
+          <type>test_filter</type>
+          <defname>test_filter</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="60" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="60" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegoogletest-shuffle-test_1ab45c37ef0da97a3806aa829d417f47b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-shuffle-test.RepeatFlag</definition>
+        <argsstring>(n)</argsstring>
+        <name>RepeatFlag</name>
+        <qualifiedname>googletest-shuffle-test.RepeatFlag</qualifiedname>
+        <param>
+          <type>n</type>
+          <defname>n</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="64" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="64" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegoogletest-shuffle-test_1a22f19f19a32669f4a1fe17a5a3e34d4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-shuffle-test.ShuffleFlag</definition>
+        <argsstring>()</argsstring>
+        <name>ShuffleFlag</name>
+        <qualifiedname>googletest-shuffle-test.ShuffleFlag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="68" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="68" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegoogletest-shuffle-test_1a4e54cb75a6240965ec71830b7e65dbb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-shuffle-test.RandomSeedFlag</definition>
+        <argsstring>(n)</argsstring>
+        <name>RandomSeedFlag</name>
+        <qualifiedname>googletest-shuffle-test.RandomSeedFlag</qualifiedname>
+        <param>
+          <type>n</type>
+          <defname>n</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="72" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="72" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegoogletest-shuffle-test_1a730ca3f3ba6e5751972b48514369211a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-shuffle-test.RunAndReturnOutput</definition>
+        <argsstring>(extra_env, args)</argsstring>
+        <name>RunAndReturnOutput</name>
+        <qualifiedname>googletest-shuffle-test.RunAndReturnOutput</qualifiedname>
+        <param>
+          <type>extra_env</type>
+          <defname>extra_env</defname>
+        </param>
+        <param>
+          <type>args</type>
+          <defname>args</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Runs the test program and returns its output.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="76" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="76" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegoogletest-shuffle-test_1aac35c34aabdbfea5bf1c667df984896c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-shuffle-test.GetTestsForAllIterations</definition>
+        <argsstring>(extra_env, args)</argsstring>
+        <name>GetTestsForAllIterations</name>
+        <qualifiedname>googletest-shuffle-test.GetTestsForAllIterations</qualifiedname>
+        <param>
+          <type>extra_env</type>
+          <defname>extra_env</defname>
+        </param>
+        <param>
+          <type>args</type>
+          <defname>args</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Runs the test program and returns a list of test lists.
+
+Args:
+  extra_env: a map from environment variables to their values
+  args: command line flags to pass to googletest-shuffle-test_
+
+Returns:
+  A list where the i-th element is the list of tests run in the i-th
+  test iteration.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="85" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="85" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegoogletest-shuffle-test_1a451b372dfe83da98b7ccce00778346c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-shuffle-test.GetTestCases</definition>
+        <argsstring>(tests)</argsstring>
+        <name>GetTestCases</name>
+        <qualifiedname>googletest-shuffle-test.GetTestCases</qualifiedname>
+        <param>
+          <type>tests</type>
+          <defname>tests</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Returns a list of test cases in the given full test names.
+
+Args:
+  tests: a list of full test names
+
+Returns:
+  A list of test cases from &apos;tests&apos;, in their original order.
+  Consecutive duplicates are removed.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="108" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="108" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegoogletest-shuffle-test_1a4bc22886274ec5e8f56f129fe10233ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-shuffle-test.CalculateTestLists</definition>
+        <argsstring>()</argsstring>
+        <name>CalculateTestLists</name>
+        <qualifiedname>googletest-shuffle-test.CalculateTestLists</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Calculates the list of tests run under different flags.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="128" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" bodystart="128" bodyend="166"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

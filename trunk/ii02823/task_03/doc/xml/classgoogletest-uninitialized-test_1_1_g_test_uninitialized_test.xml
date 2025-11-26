@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classgoogletest-uninitialized-test_1_1_g_test_uninitialized_test" kind="class" language="Python" prot="public">
+    <compoundname>googletest-uninitialized-test::GTestUninitializedTest</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">gtest_test_utils.TestCase</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgoogletest-uninitialized-test_1_1_g_test_uninitialized_test_1a6cc2360a27113f3c8eb6036c01226a9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-uninitialized-test.GTestUninitializedTest.testExitCodeAndOutput</definition>
+        <argsstring>(self)</argsstring>
+        <name>testExitCodeAndOutput</name>
+        <qualifiedname>googletest-uninitialized-test.GTestUninitializedTest.testExitCodeAndOutput</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-uninitialized-test.py" line="62" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-uninitialized-test.py" bodystart="62" bodyend="65"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>googletest-uninitialized-test.GTestUninitializedTest</label>
+        <link refid="classgoogletest-uninitialized-test_1_1_g_test_uninitialized_test"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>gtest_test_utils.TestCase</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>googletest-uninitialized-test.GTestUninitializedTest</label>
+        <link refid="classgoogletest-uninitialized-test_1_1_g_test_uninitialized_test"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>gtest_test_utils.TestCase</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/build/_deps/googletest-src/googletest/test/googletest-uninitialized-test.py" line="61" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-uninitialized-test.py" bodystart="61" bodyend="65"/>
+    <listofallmembers>
+      <member refid="classgoogletest-uninitialized-test_1_1_g_test_uninitialized_test_1a6cc2360a27113f3c8eb6036c01226a9f" prot="public" virt="non-virtual"><scope>googletest-uninitialized-test::GTestUninitializedTest</scope><name>testExitCodeAndOutput</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

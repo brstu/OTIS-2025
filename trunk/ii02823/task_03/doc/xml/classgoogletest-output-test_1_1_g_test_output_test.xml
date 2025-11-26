@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classgoogletest-output-test_1_1_g_test_output_test" kind="class" language="Python" prot="public">
+    <compoundname>googletest-output-test::GTestOutputTest</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">gtest_test_utils.TestCase</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgoogletest-output-test_1_1_g_test_output_test_1ac092e6a94b11a4d2a7262cb36a838fad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-output-test.GTestOutputTest.RemoveUnsupportedTests</definition>
+        <argsstring>(self, test_output)</argsstring>
+        <name>RemoveUnsupportedTests</name>
+        <qualifiedname>googletest-output-test.GTestOutputTest.RemoveUnsupportedTests</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>test_output</type>
+          <defname>test_output</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-output-test.py" line="262" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-output-test.py" bodystart="262" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="classgoogletest-output-test_1_1_g_test_output_test_1af1d5c1c3b663f9e2ab8e51ca056f9367" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-output-test.GTestOutputTest.testOutput</definition>
+        <argsstring>(self)</argsstring>
+        <name>testOutput</name>
+        <qualifiedname>googletest-output-test.GTestOutputTest.testOutput</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-output-test.py" line="281" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-output-test.py" bodystart="281" bodyend="324"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>googletest-output-test.GTestOutputTest</label>
+        <link refid="classgoogletest-output-test_1_1_g_test_output_test"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>gtest_test_utils.TestCase</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>googletest-output-test.GTestOutputTest</label>
+        <link refid="classgoogletest-output-test_1_1_g_test_output_test"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>gtest_test_utils.TestCase</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/build/_deps/googletest-src/googletest/test/googletest-output-test.py" line="261" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-output-test.py" bodystart="261" bodyend="324"/>
+    <listofallmembers>
+      <member refid="classgoogletest-output-test_1_1_g_test_output_test_1ac092e6a94b11a4d2a7262cb36a838fad" prot="public" virt="non-virtual"><scope>googletest-output-test::GTestOutputTest</scope><name>RemoveUnsupportedTests</name></member>
+      <member refid="classgoogletest-output-test_1_1_g_test_output_test_1af1d5c1c3b663f9e2ab8e51ca056f9367" prot="public" virt="non-virtual"><scope>googletest-output-test::GTestOutputTest</scope><name>testOutput</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

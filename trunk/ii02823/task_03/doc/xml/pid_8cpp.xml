@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="pid_8cpp" kind="file" language="C++">
+    <compoundname>pid.cpp</compoundname>
+    <includes refid="pid_8h" local="yes">pid.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/pid.cpp</label>
+        <link refid="pid_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>pid.h</label>
+        <link refid="pid_8h"/>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="pid_8h" kindref="compound">pid.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><ref refid="structpid__coeffs_1a1565a55a5421ee3da66debe43db919b8" kindref="member">pid_coeffs::pid_coeffs</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>K,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>T,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Td,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>T0)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>K(K),<sp/>T(T),<sp/>Td(Td),<sp/>T0(T0)<sp/>{}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><ref refid="classpid_1a33bf4a3b855c19cc07825cfdc3e19790" kindref="member">pid::pid</ref>(<ref refid="structpid__coeffs" kindref="compound">pid_coeffs</ref><sp/>coeffs,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_u,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_e,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>__e)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>coeffs(coeffs),<sp/>u_prev(_u),<sp/>e_prev(_e),<sp/>e_prev_prev(__e)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>q0<sp/>=<sp/>coeffs.<ref refid="structpid__coeffs_1a72db3187cc333a2d93a7d49702cec92e" kindref="member">K</ref><sp/>*<sp/>(1<sp/>+<sp/>coeffs.<ref refid="structpid__coeffs_1a5cc8572ddb54086cc7b97f754b1f86c1" kindref="member">Td</ref><sp/>/<sp/>coeffs.<ref refid="structpid__coeffs_1a9fa8f52e69c498586a22bc748d38fab2" kindref="member">T0</ref>);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>q1<sp/>=<sp/>-coeffs.<ref refid="structpid__coeffs_1a72db3187cc333a2d93a7d49702cec92e" kindref="member">K</ref><sp/>*<sp/>(1<sp/>+<sp/>2<sp/>*<sp/>coeffs.<ref refid="structpid__coeffs_1a5cc8572ddb54086cc7b97f754b1f86c1" kindref="member">Td</ref><sp/>/<sp/>coeffs.<ref refid="structpid__coeffs_1a9fa8f52e69c498586a22bc748d38fab2" kindref="member">T0</ref><sp/>-<sp/>coeffs.<ref refid="structpid__coeffs_1a9fa8f52e69c498586a22bc748d38fab2" kindref="member">T0</ref><sp/>/<sp/>coeffs.<ref refid="structpid__coeffs_1aa69708722314150cbd2810cc8b7c8476" kindref="member">T</ref>);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>q2<sp/>=<sp/>coeffs.<ref refid="structpid__coeffs_1a72db3187cc333a2d93a7d49702cec92e" kindref="member">K</ref><sp/>*<sp/>coeffs.<ref refid="structpid__coeffs_1a5cc8572ddb54086cc7b97f754b1f86c1" kindref="member">Td</ref><sp/>/<sp/>coeffs.<ref refid="structpid__coeffs_1a9fa8f52e69c498586a22bc748d38fab2" kindref="member">T0</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classpid_1a75f23675900ca669c3f12875ce55d78a" kindref="member">pid::process</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_u<sp/>=<sp/>q0<sp/>*<sp/>e<sp/>+<sp/>q1<sp/>*<sp/>e_prev<sp/>+<sp/>q2<sp/>*<sp/>e_prev_prev;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u<sp/>=<sp/>u_prev<sp/>+<sp/>_u;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>u_prev<sp/>=<sp/>u;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>e_prev_prev<sp/>=<sp/>e_prev;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>e_prev<sp/>=<sp/>e;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>u;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/pid.cpp"/>
+  </compounddef>
+</doxygen>

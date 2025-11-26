@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_message" kind="class" language="C++" prot="public">
+    <compoundname>Message</compoundname>
+    <includes refid="gtest-message_8h" local="no">gtest-message.h</includes>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="class_message_1a391c6b2afc501b8a94ac363e38d5c4ca" prot="private" static="no">
+        <type>std::ostream &amp;(*</type>
+        <definition>typedef std::ostream &amp;(* testing::Message::BasicNarrowIoManip) (std::ostream &amp;)</definition>
+        <argsstring>)(std::ostream &amp;)</argsstring>
+        <name>BasicNarrowIoManip</name>
+        <qualifiedname>Message::BasicNarrowIoManip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" line="96" column="11" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_message_1a22a52314ba644b1eda454a82ac1fabd8" prot="private" static="no" mutable="no">
+        <type>const std::unique_ptr&lt; ::std::stringstream &gt;</type>
+        <definition>const std::unique_ptr&lt; ::std::stringstream&gt; testing::Message::ss_</definition>
+        <argsstring></argsstring>
+        <name>ss_</name>
+        <qualifiedname>Message::ss_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" line="190" column="25" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_message_1af5ba7216630df9845f18feb64b1a5383" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>testing::Message::Message</definition>
+        <argsstring>()</argsstring>
+        <name>Message</name>
+        <qualifiedname>Message::Message</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" line="100" column="3" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="1243" bodyend="1247"/>
+      </memberdef>
+      <memberdef kind="function" id="class_message_1ac126e24804817a053bebba0920d94a11" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>testing::Message::Message</definition>
+        <argsstring>(const Message &amp;msg)</argsstring>
+        <name>Message</name>
+        <qualifiedname>Message::Message</qualifiedname>
+        <param>
+          <type>const <ref refid="class_message" kindref="compound">Message</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" line="103" column="3" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" bodystart="103" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="class_message_1a9de694ca239486809fc99fbbea8ac21d" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>testing::Message::Message</definition>
+        <argsstring>(const char *str)</argsstring>
+        <name>Message</name>
+        <qualifiedname>Message::Message</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" line="108" column="12" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" bodystart="108" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_message_1ac3bb8aed013ca36093eb36525a8ffc5d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="class_message" kindref="compound">Message</ref> &amp;</type>
+        <definition>Message &amp; testing::Message::operator&lt;&lt;</definition>
+        <argsstring>(const T &amp;val)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>Message::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" line="114" column="10" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" bodystart="114" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="class_message_1a11abae9dc33149b17ec3fd3899086568" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="class_message" kindref="compound">Message</ref> &amp;</type>
+        <definition>Message &amp; testing::Message::operator&lt;&lt;</definition>
+        <argsstring>(T *const &amp;pointer)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>Message::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>T *const &amp;</type>
+          <declname>pointer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" line="148" column="10" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" bodystart="148" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="class_message_1af674418e31abc5320bd16420ec02b81d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_message" kindref="compound">Message</ref> &amp;</type>
+        <definition>Message &amp; testing::Message::operator&lt;&lt;</definition>
+        <argsstring>(BasicNarrowIoManip val)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>Message::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>BasicNarrowIoManip</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" line="163" column="3" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" bodystart="163" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="class_message_1afd60257232a5ea7994e58cb96b05ced8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_message" kindref="compound">Message</ref> &amp;</type>
+        <definition>Message &amp; testing::Message::operator&lt;&lt;</definition>
+        <argsstring>(bool b)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>Message::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" line="169" column="3" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" bodystart="169" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="class_message_1ac0db9c22535b28bc863bfd0a1fdf7e14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_message" kindref="compound">Message</ref> &amp;</type>
+        <definition>Message &amp; testing::Message::operator&lt;&lt;</definition>
+        <argsstring>(const wchar_t *wide_c_str)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>Message::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>const wchar_t *</type>
+          <declname>wide_c_str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" line="173" column="3" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="1251" bodyend="1253"/>
+      </memberdef>
+      <memberdef kind="function" id="class_message_1ac1d3a041ac4bb9c929ee746b31a13d6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_message" kindref="compound">Message</ref> &amp;</type>
+        <definition>Message &amp; testing::Message::operator&lt;&lt;</definition>
+        <argsstring>(wchar_t *wide_c_str)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>Message::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>wchar_t *</type>
+          <declname>wide_c_str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" line="174" column="3" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="1254" bodyend="1256"/>
+      </memberdef>
+      <memberdef kind="function" id="class_message_1a2cdc4df62bdcc9df37651a1cf527704e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string testing::Message::GetString</definition>
+        <argsstring>() const</argsstring>
+        <name>GetString</name>
+        <qualifiedname>Message::GetString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" line="186" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="1269" bodyend="1271"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_message_1a5a0462b539ffb88f15ea0c67977774af" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::Message::operator=</definition>
+        <argsstring>(const Message &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>Message::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_message" kindref="compound">Message</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" line="194" column="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" line="92" column="1" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h" bodystart="92" bodyend="195"/>
+    <listofallmembers>
+      <member refid="class_message_1a391c6b2afc501b8a94ac363e38d5c4ca" prot="private" virt="non-virtual"><scope>Message</scope><name>BasicNarrowIoManip</name></member>
+      <member refid="class_message_1a2cdc4df62bdcc9df37651a1cf527704e" prot="public" virt="non-virtual"><scope>Message</scope><name>GetString</name></member>
+      <member refid="class_message_1af5ba7216630df9845f18feb64b1a5383" prot="public" virt="non-virtual"><scope>Message</scope><name>Message</name></member>
+      <member refid="class_message_1ac126e24804817a053bebba0920d94a11" prot="public" virt="non-virtual"><scope>Message</scope><name>Message</name></member>
+      <member refid="class_message_1a9de694ca239486809fc99fbbea8ac21d" prot="public" virt="non-virtual"><scope>Message</scope><name>Message</name></member>
+      <member refid="class_message_1ac3bb8aed013ca36093eb36525a8ffc5d" prot="public" virt="non-virtual"><scope>Message</scope><name>operator&lt;&lt;</name></member>
+      <member refid="class_message_1a11abae9dc33149b17ec3fd3899086568" prot="public" virt="non-virtual"><scope>Message</scope><name>operator&lt;&lt;</name></member>
+      <member refid="class_message_1af674418e31abc5320bd16420ec02b81d" prot="public" virt="non-virtual"><scope>Message</scope><name>operator&lt;&lt;</name></member>
+      <member refid="class_message_1afd60257232a5ea7994e58cb96b05ced8" prot="public" virt="non-virtual"><scope>Message</scope><name>operator&lt;&lt;</name></member>
+      <member refid="class_message_1ac0db9c22535b28bc863bfd0a1fdf7e14" prot="public" virt="non-virtual"><scope>Message</scope><name>operator&lt;&lt;</name></member>
+      <member refid="class_message_1ac1d3a041ac4bb9c929ee746b31a13d6a" prot="public" virt="non-virtual"><scope>Message</scope><name>operator&lt;&lt;</name></member>
+      <member refid="class_message_1a5a0462b539ffb88f15ea0c67977774af" prot="private" virt="non-virtual"><scope>Message</scope><name>operator=</name></member>
+      <member refid="class_message_1a22a52314ba644b1eda454a82ac1fabd8" prot="private" virt="non-virtual"><scope>Message</scope><name>ss_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

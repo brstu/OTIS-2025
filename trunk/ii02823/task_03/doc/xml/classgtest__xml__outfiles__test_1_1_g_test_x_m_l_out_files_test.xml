@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classgtest__xml__outfiles__test_1_1_g_test_x_m_l_out_files_test" kind="class" language="Python" prot="public">
+    <compoundname>gtest_xml_outfiles_test::GTestXMLOutFilesTest</compoundname>
+    <basecompoundref refid="classgtest__xml__test__utils_1_1_g_test_x_m_l_test_case" prot="public" virt="non-virtual">gtest_xml_test_utils.GTestXMLTestCase</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classgtest__xml__outfiles__test_1_1_g_test_x_m_l_out_files_test_1aa5c31cd97047bc1d3060f4d27bc956a4" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>gtest_xml_outfiles_test.GTestXMLOutFilesTest::output_dir_</definition>
+        <argsstring></argsstring>
+        <name>output_dir_</name>
+        <qualifiedname>gtest_xml_outfiles_test.GTestXMLOutFilesTest.output_dir_</qualifiedname>
+        <initializer>=  os.path.join(<ref refid="namespacegtest__test__utils_1a0dccca86b2f504f70e815fa96cace414" kindref="member">gtest_test_utils.GetTempDir</ref>(),
+                                    <ref refid="namespacegtest__xml__outfiles__test_1a8b74b252e705eb81350cbacc75569033" kindref="member">GTEST_OUTPUT_SUBDIR</ref>, &quot;&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest_xml_outfiles_test.py" line="79" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest_xml_outfiles_test.py" bodystart="79" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgtest__xml__outfiles__test_1_1_g_test_x_m_l_out_files_test_1ace44143b1dc56556d5fa6cc74ccfa2cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>gtest_xml_outfiles_test.GTestXMLOutFilesTest.setUp</definition>
+        <argsstring>(self)</argsstring>
+        <name>setUp</name>
+        <qualifiedname>gtest_xml_outfiles_test.GTestXMLOutFilesTest.setUp</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest_xml_outfiles_test.py" line="75" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest_xml_outfiles_test.py" bodystart="75" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classgtest__xml__outfiles__test_1_1_g_test_x_m_l_out_files_test_1a8b3154d3a27b6106fe495c740058a605" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>gtest_xml_outfiles_test.GTestXMLOutFilesTest.tearDown</definition>
+        <argsstring>(self)</argsstring>
+        <name>tearDown</name>
+        <qualifiedname>gtest_xml_outfiles_test.GTestXMLOutFilesTest.tearDown</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest_xml_outfiles_test.py" line="83" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest_xml_outfiles_test.py" bodystart="83" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classgtest__xml__outfiles__test_1_1_g_test_x_m_l_out_files_test_1a0ccf42f930fd2401b43c561e51bd0314" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>gtest_xml_outfiles_test.GTestXMLOutFilesTest.DeleteFilesAndDir</definition>
+        <argsstring>(self)</argsstring>
+        <name>DeleteFilesAndDir</name>
+        <qualifiedname>gtest_xml_outfiles_test.GTestXMLOutFilesTest.DeleteFilesAndDir</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest_xml_outfiles_test.py" line="86" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest_xml_outfiles_test.py" bodystart="86" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classgtest__xml__outfiles__test_1_1_g_test_x_m_l_out_files_test_1a17963f48cf87bf9c6b93482dd530a0b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>gtest_xml_outfiles_test.GTestXMLOutFilesTest.testOutfile1</definition>
+        <argsstring>(self)</argsstring>
+        <name>testOutfile1</name>
+        <qualifiedname>gtest_xml_outfiles_test.GTestXMLOutFilesTest.testOutfile1</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest_xml_outfiles_test.py" line="100" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest_xml_outfiles_test.py" bodystart="100" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classgtest__xml__outfiles__test_1_1_g_test_x_m_l_out_files_test_1a1c9965152e3175bf20707e4f5d175b39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>gtest_xml_outfiles_test.GTestXMLOutFilesTest.testOutfile2</definition>
+        <argsstring>(self)</argsstring>
+        <name>testOutfile2</name>
+        <qualifiedname>gtest_xml_outfiles_test.GTestXMLOutFilesTest.testOutfile2</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest_xml_outfiles_test.py" line="103" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest_xml_outfiles_test.py" bodystart="103" bodyend="105"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classgtest__xml__outfiles__test_1_1_g_test_x_m_l_out_files_test_1aff29c8f0f920357a9a2aecb40888834f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>gtest_xml_outfiles_test.GTestXMLOutFilesTest._TestOutFile</definition>
+        <argsstring>(self, test_name, expected_xml)</argsstring>
+        <name>_TestOutFile</name>
+        <qualifiedname>gtest_xml_outfiles_test.GTestXMLOutFilesTest._TestOutFile</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>test_name</type>
+          <defname>test_name</defname>
+        </param>
+        <param>
+          <type>expected_xml</type>
+          <defname>expected_xml</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest_xml_outfiles_test.py" line="106" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest_xml_outfiles_test.py" bodystart="106" bodyend="132"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Unit test for Google Test&apos;s XML output functionality.</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>gtest_test_utils.TestCase</label>
+      </node>
+      <node id="1">
+        <label>gtest_xml_outfiles_test.GTestXMLOutFilesTest</label>
+        <link refid="classgtest__xml__outfiles__test_1_1_g_test_x_m_l_out_files_test"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>gtest_xml_test_utils.GTestXMLTestCase</label>
+        <link refid="classgtest__xml__test__utils_1_1_g_test_x_m_l_test_case"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>gtest_test_utils.TestCase</label>
+      </node>
+      <node id="1">
+        <label>gtest_xml_outfiles_test.GTestXMLOutFilesTest</label>
+        <link refid="classgtest__xml__outfiles__test_1_1_g_test_x_m_l_out_files_test"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>gtest_xml_test_utils.GTestXMLTestCase</label>
+        <link refid="classgtest__xml__test__utils_1_1_g_test_x_m_l_test_case"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/build/_deps/googletest-src/googletest/test/gtest_xml_outfiles_test.py" line="72" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest_xml_outfiles_test.py" bodystart="72" bodyend="132"/>
+    <listofallmembers>
+      <member refid="classgtest__xml__test__utils_1_1_g_test_x_m_l_test_case_1a2359b446aa283a582efe48d1e2f3f75a" prot="protected" virt="non-virtual"><scope>gtest_xml_outfiles_test::GTestXMLOutFilesTest</scope><name>_GetChildren</name></member>
+      <member refid="classgtest__xml__outfiles__test_1_1_g_test_x_m_l_out_files_test_1aff29c8f0f920357a9a2aecb40888834f" prot="protected" virt="non-virtual"><scope>gtest_xml_outfiles_test::GTestXMLOutFilesTest</scope><name>_TestOutFile</name></member>
+      <member refid="classgtest__xml__test__utils_1_1_g_test_x_m_l_test_case_1aa18d40539741ab7357616c9557781e82" prot="public" virt="non-virtual"><scope>gtest_xml_outfiles_test::GTestXMLOutFilesTest</scope><name>AssertEquivalentNodes</name></member>
+      <member refid="classgtest__xml__outfiles__test_1_1_g_test_x_m_l_out_files_test_1a0ccf42f930fd2401b43c561e51bd0314" prot="public" virt="non-virtual"><scope>gtest_xml_outfiles_test::GTestXMLOutFilesTest</scope><name>DeleteFilesAndDir</name></member>
+      <member refid="classgtest__xml__test__utils_1_1_g_test_x_m_l_test_case_1a15d033a555b3e323399c4a03e57e82d1" prot="public" virt="non-virtual"><scope>gtest_xml_outfiles_test::GTestXMLOutFilesTest</scope><name>identifying_attribute</name></member>
+      <member refid="classgtest__xml__test__utils_1_1_g_test_x_m_l_test_case_1a2b8aed90eb732e3cc3f0cc333e19a2f0" prot="public" virt="non-virtual"><scope>gtest_xml_outfiles_test::GTestXMLOutFilesTest</scope><name>NormalizeXml</name></member>
+      <member refid="classgtest__xml__outfiles__test_1_1_g_test_x_m_l_out_files_test_1aa5c31cd97047bc1d3060f4d27bc956a4" prot="public" virt="non-virtual"><scope>gtest_xml_outfiles_test::GTestXMLOutFilesTest</scope><name>output_dir_</name></member>
+      <member refid="classgtest__xml__outfiles__test_1_1_g_test_x_m_l_out_files_test_1ace44143b1dc56556d5fa6cc74ccfa2cc" prot="public" virt="non-virtual"><scope>gtest_xml_outfiles_test::GTestXMLOutFilesTest</scope><name>setUp</name></member>
+      <member refid="classgtest__xml__outfiles__test_1_1_g_test_x_m_l_out_files_test_1a8b3154d3a27b6106fe495c740058a605" prot="public" virt="non-virtual"><scope>gtest_xml_outfiles_test::GTestXMLOutFilesTest</scope><name>tearDown</name></member>
+      <member refid="classgtest__xml__outfiles__test_1_1_g_test_x_m_l_out_files_test_1a17963f48cf87bf9c6b93482dd530a0b4" prot="public" virt="non-virtual"><scope>gtest_xml_outfiles_test::GTestXMLOutFilesTest</scope><name>testOutfile1</name></member>
+      <member refid="classgtest__xml__outfiles__test_1_1_g_test_x_m_l_out_files_test_1a1c9965152e3175bf20707e4f5d175b39" prot="public" virt="non-virtual"><scope>gtest_xml_outfiles_test::GTestXMLOutFilesTest</scope><name>testOutfile2</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

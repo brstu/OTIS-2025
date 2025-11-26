@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_static_assert_type_eq_test_helper" kind="class" language="C++" prot="public">
+    <compoundname>StaticAssertTypeEqTestHelper</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_static_assert_type_eq_test_helper_1a9b567f0542f353d536119dae01e1ee1d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>StaticAssertTypeEqTestHelper&lt; T &gt;::StaticAssertTypeEqTestHelper</definition>
+        <argsstring>()</argsstring>
+        <name>StaticAssertTypeEqTestHelper</name>
+        <qualifiedname>StaticAssertTypeEqTestHelper::StaticAssertTypeEqTestHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest_unittest.cc" line="6679" column="3" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest_unittest.cc" bodystart="6679" bodyend="6679"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/test/gtest_unittest.cc" line="6677" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest_unittest.cc" bodystart="6677" bodyend="6680"/>
+    <listofallmembers>
+      <member refid="class_static_assert_type_eq_test_helper_1a9b567f0542f353d536119dae01e1ee1d" prot="public" virt="non-virtual"><scope>StaticAssertTypeEqTestHelper</scope><name>StaticAssertTypeEqTestHelper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

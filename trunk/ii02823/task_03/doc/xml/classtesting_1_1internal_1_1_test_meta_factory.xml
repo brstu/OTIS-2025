@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1internal_1_1_test_meta_factory" kind="class" language="C++" prot="public">
+    <compoundname>testing::internal::TestMetaFactory</compoundname>
+    <basecompoundref refid="classtesting_1_1internal_1_1_test_meta_factory_base" prot="public" virt="non-virtual">testing::internal::TestMetaFactoryBase&lt; TestSuite::ParamType &gt;</basecompoundref>
+    <includes refid="gtest-param-util_8h" local="no">gtest-param-util.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class <ref refid="class_test_suite" kindref="compound">TestSuite</ref></type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classtesting_1_1internal_1_1_test_meta_factory_1a392ebab15dfdcfa1b54bbe15878aa9cd" prot="public" static="no">
+        <type>typename TestSuite::ParamType</type>
+        <definition>using testing::internal::TestMetaFactory&lt; TestSuite &gt;::ParamType =  typename TestSuite::ParamType</definition>
+        <argsstring></argsstring>
+        <name>ParamType</name>
+        <qualifiedname>testing::internal::TestMetaFactory::ParamType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h" line="437" column="3" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h" bodystart="437" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_test_meta_factory_1a1a48d63fbff650741c8f718af5c373d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>testing::internal::TestMetaFactory&lt; TestSuite &gt;::TestMetaFactory</definition>
+        <argsstring>()</argsstring>
+        <name>TestMetaFactory</name>
+        <qualifiedname>testing::internal::TestMetaFactory::TestMetaFactory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h" line="439" column="3" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h" bodystart="439" bodyend="439"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_test_meta_factory_1aeb40bef0ec3021eab6ebf6e41593604f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classtesting_1_1internal_1_1_test_factory_base" kindref="compound">TestFactoryBase</ref> *</type>
+        <definition>TestFactoryBase * testing::internal::TestMetaFactory&lt; TestSuite &gt;::CreateTestFactory</definition>
+        <argsstring>(ParamType parameter) override</argsstring>
+        <name>CreateTestFactory</name>
+        <qualifiedname>testing::internal::TestMetaFactory::CreateTestFactory</qualifiedname>
+        <param>
+          <type><ref refid="classtesting_1_1internal_1_1_test_meta_factory_1a392ebab15dfdcfa1b54bbe15878aa9cd" kindref="member">ParamType</ref></type>
+          <declname>parameter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h" line="441" column="19" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h" bodystart="441" bodyend="443"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_test_meta_factory_1aa51f2d6cae9e66392bc7e22b3e1a4b89" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>testing::internal::TestMetaFactory&lt; TestSuite &gt;::TestMetaFactory</definition>
+        <argsstring>(const TestMetaFactory &amp;)=delete</argsstring>
+        <name>TestMetaFactory</name>
+        <qualifiedname>testing::internal::TestMetaFactory::TestMetaFactory</qualifiedname>
+        <param>
+          <type>const TestMetaFactory &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h" line="446" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_test_meta_factory_1ad5f4b55d81daa6d97f9029020618c4e9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classtesting_1_1internal_1_1_test_meta_factory_1a1a48d63fbff650741c8f718af5c373d2" kindref="member">TestMetaFactory</ref> &amp;</type>
+        <definition>TestMetaFactory &amp; testing::internal::TestMetaFactory&lt; TestSuite &gt;::operator=</definition>
+        <argsstring>(const TestMetaFactory &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>testing::internal::TestMetaFactory::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classtesting_1_1internal_1_1_test_meta_factory_1a1a48d63fbff650741c8f718af5c373d2" kindref="member">TestMetaFactory</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h" line="447" column="19"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>testing::internal::TestMetaFactory&lt; TestSuite &gt;</label>
+        <link refid="classtesting_1_1internal_1_1_test_meta_factory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>testing::internal::TestMetaFactoryBase&lt; TestSuite::ParamType &gt;</label>
+        <link refid="classtesting_1_1internal_1_1_test_meta_factory_base"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>testing::internal::TestMetaFactory&lt; TestSuite &gt;</label>
+        <link refid="classtesting_1_1internal_1_1_test_meta_factory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>testing::internal::TestMetaFactoryBase&lt; TestSuite::ParamType &gt;</label>
+        <link refid="classtesting_1_1internal_1_1_test_meta_factory_base"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h" line="434" column="1" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h" bodystart="435" bodyend="448"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1internal_1_1_test_meta_factory_1aeb40bef0ec3021eab6ebf6e41593604f" prot="public" virt="non-virtual"><scope>testing::internal::TestMetaFactory</scope><name>CreateTestFactory</name></member>
+      <member refid="classtesting_1_1internal_1_1_test_meta_factory_base_1afc7c9ec623d7045a4b3e3c45e171ae78" prot="public" virt="pure-virtual" ambiguityscope="testing::internal::TestMetaFactoryBase&lt; TestSuite::ParamType &gt;::"><scope>testing::internal::TestMetaFactory</scope><name>CreateTestFactory</name></member>
+      <member refid="classtesting_1_1internal_1_1_test_meta_factory_1ad5f4b55d81daa6d97f9029020618c4e9" prot="private" virt="non-virtual"><scope>testing::internal::TestMetaFactory</scope><name>operator=</name></member>
+      <member refid="classtesting_1_1internal_1_1_test_meta_factory_1a392ebab15dfdcfa1b54bbe15878aa9cd" prot="public" virt="non-virtual"><scope>testing::internal::TestMetaFactory</scope><name>ParamType</name></member>
+      <member refid="classtesting_1_1internal_1_1_test_meta_factory_1a1a48d63fbff650741c8f718af5c373d2" prot="public" virt="non-virtual"><scope>testing::internal::TestMetaFactory</scope><name>TestMetaFactory</name></member>
+      <member refid="classtesting_1_1internal_1_1_test_meta_factory_1aa51f2d6cae9e66392bc7e22b3e1a4b89" prot="private" virt="non-virtual"><scope>testing::internal::TestMetaFactory</scope><name>TestMetaFactory</name></member>
+      <member refid="classtesting_1_1internal_1_1_test_meta_factory_base_1aad80adf04686f7dfcf952e44afc02767" prot="public" virt="virtual"><scope>testing::internal::TestMetaFactory</scope><name>~TestMetaFactoryBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

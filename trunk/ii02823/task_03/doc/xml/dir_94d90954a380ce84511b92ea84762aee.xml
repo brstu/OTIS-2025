@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="dir_94d90954a380ce84511b92ea84762aee" kind="dir">
+    <compoundname>src/build/_deps/googletest-src/googletest/include/gtest/internal</compoundname>
+    <innerdir refid="dir_f0f19d157fd9047c40c325f43bb49fd8">src/build/_deps/googletest-src/googletest/include/gtest/internal/custom</innerdir>
+    <innerfile refid="gtest-death-test-internal_8h">gtest-death-test-internal.h</innerfile>
+    <innerfile refid="gtest-filepath_8h">gtest-filepath.h</innerfile>
+    <innerfile refid="gtest-internal_8h">gtest-internal.h</innerfile>
+    <innerfile refid="gtest-param-util_8h">gtest-param-util.h</innerfile>
+    <innerfile refid="gtest-port-arch_8h">gtest-port-arch.h</innerfile>
+    <innerfile refid="gtest-port_8h">gtest-port.h</innerfile>
+    <innerfile refid="gtest-string_8h">gtest-string.h</innerfile>
+    <innerfile refid="gtest-type-util_8h">gtest-type-util.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/"/>
+  </compounddef>
+</doxygen>
