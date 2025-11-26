@@ -2,6 +2,7 @@
 #include "lab2otis.h"
 
 int main() {
+    setlocale(LC_ALL, "ru");
 double a = 0.2;
     double b = 0.3;
     double c = 0.4;

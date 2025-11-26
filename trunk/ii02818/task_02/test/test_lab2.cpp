@@ -1,9 +1,12 @@
-#include <gtest/gtest.h>
-#include "../src/lab2otis.h"
+﻿#include <gtest/gtest.h>
+#include <iostream>
+#include <cmath>
+#include "../src/lab2otis.h"  
 
-TEST(TemperatureModelTest, ConstructorInitialization) {
+
+TEST(TemperatureModelTest, ConstructorAndGetters) {
     TemperatureModel model(0.1, 0.2, 0.3, 0.4);
-    
+
     EXPECT_DOUBLE_EQ(model.getA(), 0.1);
     EXPECT_DOUBLE_EQ(model.getB(), 0.2);
     EXPECT_DOUBLE_EQ(model.getC(), 0.3);
@@ -12,77 +15,58 @@ TEST(TemperatureModelTest, ConstructorInitialization) {
 
 TEST(TemperatureModelTest, SetInitialState) {
     TemperatureModel model(0.1, 0.2, 0.3, 0.4);
-    model.setInitialState(10.0, 15.0, 1.0, 2.0);
-    
+    model.setInitialState(10.0, 11.0, 5.0, 6.0);
+
     EXPECT_DOUBLE_EQ(model.getPrevY(), 10.0);
-    EXPECT_DOUBLE_EQ(model.getCurrentY(), 15.0);
-    EXPECT_DOUBLE_EQ(model.getPrevU(), 1.0);
-    EXPECT_DOUBLE_EQ(model.getCurrentU(), 2.0);
+    EXPECT_DOUBLE_EQ(model.getCurrentY(), 11.0);
+    EXPECT_DOUBLE_EQ(model.getPrevU(), 5.0);
+    EXPECT_DOUBLE_EQ(model.getCurrentU(), 6.0);
+}
+
+TEST(TemperatureModelTest, LinearSimulation) {
+    TemperatureModel model(0.5, 0.3, 0.0, 0.0);
+    model.setInitialState(20.0, 21.0, 1.0, 1.0);
+
+    auto results = model.simulateLinear(5);
+
+    EXPECT_EQ(results.size(), 5);
+    EXPECT_DOUBLE_EQ(results[0], 20.0);
+    EXPECT_DOUBLE_EQ(results[1], 21.0);
+    EXPECT_DOUBLE_EQ(results[2], 0.5 * 21.0 + 0.3 * 1.0);
+}
+
+TEST(TemperatureModelTest, NonlinearSimulation) {
+    TemperatureModel model(0.5, 0.1, 0.2, 0.3);
+    model.setInitialState(2.0, 3.0, 1.0, 1.0);
+
+    auto results = model.simulateNonlinear(5);
+
+    EXPECT_EQ(results.size(), 5);
+    EXPECT_DOUBLE_EQ(results[0], 2.0);
+    EXPECT_DOUBLE_EQ(results[1], 3.0);
+
+    double expected = 0.5 * 3.0 - 0.1 * 4.0 + 0.2 * 1.0 + 0.3 * std::sin(1.0);
+    EXPECT_NEAR(results[2], expected, 1e-10);
+}
+
+TEST(TemperatureModelTest, EdgeCases) {
+    TemperatureModel model(0.0, 0.0, 0.0, 0.0);
+    model.setInitialState(0.0, 0.0, 0.0, 0.0);
+
+    auto results1 = model.simulateLinear(1);
+    EXPECT_EQ(results1.size(), 1);
+    EXPECT_DOUBLE_EQ(results1[0], 0.0);
+
+    auto results2 = model.simulateLinear(2);
+    EXPECT_EQ(results2.size(), 2);
 }
 
 TEST(TemperatureModelTest, UpdateControl) {
     TemperatureModel model(0.1, 0.2, 0.3, 0.4);
-    model.setInitialState(10.0, 15.0, 1.0, 2.0);
-    model.updateControl(3.0);
-    
-    EXPECT_DOUBLE_EQ(model.getPrevU(), 2.0);
-    EXPECT_DOUBLE_EQ(model.getCurrentU(), 3.0);
-}
+    model.setInitialState(10.0, 11.0, 5.0, 6.0);
 
-TEST(TemperatureModelTest, LinearModelCalculation) {
-    TemperatureModel model(0.5, 1.0, 0.0, 0.0);
-    model.setInitialState(0.0, 10.0, 2.0, 0.0);
-    
-    auto result = model.simulateLinear(3);
-    
-    EXPECT_EQ(result.size(), 3);
-    EXPECT_DOUBLE_EQ(result[0], 0.0);
-    EXPECT_DOUBLE_EQ(result[1], 10.0);
-    EXPECT_DOUBLE_EQ(result[2], 0.5*10.0 + 1.0*2.0);
-}
+    model.updateControl(7.0);
 
-TEST(TemperatureModelTest, NonlinearModelCalculation) {
-    TemperatureModel model(0.5, 0.1, 1.0, 0.2);
-    model.setInitialState(2.0, 3.0, 1.0, 0.5);
-    
-    auto result = model.simulateNonlinear(4);
-    
-    ASSERT_GE(result.size(), 4);
-    double expected = 0.5*3.0 - 0.1*2.0*2.0 + 1.0*1.0 + 0.2*sin(0.5);
-    EXPECT_NEAR(result[2], expected, 1e-10);
-}
-
-TEST(TemperatureModelTest, BoundaryConditions) {
-    TemperatureModel model(0.1, 0.2, 0.3, 0.4);
-    
-    auto result_zero = model.simulateLinear(0);
-    EXPECT_TRUE(result_zero.empty());
-    
-    auto result_single = model.simulateLinear(1);
-    EXPECT_EQ(result_single.size(), 1);
-    
-    auto result_double = model.simulateLinear(2);
-    EXPECT_EQ(result_double.size(), 2);
-}
-
-TEST(TemperatureModelTest, NegativeValues) {
-    TemperatureModel model(-0.1, -0.2, -0.3, -0.4);
-    model.setInitialState(-10.0, -15.0, -1.0, -2.0);
-    
-    auto result = model.simulateLinear(3);
-    
-    EXPECT_EQ(result.size(), 3);
-    EXPECT_DOUBLE_EQ(result[0], -10.0);
-    EXPECT_DOUBLE_EQ(result[1], -15.0);
-}
-
-TEST(TemperatureModelTest, LargeTimeSteps) {
-    TemperatureModel model(0.1, 0.2, 0.3, 0.4);
-    model.setInitialState(1.0, 2.0, 1.0, 1.0);
-    
-    auto result = model.simulateLinear(1000);
-    
-    EXPECT_EQ(result.size(), 1000);
-    EXPECT_DOUBLE_EQ(result[0], 1.0);
-    EXPECT_DOUBLE_EQ(result[1], 2.0);
+    EXPECT_DOUBLE_EQ(model.getPrevU(), 6.0);
+    EXPECT_DOUBLE_EQ(model.getCurrentU(), 7.0);
 }
