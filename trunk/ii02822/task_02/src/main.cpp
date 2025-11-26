@@ -25,6 +25,7 @@ int main() {
     double y_linear = y;
     double y_nonlinear = y;
     double y_prev = y;
+    double u_prev = u;
 
     std::cout << "\nSimulation Results:" << std::endl;
     std::cout << "Step\tLinear Model\tNonlinear Model" << std::endl;
