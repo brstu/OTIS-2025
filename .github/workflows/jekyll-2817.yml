@@ -4,7 +4,7 @@ name: GitHub Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["task_03_ii02817"]
+    branches: ["task_03_2817"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
