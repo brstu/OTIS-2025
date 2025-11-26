@@ -15,15 +15,22 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_executable(
-  runTests_ii02822
-  functions.cpp                    
-  test/test_functions.cpp
+# Главная программа
+add_executable(main_program 
+    main.cpp
+    functions.cpp
 )
 
+# Тесты - ИСПРАВЛЕННЫЙ БЛОК
+add_executable(runTests_ii02822
+    ../test/test_functions.cpp
+    functions.cpp
+)
+
+# ИСПРАВЛЕННЫЕ include директории
 target_include_directories(runTests_ii02822 PRIVATE
-    .                             
-    test
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/../test
 )
 
 target_link_libraries(
