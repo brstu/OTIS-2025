@@ -31,7 +31,7 @@ int main() {
 
     for (int i = 0; i < steps; i++) {
         y_linear = linear(y_linear, u, a, b);
-        double y_temp = non_linear(y_prev, y_nonlinear, u, a, b, c, d);
+        double y_temp = non_linear(y_nonlinear, y_prev, u, u_prev, a, b, c, d);
 
         y_prev = y_nonlinear;
         y_nonlinear = y_temp;

@@ -12,14 +12,14 @@ TEST(LinearModelTest, WithNonZeroY) {
 }
 
 // Тесты для нелинейной модели
-TEST(NonlinearModelTest, BaseCase) {
-    double result = non_linear(0.2, 0.1, 0.8, 0.6, 0.15, 0.2);
-    double expected = 0.8 * 0.2 - 0.6 * 0.2 * 0.2 + 0.15 * 0.1 + 0.2 * std::sin(0.1);
-    EXPECT_NEAR(result, expected, 1e-6);
-}
+    TEST(NonlinearModelTest, BaseCase) {
+        double result = non_linear(0.2, 0.1, 0.1, 0.05, 0.8, 0.6, 0.15, 0.2);
+        double expected = 0.8 * 0.2 - 0.6 * 0.1 * 0.1 + 0.15 * 0.1 + 0.2 * std::sin(0.05);
+        EXPECT_NEAR(result, expected, 1e-6);
+    }
 
-TEST(NonlinearModelTest, WithValues) {
-    double result = non_linear(0.6, 0.4, 0.4, 0.3, 0.25, 0.15);
-    double expected = 0.4 * 0.6 - 0.3 * 0.6 * 0.6 + 0.25 * 0.4 + 0.15 * std::sin(0.4);
-    EXPECT_NEAR(result, expected, 1e-6);
-}
+    TEST(NonlinearModelTest, WithValues) {
+        double result = non_linear(0.6, 0.4, 0.4, 0.3, 0.4, 0.3, 0.25, 0.15);
+        double expected = 0.4 * 0.6 - 0.3 * 0.4 * 0.4 + 0.25 * 0.4 + 0.15 * std::sin(0.3);
+        EXPECT_NEAR(result, expected, 1e-6);
+    }
