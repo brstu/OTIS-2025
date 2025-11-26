@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structtesting_1_1internal_1_1_elem_from_list_impl_3_01_index_sequence_3_01_i_8_8_8_01_4_01_4" kind="struct" language="C++" prot="public">
+    <compoundname>testing::internal::ElemFromListImpl&lt; IndexSequence&lt; I... &gt; &gt;</compoundname>
+    <includes refid="gtest-internal_8h" local="no">gtest-internal.h</includes>
+    <templateparamlist>
+      <param>
+        <type>size_t...</type>
+        <declname>I</declname>
+        <defname>I</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structtesting_1_1internal_1_1_elem_from_list_impl_3_01_index_sequence_3_01_i_8_8_8_01_4_01_4_1a3eadad0251d2b3ea30322c3048cd61f1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename R</type>
+          </param>
+        </templateparamlist>
+        <type>R</type>
+        <definition>static R testing::internal::ElemFromListImpl&lt; IndexSequence&lt; I... &gt; &gt;::Apply</definition>
+        <argsstring>(Ignore&lt; 0 *I &gt;..., R(*)(),...)</argsstring>
+        <name>Apply</name>
+        <qualifiedname>testing::internal::ElemFromListImpl&lt; IndexSequence&lt; I... &gt; &gt;::Apply</qualifiedname>
+        <param>
+          <type><ref refid="structtesting_1_1internal_1_1_ignore" kindref="compound">Ignore</ref>&lt; 0 *I &gt;</type>
+          <declname>...</declname>
+        </param>
+        <param>
+          <type>R(*)()</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="1205" column="12"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="1199" column="1" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="1199" bodyend="1206"/>
+    <listofallmembers>
+      <member refid="structtesting_1_1internal_1_1_elem_from_list_impl_3_01_index_sequence_3_01_i_8_8_8_01_4_01_4_1a3eadad0251d2b3ea30322c3048cd61f1" prot="public" virt="non-virtual"><scope>testing::internal::ElemFromListImpl&lt; IndexSequence&lt; I... &gt; &gt;</scope><name>Apply</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1383 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="gtest-type-util_8h" kind="file" language="C++">
+    <compoundname>gtest-type-util.h</compoundname>
+    <includes refid="gtest-port_8h" local="yes">gtest/internal/gtest-port.h</includes>
+    <includedby refid="gtest-typed-test_8h" local="yes">src/build/_deps/googletest-src/googletest/include/gtest/gtest-typed-test.h</includedby>
+    <includedby refid="gtest-internal_8h" local="yes">src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h</includedby>
+    <incdepgraph>
+      <node id="20">
+        <label>gtest/internal/custom/gtest-port.h</label>
+        <link refid="custom_2gtest-port_8h"/>
+      </node>
+      <node id="21">
+        <label>gtest/internal/gtest-port-arch.h</label>
+        <link refid="gtest-port-arch_8h"/>
+      </node>
+      <node id="2">
+        <label>gtest/internal/gtest-port.h</label>
+        <link refid="gtest-port_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h</label>
+        <link refid="gtest-type-util_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>cerrno</label>
+      </node>
+      <node id="9">
+        <label>cstdint</label>
+      </node>
+      <node id="3">
+        <label>ctype.h</label>
+      </node>
+      <node id="10">
+        <label>iostream</label>
+      </node>
+      <node id="11">
+        <label>limits</label>
+      </node>
+      <node id="12">
+        <label>locale</label>
+      </node>
+      <node id="13">
+        <label>memory</label>
+      </node>
+      <node id="24">
+        <label>regex.h</label>
+      </node>
+      <node id="4">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>stdio.h</label>
+      </node>
+      <node id="6">
+        <label>stdlib.h</label>
+      </node>
+      <node id="14">
+        <label>string</label>
+      </node>
+      <node id="7">
+        <label>string.h</label>
+      </node>
+      <node id="22">
+        <label>strings.h</label>
+      </node>
+      <node id="18">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="19">
+        <label>sys/types.h</label>
+      </node>
+      <node id="15">
+        <label>tuple</label>
+      </node>
+      <node id="16">
+        <label>type_traits</label>
+      </node>
+      <node id="25">
+        <label>typeinfo</label>
+      </node>
+      <node id="23">
+        <label>unistd.h</label>
+      </node>
+      <node id="17">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="41">
+        <label>src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h</label>
+        <link refid="gmock-actions_8h"/>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/build/_deps/googletest-src/googlemock/include/gmock/gmock-cardinalities.h</label>
+        <link refid="gmock-cardinalities_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/build/_deps/googletest-src/googlemock/include/gmock/gmock-function-mocker.h</label>
+        <link refid="gmock-function-mocker_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>src/build/_deps/googletest-src/googlemock/include/gmock/gmock-matchers.h</label>
+        <link refid="gmock-matchers_8h"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>src/build/_deps/googletest-src/googlemock/include/gmock/gmock-more-actions.h</label>
+        <link refid="gmock-more-actions_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>src/build/_deps/googletest-src/googlemock/include/gmock/gmock-more-matchers.h</label>
+        <link refid="gmock-more-matchers_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>src/build/_deps/googletest-src/googlemock/include/gmock/gmock-nice-strict.h</label>
+        <link refid="gmock-nice-strict_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>src/build/_deps/googletest-src/googlemock/include/gmock/gmock-spec-builders.h</label>
+        <link refid="gmock-spec-builders_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>src/build/_deps/googletest-src/googlemock/include/gmock/gmock.h</label>
+        <link refid="gmock_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>src/build/_deps/googletest-src/googlemock/include/gmock/internal/gmock-internal-utils.h</label>
+        <link refid="gmock-internal-utils_8h"/>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>src/build/_deps/googletest-src/googlemock/src/gmock-all.cc</label>
+        <link refid="gmock-all_8cc"/>
+      </node>
+      <node id="36">
+        <label>src/build/_deps/googletest-src/googlemock/src/gmock-cardinalities.cc</label>
+        <link refid="gmock-cardinalities_8cc"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>src/build/_deps/googletest-src/googlemock/src/gmock-internal-utils.cc</label>
+        <link refid="gmock-internal-utils_8cc"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>src/build/_deps/googletest-src/googlemock/src/gmock-matchers.cc</label>
+        <link refid="gmock-matchers_8cc"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>src/build/_deps/googletest-src/googlemock/src/gmock-spec-builders.cc</label>
+        <link refid="gmock-spec-builders_8cc"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>src/build/_deps/googletest-src/googlemock/src/gmock.cc</label>
+        <link refid="gmock_8cc"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>src/build/_deps/googletest-src/googlemock/src/gmock_main.cc</label>
+        <link refid="gmock__main_8cc"/>
+      </node>
+      <node id="13">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-actions_test.cc</label>
+        <link refid="gmock-actions__test_8cc"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-cardinalities_test.cc</label>
+        <link refid="gmock-cardinalities__test_8cc"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-function-mocker_test.cc</label>
+        <link refid="gmock-function-mocker__test_8cc"/>
+      </node>
+      <node id="17">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-internal-utils_test.cc</label>
+        <link refid="gmock-internal-utils__test_8cc"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-matchers-arithmetic_test.cc</label>
+        <link refid="gmock-matchers-arithmetic__test_8cc"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-matchers-comparisons_test.cc</label>
+        <link refid="gmock-matchers-comparisons__test_8cc"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-matchers-containers_test.cc</label>
+        <link refid="gmock-matchers-containers__test_8cc"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-matchers-misc_test.cc</label>
+        <link refid="gmock-matchers-misc__test_8cc"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-matchers_test.h</label>
+        <link refid="gmock-matchers__test_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-more-actions_test.cc</label>
+        <link refid="gmock-more-actions__test_8cc"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-nice-strict_test.cc</label>
+        <link refid="gmock-nice-strict__test_8cc"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-port_test.cc</label>
+        <link refid="gmock-port__test_8cc"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-pp-string_test.cc</label>
+        <link refid="gmock-pp-string__test_8cc"/>
+      </node>
+      <node id="26">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock-spec-builders_test.cc</label>
+        <link refid="gmock-spec-builders__test_8cc"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_all_test.cc</label>
+        <link refid="gmock__all__test_8cc"/>
+      </node>
+      <node id="27">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_ex_test.cc</label>
+        <link refid="gmock__ex__test_8cc"/>
+      </node>
+      <node id="28">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_leak_test_.cc</label>
+        <link refid="gmock__leak__test___8cc"/>
+      </node>
+      <node id="30">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_link2_test.cc</label>
+        <link refid="gmock__link2__test_8cc"/>
+      </node>
+      <node id="31">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_link_test.cc</label>
+        <link refid="gmock__link__test_8cc"/>
+      </node>
+      <node id="29">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_link_test.h</label>
+        <link refid="gmock__link__test_8h"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_output_test_.cc</label>
+        <link refid="gmock__output__test___8cc"/>
+      </node>
+      <node id="33">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_stress_test.cc</label>
+        <link refid="gmock__stress__test_8cc"/>
+      </node>
+      <node id="34">
+        <label>src/build/_deps/googletest-src/googlemock/test/gmock_test.cc</label>
+        <link refid="gmock__test_8cc"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="120">
+        <label>src/build/_deps/googletest-src/googletest/include/gtest/gtest-death-test.h</label>
+        <link refid="gtest-death-test_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+      </node>
+      <node id="118">
+        <label>src/build/_deps/googletest-src/googletest/include/gtest/gtest-matchers.h</label>
+        <link refid="gtest-matchers_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+      </node>
+      <node id="122">
+        <label>src/build/_deps/googletest-src/googletest/include/gtest/gtest-param-test.h</label>
+        <link refid="gtest-param-test_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="123">
+        <label>src/build/_deps/googletest-src/googletest/include/gtest/gtest-printers.h</label>
+        <link refid="gtest-printers_8h"/>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>src/build/_deps/googletest-src/googletest/include/gtest/gtest-spi.h</label>
+        <link refid="gtest-spi_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+      </node>
+      <node id="125">
+        <label>src/build/_deps/googletest-src/googletest/include/gtest/gtest-test-part.h</label>
+        <link refid="gtest-test-part_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/build/_deps/googletest-src/googletest/include/gtest/gtest-typed-test.h</label>
+        <link refid="gtest-typed-test_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/build/_deps/googletest-src/googletest/include/gtest/gtest.h</label>
+        <link refid="gtest_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="92" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+      </node>
+      <node id="126">
+        <label>src/build/_deps/googletest-src/googletest/include/gtest/gtest_pred_impl.h</label>
+        <link refid="gtest__pred__impl_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="119">
+        <label>src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-death-test-internal.h</label>
+        <link refid="gtest-death-test-internal_8h"/>
+        <childnode refid="120" relation="include">
+        </childnode>
+      </node>
+      <node id="117">
+        <label>src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h</label>
+        <link refid="gtest-internal_8h"/>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="124">
+        <label>src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h</label>
+        <link refid="gtest-param-util_8h"/>
+        <childnode refid="122" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h</label>
+        <link refid="gtest-type-util_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+      </node>
+      <node id="65">
+        <label>src/build/_deps/googletest-src/googletest/samples/sample10_unittest.cc</label>
+        <link refid="sample10__unittest_8cc"/>
+      </node>
+      <node id="66">
+        <label>src/build/_deps/googletest-src/googletest/samples/sample1_unittest.cc</label>
+        <link refid="sample1__unittest_8cc"/>
+      </node>
+      <node id="67">
+        <label>src/build/_deps/googletest-src/googletest/samples/sample2_unittest.cc</label>
+        <link refid="sample2__unittest_8cc"/>
+      </node>
+      <node id="68">
+        <label>src/build/_deps/googletest-src/googletest/samples/sample3_unittest.cc</label>
+        <link refid="sample3__unittest_8cc"/>
+      </node>
+      <node id="69">
+        <label>src/build/_deps/googletest-src/googletest/samples/sample4_unittest.cc</label>
+        <link refid="sample4__unittest_8cc"/>
+      </node>
+      <node id="70">
+        <label>src/build/_deps/googletest-src/googletest/samples/sample5_unittest.cc</label>
+        <link refid="sample5__unittest_8cc"/>
+      </node>
+      <node id="71">
+        <label>src/build/_deps/googletest-src/googletest/samples/sample6_unittest.cc</label>
+        <link refid="sample6__unittest_8cc"/>
+      </node>
+      <node id="72">
+        <label>src/build/_deps/googletest-src/googletest/samples/sample7_unittest.cc</label>
+        <link refid="sample7__unittest_8cc"/>
+      </node>
+      <node id="73">
+        <label>src/build/_deps/googletest-src/googletest/samples/sample8_unittest.cc</label>
+        <link refid="sample8__unittest_8cc"/>
+      </node>
+      <node id="74">
+        <label>src/build/_deps/googletest-src/googletest/samples/sample9_unittest.cc</label>
+        <link refid="sample9__unittest_8cc"/>
+      </node>
+      <node id="47">
+        <label>src/build/_deps/googletest-src/googletest/src/gtest-all.cc</label>
+        <link refid="gtest-all_8cc"/>
+      </node>
+      <node id="46">
+        <label>src/build/_deps/googletest-src/googletest/src/gtest-death-test.cc</label>
+        <link refid="gtest-death-test_8cc"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>src/build/_deps/googletest-src/googletest/src/gtest-internal-inl.h</label>
+        <link refid="gtest-internal-inl_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+      </node>
+      <node id="121">
+        <label>src/build/_deps/googletest-src/googletest/src/gtest-matchers.cc</label>
+        <link refid="gtest-matchers_8cc"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>src/build/_deps/googletest-src/googletest/src/gtest-port.cc</label>
+        <link refid="gtest-port_8cc"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>src/build/_deps/googletest-src/googletest/src/gtest-printers.cc</label>
+        <link refid="gtest-printers_8cc"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>src/build/_deps/googletest-src/googletest/src/gtest-test-part.cc</label>
+        <link refid="gtest-test-part_8cc"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="75">
+        <label>src/build/_deps/googletest-src/googletest/src/gtest-typed-test.cc</label>
+        <link refid="gtest-typed-test_8cc"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>src/build/_deps/googletest-src/googletest/src/gtest.cc</label>
+        <link refid="gtest_8cc"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="76">
+        <label>src/build/_deps/googletest-src/googletest/src/gtest_main.cc</label>
+        <link refid="gtest__main_8cc"/>
+      </node>
+      <node id="77">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-break-on-failure-unittest_.cc</label>
+        <link refid="googletest-break-on-failure-unittest___8cc"/>
+      </node>
+      <node id="78">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-catch-exceptions-test_.cc</label>
+        <link refid="googletest-catch-exceptions-test___8cc"/>
+      </node>
+      <node id="52">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-color-test_.cc</label>
+        <link refid="googletest-color-test___8cc"/>
+      </node>
+      <node id="79">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-death-test-test.cc</label>
+        <link refid="googletest-death-test-test_8cc"/>
+      </node>
+      <node id="80">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-death-test_ex_test.cc</label>
+        <link refid="googletest-death-test__ex__test_8cc"/>
+      </node>
+      <node id="53">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-env-var-test_.cc</label>
+        <link refid="googletest-env-var-test___8cc"/>
+      </node>
+      <node id="81">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-failfast-unittest_.cc</label>
+        <link refid="googletest-failfast-unittest___8cc"/>
+      </node>
+      <node id="54">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-filepath-test.cc</label>
+        <link refid="googletest-filepath-test_8cc"/>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="82">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-filter-unittest_.cc</label>
+        <link refid="googletest-filter-unittest___8cc"/>
+      </node>
+      <node id="83">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-global-environment-unittest_.cc</label>
+        <link refid="googletest-global-environment-unittest___8cc"/>
+      </node>
+      <node id="84">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-list-tests-unittest_.cc</label>
+        <link refid="googletest-list-tests-unittest___8cc"/>
+      </node>
+      <node id="85">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-listener-test.cc</label>
+        <link refid="googletest-listener-test_8cc"/>
+      </node>
+      <node id="86">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-message-test.cc</label>
+        <link refid="googletest-message-test_8cc"/>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="56">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-options-test.cc</label>
+        <link refid="googletest-options-test_8cc"/>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="57">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-output-test_.cc</label>
+        <link refid="googletest-output-test___8cc"/>
+      </node>
+      <node id="87">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-param-test-invalid-name1-test_.cc</label>
+        <link refid="googletest-param-test-invalid-name1-test___8cc"/>
+      </node>
+      <node id="88">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-param-test-invalid-name2-test_.cc</label>
+        <link refid="googletest-param-test-invalid-name2-test___8cc"/>
+      </node>
+      <node id="58">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-param-test-test.cc</label>
+        <link refid="googletest-param-test-test_8cc"/>
+      </node>
+      <node id="89">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-param-test-test.h</label>
+        <link refid="googletest-param-test-test_8h"/>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+      </node>
+      <node id="90">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-param-test2-test.cc</label>
+        <link refid="googletest-param-test2-test_8cc"/>
+      </node>
+      <node id="59">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-port-test.cc</label>
+        <link refid="googletest-port-test_8cc"/>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="91">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc</label>
+        <link refid="googletest-printers-test_8cc"/>
+      </node>
+      <node id="92">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-setuptestsuite-test_.cc</label>
+        <link refid="googletest-setuptestsuite-test___8cc"/>
+      </node>
+      <node id="93">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-shuffle-test_.cc</label>
+        <link refid="googletest-shuffle-test___8cc"/>
+      </node>
+      <node id="94">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-test-part-test.cc</label>
+        <link refid="googletest-test-part-test_8cc"/>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="95">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-throw-on-failure-test_.cc</label>
+        <link refid="googletest-throw-on-failure-test___8cc"/>
+      </node>
+      <node id="96">
+        <label>src/build/_deps/googletest-src/googletest/test/googletest-uninitialized-test_.cc</label>
+        <link refid="googletest-uninitialized-test___8cc"/>
+      </node>
+      <node id="97">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest-typed-test2_test.cc</label>
+        <link refid="gtest-typed-test2__test_8cc"/>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="98">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc</label>
+        <link refid="gtest-typed-test__test_8cc"/>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="99">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.h</label>
+        <link refid="gtest-typed-test__test_8h"/>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="98" relation="include">
+        </childnode>
+      </node>
+      <node id="100">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest-unittest-api_test.cc</label>
+        <link refid="gtest-unittest-api__test_8cc"/>
+      </node>
+      <node id="55">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_all_test.cc</label>
+        <link refid="gtest__all__test_8cc"/>
+      </node>
+      <node id="101">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_assert_by_exception_test.cc</label>
+        <link refid="gtest__assert__by__exception__test_8cc"/>
+      </node>
+      <node id="60">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_environment_test.cc</label>
+        <link refid="gtest__environment__test_8cc"/>
+      </node>
+      <node id="102">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_help_test_.cc</label>
+        <link refid="gtest__help__test___8cc"/>
+      </node>
+      <node id="103">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_list_output_unittest_.cc</label>
+        <link refid="gtest__list__output__unittest___8cc"/>
+      </node>
+      <node id="104">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_main_unittest.cc</label>
+        <link refid="gtest__main__unittest_8cc"/>
+      </node>
+      <node id="105">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_no_test_unittest.cc</label>
+        <link refid="gtest__no__test__unittest_8cc"/>
+      </node>
+      <node id="64">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_pred_impl_unittest.cc</label>
+        <link refid="gtest__pred__impl__unittest_8cc"/>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="106">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_premature_exit_test.cc</label>
+        <link refid="gtest__premature__exit__test_8cc"/>
+      </node>
+      <node id="107">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_prod_test.cc</label>
+        <link refid="gtest__prod__test_8cc"/>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="61">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_repeat_test.cc</label>
+        <link refid="gtest__repeat__test_8cc"/>
+      </node>
+      <node id="108">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_skip_in_environment_setup_test.cc</label>
+        <link refid="gtest__skip__in__environment__setup__test_8cc"/>
+      </node>
+      <node id="109">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_skip_test.cc</label>
+        <link refid="gtest__skip__test_8cc"/>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="110">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_sole_header_test.cc</label>
+        <link refid="gtest__sole__header__test_8cc"/>
+      </node>
+      <node id="62">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_stress_test.cc</label>
+        <link refid="gtest__stress__test_8cc"/>
+      </node>
+      <node id="111">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_test_macro_stack_footprint_test.cc</label>
+        <link refid="gtest__test__macro__stack__footprint__test_8cc"/>
+      </node>
+      <node id="112">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_testbridge_test_.cc</label>
+        <link refid="gtest__testbridge__test___8cc"/>
+      </node>
+      <node id="113">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_throw_on_failure_ex_test.cc</label>
+        <link refid="gtest__throw__on__failure__ex__test_8cc"/>
+      </node>
+      <node id="63">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_unittest.cc</label>
+        <link refid="gtest__unittest_8cc"/>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="114">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_xml_outfile1_test_.cc</label>
+        <link refid="gtest__xml__outfile1__test___8cc"/>
+      </node>
+      <node id="115">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_xml_outfile2_test_.cc</label>
+        <link refid="gtest__xml__outfile2__test___8cc"/>
+      </node>
+      <node id="116">
+        <label>src/build/_deps/googletest-src/googletest/test/gtest_xml_output_unittest_.cc</label>
+        <link refid="gtest__xml__output__unittest___8cc"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structtesting_1_1internal_1_1_none" prot="public">testing::internal::None</innerclass>
+    <innerclass refid="structtesting_1_1internal_1_1_template_sel" prot="public">testing::internal::TemplateSel</innerclass>
+    <innerclass refid="structtesting_1_1internal_1_1_template_sel_1_1_bind" prot="public">testing::internal::TemplateSel::Bind</innerclass>
+    <innerclass refid="structtesting_1_1internal_1_1_templates" prot="public">testing::internal::Templates</innerclass>
+    <innerclass refid="structtesting_1_1internal_1_1_templates_3_01_head___01_4" prot="public">testing::internal::Templates&lt; Head_ &gt;</innerclass>
+    <innerclass refid="structtesting_1_1internal_1_1_types" prot="public">testing::internal::Types</innerclass>
+    <innerclass refid="structtesting_1_1internal_1_1_types_3_01_head___01_4" prot="public">testing::internal::Types&lt; Head_ &gt;</innerclass>
+    <innerclass refid="structtesting_1_1internal_1_1_proxy_type_list" prot="public">testing::internal::ProxyTypeList</innerclass>
+    <innerclass refid="structtesting_1_1internal_1_1is__proxy__type__list" prot="public">testing::internal::is_proxy_type_list</innerclass>
+    <innerclass refid="structtesting_1_1internal_1_1is__proxy__type__list_3_01_proxy_type_list_3_01_ts_8_8_8_01_4_01_4" prot="public">testing::internal::is_proxy_type_list&lt; ProxyTypeList&lt; Ts... &gt; &gt;</innerclass>
+    <innerclass refid="structtesting_1_1internal_1_1_generate_type_list" prot="public">testing::internal::GenerateTypeList</innerclass>
+    <innernamespace refid="namespacetesting">testing</innernamespace>
+    <innernamespace refid="namespacetesting_1_1internal">testing::internal</innernamespace>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="gtest-type-util_8h_1a094923c2da478086c7b15378613e8af7" prot="public" static="no">
+        <name>GTEST_TEMPLATE_</name>
+        <initializer>  template &lt;typename T&gt; \
+  class</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h" line="106" column="9" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h" bodystart="106" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="define" id="gtest-type-util_8h_1af5c3f5f65da9d9c35399ee49d4632894" prot="public" static="no">
+        <name>GTEST_BIND_</name>
+        <param><defname>TmplSel</defname></param>
+        <param><defname>T</defname></param>
+        <initializer>TmplSel::template Bind&lt;T&gt;::type</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h" line="126" column="9" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>2008<sp/>Google<sp/>Inc.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>All<sp/>Rights<sp/>Reserved.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>met:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>*<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>*<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>copyright<sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>in<sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distribution.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>*<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>Google<sp/>Inc.<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>this<sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/>&quot;AS<sp/>IS&quot;<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/>LIMITED<sp/>TO,<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/>OWNER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">//<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Type<sp/>utilities<sp/>needed<sp/>for<sp/>implementing<sp/>typed<sp/>and<sp/>type-parameterized</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/>tests.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/>IWYU<sp/>pragma:<sp/>private,<sp/>include<sp/>&quot;gtest/gtest.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/>IWYU<sp/>pragma:<sp/>friend<sp/>gtest/.*</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/>IWYU<sp/>pragma:<sp/>friend<sp/>gmock/.*</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>GOOGLETEST_INCLUDE_GTEST_INTERNAL_GTEST_TYPE_UTIL_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GOOGLETEST_INCLUDE_GTEST_INTERNAL_GTEST_TYPE_UTIL_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gtest-port_8h" kindref="compound">gtest/internal/gtest-port.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#ifdef<sp/>__GNUC__<sp/>is<sp/>too<sp/>general<sp/>here.<sp/><sp/>It<sp/>is<sp/>possible<sp/>to<sp/>use<sp/>gcc<sp/>without<sp/>using</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/>libstdc++<sp/>(which<sp/>is<sp/>where<sp/>cxxabi.h<sp/>comes<sp/>from).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>GTEST_HAS_CXXABI_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cxxabi.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(__HP_aCC)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;acxx_demangle.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>GTEST_HASH_CXXABI_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacetesting" kindref="compound">testing</ref><sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacetesting_1_1internal" kindref="compound">internal</ref><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Canonicalizes<sp/>a<sp/>given<sp/>name<sp/>with<sp/>respect<sp/>to<sp/>the<sp/>Standard<sp/>C++<sp/>Library.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>handles<sp/>removing<sp/>the<sp/>inline<sp/>namespace<sp/>within<sp/>`std`<sp/>that<sp/>is</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//<sp/>used<sp/>by<sp/>various<sp/>standard<sp/>libraries<sp/>(e.g.,<sp/>`std::__1`).<sp/><sp/>Names<sp/>outside</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//<sp/>of<sp/>namespace<sp/>std<sp/>are<sp/>returned<sp/>unmodified.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="namespacetesting_1_1internal_1a5342e843f087081705094beae07b557b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="namespacetesting_1_1internal_1a5342e843f087081705094beae07b557b" kindref="member">CanonicalizeForStdLibVersioning</ref>(std::string<sp/>s)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>prefix[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;std::__&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(s.compare(0,<sp/>strlen(prefix),<sp/>prefix)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string::size_type<sp/>end<sp/>=<sp/>s.find(</highlight><highlight class="stringliteral">&quot;::&quot;</highlight><highlight class="normal">,<sp/>strlen(prefix));</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(end<sp/>!=<sp/>s.npos)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Erase<sp/>everything<sp/>between<sp/>the<sp/>initial<sp/>`std`<sp/>and<sp/>the<sp/>second<sp/>`::`.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>s.erase(strlen(</highlight><highlight class="stringliteral">&quot;std&quot;</highlight><highlight class="normal">),<sp/>end<sp/>-<sp/>strlen(</highlight><highlight class="stringliteral">&quot;std&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>s;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>GTEST_HAS_RTTI</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="comment">//<sp/>GetTypeName(const<sp/>std::type_info&amp;)<sp/>returns<sp/>a<sp/>human-readable<sp/>name<sp/>of<sp/>type<sp/>T.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="namespacetesting_1_1internal_1a635606b4731f843c86ec8ca51cab83a1" kindref="member">GetTypeName</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::type_info&amp;<sp/>type)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>name<sp/>=<sp/>type.name();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>GTEST_HAS_CXXABI_H_<sp/>||<sp/>defined(__HP_aCC)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>status<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>gcc&apos;s<sp/>implementation<sp/>of<sp/>typeid(T).name()<sp/>mangles<sp/>the<sp/>type<sp/>name,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>so<sp/>we<sp/>have<sp/>to<sp/>demangle<sp/>it.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>GTEST_HAS_CXXABI_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">abi::__cxa_demangle;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>GTEST_HAS_CXXABI_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>readable_name<sp/>=<sp/>__cxa_demangle(name,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>&amp;status);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>name_str(status<sp/>==<sp/>0<sp/>?<sp/>readable_name<sp/>:<sp/>name);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>free(readable_name);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacetesting_1_1internal_1a5342e843f087081705094beae07b557b" kindref="member">CanonicalizeForStdLibVersioning</ref>(name_str);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>name;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>GTEST_HAS_CXXABI_H_<sp/>||<sp/>__HP_aCC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>GTEST_HAS_RTTI</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment">//<sp/>GetTypeName&lt;T&gt;()<sp/>returns<sp/>a<sp/>human-readable<sp/>name<sp/>of<sp/>type<sp/>T<sp/>if<sp/>and<sp/>only<sp/>if</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment">//<sp/>RTTI<sp/>is<sp/>enabled,<sp/>otherwise<sp/>it<sp/>returns<sp/>a<sp/>dummy<sp/>type<sp/>name.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">//<sp/>NB:<sp/>This<sp/>function<sp/>is<sp/>also<sp/>used<sp/>in<sp/>Google<sp/>Mock,<sp/>so<sp/>don&apos;t<sp/>move<sp/>it<sp/>inside<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment">//<sp/>the<sp/>typed-test-only<sp/>section<sp/>below.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="95" refid="namespacetesting_1_1internal_1a635606b4731f843c86ec8ca51cab83a1" refkind="member"><highlight class="normal">std::string<sp/><ref refid="namespacetesting_1_1internal_1a635606b4731f843c86ec8ca51cab83a1" kindref="member">GetTypeName</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>GTEST_HAS_RTTI</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacetesting_1_1internal_1a635606b4731f843c86ec8ca51cab83a1" kindref="member">GetTypeName</ref>(</highlight><highlight class="keyword">typeid</highlight><highlight class="normal">(T));</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;&lt;type&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>GTEST_HAS_RTTI</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment">//<sp/>A<sp/>unique<sp/>type<sp/>indicating<sp/>an<sp/>empty<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104" refid="structtesting_1_1internal_1_1_none" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_none" kindref="compound">None</ref><sp/>{};</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="gtest-type-util_8h_1a094923c2da478086c7b15378613e8af7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GTEST_TEMPLATE_<sp/>\</highlight></codeline>
+<codeline lineno="107"><highlight class="preprocessor"><sp/><sp/>template<sp/>&lt;typename<sp/>T&gt;<sp/>\</highlight></codeline>
+<codeline lineno="108"><highlight class="preprocessor"><sp/><sp/>class</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>template<sp/>&quot;selector&quot;<sp/>struct<sp/>TemplateSel&lt;Tmpl&gt;<sp/>is<sp/>used<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="comment">//<sp/>represent<sp/>Tmpl,<sp/>which<sp/>must<sp/>be<sp/>a<sp/>class<sp/>template<sp/>with<sp/>one<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment">//<sp/>parameter,<sp/>as<sp/>a<sp/>type.<sp/><sp/>TemplateSel&lt;Tmpl&gt;::Bind&lt;T&gt;::type<sp/>is<sp/>defined</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="comment">//<sp/>as<sp/>the<sp/>type<sp/>Tmpl&lt;T&gt;.<sp/><sp/>This<sp/>allows<sp/>us<sp/>to<sp/>actually<sp/>instantiate<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="comment">//<sp/>template<sp/>&quot;selected&quot;<sp/>by<sp/>TemplateSel&lt;Tmpl&gt;.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>trick<sp/>is<sp/>necessary<sp/>for<sp/>simulating<sp/>typedef<sp/>for<sp/>class<sp/>templates,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="comment">//<sp/>which<sp/>C++<sp/>doesn&apos;t<sp/>support<sp/>directly.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;GTEST_TEMPLATE_<sp/>Tmpl&gt;</highlight></codeline>
+<codeline lineno="119" refid="structtesting_1_1internal_1_1_template_sel" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_template_sel" kindref="compound">TemplateSel</ref><sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="121" refid="structtesting_1_1internal_1_1_template_sel_1_1_bind" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_template_sel_1_1_bind" kindref="compound">Bind</ref><sp/>{</highlight></codeline>
+<codeline lineno="122" refid="structtesting_1_1internal_1_1_template_sel_1_1_bind_1aa84b00f0c4cb97a60d7d8eb752d1956d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Tmpl&lt;T&gt;<sp/><ref refid="structtesting_1_1internal_1_1_template_sel_1_1_bind_1aa84b00f0c4cb97a60d7d8eb752d1956d" kindref="member">type</ref>;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="gtest-type-util_8h_1af5c3f5f65da9d9c35399ee49d4632894" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GTEST_BIND_(TmplSel,<sp/>T)<sp/>TmplSel::template<sp/>Bind&lt;T&gt;::type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;<ref refid="gtest-type-util_8h_1a094923c2da478086c7b15378613e8af7" kindref="member">GTEST_TEMPLATE_</ref><sp/>Head_,<sp/><ref refid="gtest-type-util_8h_1a094923c2da478086c7b15378613e8af7" kindref="member">GTEST_TEMPLATE_</ref>...<sp/>Tail_&gt;</highlight></codeline>
+<codeline lineno="129" refid="structtesting_1_1internal_1_1_templates" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_templates" kindref="compound">Templates</ref><sp/>{</highlight></codeline>
+<codeline lineno="130" refid="structtesting_1_1internal_1_1_templates_1afd2098f3ace72dca2bfb0b3657f7f937" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_templates_1afd2098f3ace72dca2bfb0b3657f7f937" kindref="member">Head</ref><sp/>=<sp/><ref refid="structtesting_1_1internal_1_1_template_sel" kindref="compound">TemplateSel&lt;Head_&gt;</ref>;</highlight></codeline>
+<codeline lineno="131" refid="structtesting_1_1internal_1_1_templates_1a462d57c3c1fc0a1bef26659dbd0c3b3d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_templates_1a462d57c3c1fc0a1bef26659dbd0c3b3d" kindref="member">Tail</ref><sp/>=<sp/><ref refid="structtesting_1_1internal_1_1_templates" kindref="compound">Templates</ref>&lt;Tail_...&gt;;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;GTEST_TEMPLATE_<sp/>Head_&gt;</highlight></codeline>
+<codeline lineno="135" refid="structtesting_1_1internal_1_1_templates_3_01_head___01_4" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_templates" kindref="compound">Templates</ref>&lt;Head_&gt;<sp/>{</highlight></codeline>
+<codeline lineno="136" refid="structtesting_1_1internal_1_1_templates_3_01_head___01_4_1ac6c76b1c4a4da401cc0e50c247cdd568" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_templates_3_01_head___01_4_1ac6c76b1c4a4da401cc0e50c247cdd568" kindref="member">Head</ref><sp/>=<sp/><ref refid="structtesting_1_1internal_1_1_template_sel" kindref="compound">TemplateSel&lt;Head_&gt;</ref>;</highlight></codeline>
+<codeline lineno="137" refid="structtesting_1_1internal_1_1_templates_3_01_head___01_4_1a545ead14971baac1b876f7651c3529b9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_templates_3_01_head___01_4_1a545ead14971baac1b876f7651c3529b9" kindref="member">Tail</ref><sp/>=<sp/><ref refid="structtesting_1_1internal_1_1_none" kindref="compound">None</ref>;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Tuple-like<sp/>type<sp/>lists</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Head_,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal">...<sp/>Tail_&gt;</highlight></codeline>
+<codeline lineno="142" refid="structtesting_1_1internal_1_1_types" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_types" kindref="compound">Types</ref><sp/>{</highlight></codeline>
+<codeline lineno="143" refid="structtesting_1_1internal_1_1_types_1af25c9ea6cd38071ce5154f3869fc0cc0" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_types_1af25c9ea6cd38071ce5154f3869fc0cc0" kindref="member">Head</ref><sp/>=<sp/>Head_;</highlight></codeline>
+<codeline lineno="144" refid="structtesting_1_1internal_1_1_types_1a95f833deba9a29970bb310b80f97239f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_types_1a95f833deba9a29970bb310b80f97239f" kindref="member">Tail</ref><sp/>=<sp/><ref refid="structtesting_1_1internal_1_1_types" kindref="compound">Types</ref>&lt;Tail_...&gt;;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Head_&gt;</highlight></codeline>
+<codeline lineno="148" refid="structtesting_1_1internal_1_1_types_3_01_head___01_4" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_types" kindref="compound">Types</ref>&lt;Head_&gt;<sp/>{</highlight></codeline>
+<codeline lineno="149" refid="structtesting_1_1internal_1_1_types_3_01_head___01_4_1acc643a692020fe60c80cf77fb984c04d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_types_3_01_head___01_4_1acc643a692020fe60c80cf77fb984c04d" kindref="member">Head</ref><sp/>=<sp/>Head_;</highlight></codeline>
+<codeline lineno="150" refid="structtesting_1_1internal_1_1_types_3_01_head___01_4_1a744a032ef03e4446a6943b68fd3f94ee" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_types_3_01_head___01_4_1a744a032ef03e4446a6943b68fd3f94ee" kindref="member">Tail</ref><sp/>=<sp/><ref refid="structtesting_1_1internal_1_1_none" kindref="compound">None</ref>;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Helper<sp/>metafunctions<sp/>to<sp/>tell<sp/>apart<sp/>a<sp/>single<sp/>type<sp/>from<sp/>types</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="comment">//<sp/>generated<sp/>by<sp/>::testing::Types</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal">...<sp/>Ts&gt;</highlight></codeline>
+<codeline lineno="156" refid="structtesting_1_1internal_1_1_proxy_type_list" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_proxy_type_list" kindref="compound">ProxyTypeList</ref><sp/>{</highlight></codeline>
+<codeline lineno="157" refid="structtesting_1_1internal_1_1_proxy_type_list_1a7a70316d957e6c48becd3130490da997" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_proxy_type_list_1a7a70316d957e6c48becd3130490da997" kindref="member">type</ref><sp/>=<sp/><ref refid="structtesting_1_1internal_1_1_types" kindref="compound">Types</ref>&lt;Ts...&gt;;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal">&gt;</highlight></codeline>
+<codeline lineno="161" refid="structtesting_1_1internal_1_1is__proxy__type__list" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1is__proxy__type__list" kindref="compound">is_proxy_type_list</ref><sp/>:<sp/>std::false_type<sp/>{};</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal">...<sp/>Ts&gt;</highlight></codeline>
+<codeline lineno="164" refid="structtesting_1_1internal_1_1is__proxy__type__list_3_01_proxy_type_list_3_01_ts_8_8_8_01_4_01_4" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1is__proxy__type__list" kindref="compound">is_proxy_type_list</ref>&lt;<ref refid="structtesting_1_1internal_1_1_proxy_type_list" kindref="compound">ProxyTypeList</ref>&lt;Ts...&gt;&gt;<sp/>:<sp/>std::true_type<sp/>{};</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Generator<sp/>which<sp/>conditionally<sp/>creates<sp/>type<sp/>lists.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="comment">//<sp/>It<sp/>recognizes<sp/>if<sp/>a<sp/>requested<sp/>type<sp/>list<sp/>should<sp/>be<sp/>created</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="comment">//<sp/>and<sp/>prevents<sp/>creating<sp/>a<sp/>new<sp/>type<sp/>list<sp/>nested<sp/>within<sp/>another<sp/>one.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="170" refid="structtesting_1_1internal_1_1_generate_type_list" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_generate_type_list" kindref="compound">GenerateTypeList</ref><sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">proxy<sp/>=<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>std::conditional&lt;is_proxy_type_list&lt;T&gt;::value,<sp/>T,</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structtesting_1_1internal_1_1_proxy_type_list" kindref="compound">ProxyTypeList&lt;T&gt;</ref>&gt;<ref refid="structtesting_1_1internal_1_1_generate_type_list_1a576a76a145c45be743f9689146cf3fc5" kindref="member">::type</ref>;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="176" refid="structtesting_1_1internal_1_1_generate_type_list_1a576a76a145c45be743f9689146cf3fc5" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="structtesting_1_1internal_1_1_generate_type_list_1a576a76a145c45be743f9689146cf3fc5" kindref="member">type</ref><sp/>=<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>proxy::type;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>internal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal">...<sp/>Ts&gt;</highlight></codeline>
+<codeline lineno="182" refid="namespacetesting_1a5e362473e2ee07d95ba239baf4436a71" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespacetesting_1a5e362473e2ee07d95ba239baf4436a71" kindref="member">Types</ref><sp/>=<sp/><ref refid="structtesting_1_1internal_1_1_proxy_type_list" kindref="compound">internal::ProxyTypeList</ref>&lt;Ts...&gt;;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>testing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>GOOGLETEST_INCLUDE_GTEST_INTERNAL_GTEST_TYPE_UTIL_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h"/>
+  </compounddef>
+</doxygen>

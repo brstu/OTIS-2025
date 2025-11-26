@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structfoo_1_1_path_like_1_1iterator" kind="struct" language="C++" prot="public">
+    <compoundname>foo::PathLike::iterator</compoundname>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structfoo_1_1_path_like_1_1iterator_1a797c204878a09e04b23cfe6b48ac7016" prot="public" static="no">
+        <type><ref refid="classfoo_1_1_path_like_1a1fa696ea0514127f1a57cecd28bd08dc" kindref="member">PathLike</ref></type>
+        <definition>typedef PathLike foo::PathLike::iterator::value_type</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <qualifiedname>foo::PathLike::iterator::value_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" line="208" column="22" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" bodystart="208" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structfoo_1_1_path_like_1_1iterator_1afa572e5812c25a455efd6a9b764ca966" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structfoo_1_1_path_like_1_1iterator" kindref="compound">iterator</ref> &amp;</type>
+        <definition>iterator &amp; foo::PathLike::iterator::operator++</definition>
+        <argsstring>()</argsstring>
+        <name>operator++</name>
+        <qualifiedname>foo::PathLike::iterator::operator++</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" line="210" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structfoo_1_1_path_like_1_1iterator_1a7530b96eb40e01ca9baa31733ddb2bd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classfoo_1_1_path_like_1a1fa696ea0514127f1a57cecd28bd08dc" kindref="member">PathLike</ref> &amp;</type>
+        <definition>PathLike &amp; foo::PathLike::iterator::operator*</definition>
+        <argsstring>()</argsstring>
+        <name>operator*</name>
+        <qualifiedname>foo::PathLike::iterator::operator*</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" line="211" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" line="207" column="3" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" bodystart="207" bodyend="212"/>
+    <listofallmembers>
+      <member refid="structfoo_1_1_path_like_1_1iterator_1a7530b96eb40e01ca9baa31733ddb2bd6" prot="public" virt="non-virtual"><scope>foo::PathLike::iterator</scope><name>operator*</name></member>
+      <member refid="structfoo_1_1_path_like_1_1iterator_1afa572e5812c25a455efd6a9b764ca966" prot="public" virt="non-virtual"><scope>foo::PathLike::iterator</scope><name>operator++</name></member>
+      <member refid="structfoo_1_1_path_like_1_1iterator_1a797c204878a09e04b23cfe6b48ac7016" prot="public" virt="non-virtual"><scope>foo::PathLike::iterator</scope><name>value_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classgoogletest-list-tests-unittest_1_1_g_test_list_tests_unit_test" kind="class" language="Python" prot="public">
+    <compoundname>googletest-list-tests-unittest::GTestListTestsUnitTest</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">gtest_test_utils.TestCase</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgoogletest-list-tests-unittest_1_1_g_test_list_tests_unit_test_1a181f8f8424ac864380a56f443bd571e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-list-tests-unittest.GTestListTestsUnitTest.RunAndVerify</definition>
+        <argsstring>(self, flag_value, expected_output_re, other_flag)</argsstring>
+        <name>RunAndVerify</name>
+        <qualifiedname>googletest-list-tests-unittest.GTestListTestsUnitTest.RunAndVerify</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>flag_value</type>
+          <defname>flag_value</defname>
+        </param>
+        <param>
+          <type>expected_output_re</type>
+          <defname>expected_output_re</defname>
+        </param>
+        <param>
+          <type>other_flag</type>
+          <defname>other_flag</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Runs googletest-list-tests-unittest_ and verifies that it prints
+the correct tests.
+
+Args:
+  flag_value:         value of the --gtest_list_tests flag;
+                      None if the flag should not be present.
+  expected_output_re: regular expression that matches the expected
+                      output after running command;
+  other_flag:         a different flag to be passed to command
+                      along with gtest_list_tests;
+                      None if the flag should not be present.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-list-tests-unittest.py" line="127" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-list-tests-unittest.py" bodystart="127" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="classgoogletest-list-tests-unittest_1_1_g_test_list_tests_unit_test_1a2d18e49914e548bddf41aba10036fa97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-list-tests-unittest.GTestListTestsUnitTest.testDefaultBehavior</definition>
+        <argsstring>(self)</argsstring>
+        <name>testDefaultBehavior</name>
+        <qualifiedname>googletest-list-tests-unittest.GTestListTestsUnitTest.testDefaultBehavior</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Tests the behavior of the default mode.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-list-tests-unittest.py" line="171" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-list-tests-unittest.py" bodystart="171" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="classgoogletest-list-tests-unittest_1_1_g_test_list_tests_unit_test_1a72d855852a18f040f6d79cadad623bec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-list-tests-unittest.GTestListTestsUnitTest.testFlag</definition>
+        <argsstring>(self)</argsstring>
+        <name>testFlag</name>
+        <qualifiedname>googletest-list-tests-unittest.GTestListTestsUnitTest.testFlag</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Tests using the --gtest_list_tests flag.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-list-tests-unittest.py" line="178" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-list-tests-unittest.py" bodystart="178" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classgoogletest-list-tests-unittest_1_1_g_test_list_tests_unit_test_1aa7f45c43e909ef5956cd3222ff8a5917" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-list-tests-unittest.GTestListTestsUnitTest.testOverrideNonFilterFlags</definition>
+        <argsstring>(self)</argsstring>
+        <name>testOverrideNonFilterFlags</name>
+        <qualifiedname>googletest-list-tests-unittest.GTestListTestsUnitTest.testOverrideNonFilterFlags</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Tests that --gtest_list_tests overrides the non-filter flags.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-list-tests-unittest.py" line="188" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-list-tests-unittest.py" bodystart="188" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classgoogletest-list-tests-unittest_1_1_g_test_list_tests_unit_test_1af71ba767dedec2c4329dd677e05de49a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-list-tests-unittest.GTestListTestsUnitTest.testWithFilterFlags</definition>
+        <argsstring>(self)</argsstring>
+        <name>testWithFilterFlags</name>
+        <qualifiedname>googletest-list-tests-unittest.GTestListTestsUnitTest.testWithFilterFlags</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Tests that --gtest_list_tests takes into account the
+--gtest_filter flag.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-list-tests-unittest.py" line="195" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-list-tests-unittest.py" bodystart="195" bodyend="203"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Tests using the --gtest_list_tests flag to list all tests.</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>googletest-list-tests-unittest.GTestListTestsUnitTest</label>
+        <link refid="classgoogletest-list-tests-unittest_1_1_g_test_list_tests_unit_test"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>gtest_test_utils.TestCase</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>googletest-list-tests-unittest.GTestListTestsUnitTest</label>
+        <link refid="classgoogletest-list-tests-unittest_1_1_g_test_list_tests_unit_test"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>gtest_test_utils.TestCase</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/build/_deps/googletest-src/googletest/test/googletest-list-tests-unittest.py" line="124" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-list-tests-unittest.py" bodystart="124" bodyend="203"/>
+    <listofallmembers>
+      <member refid="classgoogletest-list-tests-unittest_1_1_g_test_list_tests_unit_test_1a181f8f8424ac864380a56f443bd571e7" prot="public" virt="non-virtual"><scope>googletest-list-tests-unittest::GTestListTestsUnitTest</scope><name>RunAndVerify</name></member>
+      <member refid="classgoogletest-list-tests-unittest_1_1_g_test_list_tests_unit_test_1a2d18e49914e548bddf41aba10036fa97" prot="public" virt="non-virtual"><scope>googletest-list-tests-unittest::GTestListTestsUnitTest</scope><name>testDefaultBehavior</name></member>
+      <member refid="classgoogletest-list-tests-unittest_1_1_g_test_list_tests_unit_test_1a72d855852a18f040f6d79cadad623bec" prot="public" virt="non-virtual"><scope>googletest-list-tests-unittest::GTestListTestsUnitTest</scope><name>testFlag</name></member>
+      <member refid="classgoogletest-list-tests-unittest_1_1_g_test_list_tests_unit_test_1aa7f45c43e909ef5956cd3222ff8a5917" prot="public" virt="non-virtual"><scope>googletest-list-tests-unittest::GTestListTestsUnitTest</scope><name>testOverrideNonFilterFlags</name></member>
+      <member refid="classgoogletest-list-tests-unittest_1_1_g_test_list_tests_unit_test_1af71ba767dedec2c4329dd677e05de49a" prot="public" virt="non-virtual"><scope>googletest-list-tests-unittest::GTestListTestsUnitTest</scope><name>testWithFilterFlags</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

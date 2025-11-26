@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1internal_1_1_random" kind="class" language="C++" prot="public">
+    <compoundname>testing::internal::Random</compoundname>
+    <includes refid="gtest-internal_8h" local="no">gtest-internal.h</includes>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classtesting_1_1internal_1_1_random_1ade731c423ee745216a09cfb2aa9086d7" prot="public" static="yes" mutable="no">
+        <type>const uint32_t</type>
+        <definition>const uint32_t testing::internal::Random::kMaxRange</definition>
+        <argsstring></argsstring>
+        <name>kMaxRange</name>
+        <qualifiedname>testing::internal::Random::kMaxRange</qualifiedname>
+        <initializer>= 1u &lt;&lt; 31</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="870" column="25" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="870" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtesting_1_1internal_1_1_random_1a1c469b9879446393bf19669f64b68963" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t testing::internal::Random::state_</definition>
+        <argsstring></argsstring>
+        <name>state_</name>
+        <qualifiedname>testing::internal::Random::state_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="881" column="12" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="881" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_random_1adc88a957f3a98b8b63bdb9fc86732e9c" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>testing::internal::Random::Random</definition>
+        <argsstring>(uint32_t seed)</argsstring>
+        <name>Random</name>
+        <qualifiedname>testing::internal::Random::Random</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>seed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="872" column="12" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="872" bodyend="872"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_random_1aff90ca107631cf4c8eebdc0602fddc3a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::Random::Reseed</definition>
+        <argsstring>(uint32_t seed)</argsstring>
+        <name>Reseed</name>
+        <qualifiedname>testing::internal::Random::Reseed</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>seed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="874" column="8" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="874" bodyend="874"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_random_1a882b0d1ba8659d7ff09862f2394cf443" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t testing::internal::Random::Generate</definition>
+        <argsstring>(uint32_t range)</argsstring>
+        <name>Generate</name>
+        <qualifiedname>testing::internal::Random::Generate</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>range</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="878" column="12" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="388" bodyend="402"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_random_1ae6b39873ca60d298196da415122cbb2d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>testing::internal::Random::Random</definition>
+        <argsstring>(const Random &amp;)=delete</argsstring>
+        <name>Random</name>
+        <qualifiedname>testing::internal::Random::Random</qualifiedname>
+        <param>
+          <type>const Random &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="882" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_random_1ab80ffaf140acb6ee3e46f010ed68d05a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classtesting_1_1internal_1_1_random_1adc88a957f3a98b8b63bdb9fc86732e9c" kindref="member">Random</ref> &amp;</type>
+        <definition>Random &amp; testing::internal::Random::operator=</definition>
+        <argsstring>(const Random &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>testing::internal::Random::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classtesting_1_1internal_1_1_random_1adc88a957f3a98b8b63bdb9fc86732e9c" kindref="member">Random</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="883" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="868" column="1" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="868" bodyend="884"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1internal_1_1_random_1a882b0d1ba8659d7ff09862f2394cf443" prot="public" virt="non-virtual"><scope>testing::internal::Random</scope><name>Generate</name></member>
+      <member refid="classtesting_1_1internal_1_1_random_1ade731c423ee745216a09cfb2aa9086d7" prot="public" virt="non-virtual"><scope>testing::internal::Random</scope><name>kMaxRange</name></member>
+      <member refid="classtesting_1_1internal_1_1_random_1ab80ffaf140acb6ee3e46f010ed68d05a" prot="private" virt="non-virtual"><scope>testing::internal::Random</scope><name>operator=</name></member>
+      <member refid="classtesting_1_1internal_1_1_random_1adc88a957f3a98b8b63bdb9fc86732e9c" prot="public" virt="non-virtual"><scope>testing::internal::Random</scope><name>Random</name></member>
+      <member refid="classtesting_1_1internal_1_1_random_1ae6b39873ca60d298196da415122cbb2d" prot="private" virt="non-virtual"><scope>testing::internal::Random</scope><name>Random</name></member>
+      <member refid="classtesting_1_1internal_1_1_random_1aff90ca107631cf4c8eebdc0602fddc3a" prot="public" virt="non-virtual"><scope>testing::internal::Random</scope><name>Reseed</name></member>
+      <member refid="classtesting_1_1internal_1_1_random_1a1c469b9879446393bf19669f64b68963" prot="private" virt="non-virtual"><scope>testing::internal::Random</scope><name>state_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

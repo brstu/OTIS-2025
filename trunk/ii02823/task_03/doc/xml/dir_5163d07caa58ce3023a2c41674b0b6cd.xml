@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="dir_5163d07caa58ce3023a2c41674b0b6cd" kind="dir">
+    <compoundname>src/build/_deps/googletest-src</compoundname>
+    <innerdir refid="dir_a5ca414749d54bad929620b94b52da1b">src/build/_deps/googletest-src/docs</innerdir>
+    <innerdir refid="dir_89a45e32c07eba1c9336a53a0c81801e">src/build/_deps/googletest-src/googlemock</innerdir>
+    <innerdir refid="dir_03bc92da91b659b59b2c9c723ba9da97">src/build/_deps/googletest-src/googletest</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<sect1 id="dir_5163d07caa58ce3023a2c41674b0b6cd_1autotoc_md404">
+<title>GoogleTest</title><sect2 id="dir_5163d07caa58ce3023a2c41674b0b6cd_1autotoc_md405">
+<title>Announcements</title><sect3 id="dir_5163d07caa58ce3023a2c41674b0b6cd_1autotoc_md406">
+<title>Live at Head</title><para>GoogleTest now follows the <ulink url="https://abseil.io/about/philosophy#upgrade-support">Abseil Live at Head philosophy</ulink>. We recommend <ulink url="https://github.com/abseil/abseil-cpp/blob/master/FAQ.md#what-is-live-at-head-and-how-do-i-do-it">updating to the latest commit in the <computeroutput>main</computeroutput> branch as often as possible</ulink>.</para>
+</sect3>
+<sect3 id="dir_5163d07caa58ce3023a2c41674b0b6cd_1autotoc_md407">
+<title>Documentation Updates</title><para>Our documentation is now live on GitHub Pages at <ulink url="https://google.github.io/googletest/">https://google.github.io/googletest/</ulink>. We recommend browsing the documentation on GitHub Pages rather than directly in the repository.</para>
+</sect3>
+<sect3 id="dir_5163d07caa58ce3023a2c41674b0b6cd_1autotoc_md408">
+<title>Release 1.12.1</title><para><ulink url="https://github.com/google/googletest/releases/tag/release-1.12.1">Release 1.12.1</ulink> is now available.</para>
+<para>The 1.12.x branch will be the last to support C++11. Future releases will require at least C++14.</para>
+</sect3>
+<sect3 id="dir_5163d07caa58ce3023a2c41674b0b6cd_1autotoc_md409">
+<title>Coming Soon</title><para><itemizedlist>
+<listitem><para>We are planning to take a dependency on <ulink url="https://github.com/abseil/abseil-cpp">Abseil</ulink>.</para>
+</listitem><listitem><para>More documentation improvements are planned.</para>
+</listitem></itemizedlist>
+</para>
+</sect3>
+</sect2>
+</sect1>
+<sect1 id="dir_5163d07caa58ce3023a2c41674b0b6cd_1autotoc_md410">
+<title>Welcome to <bold>GoogleTest</bold>, Google&apos;s C++ test framework!</title><para>This repository is a merger of the formerly separate GoogleTest and GoogleMock projects. These were so closely related that it makes sense to maintain and release them together.</para>
+<sect2 id="dir_5163d07caa58ce3023a2c41674b0b6cd_1autotoc_md411">
+<title>Getting Started</title><para>See the <ulink url="https://google.github.io/googletest/">GoogleTest User&apos;s Guide</ulink> for documentation. We recommend starting with the <ulink url="https://google.github.io/googletest/primer.html">GoogleTest Primer</ulink>.</para>
+<para>More information about building GoogleTest can be found at <ref refid="dir_03bc92da91b659b59b2c9c723ba9da97" kindref="compound">googletest/README.md</ref>.</para>
+</sect2>
+</sect1>
+<sect1 id="dir_5163d07caa58ce3023a2c41674b0b6cd_1autotoc_md412">
+<title>Features</title><para><itemizedlist>
+<listitem><para>An <ulink url="https://en.wikipedia.org/wiki/XUnit">xUnit</ulink> test framework.</para>
+</listitem><listitem><para>Test discovery.</para>
+</listitem><listitem><para>A rich set of assertions.</para>
+</listitem><listitem><para>User-defined assertions.</para>
+</listitem><listitem><para>Death tests.</para>
+</listitem><listitem><para>Fatal and non-fatal failures.</para>
+</listitem><listitem><para>Value-parameterized tests.</para>
+</listitem><listitem><para>Type-parameterized tests.</para>
+</listitem><listitem><para>Various options for running the tests.</para>
+</listitem><listitem><para>XML test report generation.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="dir_5163d07caa58ce3023a2c41674b0b6cd_1autotoc_md413">
+<title>Supported Platforms</title><para>GoogleTest follows Google&apos;s <ulink url="https://opensource.google/documentation/policies/cplusplus-support">Foundational C++ Support Policy</ulink>. See <ulink url="https://github.com/google/oss-policies-info/blob/main/foundational-cxx-support-matrix.md">this table</ulink> for a list of currently supported versions compilers, platforms, and build tools.</para>
+</sect1>
+<sect1 id="dir_5163d07caa58ce3023a2c41674b0b6cd_1autotoc_md414">
+<title>Who Is Using GoogleTest?</title><para>In addition to many internal projects at Google, GoogleTest is also used by the following notable projects:</para>
+<para><itemizedlist>
+<listitem><para>The <ulink url="http://www.chromium.org/">Chromium projects</ulink> (behind the Chrome browser and Chrome OS).</para>
+</listitem><listitem><para>The <ulink url="http://llvm.org/">LLVM</ulink> compiler.</para>
+</listitem><listitem><para><ulink url="https://github.com/google/protobuf">Protocol Buffers</ulink>, Google&apos;s data interchange format.</para>
+</listitem><listitem><para>The <ulink url="http://opencv.org/">OpenCV</ulink> computer vision library.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="dir_5163d07caa58ce3023a2c41674b0b6cd_1autotoc_md415">
+<title>Related Open Source Projects</title><para><ulink url="https://github.com/nholthaus/gtest-runner">GTest Runner</ulink> is a Qt5 based automated test-runner and Graphical User <ref refid="class_interface" kindref="compound">Interface</ref> with powerful features for Windows and Linux platforms.</para>
+<para><ulink url="https://github.com/ospector/gtest-gbar">GoogleTest UI</ulink> is a test runner that runs your test binary, allows you to track its progress via a progress bar, and displays a list of test failures. Clicking on one shows failure text. GoogleTest UI is written in C#.</para>
+<para><ulink url="https://github.com/kinow/gtest-tap-listener">GTest TAP Listener</ulink> is an event listener for GoogleTest that implements the <ulink url="https://en.wikipedia.org/wiki/Test_Anything_Protocol">TAP protocol</ulink> for test result output. If your test runner understands TAP, you may find it useful.</para>
+<para><ulink url="https://github.com/google/gtest-parallel">gtest-parallel</ulink> is a test runner that runs tests from your binary in parallel to provide significant speed-up.</para>
+<para><ulink url="https://marketplace.visualstudio.com/items?itemName=DavidSchuldenfrei.gtest-adapter">GoogleTest Adapter</ulink> is a VS Code extension allowing to view GoogleTest in a tree view and run/debug your tests.</para>
+<para><ulink url="https://github.com/matepek/vscode-catch2-test-adapter">C++ TestMate</ulink> is a VS Code extension allowing to view GoogleTest in a tree view and run/debug your tests.</para>
+<para><ulink url="https://pypi.org/project/cornichon/">Cornichon</ulink> is a small Gherkin DSL parser that generates stub code for GoogleTest.</para>
+</sect1>
+<sect1 id="dir_5163d07caa58ce3023a2c41674b0b6cd_1autotoc_md416">
+<title>Contributing Changes</title><para>Please read <ulink url="https://github.com/google/googletest/blob/main/CONTRIBUTING.md"><computeroutput>CONTRIBUTING.md</computeroutput></ulink> for details on how to contribute to this project.</para>
+<para>Happy testing! </para>
+</sect1>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/"/>
+  </compounddef>
+</doxygen>

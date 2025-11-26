@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structtesting_1_1internal_1_1_with_args_action" kind="struct" language="C++" prot="public">
+    <compoundname>testing::internal::WithArgsAction</compoundname>
+    <includes refid="gmock-actions_8h" local="no">gmock-actions.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename InnerAction</type>
+      </param>
+      <param>
+        <type>size_t...</type>
+        <declname>I</declname>
+        <defname>I</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structtesting_1_1internal_1_1_with_args_action_1acb9e9974b6d6d297df417fec0a08ca6f" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename R</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>R(typename std::tuple_element&lt; I, std::tuple&lt; Args... &gt; &gt;::type...)</type>
+        <definition>using testing::internal::WithArgsAction&lt; InnerAction, I &gt;::InnerSignature = 
+      R(typename std::tuple_element&lt;I, std::tuple&lt;Args...&gt;&gt;::type...)</definition>
+        <argsstring></argsstring>
+        <name>InnerSignature</name>
+        <qualifiedname>testing::internal::WithArgsAction::InnerSignature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1414" column="3" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1414" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtesting_1_1internal_1_1_with_args_action_1abe6da3bc9f57fa5926b5f53b8095a90d" prot="public" static="no" mutable="no">
+        <type>InnerAction</type>
+        <definition>InnerAction testing::internal::WithArgsAction&lt; InnerAction, I &gt;::inner_action</definition>
+        <argsstring></argsstring>
+        <name>inner_action</name>
+        <qualifiedname>testing::internal::WithArgsAction::inner_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1409" column="15" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1409" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtesting_1_1internal_1_1_with_args_action_1ad0fbdb166e065c975d3b2eca56704427" prot="public" static="no" const="no" explicit="no" inline="yes" refqual="rvalue" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename R</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+          <param>
+            <type>typename std::enable_if&lt; std::is_convertible&lt; InnerAction, <ref refid="classtesting_1_1_once_action" kindref="compound">OnceAction</ref>&lt; R(<ref refid="namespacetesting_1_1internal_1af9d8d15f4b9a816816f247531b2956f7" kindref="member">internal::TupleElement</ref>&lt; I, std::tuple&lt; Args... &gt; &gt;...)&gt; &gt;<ref refid="namespacetesting_1_1internal_1ad193fa3176da3a43dc7739e8c4aa2bb5" kindref="member">::value</ref>, int &gt;::type</type>
+            <defval>0</defval>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>testing::internal::WithArgsAction&lt; InnerAction, I &gt;::operator OnceAction&lt; R</definition>
+        <argsstring>(Args...)&gt;() &amp;&amp;</argsstring>
+        <name>operator OnceAction&lt; R</name>
+        <qualifiedname>testing::internal::WithArgsAction::operator OnceAction&lt; R</qualifiedname>
+        <param>
+          <type>Args...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1436" column="3" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1436" bodyend="1448"/>
+      </memberdef>
+      <memberdef kind="function" id="structtesting_1_1internal_1_1_with_args_action_1aa351f425dae2a8e71fc983358c5060d6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename R</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+          <param>
+            <type>typename std::enable_if&lt; std::is_convertible&lt; const InnerAction &amp;, <ref refid="class_action" kindref="compound">Action</ref>&lt; R(<ref refid="namespacetesting_1_1internal_1af9d8d15f4b9a816816f247531b2956f7" kindref="member">internal::TupleElement</ref>&lt; I, std::tuple&lt; Args... &gt; &gt;...)&gt; &gt;<ref refid="namespacetesting_1_1internal_1ad193fa3176da3a43dc7739e8c4aa2bb5" kindref="member">::value</ref>, int &gt;::type</type>
+            <defval>0</defval>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>testing::internal::WithArgsAction&lt; InnerAction, I &gt;::operator Action&lt; R</definition>
+        <argsstring>(Args...)&gt;() const</argsstring>
+        <name>operator Action&lt; R</name>
+        <qualifiedname>testing::internal::WithArgsAction::operator Action&lt; R</qualifiedname>
+        <param>
+          <type>Args...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1463" column="3" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1463" bodyend="1470"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1408" column="1" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1408" bodyend="1471"/>
+    <listofallmembers>
+      <member refid="structtesting_1_1internal_1_1_with_args_action_1abe6da3bc9f57fa5926b5f53b8095a90d" prot="public" virt="non-virtual"><scope>testing::internal::WithArgsAction</scope><name>inner_action</name></member>
+      <member refid="structtesting_1_1internal_1_1_with_args_action_1acb9e9974b6d6d297df417fec0a08ca6f" prot="public" virt="non-virtual"><scope>testing::internal::WithArgsAction</scope><name>InnerSignature</name></member>
+      <member refid="structtesting_1_1internal_1_1_with_args_action_1aa351f425dae2a8e71fc983358c5060d6" prot="public" virt="non-virtual"><scope>testing::internal::WithArgsAction</scope><name>operator Action&lt; R</name></member>
+      <member refid="structtesting_1_1internal_1_1_with_args_action_1ad0fbdb166e065c975d3b2eca56704427" prot="public" virt="non-virtual"><scope>testing::internal::WithArgsAction</scope><name>operator OnceAction&lt; R</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classmy__namespace_1_1testing_1_1_test" kind="class" language="C++" prot="public">
+    <compoundname>my_namespace::testing::Test</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/test/gtest_unittest.cc" line="6373" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest_unittest.cc" bodystart="6373" bodyend="6373"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1gtest__printers__test_1_1_allows_generic_streaming_and_implicit_conversion_template" kind="class" language="C++" prot="public">
+    <compoundname>testing::gtest_printers_test::AllowsGenericStreamingAndImplicitConversionTemplate</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtesting_1_1gtest__printers__test_1_1_allows_generic_streaming_and_implicit_conversion_template_1af5f8ea44d7d86283b4c004a994ddd7f9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>testing::gtest_printers_test::AllowsGenericStreamingAndImplicitConversionTemplate&lt; T &gt;::operator bool</definition>
+        <argsstring>() const</argsstring>
+        <name>operator bool</name>
+        <qualifiedname>testing::gtest_printers_test::AllowsGenericStreamingAndImplicitConversionTemplate::operator bool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" line="994" column="3" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" bodystart="994" bodyend="994"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" line="992" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" bodystart="992" bodyend="995"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1gtest__printers__test_1_1_allows_generic_streaming_and_implicit_conversion_template_1af5f8ea44d7d86283b4c004a994ddd7f9" prot="public" virt="non-virtual"><scope>testing::gtest_printers_test::AllowsGenericStreamingAndImplicitConversionTemplate</scope><name>operator bool</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

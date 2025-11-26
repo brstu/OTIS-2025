@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="namespacegoogletest-env-var-test" kind="namespace" language="Python">
+    <compoundname>googletest-env-var-test</compoundname>
+    <innerclass refid="classgoogletest-env-var-test_1_1_g_test_env_var_test" prot="public">googletest-env-var-test::GTestEnvVarTest</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacegoogletest-env-var-test_1ab13bcc040e129dfd80ddad3e1eaf5e3a" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str googletest-env-var-test.IS_WINDOWS</definition>
+        <argsstring></argsstring>
+        <name>IS_WINDOWS</name>
+        <qualifiedname>googletest-env-var-test.IS_WINDOWS</qualifiedname>
+        <initializer>=  &apos;nt&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-env-var-test.py" line="38" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-env-var-test.py" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-env-var-test_1a4fe3ec7978d3c11a38faa9a9ea1d40ba" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str googletest-env-var-test.IS_LINUX</definition>
+        <argsstring></argsstring>
+        <name>IS_LINUX</name>
+        <qualifiedname>googletest-env-var-test.IS_LINUX</qualifiedname>
+        <initializer>=  &apos;Linux&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-env-var-test.py" line="39" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-env-var-test.py" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-env-var-test_1a1973327f302e133104ae3ad3eecf17f3" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>googletest-env-var-test.COMMAND</definition>
+        <argsstring></argsstring>
+        <name>COMMAND</name>
+        <qualifiedname>googletest-env-var-test.COMMAND</qualifiedname>
+        <initializer>=  <ref refid="namespacegtest__test__utils_1a239f43ff0e44144cb5a1e14f3453c273" kindref="member">gtest_test_utils.GetTestExecutablePath</ref>(&apos;<ref refid="namespacegoogletest" kindref="compound">googletest</ref>-env-var-test_&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-env-var-test.py" line="41" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-env-var-test.py" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegoogletest-env-var-test_1ade23d144de09227d3ee09500bddcffd2" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>googletest-env-var-test.environ</definition>
+        <argsstring></argsstring>
+        <name>environ</name>
+        <qualifiedname>googletest-env-var-test.environ</qualifiedname>
+        <initializer>=  os.environ.copy()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-env-var-test.py" line="43" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-env-var-test.py" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacegoogletest-env-var-test_1a4d52f60490407ff4ec6412bb6d576e55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-env-var-test.AssertEq</definition>
+        <argsstring>(expected, actual)</argsstring>
+        <name>AssertEq</name>
+        <qualifiedname>googletest-env-var-test.AssertEq</qualifiedname>
+        <param>
+          <type>expected</type>
+          <defname>expected</defname>
+        </param>
+        <param>
+          <type>actual</type>
+          <defname>actual</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-env-var-test.py" line="46" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-env-var-test.py" bodystart="46" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegoogletest-env-var-test_1af17c76d880428d0bf90120b61c03253b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-env-var-test.SetEnvVar</definition>
+        <argsstring>(env_var, value)</argsstring>
+        <name>SetEnvVar</name>
+        <qualifiedname>googletest-env-var-test.SetEnvVar</qualifiedname>
+        <param>
+          <type>env_var</type>
+          <defname>env_var</defname>
+        </param>
+        <param>
+          <type>value</type>
+          <defname>value</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Sets the env variable to &apos;value&apos;; unsets it when &apos;value&apos; is None.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-env-var-test.py" line="53" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-env-var-test.py" bodystart="53" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegoogletest-env-var-test_1a5cd4959495b25da1df71ef913583593b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-env-var-test.GetFlag</definition>
+        <argsstring>(flag)</argsstring>
+        <name>GetFlag</name>
+        <qualifiedname>googletest-env-var-test.GetFlag</qualifiedname>
+        <param>
+          <type>flag</type>
+          <defname>flag</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Runs googletest-env-var-test_ and returns its output.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-env-var-test.py" line="62" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-env-var-test.py" bodystart="62" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegoogletest-env-var-test_1a305b915bd3ec28d759e63a889b030e28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-env-var-test.TestFlag</definition>
+        <argsstring>(flag, test_val, default_val)</argsstring>
+        <name>TestFlag</name>
+        <qualifiedname>googletest-env-var-test.TestFlag</qualifiedname>
+        <param>
+          <type>flag</type>
+          <defname>flag</defname>
+        </param>
+        <param>
+          <type>test_val</type>
+          <defname>test_val</defname>
+        </param>
+        <param>
+          <type>default_val</type>
+          <defname>default_val</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Verifies that the given flag is affected by the corresponding env var.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-env-var-test.py" line="71" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-env-var-test.py" bodystart="71" bodyend="80"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/test/googletest-env-var-test.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

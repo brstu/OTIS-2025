@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structtesting_1_1internal_1_1_do_all_action_3_01_final_action_01_4_1_1_user_constructor_tag" kind="struct" language="C++" prot="public">
+    <compoundname>testing::internal::DoAllAction&lt; FinalAction &gt;::UserConstructorTag</compoundname>
+    <includes refid="gmock-actions_8h" local="no">gmock-actions.h</includes>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1480" column="3" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1480" bodyend="1480"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

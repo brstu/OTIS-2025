@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1internal_1_1_format_for_comparison_3_01_to_print_0f_n_0e_00_01_other_operand_01_4" kind="class" language="C++" prot="public">
+    <compoundname>testing::internal::FormatForComparison&lt; ToPrint[N], OtherOperand &gt;</compoundname>
+    <includes refid="gtest-printers_8h" local="no">gtest-printers.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename ToPrint</type>
+      </param>
+      <param>
+        <type>size_t</type>
+        <declname>N</declname>
+        <defname>N</defname>
+      </param>
+      <param>
+        <type>typename OtherOperand</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_format_for_comparison_3_01_to_print_0f_n_0e_00_01_other_operand_01_4_1a76c526461c8fa7df75f7b32ab889b9e0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::std::string</type>
+        <definition>::std::string testing::internal::FormatForComparison&lt; ToPrint[N], OtherOperand &gt;::Format</definition>
+        <argsstring>(const ToPrint *value)</argsstring>
+        <name>Format</name>
+        <qualifiedname>testing::internal::FormatForComparison&lt; ToPrint[N], OtherOperand &gt;::Format</qualifiedname>
+        <param>
+          <type>const ToPrint *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-printers.h" line="341" column="24" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest-printers.h" bodystart="341" bodyend="343"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-printers.h" line="339" column="1" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest-printers.h" bodystart="339" bodyend="344"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1internal_1_1_format_for_comparison_3_01_to_print_0f_n_0e_00_01_other_operand_01_4_1a76c526461c8fa7df75f7b32ab889b9e0" prot="public" virt="non-virtual"><scope>testing::internal::FormatForComparison&lt; ToPrint[N], OtherOperand &gt;</scope><name>Format</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

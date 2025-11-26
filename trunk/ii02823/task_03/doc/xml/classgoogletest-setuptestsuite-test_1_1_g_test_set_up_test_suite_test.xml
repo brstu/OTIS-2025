@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classgoogletest-setuptestsuite-test_1_1_g_test_set_up_test_suite_test" kind="class" language="Python" prot="public">
+    <compoundname>googletest-setuptestsuite-test::GTestSetUpTestSuiteTest</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">gtest_test_utils.TestCase</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgoogletest-setuptestsuite-test_1_1_g_test_set_up_test_suite_test_1a2ce2543fc68632ecffb9207cbe81a094" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>googletest-setuptestsuite-test.GTestSetUpTestSuiteTest.testSetupErrorAndTearDownError</definition>
+        <argsstring>(self)</argsstring>
+        <name>testSetupErrorAndTearDownError</name>
+        <qualifiedname>googletest-setuptestsuite-test.GTestSetUpTestSuiteTest.testSetupErrorAndTearDownError</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-setuptestsuite-test.py" line="42" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-setuptestsuite-test.py" bodystart="42" bodyend="52"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>googletest-setuptestsuite-test.GTestSetUpTestSuiteTest</label>
+        <link refid="classgoogletest-setuptestsuite-test_1_1_g_test_set_up_test_suite_test"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>gtest_test_utils.TestCase</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>googletest-setuptestsuite-test.GTestSetUpTestSuiteTest</label>
+        <link refid="classgoogletest-setuptestsuite-test_1_1_g_test_set_up_test_suite_test"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>gtest_test_utils.TestCase</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/build/_deps/googletest-src/googletest/test/googletest-setuptestsuite-test.py" line="40" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-setuptestsuite-test.py" bodystart="40" bodyend="52"/>
+    <listofallmembers>
+      <member refid="classgoogletest-setuptestsuite-test_1_1_g_test_set_up_test_suite_test_1a2ce2543fc68632ecffb9207cbe81a094" prot="public" virt="non-virtual"><scope>googletest-setuptestsuite-test::GTestSetUpTestSuiteTest</scope><name>testSetupErrorAndTearDownError</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

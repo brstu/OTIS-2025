@@ -1,0 +1,545 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1internal_1_1_xml_unit_test_result_printer" kind="class" language="C++" prot="public">
+    <compoundname>testing::internal::XmlUnitTestResultPrinter</compoundname>
+    <basecompoundref refid="classtesting_1_1_empty_test_event_listener" prot="public" virt="non-virtual">testing::EmptyTestEventListener</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1aa81cc4540d16279f5eb5f7ec9f366ea7" prot="private" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string testing::internal::XmlUnitTestResultPrinter::output_file_</definition>
+        <argsstring></argsstring>
+        <name>output_file_</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::output_file_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3984" column="21" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="3984" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1afdaf88e6764c18ce0dcc3733d7a06e31" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>testing::internal::XmlUnitTestResultPrinter::XmlUnitTestResultPrinter</definition>
+        <argsstring>(const char *output_file)</argsstring>
+        <name>XmlUnitTestResultPrinter</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::XmlUnitTestResultPrinter</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>output_file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3898" column="12" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="3991" bodyend="3996"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1abf972ca903d66d5ea52d9b1bc0a27f21" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void testing::internal::XmlUnitTestResultPrinter::OnTestIterationEnd</definition>
+        <argsstring>(const UnitTest &amp;unit_test, int iteration) override</argsstring>
+        <name>OnTestIterationEnd</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::OnTestIterationEnd</qualifiedname>
+        <reimplements refid="classtesting_1_1_empty_test_event_listener_1aae9c5c61e476f0c421402fb1dde434d2">OnTestIterationEnd</reimplements>
+        <param>
+          <type>const <ref refid="class_unit_test" kindref="compound">UnitTest</ref> &amp;</type>
+          <declname>unit_test</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iteration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3900" column="8" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="3999" bodyend="4006"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a5bbda9739d45a9e01190b2663dcbc5ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::XmlUnitTestResultPrinter::ListTestsMatchingFilter</definition>
+        <argsstring>(const std::vector&lt; TestSuite * &gt; &amp;test_suites)</argsstring>
+        <name>ListTestsMatchingFilter</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::ListTestsMatchingFilter</qualifiedname>
+        <param>
+          <type>const std::vector&lt; <ref refid="class_test_suite" kindref="compound">TestSuite</ref> * &gt; &amp;</type>
+          <declname>test_suites</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3901" column="8" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4008" bodyend="4015"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a35fba2665c5fb6fa56b8eb5c41fa275e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::XmlUnitTestResultPrinter::PrintXmlTestsList</definition>
+        <argsstring>(std::ostream *stream, const std::vector&lt; TestSuite * &gt; &amp;test_suites)</argsstring>
+        <name>PrintXmlTestsList</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::PrintXmlTestsList</qualifiedname>
+        <param>
+          <type>std::ostream *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; <ref refid="class_test_suite" kindref="compound">TestSuite</ref> * &gt; &amp;</type>
+          <declname>test_suites</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3904" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4386" bodyend="4406"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1ae5fa1fde006d20689df69e101b6f46d0" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool testing::internal::XmlUnitTestResultPrinter::IsNormalizableWhitespace</definition>
+        <argsstring>(unsigned char c)</argsstring>
+        <name>IsNormalizableWhitespace</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::IsNormalizableWhitespace</qualifiedname>
+        <param>
+          <type>unsigned char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3910" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="3910" bodyend="3912"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a76e99db600dd8e8c616a33d3f6e26481" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool testing::internal::XmlUnitTestResultPrinter::IsValidXmlCharacter</definition>
+        <argsstring>(unsigned char c)</argsstring>
+        <name>IsValidXmlCharacter</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::IsValidXmlCharacter</qualifiedname>
+        <param>
+          <type>unsigned char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3916" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="3916" bodyend="3918"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1adadf42cf46ade9b26743466ce4b52f36" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string testing::internal::XmlUnitTestResultPrinter::EscapeXml</definition>
+        <argsstring>(const std::string &amp;str, bool is_attribute)</argsstring>
+        <name>EscapeXml</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::EscapeXml</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_attribute</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3924" column="22" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4027" bodyend="4069"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1aa14cb72f42a346841482cbafa65e3155" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string testing::internal::XmlUnitTestResultPrinter::RemoveInvalidXmlCharacters</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>RemoveInvalidXmlCharacters</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::RemoveInvalidXmlCharacters</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3927" column="22" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4074" bodyend="4083"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1aad574d7bb0c24578d5acc57817b9d367" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string testing::internal::XmlUnitTestResultPrinter::EscapeXmlAttribute</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>EscapeXmlAttribute</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::EscapeXmlAttribute</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3930" column="22" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="3930" bodyend="3932"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a934486bda28e7013f2d07520d5098a31" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string testing::internal::XmlUnitTestResultPrinter::EscapeXmlText</definition>
+        <argsstring>(const char *str)</argsstring>
+        <name>EscapeXmlText</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::EscapeXmlText</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3935" column="22" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="3935" bodyend="3937"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1aa8ca7066de948d26d171597430c75839" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::XmlUnitTestResultPrinter::OutputXmlAttribute</definition>
+        <argsstring>(std::ostream *stream, const std::string &amp;element_name, const std::string &amp;name, const std::string &amp;value)</argsstring>
+        <name>OutputXmlAttribute</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::OutputXmlAttribute</qualifiedname>
+        <param>
+          <type>std::ostream *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>element_name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3941" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4163" bodyend="4175"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a41bccd75f54932c5b3b8cce1f94dbd54" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::XmlUnitTestResultPrinter::OutputXmlCDataSection</definition>
+        <argsstring>(::std::ostream *stream, const char *data)</argsstring>
+        <name>OutputXmlCDataSection</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::OutputXmlCDataSection</qualifiedname>
+        <param>
+          <type>::std::ostream *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3947" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4144" bodyend="4161"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1ab03e67deda32e03afee75f84ce96da75" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::XmlUnitTestResultPrinter::OutputXmlTestSuiteForTestResult</definition>
+        <argsstring>(::std::ostream *stream, const TestResult &amp;result)</argsstring>
+        <name>OutputXmlTestSuiteForTestResult</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::OutputXmlTestSuiteForTestResult</qualifiedname>
+        <param>
+          <type>::std::ostream *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_test_result" kindref="compound">TestResult</ref> &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3952" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4178" bodyend="4212"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a08dbb0c177c79dba420bbe24ef9aa668" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::XmlUnitTestResultPrinter::OutputXmlTestResult</definition>
+        <argsstring>(::std::ostream *stream, const TestResult &amp;result)</argsstring>
+        <name>OutputXmlTestResult</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::OutputXmlTestResult</qualifiedname>
+        <param>
+          <type>::std::ostream *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_test_result" kindref="compound">TestResult</ref> &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3956" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4261" bodyend="4305"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1aa7f900fe553777693d87bbdb9c76841b" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::XmlUnitTestResultPrinter::OutputXmlTestInfo</definition>
+        <argsstring>(::std::ostream *stream, const char *test_suite_name, const TestInfo &amp;test_info)</argsstring>
+        <name>OutputXmlTestInfo</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::OutputXmlTestInfo</qualifiedname>
+        <param>
+          <type>::std::ostream *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>test_suite_name</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_test_info" kindref="compound">TestInfo</ref> &amp;</type>
+          <declname>test_info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3960" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4215" bodyend="4259"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a7ce916531bfe6778f8a9e83139e15563" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::XmlUnitTestResultPrinter::PrintXmlTestSuite</definition>
+        <argsstring>(::std::ostream *stream, const TestSuite &amp;test_suite)</argsstring>
+        <name>PrintXmlTestSuite</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::PrintXmlTestSuite</qualifiedname>
+        <param>
+          <type>::std::ostream *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_test_suite" kindref="compound">TestSuite</ref> &amp;</type>
+          <declname>test_suite</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3965" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4308" bodyend="4339"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a3be1c8766241d0f34cdf59b45a52f73b" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::XmlUnitTestResultPrinter::PrintXmlUnitTest</definition>
+        <argsstring>(::std::ostream *stream, const UnitTest &amp;unit_test)</argsstring>
+        <name>PrintXmlUnitTest</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::PrintXmlUnitTest</qualifiedname>
+        <param>
+          <type>::std::ostream *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_unit_test" kindref="compound">UnitTest</ref> &amp;</type>
+          <declname>unit_test</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3969" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4342" bodyend="4384"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1aaac4f1352a2cc46f6a69994d45999f0b" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string testing::internal::XmlUnitTestResultPrinter::TestPropertiesAsXmlAttributes</definition>
+        <argsstring>(const TestResult &amp;result)</argsstring>
+        <name>TestPropertiesAsXmlAttributes</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::TestPropertiesAsXmlAttributes</qualifiedname>
+        <param>
+          <type>const <ref refid="class_test_result" kindref="compound">TestResult</ref> &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3976" column="22" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4410" bodyend="4419"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a69b5b7ac1b8236760790768be5ebb218" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testing::internal::XmlUnitTestResultPrinter::OutputXmlTestProperties</definition>
+        <argsstring>(std::ostream *stream, const TestResult &amp;result)</argsstring>
+        <name>OutputXmlTestProperties</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::OutputXmlTestProperties</qualifiedname>
+        <param>
+          <type>std::ostream *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_test_result" kindref="compound">TestResult</ref> &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3980" column="15" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="4421" bodyend="4439"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a5ba1a62ba715787ca5c3d9558fc374ae" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>testing::internal::XmlUnitTestResultPrinter::XmlUnitTestResultPrinter</definition>
+        <argsstring>(const XmlUnitTestResultPrinter &amp;)=delete</argsstring>
+        <name>XmlUnitTestResultPrinter</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::XmlUnitTestResultPrinter</qualifiedname>
+        <param>
+          <type>const XmlUnitTestResultPrinter &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3986" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1aa2a0de22c0601a2f7f48f6d13e99d808" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1afdaf88e6764c18ce0dcc3733d7a06e31" kindref="member">XmlUnitTestResultPrinter</ref> &amp;</type>
+        <definition>XmlUnitTestResultPrinter &amp; testing::internal::XmlUnitTestResultPrinter::operator=</definition>
+        <argsstring>(const XmlUnitTestResultPrinter &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>testing::internal::XmlUnitTestResultPrinter::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1afdaf88e6764c18ce0dcc3733d7a06e31" kindref="member">XmlUnitTestResultPrinter</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3987" column="28"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>testing::EmptyTestEventListener</label>
+        <link refid="classtesting_1_1_empty_test_event_listener"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>testing::TestEventListener</label>
+        <link refid="classtesting_1_1_test_event_listener"/>
+      </node>
+      <node id="1">
+        <label>testing::internal::XmlUnitTestResultPrinter</label>
+        <link refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>testing::EmptyTestEventListener</label>
+        <link refid="classtesting_1_1_empty_test_event_listener"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>testing::TestEventListener</label>
+        <link refid="classtesting_1_1_test_event_listener"/>
+      </node>
+      <node id="1">
+        <label>testing::internal::XmlUnitTestResultPrinter</label>
+        <link refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/build/_deps/googletest-src/googletest/src/gtest.cc" line="3896" column="1" bodyfile="src/build/_deps/googletest-src/googletest/src/gtest.cc" bodystart="3896" bodyend="3988"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1adadf42cf46ade9b26743466ce4b52f36" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>EscapeXml</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1aad574d7bb0c24578d5acc57817b9d367" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>EscapeXmlAttribute</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a934486bda28e7013f2d07520d5098a31" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>EscapeXmlText</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1ae5fa1fde006d20689df69e101b6f46d0" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>IsNormalizableWhitespace</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a76e99db600dd8e8c616a33d3f6e26481" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>IsValidXmlCharacter</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a5bbda9739d45a9e01190b2663dcbc5ac" prot="public" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>ListTestsMatchingFilter</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a9b4e781c0b38065a55c2fd163724ba69" prot="public" virt="virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OnEnvironmentsSetUpEnd</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a6e498ae763ac8c1a46bd861e0b7ff3f5" prot="public" virt="virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OnEnvironmentsSetUpStart</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1ad9984052e82c3ae26395a2d9480326d2" prot="public" virt="virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OnEnvironmentsTearDownEnd</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a320780451eac9178434b7c77d948ecbd" prot="public" virt="virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OnEnvironmentsTearDownStart</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1abe05cc74c1081ed51e2c84b73013299e" prot="public" virt="virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OnTestCaseEnd</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a7f9a84967fde01000b7a56e9e84b6052" prot="public" virt="virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OnTestCaseStart</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a200fee280ddf30644aa5b1056edc2563" prot="public" virt="virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OnTestDisabled</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a709d7077c086c877d214231bc520ef90" prot="public" virt="virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OnTestEnd</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1abf972ca903d66d5ea52d9b1bc0a27f21" prot="public" virt="virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OnTestIterationEnd</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a31edf103561e8b4d747656bc2d927661" prot="public" virt="virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OnTestIterationStart</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1ab95992f0a0b3741d59a24c3a7115fa60" prot="public" virt="virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OnTestPartResult</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1aaa9d683e8e0c850af67a0b92d785ddb9" prot="public" virt="virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OnTestProgramEnd</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1ac3f5033fcd82080edb45f546ce9854fe" prot="public" virt="virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OnTestProgramStart</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a1d8c7f3f1f92826f668edae1bc5aadf4" prot="public" virt="virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OnTestStart</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1aefdb73682d290791461e186d864db718" prot="public" virt="virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OnTestSuiteEnd</name></member>
+      <member refid="classtesting_1_1_empty_test_event_listener_1a1e32e4bd4857822b6b50e6900aa5c651" prot="public" virt="virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OnTestSuiteStart</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1aa2a0de22c0601a2f7f48f6d13e99d808" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>operator=</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1aa81cc4540d16279f5eb5f7ec9f366ea7" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>output_file_</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1aa8ca7066de948d26d171597430c75839" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OutputXmlAttribute</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a41bccd75f54932c5b3b8cce1f94dbd54" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OutputXmlCDataSection</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1aa7f900fe553777693d87bbdb9c76841b" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OutputXmlTestInfo</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a69b5b7ac1b8236760790768be5ebb218" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OutputXmlTestProperties</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a08dbb0c177c79dba420bbe24ef9aa668" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OutputXmlTestResult</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1ab03e67deda32e03afee75f84ce96da75" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>OutputXmlTestSuiteForTestResult</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a35fba2665c5fb6fa56b8eb5c41fa275e" prot="public" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>PrintXmlTestsList</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a7ce916531bfe6778f8a9e83139e15563" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>PrintXmlTestSuite</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a3be1c8766241d0f34cdf59b45a52f73b" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>PrintXmlUnitTest</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1aa14cb72f42a346841482cbafa65e3155" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>RemoveInvalidXmlCharacters</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1aaac4f1352a2cc46f6a69994d45999f0b" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>TestPropertiesAsXmlAttributes</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1afdaf88e6764c18ce0dcc3733d7a06e31" prot="public" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>XmlUnitTestResultPrinter</name></member>
+      <member refid="classtesting_1_1internal_1_1_xml_unit_test_result_printer_1a5ba1a62ba715787ca5c3d9558fc374ae" prot="private" virt="non-virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>XmlUnitTestResultPrinter</name></member>
+      <member refid="classtesting_1_1_test_event_listener_1a4512d19e7a108ec4926239ec1ea85d63" prot="public" virt="virtual"><scope>testing::internal::XmlUnitTestResultPrinter</scope><name>~TestEventListener</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

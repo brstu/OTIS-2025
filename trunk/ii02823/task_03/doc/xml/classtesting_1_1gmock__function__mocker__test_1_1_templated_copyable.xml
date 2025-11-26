@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1gmock__function__mocker__test_1_1_templated_copyable" kind="class" language="C++" prot="public">
+    <compoundname>testing::gmock_function_mocker_test::TemplatedCopyable</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtesting_1_1gmock__function__mocker__test_1_1_templated_copyable_1ad64971868d9751667ba26a2f60a07e15" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>testing::gmock_function_mocker_test::TemplatedCopyable&lt; T &gt;::TemplatedCopyable</definition>
+        <argsstring>()</argsstring>
+        <name>TemplatedCopyable</name>
+        <qualifiedname>testing::gmock_function_mocker_test::TemplatedCopyable::TemplatedCopyable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/test/gmock-function-mocker_test.cc" line="76" column="3" bodyfile="src/build/_deps/googletest-src/googlemock/test/gmock-function-mocker_test.cc" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1gmock__function__mocker__test_1_1_templated_copyable_1a8af561a4e372a9a41d4d3b9de6224b42" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>testing::gmock_function_mocker_test::TemplatedCopyable&lt; T &gt;::TemplatedCopyable</definition>
+        <argsstring>(const U &amp;other)</argsstring>
+        <name>TemplatedCopyable</name>
+        <qualifiedname>testing::gmock_function_mocker_test::TemplatedCopyable::TemplatedCopyable</qualifiedname>
+        <param>
+          <type>const U &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/test/gmock-function-mocker_test.cc" line="79" column="3" bodyfile="src/build/_deps/googletest-src/googlemock/test/gmock-function-mocker_test.cc" bodystart="79" bodyend="79"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googlemock/test/gmock-function-mocker_test.cc" line="74" column="1" bodyfile="src/build/_deps/googletest-src/googlemock/test/gmock-function-mocker_test.cc" bodystart="74" bodyend="80"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1gmock__function__mocker__test_1_1_templated_copyable_1ad64971868d9751667ba26a2f60a07e15" prot="public" virt="non-virtual"><scope>testing::gmock_function_mocker_test::TemplatedCopyable</scope><name>TemplatedCopyable</name></member>
+      <member refid="classtesting_1_1gmock__function__mocker__test_1_1_templated_copyable_1a8af561a4e372a9a41d4d3b9de6224b42" prot="public" virt="non-virtual"><scope>testing::gmock_function_mocker_test::TemplatedCopyable</scope><name>TemplatedCopyable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

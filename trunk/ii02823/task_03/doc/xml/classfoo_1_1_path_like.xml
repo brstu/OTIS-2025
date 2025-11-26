@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classfoo_1_1_path_like" kind="class" language="C++" prot="public">
+    <compoundname>foo::PathLike</compoundname>
+    <innerclass refid="structfoo_1_1_path_like_1_1iterator" prot="public">foo::PathLike::iterator</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classfoo_1_1_path_like_1aa828aab5ad4071dddf489067e7e06c5e" prot="public" static="no">
+        <type>char</type>
+        <definition>using foo::PathLike::value_type =  char</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <qualifiedname>foo::PathLike::value_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" line="214" column="3" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classfoo_1_1_path_like_1adada0ee7aeec173026717604e6264b4c" prot="public" static="no">
+        <type><ref refid="structfoo_1_1_path_like_1_1iterator" kindref="compound">iterator</ref></type>
+        <definition>using foo::PathLike::const_iterator =  iterator</definition>
+        <argsstring></argsstring>
+        <name>const_iterator</name>
+        <qualifiedname>foo::PathLike::const_iterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" line="215" column="3" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" bodystart="215" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classfoo_1_1_path_like_1a1fa696ea0514127f1a57cecd28bd08dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>foo::PathLike::PathLike</definition>
+        <argsstring>()</argsstring>
+        <name>PathLike</name>
+        <qualifiedname>foo::PathLike::PathLike</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" line="217" column="3" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" bodystart="217" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="classfoo_1_1_path_like_1a7ca8b63139fd6fcada55fbf13ccf9c83" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structfoo_1_1_path_like_1_1iterator" kindref="compound">iterator</ref></type>
+        <definition>iterator foo::PathLike::begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <qualifiedname>foo::PathLike::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" line="219" column="12" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" bodystart="219" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="classfoo_1_1_path_like_1aca85cd005890f1d19f416ca7e2c95f02" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structfoo_1_1_path_like_1_1iterator" kindref="compound">iterator</ref></type>
+        <definition>iterator foo::PathLike::end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <qualifiedname>foo::PathLike::end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" line="220" column="12" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" bodystart="220" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="classfoo_1_1_path_like_1ae5c45340864c81d313a2f09ab70651a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>friend::std::ostream &amp;</type>
+        <definition>friend::std::ostream &amp; foo::PathLike::operator&lt;&lt;</definition>
+        <argsstring>(::std::ostream &amp;os, const PathLike &amp;)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>foo::PathLike::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>::std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classfoo_1_1_path_like_1a1fa696ea0514127f1a57cecd28bd08dc" kindref="member">PathLike</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" line="222" column="3" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" bodystart="222" bodyend="224"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" line="205" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-printers-test.cc" bodystart="205" bodyend="225"/>
+    <listofallmembers>
+      <member refid="classfoo_1_1_path_like_1a7ca8b63139fd6fcada55fbf13ccf9c83" prot="public" virt="non-virtual"><scope>foo::PathLike</scope><name>begin</name></member>
+      <member refid="classfoo_1_1_path_like_1adada0ee7aeec173026717604e6264b4c" prot="public" virt="non-virtual"><scope>foo::PathLike</scope><name>const_iterator</name></member>
+      <member refid="classfoo_1_1_path_like_1aca85cd005890f1d19f416ca7e2c95f02" prot="public" virt="non-virtual"><scope>foo::PathLike</scope><name>end</name></member>
+      <member refid="classfoo_1_1_path_like_1ae5c45340864c81d313a2f09ab70651a7" prot="public" virt="non-virtual"><scope>foo::PathLike</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classfoo_1_1_path_like_1a1fa696ea0514127f1a57cecd28bd08dc" prot="public" virt="non-virtual"><scope>foo::PathLike</scope><name>PathLike</name></member>
+      <member refid="classfoo_1_1_path_like_1aa828aab5ad4071dddf489067e7e06c5e" prot="public" virt="non-virtual"><scope>foo::PathLike</scope><name>value_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

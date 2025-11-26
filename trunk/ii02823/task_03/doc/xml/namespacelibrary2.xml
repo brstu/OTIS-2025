@@ -1,0 +1,335 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="namespacelibrary2" kind="namespace" language="C++">
+    <compoundname>library2</compoundname>
+    <innerclass refid="classlibrary2_1_1_numeric_test" prot="public">library2::NumericTest</innerclass>
+    <innerclass refid="classlibrary2_1_1_trimmed_test" prot="public">library2::TrimmedTest</innerclass>
+    <innerclass refid="structlibrary2_1_1_my_pair" prot="public">library2::MyPair</innerclass>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespacelibrary2_1a5178b6621dee6ba05a860a6e8c7f076a" prot="public" static="no">
+        <type><ref refid="namespacetesting_1a5e362473e2ee07d95ba239baf4436a71" kindref="member">Types</ref>&lt; int, double &gt;</type>
+        <definition>typedef Types&lt;int, double&gt; library2::NumericTypes</definition>
+        <argsstring></argsstring>
+        <name>NumericTypes</name>
+        <qualifiedname>library2::NumericTypes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="399" column="15" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" bodystart="399" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacelibrary2_1a3340712da3b45d2ee9c336860d849d5f" prot="public" static="no">
+        <type><ref refid="namespacetesting_1a5e362473e2ee07d95ba239baf4436a71" kindref="member">Types</ref>&lt; int, double, <ref refid="structlibrary2_1_1_my_pair" kindref="compound">MyPair</ref>&lt; int, int &gt; &gt;</type>
+        <definition>typedef Types&lt;int, double, MyPair&lt;int, int&gt; &gt; library2::TrimTypes</definition>
+        <argsstring></argsstring>
+        <name>TrimTypes</name>
+        <qualifiedname>library2::TrimTypes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="419" column="15" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" bodystart="419" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacelibrary2_1a1ec9cdb5595b64d9929646909ad45da0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>library2::TYPED_TEST_SUITE_P</definition>
+        <argsstring>(NumericTest)</argsstring>
+        <name>TYPED_TEST_SUITE_P</name>
+        <qualifiedname>library2::TYPED_TEST_SUITE_P</qualifiedname>
+        <param>
+          <type><ref refid="classlibrary2_1_1_numeric_test" kindref="compound">NumericTest</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="390" column="1" declfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" declline="390" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibrary2_1aa84253b4a5059d893e69324e45457bd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>library2::TYPED_TEST_P</definition>
+        <argsstring>(NumericTest, DefaultIsZero)</argsstring>
+        <name>TYPED_TEST_P</name>
+        <qualifiedname>library2::TYPED_TEST_P</qualifiedname>
+        <param>
+          <type><ref refid="classlibrary2_1_1_numeric_test" kindref="compound">NumericTest</ref></type>
+        </param>
+        <param>
+          <type>DefaultIsZero</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="392" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" bodystart="392" bodyend="392"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibrary2_1af11eb192eee5f08b1b81003b77b23496" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>library2::TYPED_TEST_P</definition>
+        <argsstring>(NumericTest, ZeroIsLessThanOne)</argsstring>
+        <name>TYPED_TEST_P</name>
+        <qualifiedname>library2::TYPED_TEST_P</qualifiedname>
+        <param>
+          <type><ref refid="classlibrary2_1_1_numeric_test" kindref="compound">NumericTest</ref></type>
+        </param>
+        <param>
+          <type>ZeroIsLessThanOne</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="394" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" bodystart="394" bodyend="396"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibrary2_1a8b8bda6d2f8241f83aab5302a1cee8fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>library2::REGISTER_TYPED_TEST_SUITE_P</definition>
+        <argsstring>(NumericTest, DefaultIsZero, ZeroIsLessThanOne)</argsstring>
+        <name>REGISTER_TYPED_TEST_SUITE_P</name>
+        <qualifiedname>library2::REGISTER_TYPED_TEST_SUITE_P</qualifiedname>
+        <param>
+          <type><ref refid="classlibrary2_1_1_numeric_test" kindref="compound">NumericTest</ref></type>
+        </param>
+        <param>
+          <type>DefaultIsZero</type>
+        </param>
+        <param>
+          <type>ZeroIsLessThanOne</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="398" column="1" declfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" declline="398" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibrary2_1a491a740bca66df5cebc76b378d8a2007" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>library2::INSTANTIATE_TYPED_TEST_SUITE_P</definition>
+        <argsstring>(My, NumericTest, NumericTypes)</argsstring>
+        <name>INSTANTIATE_TYPED_TEST_SUITE_P</name>
+        <qualifiedname>library2::INSTANTIATE_TYPED_TEST_SUITE_P</qualifiedname>
+        <param>
+          <type>My</type>
+        </param>
+        <param>
+          <type><ref refid="classlibrary2_1_1_numeric_test" kindref="compound">NumericTest</ref></type>
+        </param>
+        <param>
+          <type><ref refid="namespacelibrary2_1a5178b6621dee6ba05a860a6e8c7f076a" kindref="member">NumericTypes</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="400" column="1" declfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" declline="400" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibrary2_1ab3aaa98eba7d03736bd37ff012bbf192" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>static const char * library2::GetTestName</definition>
+        <argsstring>()</argsstring>
+        <name>GetTestName</name>
+        <qualifiedname>library2::GetTestName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="402" column="19" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" bodystart="402" bodyend="404"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibrary2_1a9240d16ad0a37f77076410b95bfd9878" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>library2::TYPED_TEST_SUITE_P</definition>
+        <argsstring>(TrimmedTest)</argsstring>
+        <name>TYPED_TEST_SUITE_P</name>
+        <qualifiedname>library2::TYPED_TEST_SUITE_P</qualifiedname>
+        <param>
+          <type><ref refid="classlibrary2_1_1_trimmed_test" kindref="compound">TrimmedTest</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="408" column="1" declfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" declline="408" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibrary2_1a07db137d5c81b6d23bc95d157c9915a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>library2::TYPED_TEST_P</definition>
+        <argsstring>(TrimmedTest, Test1)</argsstring>
+        <name>TYPED_TEST_P</name>
+        <qualifiedname>library2::TYPED_TEST_P</qualifiedname>
+        <param>
+          <type><ref refid="classlibrary2_1_1_trimmed_test" kindref="compound">TrimmedTest</ref></type>
+        </param>
+        <param>
+          <type>Test1</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="409" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" bodystart="409" bodyend="409"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibrary2_1a3f45e4fc577d0f4f669a84b6dbef6d7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>library2::TYPED_TEST_P</definition>
+        <argsstring>(TrimmedTest, Test2)</argsstring>
+        <name>TYPED_TEST_P</name>
+        <qualifiedname>library2::TYPED_TEST_P</qualifiedname>
+        <param>
+          <type><ref refid="classlibrary2_1_1_trimmed_test" kindref="compound">TrimmedTest</ref></type>
+        </param>
+        <param>
+          <type>Test2</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="410" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" bodystart="410" bodyend="410"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibrary2_1aa791f064c85df51c03f7d87a5845ba1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>library2::TYPED_TEST_P</definition>
+        <argsstring>(TrimmedTest, Test3)</argsstring>
+        <name>TYPED_TEST_P</name>
+        <qualifiedname>library2::TYPED_TEST_P</qualifiedname>
+        <param>
+          <type><ref refid="classlibrary2_1_1_trimmed_test" kindref="compound">TrimmedTest</ref></type>
+        </param>
+        <param>
+          <type>Test3</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="411" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" bodystart="411" bodyend="411"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibrary2_1afe6aacf1e84f3ff50992316484fc0761" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>library2::TYPED_TEST_P</definition>
+        <argsstring>(TrimmedTest, Test4)</argsstring>
+        <name>TYPED_TEST_P</name>
+        <qualifiedname>library2::TYPED_TEST_P</qualifiedname>
+        <param>
+          <type><ref refid="classlibrary2_1_1_trimmed_test" kindref="compound">TrimmedTest</ref></type>
+        </param>
+        <param>
+          <type>Test4</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="412" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" bodystart="412" bodyend="412"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibrary2_1ab1d7a6b15e24f63f11e890cbfc0e2edb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>library2::TYPED_TEST_P</definition>
+        <argsstring>(TrimmedTest, Test5)</argsstring>
+        <name>TYPED_TEST_P</name>
+        <qualifiedname>library2::TYPED_TEST_P</qualifiedname>
+        <param>
+          <type><ref refid="classlibrary2_1_1_trimmed_test" kindref="compound">TrimmedTest</ref></type>
+        </param>
+        <param>
+          <type>Test5</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="413" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" bodystart="413" bodyend="413"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibrary2_1a952f3ea426ff5c0ceb9047cc34d4af5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>library2::REGISTER_TYPED_TEST_SUITE_P</definition>
+        <argsstring>(TrimmedTest, Test1, Test2, Test3, Test4, Test5)</argsstring>
+        <name>REGISTER_TYPED_TEST_SUITE_P</name>
+        <qualifiedname>library2::REGISTER_TYPED_TEST_SUITE_P</qualifiedname>
+        <param>
+          <type><ref refid="classlibrary2_1_1_trimmed_test" kindref="compound">TrimmedTest</ref></type>
+        </param>
+        <param>
+          <type>Test1</type>
+        </param>
+        <param>
+          <type>Test2</type>
+        </param>
+        <param>
+          <type>Test3</type>
+        </param>
+        <param>
+          <type>Test4</type>
+        </param>
+        <param>
+          <type>Test5</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="414" column="1" declfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" declline="414" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibrary2_1a60d292a840e8c0152f23918c2de3c063" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>library2::INSTANTIATE_TYPED_TEST_SUITE_P</definition>
+        <argsstring>(My, TrimmedTest, TrimTypes)</argsstring>
+        <name>INSTANTIATE_TYPED_TEST_SUITE_P</name>
+        <qualifiedname>library2::INSTANTIATE_TYPED_TEST_SUITE_P</qualifiedname>
+        <param>
+          <type>My</type>
+        </param>
+        <param>
+          <type><ref refid="classlibrary2_1_1_trimmed_test" kindref="compound">TrimmedTest</ref></type>
+        </param>
+        <param>
+          <type><ref refid="namespacelibrary2_1a3340712da3b45d2ee9c336860d849d5f" kindref="member">TrimTypes</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="420" column="1" declfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" declline="420" declcolumn="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="385" column="1"/>
+  </compounddef>
+</doxygen>

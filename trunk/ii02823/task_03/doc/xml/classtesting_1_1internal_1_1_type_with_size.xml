@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1internal_1_1_type_with_size" kind="class" language="C++" prot="public">
+    <compoundname>testing::internal::TypeWithSize</compoundname>
+    <includes refid="gtest-port_8h" local="no">gtest-port.h</includes>
+    <templateparamlist>
+      <param>
+        <type>size_t</type>
+        <declname>size</declname>
+        <defname>size</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classtesting_1_1internal_1_1_type_with_size_1a2d2facbb0605e2f752728934913ee0e3" prot="public" static="no">
+        <type>void</type>
+        <definition>using testing::internal::TypeWithSize&lt; size &gt;::UInt =  void</definition>
+        <argsstring></argsstring>
+        <name>UInt</name>
+        <qualifiedname>testing::internal::TypeWithSize::UInt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-port.h" line="2164" column="3" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-port.h" bodystart="2164" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-port.h" line="2160" column="1" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-port.h" bodystart="2160" bodyend="2165"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1internal_1_1_type_with_size_1a2d2facbb0605e2f752728934913ee0e3" prot="public" virt="non-virtual"><scope>testing::internal::TypeWithSize</scope><name>UInt</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

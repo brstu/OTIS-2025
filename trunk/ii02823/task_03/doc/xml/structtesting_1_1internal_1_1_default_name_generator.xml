@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structtesting_1_1internal_1_1_default_name_generator" kind="struct" language="C++" prot="public">
+    <compoundname>testing::internal::DefaultNameGenerator</compoundname>
+    <includes refid="gtest-internal_8h" local="no">gtest-internal.h</includes>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structtesting_1_1internal_1_1_default_name_generator_1a28fd7ec53dfb647c9aed28d43f778910" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>static std::string testing::internal::DefaultNameGenerator::GetName</definition>
+        <argsstring>(int i)</argsstring>
+        <name>GetName</name>
+        <qualifiedname>testing::internal::DefaultNameGenerator::GetName</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="676" column="22" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="676" bodyend="678"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="674" column="1" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="674" bodyend="679"/>
+    <listofallmembers>
+      <member refid="structtesting_1_1internal_1_1_default_name_generator_1a28fd7ec53dfb647c9aed28d43f778910" prot="public" virt="non-virtual"><scope>testing::internal::DefaultNameGenerator</scope><name>GetName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

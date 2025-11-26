@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1internal_1_1_has_debug_string_and_short_debug_string" kind="class" language="C++" prot="public">
+    <compoundname>testing::internal::HasDebugStringAndShortDebugString</compoundname>
+    <includes refid="gtest-internal_8h" local="no">gtest-internal.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classtesting_1_1internal_1_1_has_debug_string_and_short_debug_string_1ac7733e0b4342fc094c965b4a6983c5b4" prot="private" static="no">
+        <type>decltype(CheckDebugString&lt; T &gt;(nullptr))</type>
+        <definition>using testing::internal::HasDebugStringAndShortDebugString&lt; T &gt;::HasDebugStringType =  decltype(CheckDebugString&lt;T&gt;(nullptr))</definition>
+        <argsstring></argsstring>
+        <name>HasDebugStringType</name>
+        <qualifiedname>testing::internal::HasDebugStringAndShortDebugString::HasDebugStringType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="908" column="3" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="908" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classtesting_1_1internal_1_1_has_debug_string_and_short_debug_string_1ac527ccdd86abdf767f3f5b61cb25163a" prot="private" static="no">
+        <type>decltype(CheckShortDebugString&lt; T &gt;(nullptr))</type>
+        <definition>using testing::internal::HasDebugStringAndShortDebugString&lt; T &gt;::HasShortDebugStringType =  decltype(CheckShortDebugString&lt;T&gt;(nullptr))</definition>
+        <argsstring></argsstring>
+        <name>HasShortDebugStringType</name>
+        <qualifiedname>testing::internal::HasDebugStringAndShortDebugString::HasShortDebugStringType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="909" column="3" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="909" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classtesting_1_1internal_1_1_has_debug_string_and_short_debug_string_1abb97a0cc14c348c235173472b4d111ad" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool testing::internal::HasDebugStringAndShortDebugString&lt; T &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <qualifiedname>testing::internal::HasDebugStringAndShortDebugString::value</qualifiedname>
+        <initializer>=
+      HasDebugStringType::value &amp;&amp; HasShortDebugStringType::value</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="912" column="25" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="912" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_has_debug_string_and_short_debug_string_1ab9c2a7a94b05be3a68eb98eb25690778" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>typename std::is_same&lt; std::string, decltype(std::declval&lt; const C &gt;().DebugString())&gt;::type</type>
+        <definition>static typename std::is_same&lt; std::string, decltype(std::declval&lt; const C &gt;().DebugString())&gt;::type testing::internal::HasDebugStringAndShortDebugString&lt; T &gt;::CheckDebugString</definition>
+        <argsstring>(C *)</argsstring>
+        <name>CheckDebugString</name>
+        <qualifiedname>testing::internal::HasDebugStringAndShortDebugString::CheckDebugString</qualifiedname>
+        <param>
+          <type>C *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="897" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_has_debug_string_and_short_debug_string_1a42737cf0a60991ef106fd869a3a98ca1" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename</type>
+          </param>
+        </templateparamlist>
+        <type>std::false_type</type>
+        <definition>static std::false_type testing::internal::HasDebugStringAndShortDebugString&lt; T &gt;::CheckDebugString</definition>
+        <argsstring>(...)</argsstring>
+        <name>CheckDebugString</name>
+        <qualifiedname>testing::internal::HasDebugStringAndShortDebugString::CheckDebugString</qualifiedname>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="900" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_has_debug_string_and_short_debug_string_1a1767b5a677e77c36cb7316f4166851d2" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>typename std::is_same&lt; std::string, decltype(std::declval&lt; const C &gt;().ShortDebugString())&gt;::type</type>
+        <definition>static typename std::is_same&lt; std::string, decltype(std::declval&lt; const C &gt;().ShortDebugString())&gt;::type testing::internal::HasDebugStringAndShortDebugString&lt; T &gt;::CheckShortDebugString</definition>
+        <argsstring>(C *)</argsstring>
+        <name>CheckShortDebugString</name>
+        <qualifiedname>testing::internal::HasDebugStringAndShortDebugString::CheckShortDebugString</qualifiedname>
+        <param>
+          <type>C *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="903" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_has_debug_string_and_short_debug_string_1a1f027d2c292e1af1f51c915d7b1c51f2" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename</type>
+          </param>
+        </templateparamlist>
+        <type>std::false_type</type>
+        <definition>static std::false_type testing::internal::HasDebugStringAndShortDebugString&lt; T &gt;::CheckShortDebugString</definition>
+        <argsstring>(...)</argsstring>
+        <name>CheckShortDebugString</name>
+        <qualifiedname>testing::internal::HasDebugStringAndShortDebugString::CheckShortDebugString</qualifiedname>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="906" column="26"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="894" column="1" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="894" bodyend="914"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1internal_1_1_has_debug_string_and_short_debug_string_1ab9c2a7a94b05be3a68eb98eb25690778" prot="private" virt="non-virtual"><scope>testing::internal::HasDebugStringAndShortDebugString</scope><name>CheckDebugString</name></member>
+      <member refid="classtesting_1_1internal_1_1_has_debug_string_and_short_debug_string_1a42737cf0a60991ef106fd869a3a98ca1" prot="private" virt="non-virtual"><scope>testing::internal::HasDebugStringAndShortDebugString</scope><name>CheckDebugString</name></member>
+      <member refid="classtesting_1_1internal_1_1_has_debug_string_and_short_debug_string_1a1767b5a677e77c36cb7316f4166851d2" prot="private" virt="non-virtual"><scope>testing::internal::HasDebugStringAndShortDebugString</scope><name>CheckShortDebugString</name></member>
+      <member refid="classtesting_1_1internal_1_1_has_debug_string_and_short_debug_string_1a1f027d2c292e1af1f51c915d7b1c51f2" prot="private" virt="non-virtual"><scope>testing::internal::HasDebugStringAndShortDebugString</scope><name>CheckShortDebugString</name></member>
+      <member refid="classtesting_1_1internal_1_1_has_debug_string_and_short_debug_string_1ac7733e0b4342fc094c965b4a6983c5b4" prot="private" virt="non-virtual"><scope>testing::internal::HasDebugStringAndShortDebugString</scope><name>HasDebugStringType</name></member>
+      <member refid="classtesting_1_1internal_1_1_has_debug_string_and_short_debug_string_1ac527ccdd86abdf767f3f5b61cb25163a" prot="private" virt="non-virtual"><scope>testing::internal::HasDebugStringAndShortDebugString</scope><name>HasShortDebugStringType</name></member>
+      <member refid="classtesting_1_1internal_1_1_has_debug_string_and_short_debug_string_1abb97a0cc14c348c235173472b4d111ad" prot="public" virt="non-virtual"><scope>testing::internal::HasDebugStringAndShortDebugString</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

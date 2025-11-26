@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structtesting_1_1internal_1_1_pointer_printer" kind="struct" language="C++" prot="public">
+    <compoundname>testing::internal::PointerPrinter</compoundname>
+    <includes refid="gtest-printers_8h" local="no">gtest-printers.h</includes>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structtesting_1_1internal_1_1_pointer_printer_1a4383fca99549077ffd4e8aa7a1657fa3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>static void testing::internal::PointerPrinter::PrintValue</definition>
+        <argsstring>(T *p, ::std::ostream *os)</argsstring>
+        <name>PrintValue</name>
+        <qualifiedname>testing::internal::PointerPrinter::PrintValue</qualifiedname>
+        <param>
+          <type>T *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>::std::ostream *</type>
+          <declname>os</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-printers.h" line="182" column="15" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest-printers.h" bodystart="182" bodyend="191"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-printers.h" line="180" column="1" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest-printers.h" bodystart="180" bodyend="192"/>
+    <listofallmembers>
+      <member refid="structtesting_1_1internal_1_1_pointer_printer_1a4383fca99549077ffd4e8aa7a1657fa3" prot="public" virt="non-virtual"><scope>testing::internal::PointerPrinter</scope><name>PrintValue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

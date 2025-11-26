@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structpid__coeffs" kind="struct" language="C++" prot="public">
+    <compoundname>pid_coeffs</compoundname>
+    <includes refid="pid_8h" local="no">pid.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structpid__coeffs_1a72db3187cc333a2d93a7d49702cec92e" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double pid_coeffs::K</definition>
+        <argsstring></argsstring>
+        <name>K</name>
+        <qualifiedname>pid_coeffs::K</qualifiedname>
+        <briefdescription>
+<para>коэффициент передачи </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="8" column="18" bodyfile="src/pid.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpid__coeffs_1aa69708722314150cbd2810cc8b7c8476" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double pid_coeffs::T</definition>
+        <argsstring></argsstring>
+        <name>T</name>
+        <qualifiedname>pid_coeffs::T</qualifiedname>
+        <briefdescription>
+<para>постоянная интегрирования </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="9" column="18" bodyfile="src/pid.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpid__coeffs_1a5cc8572ddb54086cc7b97f754b1f86c1" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double pid_coeffs::Td</definition>
+        <argsstring></argsstring>
+        <name>Td</name>
+        <qualifiedname>pid_coeffs::Td</qualifiedname>
+        <briefdescription>
+<para>постоянная дифференцирования </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="10" column="18" bodyfile="src/pid.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpid__coeffs_1a9fa8f52e69c498586a22bc748d38fab2" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double pid_coeffs::T0</definition>
+        <argsstring></argsstring>
+        <name>T0</name>
+        <qualifiedname>pid_coeffs::T0</qualifiedname>
+        <briefdescription>
+<para>шаг </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="11" column="18" bodyfile="src/pid.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structpid__coeffs_1a1565a55a5421ee3da66debe43db919b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pid_coeffs::pid_coeffs</definition>
+        <argsstring>(double K, double T, double Td, double T0)</argsstring>
+        <name>pid_coeffs</name>
+        <qualifiedname>pid_coeffs::pid_coeffs</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>K</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>T</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Td</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>T0</declname>
+        </param>
+        <briefdescription>
+<para>Конструктор коэффициентов PID-регулятора </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>коэффициент передачи </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>постоянная интегрирования </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Td</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>постоянная дифференцирования </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>T0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>шаг</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Инициализирует структуру коэффициентов PID-регулятора.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>коэффициент передачи </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>постоянная интегрирования </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Td</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>постоянная дифференцирования </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>T0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>шаг </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="20" column="5" bodyfile="src/pid.cpp" bodystart="13" bodyend="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Структура коэффициентов PID-регулятора </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/pid.h" line="6" column="1" bodyfile="src/pid.h" bodystart="7" bodyend="21"/>
+    <listofallmembers>
+      <member refid="structpid__coeffs_1a72db3187cc333a2d93a7d49702cec92e" prot="public" virt="non-virtual"><scope>pid_coeffs</scope><name>K</name></member>
+      <member refid="structpid__coeffs_1a1565a55a5421ee3da66debe43db919b8" prot="public" virt="non-virtual"><scope>pid_coeffs</scope><name>pid_coeffs</name></member>
+      <member refid="structpid__coeffs_1aa69708722314150cbd2810cc8b7c8476" prot="public" virt="non-virtual"><scope>pid_coeffs</scope><name>T</name></member>
+      <member refid="structpid__coeffs_1a9fa8f52e69c498586a22bc748d38fab2" prot="public" virt="non-virtual"><scope>pid_coeffs</scope><name>T0</name></member>
+      <member refid="structpid__coeffs_1a5cc8572ddb54086cc7b97f754b1f86c1" prot="public" virt="non-virtual"><scope>pid_coeffs</scope><name>Td</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

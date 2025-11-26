@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1internal_1_1_return_round_robin_action" kind="class" language="C++" prot="public">
+    <compoundname>testing::internal::ReturnRoundRobinAction</compoundname>
+    <includes refid="gmock-actions_8h" local="no">gmock-actions.h</includes>
+    <innerclass refid="structtesting_1_1internal_1_1_return_round_robin_action_1_1_state" prot="private">testing::internal::ReturnRoundRobinAction::State</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtesting_1_1internal_1_1_return_round_robin_action_1a0107e27887f966bf0ff4e82fa795ec4d" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; State &gt;</type>
+        <definition>std::shared_ptr&lt;State&gt; testing::internal::ReturnRoundRobinAction&lt; T &gt;::state_</definition>
+        <argsstring></argsstring>
+        <name>state_</name>
+        <qualifiedname>testing::internal::ReturnRoundRobinAction::state_</qualifiedname>
+        <initializer>= std::make_shared&lt;State&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1248" column="19" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1248" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_return_round_robin_action_1ad5911c103cb376fe04040a5657022fb4" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>testing::internal::ReturnRoundRobinAction&lt; T &gt;::ReturnRoundRobinAction</definition>
+        <argsstring>(std::vector&lt; T &gt; values)</argsstring>
+        <name>ReturnRoundRobinAction</name>
+        <qualifiedname>testing::internal::ReturnRoundRobinAction::ReturnRoundRobinAction</qualifiedname>
+        <param>
+          <type>std::vector&lt; T &gt;</type>
+          <declname>values</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1226" column="12" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1226" bodyend="1230"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_return_round_robin_action_1a695bb5e3168bfed7219cb61ad83ddd45" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T testing::internal::ReturnRoundRobinAction&lt; T &gt;::operator()</definition>
+        <argsstring>(Args &amp;&amp;...) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>testing::internal::ReturnRoundRobinAction::operator()</qualifiedname>
+        <param>
+          <type>Args &amp;&amp;</type>
+          <declname>...</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1233" column="5" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1233" bodyend="1235"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" line="1224" column="1" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-actions.h" bodystart="1224" bodyend="1249"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1internal_1_1_return_round_robin_action_1a695bb5e3168bfed7219cb61ad83ddd45" prot="public" virt="non-virtual"><scope>testing::internal::ReturnRoundRobinAction</scope><name>operator()</name></member>
+      <member refid="classtesting_1_1internal_1_1_return_round_robin_action_1ad5911c103cb376fe04040a5657022fb4" prot="public" virt="non-virtual"><scope>testing::internal::ReturnRoundRobinAction</scope><name>ReturnRoundRobinAction</name></member>
+      <member refid="classtesting_1_1internal_1_1_return_round_robin_action_1a0107e27887f966bf0ff4e82fa795ec4d" prot="private" virt="non-virtual"><scope>testing::internal::ReturnRoundRobinAction</scope><name>state_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

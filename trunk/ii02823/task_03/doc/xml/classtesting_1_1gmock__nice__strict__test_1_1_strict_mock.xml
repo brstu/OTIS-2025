@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1gmock__nice__strict__test_1_1_strict_mock" kind="class" language="C++" prot="public">
+    <compoundname>testing::gmock_nice_strict_test::StrictMock</compoundname>
+    <basecompoundref refid="classtesting_1_1internal_1_1_strict_mock_impl" prot="private" virt="non-virtual">testing::internal::StrictMockImpl&lt; MockClass &gt;</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">testing::MockClass</basecompoundref>
+    <includes refid="gmock-nice-strict_8h" local="no">gmock-nice-strict.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class MockClass</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtesting_1_1gmock__nice__strict__test_1_1_strict_mock_1ad609d745db75306dd3b360b5410923fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>testing::StrictMock&lt; MockClass &gt;::StrictMock</definition>
+        <argsstring>()</argsstring>
+        <name>StrictMock</name>
+        <qualifiedname>testing::gmock_nice_strict_test::StrictMock::StrictMock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-nice-strict.h" line="242" column="3" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-nice-strict.h" bodystart="242" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1gmock__nice__strict__test_1_1_strict_mock_1a868b6082e86b1961328f06421aab455f" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename A</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>testing::StrictMock&lt; MockClass &gt;::StrictMock</definition>
+        <argsstring>(A &amp;&amp;arg)</argsstring>
+        <name>StrictMock</name>
+        <qualifiedname>testing::gmock_nice_strict_test::StrictMock::StrictMock</qualifiedname>
+        <param>
+          <type>A &amp;&amp;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-nice-strict.h" line="255" column="12" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-nice-strict.h" bodystart="255" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1gmock__nice__strict__test_1_1_strict_mock_1abc2e558afee2ba03aa4319aa3850a3a5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename TArg1</type>
+          </param>
+          <param>
+            <type>typename TArg2</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>An</declname>
+            <defname>An</defname>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>testing::StrictMock&lt; MockClass &gt;::StrictMock</definition>
+        <argsstring>(TArg1 &amp;&amp;arg1, TArg2 &amp;&amp;arg2, An &amp;&amp;... args)</argsstring>
+        <name>StrictMock</name>
+        <qualifiedname>testing::gmock_nice_strict_test::StrictMock::StrictMock</qualifiedname>
+        <param>
+          <type>TArg1 &amp;&amp;</type>
+          <declname>arg1</declname>
+        </param>
+        <param>
+          <type>TArg2 &amp;&amp;</type>
+          <declname>arg2</declname>
+        </param>
+        <param>
+          <type>An &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-nice-strict.h" line="261" column="3" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-nice-strict.h" bodystart="261" bodyend="266"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classtesting_1_1gmock__nice__strict__test_1_1_strict_mock_1a9353492c8191a31a011a48ce4be85c74" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>testing::StrictMock&lt; MockClass &gt;::StrictMock</definition>
+        <argsstring>(const StrictMock &amp;)=delete</argsstring>
+        <name>StrictMock</name>
+        <qualifiedname>testing::gmock_nice_strict_test::StrictMock::StrictMock</qualifiedname>
+        <param>
+          <type>const StrictMock &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-nice-strict.h" line="269" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classtesting_1_1gmock__nice__strict__test_1_1_strict_mock_1ae4ff756eba98a9d08541249bf8bb281e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classtesting_1_1gmock__nice__strict__test_1_1_strict_mock_1ad609d745db75306dd3b360b5410923fe" kindref="member">StrictMock</ref> &amp;</type>
+        <definition>StrictMock &amp; testing::StrictMock&lt; MockClass &gt;::operator=</definition>
+        <argsstring>(const StrictMock &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>testing::gmock_nice_strict_test::StrictMock::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classtesting_1_1gmock__nice__strict__test_1_1_strict_mock_1ad609d745db75306dd3b360b5410923fe" kindref="member">StrictMock</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-nice-strict.h" line="270" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>anonymous:</label>
+      </node>
+      <node id="1">
+        <label>testing::gmock_nice_strict_test::StrictMock&lt; MockClass &gt;</label>
+        <link refid="classtesting_1_1gmock__nice__strict__test_1_1_strict_mock"/>
+        <childnode refid="2" relation="private-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>testing::internal::StrictMockImpl&lt; MockClass &gt;</label>
+        <link refid="classtesting_1_1internal_1_1_strict_mock_impl"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>anonymous:</label>
+      </node>
+      <node id="1">
+        <label>testing::gmock_nice_strict_test::StrictMock&lt; MockClass &gt;</label>
+        <link refid="classtesting_1_1gmock__nice__strict__test_1_1_strict_mock"/>
+        <childnode refid="2" relation="private-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>testing::internal::StrictMockImpl&lt; MockClass &gt;</label>
+        <link refid="classtesting_1_1internal_1_1_strict_mock_impl"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-nice-strict.h" line="232" column="1" bodyfile="src/build/_deps/googletest-src/googlemock/include/gmock/gmock-nice-strict.h" bodystart="234" bodyend="271"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1gmock__nice__strict__test_1_1_strict_mock_1ae4ff756eba98a9d08541249bf8bb281e" prot="private" virt="non-virtual"><scope>testing::gmock_nice_strict_test::StrictMock</scope><name>operator=</name></member>
+      <member refid="classtesting_1_1gmock__nice__strict__test_1_1_strict_mock_1ad609d745db75306dd3b360b5410923fe" prot="public" virt="non-virtual"><scope>testing::gmock_nice_strict_test::StrictMock</scope><name>StrictMock</name></member>
+      <member refid="classtesting_1_1gmock__nice__strict__test_1_1_strict_mock_1a868b6082e86b1961328f06421aab455f" prot="public" virt="non-virtual"><scope>testing::gmock_nice_strict_test::StrictMock</scope><name>StrictMock</name></member>
+      <member refid="classtesting_1_1gmock__nice__strict__test_1_1_strict_mock_1abc2e558afee2ba03aa4319aa3850a3a5" prot="public" virt="non-virtual"><scope>testing::gmock_nice_strict_test::StrictMock</scope><name>StrictMock</name></member>
+      <member refid="classtesting_1_1gmock__nice__strict__test_1_1_strict_mock_1a9353492c8191a31a011a48ce4be85c74" prot="private" virt="non-virtual"><scope>testing::gmock_nice_strict_test::StrictMock</scope><name>StrictMock</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

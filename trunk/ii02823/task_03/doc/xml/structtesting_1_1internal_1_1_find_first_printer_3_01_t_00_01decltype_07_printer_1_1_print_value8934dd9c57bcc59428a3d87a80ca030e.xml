@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structtesting_1_1internal_1_1_find_first_printer_3_01_t_00_01decltype_07_printer_1_1_print_value8934dd9c57bcc59428a3d87a80ca030e" kind="struct" language="C++" prot="public">
+    <compoundname>testing::internal::FindFirstPrinter&lt; T, decltype(Printer::PrintValue(std::declval&lt; const T &amp; &gt;(), nullptr)), Printer, Printers... &gt;</compoundname>
+    <includes refid="gtest-printers_8h" local="no">gtest-printers.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>typename Printer</type>
+      </param>
+      <param>
+        <type>typename...</type>
+        <declname>Printers</declname>
+        <defname>Printers</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structtesting_1_1internal_1_1_find_first_printer_3_01_t_00_01decltype_07_printer_1_1_print_value8934dd9c57bcc59428a3d87a80ca030e_1ad656e849bb3106118180d2b7508c6e56" prot="public" static="no">
+        <type>Printer</type>
+        <definition>using testing::internal::FindFirstPrinter&lt; T, decltype(Printer::PrintValue(std::declval&lt; const T &amp; &gt;(), nullptr)), Printer, Printers... &gt;::type =  Printer</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>testing::internal::FindFirstPrinter&lt; T, decltype(Printer::PrintValue(std::declval&lt; const T &amp; &gt;(), nullptr)), Printer, Printers... &gt;::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-printers.h" line="292" column="3" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest-printers.h" bodystart="292" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/gtest-printers.h" line="289" column="1" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/gtest-printers.h" bodystart="291" bodyend="293"/>
+    <listofallmembers>
+      <member refid="structtesting_1_1internal_1_1_find_first_printer_3_01_t_00_01decltype_07_printer_1_1_print_value8934dd9c57bcc59428a3d87a80ca030e_1ad656e849bb3106118180d2b7508c6e56" prot="public" virt="non-virtual"><scope>testing::internal::FindFirstPrinter&lt; T, decltype(Printer::PrintValue(std::declval&lt; const T &amp; &gt;(), nullptr)), Printer, Printers... &gt;</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

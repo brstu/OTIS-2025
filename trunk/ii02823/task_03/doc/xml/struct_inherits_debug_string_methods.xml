@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="struct_inherits_debug_string_methods" kind="struct" language="C++" prot="public">
+    <compoundname>InheritsDebugStringMethods</compoundname>
+    <basecompoundref refid="struct_has_debug_string_methods" prot="public" virt="non-virtual">HasDebugStringMethods</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>HasDebugStringMethods</label>
+        <link refid="struct_has_debug_string_methods"/>
+      </node>
+      <node id="1">
+        <label>InheritsDebugStringMethods</label>
+        <link refid="struct_inherits_debug_string_methods"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>HasDebugStringMethods</label>
+        <link refid="struct_has_debug_string_methods"/>
+      </node>
+      <node id="1">
+        <label>InheritsDebugStringMethods</label>
+        <link refid="struct_inherits_debug_string_methods"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/build/_deps/googletest-src/googletest/test/gtest_unittest.cc" line="7156" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest_unittest.cc" bodystart="7156" bodyend="7156"/>
+    <listofallmembers>
+      <member refid="struct_has_debug_string_methods_1a906f4596e4715fb1df7773d5a012e5e5" prot="public" virt="non-virtual"><scope>InheritsDebugStringMethods</scope><name>DebugString</name></member>
+      <member refid="struct_has_debug_string_methods_1a607b14207e5fdb9f12071f1e89542a3b" prot="public" virt="non-virtual"><scope>InheritsDebugStringMethods</scope><name>ShortDebugString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

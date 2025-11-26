@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structtesting_1_1internal_1_1_is_recursive_container_impl_3_01_c_00_01false_01_4" kind="struct" language="C++" prot="public">
+    <compoundname>testing::internal::IsRecursiveContainerImpl&lt; C, false &gt;</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::false_type</basecompoundref>
+    <includes refid="gtest-internal_8h" local="no">gtest-internal.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename C</type>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>std::false_type</label>
+      </node>
+      <node id="1">
+        <label>testing::internal::IsRecursiveContainerImpl&lt; C, false &gt;</label>
+        <link refid="structtesting_1_1internal_1_1_is_recursive_container_impl_3_01_c_00_01false_01_4"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>std::false_type</label>
+      </node>
+      <node id="1">
+        <label>testing::internal::IsRecursiveContainerImpl&lt; C, false &gt;</label>
+        <link refid="structtesting_1_1internal_1_1_is_recursive_container_impl_3_01_c_00_01false_01_4"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" line="986" column="1" bodyfile="src/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h" bodystart="986" bodyend="986"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="dir_40e04736c6fc0efdd3814eb8ef0149cc" kind="dir">
+    <compoundname>src/build/_deps/googletest-src/googlemock/include/gmock/internal</compoundname>
+    <innerdir refid="dir_2e2d21cd037e31efa2c3c3624c7c4bc5">src/build/_deps/googletest-src/googlemock/include/gmock/internal/custom</innerdir>
+    <innerfile refid="gmock-internal-utils_8h">gmock-internal-utils.h</innerfile>
+    <innerfile refid="gmock-port_8h">gmock-port.h</innerfile>
+    <innerfile refid="gmock-pp_8h">gmock-pp.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googlemock/include/gmock/internal/"/>
+  </compounddef>
+</doxygen>

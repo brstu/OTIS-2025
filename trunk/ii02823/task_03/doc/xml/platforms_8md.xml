@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="platforms_8md" kind="file" language="Markdown">
+    <compoundname>platforms.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Supported<sp/>Platforms</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">GoogleTest<sp/>requires<sp/>a<sp/>codebase<sp/>and<sp/>compiler<sp/>compliant<sp/>with<sp/>the<sp/>C++11<sp/>standard<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">newer.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>GoogleTest<sp/>code<sp/>is<sp/>officially<sp/>supported<sp/>on<sp/>the<sp/>following<sp/>platforms.</highlight></codeline>
+<codeline><highlight class="normal">Operating<sp/>systems<sp/>or<sp/>tools<sp/>not<sp/>listed<sp/>below<sp/>are<sp/>community-supported.<sp/>For</highlight></codeline>
+<codeline><highlight class="normal">community-supported<sp/>platforms,<sp/>patches<sp/>that<sp/>do<sp/>not<sp/>complicate<sp/>the<sp/>code<sp/>may<sp/>be</highlight></codeline>
+<codeline><highlight class="normal">considered.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>notice<sp/>any<sp/>problems<sp/>on<sp/>your<sp/>platform,<sp/>please<sp/>file<sp/>an<sp/>issue<sp/>on<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">[GoogleTest<sp/>GitHub<sp/>Issue<sp/>Tracker](https://github.com/google/googletest/issues).</highlight></codeline>
+<codeline><highlight class="normal">Pull<sp/>requests<sp/>containing<sp/>fixes<sp/>are<sp/>welcome!</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Operating<sp/>systems</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>Linux</highlight></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>macOS</highlight></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>Windows</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Compilers</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>gcc<sp/>5.0+</highlight></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>clang<sp/>5.0+</highlight></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>MSVC<sp/>2015+</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**macOS<sp/>users:**<sp/>Xcode<sp/>9.3+<sp/>provides<sp/>clang<sp/>5.0+.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Build<sp/>systems</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>[Bazel](https://bazel.build/)</highlight></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>[CMake](https://cmake.org/)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Bazel<sp/>is<sp/>the<sp/>build<sp/>system<sp/>used<sp/>by<sp/>the<sp/>team<sp/>internally<sp/>and<sp/>in<sp/>tests.<sp/>CMake<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">supported<sp/>on<sp/>a<sp/>best-effort<sp/>basis<sp/>and<sp/>by<sp/>the<sp/>community.</highlight></codeline>
+    </programlisting>
+    <location file="src/build/_deps/googletest-src/docs/platforms.md"/>
+  </compounddef>
+</doxygen>

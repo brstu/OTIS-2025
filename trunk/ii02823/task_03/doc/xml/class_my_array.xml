@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_my_array" kind="class" language="C++" prot="public">
+    <compoundname>MyArray</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>int</type>
+        <declname>kSize</declname>
+        <defname>kSize</defname>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/test/googletest-list-tests-unittest_.cc" line="108" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-list-tests-unittest_.cc" bodystart="108" bodyend="108"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classtesting_1_1internal_1_1_derived" kind="class" language="C++" prot="public">
+    <compoundname>testing::internal::Derived</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">testing::internal::Base</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">testing::internal::Base</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtesting_1_1internal_1_1_derived_1a05a8e8354c7c09a9f3728a96c96f1edd" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>testing::internal::Derived::Derived</definition>
+        <argsstring>(int n)</argsstring>
+        <name>Derived</name>
+        <qualifiedname>testing::internal::Derived::Derived</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-port-test.cc" line="108" column="12" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-port-test.cc" bodystart="108" bodyend="108"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>anonymous:</label>
+      </node>
+      <node id="1">
+        <label>testing::internal::Derived</label>
+        <link refid="classtesting_1_1internal_1_1_derived"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>anonymous:</label>
+      </node>
+      <node id="1">
+        <label>testing::internal::Derived</label>
+        <link refid="classtesting_1_1internal_1_1_derived"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/build/_deps/googletest-src/googletest/test/googletest-port-test.cc" line="106" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-port-test.cc" bodystart="106" bodyend="109"/>
+    <listofallmembers>
+      <member refid="classtesting_1_1internal_1_1_derived_1a05a8e8354c7c09a9f3728a96c96f1edd" prot="public" virt="non-virtual"><scope>testing::internal::Derived</scope><name>Derived</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_typed_test_names" kind="class" language="C++" prot="public">
+    <compoundname>TypedTestNames</compoundname>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_typed_test_names_1af76babb242eca31c257de2f0b74973c1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>static std::string TypedTestNames::GetName</definition>
+        <argsstring>(int i)</argsstring>
+        <name>GetName</name>
+        <qualifiedname>TypedTestNames::GetName</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/googletest-output-test_.cc" line="717" column="22" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-output-test_.cc" bodystart="717" bodyend="722"/>
+      </memberdef>
+      <memberdef kind="function" id="class_typed_test_names_1af76babb242eca31c257de2f0b74973c1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>static std::string TypedTestNames::GetName</definition>
+        <argsstring>(int i)</argsstring>
+        <name>GetName</name>
+        <qualifiedname>TypedTestNames::GetName</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" line="169" column="22" bodyfile="src/build/_deps/googletest-src/googletest/test/gtest-typed-test_test.cc" bodystart="169" bodyend="176"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/build/_deps/googletest-src/googletest/test/googletest-output-test_.cc" line="714" column="1" bodyfile="src/build/_deps/googletest-src/googletest/test/googletest-output-test_.cc" bodystart="714" bodyend="723"/>
+    <listofallmembers>
+      <member refid="class_typed_test_names_1af76babb242eca31c257de2f0b74973c1" prot="public" virt="non-virtual"><scope>TypedTestNames</scope><name>GetName</name></member>
+      <member refid="class_typed_test_names_1af76babb242eca31c257de2f0b74973c1" prot="public" virt="non-virtual"><scope>TypedTestNames</scope><name>GetName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
