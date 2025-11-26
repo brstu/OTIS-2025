@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(task_03)
+project(task_03_2823)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -16,21 +16,21 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-  my_tests
+  my_tests_2823
   ${CMAKE_CURRENT_SOURCE_DIR}/model.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/pid.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/../test/test.cpp
 )
 
-target_include_directories(my_tests PRIVATE
+target_include_directories(my_tests_2823 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/../src
     ${CMAKE_CURRENT_SOURCE_DIR}/../test
 )
 
 target_link_libraries(
-  my_tests
+  my_tests_2823
   GTest::gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(my_tests)
+gtest_discover_tests(my_tests_2823)
