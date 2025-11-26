@@ -17,12 +17,12 @@ enable_testing()
 
 add_executable(
   runTests_ii02822
-  src/functions.cpp
+  functions.cpp                    
   test/test_functions.cpp
 )
 
 target_include_directories(runTests_ii02822 PRIVATE
-    src
+    .                             
     test
 )
 
