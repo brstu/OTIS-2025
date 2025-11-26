@@ -3,7 +3,12 @@
 #include "functions.h"
 
 int main() {
-    double u, y, a, b, c, d;
+    double u;
+    double y;
+    double a; 
+    double b; 
+    double c; 
+    double d;
     int steps;
 
     std::cout << "Enter initial temperature (y): ";
@@ -25,14 +30,13 @@ int main() {
     double y_linear = y;
     double y_nonlinear = y;
     double y_prev = y;
-    double u_prev = u;
 
     std::cout << "\nSimulation Results:" << std::endl;
     std::cout << "Step\tLinear Model\tNonlinear Model" << std::endl;
 
     for (int i = 0; i < steps; i++) {
         y_linear = linear(y_linear, u, a, b);
-        double y_temp = non_linear(y_nonlinear, y_prev, u, u_prev, a, b, c, d);
+        double y_temp = non_linear(y_nonlinear, y_prev, u, a, b, c, d);
 
         y_prev = y_nonlinear;
         y_nonlinear = y_temp;
