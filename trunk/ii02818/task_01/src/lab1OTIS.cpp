@@ -8,17 +8,15 @@ private:
     double b;
     double c;
     double d;
-    double y_prev;  
-    double y_curr;
-    double u_prev;
-    double u_curr;
+    double y_prev = 0;  
+    double y_curr = 0;  
+    double u_prev = 0;  
+    double u_curr = 0;  
 
 public:
     TemperatureModel(double a, double b, double c, double d)
-        : a(a), b(b), c(c), d(d),  
-        y_prev(0), y_curr(0),   
-        u_prev(0), u_curr(0) {
-    }  
+        : a(a), b(b), c(c), d(d) {
+    }
 
     void setInitialState(double y0, double y1, double u0, double u1) {
         y_prev = y0;
