@@ -38,11 +38,13 @@ out/
 .idea/
 cmake-build-debug/
 
-# Coverage files
-*.gcda
-*.gcno
+# Doxygen documentation
+doc/html/
+doc/xml/
+doc/latex/
+*.doxygen
 
 build/
-build_gcov/
-
-task_02/.vscode/
+*/build/
+*/build*/
+*/*/build*/
