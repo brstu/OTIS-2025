@@ -3,9 +3,12 @@
 
 class PID {
 private:
-    double K, T, Td, T0;
-    double prev_e;
-    double integral;
+    double K;
+    double T;
+    double Td;
+    double T0;
+    double prev_e = 0;
+    double integral = 0;
 
 public:
     PID(double K, double T, double Td, double T0);

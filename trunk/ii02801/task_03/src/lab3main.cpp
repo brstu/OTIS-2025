@@ -6,7 +6,11 @@
 using namespace std;
 
 int main() {
-    double y0, a, b, c, d;
+    double y0; 
+    double a; 
+    double b;
+    double c;
+    double d;
     int steps;
     double w;
 
