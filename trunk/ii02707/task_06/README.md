@@ -5,7 +5,7 @@
 <br><br><br><br><br><br><br>
 <p align="center">Лабораторная работа №6</p>
 <p align="center">По дисциплине “Общая теория интеллектуальных систем”</p>
-<p align="center">Тема: “Внесение своего вклада в The OSTIS или в The OSTIS Applications”</p>
+<p align="center">Тема: “Создание базы знаний для проекта "NIKA" (Intelligent Knowledge-driven Assistant)”</p>
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
