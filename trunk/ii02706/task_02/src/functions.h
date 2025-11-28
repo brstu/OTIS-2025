@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <cmath>
-using namespace std;
 
 const double first_funct_const = 0.1;
 const double second_funct_const = 0.2;

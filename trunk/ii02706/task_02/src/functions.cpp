@@ -1,4 +1,5 @@
 #include "functions.h"
+using namespace std;
 
 void liner_funcnt(double& y1)
 {
