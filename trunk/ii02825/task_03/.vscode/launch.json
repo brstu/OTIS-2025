@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Labs/OTIS/trunk/ii02817/task_03/src",
-      "program": "D:/Labs/OTIS/trunk/ii02817/task_03/src/main.cpp",
+      "cwd": "d:/Labs/OTIS/trunk/ii02825/task_03/src",
+      "program": "d:/Labs/OTIS/trunk/ii02825/task_03/src/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -1,7 +1,8 @@
 #include "model.h"
+#include <cmath>
 
 PlantModel::PlantModel(double a, double b, double c, double d)
-    : a(a), b(b), c(c), d(d)
+    : a(a), b(b), c(c), d(d), t(0.0), u(0.0)
 {
 }
 
@@ -13,37 +14,27 @@ void PlantModel::setParameters(double na, double nb, double nc, double nd)
     this->d = nd;
 }
 
-void PlantModel::setState(double ntcurr, double ntprev, double nucurr, double nuprev)
+void PlantModel::setState(double nt, double nu)
 {
-    t_curr = ntcurr;
-    t_prev = ntprev;
-    u_curr = nucurr;
-    u_prev = nuprev;
+    t = nt;
+    u = nu;
 }
 
 double PlantModel::getOutput() const
 {
-    return t_curr;
+    return t;
 }
 
 double PlantModel::linearStep(double u)
 {
-    double new_t = a * t_curr + b * u;
-    t_prev = t_curr;
-    t_curr = new_t;
-    u_prev = u_curr;
-    u_curr = u;
-    return new_t;
+    t = a * t + b * u;
+    return t;
 }
 
 double PlantModel::nonlinearStep(double u)
 {
-    double new_t = a * t_curr - b * std::pow(t_prev, 2) + c * u + d * std::sin(u_prev);
-    t_prev = t_curr;
-    t_curr = new_t;
-    u_prev = u_curr;
-    u_curr = u;
-    return new_t;
+    t = a * t - b * std::pow(t, 2) + c * u + d * std::sin(u);
+    return t;
 }
 
 std::vector<double> PlantModel::linear(int steps) const
@@ -51,13 +42,15 @@ std::vector<double> PlantModel::linear(int steps) const
     if (steps <= 0)
         return {};
 
-    std::vector<double> ans(steps);
-    ans[0] = t_curr;
-    for (int i = 1; i < steps; i++)
+    std::vector<double> result(steps);
+    double current_t = t;
+    
+    for (int i = 0; i < steps; i++)
     {
-        ans[i] = a * ans[i - 1] + b * u_curr;
+        result[i] = current_t;
+        current_t = a * current_t + b * u;
     }
-    return ans;
+    return result;
 }
 
 std::vector<double> PlantModel::nonlinear(int steps) const
@@ -65,18 +58,13 @@ std::vector<double> PlantModel::nonlinear(int steps) const
     if (steps <= 0)
         return {};
 
-    std::vector<double> ans(steps);
-    if (steps >= 1)
+    std::vector<double> result(steps);
+    double current_t = t;
+    
+    for (int i = 0; i < steps; i++)
     {
-        ans[0] = t_prev;
+        result[i] = current_t;
+        current_t = a * current_t - b * std::pow(current_t, 2) + c * u + d * std::sin(u);
     }
-    if (steps >= 2)
-    {
-        ans[1] = t_curr;
-    }
-    for (int i = 2; i < steps; i++)
-    {
-        ans[i] = a * ans[i - 1] - b * std::pow(ans[i - 2], 2) + c * u_curr + d * std::sin(u_prev);
-    }
-    return ans;
+    return result;
 }

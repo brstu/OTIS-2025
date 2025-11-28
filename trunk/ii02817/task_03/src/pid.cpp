@@ -20,9 +20,8 @@ void PIDController::setParameters(double nK, double nTi, double nTd, double nT0)
     q2 = K * Td / T0;
 }
 
-void PIDController::setLimits(double nu_min, double nu_max)
+void PIDController::setLimits(double nu_max)
 {
-    this->u_min = nu_min;
     this->u_max = nu_max;
 }
 
@@ -42,7 +41,7 @@ double PIDController::calculate(double e)
     double u = u_prev + delta_u;
 
     // Ограничение управления
-    u = std::max(u_min, std::min(u_max, u));
+    u = std::min(u_max, u);
 
     // Обновление памяти
     e_prev2 = e_prev1;

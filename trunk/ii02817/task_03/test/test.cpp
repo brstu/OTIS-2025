@@ -29,7 +29,7 @@ TEST(PIDControllerTest, Calculate)
 TEST(PIDControllerTest, Limits)
 {
     PIDController pid(10.0, 1.0, 0.0, 1.0);
-    pid.setLimits(-5.0, 5.0);
+    pid.setLimits(5.0);
     pid.reset();
 
     double u = pid.calculate(1.0); // Должно быть ограничено до 5.0
@@ -40,7 +40,7 @@ TEST(PIDControllerTest, Limits)
 TEST(PlantModelTest, LinearStep)
 {
     PlantModel plant(0.5, 0.5, 0.0, 0.0);
-    plant.setState(1.0, 0.0, 0.0, 0.0);
+    plant.setState(1.0, 0.0);
 
     double y1 = plant.linearStep(1.0);
     EXPECT_NEAR(y1, 0.5 * 1.0 + 0.5 * 1.0, 1e-6);
@@ -52,10 +52,10 @@ TEST(PlantModelTest, LinearStep)
 TEST(PlantModelTest, NonlinearStep)
 {
     PlantModel plant(0.5, 0.1, 0.3, 0.1);
-    plant.setState(1.0, 0.5, 0.0, 0.0);
+    plant.setState(1.0, 0.5);
 
-    double y = plant.nonlinearStep(1.0);
-    double expected = 0.5 * 1.0 - 0.1 * std::pow(0.5, 2) + 0.3 * 1.0 + 0.1 * std::sin(0.0);
+    double y = plant.nonlinearStep(0.5);
+    double expected = 0.5 * 1.0 - 0.1 * std::pow(1.0, 2) + 0.3 * 0.5 + 0.1 * std::sin(0.5);
 
     EXPECT_NEAR(y, expected, 1e-6);
 }
@@ -65,7 +65,7 @@ TEST(SystemIntegrationTest, PControllerWithLinearPlant)
     PlantModel plant(0.8, 0.2, 0.0, 0.0);
     PIDController p_controller(2.0, 1.0, 0.0, 1.0);
 
-    plant.setState(0.0, 0.0, 0.0, 0.0);
+    plant.setState(0.0, 0.0);
     p_controller.reset();
 
     std::vector<double> outputs;

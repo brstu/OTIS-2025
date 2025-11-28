@@ -27,9 +27,7 @@ private:
     double u_prev = 0.0;  ///< Предыдущее управляющее воздействие
     double e_prev1 = 0.0; ///< Ошибка на шаге k-1
     double e_prev2 = 0.0; ///< Ошибка на шаге k-2
-
-    double u_min = -100.0; ///< Минимальное значение управления
-    double u_max = 100.0;  ///< Максимальное значение управления
+    double u_max = 100.0; ///< Максимальное значение управления
 
 public:
     /**
@@ -60,7 +58,7 @@ public:
      * @param u_min Минимальное значение управления
      * @param u_max Максимальное значение управления
      */
-    void setLimits(double u_min, double u_max);
+    void setLimits(double u_max);
 
     /**
      * @brief Сброс состояния регулятора
