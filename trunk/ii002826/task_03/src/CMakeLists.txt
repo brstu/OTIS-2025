@@ -8,7 +8,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 #
 # 1. Основной исполняемый файл
 #
-add_executable(pid_sim
+add_executable(pid_simen
     main.cpp
     pid.cpp
     model.cpp
@@ -40,4 +40,4 @@ target_link_libraries(pid_tests
     GTest::gtest_main
 )
 
-add_test(NAME PIDTests COMMAND pid_tests)
+add_test(NAME PIDTests COMMAND pid_testes)
