@@ -1,13 +1,16 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
+#include <vector>
 
 #include "../src/functions.h"
+
+using namespace std;
 
 TEST(TestLinear, WhenStepsAreFive)
 {   
     const int n = 5;    // Simulation time steps
 
-    std::vector<double> accepted_results
+    vector<double> accepted_results
     { 0.36, 0.096, 0.0696, 0.06696, 0.066696 };
     double y = 3;
     for (int i = 0; i < n; i++)
@@ -21,7 +24,7 @@ TEST(TestNonLinear, WhenStepsAreFive)
 {   
     const int n = 5;    // Simulation time steps
 
-    std::vector<double> accepted_results
+    vector<double> accepted_results
     { 0.538208, -1.47842, 0.0619846, -0.163186, 0.250673 };
     double y = 3;
     double y_previous;
