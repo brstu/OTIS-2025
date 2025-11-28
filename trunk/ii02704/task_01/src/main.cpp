@@ -4,7 +4,7 @@
 using namespace std;
 
 
-void input(int& k, vector<double> u, vector<double> y, double& y0, double& a, double& b, double& c, double& d, double& c1, double& rc) {
+void input(int& k, vector<double> u, vector<double> y, double& a, double& b) {
 	cout << "Enter amount of iterations: ";
 	cin >> k;
 	u.resize(k, 0);
@@ -17,9 +17,6 @@ void input(int& k, vector<double> u, vector<double> y, double& y0, double& a, do
 	}
 	u.resize(k + 1, 0);
 	y.resize(k + 1, 0);
-	cout << "\nEnter room temperature: ";
-
-	cin >> y0;
 
 	cout << "Enter const a: ";
 
@@ -28,22 +25,6 @@ void input(int& k, vector<double> u, vector<double> y, double& y0, double& a, do
 	cout << "Enter const b: ";
 
 	cin >> b;
-
-	cout << "Enter const c: ";
-
-	cin >> c;
-
-	cout << "Enter const d: ";
-
-	cin >> d;
-
-	cout << "Enter const c1: ";
-
-	cin >> c1;
-
-	cout << "Enter const rc: ";
-
-	cin >> rc;
 
 }
 void linear(const int& place, const int& k, vector<double>& y, const vector<double>& u, const double& b, const double& a) {
@@ -66,11 +47,7 @@ int main()
 	double y0 = 25;
 	double a = 1;
 	double b = 1;
-	double c = 1;
-	double d = 1;
-	double c1 = 1;
-	double rc = 1;
-	//input(k, u, y, y0, a, b, c, d, c1, rc);
+	input(k, u, y, a, b);
 	for (int i = 0; i < k; i++) {
 		linear(i, k, y, u, b, a);
 	}
