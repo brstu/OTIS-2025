@@ -1,41 +1,35 @@
-// test/pid_test.cpp
 #include <gtest/gtest.h>
 #include "pid_controller.h"
 #include "model.h"
+#include <cmath>
 
-// Тест 1 — просто создаём объекты, ничего не ломается
-TEST(Basic, CanCreateObjects)
-{
-    PIDController pid(1.0, 1.0, 0.0, 0.1);
-    Model plant;
-    EXPECT_TRUE(true);  // просто чтобы тест был зелёный
+static bool is_finite(double x) { return std::isfinite(x); }
+
+TEST(PIDController, ConstructorWorks) {
+    PIDController pid(10.0, 1.0, 0.8, 0.1);
+    EXPECT_TRUE(is_finite(pid.compute(0.0)));
 }
 
-// Тест 2 — регулятор что-то выдаёт
-TEST(PIDController, ReturnsSomeValue)
-{
+TEST(PIDController, IntegralIncreasesOutput) {
     PIDController pid(10.0, 1.0, 0.0, 0.1);
-    double u = pid.compute(1.0);
-    EXPECT_GT(u, 0.0);  // u должен быть положительным при положительной ошибке
+    double u1 = pid.compute(1.0);
+    double u2 = pid.compute(1.0);
+    EXPECT_GT(u2, u1);
 }
 
-// Тест 3 — модель меняет температуру
-TEST(Model, TemperatureChanges)
-{
-    Model plant(0.1, 1.0, 0.0, 0.1);
-    plant.update(10.0);  // подаём нагрев
-    double t1 = plant.getTemperature();
-    plant.update(10.0);
-    double t2 = plant.getTemperature();
-    EXPECT_GT(t2, t1);
-}
-
-// Тест 4 — сброс работает
-TEST(PIDController, ResetClearsState)
-{
+TEST(PIDController, ResetWorks) {
     PIDController pid(5.0, 1.0, 0.0, 0.1);
     pid.compute(1.0);
     pid.reset();
-    double u = pid.compute(1.0);
-    EXPECT_NEAR(u, 5.5, 0.1);  // K*(1 + dt/Ti) = 5.5
+    EXPECT_NEAR(pid.compute(1.0), 5.5, 1e-9);
 }
+
+
+
+TEST(Model, HeatsUp) {
+    Model m;
+    m.reset(0.0);
+    m.update(10.0);
+    EXPECT_GT(m.getTemperature(), 0.0);
+}
+

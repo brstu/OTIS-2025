@@ -1,23 +1,17 @@
-cmake
 cmake_minimum_required(VERSION 3.15)
-project(PID_Lab3_Tests LANGUAGES CXX)
+project(PID_Tests_ii02709 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/build)
-
 
 include(FetchContent)
 FetchContent_Declare(
     googletest
     URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
-    DOWNLOAD_EXTRACT_TIMESTAMP ON  
+    DOWNLOAD_EXTRACT_TIMESTAMP ON
 )
-
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-
 FetchContent_MakeAvailable(googletest)
 
 enable_testing()
@@ -29,11 +23,7 @@ add_executable(pid_tests_ii02709
 )
 
 target_include_directories(pid_tests_ii02709 PRIVATE ../src)
-
-target_link_libraries(pid_tests_ii02709
-    GTest::gtest_main
-    GTest::gtest
-)
+target_link_libraries(pid_tests_ii02709 GTest::gtest_main GTest::gtest)
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     target_compile_options(pid_tests_ii02709 PRIVATE -O0 -g --coverage)

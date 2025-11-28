@@ -1,17 +1,19 @@
-// src/model.h
 #ifndef MODEL_H
 #define MODEL_H
 
 class Model {
-    double a, b, T_room, dt;
-    double T;  // текущая температура
+    double a{0.1};
+    double b{1.0};
+    double T_room{0.0};
+    double dt{0.1};
+    double T{0.0};
 
 public:
-    Model(double aa = 0.1, double bb = 1.0, double t_room = 0.0, double dtt = 0.1);
+    explicit Model(double aa = 0.1, double bb = 1.0, double t_room = 0.0, double dtt = 0.1);
 
     double update(double u);
-    double getTemperature() const;
-    void reset(double val = 0.0);
+    double getTemperature() const { return T; }
+    void reset(double val = 0.0) { T = val; }
 };
 
 #endif
