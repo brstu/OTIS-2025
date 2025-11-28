@@ -1,0 +1,33 @@
+\doxysection{functions.\+cpp}
+\hypertarget{functions_8cpp_source}{}\label{functions_8cpp_source}\mbox{\hyperlink{functions_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{functions_8h}{functions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00004}\mbox{\hyperlink{functions_8cpp_a82cf4dbd2f60c32e470774b41c7f7ad7}{00004}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{functions_8cpp_a82cf4dbd2f60c32e470774b41c7f7ad7}{linear}}(\textcolor{keywordtype}{double}\ y,\ \textcolor{keywordtype}{double}\ u,\ \textcolor{keywordtype}{double}\ a,\ \textcolor{keywordtype}{double}\ b)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00005}00005\ \ \ \ \ \textcolor{keywordflow}{return}\ a\ *\ y\ +\ b\ *\ u;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00006}00006\ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00008}\mbox{\hyperlink{functions_8cpp_a431f59bed8809b9d6486bd8eabeff383}{00008}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{functions_8cpp_a431f59bed8809b9d6486bd8eabeff383}{nonlinear}}(\textcolor{keywordtype}{double}\ y,\ \textcolor{keywordtype}{double}\ u,\ \textcolor{keywordtype}{double}\ a,\ \textcolor{keywordtype}{double}\ b,\ \textcolor{keywordtype}{double}\ c,\ \textcolor{keywordtype}{double}\ d)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keywordflow}{return}\ a\ *\ y\ -\/\ b\ *\ pow(y,\ 2)\ +\ c\ *\ u\ +\ d\ *\ sin(u);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00010}00010\ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00012}\mbox{\hyperlink{classPID_ae116b856a05d5a17e94a8c8fa6228949}{00012}}\ \mbox{\hyperlink{classPID_ae116b856a05d5a17e94a8c8fa6228949}{PID::PID}}(\textcolor{keywordtype}{double}\ K,\ \textcolor{keywordtype}{double}\ Ti,\ \textcolor{keywordtype}{double}\ Td,\ \textcolor{keywordtype}{double}\ To)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00013}00013\ \ \ \ \ q0\ =\ K\ *\ (1\ +\ Td\ /\ To);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00014}00014\ \ \ \ \ q1\ =\ -\/K\ *\ (1\ +\ 2\ *\ Td\ /\ To\ -\/\ To\ /\ Ti);}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00015}00015\ \ \ \ \ q2\ =\ K\ *\ Td\ /\ To;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00016}00016\ \ \ \ \ e\_prev\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00017}00017\ \ \ \ \ e\_prev2\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00018}00018\ \ \ \ \ u\_prev\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00019}00019\ \}}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00021}\mbox{\hyperlink{classPID_a980f21e5c28912b5c968e60c8ddfa089}{00021}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classPID_a980f21e5c28912b5c968e60c8ddfa089}{PID::compute}}(\textcolor{keywordtype}{double}\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{double}\ delta\_u\ =\ q0\ *\ e\ +\ q1\ *\ e\_prev\ +\ q2\ *\ e\_prev2;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{double}\ u\ =\ u\_prev\ +\ delta\_u;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00024}00024\ \ \ \ \ e\_prev2\ =\ e\_prev;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00025}00025\ \ \ \ \ e\_prev\ =\ e;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00026}00026\ \ \ \ \ u\_prev\ =\ u;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{return}\ u;}
+\DoxyCodeLine{\Hypertarget{functions_8cpp_source_l00028}00028\ \}}
+
+\end{DoxyCode}
