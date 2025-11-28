@@ -1,0 +1,33 @@
+PROJECT_NAME           = "Лабораторная работа №3 – ПИД-регулятор температуры"
+PROJECT_NUMBER         = "ii02709 • 2025"
+
+OUTPUT_DIRECTORY       = doc/doxygen
+
+INPUT                  = ./src ./test
+RECURSIVE              = YES
+
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+
+HTML_OUTPUT            = html
+HTML_COLORSTYLE_HUE    = 220
+HTML_COLORSTYLE_SAT    = 100
+
+HAVE_DOT               = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = YES
+
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+
+GENERATE_TREEVIEW      = YES
+DISABLE_INDEX          = NO
+
+FILE_PATTERNS          = *.cpp *.h *.hpp
+
+OPTIMIZE_OUTPUT_FOR_C  = NO
+CASE_SENSE_NAMES       = YES

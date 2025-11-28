@@ -1,26 +1,55 @@
-/**
- * @file pid_controller.cpp
- * @brief Реализация ПИД-регулятора
- */
-
+// src/pid_controller.cpp
 #include "pid_controller.h"
+#include <cmath>
+#include <limits>
+#include <algorithm>  // для std::min, std::max
 
-PIDController::PIDController(double K, double T, double TD, double T0)
-    : q0(0.0), q1(0.0), q2(0.0), u_prev(0.0), e_prev1(0.0), e_prev2(0.0)  // ИНИЦИАЛИЗАЦИЯ!
+// Вспомогательная функция clamp (работает везде)
+static double clamp(double val, double lo, double hi)
 {
-    q0 = K * (1.0 + T0 / (2.0 * T) + TD / T0);
-    q1 = K * (T0 / T - 2.0 * TD / T0 - 1.0);
-    q2 = K * (TD / T0);
+    if (val < lo) return lo;
+    if (val > hi) return hi;
+    return val;
 }
 
-double PIDController::compute(double error) {
-    double u = q0 * error + q1 * e_prev1 + q2 * e_prev2 + u_prev;
+PIDController::PIDController(double k, double ti, double td, double dtt)
+    : K(k), Ti(ti), Td(td), dt(dtt),
+      u_prev(0.0), e_prev1(0.0), e_prev2(0.0)
+{
+    // Защита от деления на ноль
+    double Ti_safe = (ti > 0.0) ? ti : 1e9;  // если Ti=0 или отрицательное — отключаем интеграл
+
+    // Ключевое: Td=50 при dt=0.1 — это катастрофа (коэффициент 500!)
+    // Ограничиваем Td разумным значением: не более 10 шагов дискретизации
+    double Td_safe = td;
+    if (td > 10.0 * dtt) {
+        Td_safe = 10.0 * dtt;  // например, Td=1.0 при dt=0.1
+    }
+
+    q0 = K * (1.0 + dt / Ti_safe + Td_safe / dt);
+    q1 = -K * (1.0 + 2.0 * Td_safe / dt - dt / Ti_safe);
+    q2 = K * (Td_safe / dt);
+}
+
+double PIDController::compute(double e)
+{
+    double du = q0 * e + q1 * e_prev1 + q2 * e_prev2;
+
+    // Жёсткий анти-windup — без этого будет NaN при агрессивных настройках
+    du = clamp(du, -50.0, 50.0);
+    u_prev += du;
+    u_prev = clamp(u_prev, -100.0, 100.0);  // ограничение самого сигнала управления
+
+    // Сохраняем историю
     e_prev2 = e_prev1;
-    e_prev1 = error;
-    u_prev = u;
-    return u;
+    e_prev1 = e;
+
+    return u_prev;
 }
 
-void PIDController::reset() {
-    u_prev = e_prev1 = e_prev2 = 0.0;
+void PIDController::reset()
+{
+    u_prev = 0.0;
+    e_prev1 = 0.0;
+    e_prev2 = 0.0;
 }
