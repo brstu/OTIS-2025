@@ -30,13 +30,13 @@ enable_testing()
 #
 # 3. Модульные тесты
 #
-add_executable(pid_tests
+add_executable(pid_testes
     ../test/test_pid.cpp
     pid.cpp
     model.cpp
 )
 
-target_link_libraries(pid_tests
+target_link_libraries(pid_testes
     GTest::gtest_main
 )
 
