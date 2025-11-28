@@ -128,10 +128,10 @@ int main()
 ## Результат
 ![Result:](res.jpg)
 ## Reviews
-
+whytr1ble
 <br>
-![Review for :]()
+![Review for whytr1ble:](whytr1ble.jpg)
 <br>
-
+Glouston
 <br>
-![Review for :]()
+![Review for Glouston:](Glouston.jpg)
