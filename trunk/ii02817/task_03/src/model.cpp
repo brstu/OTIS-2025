@@ -2,7 +2,7 @@
 #include <cmath>
 
 PlantModel::PlantModel(double a, double b, double c, double d)
-    : a(a), b(b), c(c), d(d), t(0.0), u(0.0)
+    : a(a), b(b), c(c), d(d), t(0.0)
 {
 }
 
@@ -25,15 +25,15 @@ double PlantModel::getOutput() const
     return t;
 }
 
-double PlantModel::linearStep(double u)
+double PlantModel::linearStep(double nu)
 {
-    t = a * t + b * u;
+    t = a * t + b * nu;
     return t;
 }
 
-double PlantModel::nonlinearStep(double u)
+double PlantModel::nonlinearStep(double nu)
 {
-    t = a * t - b * std::pow(t, 2) + c * u + d * std::sin(u);
+    t = a * t - b * std::pow(t, 2) + c * nu + d * std::sin(nu);
     return t;
 }
 
@@ -44,7 +44,7 @@ std::vector<double> PlantModel::linear(int steps) const
 
     std::vector<double> result(steps);
     double current_t = t;
-    
+
     for (int i = 0; i < steps; i++)
     {
         result[i] = current_t;
@@ -60,7 +60,7 @@ std::vector<double> PlantModel::nonlinear(int steps) const
 
     std::vector<double> result(steps);
     double current_t = t;
-    
+
     for (int i = 0; i < steps; i++)
     {
         result[i] = current_t;
