@@ -39,12 +39,10 @@ void linear(const int& place, const int& k, vector<double>& y, const vector<doub
 int main()
 {
 	int k = 4;
-	int t = 0;
 	vector<double> y;
 	vector<double> u;
 	u.resize(k + 1, 0);
 	y.resize(k + 1, 0);
-	double y0 = 25;
 	double a = 1;
 	double b = 1;
 	input(k, u, y, a, b);
