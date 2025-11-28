@@ -10,7 +10,7 @@
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
 <p align="right">Группы ИИ-27</p>
-<p align="right">Масюк А.Д.</p>
+<p align="right">Гридчин А.В.</p>
 <p align="right">Проверил:</p>
 <p align="right">Дворанинович Д.А.</p>
 <br><br><br><br><br>
@@ -39,6 +39,7 @@ Task is to write program (С++), which simulates this object temperature.
 ## Код программы
 
 ```
+
 
 #include <iostream>
 #include <cmath>
@@ -153,25 +154,26 @@ public:
 };
 int main()
 {
-Obj a;
-a.input();
-int n = a.getN();
-int t = a.getT();
-for (int j = t; j < n; j++) {
-a.linear(j);
-cout << "Linear equation: Temperature at " << j + 1 << " equals: " << a.getY(j) << endl;
-a.equation1(j);
-cout << "Temperature change at " << j << " is: " << a.getDelt() << endl;
-}
-t++;
-cout << "Nonlinear equation: Temperature at 1" << " equals: " << a.getY(0) << endl;
-for (int m = t; m < n; m++) {
-a.nonlinear(m);
-cout << "Nonlinear equation: Temperature at " << m + 1 << " equals: " << a.getY(m) << endl;
-a.equation1(m);
-cout << "Temperature change at " << m << " is: " << a.getDelt() << endl;
-}	
-return 0;
+	Obj a;
+	a.input();
+	int n = a.getN();
+	int t = a.getT();
+	for (int j = t; j < n; j++) {
+		a.linear(j);
+		cout << "Linear equation: Temperature at " << j + 1 << " equals: " << a.getY(j) << endl;
+		a.equation1(j);
+		cout << "Temperature change at " << j << " is: " << a.getDelt() << endl;
+	}
+	t++;
+	cout << "Nonlinear equation: Temperature at 1" << " equals: " << a.getY(0) << endl;
+	for (int m = t; m < n; m++) {
+		a.nonlinear(m);
+		cout << "Nonlinear equation: Temperature at " << m + 1 << " equals: " << a.getY(m) << endl;
+		a.equation1(m);
+		cout << "Temperature change at " << m << " is: " << a.getDelt() << endl;
+	}
+	
+	return 0;
 }
 
 ```
