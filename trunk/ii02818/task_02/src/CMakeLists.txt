@@ -4,7 +4,6 @@ project(task_02_ii02818 VERSION 1.0.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(${PROJECT_NAME}_tests main.cpp laba2otis.cpp)
 include(FetchContent)
 
 FetchContent_Declare(
@@ -17,21 +16,22 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
+# СОЗДАЕМ ТОЛЬКО ОДИН ИСПОЛНЯЕМЫЙ ФАЙЛ С УНИКАЛЬНЫМ ИМЕНЕМ
 add_executable(
-  model_tests
-  laba2otis.cpp  # исходный код из текущей папки src
-  ../test/test_lab2.cpp  # тесты из папки test
+  ${PROJECT_NAME}_model_tests  # УНИКАЛЬНОЕ ИМЯ
+  laba2otis.cpp
+  ../test/test_lab2.cpp
 )
 
-target_include_directories(model_tests PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}  # для lab2otis.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/../test  # для тестов если нужно
+target_include_directories(${PROJECT_NAME}_model_tests PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/../test
 )
 
 target_link_libraries(
-  model_tests
+  ${PROJECT_NAME}_model_tests
   GTest::gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(model_tests)
+gtest_discover_tests(${PROJECT_NAME}_model_tests)
