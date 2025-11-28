@@ -180,10 +180,10 @@ return 0;
 ## Результат
 ![Result:](res.jpg)
 ## Reviews
-fedotovd778
+whytr1ble
 <br>
-![Review for fedotov778:](fedotov.jpg)
+![Review for whytr1ble:](whytr1ble.jpg)
 <br>
-GOOrst
+Glouston
 <br>
-![Review for GOOrst:](Goorst.jpg)
+![Review for Glouston:](Glouston.jpg)
