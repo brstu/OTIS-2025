@@ -10,7 +10,7 @@
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
 <p align="right">Группы ИИ-27</p>
-<p align="right">Гридчин А.В.</p>
+<p align="right">Масюк А.Д.</p>
 <p align="right">Проверил:</p>
 <p align="right">Дворанинович Д.А.</p>
 <br><br><br><br><br>
