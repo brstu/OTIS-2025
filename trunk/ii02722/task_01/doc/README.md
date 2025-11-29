@@ -44,9 +44,9 @@ Task is to write program (**С++**), which simulates this object temperature.
 #include<iostream>
 using namespace std;
 
-float a=0.5,
+float a = 0.5,
 	b = 0.2,
-	c= 0.15,
+	c = 0.15,
 	d = 0.3,
 	u = 1.2;
 int main()
