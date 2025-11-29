@@ -24,11 +24,12 @@ std::vector<double> simulateSystem(PIDController& pid, ProcessModel& process,
                                   const std::vector<double>& setpoints, bool use_nonlinear = false) {
     std::vector<double> results;
     
-    for (int i = 0; i < setpoints.size(); ++i) {
+    for (double i:setpoints) {
+
         double current_value = (results.empty()) ? 0.0 : results.back();
         
         // Вычисляем управляющее воздействие
-        double control_signal = pid.calculate(setpoints[i], current_value);
+        double control_signal = pid.calculate(i, current_value);
         
         // Применяем управление к модели процесса
         double new_value;
