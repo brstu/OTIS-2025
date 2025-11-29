@@ -56,7 +56,7 @@ int main() {
     for (int step = 0; step < simulation_steps; ++step) {
         temperature_history[step] = current_temp;
 
-        ModelType model = static_cast<ModelType>(selected_model);
+        auto model = static_cast<ModelType>(selected_model);
 
         switch (model) {
         case ModelType::LINEAR:
