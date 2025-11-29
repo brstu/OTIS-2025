@@ -31,13 +31,14 @@ int main() {
     const int steps = 400;
     const double target = 10.0;
 
-    std::vector<double> w, y, u;
+    std::vector<double> w;
+    std::vector<double> y;
+    std::vector<double> u;
     y.reserve(steps);
     u.reserve(steps);
     w.reserve(steps);
 
     double yk = 0.0;
-    double yk_1 = 0.0;
 
     for (int k = 0; k < steps; ++k) {
         double e = target - yk;
@@ -48,7 +49,6 @@ int main() {
         u.push_back(uk);
         y.push_back(y_next);
 
-        yk_1 = yk;
         yk = y_next;
     }
 

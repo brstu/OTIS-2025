@@ -24,7 +24,7 @@ struct PIDParams {
  */
 class PID {
 public:
-    PID(const PIDParams& p);
+    explicit PID(const PIDParams& p);
 
     /**
      * @brief Вычислить управляющее воздействие
@@ -38,7 +38,9 @@ public:
 
 private:
     PIDParams p_;
-    double q0_{0.0}, q1_{0.0}, q2_{0.0};
+    double q0_{ 0.0 };
+    double q1_{ 0.0 };
+    double q2_{ 0.0 };
     double u_prev_{0.0};
     double e_prev_{0.0};
     double e_prev2_{0.0};
