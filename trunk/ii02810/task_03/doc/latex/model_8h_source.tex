@@ -1,0 +1,27 @@
+\doxysection{model.\+h}
+\hypertarget{model_8h_source}{}\label{model_8h_source}\index{src/model.h@{src/model.h}}
+\mbox{\hyperlink{model_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_heater_model_a1339db20631a39d1663d27ce98742509}{HeaterModel}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_heater_model_a1339db20631a39d1663d27ce98742509}{HeaterModel}}(\textcolor{keywordtype}{double}\ K\ =\ 2.0,\ \textcolor{keywordtype}{double}\ T\ =\ 150.0,\ \textcolor{keywordtype}{double}\ tau\ =\ 20.0,\ \textcolor{keywordtype}{double}\ dt\ =\ 1.0);}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_heater_model_a298d7a609b10a4d2140497f64c7f349a}{step}}(\textcolor{keywordtype}{double}\ u);}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_heater_model_a28ac9486783b6dc05b8307ab3a1c58c4}{reset}}();}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_heater_model_a04c19627f2791f25e1b5d77eb5a8c4e0}{getTemperature}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ y\_;\ \}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{double}\ K\_\ \ \ =\ 0.0;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{double}\ T\_\ \ \ =\ 0.0;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{double}\ tau\_\ =\ 0.0;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{double}\ dt\_\ \ =\ 0.0;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{double}\ y\_\ =\ 0.0;}
+\DoxyCodeLine{00022\ \ \ \ \ std::vector<double>\ u\_delay\_line\_;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ delay\_steps\_;}
+\DoxyCodeLine{00024\ \};}
+
+\end{DoxyCode}
