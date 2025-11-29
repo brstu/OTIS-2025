@@ -1,25 +1,36 @@
-#include "pid_controller.h"
-#include "model.h"
+/**
+ * @file main.cpp
+ * @brief Консольный симулятор ПИД-регулятора. Выводит CSV-данные.
+ */
+
 #include <iostream>
 #include <iomanip>
+#include "pid.h"
+#include "plant.h"
 
-int main()
-{
-    constexpr double dt = 0.1;
-    constexpr int steps = 2000;
+int main() {
+    const double T0 = 0.1;
+    const int steps = 1000;
+    const double setpoint = 50.0;
 
-    PIDController pid(10.0, 1.0, 0.8, dt);  // Работает идеально
-    Model plant(0.1, 1.0, 0.0, dt);
+    LinearPlant plant(0.98, 0.05, 0.0, 0.0);
+    PID pid(10.0, 0.1, 0.01, T0);
 
-    double setpoint = 1.0;
-    std::cout << std::fixed << std::setprecision(6);
+    std::cout << "t,setpoint,y,u,e\n";
 
-    for (int k = 0; k < steps; ++k) {
-        double y = plant.getTemperature();
+    double t = 0.0;
+    for (int k=0; k<steps; ++k) {
+        double y = plant.y();
         double e = setpoint - y;
-        double u = pid.compute(e);
-        plant.update(u);
+        double u = pid.update(e);
+        plant.step(u);
 
-        std::cout << k*dt << "\t" << y << "\t" << u << "\t" << e << "\n";
+        std::cout << std::fixed << std::setprecision(3)
+                  << t << "," << setpoint << "," << plant.y()
+                  << "," << u << "," << e << "\n";
+
+        t += T0;
     }
+
+    return 0;
 }
