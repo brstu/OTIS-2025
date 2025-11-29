@@ -15,7 +15,7 @@ ProcessModel::ProcessModel(const std::vector<double>& params, double initial_val
 }
 
 double ProcessModel::linearModel(double input) {
-    // Линейная модель: y(k) = a0 * y(k-1) + a1 * u(k)
+    
     double output = params[0] * prev_value + params[1] * input;
     prev_value = output;
     return output;

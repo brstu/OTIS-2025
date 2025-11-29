@@ -24,7 +24,7 @@ std::vector<double> simulateSystem(PIDController& pid, ProcessModel& process,
                                   const std::vector<double>& setpoints, bool use_nonlinear = false) {
     std::vector<double> results;
     
-    for (size_t i = 0; i < setpoints.size(); ++i) {
+    for (int i = 0; i < setpoints.size(); ++i) {
         double current_value = (results.empty()) ? 0.0 : results.back();
         
         // Вычисляем управляющее воздействие

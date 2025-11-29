@@ -26,7 +26,7 @@ private:
     double q1;         ///< Коэффициент q1  
     double q2;         ///< Коэффициент q2
     
-    double prev_error[2];  ///< Предыдущие ошибки e(k-1) и e(k-2)
+    std::vector<double> prev_error;  ///< Предыдущие ошибки e(k-1) и e(k-2)
     double prev_output;    ///< Предыдущее выходное значение u(k-1)
 
 public:
