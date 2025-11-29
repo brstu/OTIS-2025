@@ -408,4 +408,3 @@ void updateStateVariables(double y[], double u[],
 [  PASSED  ] 4 tests.
 
 ## Результат действия программы:
-https://igor7123.github.io/try-githubpages/
