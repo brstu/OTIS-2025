@@ -110,55 +110,41 @@
 ```C++
 /**
  * @file main.cpp
- * @brief Симуляция ПИД-регулятора с нелинейным объектом
- * @author ii02709
- * @date 14.11.2025
+ * @brief Простой симулятор: PID + линейный объект. Выводит CSV в stdout.
  */
 
-#include "pid_controller.h"
-#include "model.h"
 #include <iostream>
-#include <fstream>
-#include <vector>
-#include <cmath>
+#include <iomanip>
+#include "pid.h"
+#include "plant.h"
 
-/**
- * @brief Главная функция моделирования
- * @return 0 при успехе
- */
 int main() {
-    constexpr double K  = 10.0; 
-    constexpr double T  = 0.1;  
-    constexpr double TD = 0.05; 
-    constexpr double T0 = 0.1;  
-    constexpr int steps = 200;  
+    const double T0 = 0.1;
+    const int steps = 1000;
+    const double setpoint = 50.0;
 
-    PIDController pid(K, T, TD, T0);
-    NonlinearModel model;
-    double y = 0.0;
+    LinearPlant plant(0.98, 0.05, 0.0, 0.0);
+    PID pid(10.0, 0.1, 0.01, T0);
 
-    std::ofstream out("../doc/data_pid_step.csv");
-    if (!out.is_open()) {
-        std::cerr << "Ошибка: не удалось открыть файл для записи!\n";
-        return 1;
-    }
+    std::cout << "t,setpoint,y,u,e\n";
 
-    out << "t,w,y,u\n";
-
+    double t = 0.0;
     for (int k = 0; k < steps; ++k) {
-        double t = k * T0;
-        double w = (k < 100) ? 1.0 : 2.0; 
+        double y = plant.y();
+        double e = setpoint - y;
+        double u = pid.update(e);
+        plant.step(u);
 
-        double error = w - y;
-        double u = pid.compute(error);
-        y = model.next(y, u);
+        std::cout << std::fixed << std::setprecision(3)
+                  << t << "," << setpoint << "," << plant.y()
+                  << "," << u << "," << e << "\n";
 
-        out << t << "," << w << "," << y << "," << u << "\n";
+        t += T0;
     }
 
-    out.close();
     return 0;
 }
+
 ```
 
 ## График
@@ -217,56 +203,86 @@ https://risomuv.github.io/OTIS-2025/
 
 ## Код тестов [ test/pid_test.cpp ]
 ```C++
-/**
- * @file pid_test.cpp
- * @brief Простые тесты для ПИД-регулятора (гарантированно проходят)
- */
-
 #include <gtest/gtest.h>
-#include "../src/pid_controller.h"
 #include <cmath>
+#include <array>
+#include "pid.h"
+#include "plant.h"
 
-constexpr double EPS = 1e-6;
+// Тест конструктора по непрерывным параметрам
+TEST(PID, ConstructorContinuous) {
+    PID pid(10.0, 0.1, 0.01, 0.1);
 
-/**
- * @test Проверка начального состояния
- */
-TEST(PIDController, InitialZeroOutput) {
-    PIDController pid(10.0, 0.1, 0.05, 0.1);
-    double u = pid.compute(0.0);
-    EXPECT_NEAR(u, 0.0, EPS) << "u должно быть 0 при e = 0";
+    auto q = pid.q();
+    EXPECT_NEAR(q[0], 10.0 * (1.0 + 0.1/(2*0.1) + 0.01/0.1), 1e-6);
+    EXPECT_NEAR(q[1], -10.0 * (1.0 - 0.1/(2*0.1) + 2*0.01/0.1), 1e-6);
+    EXPECT_NEAR(q[2], 10.0 * (0.01/0.1), 1e-6);
+    EXPECT_DOUBLE_EQ(pid.last_u(), 0.0);
 }
 
-/**
- * @test Проверка пропорциональной части (только P)
- */
-TEST(PIDController, ProportionalResponse) {
-    // Отключаем I и D: T → ∞, TD = 0
-    PIDController pid(5.0, 1e9, 0.0, 0.1);
-
-    double u1 = pid.compute(1.0);
-    double u2 = pid.compute(1.0);
-
-    EXPECT_NEAR(u1, 5.0, 1e-3) << "u1 = K*e = 5.0";
-    EXPECT_NEAR(u2, 5.0, 1e-3) << "u2 = K*e = 5.0";
-    EXPECT_NEAR(u1, u2, 1e-3) << "u1 и u2 должны быть равны";
+// Тест конструктора по дискретным коэффициентам
+TEST(PID, ConstructorDiscrete) {
+    PID pid(DiscreteTag{}, 1.0, -0.9, 0.1, 42.0);
+    EXPECT_DOUBLE_EQ(pid.last_u(), 42.0);
+    auto q = pid.q();
+    EXPECT_DOUBLE_EQ(q[0], 1.0);
+    EXPECT_DOUBLE_EQ(q[1], -0.9);
+    EXPECT_DOUBLE_EQ(q[2], 0.1);
 }
 
-/**
- * @test Проверка сброса состояния
- */
-TEST(PIDController, ResetClearsState) {
-    PIDController pid(10.0, 0.1, 0.05, 0.1);
-    pid.compute(1.0);
-    pid.compute(2.0);
-    pid.reset();
-    double u = pid.compute(0.0);
-    EXPECT_NEAR(u, 0.0, EPS) << "После reset() u = " << u;
+// Тест update и reset
+TEST(PID, UpdateAndReset) {
+    PID pid(DiscreteTag{}, 1.0, -1.5, 0.5);
+
+    double u1 = pid.update(2.0);
+    EXPECT_DOUBLE_EQ(u1, 2.0);  // u = 0 + 1*2 + (-1.5)*0 + 0.5*0
+
+    double u2 = pid.update(3.0);
+    EXPECT_DOUBLE_EQ(u2, 2.0 + 1*3 + (-1.5)*2 + 0.5*0);  // = 2 + 3 - 3 = 2
+
+    pid.reset(100.0);
+    EXPECT_DOUBLE_EQ(pid.last_u(), 100.0);
+    double u3 = pid.update(1.0);
+    EXPECT_DOUBLE_EQ(u3, 100.0 + 1.0);  // e_prev1=e_prev2=0 после reset
+}
+
+// Тест случая T <= 0 (чистый PD-регулятор)
+TEST(PID, ProportionalDerivativeOnly) {
+    PID pid(5.0, 0.0, 1.0, 0.1);  // T=0
+
+    auto q = pid.q();
+    EXPECT_DOUBLE_EQ(q[0], 5.0 * (1.0 + 1.0/0.1));  // = 5*(1+10) = 55
+    EXPECT_DOUBLE_EQ(q[1], -5.0 * (1.0 + 2*1.0/0.1)); // = -5*(1+20) = -105
+    EXPECT_DOUBLE_EQ(q[2], 5.0 * (1.0/0.1));       // = 50
+}
+
+// Покрытие линейного объекта (уже было)
+TEST(PID, LinearPlantConverges) {
+    LinearPlant plant(0.98, 0.05, 0.0);
+    PID pid(10.0, 0.1, 0.01, 0.1);
+
+    for (int i = 0; i < 1000; ++i) {
+        double e = 50.0 - plant.y();
+        double u = pid.update(e);
+        plant.step(u);
+    }
+    EXPECT_LT(std::abs(50.0 - plant.y()), 0.5);
+}
+
+// Покрытие нелинейного объекта
+TEST(PID, NonlinearPlantConverges) {
+    NonlinearPlant plant(0.98, 0.05, 0.0, 0.01);
+    PID pid(12.0, 0.2, 0.02, 0.1);
+
+    for (int i = 0; i < 2000; ++i) {
+        double e = 50.0 - plant.y();
+        double u = pid.update(e);
+        plant.step(u);
+    }
+    EXPECT_LT(std::abs(50.0 - plant.y()), 1.0);
 }
 ```
 
 ## Результаты юнит-тестирования (GoogleTest)
 ![alt text](image.png)
 
-## Покрытие тестами (gcovr)
-![alt text](image-1.png)
