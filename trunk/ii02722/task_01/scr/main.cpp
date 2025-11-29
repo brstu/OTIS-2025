@@ -9,7 +9,7 @@ float a = 0.5,
 int main()
 {
 	float y0, y1, y2;
-	cout << "y1 = ?";
+	cout << "y1 = ? ";
 	cin >> y1;
 	y0 = y1;
 	int n = 10;
