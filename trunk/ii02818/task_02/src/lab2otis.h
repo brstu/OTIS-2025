@@ -10,10 +10,10 @@ private:
     double b;
     double c; 
     double d;
-    double y_curr =0;
-    double y_prev =0;
-    double u_curr =0;
-    double u_prev =0;
+    double y_curr = 0;
+    double y_prev = 0;
+    double u_curr = 0;
+    double u_prev = 0;
 
 public:
     TemperatureModel(double a, double b, double c, double d);
