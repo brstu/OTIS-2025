@@ -3,6 +3,7 @@
 #include <cmath>
 #include <iomanip>
 #include <stdexcept>
+#include <functional>  // Добавлен для std::function
 
 class TemperatureModel {
 private:
@@ -51,7 +52,7 @@ public:
     }
 
     double nonlinearModel(double u_tau) {
-        double y_next = a * y_curr - b * y_prev * y_prev + c * u_tau + d * sin(u_prev);
+        double y_next = a * y_curr - b * y_prev * y_prev + c * u_tau + d * std::sin(u_prev);
         updateState(y_next, u_tau);
         return y_next;
     }
@@ -89,7 +90,7 @@ private:
 void simulateModel(const std::string& title,
     const std::vector<double>& u_input,
     std::function<double(TemperatureModel&, double)> modelFunc,
-    const TemperatureModel& initialModel) {
+    TemperatureModel initialModel) {  // Изменено на передачу по значению
 
     std::cout << "\n" << title << std::endl;
     std::cout << std::string(50, '=') << std::endl;
@@ -109,7 +110,7 @@ void simulateModel(const std::string& title,
 void simulateDifferentialModelWithTimeStep(const std::string& title,
     const std::vector<double>& u_input,
     double dt,
-    const TemperatureModel& initialModel) {
+    TemperatureModel initialModel) {  // Изменено на передачу по значению
 
     std::cout << "\n" << title << " (dt=" << dt << ")" << std::endl;
     std::cout << std::string(50, '=') << std::endl;
