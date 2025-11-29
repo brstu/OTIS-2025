@@ -13,30 +13,14 @@ class IPlant {
 public:
     virtual ~IPlant() = default;
 
-    /**
-     * @brief Выполнить шаг модели.
-     * @param u Управляющее воздействие.
-     * @return Выход y(k).
-     */
     virtual double step(double u) = 0;
-
-    /**
-     * @brief Сбросить состояние модели.
-     */
     virtual void reset() = 0;
-
-    /**
-     * @brief Получить текущее значение выхода.
-     */
     virtual double y() const = 0;
 };
 
 /**
  * @class LinearPlant
  * @brief Линейная модель первого порядка.
- *
- * Формула:
- * y(k+1) = a * y(k) + b * u(k) + c
  */
 class LinearPlant : public IPlant {
 public:
@@ -54,10 +38,7 @@ private:
 
 /**
  * @class NonlinearPlant
- * @brief Нелинейная модель объекта.
- *
- * Формула:
- * y(k+1) = a * y(k) + b * u/(1 + α|u|) + c
+ * @brief Нелинейная модель: y(k+1)=a*y+b*u/(1+α|u|)+c.
  */
 class NonlinearPlant : public IPlant {
 public:
