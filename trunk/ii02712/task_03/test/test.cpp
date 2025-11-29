@@ -1,0 +1,59 @@
+#include <gtest/gtest.h>
+#include "../src/functions.h"
+
+TEST(TestLinearModel, WhenStepsIsFour)
+{   
+    const int steps = 4;
+    double y_next = 0;
+    double u = 1;
+    std::vector<double> results;
+    for (int i = 0; i < steps; i++) {
+        y_next = linearModel(y_next, u);
+        results.push_back(y_next);
+    }
+
+    std::vector<double> accepted_results
+    { 0.5, 0.45, 0.455, 0.4545 };
+    EXPECT_EQ(results.size(), accepted_results.size());
+    for (int i = 0; i < results.size(); i++)
+    {
+        EXPECT_NEAR(results[i], accepted_results[i], 1e-2) << "Not equal at" << i;
+    }
+}
+
+TEST(TestNonLinearModel, WhenStepsIsFour)
+{   
+    const int steps = 4;
+    double y_next = 0;
+    double u = 1;
+    std::vector<double> results;
+    for (int i = 0; i < steps; i++) {
+        double y_pred = y_next;
+        double u_pred = u;
+        y_next = nonlinearModel(y_next, u, y_pred, u_pred);
+        results.push_back(y_next);
+    }
+
+    std::vector<double> accepted_results
+    {  0.136588, 0.113601, 0.118776, 0.117657 };
+    EXPECT_EQ(results.size(), accepted_results.size());  
+    for (int i = 0; i < results.size(); i++) 
+    {
+        EXPECT_NEAR(results[i], accepted_results[i], 1e-2) << "Not equal at" << i;
+    }
+}
+
+TEST(TestPIDRegulatorUsingNonLinearModel, WhenStepsIsFour)
+{   
+    const int steps = 4;
+    const double w = 100;
+    std::vector<double> results = simulatePIDRegulatorUsingNonLinearModel(w, steps);
+
+    std::vector<double> accepted_results
+    { 7.15507, 13.7002, -5.47014, -66.113};
+    EXPECT_EQ(results.size(), accepted_results.size());  
+    for (int i = 0; i < results.size(); i++)
+    {
+        EXPECT_NEAR(results[i], accepted_results[i], 1e-2) << "Not equal at" << i;
+    }
+}
