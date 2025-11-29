@@ -3,7 +3,10 @@
 #include <vector>
 
 struct ModelParameters {
-    double a, b, c, d;
+    double a;
+    double b;
+    double c;
+    double d;
 };
 
 double calculate_linear(double current_temp, double heat_input, double coeff_a, double coeff_b) {
@@ -15,15 +18,17 @@ double calculate_nonlinear(double temp_t1, double temp_t2, double heat_input, co
         params.c * heat_input + params.d * std::sin(heat_input);
 }
 
-enum ModelType {
+enum class ModelType {
     LINEAR = 1,
     NONLINEAR = 2
 };
 
 int main() {
     ModelParameters coefficients{};
-    double heat_input, initial_temperature;
-    int simulation_steps, selected_model;
+    double heat_input;
+    double initial_temperature;
+    int simulation_steps;
+    int selected_model;
 
     std::cout << "Введите коэффициент a: ";
     std::cin >> coefficients.a;
@@ -51,13 +56,15 @@ int main() {
     for (int step = 0; step < simulation_steps; ++step) {
         temperature_history[step] = current_temp;
 
-        switch (selected_model) {
-        case LINEAR:
+        ModelType model = static_cast<ModelType>(selected_model);
+
+        switch (model) {
+        case ModelType::LINEAR:
             current_temp = calculate_linear(current_temp, heat_input,
                 coefficients.a, coefficients.b);
             break;
 
-        case NONLINEAR: {
+        case ModelType::NONLINEAR: {
             double next_temp = calculate_nonlinear(current_temp, previous_temp,
                 heat_input, coefficients);
             previous_temp = current_temp;
