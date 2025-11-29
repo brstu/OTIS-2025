@@ -23,21 +23,22 @@ inline std::array<double,3> compute_q_values(double K, double T, double TD, doub
     return q;
 }
 
-} // namespace
+} 
+
 
 PID::PID(double K, double T, double TD, double T0)
     : q0(compute_q_values(K, T, TD, T0)[0]),
       q1(compute_q_values(K, T, TD, T0)[1]),
-      q2(compute_q_values(K, T, TD, T0)[2]),
-      u_prev(0.0)
+      q2(compute_q_values(K, T, TD, T0)[2])
 {
-    // e_prev1 и e_prev2 и u_prev уже инициализированы in-class
+   
 }
+
 
 PID::PID(DiscreteTag, double q0_, double q1_, double q2_, double u0)
     : q0(q0_), q1(q1_), q2(q2_), u_prev(u0)
 {
-    // e_prev1 и e_prev2 инициализированы in-class
+    
 }
 
 void PID::reset(double u0) {
