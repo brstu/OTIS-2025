@@ -262,4 +262,4 @@ Total Test time (real) =   0.02 sec
 
 ## Результат действия программы:
 
-hhh
+GitHub Pages: [https://tlbery.github.io/OTIS-2025/](https://tlbery.github.io/OTIS-2025/)
