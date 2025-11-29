@@ -1,0 +1,59 @@
+\doxysection{module.\+h}
+\hypertarget{module_8h_source}{}\label{module_8h_source}\index{D:/OTIS/OTIS-\/2025/trunk/ii02814/task\_03/src/module.h@{D:/OTIS/OTIS-\/2025/trunk/ii02814/task\_03/src/module.h}}
+\mbox{\hyperlink{module_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ MODULE\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ MODULE\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_control_params}{ControlParams}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_control_params_a593b700eb25b3cfd6de14336cbaa2f4f}{q0}};\ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_control_params_ac66f5757c44106891fec15dc09567d5b}{q1}};\ \ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_control_params_a801e7914c94793e9b811c7fce6ff2fcc}{q2}};\ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_control_params_a055afd98130333b25f0e408b3ef784ca}{e\_k}};\ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_control_params_abb316870dcfd97d8cae7861ecd2803a3}{e\_prev}};\ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_control_params_af55657e30020dfd72e9a268e17a74602}{e\_prev2}};\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_control_params_a50783997dcf004279a405a145fd861a6}{u\_prev}};\ \ }
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_model_params}{ModelParams}}\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_model_params_ac6808834410822ab1c93f66fa560bbcc}{a}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_model_params_a1c535f855a85be50750c79530b4a2e7d}{b}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_model_params_a8cadb4ecf7a534fa7e3777af19c886a1}{c}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_model_params_a7c6b420a834e5d5528d4bea79918e0a5}{d}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_model_params_a7b545efa35f62b1f2b00d6a44936cccb}{y1}};\ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_model_params_a688af4d6e48c41f62fb738a13a692a4f}{y0}};\ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_model_params_ab0293a86b5ffbe337e930f2653165e5f}{u1}};\ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_model_params_ae3d8bc897c62796c72762551880bc989}{u0}};\ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_state_variables}{StateVariables}}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ std::array<double,\ 3>\ \mbox{\hyperlink{struct_state_variables_a663e3c0dbf10c0d03357964f0cb675f5}{y}};\ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ std::array<double,\ 2>\ \mbox{\hyperlink{struct_state_variables_ac0832248c84e960044c6d709989aba80}{u}};\ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_state_variables_af384483bb5082664e4ae45f107f9222b}{e\_prev}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_state_variables_a8341fbe643102035e40a9983844c92b2}{e\_prev2}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_state_variables_addac2b42780200821287135d316edbda}{u\_prev}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_state_variables_a967286ad51cd9932ec3eff353c7c3a02}{e\_k}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00050\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{module_8h_a827655d27cff6904006c0d8776e48235}{calculatePidCoefficients}}(\textcolor{keywordtype}{double}\ K,\ \textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{double}\ Td,\ \textcolor{keywordtype}{double}\ T0,\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ q0,\ \textcolor{keywordtype}{double}\&\ q1,\ \textcolor{keywordtype}{double}\&\ q2);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{module_8h_a25dd5396e96a7e20add9f351b762cbc4}{calculateControl}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_control_params}{ControlParams}}\&\ params);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{module_8h_a622fee89f0094b54cbc31cbc3de3e4d7}{applyControlLimits}}(\textcolor{keywordtype}{double}\ u);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00096\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{module_8h_a460df141e98805c675c3147587b703fe}{calculateNonlinearModel}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_model_params}{ModelParams}}\&\ params);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00106\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{module_8h_a7caa32bcc053d05f8ad42258bedd8f5c}{applyTemperatureProtection}}(\textcolor{keywordtype}{double}\ temperature);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00117\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{module_8h_a2f38e8c4bcbfe94e4a9b5a4314e12554}{calculateError}}(\textcolor{keywordtype}{double}\ setpoint,\ \textcolor{keywordtype}{double}\ current\_value);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00126\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{module_8h_a36a910d9807c25459dbcbf3db68b721f}{updateStateVariables}}(\mbox{\hyperlink{struct_state_variables}{StateVariables}}\&\ state);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
