@@ -3,7 +3,7 @@
 #include <cmath>
 #include <iomanip>
 #include <stdexcept>
-#include <functional>  // Добавлен для std::function
+#include <functional>
 
 class TemperatureModel {
 private:
@@ -90,7 +90,7 @@ private:
 void simulateModel(const std::string& title,
     const std::vector<double>& u_input,
     std::function<double(TemperatureModel&, double)> modelFunc,
-    TemperatureModel initialModel) {  // Изменено на передачу по значению
+    TemperatureModel initialModel) {
 
     std::cout << "\n" << title << std::endl;
     std::cout << std::string(50, '=') << std::endl;
@@ -110,7 +110,7 @@ void simulateModel(const std::string& title,
 void simulateDifferentialModelWithTimeStep(const std::string& title,
     const std::vector<double>& u_input,
     double dt,
-    TemperatureModel initialModel) {  // Изменено на передачу по значению
+    TemperatureModel initialModel) {
 
     std::cout << "\n" << title << " (dt=" << dt << ")" << std::endl;
     std::cout << std::string(50, '=') << std::endl;
@@ -137,7 +137,7 @@ int main() {
             [](TemperatureModel& model, double u) { return model.linearModel(u); },
             linearModel);
 
-        // Nonlinear model simulation  
+        // Nonlinear model simulation
         TemperatureModel nonlinearModel(0.7, 0.01, 0.3, 0.1, 20.0, 10.0, 5.0, 25.0);
         std::vector<double> u_nonlinear = { 1.0, 1.2, 1.5, 1.3, 1.1, 0.9, 0.7, 0.5, 0.3, 0.2 };
 
