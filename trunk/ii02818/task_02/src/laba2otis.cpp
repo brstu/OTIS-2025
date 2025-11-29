@@ -1,4 +1,4 @@
-#include "lab2otis.h"
+#include "laba2otis.h"
 
 TemperatureModel::TemperatureModel(double a, double b, double c, double d) 
     : a(a), b(b), c(c), d(d){
