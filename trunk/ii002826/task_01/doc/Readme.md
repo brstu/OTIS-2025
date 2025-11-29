@@ -32,8 +32,6 @@
 Task 1. Modeling controlled object Let's get some object to be controlled. We want to control its temperature, which can be described by this differential equation: (dy(τ)/dτ) = (u(τ)/C) + ((Y[0] - y(τ))/RC) (1) where τ – time; y (τ) – input temperature; u (τ) – input warm; Y0 – room temperature; C , R C – some constants. After transformation we get these linear (2) and nonlinear (3) models: y[τ + 1] = a*y[τ] + b*u[τ] (2) ⁡y[τ + 1] = a*y[τ] - b*y[τ - 1]^2 +c*u[τ] + dsin(u[t - 1]) (3) where τ – time discrete moments ( 1 , 2 , 3 … n ); a, b, c, d – some constants. Task is to write program (С++), which simulates this object temperature.
 
 
-
-
 Код программы:
 C++
 #include <iostream>
