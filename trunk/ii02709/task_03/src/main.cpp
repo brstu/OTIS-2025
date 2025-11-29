@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @brief Консольный симулятор ПИД-регулятора. Выводит CSV-данные.
+ * @brief Простой симулятор: PID + линейный объект. Выводит CSV в stdout.
  */
 
 #include <iostream>
@@ -19,7 +19,7 @@ int main() {
     std::cout << "t,setpoint,y,u,e\n";
 
     double t = 0.0;
-    for (int k=0; k<steps; ++k) {
+    for (int k = 0; k < steps; ++k) {
         double y = plant.y();
         double e = setpoint - y;
         double u = pid.update(e);

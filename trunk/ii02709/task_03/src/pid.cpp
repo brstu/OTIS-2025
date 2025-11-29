@@ -4,25 +4,40 @@
  */
 
 #include "pid.h"
+#include <array>
 #include <cmath>
 
-PID::PID(double K, double T, double TD, double T0)
-    : q0(0.0), q1(0.0), q2(0.0), u_prev(0.0), e_prev1(0.0), e_prev2(0.0)
-{
+namespace {
+
+inline std::array<double,3> compute_q_values(double K, double T, double TD, double T0) {
+    std::array<double,3> q = {0.0, 0.0, 0.0};
     if (T <= 0.0) {
-        q0 = K * (1.0 + TD / T0);
-        q1 = -K * (1.0 + 2.0 * TD / T0);
-        q2 = K * (TD / T0);
+        q[0] = K * (1.0 + TD / T0);
+        q[1] = -K * (1.0 + 2.0 * TD / T0);
+        q[2] = K * (TD / T0);
     } else {
-        q0 = K * (1.0 + T0 / (2.0 * T) + TD / T0);
-        q1 = -K * (1.0 - T0 / (2.0 * T) + 2.0 * TD / T0);
-        q2 = K * (TD / T0);
+        q[0] = K * (1.0 + T0 / (2.0 * T) + TD / T0);
+        q[1] = -K * (1.0 - T0 / (2.0 * T) + 2.0 * TD / T0);
+        q[2] = K * (TD / T0);
     }
+    return q;
+}
+
+} // namespace
+
+PID::PID(double K, double T, double TD, double T0)
+    : q0(compute_q_values(K, T, TD, T0)[0]),
+      q1(compute_q_values(K, T, TD, T0)[1]),
+      q2(compute_q_values(K, T, TD, T0)[2]),
+      u_prev(0.0)
+{
+    // e_prev1 и e_prev2 и u_prev уже инициализированы in-class
 }
 
 PID::PID(DiscreteTag, double q0_, double q1_, double q2_, double u0)
-    : q0(q0_), q1(q1_), q2(q2_), u_prev(u0), e_prev1(0.0), e_prev2(0.0)
+    : q0(q0_), q1(q1_), q2(q2_), u_prev(u0)
 {
+    // e_prev1 и e_prev2 инициализированы in-class
 }
 
 void PID::reset(double u0) {

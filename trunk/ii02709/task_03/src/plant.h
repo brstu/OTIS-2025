@@ -1,6 +1,6 @@
 /**
  * @file plant.h
- * @brief Дискретные модели объекта управления.
+ * @brief Модели дискретного объекта управления: линейная и простая нелинейная.
  */
 
 #ifndef II02709_PLANT_HPP
@@ -13,14 +13,27 @@ class IPlant {
 public:
     virtual ~IPlant() = default;
 
+    /**
+     * @brief Выполнить один шаг модели с управляющим воздействием u.
+     * @param u Управляющее воздействие.
+     * @return Значение выхода y(k).
+     */
     virtual double step(double u) = 0;
+
+    /**
+     * @brief Сброс состояния модели.
+     */
     virtual void reset() = 0;
+
+    /**
+     * @brief Возвращает текущее значение выхода.
+     */
     virtual double y() const = 0;
 };
 
 /**
  * @class LinearPlant
- * @brief Линейная модель первого порядка.
+ * @brief Линейная модель 1-го порядка: y(k+1) = a*y(k) + b*u(k) + c.
  */
 class LinearPlant : public IPlant {
 public:
@@ -38,7 +51,8 @@ private:
 
 /**
  * @class NonlinearPlant
- * @brief Нелинейная модель: y(k+1)=a*y+b*u/(1+α|u|)+c.
+ * @brief Нелинейная модель с простым насыщением входа:
+ * y(k+1) = a*y(k) + b * (u / (1 + alpha * |u|)) + c
  */
 class NonlinearPlant : public IPlant {
 public:
@@ -55,4 +69,4 @@ private:
     double yk;
 };
 
-#endif
+#endif // II02709_PLANT_HPP
