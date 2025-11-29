@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @brief Простой симулятор: PID + линейный объект. Выводит CSV в stdout.
+ * @brief Простой симулятор: PID + линейный объект. Выводит красивую таблицу в stdout.
  */
 
 #include <iostream>
@@ -16,7 +16,10 @@ int main() {
     LinearPlant plant(0.98, 0.05, 0.0, 0.0);
     PID pid(10.0, 0.1, 0.01, T0);
 
-    std::cout << "t,setpoint,y,u,e\n";
+    // Заголовок таблицы
+    std::cout << "+-------+----------+----------+----------+----------+\n";
+    std::cout << "|   t   | setpoint |    y     |    u     |    e     |\n";
+    std::cout << "+-------+----------+----------+----------+----------+\n";
 
     double t = 0.0;
     for (int k = 0; k < steps; ++k) {
@@ -25,12 +28,17 @@ int main() {
         double u = pid.update(e);
         plant.step(u);
 
-        std::cout << std::fixed << std::setprecision(3)
-                  << t << "," << setpoint << "," << plant.y()
-                  << "," << u << "," << e << "\n";
+        std::cout << "| " 
+                  << std::setw(5) << std::fixed << std::setprecision(2) << t << " | "
+                  << std::setw(8) << setpoint << " | "
+                  << std::setw(8) << plant.y() << " | "
+                  << std::setw(8) << u << " | "
+                  << std::setw(8) << e << " |\n";
 
         t += T0;
     }
+
+    std::cout << "+-------+----------+----------+----------+----------+\n";
 
     return 0;
 }
