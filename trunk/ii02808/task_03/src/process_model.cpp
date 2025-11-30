@@ -22,7 +22,7 @@ double ProcessModel::linearModel(double input) {
 }
 
 double ProcessModel::nonlinearModel(double input) {
-    // Нелинейная модель с дополнительными компонентами
+    
     double output = params[0] * prev_value - params[1] * prev_value * prev_value 
                    + params[2] * input + params[3] * std::sin(input);
     prev_value = output;
