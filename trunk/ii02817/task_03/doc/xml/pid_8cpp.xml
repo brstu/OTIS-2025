@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="pid_8cpp" kind="file" language="C++">
+    <compoundname>pid.cpp</compoundname>
+    <includes refid="pid_8h" local="yes">pid.h</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">algorithm</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/pid.cpp</label>
+        <link refid="pid_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>pid.h</label>
+        <link refid="pid_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>algorithm</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="pid_8h" kindref="compound">pid.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><ref refid="class_p_i_d_controller_1a970b2fb3c3d8517db45b066030ea1723" kindref="member">PIDController::PIDController</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>K,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Ti,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Td,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>T0)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_p_i_d_controller_1ac43ca81ca1c80f123773dc0296283514" kindref="member">setParameters</ref>(K,<sp/>Ti,<sp/>Td,<sp/>T0);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_p_i_d_controller_1ac43ca81ca1c80f123773dc0296283514" kindref="member">PIDController::setParameters</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>nK,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>nTi,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>nTd,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>nT0)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;K<sp/>=<sp/>nK;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;Ti<sp/>=<sp/>nTi;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;Td<sp/>=<sp/>nTd;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;T0<sp/>=<sp/>nT0;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Вычисление<sp/>коэффициентов<sp/>по<sp/>рекуррентным<sp/>формулам</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>q0<sp/>=<sp/>K<sp/>*<sp/>(1.0<sp/>+<sp/>Td<sp/>/<sp/>T0);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>q1<sp/>=<sp/>-K<sp/>*<sp/>(1.0<sp/>+<sp/>2.0<sp/>*<sp/>Td<sp/>/<sp/>T0<sp/>-<sp/>T0<sp/>/<sp/>Ti);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>q2<sp/>=<sp/>K<sp/>*<sp/>Td<sp/>/<sp/>T0;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_p_i_d_controller_1a2f11970d0216de3802e81a8fe84f14e8" kindref="member">PIDController::setLimits</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>nu_min,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>nu_max)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;u_min<sp/>=<sp/>nu_min;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;u_max<sp/>=<sp/>nu_max;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_p_i_d_controller_1ab6adfbffa30414f0a83b95ba999a2fea" kindref="member">PIDController::reset</ref>()</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>u_prev<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>e_prev1<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>e_prev2<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_p_i_d_controller_1af31656b67630f25fe8b85eefa24fe956" kindref="member">PIDController::calculate</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Вычисление<sp/>приращения<sp/>управления</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>delta_u<sp/>=<sp/>q0<sp/>*<sp/>e<sp/>+<sp/>q1<sp/>*<sp/>e_prev1<sp/>+<sp/>q2<sp/>*<sp/>e_prev2;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Вычисление<sp/>нового<sp/>управления</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u<sp/>=<sp/>u_prev<sp/>+<sp/>delta_u;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Ограничение<sp/>управления</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>u<sp/>=<sp/>std::max(u_min,<sp/>std::min(u_max,<sp/>u));</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Обновление<sp/>памяти</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>e_prev2<sp/>=<sp/>e_prev1;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>e_prev1<sp/>=<sp/>e;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>u_prev<sp/>=<sp/>u;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>u;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="class_p_i_d_controller_1a3f6a05e6457da67ca575c0da2280dcba" kindref="member">PIDController::getCoefficients</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="56"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{q0,<sp/>q1,<sp/>q2};</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/pid.cpp"/>
+  </compounddef>
+</doxygen>

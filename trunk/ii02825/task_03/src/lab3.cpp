@@ -29,9 +29,10 @@ using namespace std;
  *
  * @return 0 — успешное завершение
  */
-int main() {
-    double y0;  /**< Начальная температура объекта */
-    double a; 
+int main()
+{
+    double y0; /**< Начальная температура объекта */
+    double a;
     double b; /**< Коэффициенты линейной модели */
 
     cout << "Enter initial temperature y: ";
@@ -40,7 +41,7 @@ int main() {
     cout << "Enter parameters a and b for linear model: ";
     cin >> a >> b;
 
-    double w;  /**< Целевая температура */
+    double w; /**< Целевая температура */
     cout << "Enter target temperature w: ";
     cin >> w;
 
@@ -49,15 +50,15 @@ int main() {
     cin >> steps;
 
     // Параметры PID-регулятора
-    double K  = 0.4;
-    double T  = 3.0;
+    double K = 0.4;
+    double T = 3.0;
     double Td = 0.1;
     double T0 = 1.0;
 
     PID pid(K, T, Td, T0);
 
-    double y_lin = y0;   /**< Состояние линейной модели */
-    double y_non = y0;   /**< Состояние нелинейной модели */
+    double y_lin = y0; /**< Состояние линейной модели */
+    double y_non = y0; /**< Состояние нелинейной модели */
 
     // Коэффициенты нелинейной модели
     double c = 0.2;
@@ -66,9 +67,10 @@ int main() {
     cout << "\n=== Simulation started ===\n";
     cout << "Step | e | u | y_linear | y_non_linear\n";
 
-    for (int k = 0; k < steps; k++) {
-        double e = w - y_lin;           /**< Ошибка управления */
-        double u = pid.compute(e);      /**< Управляющее воздействие */
+    for (int k = 0; k < steps; k++)
+    {
+        double e = w - y_lin;      /**< Ошибка управления */
+        double u = pid.compute(e); /**< Управляющее воздействие */
 
         // Модели
         y_lin = linear(y_lin, u, a, b);
