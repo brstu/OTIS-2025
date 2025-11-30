@@ -214,7 +214,7 @@ int main() {
 
 
 ## Link to documentation
-[https://v1tyokkk.github.io/OTIS-2025/](https://v1tyokkk.github.io/OTIS-2025/)
+[https://ekadze-gi.github.io/OTIS-2025/](https://ekadze-gi.github.io/OTIS-2025/)
 
 ## Код юнит-тестов [ test/test.cpp ]
 ```C++
