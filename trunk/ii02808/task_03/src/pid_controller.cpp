@@ -17,12 +17,12 @@ PIDController::PIDController(double K, double T, double Td, double T0) {
     this->Td = Td;
     this->T0 = T0;
     
-    // Вычисляем коэффициенты
+    
     this->q0 = K * (1 + Td / T0);
     this->q1 = -K * (1 + 2 * Td / T0 - T0 / T);
     this->q2 = K * Td / T0;
     
-    // Инициализируем вектор ошибок
+    
     prev_error = std::vector<double>(2, 0.0);
     prev_output = 0.0;
 }
@@ -30,11 +30,11 @@ PIDController::PIDController(double K, double T, double Td, double T0) {
 double PIDController::calculate(double setpoint, double current_value) {
     double error = setpoint - current_value;
     
-    // Вычисляем приращение управления
+    
     double delta_u = q0 * error + q1 * prev_error[0] + q2 * prev_error[1];
     double output = prev_output + delta_u;
     
-    // Обновляем предыдущие значения
+    
     prev_error[1] = prev_error[0];
     prev_error[0] = error;
     prev_output = output;
