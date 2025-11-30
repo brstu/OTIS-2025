@@ -1,0 +1,101 @@
+
+PROJECT_NAME           = "Лабораторная работа №3 – ПИД-регулятор"
+PROJECT_NUMBER         = "ii02709"
+PROJECT_BRIEF          = "Дискретный ПИД-регулятор и модели объекта управления"
+
+
+INPUT                  = src
+
+
+RECURSIVE              = YES
+
+
+EXCLUDE                = doc/html build
+
+
+FILE_PATTERNS          = *.h *.hpp *.cpp *.md
+
+
+OUTPUT_DIRECTORY       = doc
+
+
+CREATE_SUBDIRS         = YES
+
+
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+
+
+HTML_HEADER            = 
+HTML_FOOTER            = 
+HTML_STYLESHEET        = 
+HTML_EXTRA_STYLESHEET  = 
+HTML_COLORSTYLE        = AUTO
+HTML_COLORSTYLE_HUE    = 220
+HTML_COLORSTYLE_SAT    = 100
+
+
+HAVE_DOT               = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+DOT_IMAGE_FORMAT       = svg
+INTERACTIVE_SVG        = YES
+
+
+OUTPUT_LANGUAGE        = Russian
+INPUT_ENCODING         = UTF-8
+USE_WINDOWS_ENCODING   = NO
+
+
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL          = NO
+
+HIDE_UNDOC_RELATIONS   = NO
+HIDE_UNDOC_MEMBERS     = NO
+HIDE_FRIEND_COMPOUNDS  = NO
+
+
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+
+
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+EXPAND_ONLY_PREDEF     = NO
+SKIP_FUNCTION_MACROS   = YES
+
+
+GENERATE_LATEX         = NO
+GENERATE_XML           = NO
+GENERATE_DOCBOOK       = NO
+
+CASE_SENSE_NAMES       = YES
+SORT_MEMBER_DOCS       = YES
+SORT_BRIEF_DOCS        = YES
+SORT_MEMBERS_CTORS_1ST = YES
+
+
+MAIN_PAGE_FILE         = README.md
+
+
+GENERATE_TREEVIEW      = YES
+FULL_SIDEBAR           = NO
+
+
+DOT_TRANSPARENT        = YES
+DOT_MULTI_TARGETS      = YES
+
+
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+USE_HTAGS              = NO
+
+
+GENERATE_TREEVIEW      = YES
+DISABLE_INDEX          = NO
+GENERATE_DOCSET        = NO
+GENERATE_HTMLHELP      = NO
+GENERATE_QHP           = NO
+GENERATE_ECLIPSEHELP   = NO
