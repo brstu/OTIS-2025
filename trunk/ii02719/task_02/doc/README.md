@@ -5,7 +5,7 @@
 <br><br><br><br><br><br><br>
 <p align="center">Лабораторная работа №1</p>
 <p align="center">По дисциплине “Общая теория интеллектуальных систем”</p>
-<p align="center">Тема: “Моделирования температуры объекта”</p>
+<p align="center">Тема: “Моделирование температуры объекта”</p>
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
@@ -35,21 +35,27 @@
 
 TEST(LinearTest, CalculatesCorrectly) {
     const int steps = 3;
-    double y[steps], u[steps];
+    std::vector<double> y;
+	y.resize(steps);
+	std::vector<double> u;
+	u.resize(steps);
     y[0] = 10.0;
     u[0] = 5.0;
 
-    linear(1.0, 0.5, y, u, steps);
+    linear(1.0, 1.0, y, u, steps);
 
-    EXPECT_DOUBLE_EQ(y[1], 1.0 * 10.0 + 0.5 * 5.0); // 12.5
+    EXPECT_DOUBLE_EQ(y[1], 1.0 * 10.0 + 1.0 * 5.0); // 15.0
     EXPECT_DOUBLE_EQ(u[1], 5.0 * 0.8);              // 4.0
-    EXPECT_DOUBLE_EQ(y[2], 1.0 * 12.5 + 0.5 * 4.0); // 14.5
+    EXPECT_DOUBLE_EQ(y[2], 1.0 * 15.0 + 1.0 * 4);   // 19.0
     EXPECT_DOUBLE_EQ(u[2], 4.0 * 0.8);              // 3.2
 }
 
 TEST(NonLinearTest, CalculatesCorrectly) {
     const int steps = 4;
-    double y[steps], u[steps];
+    std::vector<double> y;
+	y.resize(steps);
+	std::vector<double> u;
+	u.resize(steps);
     y[0] = 10.0;
     y[1] = 12.0;
     u[0] = 5.0;
@@ -57,10 +63,10 @@ TEST(NonLinearTest, CalculatesCorrectly) {
 
     nonLinear(1.0, 0.5, 0.2, 0.1, y, u, steps);
 
-    double expected_y2 = 1.0 * 12.0 - 0.5 * 10.0 / 2.0 + 0.2 * u[1] + 0.1 * sin(u[0]);
+    double expected_y2 = 1.0 * 12.0 - 0.5 * pow(10.0, 2.0) + 0.2 * 4.0 + 0.1 * sin(5.0);
     EXPECT_NEAR(y[2], expected_y2, 1e-6);
 
-    double expected_u2 = u[1] * 0.8;
+    double expected_u2 = 4.0 * 0.8;
     EXPECT_NEAR(u[2], expected_u2, 1e-6);
 }
 ```
@@ -71,20 +77,20 @@ Running main() from D:\Project\OTIS-2025\trunk\ii02719\task_02\test\build\_deps\
 [----------] Global test environment set-up.
 [----------] 1 test from LinearTest
 [ RUN      ] LinearTest.CalculatesCorrectly
-y[1] = 12.5
-y[2] = 14.5
-[       OK ] LinearTest.CalculatesCorrectly (0 ms)
-[----------] 1 test from LinearTest (1 ms total)
+y[1] = 15
+y[2] = 19
+[       OK ] LinearTest.CalculatesCorrectly (1 ms)
+[----------] 1 test from LinearTest (2 ms total)
 
 [----------] 1 test from NonLinearTest
 [ RUN      ] NonLinearTest.CalculatesCorrectly
 y[1] = 12
-y[2] = 10.2041
+y[2] = -37.2959
 [       OK ] NonLinearTest.CalculatesCorrectly (0 ms)
-[----------] 1 test from NonLinearTest (4 ms total)
+[----------] 1 test from NonLinearTest (1 ms total)
 
 [----------] Global test environment tear-down
-[==========] 2 tests from 2 test suites ran. (10 ms total)
+[==========] 2 tests from 2 test suites ran. (5 ms total)
 [  PASSED  ] 2 tests.
 
 ## Результат gcovr:

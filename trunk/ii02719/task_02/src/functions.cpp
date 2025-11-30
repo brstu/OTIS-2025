@@ -16,7 +16,7 @@ void nonLinear(double a, double b, double c, double d, std::vector<double>& y, s
 {
 	for (int i = 1; i < steps - 1; i++)
 	{
-		y[i + 1] = a * y[i] - b * y[i - 1] / 2.0 + c * u[i] + d * sin(u[i - 1]);
+		y[i + 1] = a * y[i] - b * pow(y[i - 1], 2.0) + c * u[i] + d * sin(u[i - 1]);
 		u[i + 1] = u[i] * 0.8; //Коэффициент понижения температуры объекта
 		std::cout << "y[" << i << "] = " << y[i] << std::endl;
 	}

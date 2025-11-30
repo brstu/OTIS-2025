@@ -11,11 +11,11 @@ TEST(LinearTest, CalculatesCorrectly) {
     y[0] = 10.0;
     u[0] = 5.0;
 
-    linear(1.0, 0.5, y, u, steps);
+    linear(1.0, 1.0, y, u, steps);
 
-    EXPECT_DOUBLE_EQ(y[1], 1.0 * 10.0 + 0.5 * 0.5); // 12.5
+    EXPECT_DOUBLE_EQ(y[1], 1.0 * 10.0 + 1.0 * 5.0); // 15.0
     EXPECT_DOUBLE_EQ(u[1], 5.0 * 0.8);              // 4.0
-    EXPECT_DOUBLE_EQ(y[2], 1.0 * 12.5 + 0.5 * 0.8); // 14.5
+    EXPECT_DOUBLE_EQ(y[2], 1.0 * 15.0 + 1.0 * 4);   // 19.0
     EXPECT_DOUBLE_EQ(u[2], 4.0 * 0.8);              // 3.2
 }
 
@@ -32,9 +32,9 @@ TEST(NonLinearTest, CalculatesCorrectly) {
 
     nonLinear(1.0, 0.5, 0.2, 0.1, y, u, steps);
 
-    double expected_y2 = 1.0 * 12.0 - 0.5 * 10.0 / 2.0 + 0.2 * u[1] + 0.1 * sin(u[0]);
+    double expected_y2 = 1.0 * 12.0 - 0.5 * pow(10.0, 2.0) + 0.2 * 4.0 + 0.1 * sin(5.0);
     EXPECT_NEAR(y[2], expected_y2, 1e-6);
 
-    double expected_u2 = u[1] * 0.8;
+    double expected_u2 = 4.0 * 0.8;
     EXPECT_NEAR(u[2], expected_u2, 1e-6);
 }
