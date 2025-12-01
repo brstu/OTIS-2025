@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\my_tests_ii02804.dir/objects.a
-C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\my_tests_ii02804.dir/objects.a @CMakeFiles\my_tests_ii02804.dir\objects1.rsp
-C:\msys64\ucrt64\bin\c++.exe  -fprofile-arcs -ftest-coverage -O0  -fprofile-arcs -ftest-coverage -Wl,--whole-archive CMakeFiles\my_tests_ii02804.dir/objects.a -Wl,--no-whole-archive -o my_tests_ii02804.exe -Wl,--out-implib,libmy_tests_ii02804.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\my_tests_ii02804.dir\linkLibs.rsp
