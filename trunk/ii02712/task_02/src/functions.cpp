@@ -1,5 +1,12 @@
-LinearParams lp{0.8, 0.1};
-double y_next = linearModel(y, u, lp);
+#include "functions.h"
+#include <cmath>
 
-NonlinearParams nlp{0.8, 0.01, 0.05, 0.005};
-double y_next_nl = nonlinearModel(y, y_prev, u, u_prev, nlp);
+// Линейная модель
+double linearModel(double y, double u, const LinearParams& p) {
+    return p.a * y + p.b * u;
+}
+
+// Нелинейная модель
+double nonlinearModel(double y, double y_prev, double u, double u_prev, const NonlinearParams& p) {
+    return p.a * y - p.b * std::pow(y_prev, 2.0) + p.c * u + p.d * std::sin(u_prev);
+}
