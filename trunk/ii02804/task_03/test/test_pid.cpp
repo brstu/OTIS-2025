@@ -1,12 +1,15 @@
 /**
  * @file test_pid.cpp
- * @brief Набор модульных тестов для класса PID и линейной модели.
+ * @brief Набор модульных тестов для класса PID и линейной/нелинейной модели.
  */
 
 #include "../src/pid.h"
 #include "../src/models.h"   
 #include <gtest/gtest.h>
 #include <cmath>
+#include <vector>
+
+// Линейная модель
 
 TEST(LinearModelTest, PositiveValues) {
     EXPECT_DOUBLE_EQ(linear_model(2.0, 3.0, 1.0, 4.0), 2.0 * 1.0 + 3.0 * 4.0);
@@ -25,6 +28,7 @@ TEST(LinearModelTest, MixedValues) {
     EXPECT_DOUBLE_EQ(result, 0.5 * 6 + 0.2 * 8);
 }
 
+// PID-регулятор
 
 TEST(PIDTest, CoefficientsCalculation) {
     double K = 0.5;
@@ -60,45 +64,6 @@ TEST(PIDTest, ZeroError) {
 
     double u1 = pid.u_calc(0.0);
     EXPECT_DOUBLE_EQ(u1, 0.0);
-}
-
-
-TEST(PIDSystemTest, SystemStabilization) {
-    PID pid(1.5, 3.0, 0.2, 1.0);
-
-    double y_prev = 15.0;
-    double w = 35.0;
-    double a = 0.8;
-    double b = 0.1;
-    double y = y_prev;
-
-    for (int i = 0; i < 50; i++) {
-        double e = w - y;
-        double u = pid.u_calc(e);
-        y = linear_model(y, u, a, b);
-    }
-
-    EXPECT_NEAR(y, w, 2.0);
-}
-
-TEST(PIDSystemTest, ConvergenceTest) {
-    PID pid(0.8, 2.0, 0.1, 0.5);
-
-    double y = 10.0;
-    double w = 25.0;
-    double a = 0.9;
-    double b = 0.15;
-
-    std::vector<double> errors;
-
-    for (int i = 0; i < 30; i++) {
-        double e = w - y;
-        errors.push_back(std::abs(e));
-        double u = pid.u_calc(e);
-        y = linear_model(y, u, a, b);
-    }
-
-    EXPECT_LT(errors.back(), errors.front());
 }
 
 TEST(PIDTest, ExtremeCoefficients) {
@@ -141,3 +106,98 @@ TEST(PIDTest, InvalidState) {
     double u = pid.u_calc(1.0);
     EXPECT_DOUBLE_EQ(u, 0.0);
 }
+
+// PID + линейная система
+
+TEST(PIDSystemTest, SystemStabilization) {
+    PID pid(1.5, 3.0, 0.2, 1.0);
+
+    double y_prev = 15.0;
+    double w = 35.0;
+    double a = 0.8;
+    double b = 0.1;
+    double y = y_prev;
+
+    for (int i = 0; i < 50; i++) {
+        double e = w - y;
+        double u = pid.u_calc(e);
+        y = linear_model(y, u, a, b);
+    }
+
+    EXPECT_NEAR(y, w, 2.0);
+}
+
+TEST(PIDSystemTest, ConvergenceTest) {
+    PID pid(0.8, 2.0, 0.1, 0.5);
+
+    double y = 10.0;
+    double w = 25.0;
+    double a = 0.9;
+    double b = 0.15;
+
+    std::vector<double> errors;
+
+    for (int i = 0; i < 30; i++) {
+        double e = w - y;
+        errors.push_back(std::abs(e));
+        double u = pid.u_calc(e);
+        y = linear_model(y, u, a, b);
+    }
+
+    EXPECT_LT(errors.back(), errors.front());
+}
+
+// Нелинейная модель
+
+TEST(NonlinearModelTest, SimpleCalculation) {
+
+    double y = 10.0;
+    double y_prev = 5.0;
+    double u = 2.0;
+    double u_prev = 1.0;
+
+    double a = 0.9;
+    double b = 0.1;
+    double c = 0.05;
+    double d = 0.02;
+
+    double expected = a * y - b * std::pow(y_prev, 2.0)  + c * u + d * std::sin(u_prev);
+
+    EXPECT_NEAR(
+        nonlinear_model(y, y_prev, u, u_prev, a, b, c, d),
+        expected,
+        1e-10
+    );
+}
+
+// PID + нелинейная система
+TEST(PIDSystemTest, NonlinearSystemStabilization) {
+    PID pid(1.0, 2.0, 0.1, 1.0);
+
+    double y = 10.0;
+    double y_prev = 9.0;
+    double w1 = 20.0;  
+
+    double a1 = 0.8;
+    double b1 = 0.01;  
+    double c1 = 0.05;
+    double d1 = 0.005;
+
+    double u_prev = 0.0;
+
+    for (int i = 0; i < 150; i++) {  
+        double e = w1 - y;
+        double u = pid.u_calc(e);
+
+        double y_next = nonlinear_model(y, y_prev, u, u_prev, a1, b1, c1, d1);
+
+        y_prev = y;
+        y = y_next;
+        u_prev = u;
+    }
+
+    EXPECT_NEAR(y, w1, 2.0);  
+}
+
+
+
