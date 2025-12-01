@@ -1,23 +1,15 @@
 #include "models.h"
-#include <cmath>
 
 /**
- * @brief Вычисляет новое состояние линейной модели.
- *
- * Формула:
- * y(k) = a * y(k-1) + b * u(k)
+ * @brief Линейная модель
  */
-double linear_model(double y_prev, double u, double a, double b) {
-    return a * y_prev + b * u;
+double linear_model(double y_prev, double u, const LinearParams& p) {
+    return p.a * y_prev + p.b * u;
 }
 
-
 /**
- * @brief Вычисляет новое состояние нелинейной модели.
- *
- * Формула:
- * y(k+1) = a * y(k) - b * y^2(k-1) + c * u(k) + d * sin(u(k-1))
+ * @brief Нелинейная модель
  */
-double nonlinear_model(double y, double y_prev, double u, double u_prev, double a, double b, double c, double d){
-    return a * y - b * std::pow(y_prev, 2.0) + c * u + d * std::sin(u_prev);
+double nonlinear_model(double y, double y_prev, double u, double u_prev, const NonlinearParams& p) {
+    return p.a * y - p.b * y_prev * y_prev + p.c * u + p.d * std::sin(u_prev);
 }

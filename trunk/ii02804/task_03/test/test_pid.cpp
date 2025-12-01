@@ -12,19 +12,23 @@
 // Линейная модель
 
 TEST(LinearModelTest, PositiveValues) {
-    EXPECT_DOUBLE_EQ(linear_model(2.0, 3.0, 1.0, 4.0), 2.0 * 1.0 + 3.0 * 4.0);
+    LinearParams p{1.0, 4.0};
+    EXPECT_DOUBLE_EQ(linear_model(2.0, 3.0, p), 2.0 * 1.0 + 3.0 * 4.0);
 }
 
 TEST(LinearModelTest, ZeroInput) {
-    EXPECT_DOUBLE_EQ(linear_model(1.5, 2.0, 0.0, 0.0), 0.0);
+    LinearParams p{0.0, 0.0};
+    EXPECT_DOUBLE_EQ(linear_model(1.5, 2.0, p), 0.0);
 }
 
 TEST(LinearModelTest, NegativeValues) {
-    EXPECT_DOUBLE_EQ(linear_model(-1.0, 2.0, 3.0, -4.0), -1.0 * 3.0 + 2.0 * -4.0);
+    LinearParams p{3.0, -4.0};
+    EXPECT_DOUBLE_EQ(linear_model(-1.0, 2.0, p), -1.0 * 3.0 + 2.0 * -4.0);
 }
 
 TEST(LinearModelTest, MixedValues) {
-    double result = linear_model(6, 8, 0.5, 0.2);
+    LinearParams p{0.5, 0.2};
+    double result = linear_model(6, 8, p);
     EXPECT_DOUBLE_EQ(result, 0.5 * 6 + 0.2 * 8);
 }
 
@@ -118,10 +122,12 @@ TEST(PIDSystemTest, SystemStabilization) {
     double b = 0.1;
     double y = y_prev;
 
+    LinearParams p{a, b};
+
     for (int i = 0; i < 50; i++) {
         double e = w - y;
         double u = pid.u_calc(e);
-        y = linear_model(y, u, a, b);
+        y = linear_model(y, u, p);
     }
 
     EXPECT_NEAR(y, w, 2.0);
@@ -135,13 +141,14 @@ TEST(PIDSystemTest, ConvergenceTest) {
     double a = 0.9;
     double b = 0.15;
 
+    LinearParams p{a, b};
     std::vector<double> errors;
 
     for (int i = 0; i < 30; i++) {
         double e = w - y;
         errors.push_back(std::abs(e));
         double u = pid.u_calc(e);
-        y = linear_model(y, u, a, b);
+        y = linear_model(y, u, p);
     }
 
     EXPECT_LT(errors.back(), errors.front());
@@ -149,26 +156,28 @@ TEST(PIDSystemTest, ConvergenceTest) {
 
 // Нелинейная модель
 
-TEST(NonlinearModelTest, SimpleCalculation) {
+#include <gtest/gtest.h>
+#include "../src/models.h"
+#include <cmath>
 
+TEST(NonlinearModelTest, SimpleCalculation) {
     double y = 10.0;
     double y_prev = 5.0;
     double u = 2.0;
     double u_prev = 1.0;
 
-    double a = 0.9;
-    double b = 0.1;
-    double c = 0.05;
-    double d = 0.02;
+    // Создаём структуру с коэффициентами
+    NonlinearParams p{0.9, 0.1, 0.05, 0.02};
 
-    double expected = a * y - b * std::pow(y_prev, 2.0)  + c * u + d * std::sin(u_prev);
+    // Вычисляем ожидаемое значение вручную
+    double expected = p.a * y - p.b * std::pow(y_prev, 2.0) + p.c * u + p.d * std::sin(u_prev);
+    double actual = nonlinear_model(y, y_prev, u, u_prev, p);
 
-    EXPECT_NEAR(
-        nonlinear_model(y, y_prev, u, u_prev, a, b, c, d),
-        expected,
-        1e-10
-    );
+    EXPECT_NEAR(actual, expected, 1e-10);
 }
+
+
+
 
 // PID + нелинейная система
 TEST(PIDSystemTest, NonlinearSystemStabilization) {
@@ -176,28 +185,24 @@ TEST(PIDSystemTest, NonlinearSystemStabilization) {
 
     double y = 10.0;
     double y_prev = 9.0;
-    double w1 = 20.0;  
-
-    double a1 = 0.8;
-    double b1 = 0.01;  
-    double c1 = 0.05;
-    double d1 = 0.005;
-
+    double w = 20.0;  
     double u_prev = 0.0;
 
+    // Создаём структуру с коэффициентами модели
+    NonlinearParams p{0.8, 0.01, 0.05, 0.005};
+
     for (int i = 0; i < 150; i++) {  
-        double e = w1 - y;
+        double e = w - y;
         double u = pid.u_calc(e);
 
-        double y_next = nonlinear_model(y, y_prev, u, u_prev, a1, b1, c1, d1);
+        // Вызываем модель с новой структурой
+        double y_next = nonlinear_model(y, y_prev, u, u_prev, p);
 
         y_prev = y;
         y = y_next;
         u_prev = u;
     }
 
-    EXPECT_NEAR(y, w1, 2.0);  
+    EXPECT_NEAR(y, w, 2.0);  
 }
-
-
 
