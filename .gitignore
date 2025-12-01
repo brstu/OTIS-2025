@@ -45,6 +45,6 @@ doc/latex/
 *.doxygen
 
 build/
-build_gcov/
-
-task_02/.vscode/
+*/build/
+*/build*/
+*/*/build*/

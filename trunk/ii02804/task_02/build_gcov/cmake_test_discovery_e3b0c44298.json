@@ -1,0 +1,48 @@
+{
+  "tests": 6,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "LinearModel_ii02804",
+      "tests": 3,
+      "testsuite": [
+        {
+          "name": "ComputesCorrectly",
+          "file": "D:\\OTIS-2025\\trunk\\ii02804\\task_02\\test\\test.cpp",
+          "line": 7
+        },
+        {
+          "name": "ZeroCoefficientsReturnZero",
+          "file": "D:\\OTIS-2025\\trunk\\ii02804\\task_02\\test\\test.cpp",
+          "line": 16
+        },
+        {
+          "name": "HandlesNegativeInputs",
+          "file": "D:\\OTIS-2025\\trunk\\ii02804\\task_02\\test\\test.cpp",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "name": "NonLinearModel_ii02804",
+      "tests": 3,
+      "testsuite": [
+        {
+          "name": "ComputesExpectedValue",
+          "file": "D:\\OTIS-2025\\trunk\\ii02804\\task_02\\test\\test.cpp",
+          "line": 25
+        },
+        {
+          "name": "ZeroCoefficientsReturnZero",
+          "file": "D:\\OTIS-2025\\trunk\\ii02804\\task_02\\test\\test.cpp",
+          "line": 41
+        },
+        {
+          "name": "SinComponentOnlyWorks",
+          "file": "D:\\OTIS-2025\\trunk\\ii02804\\task_02\\test\\test.cpp",
+          "line": 50
+        }
+      ]
+    }
+  ]
+}
