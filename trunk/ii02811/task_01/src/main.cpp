@@ -15,7 +15,12 @@ double x1(double y, double  u, double  a, double  b, double  c, double  d, doubl
 
 int main(){
     
-    double y, a, b, c, u, d;
+    double y;
+    double a;
+    double b;
+    double c;
+    double u;
+    double d;
     cout << "Input y: ";
     cin >> y;
     cout << "Input a: ";
