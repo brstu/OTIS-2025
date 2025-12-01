@@ -12,6 +12,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           file_extensions: "h, hpp, cpp, c, md"
+          ignore_directories: "trunk/ii02712,trunk/ii02825,trunk/ii02803,build,_deps"
           # Only report similarities above 89%
           ignore_below: 93
           # If a file is more than 90% similar to another, then the job fails
