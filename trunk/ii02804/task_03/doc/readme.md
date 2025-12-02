@@ -451,6 +451,6 @@ TEST(PIDSystemTest, NonlinearSystemStabilization) {
 ## Покрытие GCC Code Coverage
 
 <<<<<<< HEAD
-![coverage](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/test.png)
+![coverage](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/coverage.png)
 =======
 
