@@ -1,48 +1,34 @@
+/**
+ * @file process_model.cpp
+ * @brief Реализация методов модели объекта управления
+ */
+
 #include "model.h"
+#include <stdexcept>
 
-std::vector<double> simulateLinear(
-    int steps,
-    double y_init,
-    double a,
-    double b,
-    const std::vector<double>& u
-) {
-    if (steps <= 0 || u.empty())
-        return {};
-
-    std::vector<double> y(steps);
-    y[0] = y_init;
-
-    for (int t = 1; t < steps; ++t)
-        y[t] = a * y[t - 1] + b * u[t - 1];
-
-    return y;
+ProcessModel::ProcessModel(const std::vector<double>& params, double initial_value) {
+    if (params.size() < 4) {
+        throw std::invalid_argument("Недостаточно параметров модели");
+    }
+    this->params = params;
+    this->prev_value = initial_value;
 }
 
-std::vector<double> simulateNonlinear(
-    int steps,
-    double y_init,
-    double a,
-    double b,
-    double c,
-    double d,
-    const std::vector<double>& u
-) {
-    if (steps <= 0)
-        return {};
+double ProcessModel::linearModel(double input) {
+    
+    double output = params[0] * prev_value + params[1] * input;
+    prev_value = output;
+    return output;
+}
 
-    std::vector<double> y(steps);
-    y[0] = y_init;
+double ProcessModel::nonlinearModel(double input) {
+    
+    double output = params[0] * prev_value - params[1] * prev_value * prev_value 
+                   + params[2] * input + params[3] * std::sin(input);
+    prev_value = output;
+    return output;
+}
 
-    if (steps > 1)
-        y[1] = a * y[0] + c * u[0];
-
-    for (int t = 2; t < steps; ++t) {
-        y[t] = a * y[t - 1]
-             - b * std::pow(y[t - 2], 2)
-             + c * u[t - 1]
-             + d * std::sin(u[t - 2]);
-    }
-
-    return y;
+void ProcessModel::setInitialValue(double value) {
+    prev_value = value;
 }

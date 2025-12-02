@@ -1,54 +1,40 @@
-cmake_minimum_required(VERSION 3.16)
-project(task_03_ii02801 LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.15)
+project(task_03_ii02801)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-#
-# Пути
-#
+# Пути к исходникам
 set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR})
-set(TEST_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../test)
-
-include_directories(${SRC_DIR})
-
-#
-# Основной executable
-#
-set(SOURCES
-    ${SRC_DIR}/lab3main.cpp
-    ${SRC_DIR}/model.cpp
-    ${SRC_DIR}/pid.cpp
+set(SRC_FILES
+    ${SRC_DIR}/main.cpp
+    ${SRC_DIR}/pid_controller.cpp
+    ${SRC_DIR}/process_model.cpp
 )
 
-add_executable(task03 ${SOURCES})
+# Основная программа
+add_executable(lab3_ii02801 ${SRC_FILES})
+include_directories(${SRC_DIR})
 
-#
-# GoogleTest через FetchContent (идеально для Windows)
-#
+# ----------------------------
+# GoogleTest через FetchContent
+# ----------------------------
 include(FetchContent)
 FetchContent_Declare(
-    googletest
-    URL https://github.com/google/googletest/archive/refs/heads/main.zip
+  googletest
+  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
 )
 FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-#
-# Тесты
-#
-set(TEST_SOURCES
-    ${TEST_DIR}/testlab_3.cpp
-    ${SRC_DIR}/model.cpp
-    ${SRC_DIR}/pid.cpp
+# Тестовый бинарник
+add_executable(testlab3_ii02801_runner
+    ${CMAKE_CURRENT_SOURCE_DIR}/../test/test.cpp
+    ${SRC_DIR}/pid_controller.cpp
+    ${SRC_DIR}/process_model.cpp
 )
 
-add_executable(test_runner_ii02801 ${TEST_SOURCES})
-
-target_link_libraries(test_runner_ii02801
-    GTest::gtest
-    GTest::gtest_main
-)
-
-add_test(NAME AllTests COMMAND test_runner_ii02801)
+target_link_libraries(testlab3_ii02801_runner gtest_main)
+include(GoogleTest)
+gtest_discover_tests(testlab3_ii02801_runner)

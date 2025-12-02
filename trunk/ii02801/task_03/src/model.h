@@ -1,33 +1,53 @@
-#ifndef MODEL_H
-#define MODEL_H
+/**
+ * @file model.h
+ * @brief Заголовочный файл для модели объекта управления
+ */
+
+#ifndef PROCESS_MODEL_H
+#define PROCESS_MODEL_H
 
 #include <vector>
 #include <cmath>
 
 /**
- * Линейная модель:
- * y(t) = a*y(t-1) + b*u(t-1)
+ * @class ProcessModel
+ * @brief Класс, моделирующий объект управления
+ * 
+ * Модель объекта управления, которая может работать как в линейном,
+ * так и в нелинейном режиме.
  */
-std::vector<double> simulateLinear(
-    int steps,
-    double y_init,
-    double a,
-    double b,
-    const std::vector<double>& u
-);
-
-/**
- * Нелинейная модель:
- * y[t] = a*y[t-1] − b*y[t-2]^2 + c*u[t-1] + d*sin(u[t-2])
- */
-std::vector<double> simulateNonlinear(
-    int steps,
-    double y_init,
-    double a,
-    double b,
-    double c,
-    double d,
-    const std::vector<double>& u
-);
+class ProcessModel {
+private:
+    std::vector<double> params;  ///< Параметры модели
+    double prev_value;           ///< Предыдущее значение выхода
+    
+public:
+    /**
+     * @brief Конструктор модели процесса
+     * @param params Вектор параметров модели
+     * @param initial_value Начальное значение
+     */
+    ProcessModel(const std::vector<double>& params, double initial_value);
+    
+    /**
+     * @brief Линейная модель объекта
+     * @param input Входное воздействие
+     * @return Выходное значение
+     */
+    double linearModel(double input);
+    
+    /**
+     * @brief Нелинейная модель объекта  
+     * @param input Входное воздействие
+     * @return Выходное значение
+     */
+    double nonlinearModel(double input);
+    
+    /**
+     * @brief Устанавливает начальное значение
+     * @param value Начальное значение
+     */
+    void setInitialValue(double value);
+};
 
 #endif
