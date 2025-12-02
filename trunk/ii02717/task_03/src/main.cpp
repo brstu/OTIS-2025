@@ -96,7 +96,7 @@ int main() {
     /// @brief Основной цикл моделирования системы управления на 50 шагов
     std::cout << "\nStart modeling...\n";
 
-    for (int k = 1; k <= 50; k++) {
+    for (int k = 1; k <= 500; k++) {
         // Расчет ошибки
         /// @brief Текущая ошибка регулирования e(k) = setpoint - y(k-1)
         double e_k = calculateError(setpoint, y[1]);
