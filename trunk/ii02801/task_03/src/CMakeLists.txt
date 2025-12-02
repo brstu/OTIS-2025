@@ -30,9 +30,9 @@ enable_testing()
 
 # Тестовый бинарник
 add_executable(testlab3_ii02801_runner
-    ${CMAKE_CURRENT_SOURCE_DIR}/../test/test.cpp
-    ${SRC_DIR}/pid_controller.cpp
-    ${SRC_DIR}/process_model.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../test/testlab_3.cpp
+    ${SRC_DIR}/pid.cpp
+    ${SRC_DIR}/model.cpp
 )
 
 target_link_libraries(testlab3_ii02801_runner gtest_main)
