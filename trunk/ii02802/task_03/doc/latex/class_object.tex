@@ -1,0 +1,86 @@
+\doxysection{Класс Object}
+\hypertarget{class_object}{}\label{class_object}\index{Object@{Object}}
+
+
+Класс для модели объекта управления.  
+
+
+
+
+{\ttfamily \#include $<$function.\+h$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_object_aa3088cb05ab153f676810a9efa41fb00}{Object}} (double tau, double K\+\_\+obj, double T0)
+\begin{DoxyCompactList}\small\item\em Конструктор объекта управления. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_object_ac96f054977ebf8a61a6a2b2359453e7d}{update}} (double u)
+\begin{DoxyCompactList}\small\item\em Обновление выхода объекта. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для модели объекта управления. 
+
+См. определение в файле \mbox{\hyperlink{function_8h_source}{function.\+h}} строка \mbox{\hyperlink{function_8h_source_l00038}{38}}
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_object_doc-constructors}
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_object_aa3088cb05ab153f676810a9efa41fb00}\index{Object@{Object}!Object@{Object}}
+\index{Object@{Object}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{Object()}{Object()}}
+{\footnotesize\ttfamily \label{class_object_aa3088cb05ab153f676810a9efa41fb00} 
+Object\+::\+Object (\begin{DoxyParamCaption}\item[{double}]{tau}{, }\item[{double}]{K\+\_\+obj}{, }\item[{double}]{T0}{}\end{DoxyParamCaption})}
+
+
+
+Конструктор объекта управления. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em tau} & Постоянная времени. \\
+\hline
+{\em K\+\_\+obj} & Коэффициент усиления объекта. \\
+\hline
+{\em T0} & Шаг дискретизации. \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \mbox{\hyperlink{function_8cpp_source}{function.\+cpp}} строка \mbox{\hyperlink{function_8cpp_source_l00020}{20}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_object_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{class_object_ac96f054977ebf8a61a6a2b2359453e7d}\index{Object@{Object}!update@{update}}
+\index{update@{update}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_object_ac96f054977ebf8a61a6a2b2359453e7d} 
+double Object\+::update (\begin{DoxyParamCaption}\item[{double}]{u}{}\end{DoxyParamCaption})}
+
+
+
+Обновление выхода объекта. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em u} & Входное воздействие. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Выход y. 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{function_8cpp_source}{function.\+cpp}} строка \mbox{\hyperlink{function_8cpp_source_l00026}{26}}
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{function_8h}{function.\+h}}\item 
+\mbox{\hyperlink{function_8cpp}{function.\+cpp}}\end{DoxyCompactItemize}

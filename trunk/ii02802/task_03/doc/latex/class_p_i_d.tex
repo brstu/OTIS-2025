@@ -1,0 +1,88 @@
+\doxysection{Класс PID}
+\hypertarget{class_p_i_d}{}\label{class_p_i_d}\index{PID@{PID}}
+
+
+Класс для ПИД-\/регулятора.  
+
+
+
+
+{\ttfamily \#include $<$function.\+h$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_i_d_a65aef5f3c744bfbd765ab884eb02c779}{PID}} (double K, double T, double TD, double T0)
+\begin{DoxyCompactList}\small\item\em Конструктор ПИД-\/регулятора. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_p_i_d_a980f21e5c28912b5c968e60c8ddfa089}{compute}} (double e)
+\begin{DoxyCompactList}\small\item\em Вычисление управляющего воздействия. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для ПИД-\/регулятора. 
+
+См. определение в файле \mbox{\hyperlink{function_8h_source}{function.\+h}} строка \mbox{\hyperlink{function_8h_source_l00010}{10}}
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_p_i_d_doc-constructors}
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_p_i_d_a65aef5f3c744bfbd765ab884eb02c779}\index{PID@{PID}!PID@{PID}}
+\index{PID@{PID}!PID@{PID}}
+\doxysubsubsection{\texorpdfstring{PID()}{PID()}}
+{\footnotesize\ttfamily \label{class_p_i_d_a65aef5f3c744bfbd765ab884eb02c779} 
+PID\+::\+PID (\begin{DoxyParamCaption}\item[{double}]{K}{, }\item[{double}]{T}{, }\item[{double}]{TD}{, }\item[{double}]{T0}{}\end{DoxyParamCaption})}
+
+
+
+Конструктор ПИД-\/регулятора. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em K} & Коэффициент усиления. \\
+\hline
+{\em T} & Постоянная интегрирования. \\
+\hline
+{\em TD} & Постоянная дифференцирования. \\
+\hline
+{\em T0} & Шаг дискретизации. \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \mbox{\hyperlink{function_8cpp_source}{function.\+cpp}} строка \mbox{\hyperlink{function_8cpp_source_l00003}{3}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_p_i_d_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{class_p_i_d_a980f21e5c28912b5c968e60c8ddfa089}\index{PID@{PID}!compute@{compute}}
+\index{compute@{compute}!PID@{PID}}
+\doxysubsubsection{\texorpdfstring{compute()}{compute()}}
+{\footnotesize\ttfamily \label{class_p_i_d_a980f21e5c28912b5c968e60c8ddfa089} 
+double PID\+::compute (\begin{DoxyParamCaption}\item[{double}]{e}{}\end{DoxyParamCaption})}
+
+
+
+Вычисление управляющего воздействия. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em e} & Текущая ошибка. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Управляющее воздействие u. 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{function_8cpp_source}{function.\+cpp}} строка \mbox{\hyperlink{function_8cpp_source_l00012}{12}}
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{function_8h}{function.\+h}}\item 
+\mbox{\hyperlink{function_8cpp}{function.\+cpp}}\end{DoxyCompactItemize}
