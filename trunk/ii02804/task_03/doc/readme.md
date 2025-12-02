@@ -212,12 +212,12 @@ int main() {
 ![res2](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/res2.png)
 
 ## Графики
-### При `K = 0.5 T = 4.0 T0 = 1.5 TD = 0.2 a = 0.9 b = 0.3 y0 = 15.234 w = 25.7562`
+### При `K = 0.5 T = 2.0 T0 = 1.0 TD = 0.3 a = 0.8 b = 0.1 y0 = 20 w = 100`
 
 ![schedule1](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/schedule1.png)
 <br>
 
-### При `K = 0.5 T = 4.0 T0 = 1.5 TD = 0.2 a = 0.9 b = 0.3 y0 = 15.234 w = 25.7562`
+### При `K = 0.5 T = 2.0 T0 = 1.0 TD = 0.3 a = 0.8 b = 0.1 c = 0.05 d = 0.03 y0 = 20 w = 100`
 ![schedule2](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/schedule2.png)
 <br>
 
@@ -446,11 +446,11 @@ TEST(PIDSystemTest, NonlinearSystemStabilization) {
 
 ```
 ## Результаты юнит-тестирования (GoogleTest)
-![GoogleTest](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/test.png)
+![GoogleTest](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/test.pn)
 
 ## Покрытие GCC Code Coverage
 
 <<<<<<< HEAD
-![GCC Coverage](images/coverage.png)
+![coverage](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/test.png)
 =======
 
