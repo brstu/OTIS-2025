@@ -213,7 +213,7 @@ int main() {
 
 ![schedule1](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/schedule1.png)
 <br>
-![schedule1](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/schedule1.png)
+![schedule2](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/schedule2.png)
 <br>
 
 ## Вывод полученных данных при использовании ПИД-регулятора
