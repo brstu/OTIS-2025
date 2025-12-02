@@ -206,10 +206,10 @@ int main() {
 ```
 
 ## Результаты программы [ src/main.cpp ]
-### При `Линейная функция`
+### `Линейная функция`
 ![res1.1](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/res1.1.png)
 
-### При `Нелинейная функция`
+### `Нелинейная функция`
 ![res1.2](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/res1.2.png)
 
 ![res2](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/res2.png)
@@ -228,11 +228,8 @@ int main() {
 
 
 ## Link to documentation
-<<<<<<< HEAD
 [https://tgoyshik.github.io/OTIS-2025/](https://tgoyshik.github.io/OTIS-2025/)
-=======
 
->>>>>>> 83f0486b5328c343d8ee651963c2361c12ba888b
 
 ## Код юнит-тестов [ test/test_pid.cpp ]
 ```C++
