@@ -7,9 +7,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Пути к исходникам
 set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(SRC_FILES
-    ${SRC_DIR}/main.cpp
-    ${SRC_DIR}/pid_controller.cpp
-    ${SRC_DIR}/process_model.cpp
+    ${SRC_DIR}/lab3main.cpp
+    ${SRC_DIR}/pid.cpp
+    ${SRC_DIR}/model.cpp
 )
 
 # Основная программа
