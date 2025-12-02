@@ -206,7 +206,10 @@ int main() {
 ```
 
 ## Результаты программы [ src/main.cpp ]
+### При `Линейная функция`
 ![res1.1](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/res1.1.png)
+
+### При `Нелинейная функция`
 ![res1.2](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/res1.2.png)
 
 ![res2](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/res2.png)
@@ -450,7 +453,6 @@ TEST(PIDSystemTest, NonlinearSystemStabilization) {
 
 ## Покрытие GCC Code Coverage
 
-<<<<<<< HEAD
 ![coverage](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/coverage.png)
 =======
 
