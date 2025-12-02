@@ -15,3 +15,4 @@ void compute_nonlinear(int N, double a, double b, double c, double d, const std:
                     + d * std::sin(u[t - 1]);
     }
 }
+//dsadsa
