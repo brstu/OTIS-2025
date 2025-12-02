@@ -1,4 +1,3 @@
-#pragma once
 #ifndef LIN_H
 #define LIN_H
 #include <iostream>
