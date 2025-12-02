@@ -4,7 +4,11 @@
  * @brief Constructor implementation for PID controller.
  */
 PID::PID(double K, double T, double Td, double T0)
-    : K(K), T(T), Td(Td), T0(T0), integral(0.0), prevError(0.0) {}
+    : K(K), T(T), Td(Td), T0(T0) 
+{
+    // Члены integral и prevError уже инициализированы в классе
+    // Не нужно их инициализировать здесь
+}
 
 /**
  * @brief Compute control signal using PID formula.

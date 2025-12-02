@@ -16,8 +16,8 @@ private:
     double Td;  ///< Derivative time
     double T0;  ///< Sampling period
 
-    double integral;   ///< Integral accumulator
-    double prevError;  ///< Previous error for derivative
+    double integral = 0.0;   ///< Integral accumulator
+    double prevError = 0.0;  ///< Previous error for derivative
 
 public:
     /**

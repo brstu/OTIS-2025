@@ -16,7 +16,9 @@ using namespace std;
  * Then it simulates the system controlled by a PID regulator.
  */
 int main() {
-    double y0, a, b;
+    double y0; 
+    double a; 
+    double b;
     cout << "Enter the initial value of y: ";
     cin >> y0;
 
