@@ -207,12 +207,15 @@ int main() {
 
 ## Результат программы [ src/main.cpp ]
 ![res1.1](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/res1.1.png)
+![res1.2](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/res1.2.png)
 
 ## Графики
 ### При `K = 0.5 T = 4.0 T0 = 1.5 TD = 0.2 a = 0.9 b = 0.3 y0 = 15.234 w = 25.7562`
 
 ![schedule1](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/schedule1.png)
 <br>
+
+### При `K = 0.5 T = 4.0 T0 = 1.5 TD = 0.2 a = 0.9 b = 0.3 y0 = 15.234 w = 25.7562`
 ![schedule2](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/schedule2.png)
 <br>
 
