@@ -446,7 +446,7 @@ TEST(PIDSystemTest, NonlinearSystemStabilization) {
 
 ```
 ## Результаты юнит-тестирования (GoogleTest)
-![GoogleTest](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/test.pn)
+![GoogleTest](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/test.png)
 
 ## Покрытие GCC Code Coverage
 
