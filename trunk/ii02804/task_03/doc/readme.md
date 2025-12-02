@@ -208,10 +208,9 @@ int main() {
 ## Результаты программы [ src/main.cpp ]
 ### `Линейная функция`
 ![res1.1](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/res1.1.png)
-
-### `Нелинейная функция`
 ![res1.2](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/res1.2.png)
 
+### `Нелинейная функция`
 ![res2](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/res2.png)
 
 ## Графики
