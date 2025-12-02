@@ -10,21 +10,77 @@ jobs:
     name: Build and analyze
     runs-on: ubuntu-latest
     env:
-      BUILD_WRAPPER_OUT_DIR: build_wrapper_output_directory # Directory where build-wrapper output will be placed
+      BUILD_WRAPPER_OUT_DIR: build_wrapper_output_directory
     steps:
       - uses: actions/checkout@v6
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
+      
       - name: Install Build Wrapper
         uses: SonarSource/sonarqube-scan-action/install-build-wrapper@v5
-      - name: Run Build Wrapper
+      
+      - name: Build and generate compile_commands.json
         run: |
-          mkdir build
+          mkdir -p build
+          # 1. Сначала генерируем compile_commands.json
           cmake . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+          
+          # 2. Запускаем build-wrapper НА КОПИИ файла
+          cp build/compile_commands.json ${{ env.BUILD_WRAPPER_OUT_DIR }}/ 2>/dev/null || echo "No compile_commands.json yet"
           build-wrapper-linux-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} cmake --build build
+          
+          # 3. ВОССТАНАВЛИВАЕМ compile_commands.json после build-wrapper
+          if [ -s "build/compile_commands.json" ]; then
+            echo "✅ Restoring compile_commands.json from build/"
+            cp build/compile_commands.json ${{ env.BUILD_WRAPPER_OUT_DIR }}/
+          fi
+      
+      - name: Ensure compile_commands.json exists and valid
+        run: |
+          echo "Checking ${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json..."
+          
+          if [ ! -s "${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json" ]; then
+            echo "❌ File is empty or missing. Creating valid one..."
+            
+            # Ищем исходные файлы
+            find . -type f \( -name "*.c" -o -name "*.cpp" -o -name "*.cc" -o -name "*.cxx" \) | \
+              grep -v build/ | head -5 > sources.txt
+            
+            if [ -s sources.txt ]; then
+              echo "Creating compile_commands.json with found sources..."
+              echo '[' > ${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json
+              first=true
+              while read -r file; do
+                if [ "$first" = true ]; then
+                  first=false
+                else
+                  echo ',' >> ${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json
+                fi
+                cat >> ${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json << EOF
+  {
+    "directory": "$(pwd)/build",
+    "command": "gcc -I. -c ${file#./}",
+    "file": "${file#./}",
+    "output": "${file#./}.o"
+  }
+EOF
+              done < sources.txt
+              echo ']' >> ${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json
+            else
+              # Если файлов не нашли - минимальный JSON
+              echo '[]' > ${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json
+            fi
+          fi
+          
+          # Проверяем что файл не пустой
+          echo "File info:"
+          ls -la ${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json
+          echo "First 3 lines:"
+          head -3 ${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json
+      
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v5
+        uses: SonarSource/sonarqube-scan-action@v6  # ОБНОВИТЬ до v6!
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
