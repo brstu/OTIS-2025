@@ -1,4 +1,4 @@
-#include "../../task_02/src/main.h"
+#include "main.h"
 #include <iostream>
 #include  <cmath>
 

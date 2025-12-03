@@ -1,6 +1,6 @@
 #define _USE_MATH_DEFINES
 #include <gtest/gtest.h>
-#include "../src/main.h"
+#include "../../task_01/src/main.h"
 #include <cmath>
 
 struct NonLinearParams {
