@@ -183,20 +183,13 @@ int main() {
 ```
 
 ## Результат программы [ src/main.cpp ]
-![result](images/result.png)
-
-## График
-### При `K = 0.4 T = 3.0 T0 = 1.0 TD = 0.1 a = 0.8 b = 0.2 y0 = 10 w = 20`
-
-![g1](images/g.png)
-<br>
-
+![result](images/result.jpg)
 
 ## Вывод полученных данных при использовании ПИД-регулятора
 
 
 ## Link to documentation
-[https://v1tyokkk.github.io/OTIS-2025/](https://v1tyokkk.github.io/OTIS-2025/)
+[https://v1tyokkk.github.io/OTIS-2025/](https://oniisssss.github.io/OTIS-2025/)
 
 ## Код юнит-тестов [ test/testlab3.cpp ]
 ```C++
@@ -394,5 +387,5 @@ int main(int argc, char **argv)
 ```
 
 ## Результаты юнит-тестирования (GoogleTest)
-![GoogleTest Output]()
+![GoogleTest Output](images/gtest.jpg)
 
