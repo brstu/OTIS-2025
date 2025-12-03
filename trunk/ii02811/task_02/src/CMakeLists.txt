@@ -1,24 +1,25 @@
-cmake_minimum_required(VERSION 3.15.0)
-
-set(VCPKG_TARGET_TRIPLET x64-windows)
-include("D:\\LABS\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake")
+cmake_minimum_required(VERSION 3.16)
 
 project(gtest_program)
 
-# Основная программа
-add_executable(program main.cpp model.cpp main.h)
+if(WIN32 AND EXISTS "D:/LABS/vcpkg/scripts/buildsystems/vcpkg.cmake")
+    include("D:/LABS/vcpkg/scripts/buildsystems/vcpkg.cmake")
+endif()
 
-# Тесты
+add_executable(program main.cpp model.cpp)
+
 enable_testing()
-find_package(GTest CONFIG REQUIRED)
 
-# Используем относительный путь
-add_executable(gtest_program 
-    ../test/test.cpp  # Файл на уровень выше в папке test
-    model.cpp 
-    main.h
+add_executable(gtest_program ../test/test.cpp model.cpp)
+
+include(FetchContent)
+FetchContent_Declare(
+    googletest
+    URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
+    DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
 
-target_link_libraries(gtest_program PRIVATE GTest::gtest GTest::gtest_main)
+FetchContent_MakeAvailable(googletest)
 
+target_link_libraries(gtest_program PRIVATE gtest gtest_main)
 add_test(NAME all_test COMMAND gtest_program)
