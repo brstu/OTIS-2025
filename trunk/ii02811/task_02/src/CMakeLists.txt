@@ -6,11 +6,11 @@ if(WIN32 AND EXISTS "D:/LABS/vcpkg/scripts/buildsystems/vcpkg.cmake")
     include("D:/LABS/vcpkg/scripts/buildsystems/vcpkg.cmake")
 endif()
 
-add_executable(program ../../task_01/src/main.cpp model.cpp)
+add_executable(program model.cpp main.h ../../task_01/src/main.cpp)
 
 enable_testing()
 
-add_executable(gtest_program ../test/test.cpp model.cpp)
+add_executable(gtest_program model.cpp main.h ../test/test.cpp)
 
 include(FetchContent)
 FetchContent_Declare(
