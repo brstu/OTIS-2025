@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_p_i_d_controller" kind="class" language="C++" prot="public">
+    <compoundname>PIDController</compoundname>
+    <includes refid="pid_8h" local="no">pid.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_p_i_d_controller_1a942359208f9726e38f9f90b7cd201752" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::K</definition>
+        <argsstring></argsstring>
+        <name>K</name>
+        <qualifiedname>PIDController::K</qualifiedname>
+        <briefdescription>
+<para>Коэффициент передачи </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="20" column="12" bodyfile="src/pid.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_controller_1aa565895fec3810d9699cfac15b116e13" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::T</definition>
+        <argsstring></argsstring>
+        <name>T</name>
+        <qualifiedname>PIDController::T</qualifiedname>
+        <briefdescription>
+<para>Постоянная интегрирования </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="21" column="12" bodyfile="src/pid.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_controller_1aa98955cf3d687a47a549c08df2cbd5e2" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::Td</definition>
+        <argsstring></argsstring>
+        <name>Td</name>
+        <qualifiedname>PIDController::Td</qualifiedname>
+        <briefdescription>
+<para>Постоянная дифференцирования </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="22" column="12" bodyfile="src/pid.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_controller_1a6dfa260ea80ae6a36402b2634b3fe2db" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::T0</definition>
+        <argsstring></argsstring>
+        <name>T0</name>
+        <qualifiedname>PIDController::T0</qualifiedname>
+        <briefdescription>
+<para>Время квантования </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="23" column="12" bodyfile="src/pid.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_controller_1aa11e9fe0c2933f67cbe41c084d320b6a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::q0</definition>
+        <argsstring></argsstring>
+        <name>q0</name>
+        <qualifiedname>PIDController::q0</qualifiedname>
+        <briefdescription>
+<para>Коэффициент q0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="25" column="12" bodyfile="src/pid.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_controller_1af534a1a7c82691b91cb46ab97931ebc1" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::q1</definition>
+        <argsstring></argsstring>
+        <name>q1</name>
+        <qualifiedname>PIDController::q1</qualifiedname>
+        <briefdescription>
+<para>Коэффициент q1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="26" column="12" bodyfile="src/pid.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_controller_1a81f9a883343ea5afd87ea095a1631ee0" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::q2</definition>
+        <argsstring></argsstring>
+        <name>q2</name>
+        <qualifiedname>PIDController::q2</qualifiedname>
+        <briefdescription>
+<para>Коэффициент q2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="27" column="12" bodyfile="src/pid.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_controller_1a50a6942a4c7bcbfe9306fef64e19207f" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; PIDController::prev_error</definition>
+        <argsstring></argsstring>
+        <name>prev_error</name>
+        <qualifiedname>PIDController::prev_error</qualifiedname>
+        <briefdescription>
+<para>Предыдущие ошибки e(k-1) и e(k-2). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="29" column="17" bodyfile="src/pid.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_controller_1a3a2ca17429283fc0e97798b08d720096" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::prev_output</definition>
+        <argsstring></argsstring>
+        <name>prev_output</name>
+        <qualifiedname>PIDController::prev_output</qualifiedname>
+        <briefdescription>
+<para>Предыдущее выходное значение u(k-1). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="30" column="12" bodyfile="src/pid.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_p_i_d_controller_1a157932707dcbafd2bc927dfa0f9d1333" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PIDController::PIDController</definition>
+        <argsstring>(double K, double T, double Td, double T0)</argsstring>
+        <name>PIDController</name>
+        <qualifiedname>PIDController::PIDController</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>K</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>T</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Td</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>T0</declname>
+        </param>
+        <briefdescription>
+<para>Конструктор ПИД-регулятора </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент передачи </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Постоянная интегрирования </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Td</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Постоянная дифференцирования </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>T0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Время квантования </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="40" column="5" bodyfile="src/pid.cpp" bodystart="10" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_controller_1a64a55d7634ebed47fdd75da1195ad019" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PIDController::calculate</definition>
+        <argsstring>(double setpoint, double current_value)</argsstring>
+        <name>calculate</name>
+        <qualifiedname>PIDController::calculate</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>setpoint</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>current_value</declname>
+        </param>
+        <briefdescription>
+<para>Вычисляет управляющее воздействие </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>setpoint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Заданное значение </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>current_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Текущее значение процесса </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Управляющее воздействие </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="48" column="12" bodyfile="src/pid.cpp" bodystart="30" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_controller_1ab6adfbffa30414f0a83b95ba999a2fea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PIDController::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>PIDController::reset</qualifiedname>
+        <briefdescription>
+<para>Сбрасывает состояние регулятора </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="53" column="10" bodyfile="src/pid.cpp" bodystart="45" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_controller_1a3f6a05e6457da67ca575c0da2280dcba" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; PIDController::getCoefficients</definition>
+        <argsstring>() const</argsstring>
+        <name>getCoefficients</name>
+        <qualifiedname>PIDController::getCoefficients</qualifiedname>
+        <briefdescription>
+<para>Возвращает коэффициенты регулятора </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Вектор коэффициентов [q0, q1, q2] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="59" column="17" bodyfile="src/pid.cpp" bodystart="51" bodyend="53"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Класс, реализующий дискретный ПИД-регулятор </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Данный класс реализует дискретный ПИД-регулятор с использованием рекуррентного алгоритма для вычисления управляющего воздействия. </para>
+    </detaileddescription>
+    <location file="src/pid.h" line="18" column="1" bodyfile="src/pid.h" bodystart="18" bodyend="60"/>
+    <listofallmembers>
+      <member refid="class_p_i_d_controller_1a64a55d7634ebed47fdd75da1195ad019" prot="public" virt="non-virtual"><scope>PIDController</scope><name>calculate</name></member>
+      <member refid="class_p_i_d_controller_1a3f6a05e6457da67ca575c0da2280dcba" prot="public" virt="non-virtual"><scope>PIDController</scope><name>getCoefficients</name></member>
+      <member refid="class_p_i_d_controller_1a942359208f9726e38f9f90b7cd201752" prot="private" virt="non-virtual"><scope>PIDController</scope><name>K</name></member>
+      <member refid="class_p_i_d_controller_1a157932707dcbafd2bc927dfa0f9d1333" prot="public" virt="non-virtual"><scope>PIDController</scope><name>PIDController</name></member>
+      <member refid="class_p_i_d_controller_1a50a6942a4c7bcbfe9306fef64e19207f" prot="private" virt="non-virtual"><scope>PIDController</scope><name>prev_error</name></member>
+      <member refid="class_p_i_d_controller_1a3a2ca17429283fc0e97798b08d720096" prot="private" virt="non-virtual"><scope>PIDController</scope><name>prev_output</name></member>
+      <member refid="class_p_i_d_controller_1aa11e9fe0c2933f67cbe41c084d320b6a" prot="private" virt="non-virtual"><scope>PIDController</scope><name>q0</name></member>
+      <member refid="class_p_i_d_controller_1af534a1a7c82691b91cb46ab97931ebc1" prot="private" virt="non-virtual"><scope>PIDController</scope><name>q1</name></member>
+      <member refid="class_p_i_d_controller_1a81f9a883343ea5afd87ea095a1631ee0" prot="private" virt="non-virtual"><scope>PIDController</scope><name>q2</name></member>
+      <member refid="class_p_i_d_controller_1ab6adfbffa30414f0a83b95ba999a2fea" prot="public" virt="non-virtual"><scope>PIDController</scope><name>reset</name></member>
+      <member refid="class_p_i_d_controller_1aa565895fec3810d9699cfac15b116e13" prot="private" virt="non-virtual"><scope>PIDController</scope><name>T</name></member>
+      <member refid="class_p_i_d_controller_1a6dfa260ea80ae6a36402b2634b3fe2db" prot="private" virt="non-virtual"><scope>PIDController</scope><name>T0</name></member>
+      <member refid="class_p_i_d_controller_1aa98955cf3d687a47a549c08df2cbd5e2" prot="private" virt="non-virtual"><scope>PIDController</scope><name>Td</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
