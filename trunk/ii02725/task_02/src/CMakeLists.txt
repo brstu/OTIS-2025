@@ -20,7 +20,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 # --- Сборка тестового исполняемого файла ---
-add_executable(runTests_ii02725 ../test/test.cpp module.cpp)
+add_executable(runTests_ii02725 ../tests/test.cpp module.cpp)
 add_executable(main_ii02725 main.cpp module.cpp)
 
 # Установка опций покрытия для GCC/Clang для ОБОИХ целей
