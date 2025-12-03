@@ -4,7 +4,7 @@ on:
   push:
     branches: ["task_03"]
     paths:
-      - 'trunk/ii02807/task_03/**'   
+      - 'trunk/ii02807/task_03/**'
 
 permissions:
   contents: read
@@ -21,74 +21,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'  
+          ruby-version: '3.1'
 
-      - name: Install Jekyll and dependencies
-        run: |
-          gem install jekyll bundler
-          bundle install
-
-      - name: Create Jekyll configuration
-        run: |
-          cat > ./trunk/ii02807/task_03/doc/html/_config.yml << 'EOF'
-          title: "PID Controller Documentation"
-          description: "Doxygen-generated documentation for PID controller"
-          baseurl: "/OTIS-2025/trunk/ii02807/task_03/doc/html"
-          url: "https://${{ github.repository_owner }}.github.io"
-          
-          # Jekyll settings
-          markdown: kramdown
-          highlighter: rouge
-          theme: minima
-          
-          # Include all files
-          include:
-            - "_*"
-            - "*.md"
-            - "*.html"
-            - "*.css"
-            - "*.js"
-          exclude: []
-          
-          # GitHub Pages settings
-          github: [metadata]
-          EOF
-
-      - name: Create Jekyll layout
-        run: |
-          mkdir -p ./trunk/ii02807/task_03/doc/html/_layouts
-          cat > ./trunk/ii02807/task_03/doc/html/_layouts/default.html << 'EOF'
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-              <meta charset="UTF-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>{{ page.title | default: site.title }}</title>
-              <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-          </head>
-          <body>
-              {{ content }}
-          </body>
-          </html>
-          EOF
-
-      - name: Create index file if missing
-        run: |
-          if [ ! -f "./trunk/ii02807/task_03/doc/html/index.md" ]; then
-            echo "# Documentation" > ./trunk/ii02807/task_03/doc/html/index.md
-            echo "This is the main documentation page." >> ./trunk/ii02807/task_03/doc/html/index.md
-          fi
+      - name: Install Jekyll
+        run: gem install jekyll bundler
 
       - name: Build with Jekyll
         run: |
           cd ./trunk/ii02807/task_03/doc/html
-          jekyll build --destination ../../../../_site --verbose
+          jekyll build --destination ../../../../_site
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -96,7 +41,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '_site'  # Папка с собранным сайтом
+          path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment
