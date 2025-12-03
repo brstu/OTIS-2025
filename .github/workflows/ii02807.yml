@@ -1,10 +1,8 @@
-name: Deploy Doxygen Documentation to GitHub Pages
+name: Deploy Documentation
 
 on:
   push:
     branches: ["task_03"]
-    paths:
-      - 'trunk/ii02807/task_03/**'
 
 permissions:
   contents: read
@@ -12,28 +10,15 @@ permissions:
   id-token: write
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1'
-
-      - name: Install Jekyll
-        run: gem install jekyll bundler
-
-      - name: Build with Jekyll
-        run: |
-          cd ./trunk/ii02807/task_03/doc/html
-          jekyll build --destination ../../../../_site
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -41,7 +26,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '_site'
+          path: './trunk/ii02807/task_03/doc/html'
 
       - name: Deploy to GitHub Pages
         id: deployment
