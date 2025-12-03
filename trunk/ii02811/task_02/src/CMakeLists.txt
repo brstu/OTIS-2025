@@ -6,7 +6,7 @@ if(WIN32 AND EXISTS "D:/LABS/vcpkg/scripts/buildsystems/vcpkg.cmake")
     include("D:/LABS/vcpkg/scripts/buildsystems/vcpkg.cmake")
 endif()
 
-add_executable(program main.cpp model.cpp)
+add_executable(program ../../task_01/src/main.cpp model.cpp)
 
 enable_testing()
 
