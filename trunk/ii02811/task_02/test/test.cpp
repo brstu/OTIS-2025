@@ -91,6 +91,6 @@ TEST(NonLinearModel_ii02811, CombinedComponents) {
     double yx = 3.0;
     NonLinearParams p{1.5, 0.5, 2.0, 1.0};
     
-    double expected = 3.0 - 3.0 + 3.0 + sin(1.5);
+    double expected = 3.0 + sin(1.5);
     EXPECT_NEAR(x1(y, u, p.a, p.b, p.c, p.d, yx), expected, 1e-9);
 }
