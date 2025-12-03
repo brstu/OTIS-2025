@@ -28,7 +28,6 @@ void PID::linear(int place) {
 	PID::calcul_U(place);
 
 	if (place == 0) {
-
 		u[place] = 0;
 	}
 	else {
@@ -51,7 +50,6 @@ void PID::calcul_DeltU(int place) {
 }
 void PID::calcul_U(int place) {
 	PID::calcul_DeltU(place);
-
 	if (place == 0) {
 		u[place] = 0;
 	}
@@ -97,4 +95,9 @@ void PID::RegQs(double val) {
 void PID::RegCoefs(double val) {
 	a /= val;
 	b /= val;
+}
+void PID::GetQs(double& val1, double& val2, double& val3) {
+	val1 = q0;
+	val2 = q1;
+	val3 = q2;
 }

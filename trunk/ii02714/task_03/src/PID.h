@@ -32,6 +32,7 @@ public:
 	void calcul_PID(int place);
 	void RegQs(double val);
 	void RegCoefs(double val);
+	void GetQs(double &val1,double &val2,double &val3);
 };
 
 #endif 
