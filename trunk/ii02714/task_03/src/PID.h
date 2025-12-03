@@ -1,43 +1,38 @@
 #ifndef PID_H
-#define PID_H
+#define PID_H 
 #include <iostream>
 #include <vector>
-#include "../src/Class.h"
+#include <cstdlib>
+using namespace std;
 
-
-class PID : public Obj {
+class PID {
 private:
-	std::vector<double> e;
-	std::vector<double> yP;
-	std::vector<double> w;
-	std::vector<double> u;
-	std::vector<double> deltU;
-	double Td{ 1 };
-	double To{ 0.01 };
-	double T{ 0.01 };
 	double q0;
 	double q1;
 	double q2;
-	double k{ 0.1 };
-	int iter{ 10 };
+	vector<double>deltU;
+	vector<double>u;
+	vector<double>y;
+	vector<double>e;
+	double w;
+	double maxTemp;
+	double k;
+	double Td;
+	double To;
+	double T;
+	double a;
+	double b;
 public:
-	PID(double data, double data2);
 	PID();
-	~PID() override = default;
-	void SetW();
-	void SetY(int place);
-	void SetY(int place, double data) override;
-	void setE(int place);
-	void SetQs();
-	void SetUl(int place);
-	int iterGet();
-	double GetE(int place) const;
-	double GetYp(int place) const;
-	double GetUP(int place) const;
-	void SetW(int place, double data);
-	double GetQs0() const;
-	double GetQs1() const;
-	double GetQs2() const;
-
+	void linear(int place);
+	void calcul_DeltU(int place);
+	void calcul_U(int place);
+	void calcul_q0_q1_q2();
+	void calcul_e(int place);
+	void calcul_PID(int place);
+	void RegQs(double val);
+	void RegCoefs(double val);
 };
-#endif
+
+#endif 
+

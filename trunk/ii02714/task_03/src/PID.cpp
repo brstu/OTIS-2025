@@ -1,98 +1,100 @@
-п»ї#include <iostream>
 #include <vector>
-#include "../src/Class.h"
-#include "../src/PID.h"
+#include <iostream>
+#include <windows.h>
+#include "PID.h"
+using std::cout;
+using std::cin;
+using std::vector;
 
-	PID::PID(double data, double data2)
-	{
-		e.resize(iter);
-		yP.resize(iter);
-		w.resize(iter);
-		u.resize(iter);
-		deltU.resize(iter);
-		SetW(3, data);
-		PID::SetY(3, data2);
-		this->u[0] = 1;
-		this->e[0] = 0;
-		this->e[1] = 0;
-		this->e[2] = 0;
-	}
-	PID::PID() 
-	{
-		e.resize(iter);
-		yP.resize(iter);
-		w.resize(iter);
-		u.resize(iter);
-		deltU.resize(iter);
-		this->u[0] = 0;
-		this->e[0] = 0;
-		this->e[1] = 0;
-		this->e[2] = 0;
-		Obj::input();
-		SetQs();
-	}
-	void PID::SetW() {
-		for (int i = 0; i < 10; i++) {
-			std::cout << "Enter w:" << std::endl;
-			std::cin >> w[i];
-		}
-	}
-	void PID::SetY(int place) {
-		Obj::linear(place);
-		this->yP[place] = getY(place);
-	}
-	void PID::SetY(int place, double data) {
-		this->yP[place] = data;
-	}
-	void PID::setE(int place) {
-		e[place] = w[place] - yP[place];
-	}
-	void PID::SetQs() {
-		this->q0 = k * (1 + Td / To);
-		this->q1 = -k * (1 + 2 * (Td / To) - To / T);
-		this->q2 = k * (Td / To);
-	}
-	void PID::SetUl(int place) {
-		int placeE = 0;
-		int placeQ = 0;
-		if (place == 0) {
-			placeQ = 1;
-		}
-		else {
-			placeQ = place;
-		}
+PID::PID() {
+	deltU.resize(10000, 0);
+	u.resize(10000, 0);
+	y.resize(10000, 0);
+	e.resize(10000, 0);
+	cout << "Введите стартовое значение температуры " << endl;
+	cin >> y[0];
+	cout << "Введите максимальное значение температуры " << endl;
+	cin >> maxTemp;
+	cout << "Введите желаемое значение температуры " << endl;
+	cin >> w;
+	k = 0.5;
+	Td = 11;
+	To = 12;
+	T = 11;
+	a = 0.82;
+	b = 0.02;
+}
+void PID::linear(int place) {
+	PID::calcul_U(place);
 
-		if (place == 0 || place == 1) {
-			placeE = 2;
+	if (place == 0) {
+
+		u[place] = 0;
+	}
+	else {
+		y[place] = a * y[place - 1] + b * u[place - 1];
+
+	}
+}
+
+void PID::calcul_DeltU(int place) {
+	PID::calcul_e(place);
+	if (place == 0) {
+		deltU[place] = q0 * e[place];
+	}
+	else if (place == 1) {
+		deltU[place] = q0 * e[place] + q1 * e[place - 1];
+	}
+	else {
+		deltU[place] = q0 * e[place] + q1 * e[place - 1] + q2 * e[place - 2];
+	}
+}
+void PID::calcul_U(int place) {
+	PID::calcul_DeltU(place);
+
+	if (place == 0) {
+		u[place] = 0;
+	}
+	else {
+		u[place] = u[place - 1] + deltU[place - 1];
+	}
+}
+void PID::calcul_q0_q1_q2() {
+	q0 = k * (1 + Td / To);
+	q1 = -k * (1 + 2 * (Td / To) - To / T);
+	q2 = k * Td / To;
+}
+void PID::calcul_e(int place) {
+	e[place] = w - y[place];
+}
+void PID::calcul_PID(int place) {
+	int t = place;
+	double regVal = 20;
+	PID::calcul_q0_q1_q2();
+	for (int i = t; i < 500; i++) {
+		linear(i);
+		if (y[i] > w) {
+			RegQs(regVal);
+			RegCoefs(2);
 		}
-		else if (place > 2) {
-			setE(place);
+		cout << "*******************" << endl;
+		cout << "Итерация: " << i << endl;
+		cout << "Температура сейчас: " << y[i] << endl;
+		cout << "Ошибка равна: " << e[i] << endl;
+		if (y[i] >= maxTemp) {
+			cout << "Достигнут максимум! " << y[i] << endl;
+			break;
 		}
-		deltU[place] = q0 * e[placeE] + q1 * e[placeE - 1] + q2 * e[placeE - 2];
-		u[placeQ] = u[placeQ - 1] + deltU[place];
 	}
-	int PID::iterGet() {
-		--iter;
-		return iter;
-	}
-	double PID::GetE(int place) const {
-		return this->e[place];
-	}
-	double PID::GetYp(int place) const{ 
-		return this->yP[place];
-	}
-	double PID::GetUP(int place) const{
-		return this->u[place];
-	}
-	void PID::SetW(int place, double data) {
-		this->w[place] = data;
-	}
-	double PID::GetQs0() const{
-		return this->q0;
-	}
-    double PID::GetQs1() const {
-		return this->q1;
-	}
-	double PID::GetQs2() const{
-		return this->q2;
-	}
+}
+void PID::RegQs(double val) {
+	q0 /= val;
+	q1 /= val;
+	q2 /= val;
+	a /= val;
+	b /= val;
+}
+void PID::RegCoefs(double val) {
+	a /= val;
+	b /= val;
+}
