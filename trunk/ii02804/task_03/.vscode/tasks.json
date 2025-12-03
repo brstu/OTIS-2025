@@ -21,7 +21,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Задача создана отладчиком."
+            "detail": "Task created by debugger."
         }
     ],
     "version": "2.0.0"
