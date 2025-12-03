@@ -9,9 +9,9 @@ namespace
         double prevErr1,
         double prevErr2)
     {
-        return (k0 * curErr) +
-               (k1 * prevErr1) +
-               (k2 * prevErr2);
+        return k0 * curErr +
+               k1 * prevErr1 +
+               k2 * prevErr2;
     }
 }
 
@@ -19,14 +19,7 @@ PID::PID(double gain, double ti, double td, double step)
     : K(gain),
       T(ti),
       Td(td),
-      T0(step),
-      q0(0.0),
-      q1(0.0),
-      q2(0.0),
-      e_prev_1(0.0),
-      e_prev_2(0.0),
-      u_prev(0.0),
-      valid(true)
+      T0(step)
 {
     const double invT0 = 1.0 / T0;
 
@@ -49,11 +42,11 @@ double PID::u_calc(double error)
         e_prev_2
     );
 
-    double current_u = u_prev + du;
+    const double current_u = u_prev + du;
 
     e_prev_2 = e_prev_1;
     e_prev_1 = error;
-    u_prev   = current_u;
+    u_prev = current_u;
 
     return current_u;
 }
