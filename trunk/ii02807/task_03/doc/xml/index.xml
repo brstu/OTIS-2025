@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.15.0" xml:lang="en-US">
+  <compound refid="class_p_i_d" kind="class"><name>PID</name>
+    <member refid="class_p_i_d_1a0b7cf5ad8d3913f6dc570d0917fa1fd3" kind="variable"><name>K</name></member>
+    <member refid="class_p_i_d_1acf6dff362a7dd74e543ec9c9ec60a3ab" kind="variable"><name>T</name></member>
+    <member refid="class_p_i_d_1a6d3306e34c941e0a0858c7d9844ad34a" kind="variable"><name>Td</name></member>
+    <member refid="class_p_i_d_1af69630823959fdbc57637cbc7e69c9c7" kind="variable"><name>T0</name></member>
+    <member refid="class_p_i_d_1a7792de52992d0c0362f12df93a7abb28" kind="variable"><name>integral</name></member>
+    <member refid="class_p_i_d_1a124047ca819e26199964de9c2c8f2dc0" kind="variable"><name>prevError</name></member>
+    <member refid="class_p_i_d_1a2147e32f6e109025650c9d7271b013ee" kind="function"><name>PID</name></member>
+    <member refid="class_p_i_d_1a980f21e5c28912b5c968e60c8ddfa089" kind="function"><name>compute</name></member>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="lab3_8cpp" kind="file"><name>lab3.cpp</name>
+    <member refid="lab3_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="model_8cpp" kind="file"><name>model.cpp</name>
+    <member refid="model_8cpp_1a82cf4dbd2f60c32e470774b41c7f7ad7" kind="function"><name>linear</name></member>
+    <member refid="model_8cpp_1a36669bb63adeffa3a57509cf6db16364" kind="function"><name>nonlinear</name></member>
+  </compound>
+  <compound refid="model_8h" kind="file"><name>model.h</name>
+    <member refid="model_8h_1a82cf4dbd2f60c32e470774b41c7f7ad7" kind="function"><name>linear</name></member>
+    <member refid="model_8h_1a36669bb63adeffa3a57509cf6db16364" kind="function"><name>nonlinear</name></member>
+  </compound>
+  <compound refid="pid_8cpp" kind="file"><name>pid.cpp</name>
+  </compound>
+  <compound refid="pid_8h" kind="file"><name>pid.h</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>
