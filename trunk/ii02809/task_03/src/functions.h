@@ -24,30 +24,35 @@ double linear(double y, double u, double a, double b);
 double nonlinear(double y, double u, double a, double b, double c, double d);
 
 /**
- * @brief PID controller class for discrete PID regulation.
+ * @brief PID controller class (velocity-form/discrete implementation).
  */
-class PID {
+class PID
+{
 public:
     /**
-     * @brief Constructor to initialize PID parameters.
-     * @param K Proportional gain.
-     * @param Ti Integration time constant.
-     * @param Td Differentiation time constant.
-     * @param To Sampling time.
+     * @brief Constructor to initialize PID coefficients.
+     * @param K   Proportional gain.
+     * @param Ti  Integration time constant.
+     * @param Td  Differentiation time constant.
+     * @param To  Sampling period.
      */
     PID(double K, double Ti, double Td, double To);
 
     /**
-     * @brief Computes the control output u(k) based on error e(k).
-     * @param e Current error.
+     * @brief Computes the control output increment and returns the new u(k).
+     * @param e Current error e(k) = r(k) - y(k).
      * @return Control output u(k).
      */
     double compute(double e);
 
 private:
-    double q0, q1, q2;
-    double e_prev, e_prev2;
-    double u_prev;
+    double q0;
+    double q1;
+    double q2;
+
+    double e_prev  { 0.0 };
+    double e_prev2 { 0.0 };
+    double u_prev  { 0.0 };
 };
 
-#endif
+#endif // FUNCTIONS_H
