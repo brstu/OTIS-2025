@@ -12,12 +12,9 @@ double nonlinear(double y, double u, double a, double b, double c, double d) {
 PID::PID(double K, double Ti, double Td, double To)
     : q0(K * (1 + Td / To)),
       q1(-K * (1 + 2 * Td / To - To / Ti)),
-      q2(K * Td / To),
-      e_prev(0.0),
-      e_prev2(0.0),
-      u_prev(0.0)
+      q2(K * Td / To)
 {
-
+    
 }
 
 double PID::compute(double e) {
