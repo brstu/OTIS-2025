@@ -99,10 +99,10 @@ int main()
 ## Результат
 ![Result:](res.jpg)
 ## Reviews
-fedotovd778
+gr1frykt
 <br>
-![Review for :](fedotov.jpg)
+![Review for gr1frykt:](gr1frykt.jpg)
 <br>
-GOOrst
+whytr1ble
 <br>
-![Review for :](Goorst.jpg)
+![Review for whytr1ble:](whytr1ble.whytr1ble)
