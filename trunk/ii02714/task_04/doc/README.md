@@ -98,4 +98,4 @@ C:\Users\Boss\Desktop\nika\nika>docker builder prune -af
 ![sc-web](web1.jpg)
 
 ### dialogue web UI - `localhost:3033`
-![dialogue web UI](web2)
+![dialogue web UI](web2.jpg)
