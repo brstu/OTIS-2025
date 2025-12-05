@@ -16,6 +16,6 @@ TEST(Test, linearr2) {
 
 TEST(Test2, nonlinearr) {
 	double res = 5.6;
-	Nonlinear(4.5, 5.6, res, 2.76, 4.56, 6.54, 3.7, 4.5, 10.0);
+	Nonlinear(4.5, 5.6, 1, res, 2.76, 4.56, 6.54, 3.7, 4.5, 10);
 	EXPECT_NEAR(res, -206.556, 0.01);
 }

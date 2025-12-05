@@ -37,7 +37,7 @@ int main()
     previous_temp = 0.0;
     previous_heat = current_heat;
 
-    Nonlinear(param_a, param_b, current_temp, current_heat, next_temp, previous_temp, param_c, param_d, previous_heat);
+    Nonlinear(param_a, param_b, steps_count, current_temp, current_heat, next_temp, previous_temp, param_c, param_d, previous_heat);
     cout << "\nSimulation completed!" << endl;
     return 0;
 }
