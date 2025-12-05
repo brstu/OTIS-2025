@@ -14,9 +14,8 @@ int main()
     std::cin >> steps_count;
     
     bool invalid_count = steps_count >= 100;
-    bool negative_count = steps_count < 0;
-    
-    if (invalid_count || negative_count)
+
+    if (bool negative_count = steps_count < 0; invalid_count || negative_count)
     {
         std::cout << "Ошибка: N должно быть в диапазоне 0 <= N < 100\n";
         return 1;
@@ -60,9 +59,7 @@ int main()
         nonlinear_output[0] = linear_output[0];
     }
 
-    bool need_second_value = steps_count > 1;
-    
-    if (need_second_value)
+    if (bool need_second_value = steps_count > 1; need_second_value)
     {
         std::cout << "Введите y[1] для нелинейной модели: ";
         std::cin >> nonlinear_output[1];
@@ -72,9 +69,7 @@ int main()
     {
         calculate_linear_model(steps_count, parameter_a, parameter_b, input_values, linear_output);
         
-        bool calculate_nonlinear = steps_count > 1;
-        
-        if (calculate_nonlinear)
+        if (bool calculate_nonlinear = steps_count > 1; calculate_nonlinear)
         {
             calculate_nonlinear_model(steps_count, parameter_a, parameter_b, parameter_c, parameter_d, input_values, nonlinear_output);
         }
