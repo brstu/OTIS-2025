@@ -3,7 +3,7 @@
   <compounddef id="main_8cpp" kind="file" language="C++">
     <compoundname>main.cpp</compoundname>
     <includes local="no">iostream</includes>
-    <includes local="yes">models.h</includes>
+    <includes refid="models_8h" local="yes">models.h</includes>
     <includes refid="pid_8h" local="yes">pid.h</includes>
     <incdepgraph>
       <node id="1">
@@ -16,15 +16,16 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
+      <node id="3">
+        <label>models.h</label>
+        <link refid="models_8h"/>
+      </node>
       <node id="4">
         <label>pid.h</label>
         <link refid="pid_8h"/>
       </node>
       <node id="2">
         <label>iostream</label>
-      </node>
-      <node id="3">
-        <label>models.h</label>
       </node>
     </incdepgraph>
     <sectiondef kind="func">
@@ -83,7 +84,7 @@
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;models.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="models_8h" kindref="compound">models.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="pid_8h" kindref="compound">pid.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight></codeline>
 <codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kindref="member">main</ref>()</highlight></codeline>
@@ -99,11 +100,11 @@
 <codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a_lin<sp/>=<sp/>0.8;<sp/></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b_lin<sp/>=<sp/>0.1;<sp/></highlight></codeline>
 <codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>NonLinearCoeffs<sp/>coeffs_nl;</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>coeffs_nl.a<sp/>=<sp/>0.8;<sp/><sp/></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>coeffs_nl.b<sp/>=<sp/>0.0;<sp/><sp/></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>coeffs_nl.c<sp/>=<sp/>0.1;<sp/><sp/></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>coeffs_nl.d<sp/>=<sp/>0.05;<sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_non_linear_coeffs" kindref="compound">NonLinearCoeffs</ref><sp/>coeffs_nl;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>coeffs_nl.<ref refid="struct_non_linear_coeffs_1ad6ff916246dfe8bab31b6f626647a91b" kindref="member">a</ref><sp/>=<sp/>0.8;<sp/><sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>coeffs_nl.<ref refid="struct_non_linear_coeffs_1aff8f4e829db8595497575683e77681c7" kindref="member">b</ref><sp/>=<sp/>0.0;<sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>coeffs_nl.<ref refid="struct_non_linear_coeffs_1adf2974d5f4634c09e97fd6114efb2d9b" kindref="member">c</ref><sp/>=<sp/>0.1;<sp/><sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>coeffs_nl.<ref refid="struct_non_linear_coeffs_1a1fea29cf6a6378aeed2600ee88a1bb54" kindref="member">d</ref><sp/>=<sp/>0.05;<sp/></highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
 <codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y;<sp/></highlight></codeline>
 <codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>w;<sp/></highlight></codeline>
@@ -128,9 +129,9 @@
 <codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e<sp/>=<sp/>w<sp/>-<sp/>y;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u<sp/>=<sp/>PID.process(e);<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="65"><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y<sp/>=<sp/>linear(y,<sp/>u,<sp/>a_lin,<sp/>b_lin);<sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y<sp/>=<sp/><ref refid="models_8h_1a82cf4dbd2f60c32e470774b41c7f7ad7" kindref="member">linear</ref>(y,<sp/>u,<sp/>a_lin,<sp/>b_lin);<sp/></highlight></codeline>
 <codeline lineno="67"><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y_nl<sp/>=<sp/>non_linear(y_nl,<sp/>y_prev,<sp/>u,<sp/>u_prev,<sp/>coeffs_nl);<sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y_nl<sp/>=<sp/><ref refid="models_8h_1abb44465a5330a6a6e895d047a93816b3" kindref="member">non_linear</ref>(y_nl,<sp/>y_prev,<sp/>u,<sp/>u_prev,<sp/>coeffs_nl);<sp/></highlight></codeline>
 <codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y_prev<sp/>=<sp/>y_nl;</highlight></codeline>
 <codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_prev<sp/>=<sp/>u;</highlight></codeline>
 <codeline lineno="71"><highlight class="normal"></highlight></codeline>

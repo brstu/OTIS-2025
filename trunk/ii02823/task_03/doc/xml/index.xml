@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.15.0" xml:lang="en-US">
+  <compound refid="struct_non_linear_coeffs" kind="struct"><name>NonLinearCoeffs</name>
+    <member refid="struct_non_linear_coeffs_1ad6ff916246dfe8bab31b6f626647a91b" kind="variable"><name>a</name></member>
+    <member refid="struct_non_linear_coeffs_1aff8f4e829db8595497575683e77681c7" kind="variable"><name>b</name></member>
+    <member refid="struct_non_linear_coeffs_1adf2974d5f4634c09e97fd6114efb2d9b" kind="variable"><name>c</name></member>
+    <member refid="struct_non_linear_coeffs_1a1fea29cf6a6378aeed2600ee88a1bb54" kind="variable"><name>d</name></member>
+  </compound>
   <compound refid="classpid" kind="class"><name>pid</name>
     <member refid="classpid_1aad7daa6f3587708ced0f23f6a8aa710f" kind="variable"><name>coeffs</name></member>
     <member refid="classpid_1a2dee04f25df465b7700f8f30c409f0a2" kind="variable"><name>q0</name></member>
@@ -21,6 +27,14 @@
   </compound>
   <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
     <member refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="models_8cpp" kind="file"><name>models.cpp</name>
+    <member refid="models_8cpp_1a82cf4dbd2f60c32e470774b41c7f7ad7" kind="function"><name>linear</name></member>
+    <member refid="models_8cpp_1abb44465a5330a6a6e895d047a93816b3" kind="function"><name>non_linear</name></member>
+  </compound>
+  <compound refid="models_8h" kind="file"><name>models.h</name>
+    <member refid="models_8h_1a82cf4dbd2f60c32e470774b41c7f7ad7" kind="function"><name>linear</name></member>
+    <member refid="models_8h_1abb44465a5330a6a6e895d047a93816b3" kind="function"><name>non_linear</name></member>
   </compound>
   <compound refid="pid_8cpp" kind="file"><name>pid.cpp</name>
   </compound>

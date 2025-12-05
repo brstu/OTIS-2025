@@ -132,8 +132,8 @@
     <value><![CDATA[src/main.cpp]]></value>
     <value><![CDATA[src/pid.h]]></value>
     <value><![CDATA[src/pid.cpp]]></value>
-    <value><![CDATA[src/model.h]]></value>
-    <value><![CDATA[src/model.cpp]]></value>
+    <value><![CDATA[src/models.h]]></value>
+    <value><![CDATA[src/models.cpp]]></value>
   </option>
   <option  id='INPUT_ENCODING' default='yes' type='string'><value><![CDATA[UTF-8]]></value></option>
   <option  id='INPUT_FILE_ENCODING' default='yes' type='stringlist'>

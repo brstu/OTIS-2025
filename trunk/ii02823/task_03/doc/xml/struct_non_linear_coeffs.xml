@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="struct_non_linear_coeffs" kind="struct" language="C++" prot="public">
+    <compoundname>NonLinearCoeffs</compoundname>
+    <includes refid="models_8h" local="no">models.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_non_linear_coeffs_1ad6ff916246dfe8bab31b6f626647a91b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double NonLinearCoeffs::a</definition>
+        <argsstring></argsstring>
+        <name>a</name>
+        <qualifiedname>NonLinearCoeffs::a</qualifiedname>
+        <briefdescription>
+<para>коэффициент линейной части </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/models.h" line="23" column="12" bodyfile="src/models.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_non_linear_coeffs_1aff8f4e829db8595497575683e77681c7" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double NonLinearCoeffs::b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <qualifiedname>NonLinearCoeffs::b</qualifiedname>
+        <briefdescription>
+<para>коэффициент квадратичной нелинейности </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/models.h" line="24" column="12" bodyfile="src/models.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_non_linear_coeffs_1adf2974d5f4634c09e97fd6114efb2d9b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double NonLinearCoeffs::c</definition>
+        <argsstring></argsstring>
+        <name>c</name>
+        <qualifiedname>NonLinearCoeffs::c</qualifiedname>
+        <briefdescription>
+<para>коэффициент управляющего воздействия </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/models.h" line="25" column="12" bodyfile="src/models.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_non_linear_coeffs_1a1fea29cf6a6378aeed2600ee88a1bb54" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double NonLinearCoeffs::d</definition>
+        <argsstring></argsstring>
+        <name>d</name>
+        <qualifiedname>NonLinearCoeffs::d</qualifiedname>
+        <briefdescription>
+<para>коэффициент синусоидальной нелинейности </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/models.h" line="26" column="12" bodyfile="src/models.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Структура коэффициентов нелинейной модели объекта управления </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Содержит параметры, используемые при расчёте выходной величины по нелинейной модели:<itemizedlist>
+<listitem><para><computeroutput>a</computeroutput> — коэффициент линейной части</para>
+</listitem><listitem><para><computeroutput>b</computeroutput> — коэффициент квадратичной нелинейности</para>
+</listitem><listitem><para><computeroutput>c</computeroutput> — коэффициент управляющего воздействия</para>
+</listitem><listitem><para><computeroutput>d</computeroutput> — коэффициент синусоидальной нелинейности </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="src/models.h" line="22" column="1" bodyfile="src/models.h" bodystart="22" bodyend="27"/>
+    <listofallmembers>
+      <member refid="struct_non_linear_coeffs_1ad6ff916246dfe8bab31b6f626647a91b" prot="public" virt="non-virtual"><scope>NonLinearCoeffs</scope><name>a</name></member>
+      <member refid="struct_non_linear_coeffs_1aff8f4e829db8595497575683e77681c7" prot="public" virt="non-virtual"><scope>NonLinearCoeffs</scope><name>b</name></member>
+      <member refid="struct_non_linear_coeffs_1adf2974d5f4634c09e97fd6114efb2d9b" prot="public" virt="non-virtual"><scope>NonLinearCoeffs</scope><name>c</name></member>
+      <member refid="struct_non_linear_coeffs_1a1fea29cf6a6378aeed2600ee88a1bb54" prot="public" virt="non-virtual"><scope>NonLinearCoeffs</scope><name>d</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
