@@ -3,101 +3,101 @@
 #include <cmath>
 #include "../src/module.h"
 
-TEST(ComputeLinearTest, BasicCalculation)
+TEST(LinearModelTest, BasicCalculation)
 {
-    int N = 3;
-    double a = 0.5;
-    double b = 1.0;
-    std::vector<double> u = {1.0, 2.0, 3.0};
-    std::vector<double> y_lin(N + 1, 0.0);
-    y_lin[0] = 1.0;
+    int steps = 3;
+    double coeff_a = 0.5;
+    double coeff_b = 1.0;
+    std::vector<double> inputs = {1.0, 2.0, 3.0};
+    std::vector<double> results(steps + 1, 0.0);
+    results[0] = 1.0;
 
-    compute_linear(N, a, b, u, y_lin);
+    calculate_linear_model(steps, coeff_a, coeff_b, inputs, results);
 
-    EXPECT_NEAR(y_lin[1], 1.5, 1e-10);
-    EXPECT_NEAR(y_lin[2], 2.75, 1e-10);
-    EXPECT_NEAR(y_lin[3], 4.375, 1e-10);
+    EXPECT_NEAR(results[1], 1.5, 1e-10);
+    EXPECT_NEAR(results[2], 2.75, 1e-10);
+    EXPECT_NEAR(results[3], 4.375, 1e-10);
 }
 
-TEST(ComputeLinearTest, SingleStep)
+TEST(LinearModelTest, OneStep)
 {
-    int N = 1;
-    double a = 1.0;
-    double b = 2.0;
-    std::vector<double> u = {5.0};
-    std::vector<double> y_lin(N + 1, 0.0);
-    y_lin[0] = 10.0;
+    int steps = 1;
+    double coeff_a = 1.0;
+    double coeff_b = 2.0;
+    std::vector<double> inputs = {5.0};
+    std::vector<double> results(steps + 1, 0.0);
+    results[0] = 10.0;
 
-    compute_linear(N, a, b, u, y_lin);
+    calculate_linear_model(steps, coeff_a, coeff_b, inputs, results);
 
-    EXPECT_NEAR(y_lin[1], 20.0, 1e-10);
+    EXPECT_NEAR(results[1], 20.0, 1e-10);
 }
 
-TEST(ComputeLinearTest, ZeroSteps)
+TEST(LinearModelTest, NoSteps)
 {
-    int N = 0;
-    double a = 1.0;
-    double b = 1.0;
-    std::vector<double> u = {};
-    std::vector<double> y_lin(1, 10.0);
+    int steps = 0;
+    double coeff_a = 1.0;
+    double coeff_b = 1.0;
+    std::vector<double> inputs = {};
+    std::vector<double> results(1, 10.0);
 
-    compute_linear(N, a, b, u, y_lin);
+    calculate_linear_model(steps, coeff_a, coeff_b, inputs, results);
 
-    EXPECT_NEAR(y_lin[0], 10.0, 1e-10);
-    EXPECT_EQ(y_lin.size(), 1);
+    EXPECT_NEAR(results[0], 10.0, 1e-10);
+    EXPECT_EQ(results.size(), 1);
 }
 
-TEST(ComputeNonLinearTest, TwoSteps)
+TEST(NonlinearModelTest, TwoStepsCase)
 {
-    int N = 2;
-    double a = 1.0;
-    double b = 1.0;
-    double c = 1.0;
-    double d = 1.0;
-    std::vector<double> u = {1.0, 2.0};
-    std::vector<double> y_nl(N + 1, 0.0);
-    y_nl[0] = 5.0;
-    y_nl[1] = 10.0;
+    int steps = 2;
+    double alpha = 1.0;
+    double beta = 1.0;
+    double gamma = 1.0;
+    double delta = 1.0;
+    std::vector<double> inputs = {1.0, 2.0};
+    std::vector<double> results(steps + 1, 0.0);
+    results[0] = 5.0;
+    results[1] = 10.0;
 
-    compute_nonlinear(N, a, b, c, d, u, y_nl);
+    calculate_nonlinear_model(steps, alpha, beta, gamma, delta, inputs, results);
 
-    EXPECT_NEAR(y_nl[2], -12.15852902, 1e-8);
+    EXPECT_NEAR(results[2], -12.15852902, 1e-8);
 }
 
-TEST(ComputeNonLinearTest, SingleStepNoCalculation)
+TEST(NonlinearModelTest, SingleStepNoComputation)
 {
-    int N = 1;
-    double a = 1.0;
-    double b = 1.0;
-    double c = 1.0;
-    double d = 1.0;
-    std::vector<double> u = {1.0};
-    std::vector<double> y_nl(N + 1, 0.0);
-    y_nl[0] = 5.0;
-    y_nl[1] = 10.0;
+    int steps = 1;
+    double alpha = 1.0;
+    double beta = 1.0;
+    double gamma = 1.0;
+    double delta = 1.0;
+    std::vector<double> inputs = {1.0};
+    std::vector<double> results(steps + 1, 0.0);
+    results[0] = 5.0;
+    results[1] = 10.0;
 
-    double y0_before = y_nl[0];
-    double y1_before = y_nl[1];
+    double initial_value = results[0];
+    double second_value = results[1];
     
-    compute_nonlinear(N, a, b, c, d, u, y_nl);
+    calculate_nonlinear_model(steps, alpha, beta, gamma, delta, inputs, results);
 
-    EXPECT_NEAR(y_nl[0], y0_before, 1e-10);
-    EXPECT_NEAR(y_nl[1], y1_before, 1e-10);
+    EXPECT_NEAR(results[0], initial_value, 1e-10);
+    EXPECT_NEAR(results[1], second_value, 1e-10);
 }
 
-TEST(ComputeNonLinearTest, ThreeSteps)
+TEST(NonlinearModelTest, ThreeStepsCase)
 {
-    int N = 3;
-    double a = 0.5;
-    double b = 0.2;
-    double c = 1.5;
-    double d = 0.8;
-    std::vector<double> u = {0.5, 1.0, 1.5};
-    std::vector<double> y_nl(N + 1, 0.0);
-    y_nl[0] = 2.0;
-    y_nl[1] = 3.0;
-    compute_nonlinear(N, a, b, c, d, u, y_nl);
-    EXPECT_NEAR(y_nl[2], 2.5835404309, 1e-9);
+    int steps = 3;
+    double alpha = 0.5;
+    double beta = 0.2;
+    double gamma = 1.5;
+    double delta = 0.8;
+    std::vector<double> inputs = {0.5, 1.0, 1.5};
+    std::vector<double> results(steps + 1, 0.0);
+    results[0] = 2.0;
+    results[1] = 3.0;
     
+    calculate_nonlinear_model(steps, alpha, beta, gamma, delta, inputs, results);
+    
+    EXPECT_NEAR(results[2], 2.5835404309, 1e-9);
 }
-

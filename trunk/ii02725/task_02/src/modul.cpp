@@ -1,39 +1,53 @@
 #include "module.h"
 #include <cmath>
 
-void compute_linear(
-    int N,
-    double a,
-    double b,
-    const std::vector<double>& u,
-    std::vector<double>& y_lin
+void calculate_linear_model(
+    int total_steps,
+    double coefficient_a,
+    double coefficient_b,
+    const std::vector<double>& input_signal,
+    std::vector<double>& linear_result
 )
 {
-    for (int t = 0; t < N; ++t)
+    for (int current_step = 0; current_step < total_steps; ++current_step)
     {
-        y_lin[t + 1] = a * y_lin[t] + b * u[t];
+        int next_index = current_step + 1;
+        double current_value = linear_result[current_step];
+        double input_value = input_signal[current_step];
+        
+        linear_result[next_index] = coefficient_a * current_value + coefficient_b * input_value;
     }
 }
 
-void compute_nonlinear(
-    int N,
-    double a,
-    double b,
-    double c,
-    double d,
-    const std::vector<double>& u, std::vector<double>& y_nl
+void calculate_nonlinear_model(
+    int iteration_count,
+    double alpha,
+    double beta,
+    double gamma,
+    double delta,
+    const std::vector<double>& control_input,
+    std::vector<double>& nonlinear_result
 )
 {
-    for (int t = 1; t < N; ++t)
+    for (int step_index = 1; step_index < iteration_count; ++step_index)
     {
-        if (t - 1 >= 0 && t < static_cast<int>(y_nl.size()))
+        bool valid_previous_index = step_index - 1 >= 0;
+        bool valid_current_index = step_index < static_cast<int>(nonlinear_result.size());
+        
+        if (valid_previous_index && valid_current_index)
         {
-            double term1 = a * y_nl[t];
-            double term2 = b * y_nl[t - 1] * y_nl[t - 1];
-            double term3 = c * u[t];
-            double term4 = d * std::sin(u[t - 1]);
+            double first_component = alpha * nonlinear_result[step_index];
             
-            y_nl[t + 1] = term1 - term2 + term3 + term4;
+            double second_component = beta * nonlinear_result[step_index - 1];
+            second_component = second_component * nonlinear_result[step_index - 1];
+            
+            double third_component = gamma * control_input[step_index];
+            
+            double fourth_component = delta * std::sin(control_input[step_index - 1]);
+            
+            int target_index = step_index + 1;
+            
+            nonlinear_result[target_index] = first_component - second_component + third_component + fourth_component;
         }
     }
 }
