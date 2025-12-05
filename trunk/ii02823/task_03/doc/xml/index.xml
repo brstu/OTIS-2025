@@ -22,12 +22,6 @@
   <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
     <member refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
   </compound>
-  <compound refid="model_8cpp" kind="file"><name>model.cpp</name>
-    <member refid="model_8cpp_1a82cf4dbd2f60c32e470774b41c7f7ad7" kind="function"><name>linear</name></member>
-  </compound>
-  <compound refid="model_8h" kind="file"><name>model.h</name>
-    <member refid="model_8h_1a82cf4dbd2f60c32e470774b41c7f7ad7" kind="function"><name>linear</name></member>
-  </compound>
   <compound refid="pid_8cpp" kind="file"><name>pid.cpp</name>
   </compound>
   <compound refid="pid_8h" kind="file"><name>pid.h</name>

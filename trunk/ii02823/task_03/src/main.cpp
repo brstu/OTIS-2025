@@ -1,5 +1,5 @@
 #include <iostream>
-#include "model.h"
+#include "models.h"
 #include "pid.h"
 
 /**
@@ -16,28 +16,34 @@
  * - На каждом шаге вычисляется отклонение между целевой и текущей температурой.
  * - PID-регулятор формирует управляющее воздействие.
  * - Линейная модель рассчитывает новое значение температуры.
+ * - Нелинейная модель рассчитывает новое значение температуры.
  * - Результаты выводятся в консоль.
  *
  * @return код завершения программы.
  */
 int main()
 {
-    const double K  = 0.1;  ///< коэффициент передачи
-    const double T  = 10.0; ///< постоянная интегрирования
+    const double K  = 0.06;  ///< коэффициент передачи
+    const double T  = 20.0; ///< постоянная интегрирования
     const double Td = 0.0;  ///< постоянная дифференцирования
     const double T0 = 1.0;  ///< шаг
     
     pid_coeffs coeffs(K, T, Td, T0);
     pid PID(coeffs, 1, 2, 3);
 
-    double a; ///< коэффициент модели a
-    double b; ///< коэффициент модели b
+    const double a_lin = 0.8; ///< коэффициент линейной модели a
+    const double b_lin = 0.1; ///< коэффициент линейной модели b
+
+    NonLinearCoeffs coeffs_nl;
+    coeffs_nl.a = 0.8;  ///< коэффициент нелинейной модели a
+    coeffs_nl.b = 0.0;  ///< коэффициент нелинейной модели b
+    coeffs_nl.c = 0.1;  ///< коэффициент нелинейной модели c
+    coeffs_nl.d = 0.05; ///< коэффициент нелинейной модели d
+
     double y; ///< текущее значение температуры
     double w; ///< целевая температура
     int n;    ///< количество шагов моделирования
 
-    std::cout << "Enter the coefficients A and B of the linear model -> ";
-    std::cin >> a >> b;
     std::cout << "Enter initial temperature -> ";
     std::cin >> y;
     std::cout << "Enter target temperature -> ";
@@ -46,15 +52,29 @@ int main()
     std::cin >> n;
 
     double e; ///< значение отклонения 
-    double u; ///< значение управляющего воздействия 
+    double u; ///< значение управляющего воздействия
+
+    double y_nl = y;
+    double y_prev = 0;
+    double u_prev = 0;
 
     for (int i = 0; i < n; i++)
     {
         e = w - y;              ///< вычисление значение отклонения 
         u = PID.process(e);     ///< нахождение значения управляющего воздействия
-        y = linear(y, u, a, b); ///< расчёт новой температуры по модели
 
-        std::cout << "Step " << i + 1 << " - e = " << e << ", u = " << u << ", y = " << y << ";\n"; 
+        y = linear(y, u, a_lin, b_lin); ///< расчёт новой температуры по линеной модели
+
+        y_nl = non_linear(y_nl, y_prev, u, u_prev, coeffs_nl); ///< расчёт новой температуры по линеной модели
+        y_prev = y_nl;
+        u_prev = u;
+
+        std::cout << "Step " << i + 1 
+                  << " - e = " << e 
+                  << ", u = " << u 
+                  << ", y_lin = " << y 
+                  << ", y_nonlin = " << y_nl 
+                  << ";\n";
     }
 
     return 0;
