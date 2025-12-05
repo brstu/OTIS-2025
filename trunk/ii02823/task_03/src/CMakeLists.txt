@@ -16,7 +16,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-  my_tests
+  my_tests_2823
   ${CMAKE_CURRENT_SOURCE_DIR}/models.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/pid.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/../test/test.cpp
