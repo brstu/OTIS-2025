@@ -3,10 +3,10 @@
 #include "Nonlinear.h"
 using namespace std;
 
-void Nonlinear(double param_a, double param_b, int steps_count, double& current_temp, double current_heat, double next_temp, double previous_temp, double param_c, double param_d, double previous_heat) {
+void Nonlinear(double param_a, double param_b, double& current_temp, double current_heat, double next_temp, double previous_temp, double param_c, double param_d, double previous_heat) {
 
 
-    for (int step = 1; step <= steps_count; step++)
+    for (int step = 1; step <= 1; step++)
     {
 
         next_temp = param_a * current_temp -
