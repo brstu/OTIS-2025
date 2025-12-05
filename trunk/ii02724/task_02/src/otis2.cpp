@@ -36,8 +36,12 @@ int main()
     current_temp = initial_temp;
     previous_temp = 0.0;
     previous_heat = current_heat;
-
-    Nonlinear(param_a, param_b, steps_count, current_temp, current_heat, next_temp, previous_temp, param_c, param_d, previous_heat);
+    Constant c;
+    c.param_a = 2.3;
+    c.param_b = 2.3;
+    c.param_c = 2.3;
+    c.param_d = 2.3;
+    Nonlinear(c,steps_count,current_temp, current_heat, next_temp, previous_temp, previous_heat);
     cout << "\nSimulation completed!" << endl;
     return 0;
 }

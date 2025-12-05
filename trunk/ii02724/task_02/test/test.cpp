@@ -15,7 +15,12 @@ TEST(Test, linearr2) {
 }
 
 TEST(Test2, nonlinearr) {
+	Constant c;
+	c.param_a = 2.3;
+	c.param_b = 2.3;
+	c.param_c = 2.3;
+	c.param_d = 2.3;
 	double res = 5.6;
-	Nonlinear(4.5, 5.6, 1, res, 2.76, 4.56, 6.54, 3.7, 4.5, 10);
-	EXPECT_NEAR(res, -206.556, 0.01);
+	Nonlinear(c,1, res, 2.76, 4.56, 6.54,5.34);
+	EXPECT_NEAR(res, -81.0, 0.01);
 }
