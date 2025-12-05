@@ -25,12 +25,12 @@ pid_coeffs::pid_coeffs(double K, double T, double Td, double T0)
  */
 pid::pid(const pid_coeffs& coeffs, double _u, double _e, double __e)
     : coeffs(coeffs),
-      u_prev(_u),
-      e_prev(_e),
-      e_prev_prev(__e),
       q0(coeffs.K * (1 + coeffs.Td / coeffs.T0)),
       q1(-coeffs.K * (1 + 2 * coeffs.Td / coeffs.T0 - coeffs.T0 / coeffs.T)),
-      q2(coeffs.K * coeffs.Td / coeffs.T0) 
+      q2(coeffs.K * coeffs.Td / coeffs.T0),
+      u_prev(_u),
+      e_prev(_e),
+      e_prev_prev(__e)
       {
 
       }
