@@ -4,7 +4,7 @@
 
 int main() {
     const int steps = 31;
-    const double w = 100;
+    const double w = 10;
 
     std::vector<double> result = simulatePIDRegulatorUsingNonLinearModel(w, steps);
 

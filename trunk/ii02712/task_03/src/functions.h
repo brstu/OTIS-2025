@@ -3,16 +3,16 @@
 
 const double a = -0.1;
 const double b = 0.5;
-const double c = -0.2;
+const double c = 0.2;
 const double d = 0.4;
 
-const double K  = 0.001;
-const double T0 = 1;
-const double Td = 10.0;
-const double T = 0.05;
+const double K  = 0.1;
+const double T0 = 0.1;
+const double Td = 0;
+const double T = 0.1;
 
 const double q0 = K * (1.0 + Td/T0);
-const double q1 = -K * (1.0 + 2.0 * Td/T - T0/T);
+const double q1 = -K * (1.0 + 2.0 * Td/T0 - T0/T);
 const double q2 = K * Td/T0;
 
 /**
