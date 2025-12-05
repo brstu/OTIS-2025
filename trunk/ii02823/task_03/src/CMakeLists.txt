@@ -16,7 +16,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-  my_tests_2823
+  my_tests
   ${CMAKE_CURRENT_SOURCE_DIR}/models.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/pid.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/../test/test.cpp
@@ -33,4 +33,4 @@ target_link_libraries(
 )
 
 include(GoogleTest)
-gtest_discover_tests(my_tests_2823)
+gtest_discover_tests(my_tests)
