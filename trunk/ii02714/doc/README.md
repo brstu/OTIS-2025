@@ -35,7 +35,7 @@
 ## Внесенный вклад
 
 Исправлены опечатки и улучшена читабельность в документации в папках:ostis-example-app\problem-solver\cxx\example-module\README.md и \ostis-example-app\docs\index.md![my pull-request(1)](img/c1.jpg)
-![my pull-request(2)](img/c2/jpg)
+![my pull-request(2)](img/c2.jpg)
 
 ## Pull-request
 
