@@ -14,12 +14,12 @@
 
  Members                        | Descriptions                                
 --------------------------------|---------------------------------------------
-`public  `[`pid`](#classpid_1a33bf4a3b855c19cc07825cfdc3e19790)`(`[`pid_coeffs`](#structpid__coeffs)` coeffs,double _u,double _e,double __e)` | Конструктор PID-регулятора
+`public  `[`pid`](#classpid_1ae8014e9c3f602dcd6b88686fb917442e)`(const `[`pid_coeffs`](#structpid__coeffs)` & coeffs,double _u,double _e,double __e)` | Конструктор PID-регулятора
 `public double `[`process`](#classpid_1a75f23675900ca669c3f12875ce55d78a)`(double e)` | Выполнить шаг PID-регулятора
 
 ## Members
 
-#### `public  `[`pid`](#classpid_1a33bf4a3b855c19cc07825cfdc3e19790)`(`[`pid_coeffs`](#structpid__coeffs)` coeffs,double _u,double _e,double __e)` 
+#### `public  `[`pid`](#classpid_1ae8014e9c3f602dcd6b88686fb917442e)`(const `[`pid_coeffs`](#structpid__coeffs)` & coeffs,double _u,double _e,double __e)` 
 
 Конструктор PID-регулятора
 
@@ -56,7 +56,7 @@
 Вычисляет новое управляющее воздействие на основе текущей ошибки.
 
 #### Parameters
-* `e` текущее значение отклонения 
+* `_e` текущее значение отклонения 
 
 #### Returns
 новое управляющее воздействие
