@@ -1,6 +1,6 @@
 #ifndef LIN_H
 #define LIN_H
-#include <iostream>
+
 struct Nonl {
 	double A;
 	double B;
