@@ -408,5 +408,8 @@ _main.cc
 [==========] 4 tests from 2 test suites ran. (3 ms total)
 [  PASSED  ] 4 tests.
 
+
+![График температуры](img/photo_2025-12-05_12-20-05.jpg)
+
 ## Результат действия программы:
 https://igor7123.github.io/try-githubpages/
