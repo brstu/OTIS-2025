@@ -4,8 +4,7 @@
 using namespace std;
 
 void Nonlinear(double param_a, double param_b, int steps_count, double& current_temp, double current_heat, double next_temp, double previous_temp, double param_c, double param_d, double previous_heat) {
-    //cout << "\n--- NON-LINEAR TEMPERATURE MODEL ---" << endl;
-   // cout << "Formula: T_next = a*T - b*T_prev² + c*U + d*sin(U_prev)" << endl;
+
 
     for (int step = 1; step <= steps_count; step++)
     {
@@ -19,7 +18,6 @@ void Nonlinear(double param_a, double param_b, int steps_count, double& current_
         previous_temp = current_temp;
         current_temp = next_temp;
 
-        //cout << "Step " << step << " - Temperature: " << current_temp << endl;
 
         previous_heat = current_heat;
 

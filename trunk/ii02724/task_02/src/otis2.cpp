@@ -7,16 +7,16 @@ using namespace std;
 int main()
 {
 
-    double current_temp;
-    double previous_temp;
-    double next_temp;
-    double current_heat;
-    double previous_heat;
-    double param_a;
-    double param_b;
-    double param_c;
-    double param_d;
-    int steps_count;
+    double current_temp = 0;
+    double previous_temp = 0;
+    double next_temp = 0;
+    double current_heat = 0;
+    double previous_heat = 0;
+    double param_a = 0;
+    double param_b = 0;
+    double param_c = 0;
+    double param_d = 0;
+    int steps_count = 0;
 
 
     cout << "Input initial temperature and heat (separated by space): ";
