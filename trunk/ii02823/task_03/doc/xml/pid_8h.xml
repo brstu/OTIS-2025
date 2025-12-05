@@ -41,7 +41,7 @@
 <codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structpid__coeffs_1a1565a55a5421ee3da66debe43db919b8" kindref="member">pid_coeffs</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structpid__coeffs_1a72db3187cc333a2d93a7d49702cec92e" kindref="member">K</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structpid__coeffs_1aa69708722314150cbd2810cc8b7c8476" kindref="member">T</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structpid__coeffs_1a5cc8572ddb54086cc7b97f754b1f86c1" kindref="member">Td</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structpid__coeffs_1a9fa8f52e69c498586a22bc748d38fab2" kindref="member">T0</ref>);</highlight></codeline>
 <codeline lineno="21"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26" refid="classpid" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classpid_1a33bf4a3b855c19cc07825cfdc3e19790" kindref="member">pid</ref></highlight></codeline>
+<codeline lineno="26" refid="classpid" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classpid_1ae8014e9c3f602dcd6b88686fb917442e" kindref="member">pid</ref></highlight></codeline>
 <codeline lineno="27"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structpid__coeffs" kindref="compound">pid_coeffs</ref><sp/>coeffs;<sp/><sp/></highlight></codeline>
@@ -51,15 +51,14 @@
 <codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q2;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_prev;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e_prev;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e_prev_prev;<sp/></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpid_1a33bf4a3b855c19cc07825cfdc3e19790" kindref="member">pid</ref>(<ref refid="structpid__coeffs" kindref="compound">pid_coeffs</ref><sp/>coeffs,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_u,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_e,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>__e);</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classpid_1a75f23675900ca669c3f12875ce55d78a" kindref="member">process</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e);</highlight></codeline>
-<codeline lineno="56"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e_prev;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e_prev_prev;<sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpid_1ae8014e9c3f602dcd6b88686fb917442e" kindref="member">pid</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structpid__coeffs" kindref="compound">pid_coeffs</ref>&amp;<sp/>coeffs,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_u,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_e,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>__e);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classpid_1a75f23675900ca669c3f12875ce55d78a" kindref="member">process</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">};</highlight></codeline>
     </programlisting>
     <location file="src/pid.h"/>
   </compounddef>

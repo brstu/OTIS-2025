@@ -33,7 +33,6 @@ private:
     double q2;          ///< параметр PID-регулятора
 
     double u_prev;      ///< предыдущее значение управляющего воздействия
-    double e;           ///< значение отклонения
     double e_prev;      ///< предыдущее значение отклонения
     double e_prev_prev; ///< предпредыдущее значение отклонения
 
@@ -45,7 +44,7 @@ public:
      * @param _e предыдущее значение отклонения
      * @param __e предпредыдущее значение отклонения
      */
-    pid(pid_coeffs coeffs, double _u, double _e, double __e);
+    pid(const pid_coeffs& coeffs, double _u, double _e, double __e);
 
     /**
      * @brief Выполнить шаг PID-регулятора

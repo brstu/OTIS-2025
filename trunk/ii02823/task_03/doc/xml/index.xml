@@ -12,10 +12,9 @@
     <member refid="classpid_1a038a63dc37784326cc7842c44d3f23d0" kind="variable"><name>q1</name></member>
     <member refid="classpid_1ad42a0b5db2ba8eb8bc2fe486993999b1" kind="variable"><name>q2</name></member>
     <member refid="classpid_1a92b89d873eec4decb4c815c54ca853b8" kind="variable"><name>u_prev</name></member>
-    <member refid="classpid_1a18debb039fa74931caa2351260986065" kind="variable"><name>e</name></member>
     <member refid="classpid_1a468874cd170c56ac494a9d8e4595232c" kind="variable"><name>e_prev</name></member>
     <member refid="classpid_1a69b6b7f105a902d88c182c45ad21efe4" kind="variable"><name>e_prev_prev</name></member>
-    <member refid="classpid_1a33bf4a3b855c19cc07825cfdc3e19790" kind="function"><name>pid</name></member>
+    <member refid="classpid_1ae8014e9c3f602dcd6b88686fb917442e" kind="function"><name>pid</name></member>
     <member refid="classpid_1a75f23675900ca669c3f12875ce55d78a" kind="function"><name>process</name></member>
   </compound>
   <compound refid="structpid__coeffs" kind="struct"><name>pid_coeffs</name>

@@ -72,8 +72,8 @@
 <para>&lt; значение управляющего воздействия</para>
 <para>&lt; вычисление значение отклонения</para>
 <para>&lt; нахождение значения управляющего воздействия</para>
-<para>&lt; расчёт новой температуры по линеной модели</para>
-<para>&lt; расчёт новой температуры по линеной модели</para>
+<para>&lt; расчёт новой температуры по линейной модели</para>
+<para>&lt; расчёт новой температуры по нелинейной модели</para>
         </inbodydescription>
         <location file="src/main.cpp" line="24" column="5" bodyfile="src/main.cpp" bodystart="24" bodyend="81"/>
       </memberdef>

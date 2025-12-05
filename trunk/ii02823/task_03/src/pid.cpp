@@ -23,20 +23,24 @@ pid_coeffs::pid_coeffs(double K, double T, double Td, double T0)
  * @param _e предыдущее значение отклонения
  * @param __e предпредыдущее значение отклонения
  */
-pid::pid(pid_coeffs coeffs, double _u, double _e, double __e)
-    : coeffs(coeffs), u_prev(_u), e_prev(_e), e_prev_prev(__e)
-{
-    q0 = coeffs.K * (1 + coeffs.Td / coeffs.T0);
-    q1 = -coeffs.K * (1 + 2 * coeffs.Td / coeffs.T0 - coeffs.T0 / coeffs.T);
-    q2 = coeffs.K * coeffs.Td / coeffs.T0;
-}
+pid::pid(const pid_coeffs& coeffs, double _u, double _e, double __e)
+    : coeffs(coeffs),
+      u_prev(_u),
+      e_prev(_e),
+      e_prev_prev(__e),
+      q0(coeffs.K * (1 + coeffs.Td / coeffs.T0)),
+      q1(-coeffs.K * (1 + 2 * coeffs.Td / coeffs.T0 - coeffs.T0 / coeffs.T)),
+      q2(coeffs.K * coeffs.Td / coeffs.T0) 
+      {
+
+      }
 
 /**
  * @brief Выполнить шаг PID-регулятора
  * 
  * Вычисляет новое управляющее воздействие на основе текущей ошибки.
  * 
- * @param e текущее значение отклонения
+ * @param _e текущее значение отклонения
  * @return новое управляющее воздействие
  */
 double pid::process(double e)

@@ -12,7 +12,7 @@
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classpid_a33bf4a3b855c19cc07825cfdc3e19790}{pid}} (\mbox{\hyperlink{structpid__coeffs}{pid\+\_\+coeffs}} coeffs, double \+\_\+u, double \+\_\+e, double \+\_\+\+\_\+e)
+\mbox{\hyperlink{classpid_ae8014e9c3f602dcd6b88686fb917442e}{pid}} (const \mbox{\hyperlink{structpid__coeffs}{pid\+\_\+coeffs}} \&coeffs, double \+\_\+u, double \+\_\+e, double \+\_\+\+\_\+e)
 \begin{DoxyCompactList}\small\item\em Конструктор PID-\/регулятора \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classpid_a75f23675900ca669c3f12875ce55d78a}{process}} (double e)
 \begin{DoxyCompactList}\small\item\em Выполнить шаг PID-\/регулятора \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -24,11 +24,11 @@ double \mbox{\hyperlink{classpid_a75f23675900ca669c3f12875ce55d78a}{process}} (d
 \label{doc-constructors}
 \Hypertarget{classpid_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classpid_a33bf4a3b855c19cc07825cfdc3e19790}\index{pid@{pid}!pid@{pid}}
+\Hypertarget{classpid_ae8014e9c3f602dcd6b88686fb917442e}\index{pid@{pid}!pid@{pid}}
 \index{pid@{pid}!pid@{pid}}
 \doxysubsubsection{\texorpdfstring{pid()}{pid()}}
-{\footnotesize\ttfamily \label{classpid_a33bf4a3b855c19cc07825cfdc3e19790} 
-pid\+::pid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpid__coeffs}{pid\+\_\+coeffs}}}]{coeffs}{, }\item[{double}]{\+\_\+u}{, }\item[{double}]{\+\_\+e}{, }\item[{double}]{\+\_\+\+\_\+e}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classpid_ae8014e9c3f602dcd6b88686fb917442e} 
+pid\+::pid (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structpid__coeffs}{pid\+\_\+coeffs}} \&}]{coeffs}{, }\item[{double}]{\+\_\+u}{, }\item[{double}]{\+\_\+e}{, }\item[{double}]{\+\_\+\+\_\+e}{}\end{DoxyParamCaption})}
 
 
 
@@ -85,7 +85,7 @@ double pid\+::process (\begin{DoxyParamCaption}\item[{double}]{e}{}\end{DoxyPara
 
 
 \begin{DoxyParams}{Parameters}
-{\em e} & текущее значение отклонения \\
+{\em \+\_\+e} & текущее значение отклонения \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

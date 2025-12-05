@@ -79,21 +79,6 @@
         </inbodydescription>
         <location file="src/pid.h" line="35" column="12" bodyfile="src/pid.h" bodystart="35" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classpid_1a18debb039fa74931caa2351260986065" prot="private" static="no" mutable="no">
-        <type>double</type>
-        <definition>double pid::e</definition>
-        <argsstring></argsstring>
-        <name>e</name>
-        <qualifiedname>pid::e</qualifiedname>
-        <briefdescription>
-<para>значение отклонения </para>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/pid.h" line="36" column="12" bodyfile="src/pid.h" bodystart="36" bodyend="-1"/>
-      </memberdef>
       <memberdef kind="variable" id="classpid_1a468874cd170c56ac494a9d8e4595232c" prot="private" static="no" mutable="no">
         <type>double</type>
         <definition>double pid::e_prev</definition>
@@ -107,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/pid.h" line="37" column="12" bodyfile="src/pid.h" bodystart="37" bodyend="-1"/>
+        <location file="src/pid.h" line="36" column="12" bodyfile="src/pid.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classpid_1a69b6b7f105a902d88c182c45ad21efe4" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -122,18 +107,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/pid.h" line="38" column="12" bodyfile="src/pid.h" bodystart="38" bodyend="-1"/>
+        <location file="src/pid.h" line="37" column="12" bodyfile="src/pid.h" bodystart="37" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="classpid_1a33bf4a3b855c19cc07825cfdc3e19790" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classpid_1ae8014e9c3f602dcd6b88686fb917442e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>pid::pid</definition>
-        <argsstring>(pid_coeffs coeffs, double _u, double _e, double __e)</argsstring>
+        <argsstring>(const pid_coeffs &amp;coeffs, double _u, double _e, double __e)</argsstring>
         <name>pid</name>
         <qualifiedname>pid::pid</qualifiedname>
         <param>
-          <type><ref refid="structpid__coeffs" kindref="compound">pid_coeffs</ref></type>
+          <type>const <ref refid="structpid__coeffs" kindref="compound">pid_coeffs</ref> &amp;</type>
           <declname>coeffs</declname>
         </param>
         <param>
@@ -223,7 +208,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/pid.h" line="48" column="5" bodyfile="src/pid.cpp" bodystart="26" bodyend="32"/>
+        <location file="src/pid.h" line="47" column="5" bodyfile="src/pid.cpp" bodystart="26" bodyend="36"/>
       </memberdef>
       <memberdef kind="function" id="classpid_1a75f23675900ca669c3f12875ce55d78a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -253,7 +238,7 @@
 Вычисляет новое управляющее воздействие на основе текущей ошибки.</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>e</parametername>
+<parametername>_e</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>текущее значение отклонения </para>
@@ -266,7 +251,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/pid.h" line="55" column="12" bodyfile="src/pid.cpp" bodystart="42" bodyend="52"/>
+        <location file="src/pid.h" line="54" column="12" bodyfile="src/pid.cpp" bodystart="46" bodyend="56"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -274,13 +259,12 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/pid.h" line="26" column="1" bodyfile="src/pid.h" bodystart="27" bodyend="56"/>
+    <location file="src/pid.h" line="26" column="1" bodyfile="src/pid.h" bodystart="27" bodyend="55"/>
     <listofallmembers>
       <member refid="classpid_1aad7daa6f3587708ced0f23f6a8aa710f" prot="private" virt="non-virtual"><scope>pid</scope><name>coeffs</name></member>
-      <member refid="classpid_1a18debb039fa74931caa2351260986065" prot="private" virt="non-virtual"><scope>pid</scope><name>e</name></member>
       <member refid="classpid_1a468874cd170c56ac494a9d8e4595232c" prot="private" virt="non-virtual"><scope>pid</scope><name>e_prev</name></member>
       <member refid="classpid_1a69b6b7f105a902d88c182c45ad21efe4" prot="private" virt="non-virtual"><scope>pid</scope><name>e_prev_prev</name></member>
-      <member refid="classpid_1a33bf4a3b855c19cc07825cfdc3e19790" prot="public" virt="non-virtual"><scope>pid</scope><name>pid</name></member>
+      <member refid="classpid_1ae8014e9c3f602dcd6b88686fb917442e" prot="public" virt="non-virtual"><scope>pid</scope><name>pid</name></member>
       <member refid="classpid_1a75f23675900ca669c3f12875ce55d78a" prot="public" virt="non-virtual"><scope>pid</scope><name>process</name></member>
       <member refid="classpid_1a2dee04f25df465b7700f8f30c409f0a2" prot="private" virt="non-virtual"><scope>pid</scope><name>q0</name></member>
       <member refid="classpid_1a038a63dc37784326cc7842c44d3f23d0" prot="private" virt="non-virtual"><scope>pid</scope><name>q1</name></member>
