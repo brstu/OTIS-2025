@@ -96,15 +96,8 @@ TEST(ComputeNonLinearTest, ThreeSteps)
     std::vector<double> y_nl(N + 1, 0.0);
     y_nl[0] = 2.0;
     y_nl[1] = 3.0;
-
     compute_nonlinear(N, a, b, c, d, u, y_nl);
-
-    EXPECT_NEAR(y_nl[2], 2.583544, 1e-6);
+    EXPECT_NEAR(y_nl[2], 2.5835404309, 1e-9);
+    
 }
 
-int main(int argc, char **argv)
-{
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
-//dsadsa

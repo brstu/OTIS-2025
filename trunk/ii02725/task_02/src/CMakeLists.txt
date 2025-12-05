@@ -20,10 +20,18 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 # --- Сборка тестового исполняемого файла ---
-add_executable(runTests_ii02725 ../tests/test.cpp module.cpp)
-add_executable(main_ii02725 main.cpp module.cpp)
+# Пути относительно src/ где лежит CMakeLists.txt
+add_executable(runTests_ii02725 
+    ../tests/test.cpp    # из task_02/test/
+    modul.cpp          # из текущей папки (src/)
+)
 
-# Установка опций покрытия для GCC/Clang для ОБОИХ целей
+add_executable(main_ii02725 
+    main.cpp            # из текущей папки (src/)
+    modul.cpp          # из текущей папки (src/)
+)
+
+# Установка опций покрытия
 if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     # Для тестов
     target_compile_options(runTests_ii02725 PRIVATE 
@@ -37,7 +45,7 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
         -ftest-coverage
     )
 
-    # Для main (если нужно)
+    # Для main
     target_compile_options(main_ii02725 PRIVATE 
         -fprofile-arcs 
         -ftest-coverage 
@@ -51,8 +59,8 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
 endif()
 
 target_link_libraries(runTests_ii02725 gtest gtest_main)
+# Добавляем include директории для тестов
 target_include_directories(runTests_ii02725 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 include(GoogleTest)
 gtest_discover_tests(runTests_ii02725)
-#dsdsa

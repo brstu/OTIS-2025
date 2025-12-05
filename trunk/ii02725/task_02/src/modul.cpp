@@ -21,8 +21,7 @@ void compute_nonlinear(
     double b,
     double c,
     double d,
-    const std::vector<double>& u,
-    std::vector<double>& y_nl
+    const std::vector<double>& u, std::vector<double>& y_nl
 )
 {
     for (int t = 1; t < N; ++t)
@@ -38,4 +37,3 @@ void compute_nonlinear(
         }
     }
 }
-//dsad
