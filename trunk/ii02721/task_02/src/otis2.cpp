@@ -5,9 +5,7 @@
 int main() {
     double temp_now = 0;
     double temp_prev = 0;
-    double temp_next = 0;
     double heat_now = 0;
-    double heat_prev = 0;
     double A;
     double B;
     double C;
