@@ -12,6 +12,6 @@ struct Nonl {
 	double heat_prev;
 };
 double linear(double a,double b,double temp_prev,double heat_now);
-double nonlinear(Nonl &l);
+double nonlinear(const Nonl &l);
 
 #endif 
