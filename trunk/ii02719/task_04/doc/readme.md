@@ -32,8 +32,6 @@
 ### Установка NIKA 0.1.0
  Перейдя в репозиторий [OSTIS/NIKA](https://github.com/ostis-apps/nika), снизу можно увидеть README.md файл с инструкциями по установке, настройке и запуске проекта **NIKA**.
 
-![README.md NIKA](imgs/1.png)
-
 В разделе **Requirements** можно узнать о требуемых утилитах, таких как **Dockers**, для работы NIKA.
 Перейдя по гиперссылке [Dockers](https://docs.docker.com/), мы попадаем на официальный сайт, с которого можно установить **Docker Dekstop**
 
@@ -66,7 +64,7 @@
 
 1. Клонировать репозиторий NIKA.
 2. Подготовить окружение (WSL2, длинные пути).
-3. Подтянуть образы и запустить контейнеры через `nika.ps1` (или `docker compose`).
+3. Подтянуть образы и запустить контейнеры через `docker compose`.
 4. Проверить доступность сервисов (UI, SC-web, problem-solver).
 
 ## Подготовка Windows
@@ -101,17 +99,7 @@ git submodule update --init --recursive
 git checkout 69858165c3b5fb26ca783950c74bfe7bddd64a00
 ```
 
-## Запуск
-
-В каталоге репозитория запустить:
-```
-powershell
-.\nika.ps1
-```
-
-`nika.ps1` автоматически подтянет образы, создаст и поднимет контейнеры, проверит состояние сервисов и выведет URLы.
-
-## Запуск вручную (Docker Compose)
+## Запуск Docker Compose
 
 ```
 powershell
@@ -138,14 +126,6 @@ docker compose logs --tail 200 nika-problem-solver nika-sc-web nika-ui py-sc-ser
 docker exec -it nika-problem-solver bash
 # остановить и удалить контейнеры и сеть
 docker compose down
-```
-
-## Пересборка бинарной БЗ (опционально)
-
-Если вносились правки и нужно обновить скомпилированную базу знаний, запустить (внутри контейнера или в среде с доступом к бинарникам)):
-```
-bash
-/nika/bin/sc-builder -c -f -i /nika/kb -o /nika/problem-solver/sc-machine/bin/kb
 ```
 
 ## Скриншоты
