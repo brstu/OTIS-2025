@@ -10,7 +10,7 @@ double nonlinearModel(double y, double u, double y_pred, double u_pred) {
 }
 
 std::vector<double> simulatePIDRegulatorUsingNonLinearModel(double w, int steps) {
-    double y = 0.0; // Initial y
+    double y = 1.1; // Initial y
     double u = 0.0; // Initial u
     double y_prev = y - 0.1; // Init previous y (0.1 for difference)
     double u_prev = u - 0.1; // Init previous u (0.1 for difference)

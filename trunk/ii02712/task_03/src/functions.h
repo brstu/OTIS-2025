@@ -1,15 +1,15 @@
 #pragma once
 #include <vector>
 
-const double a = -0.1;
-const double b = 0.5;
-const double c = 0.2;
-const double d = 0.4;
+const double a = 0.85;
+const double b = 0;
+const double c = 0.9;
+const double d = -0.4;
 
-const double K  = 0.1;
-const double T0 = 0.1;
-const double Td = 0;
-const double T = 0.1;
+const double K  = 0.01;
+const double T0 = 1;
+const double Td = 10;
+const double T = 0.5;
 
 const double q0 = K * (1.0 + Td/T0);
 const double q1 = -K * (1.0 + 2.0 * Td/T0 - T0/T);
