@@ -2,78 +2,87 @@
 #include <cmath>
 #include <vector>
 
-struct ModelParams {
+struct ModelParameters {
     double a;
     double b;
     double c;
     double d;
 };
 
-// Линейная модель
-double linear_model(double y_prev, double u, double a, double b) {
-    return a * y_prev + b * u;
+double calculate_linear(double current_temp, double heat_input, double coeff_a, double coeff_b) {
+    return coeff_a * current_temp + coeff_b * heat_input;
 }
 
-// Нелинейная модель
-double nonlinear_model(double y_prev, double y_prev_2, double u, const ModelParams& p) {
-    return p.a * y_prev - p.b * std::pow(y_prev_2, 2) + p.c * u + p.d * std::sin(u);
+double calculate_nonlinear(double temp_t1, double temp_t2, double heat_input, const ModelParameters& params) {
+    return params.a * temp_t1 - params.b * std::pow(temp_t2, 2) +
+        params.c * heat_input + params.d * std::sin(heat_input);
 }
+
+enum class ModelType {
+    LINEAR = 1,
+    NONLINEAR = 2
+};
 
 int main() {
-    ModelParams params{};
-    double u;
-    double y_0;
-    int num_steps;
-    int model_choice;
+    ModelParameters coefficients{};
+    double heat_input;
+    double initial_temperature;
+    int simulation_steps;
+    int selected_model;
 
-    std::cout << "Enter coefficient a: ";
-    std::cin >> params.a;
-    std::cout << "Enter coefficient b: ";
-    std::cin >> params.b;
-    std::cout << "Enter coefficient c: ";
-    std::cin >> params.c;
-    std::cout << "Enter coefficient d: ";
-    std::cin >> params.d;
+    std::cout << "Введите коэффициент a: ";
+    std::cin >> coefficients.a;
+    std::cout << "Введите коэффициент b: ";
+    std::cin >> coefficients.b;
+    std::cout << "Введите коэффициент c: ";
+    std::cin >> coefficients.c;
+    std::cout << "Введите коэффициент d: ";
+    std::cin >> coefficients.d;
 
-    std::cout << "Enter the supplied heat u: ";
-    std::cin >> u;
+    std::cout << "Введите значение подаваемого тепла u: ";
+    std::cin >> heat_input;
+    std::cout << "Введите начальную температуру y0: ";
+    std::cin >> initial_temperature;
+    std::cout << "Введите количество шагов моделирования: ";
+    std::cin >> simulation_steps;
 
-    std::cout << "Enter the initial temperature y_0: ";
-    std::cin >> y_0;
+    std::cout << "Выберите модель (1 - Линейная, 2 - Нелинейная): ";
+    std::cin >> selected_model;
 
-    std::cout << "Enter the number of steps for the simulation: ";
-    std::cin >> num_steps;
+    std::vector<double> temperature_history(simulation_steps);
+    double current_temp = initial_temperature;
+    double previous_temp = initial_temperature;
 
-    std::cout << "Select model (1 – Linear, 2 – Nonlinear): ";
-    std::cin >> model_choice;
+    for (int step = 0; step < simulation_steps; ++step) {
+        temperature_history[step] = current_temp;
 
-    std::vector<double> temperatures(num_steps);
+        auto model = static_cast<ModelType>(selected_model);
 
-    double y_1 = y_0;
-    double y_2 = y_0;
+        switch (model) {
+        case ModelType::LINEAR:
+            current_temp = calculate_linear(current_temp, heat_input,
+                coefficients.a, coefficients.b);
+            break;
 
-    for (int t = 0; t < num_steps; ++t) {
-        temperatures[t] = y_1;
-
-        if (model_choice == 1) {
-            y_1 = linear_model(y_1, u, params.a, params.b);
+        case ModelType::NONLINEAR: {
+            double next_temp = calculate_nonlinear(current_temp, previous_temp,
+                heat_input, coefficients);
+            previous_temp = current_temp;
+            current_temp = next_temp;
+            break;
         }
-        else if (model_choice == 2) {
-            double y_next = nonlinear_model(y_1, y_2, u, params);
-            y_2 = y_1;
-            y_1 = y_next;
-        }
-        else {
-            std::cout << "Wrong model choice!" << std::endl;
-            return -1;
+
+        default:
+            std::cerr << "Ошибка: выбрана неверная модель!" << std::endl;
+            return 1;
         }
     }
 
-    std::cout << "\nTemperature over time:\n";
-    for (int t = 0; t < num_steps; ++t) {
-        std::cout << "Step " << t + 1 << ": " << temperatures[t] << " C" << std::endl;
+    std::cout << "\nРезультаты моделирования температуры:\n";
+    for (int step = 0; step < simulation_steps; ++step) {
+        std::cout << "Шаг " << step + 1 << ": " << temperature_history[step]
+            << " °C" << std::endl;
     }
 
     return 0;
 }
-
