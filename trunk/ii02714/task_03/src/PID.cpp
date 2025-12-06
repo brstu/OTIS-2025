@@ -16,14 +16,10 @@ PID::PID() {
 	cin >> maxTemp;
 	cout << "¬ведите желаемое значение температуры " << endl;
 	cin >> w;
-	k = 0.5;
-	Td = 11;
-	To = 12;
-	T = 11;
-	a = 0.82;
-	b = 0.2;
 }
 void PID::linear(int place) {
+	a = 0.82;
+	b = 0.2;
 	PID::calcul_U(place);
 
 	if (place == 0) {
@@ -57,6 +53,10 @@ void PID::calcul_U(int place) {
 	}
 }
 void PID::calcul_q0_q1_q2() {
+	k = 0.5;
+	Td = 11;
+	To = 12;
+	T = 11;
 	q0 = k * (1 + Td / To);
 	q1 = -k * (1 + 2 * (Td / To) - To / T);
 	q2 = k * Td / To;
@@ -66,7 +66,6 @@ void PID::calcul_e(int place) {
 }
 void PID::calcul_PID(int place) {
 	int t = place;
-	double regVal = 20;
 	PID::calcul_q0_q1_q2();
 	for (int i = t; i < 100; i++) {
 		linear(i);
@@ -88,7 +87,7 @@ void PID::RegCoefs(double val) {
 	a /= val;
 	b /= 1.3;
 }
-void PID::GetQs(double& val1, double& val2, double& val3) {
+void PID::GetQs(double& val1, double& val2, double& val3) const {
 	val1 = q0;
 	val2 = q1;
 	val3 = q2;

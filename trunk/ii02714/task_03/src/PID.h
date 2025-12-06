@@ -3,17 +3,16 @@
 #include <iostream>
 #include <vector>
 #include <cstdlib>
-using namespace std;
 
 class PID {
 private:
 	double q0;
 	double q1;
 	double q2;
-	vector<double>deltU;
-	vector<double>u;
-	vector<double>y;
-	vector<double>e;
+	std::vector<double>deltU;
+	std::vector<double>u;
+	std::vector<double>y;
+	std::vector<double>e;
 	double w;
 	double maxTemp;
 	double k;
@@ -31,7 +30,7 @@ public:
 	void calcul_e(int place);
 	void calcul_PID(int place);
 	void RegCoefs(double val);
-	void GetQs(double &val1,double &val2,double &val3);
+	void GetQs(double &val1,double &val2,double &val3) const;
 };
 
 #endif 
