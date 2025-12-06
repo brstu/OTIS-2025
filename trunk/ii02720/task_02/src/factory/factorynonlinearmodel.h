@@ -10,16 +10,14 @@ public:
     FactoryNonLinearModel() = default;
     ~FactoryNonLinearModel() override = default;
 
-    std::unique_ptr<ISimulatedModel> getModel() const override
+    std::unique_ptr<ISimulatedModel> createModel() const override
     { 
-        return std::make_unique<NonLinearModel>(m_a, m_b, m_c, m_d); 
+        return std::make_unique<NonLinearModel>(COEFF_A, COEFF_B, COEFF_C, COEFF_D); 
     }
 
 private:
-    const double m_a { 0.8 };  // Linear coefficient for current NonLinearModel's output (y)
-    const double m_b { 0.01 }; // Nonlinear coefficient for squared previous NonLinearModel's output (prevY²)
-    const double m_c { 0.4 };  // Linear coefficient for NonLinearModel's input (u)
-    const double m_d { 0.1 };  // Nonlinear coefficient for sinusoidal NonLinearModel's input term
-
+    static constexpr double COEFF_A = 0.8;
+    static constexpr double COEFF_B = 0.01;
+    static constexpr double COEFF_C = 0.4;
+    static constexpr double COEFF_D = 0.1;
 };
-

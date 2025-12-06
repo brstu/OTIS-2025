@@ -10,14 +10,12 @@ public:
     FactoryLinearModel() = default;
     ~FactoryLinearModel() override = default;
 
-    std::unique_ptr<ISimulatedModel> getModel() const override
+    std::unique_ptr<ISimulatedModel> createModel() const override
     { 
-        return std::make_unique<LinearModel>(m_a, m_b); 
+        return std::make_unique<LinearModel>(COEFF_A, COEFF_B); 
     }
 
 private:
-    const double m_a { 0.8 }; // Coefficient for previous LinearModel's output (y)
-    const double m_b { 0.3 }; // Coefficient for LinearModel's input (u)
-
+    static constexpr double COEFF_A = 0.8;
+    static constexpr double COEFF_B = 0.3;
 };
-

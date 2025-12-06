@@ -7,32 +7,41 @@
 class NonLinearModel : public ISimulatedModel
 {
 public:
-    NonLinearModel(const double a, const double b, const double c, const double d)
-        : m_a(a), m_b(b), m_c(c), m_d(d) 
+    NonLinearModel(const double coeffA, const double coeffB, 
+                   const double coeffC, const double coeffD)
+        : m_coeffA(coeffA), m_coeffB(coeffB), m_coeffC(coeffC), m_coeffD(coeffD) 
     {}
+    
     ~NonLinearModel() override = default;
 
-    std::vector<double> simulate(double y, const double u, int t) const override
+    std::vector<double> simulate(double temp, const double heat, int steps) const override
     {    
-        double prevY = y;
-        double prevU = 0;
-        std::vector<double> results;
-        for(int i = 0; i <= t; i++)
+        double previousTemp = temp;
+        double previousHeat = 0.0;
+        
+        std::vector<double> temperatureHistory;
+        temperatureHistory.reserve(steps + 1);
+        
+        for(int step = 0; step <= steps; step++)
         {
-            results.push_back(y);
-            double nextY = m_a * y - m_b * prevY * prevY + m_c * u + m_d * sin(prevU);
-            prevY = y;
-            prevU = u;
-            y = nextY;
+            temperatureHistory.push_back(temp);
+            
+            double nextTemp = m_coeffA * temp 
+                            - m_coeffB * previousTemp * previousTemp 
+                            + m_coeffC * heat 
+                            + m_coeffD * std::sin(previousHeat);
+            
+            previousTemp = temp;
+            previousHeat = heat;
+            temp = nextTemp;
         }
-        return results;
+        
+        return temperatureHistory;
     }
 
 private:
-    const double m_a; // Linear coefficient for current output (y)
-    const double m_b; // Nonlinear coefficient for squared previous output (prevY²)
-    const double m_c; // Linear coefficient for input (u)
-    const double m_d; // Nonlinear coefficient for sinusoidal input term
-
+    const double m_coeffA;
+    const double m_coeffB;
+    const double m_coeffC;
+    const double m_coeffD;
 };
-

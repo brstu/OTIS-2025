@@ -1,34 +1,38 @@
 #include <iostream>
+#include <iomanip>
 
 #include "factory/factorylinearmodel.h"
 #include "factory/factorynonlinearmodel.h"
 
 int main() 
 {
-    std::unique_ptr<IFactoryModel> factory;
-    std::unique_ptr<ISimulatedModel> model;
+    constexpr double INITIAL_TEMPERATURE = 20.0;
+    constexpr double HEAT_INPUT = 2.0;
+    constexpr int SIMULATION_STEPS = 10;
+
+    std::cout << "Linear model simulation:" << std::endl;
     
-    const double y = 20.0;
-    const double u = 2.0;
-    const int t = 10;
-
-    std::cout << "Linear simulation:" << std::endl;
-    factory = std::make_unique<FactoryLinearModel>();
-    model = factory->getModel();
-    auto linear_result = model->simulate(y, u, t);
-    for (const auto& value : linear_result) 
+    auto linearFactory = std::make_unique<FactoryLinearModel>();
+    auto linearModel = linearFactory->createModel();
+    auto linearResults = linearModel->simulate(INITIAL_TEMPERATURE, HEAT_INPUT, SIMULATION_STEPS);
+    
+    for (size_t i = 0; i < linearResults.size(); ++i) 
     {
-        std::cout << value << std::endl;
+        std::cout << "t=" << i << ": " << std::fixed << std::setprecision(4) 
+                  << linearResults[i] << std::endl;
     }
+    
     std::cout << std::endl;
-
-    std::cout << "Nonlinear simulation:" << std::endl; 
-    factory = std::make_unique<FactoryNonLinearModel>();
-    model = factory->getModel();
-    auto nonlinear_result = model->simulate(y, u, t);
-    for (const auto& value : nonlinear_result) 
+    std::cout << "Nonlinear model simulation:" << std::endl;
+    
+    auto nonlinearFactory = std::make_unique<FactoryNonLinearModel>();
+    auto nonlinearModel = nonlinearFactory->createModel();
+    auto nonlinearResults = nonlinearModel->simulate(INITIAL_TEMPERATURE, HEAT_INPUT, SIMULATION_STEPS);
+    
+    for (size_t i = 0; i < nonlinearResults.size(); ++i) 
     {
-        std::cout << value << std::endl;
+        std::cout << "t=" << i << ": " << std::fixed << std::setprecision(4) 
+                  << nonlinearResults[i] << std::endl;
     }
 
     return 0;

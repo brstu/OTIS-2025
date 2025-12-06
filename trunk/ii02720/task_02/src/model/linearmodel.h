@@ -6,25 +6,27 @@
 class LinearModel : public ISimulatedModel
 {
 public:
-    LinearModel(const double a, const double b)
-        : m_a(a), m_b(b) 
+    LinearModel(const double coeffA, const double coeffB)
+        : m_coeffA(coeffA), m_coeffB(coeffB) 
     {}
+    
     ~LinearModel() override = default;
 
-    std::vector<double> simulate(double y, const double u, int t) const override
+    std::vector<double> simulate(double temp, const double heat, int steps) const override
     {   
-        std::vector<double> results;
-        for(int i = 0; i <= t; i++)
+        std::vector<double> temperatureHistory;
+        temperatureHistory.reserve(steps + 1);
+        
+        for(int step = 0; step <= steps; step++)
         {
-            results.push_back(y);
-            y = m_a * y + m_b * u;
-        } 
-        return results;
+            temperatureHistory.push_back(temp);
+            temp = m_coeffA * temp + m_coeffB * heat;
+        }
+        
+        return temperatureHistory;
     }
     
 private:
-    const double m_a; // Coefficient for previous output (y)
-    const double m_b; // Coefficient for input (u)
-
+    const double m_coeffA;
+    const double m_coeffB;
 };
-

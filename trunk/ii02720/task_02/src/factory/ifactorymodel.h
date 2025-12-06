@@ -6,8 +6,6 @@
 class IFactoryModel
 {
 public:
-    virtual std::unique_ptr<ISimulatedModel> getModel() const = 0;
+    virtual std::unique_ptr<ISimulatedModel> createModel() const = 0;
     virtual ~IFactoryModel() = default;
-
 };
-
