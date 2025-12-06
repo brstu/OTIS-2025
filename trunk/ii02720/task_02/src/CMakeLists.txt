@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.5)
+cmake_minimum_required(VERSION 3.14)
 project(task_02_ii02720_src)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -15,5 +15,4 @@ set(PROJECT_SOURCES
     factory/factorynonlinearmodel.h
 )
 
-add_executable(${CMAKE_PROJECT_NAME} ${PROJECT_SOURCES})
-
+add_executable(task_02_ii02720 ${PROJECT_SOURCES})
