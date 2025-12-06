@@ -3,24 +3,24 @@
 
 #include <vector>
 
-const int MAXIMUM_STEPS = 101;
+constexpr int MAXIMUM_STEPS = 101;
 
 void calculate_linear_model(
-    int total_steps,
-    double coefficient_a,
-    double coefficient_b,
-    const std::vector<double>& input_signal,
-    std::vector<double>& linear_result
+        int nSteps,
+        double aCoef,
+        double bCoef,
+        const std::vector<double>& u,
+        std::vector<double>& y
 );
 
 void calculate_nonlinear_model(
-    int iteration_count,
-    double alpha,
-    double beta,
-    double gamma,
-    double delta,
-    const std::vector<double>& control_input,
-    std::vector<double>& nonlinear_result
+        int numberOfSteps,
+        double a,
+        double b,
+        double c,
+        double d,
+        const std::vector<double>& u,
+        std::vector<double>& y
 );
 
 #endif
