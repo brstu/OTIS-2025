@@ -22,7 +22,7 @@ PID::PID() {
 	To = 12;
 	T = 11;
 	a = 0.82;
-	b = 0.02;
+	b = 0.2;
 }
 void PID::linear(int place) {
 	PID::calcul_U(place);
@@ -69,14 +69,14 @@ void PID::calcul_PID(int place) {
 	int t = place;
 	double regVal = 20;
 	PID::calcul_q0_q1_q2();
-	for (int i = t; i < 500; i++) {
+	for (int i = t; i < 100; i++) {
 		linear(i);
 		if (y[i] > w) {
-			RegQs(regVal);
-			RegCoefs(2);
+			
+			RegCoefs(10);
 		}
 		cout << "*******************" << endl;
-		cout << "Итерация: " << i << endl;
+		cout << "Итерация: " << i+1 << endl;
 		cout << "Температура сейчас: " << y[i] << endl;
 		cout << "Ошибка равна: " << e[i] << endl;
 		if (y[i] >= maxTemp) {
@@ -85,16 +85,9 @@ void PID::calcul_PID(int place) {
 		}
 	}
 }
-void PID::RegQs(double val) {
-	q0 /= val;
-	q1 /= val;
-	q2 /= val;
-	a /= val;
-	b /= val;
-}
 void PID::RegCoefs(double val) {
 	a /= val;
-	b /= val;
+	b /= 1.3;
 }
 void PID::GetQs(double& val1, double& val2, double& val3) {
 	val1 = q0;

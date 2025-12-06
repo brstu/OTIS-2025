@@ -30,7 +30,6 @@ public:
 	void calcul_q0_q1_q2();
 	void calcul_e(int place);
 	void calcul_PID(int place);
-	void RegQs(double val);
 	void RegCoefs(double val);
 	void GetQs(double &val1,double &val2,double &val3);
 };
