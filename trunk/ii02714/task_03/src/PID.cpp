@@ -10,11 +10,11 @@ PID::PID() {
 	u.resize(10000, 0);
 	y.resize(10000, 0);
 	e.resize(10000, 0);
-	cout << "Введите стартовое значение температуры " << endl;
+	cout << "Введите стартовое значение температуры " << std::endl;
 	cin >> y[0];
-	cout << "Введите максимальное значение температуры " << endl;
+	cout << "Введите максимальное значение температуры " << std::endl;
 	cin >> maxTemp;
-	cout << "Введите желаемое значение температуры " << endl;
+	cout << "Введите желаемое значение температуры " << std::endl;
 	cin >> w;
 }
 void PID::linear(int place) {
@@ -73,12 +73,12 @@ void PID::calcul_PID(int place) {
 			
 			RegCoefs(10);
 		}
-		cout << "*******************" << endl;
-		cout << "Итерация: " << i+1 << endl;
-		cout << "Температура сейчас: " << y[i] << endl;
-		cout << "Ошибка равна: " << e[i] << endl;
+		cout << "*******************" << std::endl;
+		cout << "Итерация: " << i+1 << std::endl;
+		cout << "Температура сейчас: " << y[i] << std::endl;
+		cout << "Ошибка равна: " << e[i] << std::endl;
 		if (y[i] >= maxTemp) {
-			cout << "Достигнут максимум! " << y[i] << endl;
+			cout << "Достигнут максимум! " << y[i] << std::endl;
 			break;
 		}
 	}
