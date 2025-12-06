@@ -18,7 +18,6 @@ enable_testing()
 add_executable(
   otis3_test
   test.cpp
-  ../src/linear.cpp
   ../src/PID.cpp
 )
 
