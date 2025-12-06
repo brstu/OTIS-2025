@@ -1,79 +1,75 @@
 #include <iostream>
-#include <cmath>
+#include <math.h>
 
-struct LinearModelParams
-{
-    double a; // Coefficient for previous output (y)
-    double b; // Coefficient for input (u)
-};
-struct NonLinearModelParams
-{
-    double yOffset;      // Initial offset for previous output value (prevY = y - yOffset)
-    double uOffset;      // Initial offset for previous input value (prevU = u - uOffset)
-    double a;            // Linear coefficient for current output (y)
-    double b;            // Nonlinear coefficient for squared previous output (prevY²)
-    double c;            // Linear coefficient for input (u)
-    double d;            // Nonlinear coefficient for sinusoidal input term
-    double u_step;       // Step size for input signal increment
-};
-
-void simulateLinear(double y, double u, int t, const LinearModelParams& params)
-{
-    for (int i = 0; i <= t; i++)
-    {
-        y = params.a * y + params.b * u;
-        std::cout << i << ' ' << y << '\n';
-    }
-}
-void simulateNonLinear(double y, double u, int t, const NonLinearModelParams& params)
-{
-    double prevY = y - params.yOffset; // calculate prevY to differentiate it from the initial y
-    double prevU = u - params.uOffset; // calculate prevU to differentiate it from the initial u
-    for (int i = 0; i <= t; i++)
-    {
-        double nextY = params.a * y - params.b * prevY * prevY + params.c * u + params.d * std::sin(prevU);
-        prevU += params.u_step;
-        prevY = y;
-        y = nextY;
-        std::cout << i << ' ' << y << '\n';
-    }
-}
-
-LinearModelParams createLinearModel()
-{
-    LinearModelParams params;
-    params.a = 0.5;
-    params.b = 0.3;
-    return params;
-}
-NonLinearModelParams createNonLinearModel()
-{
-    NonLinearModelParams params;
-    params.yOffset = 0.2;
-    params.uOffset = 1;
-    params.a = 0.6;
-    params.b = 0.4;
-    params.c = 0.5;
-    params.d = 0.3;
-    params.u_step = 0.35;
-    return params;
-}
+using namespace std;
 
 int main()
 {
-    const double y = 1.0; // Initial output value
-    const double u = 0.8; // Input signal value
-    const int t = 15;     // Number of iterations
 
-    std::cout << "Linear simulation:\n";
-    LinearModelParams linearParams = createLinearModel();
-    simulateLinear(y, u, t, linearParams);
-    std::cout << '\n';
+    double current_temp;
+    double previous_temp;
+    double next_temp;
+    double current_heat;
+    double previous_heat;
+    double param_a;
+    double param_b;
+    double param_c;
+    double param_d;
+    int steps_count;
 
-    std::cout << "Nonlinear simulation:\n";
-    NonLinearModelParams nonLinearParams = createNonLinearModel();
-    simulateNonLinear(y, u, t, nonLinearParams);
-    std::cout << '\n';
 
+    cout << "Input initial temperature and heat (separated by space): ";
+    cin >> current_temp >> current_heat;
+
+    cout << "Input coefficients a, b, c, d: ";
+    cin >> param_a >> param_b >> param_c >> param_d;
+
+    cout << "Input simulation steps count: ";
+    cin >> steps_count;
+
+
+    double initial_temp = current_temp;
+
+    cout << "\n--- LINEAR TEMPERATURE MODEL ---" << endl;
+    cout << "Formula: T_next = a * T_current + b * U_current" << endl;
+
+
+    for (int step = 1; step <= steps_count; step++)
+    {
+        current_temp = param_a * current_temp + param_b * current_heat;
+        cout << "Step " << step << " - Temperature: " << current_temp << endl;
+    }
+
+
+    current_temp = initial_temp;
+    previous_temp = 0.0;
+    previous_heat = current_heat;
+
+    cout << "\n--- NON-LINEAR TEMPERATURE MODEL ---" << endl;
+    cout << "Formula: T_next = a*T - b*T_prev² + c*U + d*sin(U_prev)" << endl;
+
+    for (int step = 1; step <= steps_count; step++)
+    {
+
+        next_temp = param_a * current_temp -
+                   param_b * previous_temp * previous_temp +
+                   param_c * current_heat +
+                   param_d * sin(previous_heat);
+
+
+        previous_temp = current_temp;
+        current_temp = next_temp;
+
+        cout << "Step " << step << " - Temperature: " << current_temp << endl;
+
+        previous_heat = current_heat;
+
+        if (step < steps_count) {
+            cout << "Provide heat input for step " << step + 1 << ": ";
+            cin >> current_heat;
+        }
+    }
+
+    cout << "\nSimulation completed!" << endl;
     return 0;
 }
