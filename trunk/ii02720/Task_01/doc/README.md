@@ -10,9 +10,9 @@
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
 <p align="right">Группы ИИ-27</p>
-<p align="right">Хотенко В.В.</p>
+<p align="right">Степанюк И.С.</p>
 <p align="right">Проверил:</p>
-<p align="right">Дворанинович Д.А.</p>
+<p align="right">Иванюк Д.С.</p>
 <br><br><br><br><br>
 <p align="center">Брест 2025</p>
 
@@ -40,104 +40,81 @@ Task is to write program (**С++**), which simulates this object temperature.
 
 
 ## Код программы:
-```C++
+C++
 #include <iostream>
 #include <cmath>
 
-struct LinearModelParams 
-{
-    double a; // Coefficient for previous output (y)
-    double b; // Coefficient for input (u)
-};
-struct NonLinearModelParams 
-{
-	double yOffset;      // Initial offset for previous output value (prevY = y - yOffset)
-	double uOffset;      // Initial offset for previous input value (prevU = u - uOffset)
-    double a;            // Linear coefficient for current output (y)
-    double b;            // Nonlinear coefficient for squared previous output (prevY²)
-    double c;            // Linear coefficient for input (u)
-    double d;            // Nonlinear coefficient for sinusoidal input term
-    double u_step;       // Step size for input signal increment
-};
+using namespace std;
 
-void simulateLinear(double y, double u, int t, const LinearModelParams& params) 
-{
-    for (int i = 0; i <= t; i++) 
-	{
-        std::cout << i << ' ' << y << '\n';
-        y = params.a * y + params.b * u;
+class TemperatureModel {
+private:
+    double a, b, c, d;
+    double y_prev, y_prev2, u_prev;
+
+public:
+    TemperatureModel(double a_val, double b_val, double c_val, double d_val, double Y0) {
+        a = a_val;
+        b = b_val;
+        c = c_val;
+        d = d_val;
+        y_prev = Y0;
+        y_prev2 = Y0;
+        u_prev = 0;
     }
-}
-void simulateNonLinear(double y, double u, int t, const NonLinearModelParams& params) 
-{
-    double prevY = y - params.yOffset; // calculate prevY to differentiate it from the initial y
-    double prevU = u - params.uOffset; // calculate prevU to differentiate it from the initial u
-    for (int i = 0; i <= t; i++) 
-	{
-        std::cout << i << ' ' << y << '\n';
-        double nextY = params.a * y - params.b * prevY * prevY + params.c * u + params.d * std::sin(prevU);
-        prevU += params.u_step;
-        prevY = y;
-        y = nextY;
+
+    double linear_step(double u) {
+        double y = a * y_prev + b * u;
+        y_prev = y;
+        return y;
     }
-}
 
-LinearModelParams createLinearModel()
-{
-	LinearModelParams params;
-	params.a = 0.5;
-	params.b = 0.3;
-    return params;
-}
-NonLinearModelParams createNonLinearModel() 
-{
-	NonLinearModelParams params;
-	params.yOffset = 0.2;  
-    params.uOffset = 1;      
-	params.a = 0.6;
-	params.b = 0.4;
-	params.c = 0.5;
-	params.d = 0.3;
-	params.u_step = 0.35;
-    return params;
-}
+    double nonlinear_step(double u) {
+        double y = a * y_prev - b * y_prev2 * y_prev2 + c * u + d * sin(u_prev);
+        y_prev2 = y_prev;
+        y_prev = y;
+        u_prev = u;
+        return y;
+    }
+};
 
-int main() 
-{
-    const double y = 1.0; // Initial output value
-    const double u = 0.8; // Input signal value
-    const int t = 15;     // Simulation time steps
-
-    std::cout << "Linear simulation:\n";
-    LinearModelParams linearParams = createLinearModel();
-    simulateLinear(y, u, t, linearParams);
-    std::cout << '\n';
-
-    std::cout << "Nonlinear simulation:\n";
-    NonLinearModelParams nonLinearParams = createNonLinearModel();
-    simulateNonLinear(y, u, t, nonLinearParams);
-    std::cout << '\n';
-
+int main() {
+    double a = 0.8;
+    double b_linear = 0.3;
+    double b_nonlinear = 0.01;
+    double c = 0.4;
+    double d = 0.1;
+    double Y0 = 20.0;
+    
+    double u[] = {2.0, 3.0, 4.0, 5.0, 4.0, 3.0, 2.0, 1.0, 0.5, 0.0};
+    int n = 10;
+    
+    TemperatureModel linear_model(a, b_linear, 0, 0, Y0);
+    TemperatureModel nonlinear_model(a, b_nonlinear, c, d, Y0);
+    
+    cout << "Time\tLinear\tNonlinear" << endl;
+    
+    for (int tau = 0; tau < n; tau++) {
+        double y_linear = linear_model.linear_step(u[tau]);
+        double y_nonlinear = nonlinear_model.nonlinear_step(u[tau]);
+        
+        cout << tau << "\t" << y_linear << "\t" << y_nonlinear << endl;
+    }
+    
     return 0;
 }
-```
 
-## Результат программы:
-Вывод линейной симуляции:
-<br>
-![Вывод линейной симуляции:](output_linear_simulation.png)
-<br>
-Вывод нелинейной симуляции:
-<br>
-![Вывод нелинейной симуляции:](output_nonlinear_simulation.png)
+## Вывод программы:
+<br> 
+![Output:](Output.jpg)
 
-## Reviews
-zprtall
-<br>
-![Review for zprtall:](zprtall.jpg)
-<br>
-fedotovd778
-<br>
-![Review for fedotovd778:](fedotovd778.jpg)
 
+## Reviews:
+<br>
+Ревью1:
+<br>
+![Review1:](review1.jpg)
+<br>
+Ревью2:
+<br>
+![Review2:](review2.jpg)
 
