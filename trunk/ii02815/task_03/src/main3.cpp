@@ -38,10 +38,10 @@ int main() {
     cin >> steps;
 
     // Параметры PID-регулятора
-    double K  = 0.5;  /**< Усиление */
+    double K  = 0.08;  /**< Усиление */
     double T  = 4.0;  /**< Время интегрирования */
-    double Td = 0.3;  /**< Время дифференцирования */
-    double T0 = 1.4;  /**< Шаг дискретизации */
+    double Td = 1.5;  /**< Время дифференцирования */
+    double T0 = 1.0;  /**< Шаг дискретизации */
 
     cout << "\n=== LINEAR MODEL SIMULATION ===" << endl;
     PID pid_linear(K, T, Td, T0);
