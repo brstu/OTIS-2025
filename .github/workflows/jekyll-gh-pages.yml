@@ -3,11 +3,7 @@ name: Deploy Jekyll with GitHub Pages dependencies
 on:
 
   push:
-<<<<<<< HEAD
     branches: ["task_03"]
-=======
-    branches: ["task03"]
->>>>>>> origin/task_04
 
   workflow_dispatch:
 
@@ -31,11 +27,7 @@ jobs:
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-<<<<<<< HEAD
           source: ./trunk/ii02810/task_03/doc/pages
-=======
-          source: ./trunk/ii02810/task_03/doc/pages/index.md
->>>>>>> origin/task_04
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -49,8 +41,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-<<<<<<< HEAD
         uses: actions/deploy-pages@v4
-=======
-        uses: actions/deploy-pages@v4
->>>>>>> origin/task_04
