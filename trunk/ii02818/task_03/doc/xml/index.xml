@@ -28,7 +28,6 @@
     <member refid="class_p_i_d_1af5539d613fcb09081d26ede79d6ecae6" kind="variable"><name>e_prev2</name></member>
     <member refid="class_p_i_d_1ab7d24c057c566a8128a654f933c2610f" kind="variable"><name>u_prev</name></member>
     <member refid="class_p_i_d_1a7792de52992d0c0362f12df93a7abb28" kind="variable"><name>integral</name></member>
-    <member refid="class_p_i_d_1a73a2985efee5b4236e09e328fde65ef8" kind="variable"><name>d_filter_alpha</name></member>
     <member refid="class_p_i_d_1ad791467d0c467a655dd42baffbd209a9" kind="variable"><name>d_prev</name></member>
     <member refid="class_p_i_d_1a17795e8c074bdb9c7952d093571ba6d6" kind="function"><name>PID</name></member>
     <member refid="class_p_i_d_1a95bd8270c27ddf8cb98a85b68a16211a" kind="function"><name>calculate</name></member>
