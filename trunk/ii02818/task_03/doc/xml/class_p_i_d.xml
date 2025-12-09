@@ -1,0 +1,325 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_p_i_d" kind="class" language="C++" prot="public">
+    <compoundname>PID</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_p_i_d_1a0b7cf5ad8d3913f6dc570d0917fa1fd3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::K</definition>
+        <argsstring></argsstring>
+        <name>K</name>
+        <qualifiedname>PID::K</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="8" column="12" bodyfile="src/pid.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a7cd57cae8a9e785849b6af11f699afab" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::Ti</definition>
+        <argsstring></argsstring>
+        <name>Ti</name>
+        <qualifiedname>PID::Ti</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="9" column="12" bodyfile="src/pid.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a6d3306e34c941e0a0858c7d9844ad34a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::Td</definition>
+        <argsstring></argsstring>
+        <name>Td</name>
+        <qualifiedname>PID::Td</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="10" column="12" bodyfile="src/pid.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1af69630823959fdbc57637cbc7e69c9c7" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::T0</definition>
+        <argsstring></argsstring>
+        <name>T0</name>
+        <qualifiedname>PID::T0</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="11" column="12" bodyfile="src/pid.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1ac6f4a7e29f84d9eb60e7f672a3665a65" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q0</definition>
+        <argsstring></argsstring>
+        <name>q0</name>
+        <qualifiedname>PID::q0</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="13" column="12" bodyfile="src/pid.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a84c6ee207e6449ee6082094f697f701a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q1</definition>
+        <argsstring></argsstring>
+        <name>q1</name>
+        <qualifiedname>PID::q1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="14" column="12" bodyfile="src/pid.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1addf8b9728e070dc19ddbc5e80b44c550" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q2</definition>
+        <argsstring></argsstring>
+        <name>q2</name>
+        <qualifiedname>PID::q2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="15" column="12" bodyfile="src/pid.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a9e9287696502b7183b65e52cfe165848" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::e_prev1</definition>
+        <argsstring></argsstring>
+        <name>e_prev1</name>
+        <qualifiedname>PID::e_prev1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="17" column="12" bodyfile="src/pid.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1af5539d613fcb09081d26ede79d6ecae6" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::e_prev2</definition>
+        <argsstring></argsstring>
+        <name>e_prev2</name>
+        <qualifiedname>PID::e_prev2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="18" column="12" bodyfile="src/pid.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1ab7d24c057c566a8128a654f933c2610f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::u_prev</definition>
+        <argsstring></argsstring>
+        <name>u_prev</name>
+        <qualifiedname>PID::u_prev</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="19" column="12" bodyfile="src/pid.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a7792de52992d0c0362f12df93a7abb28" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::integral</definition>
+        <argsstring></argsstring>
+        <name>integral</name>
+        <qualifiedname>PID::integral</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="21" column="12" bodyfile="src/pid.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a73a2985efee5b4236e09e328fde65ef8" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::d_filter_alpha</definition>
+        <argsstring></argsstring>
+        <name>d_filter_alpha</name>
+        <qualifiedname>PID::d_filter_alpha</qualifiedname>
+        <initializer>= 0.7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="22" column="12" bodyfile="src/pid.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1ad791467d0c467a655dd42baffbd209a9" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::d_prev</definition>
+        <argsstring></argsstring>
+        <name>d_prev</name>
+        <qualifiedname>PID::d_prev</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="23" column="12" bodyfile="src/pid.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_p_i_d_1a17795e8c074bdb9c7952d093571ba6d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PID::PID</definition>
+        <argsstring>(double K, double Ti, double Td, double T0=1.0)</argsstring>
+        <name>PID</name>
+        <qualifiedname>PID::PID</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>K</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Ti</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Td</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>T0</declname>
+          <defval>1.0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="26" column="5" bodyfile="src/pid.cpp" bodystart="6" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1a95bd8270c27ddf8cb98a85b68a16211a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PID::calculate</definition>
+        <argsstring>(double setpoint, double current_value)</argsstring>
+        <name>calculate</name>
+        <qualifiedname>PID::calculate</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>setpoint</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>current_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="28" column="12" bodyfile="src/pid.cpp" bodystart="9" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1af9677e76cb1beffbcf3f54cbc627c530" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PID::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>PID::reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="30" column="10" bodyfile="src/pid.cpp" bodystart="47" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1a05cc28e1b9efe654681fa29eec5e0663" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; PID::getCoefficients</definition>
+        <argsstring>() const</argsstring>
+        <name>getCoefficients</name>
+        <qualifiedname>PID::getCoefficients</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="32" column="17" bodyfile="src/pid.cpp" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1af1e9df26131257a81b224f0e766dcb34" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PID::getParameters</definition>
+        <argsstring>(double &amp;K_param, double &amp;Ti_param, double &amp;Td_param) const</argsstring>
+        <name>getParameters</name>
+        <qualifiedname>PID::getParameters</qualifiedname>
+        <param>
+          <type>double &amp;</type>
+          <declname>K_param</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>Ti_param</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>Td_param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="34" column="10" bodyfile="src/pid.cpp" bodystart="61" bodyend="66"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/pid.h" line="6" column="1" bodyfile="src/pid.h" bodystart="6" bodyend="35"/>
+    <listofallmembers>
+      <member refid="class_p_i_d_1a95bd8270c27ddf8cb98a85b68a16211a" prot="public" virt="non-virtual"><scope>PID</scope><name>calculate</name></member>
+      <member refid="class_p_i_d_1a73a2985efee5b4236e09e328fde65ef8" prot="private" virt="non-virtual"><scope>PID</scope><name>d_filter_alpha</name></member>
+      <member refid="class_p_i_d_1ad791467d0c467a655dd42baffbd209a9" prot="private" virt="non-virtual"><scope>PID</scope><name>d_prev</name></member>
+      <member refid="class_p_i_d_1a9e9287696502b7183b65e52cfe165848" prot="private" virt="non-virtual"><scope>PID</scope><name>e_prev1</name></member>
+      <member refid="class_p_i_d_1af5539d613fcb09081d26ede79d6ecae6" prot="private" virt="non-virtual"><scope>PID</scope><name>e_prev2</name></member>
+      <member refid="class_p_i_d_1a05cc28e1b9efe654681fa29eec5e0663" prot="public" virt="non-virtual"><scope>PID</scope><name>getCoefficients</name></member>
+      <member refid="class_p_i_d_1af1e9df26131257a81b224f0e766dcb34" prot="public" virt="non-virtual"><scope>PID</scope><name>getParameters</name></member>
+      <member refid="class_p_i_d_1a7792de52992d0c0362f12df93a7abb28" prot="private" virt="non-virtual"><scope>PID</scope><name>integral</name></member>
+      <member refid="class_p_i_d_1a0b7cf5ad8d3913f6dc570d0917fa1fd3" prot="private" virt="non-virtual"><scope>PID</scope><name>K</name></member>
+      <member refid="class_p_i_d_1a17795e8c074bdb9c7952d093571ba6d6" prot="public" virt="non-virtual"><scope>PID</scope><name>PID</name></member>
+      <member refid="class_p_i_d_1ac6f4a7e29f84d9eb60e7f672a3665a65" prot="private" virt="non-virtual"><scope>PID</scope><name>q0</name></member>
+      <member refid="class_p_i_d_1a84c6ee207e6449ee6082094f697f701a" prot="private" virt="non-virtual"><scope>PID</scope><name>q1</name></member>
+      <member refid="class_p_i_d_1addf8b9728e070dc19ddbc5e80b44c550" prot="private" virt="non-virtual"><scope>PID</scope><name>q2</name></member>
+      <member refid="class_p_i_d_1af9677e76cb1beffbcf3f54cbc627c530" prot="public" virt="non-virtual"><scope>PID</scope><name>reset</name></member>
+      <member refid="class_p_i_d_1af69630823959fdbc57637cbc7e69c9c7" prot="private" virt="non-virtual"><scope>PID</scope><name>T0</name></member>
+      <member refid="class_p_i_d_1a6d3306e34c941e0a0858c7d9844ad34a" prot="private" virt="non-virtual"><scope>PID</scope><name>Td</name></member>
+      <member refid="class_p_i_d_1a7cd57cae8a9e785849b6af11f699afab" prot="private" virt="non-virtual"><scope>PID</scope><name>Ti</name></member>
+      <member refid="class_p_i_d_1ab7d24c057c566a8128a654f933c2610f" prot="private" virt="non-virtual"><scope>PID</scope><name>u_prev</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
