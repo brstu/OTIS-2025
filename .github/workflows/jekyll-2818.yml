@@ -32,7 +32,11 @@ jobs:
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
+<<<<<<< HEAD
           source: ./trunk/ii02818/task_03/doc/html
+=======
+          source: OTIS-2025/trunk/ii02818/task_03/doc/html
+>>>>>>> origin/main
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -47,4 +51,8 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
+<<<<<<< HEAD
         uses: actions/deploy-pages@v4
+=======
+        uses: actions/deploy-pages@v4
+>>>>>>> origin/main
