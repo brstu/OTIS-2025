@@ -4,9 +4,7 @@
 #include <cmath>
 
 PID::PID(double K_val, double Ti_val, double Td_val, double T0_val)
-    : K(K_val), Ti(Ti_val), Td(Td_val), T0(T0_val),
-      e_prev1(0), e_prev2(0), u_prev(0),
-      integral(0), d_prev(0) {
+    : K(K_val), Ti(Ti_val), Td(Td_val), T0(T0_val) {
     
     if (T0 <= 0) T0 = 1.0;
     if (Ti <= 0) Ti = 1.0;

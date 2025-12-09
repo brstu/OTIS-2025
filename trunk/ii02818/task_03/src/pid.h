@@ -14,13 +14,12 @@ private:
     double q1;
     double q2;
 
-    double e_prev1;
-    double e_prev2;
-    double u_prev;
+    double e_prev1 = 0.0;
+    double e_prev2 = 0.0;
+    double u_prev = 0.0;
 
-    double integral;
-    double d_filter_alpha = 0.7;
-    double d_prev;
+    double integral = 0.0;
+    double d_prev = 0.0;
 
 public:
     PID(double K, double Ti, double Td, double T0 = 1.0);
