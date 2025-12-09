@@ -22,29 +22,31 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_library(pid_lib
+add_library(pid_lib_ii02818   # Изменено имя
     pid.cpp
     model.cpp
 )
 
-target_include_directories(pid_lib
+target_include_directories(pid_lib_ii02818  # Изменено имя
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-add_executable(pid_simulation
+
+add_executable(pid_simulation_ii02818   # Изменено имя (опционально)
     main.cpp
 )
 
-target_link_libraries(pid_simulation pid_lib)
+target_link_libraries(pid_simulation_ii02818 pid_lib_ii02818)  # Изменено имя
 
-add_executable(pid_tests
+
+add_executable(pid_tests_ii02818   # Изменено имя
     ../test/test.cpp
 )
 
-target_link_libraries(pid_tests
-    pid_lib
+target_link_libraries(pid_tests_ii02818  # Изменено имя
+    pid_lib_ii02818  # Изменено имя
     gtest
     gtest_main
 )
 
-add_test(NAME PID_TESTS COMMAND pid_tests)
+add_test(NAME PID_TESTS_II02818 COMMAND pid_tests_ii02818)  # Изменено имя
