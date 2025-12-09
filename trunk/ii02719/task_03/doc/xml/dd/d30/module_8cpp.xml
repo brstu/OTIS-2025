@@ -6,18 +6,23 @@
     <includes local="no">cmath</includes>
     <incdepgraph>
       <node id="1">
-        <label>C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src/module.cpp</label>
+        <label>C:/papka_for_git/OTIS-2025/trunk/ii02719/task_03/src/module.cpp</label>
         <link refid="dd/d30/module_8cpp"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="2">
         <label>module.h</label>
         <link refid="d5/d16/module_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
       </node>
       <node id="3">
+        <label>array</label>
+      </node>
+      <node id="4">
         <label>cmath</label>
       </node>
     </incdepgraph>
@@ -121,40 +126,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src/module.cpp" line="14" column="6" bodyfile="C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src/module.cpp" bodystart="14" bodyend="19"/>
+        <location file="C:/papka_for_git/OTIS-2025/trunk/ii02719/task_03/src/module.cpp" line="14" column="6" bodyfile="C:/papka_for_git/OTIS-2025/trunk/ii02719/task_03/src/module.cpp" bodystart="14" bodyend="19"/>
       </memberdef>
-      <memberdef kind="function" id="dd/d30/module_8cpp_1aa336525d89504651f4937c7bea4bc6e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="dd/d30/module_8cpp_1a25dd5396e96a7e20add9f351b762cbc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
         <definition>double calculateControl</definition>
-        <argsstring>(double q0, double q1, double q2, double e_k, double e_prev, double e_prev2, double u_prev)</argsstring>
+        <argsstring>(const ControlParams &amp;params)</argsstring>
         <name>calculateControl</name>
         <param>
-          <type>double</type>
-          <declname>q0</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>q1</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>q2</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>e_k</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>e_prev</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>e_prev2</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>u_prev</declname>
+          <type>const <ref refid="d2/d20/struct_control_params" kindref="compound">ControlParams</ref> &amp;</type>
+          <declname>params</declname>
         </param>
         <briefdescription>
 <para>Расчет управляющего воздействия ПИД-регулятором </para>
@@ -162,58 +143,10 @@
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>q0</parametername>
+<parametername>params</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Коэффициент q0 ПИД-регулятора </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>q1</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Коэффициент q1 ПИД-регулятора </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>q2</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Коэффициент q2 ПИД-регулятора </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>e_k</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Текущая ошибка регулирования </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>e_prev</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Ошибка на предыдущем шаге </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>e_prev2</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Ошибка на предпредыдущем шаге </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>u_prev</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Управление на предыдущем шаге </para>
+<para>Структура с параметрами управления </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -223,7 +156,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src/module.cpp" line="24" column="8" bodyfile="C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src/module.cpp" bodystart="24" bodyend="30"/>
+        <location file="C:/papka_for_git/OTIS-2025/trunk/ii02719/task_03/src/module.cpp" line="24" column="8" bodyfile="C:/papka_for_git/OTIS-2025/trunk/ii02719/task_03/src/module.cpp" bodystart="24" bodyend="28"/>
       </memberdef>
       <memberdef kind="function" id="dd/d30/module_8cpp_1a622fee89f0094b54cbc31cbc3de3e4d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -253,44 +186,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src/module.cpp" line="35" column="8" bodyfile="C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src/module.cpp" bodystart="35" bodyend="39"/>
+        <location file="C:/papka_for_git/OTIS-2025/trunk/ii02719/task_03/src/module.cpp" line="33" column="8" bodyfile="C:/papka_for_git/OTIS-2025/trunk/ii02719/task_03/src/module.cpp" bodystart="33" bodyend="37"/>
       </memberdef>
-      <memberdef kind="function" id="dd/d30/module_8cpp_1a482f7cd33d4a0e6f21a4643b11d1a920" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="dd/d30/module_8cpp_1a460df141e98805c675c3147587b703fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
         <definition>double calculateNonlinearModel</definition>
-        <argsstring>(double a, double b, double c, double d, double y1, double y0, double u1, double u0)</argsstring>
+        <argsstring>(const ModelParams &amp;params)</argsstring>
         <name>calculateNonlinearModel</name>
         <param>
-          <type>double</type>
-          <declname>a</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>b</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>c</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>d</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>y1</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>y0</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>u1</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>u0</declname>
+          <type>const <ref refid="d7/d21/struct_model_params" kindref="compound">ModelParams</ref> &amp;</type>
+          <declname>params</declname>
         </param>
         <briefdescription>
 <para>Расчет нелинейной модели объекта управления </para>
@@ -298,66 +203,10 @@
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>a</parametername>
+<parametername>params</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Коэффициент a нелинейной модели </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>b</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Коэффициент b нелинейной модели </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>c</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Коэффициент c нелинейной модели </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>d</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Коэффициент d нелинейной модели </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>y1</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Выход объекта на предыдущем шаге (y(k-1)) </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>y0</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Выход объекта на предпредыдущем шаге (y(k-2)) </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>u1</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Управление на предыдущем шаге (u(k-1)) </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>u0</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Управление на предпредыдущем шаге (u(k-2)) </para>
+<para>Структура с параметрами модели </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -367,7 +216,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src/module.cpp" line="44" column="8" bodyfile="C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src/module.cpp" bodystart="44" bodyend="48"/>
+        <location file="C:/papka_for_git/OTIS-2025/trunk/ii02719/task_03/src/module.cpp" line="42" column="8" bodyfile="C:/papka_for_git/OTIS-2025/trunk/ii02719/task_03/src/module.cpp" bodystart="42" bodyend="45"/>
       </memberdef>
       <memberdef kind="function" id="dd/d30/module_8cpp_1a7caa32bcc053d05f8ad42258bedd8f5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -397,7 +246,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src/module.cpp" line="53" column="8" bodyfile="C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src/module.cpp" bodystart="53" bodyend="56"/>
+        <location file="C:/papka_for_git/OTIS-2025/trunk/ii02719/task_03/src/module.cpp" line="50" column="8" bodyfile="C:/papka_for_git/OTIS-2025/trunk/ii02719/task_03/src/module.cpp" bodystart="50" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="dd/d30/module_8cpp_1a2f38e8c4bcbfe94e4a9b5a4314e12554" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -439,38 +288,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src/module.cpp" line="61" column="8" bodyfile="C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src/module.cpp" bodystart="61" bodyend="63"/>
+        <location file="C:/papka_for_git/OTIS-2025/trunk/ii02719/task_03/src/module.cpp" line="58" column="8" bodyfile="C:/papka_for_git/OTIS-2025/trunk/ii02719/task_03/src/module.cpp" bodystart="58" bodyend="60"/>
       </memberdef>
-      <memberdef kind="function" id="dd/d30/module_8cpp_1a05e0bf3acaa4bb76c8a7ff6728d7ae92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="dd/d30/module_8cpp_1a36a910d9807c25459dbcbf3db68b721f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void updateStateVariables</definition>
-        <argsstring>(double y[], double u[], double &amp;e_prev, double &amp;e_prev2, double &amp;u_prev, double e_k)</argsstring>
+        <argsstring>(StateVariables &amp;state)</argsstring>
         <name>updateStateVariables</name>
         <param>
-          <type>double</type>
-          <declname>y</declname>
-          <array>[]</array>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>u</declname>
-          <array>[]</array>
-        </param>
-        <param>
-          <type>double &amp;</type>
-          <declname>e_prev</declname>
-        </param>
-        <param>
-          <type>double &amp;</type>
-          <declname>e_prev2</declname>
-        </param>
-        <param>
-          <type>double &amp;</type>
-          <declname>u_prev</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>e_k</declname>
+          <type><ref refid="da/d61/struct_state_variables" kindref="compound">StateVariables</ref> &amp;</type>
+          <declname>state</declname>
         </param>
         <briefdescription>
 <para>Обновление переменных состояния для следующей итерации </para>
@@ -478,50 +305,10 @@
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername direction="inout">y</parametername>
+<parametername direction="inout">state</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Массив выходных значений объекта </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername direction="inout">u</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Массив управляющих воздействий </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername direction="inout">e_prev</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Предыдущая ошибка регулирования </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername direction="inout">e_prev2</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Предпредыдущая ошибка регулирования </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername direction="inout">u_prev</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Предыдущее управляющее воздействие </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>e_k</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Текущая ошибка регулирования</para>
+<para>Структура с переменными состояния</para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -529,7 +316,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src/module.cpp" line="68" column="6" bodyfile="C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src/module.cpp" bodystart="68" bodyend="83"/>
+        <location file="C:/papka_for_git/OTIS-2025/trunk/ii02719/task_03/src/module.cpp" line="65" column="6" bodyfile="C:/papka_for_git/OTIS-2025/trunk/ii02719/task_03/src/module.cpp" bodystart="65" bodyend="77"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -555,52 +342,46 @@
 <codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>q2<sp/>=<sp/>K<sp/>*<sp/>Td<sp/>/<sp/>T0;</highlight></codeline>
 <codeline lineno="19"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="dd/d30/module_8cpp_1aa336525d89504651f4937c7bea4bc6e0" kindref="member">calculateControl</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q0,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q1,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q2,</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e_k,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e_prev,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e_prev2,<sp/></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_prev)<sp/>{</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>delta_u<sp/>=<sp/>q0<sp/>*<sp/>e_k<sp/>+<sp/>q1<sp/>*<sp/>e_prev<sp/>+<sp/>q2<sp/>*<sp/>e_prev2;</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_k<sp/>=<sp/>u_prev<sp/>+<sp/>delta_u;</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d30/module_8cpp_1a622fee89f0094b54cbc31cbc3de3e4d7" kindref="member">applyControlLimits</ref>(u_k);</highlight></codeline>
-<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="dd/d30/module_8cpp_1a622fee89f0094b54cbc31cbc3de3e4d7" kindref="member">applyControlLimits</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u)<sp/>{</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(u<sp/>&gt;<sp/>100)<sp/>u<sp/>=<sp/>100;</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(u<sp/>&lt;<sp/>0)<sp/>u<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>u;</highlight></codeline>
-<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="dd/d30/module_8cpp_1a482f7cd33d4a0e6f21a4643b11d1a920" kindref="member">calculateNonlinearModel</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>c,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>d,</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y1,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y0,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u1,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u0)<sp/>{</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y2<sp/>=<sp/>a<sp/>*<sp/>y1<sp/>-<sp/>b<sp/>*<sp/>y0<sp/>*<sp/>y0<sp/>+<sp/>c<sp/>*<sp/>u1<sp/>+<sp/>d<sp/>*<sp/>sin(u0);</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d30/module_8cpp_1a7caa32bcc053d05f8ad42258bedd8f5c" kindref="member">applyTemperatureProtection</ref>(y2);</highlight></codeline>
-<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="dd/d30/module_8cpp_1a7caa32bcc053d05f8ad42258bedd8f5c" kindref="member">applyTemperatureProtection</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>temperature)<sp/>{</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(temperature<sp/>&lt;<sp/>0)<sp/>temperature<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>temperature;</highlight></codeline>
-<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="dd/d30/module_8cpp_1a2f38e8c4bcbfe94e4a9b5a4314e12554" kindref="member">calculateError</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>setpoint,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>current_value)<sp/>{</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>setpoint<sp/>-<sp/>current_value;</highlight></codeline>
-<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d30/module_8cpp_1a05e0bf3acaa4bb76c8a7ff6728d7ae92" kindref="member">updateStateVariables</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y[],<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u[],<sp/></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;<sp/>e_prev,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;<sp/>e_prev2,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;<sp/>u_prev,</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e_k)<sp/>{</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Обновление<sp/>истории<sp/>температур<sp/>(y[2]<sp/>-<sp/>старейшее,<sp/>y[0]<sp/>-<sp/>новейшее)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>y[2]<sp/>=<sp/>y[1];<sp/><sp/></highlight><highlight class="comment">//<sp/>y(k-2)<sp/>←<sp/>y(k-1)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>y[1]<sp/>=<sp/>y[0];<sp/><sp/></highlight><highlight class="comment">//<sp/>y(k-1)<sp/>←<sp/>y(k)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Обновление<sp/>истории<sp/>управлений</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>u[2]<sp/>=<sp/>u[1];<sp/><sp/></highlight><highlight class="comment">//<sp/>u(k-2)<sp/>←<sp/>u(k-1)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>u[1]<sp/>=<sp/>u[0];<sp/><sp/></highlight><highlight class="comment">//<sp/>u(k-1)<sp/>←<sp/>u(k)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Обновление<sp/>переменных<sp/>ПИД-регулятора</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>e_prev2<sp/>=<sp/>e_prev;<sp/><sp/></highlight><highlight class="comment">//<sp/>e(k-2)<sp/>←<sp/>e(k-1)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>e_prev<sp/>=<sp/>e_k;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>e(k-1)<sp/>←<sp/>e(k)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>u_prev<sp/>=<sp/>u[0];<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>u(k-1)<sp/>←<sp/>u(k)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="83"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="dd/d30/module_8cpp_1a25dd5396e96a7e20add9f351b762cbc4" kindref="member">calculateControl</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="d2/d20/struct_control_params" kindref="compound">ControlParams</ref>&amp;<sp/>params)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>delta_u<sp/>=<sp/>params.<ref refid="d2/d20/struct_control_params_1a593b700eb25b3cfd6de14336cbaa2f4f" kindref="member">q0</ref><sp/>*<sp/>params.<ref refid="d2/d20/struct_control_params_1a055afd98130333b25f0e408b3ef784ca" kindref="member">e_k</ref><sp/>+<sp/>params.<ref refid="d2/d20/struct_control_params_1ac66f5757c44106891fec15dc09567d5b" kindref="member">q1</ref><sp/>*<sp/>params.<ref refid="d2/d20/struct_control_params_1abb316870dcfd97d8cae7861ecd2803a3" kindref="member">e_prev</ref><sp/>+<sp/>params.<ref refid="d2/d20/struct_control_params_1a801e7914c94793e9b811c7fce6ff2fcc" kindref="member">q2</ref><sp/>*<sp/>params.<ref refid="d2/d20/struct_control_params_1af55657e30020dfd72e9a268e17a74602" kindref="member">e_prev2</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_k<sp/>=<sp/>params.<ref refid="d2/d20/struct_control_params_1a50783997dcf004279a405a145fd861a6" kindref="member">u_prev</ref><sp/>+<sp/>delta_u;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d30/module_8cpp_1a622fee89f0094b54cbc31cbc3de3e4d7" kindref="member">applyControlLimits</ref>(u_k);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="dd/d30/module_8cpp_1a622fee89f0094b54cbc31cbc3de3e4d7" kindref="member">applyControlLimits</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(u<sp/>&gt;<sp/>100)<sp/>u<sp/>=<sp/>100;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(u<sp/>&lt;<sp/>0)<sp/>u<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>u;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="dd/d30/module_8cpp_1a460df141e98805c675c3147587b703fe" kindref="member">calculateNonlinearModel</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="d7/d21/struct_model_params" kindref="compound">ModelParams</ref>&amp;<sp/>params)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y2<sp/>=<sp/>params.<ref refid="d7/d21/struct_model_params_1ac6808834410822ab1c93f66fa560bbcc" kindref="member">a</ref><sp/>*<sp/>params.<ref refid="d7/d21/struct_model_params_1a7b545efa35f62b1f2b00d6a44936cccb" kindref="member">y1</ref><sp/>-<sp/>params.<ref refid="d7/d21/struct_model_params_1a1c535f855a85be50750c79530b4a2e7d" kindref="member">b</ref><sp/>*<sp/>params.<ref refid="d7/d21/struct_model_params_1a688af4d6e48c41f62fb738a13a692a4f" kindref="member">y0</ref><sp/>*<sp/>params.<ref refid="d7/d21/struct_model_params_1a688af4d6e48c41f62fb738a13a692a4f" kindref="member">y0</ref><sp/>+<sp/>params.<ref refid="d7/d21/struct_model_params_1a8cadb4ecf7a534fa7e3777af19c886a1" kindref="member">c</ref><sp/>*<sp/>params.<ref refid="d7/d21/struct_model_params_1ab0293a86b5ffbe337e930f2653165e5f" kindref="member">u1</ref><sp/>+<sp/>params.<ref refid="d7/d21/struct_model_params_1a7c6b420a834e5d5528d4bea79918e0a5" kindref="member">d</ref><sp/>*<sp/>sin(params.<ref refid="d7/d21/struct_model_params_1ae3d8bc897c62796c72762551880bc989" kindref="member">u0</ref>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d30/module_8cpp_1a7caa32bcc053d05f8ad42258bedd8f5c" kindref="member">applyTemperatureProtection</ref>(y2);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="dd/d30/module_8cpp_1a7caa32bcc053d05f8ad42258bedd8f5c" kindref="member">applyTemperatureProtection</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>temperature)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(temperature<sp/>&lt;<sp/>0)<sp/>temperature<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>temperature;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="dd/d30/module_8cpp_1a2f38e8c4bcbfe94e4a9b5a4314e12554" kindref="member">calculateError</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>setpoint,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>current_value)<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>setpoint<sp/>-<sp/>current_value;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d30/module_8cpp_1a36a910d9807c25459dbcbf3db68b721f" kindref="member">updateStateVariables</ref>(<ref refid="da/d61/struct_state_variables" kindref="compound">StateVariables</ref>&amp;<sp/>state)<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Обновление<sp/>истории<sp/>температур<sp/>(y[2]<sp/>-<sp/>старейшее,<sp/>y[0]<sp/>-<sp/>новейшее)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>state.<ref refid="da/d61/struct_state_variables_1a663e3c0dbf10c0d03357964f0cb675f5" kindref="member">y</ref>[0]<sp/>=<sp/>state.<ref refid="da/d61/struct_state_variables_1a663e3c0dbf10c0d03357964f0cb675f5" kindref="member">y</ref>[1];<sp/><sp/></highlight><highlight class="comment">//<sp/>y(k)<sp/>←<sp/>y(k-1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>state.<ref refid="da/d61/struct_state_variables_1a663e3c0dbf10c0d03357964f0cb675f5" kindref="member">y</ref>[1]<sp/>=<sp/>state.<ref refid="da/d61/struct_state_variables_1a663e3c0dbf10c0d03357964f0cb675f5" kindref="member">y</ref>[2];<sp/><sp/></highlight><highlight class="comment">//<sp/>y(k-1)<sp/>←<sp/>y(k)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Обновление<sp/>истории<sp/>управлений</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>state.<ref refid="da/d61/struct_state_variables_1ac0832248c84e960044c6d709989aba80" kindref="member">u</ref>[0]<sp/>=<sp/>state.<ref refid="da/d61/struct_state_variables_1ac0832248c84e960044c6d709989aba80" kindref="member">u</ref>[1];<sp/><sp/></highlight><highlight class="comment">//<sp/>u(k)<sp/>←<sp/>u(k-1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Обновление<sp/>переменных<sp/>ПИД-регулятора</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>state.<ref refid="da/d61/struct_state_variables_1a8341fbe643102035e40a9983844c92b2" kindref="member">e_prev2</ref><sp/>=<sp/>state.<ref refid="da/d61/struct_state_variables_1af384483bb5082664e4ae45f107f9222b" kindref="member">e_prev</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>e(k-2)<sp/>←<sp/>e(k-1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>state.<ref refid="da/d61/struct_state_variables_1af384483bb5082664e4ae45f107f9222b" kindref="member">e_prev</ref><sp/>=<sp/>state.<ref refid="da/d61/struct_state_variables_1a967286ad51cd9932ec3eff353c7c3a02" kindref="member">e_k</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>e(k-1)<sp/>←<sp/>e(k)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>state.<ref refid="da/d61/struct_state_variables_1addac2b42780200821287135d316edbda" kindref="member">u_prev</ref><sp/>=<sp/>state.<ref refid="da/d61/struct_state_variables_1ac0832248c84e960044c6d709989aba80" kindref="member">u</ref>[1];<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>u(k-1)<sp/>←<sp/>u(k)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/papka_for_git/OTIS-2025/trunk/ii02717/task_03/src/module.cpp"/>
+    <location file="C:/papka_for_git/OTIS-2025/trunk/ii02719/task_03/src/module.cpp"/>
   </compounddef>
 </doxygen>
