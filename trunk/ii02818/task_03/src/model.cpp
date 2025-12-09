@@ -3,9 +3,7 @@
 #include <iostream>
 
 Model::Model(double a_val, double b_val, double c_val, double d_val)
-    : a(a_val), b(b_val), c(c_val), d(d_val),
-      y_prev1(20.0), y_prev2(20.0),
-      u_prev1(0.0), u_prev2(0.0) {}
+    : a(a_val), b(b_val), c(c_val), d(d_val) {}
 
 void Model::init(double y0, double y1, double u0, double u1) {
     y_prev2 = y0;

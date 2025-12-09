@@ -4,21 +4,7 @@
 #include <cmath>
 
 PID::PID(double K_val, double Ti_val, double Td_val, double T0_val)
-    : K(K_val), Ti(Ti_val), Td(Td_val), T0(T0_val),
-      q0(0.0), q1(0.0), q2(0.0),
-      e_prev1(0.0), e_prev2(0.0), u_prev(0.0),
-      integral(0.0), d_filter_alpha(0.7), d_prev(0.0)
-{
-    if (T0 <= 0.0) T0 = 1.0;
-    if (Ti <= 0.0) Ti = 1.0;
-
-    q0 = K * (1.0 + T0 / Ti + Td / T0);
-    q1 = -K * (1.0 + 2.0 * Td / T0);
-    q2 = K * (Td / T0);
-
-    std::cout << "PID created (positional form): K=" << K
-              << ", Ti=" << Ti << ", Td=" << Td << ", T0=" << T0 << std::endl;
-}
+    : K(K_val), Ti(Ti_val), Td(Td_val), T0(T0_val) {}
 
 double PID::calculate(double setpoint, double current_value)
 {

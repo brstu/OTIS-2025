@@ -10,14 +10,16 @@ private:
     double Td;
     double T0;
 
-    double q0, q1, q2;
+    double q0;
+    double q1;
+    double q2;
 
     double e_prev1;
     double e_prev2;
     double u_prev;
 
     double integral;
-    double d_filter_alpha;
+    double d_filter_alpha = 0.7;
     double d_prev;
 
 public:

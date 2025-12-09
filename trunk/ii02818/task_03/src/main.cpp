@@ -19,14 +19,14 @@ int main() {
     std::ofstream file_lin("results_linear.csv");
     file_lin << "Step,Setpoint,Temperature,Control\n";
     
-    double setpoint = 30.0;
+    const double linear_setpoint = 30.0;
     
     for (int i = 0; i < 50; i++) {
         double temp = model_lin.getCurrentValue();
-        double control = pid_lin.calculate(setpoint, temp);
-        double new_temp = model_lin.linearModel(control);
+        double control = pid_lin.calculate(linear_setpoint, temp);
+        model_lin.linearModel(control);
         
-        file_lin << i << "," << setpoint << "," << temp << "," << control << "\n";
+        file_lin << i << "," << linear_setpoint << "," << temp << "," << control << "\n";
         
         if (i % 10 == 0) {
             std::cout << "Step " << i << ": T=" << temp 
@@ -53,20 +53,19 @@ int main() {
     const double U_MAX = 100.0;
 
     for (int i = 0; i < 150; i++) {
-
-        double setpoint = (i < ramp_steps)
+        double current_setpoint = (i < ramp_steps)
             ? setpoint_start + (setpoint_final - setpoint_start) * i / ramp_steps
             : setpoint_final;
 
         double temp = model_nl.getCurrentValue();
 
-        double control = pid_nl.calculate(setpoint, temp);
+        double control = pid_nl.calculate(current_setpoint, temp);
         if (control > U_MAX) control = U_MAX;
         if (control < 0.0)   control = 0.0;
 
-        double new_temp = model_nl.nonlinearModel(control);
+        model_nl.nonlinearModel(control);
 
-        file_nl << i << "," << setpoint << "," << temp << "," << control << "\n";
+        file_nl << i << "," << current_setpoint << "," << temp << "," << control << "\n";
     }
 
     file_nl.close();

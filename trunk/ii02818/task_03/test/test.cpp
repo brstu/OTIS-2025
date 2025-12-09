@@ -6,7 +6,9 @@
 TEST(PIDTest, ConstructorParameters) {
     PID pid(1.0, 2.0, 0.5, 1.0);
 
-    double K, Ti, Td;
+    double K;
+    double Ti;
+    double Td;
     pid.getParameters(K, Ti, Td);
 
     EXPECT_DOUBLE_EQ(K, 1.0);
