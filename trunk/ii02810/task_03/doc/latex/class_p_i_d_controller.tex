@@ -1,0 +1,65 @@
+\doxysection{PIDController Class Reference}
+\hypertarget{class_p_i_d_controller}{}\label{class_p_i_d_controller}\index{PIDController@{PIDController}}
+
+
+Дискретный ПИД-\/регулятор в рекуррентной форме  
+
+
+
+
+{\ttfamily \#include $<$pid.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_i_d_controller_abf67fb062ae3787f8e668a7f7b3b6815}{PIDController}} (double Kp=1.\+0, double Ti=1e12, double Td=0.\+0, double dt=1.\+0, double u\+\_\+min=0.\+0, double u\+\_\+max=100.\+0)
+\item 
+double \mbox{\hyperlink{class_p_i_d_controller_a1aa6a2ef1fb81ef036eac60950db35cf}{calculate}} (double setpoint, double measured)
+\item 
+void \mbox{\hyperlink{class_p_i_d_controller_ab6adfbffa30414f0a83b95ba999a2fea}{reset}} ()
+\item 
+void \mbox{\hyperlink{class_p_i_d_controller_a83db13272bc22079748f37f2a64ce11a}{set\+Parameters}} (double Kp, double Ti, double Td)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Дискретный ПИД-\/регулятор в рекуррентной форме 
+
+\label{doc-constructors}
+\Hypertarget{class_p_i_d_controller_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_p_i_d_controller_abf67fb062ae3787f8e668a7f7b3b6815}\index{PIDController@{PIDController}!PIDController@{PIDController}}
+\index{PIDController@{PIDController}!PIDController@{PIDController}}
+\doxysubsubsection{\texorpdfstring{PIDController()}{PIDController()}}
+{\footnotesize\ttfamily \label{class_p_i_d_controller_abf67fb062ae3787f8e668a7f7b3b6815} 
+PIDController\+::\+PIDController (\begin{DoxyParamCaption}\item[{double}]{Kp}{ = {\ttfamily 1.0}, }\item[{double}]{Ti}{ = {\ttfamily 1e12}, }\item[{double}]{Td}{ = {\ttfamily 0.0}, }\item[{double}]{dt}{ = {\ttfamily 1.0}, }\item[{double}]{u\+\_\+min}{ = {\ttfamily 0.0}, }\item[{double}]{u\+\_\+max}{ = {\ttfamily 100.0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_p_i_d_controller_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_p_i_d_controller_a1aa6a2ef1fb81ef036eac60950db35cf}\index{PIDController@{PIDController}!calculate@{calculate}}
+\index{calculate@{calculate}!PIDController@{PIDController}}
+\doxysubsubsection{\texorpdfstring{calculate()}{calculate()}}
+{\footnotesize\ttfamily \label{class_p_i_d_controller_a1aa6a2ef1fb81ef036eac60950db35cf} 
+double PIDController\+::calculate (\begin{DoxyParamCaption}\item[{double}]{setpoint}{, }\item[{double}]{measured}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_p_i_d_controller_ab6adfbffa30414f0a83b95ba999a2fea}\index{PIDController@{PIDController}!reset@{reset}}
+\index{reset@{reset}!PIDController@{PIDController}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{class_p_i_d_controller_ab6adfbffa30414f0a83b95ba999a2fea} 
+void PIDController\+::reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_p_i_d_controller_a83db13272bc22079748f37f2a64ce11a}\index{PIDController@{PIDController}!setParameters@{setParameters}}
+\index{setParameters@{setParameters}!PIDController@{PIDController}}
+\doxysubsubsection{\texorpdfstring{setParameters()}{setParameters()}}
+{\footnotesize\ttfamily \label{class_p_i_d_controller_a83db13272bc22079748f37f2a64ce11a} 
+void PIDController\+::set\+Parameters (\begin{DoxyParamCaption}\item[{double}]{Kp}{, }\item[{double}]{Ti}{, }\item[{double}]{Td}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{pid_8h}{pid.\+h}}\item 
+src/\mbox{\hyperlink{pid_8cpp}{pid.\+cpp}}\end{DoxyCompactItemize}
