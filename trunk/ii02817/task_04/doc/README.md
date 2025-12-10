@@ -36,13 +36,12 @@
 
 ### Этап 1 [ Общая Подготовка ]
 
-В первую очередь перейдем в интересующий нас репозиторий [OSTIS/NIKA](https://github.com/ostis-apps/nika).
-Снизу можно увидеть README.md файл с инструкциями по настройке и запуске проекта NIKA.
+Переходим [OSTIS/NIKA](https://github.com/ostis-apps/nika).
+Снизу можно увидеть README.md
 <br>
 ![NIKA README.md](img/1.png)
 <br>
-В данном README.md файле нас интересует, прежде всего, раздел **Requirements**, который говорит нам об первоочередной установке **Docker** на нашу локальную машину. Устанавливаем Docker,
-перейдя по предоставленной там ссылке [https://docs.docker.com/](https://docs.docker.com/).
+Устанавливаем Docker [https://docs.docker.com/](https://docs.docker.com/).
 После установки у нас появляется приложение **Docker Desktop**.
 При первом запуске данной программы появилось окно, которое требовало установки **WSL**(Windows Subsystem for Linux):
 <br>
@@ -55,29 +54,24 @@
 Перезагружаемся. После перезагрузки Docker Desktop запустился так, как полагается:
 ![WSL Welcome Window](img/4.png)
 
-Кажется, что осталось совсем ничего, но... Как и в любой работе будут свои нюансы, куда ж без них.
-Перед вводом команд в терминал(командную строку), нужно сделать следующие вещи:
+### 1) Реестре
 
-### 1) 'Шаманство' в Реестре
-
-1)Открыть реестр (`Win + R` и написать `regedit` либо `Win + S` и написать "Редактор реестра") <br>
-2)Перейти по пути `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem` <br>
-3)Найти параметр `LongPathsEnabled` и установить значение на 1.
+1)Открыть реестр (`Win + R` и написать `regedit) <br>
+2)Перейти по пути `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem`<br>
+3)Найти параметр`LongPathsEnabled` и установить значение на 1.
 <br>
 ![regedit](img/regedit.png)
 
-### 2) 'Шаманство' в Git
+### 2) Git
 
 - Запустить cmd
 - Ввести команду: `git config --system core.longpaths true` либо `git config --global core.longpaths true`
 
 ### 3) Перезагрузиться
 
-Поздравляю, с подготовительными этапами мы закончили, теперь приступим к установке NIKA.
-
 ## Этап 2 [ Установка NIKA 0.1.0 с GitHub ]
 
-Вводим наконец первые команды в cmd:
+Команды в cmd:
 
 ```
 git clone -c core.longpaths=true -c core.autocrlf=true https://github.com/ostis-apps/nika
@@ -85,15 +79,14 @@ cd nika
 git submodule update --init --recursive
 ```
 
-Хочу обратить внимание, что 'шаманства' в реестре и в Git обязательны.
-
-Есть еще одно НО: в момент выполнения лабораторной (на 14.11.2025) не хватает контейнера ostis/nika:0.2.0 на DockerHub.
+В момент выполнения лабораторной (на 14.11.2025) не хватает контейнера ostis/nika:0.2.0 на DockerHub.
 Соответственно нам не удасться запустить проект на последней (на момент выполнения) версии.
 Значит нам остается перейти на предыдущую версию (0.1.0).
 Для этого введем команду:
 
 ```
 git checkout 69858165c3b5fb26ca783950c74bfe7bddd64a00
+git submodule update --init --recursive
 ```
 
 ![commit hash](img/commit.png)
@@ -104,7 +97,7 @@ git checkout 69858165c3b5fb26ca783950c74bfe7bddd64a00
 
 ## Этап 3 [ Запуск NIKA ]
 
-Во-первых запустим Docker Desktop:
+Запустим Docker Desktop:
 `docker desktop start`
 
 Получим контейнеры с **DockerHub**: `docker compose pull`<br>
