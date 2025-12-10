@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-enum ModelType {
+enum class ModelType {
     LINEAR,
     NONLINEAR
 };
@@ -42,11 +42,11 @@ int main()
     SimulationParams simParams = getDefaultSimulationParams();
 
     std::cout << "Linear simulation:" << std::endl;
-    simulateModel(LINEAR, simParams);
+    simulateModel(ModelType::LINEAR, simParams);
     std::cout << std::endl;
 
     std::cout << "Nonlinear simulation:" << std::endl;
-    simulateModel(NONLINEAR, simParams);
+    simulateModel(ModelType::NONLINEAR, simParams);
     std::cout << std::endl;
 
     return 0;
@@ -88,20 +88,21 @@ void simulateNonLinearModel(const SimulationParams& simParams)
     double u = simParams.u;
     int t = simParams.t;
 
-    // Initialize previous output and input values using offsets.
-    // The offsets (yOffset and uOffset) represent the difference between the initial state and the previous state,
-    // allowing the nonlinear model to start with a defined history for y and u.
-    double prevY = y - params.yOffset;
-    double prevU = u - params.uOffset;
+    // Initialize previous output and input values
+    double prevY = y;
+    double prevU = u;
 
     for (int i = 0; i <= t; i++)
     {
         std::cout << i << ' ' << y << std::endl;
-        // Update all 'prev' variables first
-        prevY = y;
-        prevU = u;
+
         // Compute nextY using previous values
         double nextY = params.a * y - params.b * prevY * prevY + params.c * u + params.d * sin(prevU);
+
+        // Update previous values for next iteration
+        prevY = y;
+        prevU = u;
+
         // Update current variables
         y = nextY;
         u += params.u_step;
@@ -111,8 +112,8 @@ void simulateNonLinearModel(const SimulationParams& simParams)
 NonLinearModelParams getDefaultNonLinearParams()
 {
     NonLinearModelParams params;
-    params.yOffset = 0.001;  // Offset subtracted from current output to compute previous output (prevY = y - yOffset)
-    params.uOffset = 1;      // Offset subtracted from current input to compute previous input (prevU = u - uOffset)
+    params.yOffset = 0.001;  // Offset for previous output computation
+    params.uOffset = 1;      // Offset for previous input computation
     params.a = 1;            // Linear coefficient for current output (y)
     params.b = 0.5;          // Nonlinear coefficient for squared previous output (prevY²)
     params.c = 0.9;          // Linear coefficient for input (u)
@@ -125,10 +126,10 @@ void simulateModel(ModelType type, const SimulationParams& simParams)
 {
     switch (type)
     {
-    case LINEAR:
+    case ModelType::LINEAR:
         simulateLinearModel(simParams);
         break;
-    case NONLINEAR:
+    case ModelType::NONLINEAR:
         simulateNonLinearModel(simParams);
         break;
     default:
