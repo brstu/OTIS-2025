@@ -56,7 +56,7 @@
 
 ### 1) Реестре
 
-1)Открыть реестр (`Win + R` и написать `regedit) <br>
+1)Открыть реестр (`Win + R` и написать `regedit`) <br>
 2)Перейти по пути `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem`<br>
 3)Найти параметр`LongPathsEnabled` и установить значение на 1.
 <br>
