@@ -52,6 +52,7 @@
 ![WSL Installation CMD](img/3.png)
 
 Перезагружаемся. После перезагрузки Docker Desktop запустился так, как полагается:
+<br>
 ![WSL Welcome Window](img/4.png)
 
 ### 1) В реестре
