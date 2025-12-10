@@ -54,7 +54,7 @@
 Перезагружаемся. После перезагрузки Docker Desktop запустился так, как полагается:
 ![WSL Welcome Window](img/4.png)
 
-### 1) Реестре
+### 1) В реестре
 
 1)Открыть реестр (`Win + R` и написать `regedit`) <br>
 2)Перейти по пути `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem`<br>
