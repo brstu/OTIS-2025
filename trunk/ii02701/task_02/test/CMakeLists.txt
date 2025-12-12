@@ -1,17 +1,15 @@
-cmake_minimum_required(VERSION 3.20)
+enable_testing()
 
-include(FetchContent)
-
-FetchContent_Declare(
-    googletest
-    URL https://github.com/google/googletest/archive/refs/heads/main.zip
-    DOWNLOAD_EXTRACT_TIMESTAMP TRUE
+add_executable(unit_tests
+    test_model.cpp
 )
 
-FetchContent_MakeAvailable(googletest)
+target_link_libraries(unit_tests
+    PRIVATE
+        task02_lib
+        GTest::gtest
+        GTest::gtest_main
+)
 
-add_executable(unit_tests test_model.cpp)
-
-target_link_libraries(unit_tests PRIVATE gtest gtest_main mylib)
-
-add_test(NAME AllTests COMMAND unit_tests)
+add_test(NAME AllTests COMMAND $<TARGET_FILE:unit_tests>)
+message(">>> REGISTERING UNIT TESTS <<<")
