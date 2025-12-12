@@ -16,15 +16,15 @@ int main() {
     
     std::cout << "Linear simulation:" << std::endl;
     std::vector<double> linear = simulateLinearModel(y, u, t, linear_a, linear_b);
-    for (int i = 0; i < linear.size(); i++) {
-        std::cout << linear[i] << std::endl;
+    for (const auto& value : linear) {
+        std::cout << value << std::endl;
     }
     std::cout << std::endl;
 
     std::cout << "Nonlinear simulation:" << std::endl;
     std::vector<double> nonlinear = simulateNonLinearModel(y, u, t, nonlinear_a, nonlinear_b, nonlinear_c, nonlinear_d);
-    for (int i = 0; i < nonlinear.size(); i++) {
-        std::cout << nonlinear[i] << std::endl;
+    for (const auto& value : nonlinear) {
+        std::cout << value << std::endl;
     }
     std::cout << std::endl;
 
