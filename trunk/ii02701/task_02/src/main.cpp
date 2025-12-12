@@ -2,8 +2,12 @@
 #include "model.hpp"
 
 int main() {
-    double y, u;
-    double a, b, c, d;
+    double y;
+    double u;
+    double a;
+    double b;
+    double c;
+    double d;
     int n;
 
     std::cout << "Enter y(starting temperature) and u(input warm at every step): ";
