@@ -24,9 +24,6 @@
 
 3. Написать отчет по выполненной работе в .md формате (readme.md) и с помощью pull request разместить его в следующем каталоге: trunk\ii0xxyy\task_04\doc.
 
-# BEFORE READING & INSTALLING
-Для запуска проекта NIKA в данной лабораторной работе использую `Windows 10 22H2`.
-
 # Ход работы 
 
 ## Введение
@@ -38,64 +35,50 @@
 
 ### Этап 1 [ Общая Подготовка ]
 В первую очередь перейдем в интересующий нас репозиторий [OSTIS/NIKA](https://github.com/ostis-apps/nika). 
-Снизу можно увидеть README.md файл с инструкциями по настройке и запуске проекта NIKA.
-<br>
-![NIKA README.md](img/1.png)
-<br>
 В данном README.md файле нас интересует, прежде всего, раздел **Requirements**, который говорит нам об первоочередной установке **Docker** на нашу локальную машину. Устанавливаем Docker,
 перейдя по предоставленной там ссылке [https://docs.docker.com/](https://docs.docker.com/).
 После установки у нас появляется приложение **Docker Desktop**.
 
 ## Этап 2 [ Установка NIKA 0.2.2 с GitHub ]
+# Решение проблемы с Docker
+![Ошибка Docker](../images/Docker.jpg)
+Вводим команды в cmd для решение и перезапускаем Docker:
+wsl –update
+![Update](../images/SolutionDocker.jpg)
+# Скачиваем репозиторий
 Вводим команды в cmd:
 ```
 git clone -c core.longpaths=true -c core.autocrlf=true https://github.com/ostis-apps/nika
 cd nika
+```
+После чего в связи с отсуттвием нужного файла на версии 0.2.2 переходим на версию ниже
+
+C:\Users\boss\Desktop\nika>git checkout 69858165c3b5fb26ca783950c74bfe7bddd64a00
+
+После чего докачиваем необходимые для запуска файлы
+```
 git submodule update --init --recursive
-docker compose pull
 ```
-После этого вознила проблема связанная с отсутсвием нужной версии файла
-![Ошибка файла](Error1.jpg)
-Для ее устанения были введены следующий косанды:
-```
-C:\Users\Boss\Desktop\nika\nika>docker pull ostis/nika:latest
-latest: Pulling from ostis/nika
-Digest: sha256:fa83aa4df253b0290ef51fd766ae6cf6819a6748ecf9ac003fca01e78d97f47d
-Status: Image is up to date for ostis/nika:latest
-docker.io/ostis/nika:latest
-
-C:\Users\Boss\Desktop\nika\nika>docker build -t ostis/nika:0.2.2 .
-```
-![Solve](Solve1.jpg)
-
-Это команды установят последюю версию файла ostis/nika и пересоберет ее с необходимой версией 0.2.2
-
-После этого возникла ошибка связанная с кэшем.
-![CashError](Error2.jpg)
-Она была исправлена с помощью:
-```
-C:\Users\Boss\Desktop\nika\nika>docker builder prune -af
-```
-Команда очистила неиспользуемые образы Docker.
+![Install](../images/Install.jpg)
 ## Этап 3 [ Запуск NIKA ]	
 Во-первых запустим Docker Desktop:
 `docker desktop start`
-
-Запустим проект: `docker compose up`<br>
+Далее скачиваем с DockerHub файл Docker compose.Для этого введем команду 
+```
+docker compose pull
+```
+![Docker compose](../images/Pull.jpg)
+Запустим проект: `docker compose up --no-build`<br>
 Ожидаем некоторое время, когда в консоли появиться сообщение/текст в конце:
 <br>
-![Res](Res.jpg)
-<br>
-![Res](Res2.jpg)
+![Start](../images/Start.jpg)
 <br>
 Также в приложении Docker будут следующие контейнеры:
 <br>
-![Docker](Doc.jpg)
+![Docker](../images/Doc.jpg)
 <br>
 После этого, можно открыть браузер и ввести, в зависимости от того, что хочется просмотреть, URL:
 
-### sc-web - `localhost:8000`
-![sc-web](web1.jpg)
 
 ### dialogue web UI - `localhost:3033`
-![dialogue web UI](web2.jpg)
+![dialogue web UI](../images/Res.jpg)
