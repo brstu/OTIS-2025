@@ -4,7 +4,6 @@
 using std::cout;
 using std::cin;
 using std::vector;
-
 PID::PID() {
 	deltU.resize(10000, 0);
 	u.resize(10000, 0);
@@ -17,6 +16,7 @@ PID::PID() {
 	cout << "¬ведите желаемое значение температуры " << std::endl;
 	cin >> w;
 }
+
 void PID::linear(int place) {
 	a = 0.82;
 	b = 0.2;
@@ -43,6 +43,7 @@ void PID::calcul_DeltU(int place) {
 		deltU[place] = q0 * e[place] + q1 * e[place - 1] + q2 * e[place - 2];
 	}
 }
+
 void PID::calcul_U(int place) {
 	PID::calcul_DeltU(place);
 	if (place == 0) {
@@ -61,6 +62,7 @@ void PID::calcul_q0_q1_q2() {
 	q1 = -k * (1 + 2 * (Td / To) - To / T);
 	q2 = k * Td / To;
 }
+
 void PID::calcul_e(int place) {
 	e[place] = w - y[place];
 }
@@ -83,10 +85,13 @@ void PID::calcul_PID(int place) {
 		}
 	}
 }
+
+
 void PID::RegCoefs(double val) {
 	a /= val;
 	b /= 1.3;
 }
+
 void PID::GetQs(double& val1, double& val2, double& val3) const {
 	val1 = q0;
 	val2 = q1;
