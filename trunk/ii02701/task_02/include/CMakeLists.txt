@@ -1,0 +1,1 @@
+target_include_directories(task02_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
