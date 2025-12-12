@@ -164,7 +164,7 @@ systemctl --user stop docker-desktop
 
 # 3. (Windows) Enabling long paths and configuring Git
 
-Windows can serve as an addition to long paths in a large repository. Use it in PowerShell (from the administrator):
+Windows may have issues with long paths in large repositories. Use the following command in PowerShell (run as administrator):
 ```
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\FileSystem" /v LongPathsEnabled /t REG_DWORD /d 1 /f
 ```
@@ -174,7 +174,7 @@ git config --system core.longpaths true
 
 # 4. NIKA repository cloning (general)
 
-At this moment we'd like to mention that the last stable version of NIKA is 0.1.0. So according to this information we'll seting up following part of this manual to the 0.1.0 ver of NIKA. Open PowerShell / Terminal in a convenient folder (for example, C:\Users\YourName\Projects or ~/projects) and execute:
+At this moment, we'd like to mention that the last stable version of NIKA is 0.1.0. Based on this information, we will set up the following part of this manual for version 0.1.0 of NIKA. Open PowerShell / Terminal in a convenient folder (for example, C:\Users\YourName\Projects or ~/projects) and execute:
 ```
 # download (clone) the NIKA repository with safe Windows settings
 git clone -c core.longpaths=true -c core.autocrlf=true https://github.com/ostis-apps/nika
