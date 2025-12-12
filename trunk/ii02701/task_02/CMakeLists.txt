@@ -14,7 +14,6 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(googletest)
 
-add_subdirectory(include)
 add_subdirectory(src)
 add_subdirectory(test)
 

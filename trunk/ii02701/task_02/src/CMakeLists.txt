@@ -3,7 +3,7 @@ add_library(task02_lib
 )
 
 target_include_directories(task02_lib PUBLIC
-    ${PROJECT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/../include
 )
 
 add_executable(task02_app main.cpp)
