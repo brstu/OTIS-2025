@@ -1,5 +1,5 @@
 #include <iostream>
-#include "model.hpp"
+#include "task_02/include/model.hpp"
 
 int main() {
     double y, u;
