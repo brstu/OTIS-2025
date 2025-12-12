@@ -2,4 +2,4 @@
 cmake -S ./ -B ./build
 cmake --build ./build
 
-.\build\task_02_ii02702_test.exe
+.\build\Debug\task_02_ii02702_test.exe

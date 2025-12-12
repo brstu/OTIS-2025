@@ -80,31 +80,7 @@ TEST(NonLinearModelTest, SimulateWithStandardParams) {
 ```
 
 ## Результаты юнит-тестирования
-[==========] Running 2 tests from 2 test suites.
-[----------] Global test environment set-up.
-[----------] 1 test from LinearModelTest
-[ RUN      ] LinearModelTest.SimulateWithStandardParams
-[       OK ] LinearModelTest.SimulateWithStandardParams (0 ms)
-[----------] 1 test from LinearModelTest (3 ms total)
-
-[----------] 1 test from NonLinearModelTest
-[ RUN      ] NonLinearModelTest.SimulateWithStandardParams
-[       OK ] NonLinearModelTest.SimulateWithStandardParams (0 ms)
-[----------] 1 test from NonLinearModelTest (5 ms total)
-
-[----------] Global test environment tear-down
-[==========] 2 tests from 2 test suites ran. (21 ms total)
-[  PASSED  ] 2 tests.
+![test](img/test.png)
 
 ## Покрытие тестами
-------------------------------------------------------------------------------
-                           GCC Code Coverage Report
-Directory: .
-------------------------------------------------------------------------------
-File                                       Lines    Exec  Cover   Missing
-------------------------------------------------------------------------------
-src/models.cpp                                22      20    90%   11,35
-test/test.cpp                                 32      32   100%
-------------------------------------------------------------------------------
-TOTAL                                         54      52    96%
-------------------------------------------------------------------------------
+![gcovr](img/gcovr.jpg)
