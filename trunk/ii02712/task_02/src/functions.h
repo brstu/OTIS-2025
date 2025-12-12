@@ -1,9 +1,34 @@
-#pragma once
+#ifndef FUNCTIONS_H
+#define FUNCTIONS_H
 
-const double a = -0.1;
-const double b = 0.5;
-const double c = -0.2;
-const double d = 0.4;
+#include <cmath>
 
-double linearModel(double y, double u);
-double nonlinearModel(double y, double u, double y_pred, double u_pred);
+/**
+ * @brief Параметры линейной модели
+ */
+struct LinearParams {
+    double a;
+    double b;
+};
+
+/**
+ * @brief Параметры нелинейной модели
+ */
+struct NonlinearParams {
+    double a;
+    double b;
+    double c;
+    double d;
+};
+
+/**
+ * @brief Линейная модель с передачей коэффициентов через структуру.
+ */
+double linearModel(double y, double u, const LinearParams& p);
+
+/**
+ * @brief Нелинейная модель с передачей коэффициентов через структуру.
+ */
+double nonlinearModel(double y, double y_prev, double u, double u_prev, const NonlinearParams& p);
+
+#endif // FUNCTIONS_H
