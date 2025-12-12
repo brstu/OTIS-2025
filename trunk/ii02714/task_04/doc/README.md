@@ -41,10 +41,10 @@
 
 ## Этап 2 [ Установка NIKA 0.2.2 с GitHub ]
 # Решение проблемы с Docker
-![Ошибка Docker](../images/Docker.jpg)
+![Ошибка Docker](Docker.jpg)
 Вводим команды в cmd для решение и перезапускаем Docker:
 wsl –update
-![Update](../images/SolutionDocker.jpg)
+![Update](SolutionDocker.jpg)
 # Скачиваем репозиторий
 Вводим команды в cmd:
 ```
@@ -59,7 +59,7 @@ C:\Users\boss\Desktop\nika>git checkout 69858165c3b5fb26ca783950c74bfe7bddd64a00
 ```
 git submodule update --init --recursive
 ```
-![Install](../images/Install.jpg)
+![Install](Install.jpg)
 ## Этап 3 [ Запуск NIKA ]	
 Во-первых запустим Docker Desktop:
 `docker desktop start`
@@ -67,18 +67,18 @@ git submodule update --init --recursive
 ```
 docker compose pull
 ```
-![Docker compose](../images/Pull.jpg)
+![Docker compose](Pull.jpg)
 Запустим проект: `docker compose up --no-build`<br>
 Ожидаем некоторое время, когда в консоли появиться сообщение/текст в конце:
 <br>
-![Start](../images/Start.jpg)
+![Start](Start.jpg)
 <br>
 Также в приложении Docker будут следующие контейнеры:
 <br>
-![Docker](../images/Doc.jpg)
+![Docker](Doc.jpg)
 <br>
 После этого, можно открыть браузер и ввести, в зависимости от того, что хочется просмотреть, URL:
 
 
 ### dialogue web UI - `localhost:3033`
-![dialogue web UI](../images/Res.jpg)
+![dialogue web UI](Res.jpg)
