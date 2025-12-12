@@ -42,9 +42,14 @@
 ## Этап 2 [ Установка NIKA 0.2.2 с GitHub ]
 # Решение проблемы с Docker
 ![Ошибка Docker](Docker.jpg)
+
 Вводим команды в cmd для решение и перезапускаем Docker:
+```
 wsl –update
+```
+<br>
 ![Update](SolutionDocker.jpg)
+<br>
 # Скачиваем репозиторий
 Вводим команды в cmd:
 ```
