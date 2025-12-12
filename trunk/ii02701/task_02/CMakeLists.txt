@@ -11,4 +11,6 @@ add_executable(my_app src/main.cpp)
 target_link_libraries(my_app PRIVATE mylib)
 
 enable_testing()
+add_subdirectory(include)
+add_subdirectory(src)
 add_subdirectory(test)
