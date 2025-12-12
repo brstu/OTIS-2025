@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_p_i_d" kind="class" language="C++" prot="public">
+    <compoundname>PID</compoundname>
+    <includes refid="pid__contr_8h" local="no">pid_contr.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_p_i_d_1ac6f4a7e29f84d9eb60e7f672a3665a65" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q0</definition>
+        <argsstring></argsstring>
+        <name>q0</name>
+        <qualifiedname>PID::q0</qualifiedname>
+        <briefdescription>
+<para>Коэффициент при текущей ошибке </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_contr.h" line="15" column="12" bodyfile="src/pid_contr.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a84c6ee207e6449ee6082094f697f701a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q1</definition>
+        <argsstring></argsstring>
+        <name>q1</name>
+        <qualifiedname>PID::q1</qualifiedname>
+        <briefdescription>
+<para>Коэффициент при предыдущей ошибке </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_contr.h" line="16" column="12" bodyfile="src/pid_contr.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1addf8b9728e070dc19ddbc5e80b44c550" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q2</definition>
+        <argsstring></argsstring>
+        <name>q2</name>
+        <qualifiedname>PID::q2</qualifiedname>
+        <briefdescription>
+<para>Коэффициент при ошибке два шага назад </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_contr.h" line="17" column="12" bodyfile="src/pid_contr.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1ab7d24c057c566a8128a654f933c2610f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::u_prev</definition>
+        <argsstring></argsstring>
+        <name>u_prev</name>
+        <qualifiedname>PID::u_prev</qualifiedname>
+        <briefdescription>
+<para>Предыдущее воздействие u(k-1). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_contr.h" line="18" column="12" bodyfile="src/pid_contr.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a9e9287696502b7183b65e52cfe165848" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::e_prev1</definition>
+        <argsstring></argsstring>
+        <name>e_prev1</name>
+        <qualifiedname>PID::e_prev1</qualifiedname>
+        <briefdescription>
+<para>Предыдущая ошибка e(k-1). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_contr.h" line="19" column="12" bodyfile="src/pid_contr.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1af5539d613fcb09081d26ede79d6ecae6" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::e_prev2</definition>
+        <argsstring></argsstring>
+        <name>e_prev2</name>
+        <qualifiedname>PID::e_prev2</qualifiedname>
+        <briefdescription>
+<para>Ошибка два шага назад e(k-2). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_contr.h" line="20" column="12" bodyfile="src/pid_contr.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_p_i_d_1adbf15ea7088506f528d0457e9d51a93f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PID::PID</definition>
+        <argsstring>(double q0, double q1, double q2)</argsstring>
+        <name>PID</name>
+        <qualifiedname>PID::PID</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>q0</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>q1</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>q2</declname>
+        </param>
+        <briefdescription>
+<para>Конструктор с коэфициентами </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_contr.h" line="26" column="5" bodyfile="src/pid_contr.cpp" bodystart="8" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1ae10be3c7e62a2c7a13b7e7d698e11b3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PID::PID</definition>
+        <argsstring>(double K, double Ti, double Td, double T0)</argsstring>
+        <name>PID</name>
+        <qualifiedname>PID::PID</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>K</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Ti</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Td</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>T0</declname>
+        </param>
+        <briefdescription>
+<para>Конструктор PID-htuekznjhf. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент усиления </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Ti</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Время интегрирования </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Td</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Время дифференцирования </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>T0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Шаг дискретизации </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_contr.h" line="35" column="5" bodyfile="src/pid_contr.cpp" bodystart="13" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1a980f21e5c28912b5c968e60c8ddfa089" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PID::compute</definition>
+        <argsstring>(double e)</argsstring>
+        <name>compute</name>
+        <qualifiedname>PID::compute</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Вычисляет новое воздействие </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>текущая ошибка </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>воздействие u(k) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_contr.h" line="42" column="12" bodyfile="src/pid_contr.cpp" bodystart="22" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1af9677e76cb1beffbcf3f54cbc627c530" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PID::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>PID::reset</qualifiedname>
+        <briefdescription>
+<para>рестарт состояние регулятора </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_contr.h" line="47" column="10" bodyfile="src/pid_contr.cpp" bodystart="34" bodyend="38"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Ипользует текущую формулу: u(k) = u(k-1) + q0*e(k) + q1*e(k-1) + q2*e(k-2). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/pid_contr.h" line="13" column="1" bodyfile="src/pid_contr.h" bodystart="13" bodyend="48"/>
+    <listofallmembers>
+      <member refid="class_p_i_d_1a980f21e5c28912b5c968e60c8ddfa089" prot="public" virt="non-virtual"><scope>PID</scope><name>compute</name></member>
+      <member refid="class_p_i_d_1a9e9287696502b7183b65e52cfe165848" prot="private" virt="non-virtual"><scope>PID</scope><name>e_prev1</name></member>
+      <member refid="class_p_i_d_1af5539d613fcb09081d26ede79d6ecae6" prot="private" virt="non-virtual"><scope>PID</scope><name>e_prev2</name></member>
+      <member refid="class_p_i_d_1adbf15ea7088506f528d0457e9d51a93f" prot="public" virt="non-virtual"><scope>PID</scope><name>PID</name></member>
+      <member refid="class_p_i_d_1ae10be3c7e62a2c7a13b7e7d698e11b3c" prot="public" virt="non-virtual"><scope>PID</scope><name>PID</name></member>
+      <member refid="class_p_i_d_1ac6f4a7e29f84d9eb60e7f672a3665a65" prot="private" virt="non-virtual"><scope>PID</scope><name>q0</name></member>
+      <member refid="class_p_i_d_1a84c6ee207e6449ee6082094f697f701a" prot="private" virt="non-virtual"><scope>PID</scope><name>q1</name></member>
+      <member refid="class_p_i_d_1addf8b9728e070dc19ddbc5e80b44c550" prot="private" virt="non-virtual"><scope>PID</scope><name>q2</name></member>
+      <member refid="class_p_i_d_1af9677e76cb1beffbcf3f54cbc627c530" prot="public" virt="non-virtual"><scope>PID</scope><name>reset</name></member>
+      <member refid="class_p_i_d_1ab7d24c057c566a8128a654f933c2610f" prot="private" virt="non-virtual"><scope>PID</scope><name>u_prev</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
