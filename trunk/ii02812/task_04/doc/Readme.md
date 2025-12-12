@@ -57,7 +57,7 @@
 
 #### Ошибка №1 : "Filename too long"
 Для устранения данной ошибки:
-##### 1) Переходим в редактор реестра (WIN+R - regedit) по пути Компьютер\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem
+##### 1) Переходим в редактор реестра (WIN+R - regedit) по пути: Компьютер\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem
 ![reg LPE](imgs/4.png)
 Кликаем на файл LongPathsEnabled и пишем в поле "значение" 1.
 ##### 2) Заходим в командную строку и пишем:
