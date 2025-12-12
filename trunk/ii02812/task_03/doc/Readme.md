@@ -172,11 +172,8 @@ int main() {
 
 
 ## Link to documentation
-<<<<<<< HEAD
-[https://v1tyokkk.github.io/OTIS-2025/](https://v1tyokkk.github.io/OTIS-2025/)
 =======
 [https://mishanya2281337.github.io/OTIS-2025/](https://mishanya2281337.github.io/OTIS-2025/)
->>>>>>> 83f0486b5328c343d8ee651963c2361c12ba888b
 
 ## Код юнит-тестов [ test/testlab3.cpp ]
 ```C++
@@ -330,8 +327,4 @@ TEST(PIDTest, InvalidState) {
 
 ## Покрытие GCC Code Coverage
 
-<<<<<<< HEAD
 ![GCC Coverage](images/coverage.png)
-=======
-![GCC Coverage](images/coverage.png)
->>>>>>> 83f0486b5328c343d8ee651963c2361c12ba888b

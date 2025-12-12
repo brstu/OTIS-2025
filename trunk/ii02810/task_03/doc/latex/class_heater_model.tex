@@ -1,0 +1,65 @@
+\doxysection{Heater\+Model Class Reference}
+\hypertarget{class_heater_model}{}\label{class_heater_model}\index{HeaterModel@{HeaterModel}}
+
+
+Модель объекта управления – нагреватель (1-\/й порядок + чистое запаздывание).  
+
+
+
+
+{\ttfamily \#include $<$model.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_heater_model_a1339db20631a39d1663d27ce98742509}{Heater\+Model}} (double K=2.\+0, double T=150.\+0, double tau=20.\+0, double dt=1.\+0)
+\item 
+double \mbox{\hyperlink{class_heater_model_a298d7a609b10a4d2140497f64c7f349a}{step}} (double u)
+\item 
+void \mbox{\hyperlink{class_heater_model_a28ac9486783b6dc05b8307ab3a1c58c4}{reset}} ()
+\item 
+double \mbox{\hyperlink{class_heater_model_a04c19627f2791f25e1b5d77eb5a8c4e0}{get\+Temperature}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Модель объекта управления – нагреватель (1-\/й порядок + чистое запаздывание). 
+
+\label{doc-constructors}
+\Hypertarget{class_heater_model_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_heater_model_a1339db20631a39d1663d27ce98742509}\index{HeaterModel@{HeaterModel}!HeaterModel@{HeaterModel}}
+\index{HeaterModel@{HeaterModel}!HeaterModel@{HeaterModel}}
+\doxysubsubsection{\texorpdfstring{HeaterModel()}{HeaterModel()}}
+{\footnotesize\ttfamily \label{class_heater_model_a1339db20631a39d1663d27ce98742509} 
+Heater\+Model\+::\+Heater\+Model (\begin{DoxyParamCaption}\item[{double}]{K}{ = {\ttfamily 2.0}, }\item[{double}]{T}{ = {\ttfamily 150.0}, }\item[{double}]{tau}{ = {\ttfamily 20.0}, }\item[{double}]{dt}{ = {\ttfamily 1.0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_heater_model_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_heater_model_a04c19627f2791f25e1b5d77eb5a8c4e0}\index{HeaterModel@{HeaterModel}!getTemperature@{getTemperature}}
+\index{getTemperature@{getTemperature}!HeaterModel@{HeaterModel}}
+\doxysubsubsection{\texorpdfstring{getTemperature()}{getTemperature()}}
+{\footnotesize\ttfamily \label{class_heater_model_a04c19627f2791f25e1b5d77eb5a8c4e0} 
+double Heater\+Model\+::get\+Temperature (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_heater_model_a28ac9486783b6dc05b8307ab3a1c58c4}\index{HeaterModel@{HeaterModel}!reset@{reset}}
+\index{reset@{reset}!HeaterModel@{HeaterModel}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{class_heater_model_a28ac9486783b6dc05b8307ab3a1c58c4} 
+void Heater\+Model\+::reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_heater_model_a298d7a609b10a4d2140497f64c7f349a}\index{HeaterModel@{HeaterModel}!step@{step}}
+\index{step@{step}!HeaterModel@{HeaterModel}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily \label{class_heater_model_a298d7a609b10a4d2140497f64c7f349a} 
+double Heater\+Model\+::step (\begin{DoxyParamCaption}\item[{double}]{u}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{model_8h}{model.\+h}}\item 
+src/\mbox{\hyperlink{model_8cpp}{model.\+cpp}}\end{DoxyCompactItemize}
