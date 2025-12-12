@@ -47,10 +47,11 @@
 ```
 wsl –update
 ```
-<br>
+
 ![Update](SolutionDocker.jpg)
-<br>
+
 # Скачиваем репозиторий
+
 Вводим команды в cmd:
 ```
 git clone -c core.longpaths=true -c core.autocrlf=true https://github.com/ostis-apps/nika
