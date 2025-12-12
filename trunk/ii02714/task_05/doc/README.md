@@ -10,7 +10,7 @@
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
 <p align="right">Группы ИИ-27</p>
-<p align="right">Масюк А.Д.</p>
+<p align="right">Дорошенко М.Д.</p>
 <p align="right">Проверил:</p>
 <p align="right">Дворанинович Д.А.</p>
 <br><br><br><br><br>
@@ -34,8 +34,8 @@
 
 ## Внесенный вклад
 
-Исправлены опечатки и улучшена читабельность в документации в папках:ostis-example-app\problem-solver\cxx\example-module\README.md и \ostis-example-app\docs\index.md![my pull-request(1)](img/c1.jpg)
-![my pull-request(2)](img/c2.jpg)
+Исправлены некоректный вывод изображений в: ostis-example-app\docs\agents
+![my pull-request](Pull.jpg)
 
 ## Pull-request
 
