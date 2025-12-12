@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(mylib src/model.cpp)
-target_include_directories(mylib PUBLIC include)
+target_include_directories(task02_lib PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../include)
 
 add_executable(my_app src/main.cpp)
 target_link_libraries(my_app PRIVATE mylib)
