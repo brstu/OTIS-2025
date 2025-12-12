@@ -58,10 +58,12 @@ git clone -c core.longpaths=true -c core.autocrlf=true https://github.com/ostis-
 cd nika
 ```
 После чего в связи с отсуттвием нужного файла на версии 0.2.2 переходим на версию ниже
-
-C:\Users\boss\Desktop\nika>git checkout 69858165c3b5fb26ca783950c74bfe7bddd64a00
+```
+git checkout 69858165c3b5fb26ca783950c74bfe7bddd64a00
+```
 
 После чего докачиваем необходимые для запуска файлы
+
 ```
 git submodule update --init --recursive
 ```
