@@ -1,5 +1,5 @@
-#ifndef LIN_H
-#define LIN_H
+#ifndef LINE_H
+#define LINE_H
 
 #include <iostream>
 #include <vector>
