@@ -1,0 +1,79 @@
+\doxysection{src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}models.\+h"{}}\newline
+{\ttfamily \#include "{}pid.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Точка входа в программу моделирования PID-\/регулятора. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{main_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Точка входа в программу моделирования PID-\/регулятора. 
+
+Программа моделирует работу дискретного PID-\/регулятора для управления линейной моделью объекта. Пользователь вводит коэффициенты модели, начальное и целевое значение температуры, а также количество шагов моделирования.
+
+Алгоритм работы\+:
+\begin{DoxyItemize}
+\item Запрос коэффициентов линейной модели a и b.
+\item Запрос начальной температуры и целевой температуры.
+\item Запрос числа шагов моделирования.
+\item На каждом шаге вычисляется отклонение между целевой и текущей температурой.
+\item PID-\/регулятор формирует управляющее воздействие.
+\item Линейная модель рассчитывает новое значение температуры.
+\item Нелинейная модель рассчитывает новое значение температуры.
+\item Результаты выводятся в консоль.
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+код завершения программы. 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} коэффициент передачи
+
+\texorpdfstring{$<$}{<} постоянная интегрирования
+
+\texorpdfstring{$<$}{<} постоянная дифференцирования
+
+\texorpdfstring{$<$}{<} шаг
+
+\texorpdfstring{$<$}{<} коэффициент линейной модели a
+
+\texorpdfstring{$<$}{<} коэффициент линейной модели b
+
+\texorpdfstring{$<$}{<} коэффициент нелинейной модели a
+
+\texorpdfstring{$<$}{<} коэффициент нелинейной модели b
+
+\texorpdfstring{$<$}{<} коэффициент нелинейной модели c
+
+\texorpdfstring{$<$}{<} коэффициент нелинейной модели d
+
+\texorpdfstring{$<$}{<} текущее значение температуры
+
+\texorpdfstring{$<$}{<} целевая температура
+
+\texorpdfstring{$<$}{<} количество шагов моделирования
+
+\texorpdfstring{$<$}{<} значение отклонения
+
+\texorpdfstring{$<$}{<} значение управляющего воздействия
+
+\texorpdfstring{$<$}{<} вычисление значение отклонения
+
+\texorpdfstring{$<$}{<} нахождение значения управляющего воздействия
+
+\texorpdfstring{$<$}{<} расчёт новой температуры по линейной модели
+
+\texorpdfstring{$<$}{<} расчёт новой температуры по нелинейной модели
