@@ -27,7 +27,7 @@ void input(int& k, vector<double> &u, vector<double> &y, double& a, double& b) {
 
 }
 
-void linear(const int& place, const int& k, vector<double>& y, const vector<double>& u, const double& b, const double& a) {
+void linear(const int& place, const int& k, vector<double>& y, const vector<double>& u, const double& a, const double& b) {
 	    if(k > 0){
 		y.at(place + 1) = a * y.at(place) + b * u.at(place);
 		}
