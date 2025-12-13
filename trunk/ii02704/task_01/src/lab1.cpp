@@ -10,7 +10,7 @@ using namespace std;
 int randomIntInRange(int min, int max) {
     static random_device rd;
     static mt19937 gen(rd());
-    uniform_int_distribution<> dis(min, max);
+    uniform_int_distribution dis(min, max);
     return dis(gen);
 }
 
@@ -81,7 +81,10 @@ int main() {
     vector<double> y_lin;
     vector<double> y_nonlin;
     vector<double> u;
-    double a, b, c, d;
+    double a;
+    double b;
+    double c;
+    double d;
 
     input(k, u, y_lin, a, b, c, d);
     y_nonlin = y_lin;
