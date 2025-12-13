@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <cmath>
-#include "../src/module.h"doxygen --version
+#include "../src/module.h"
 
 /**
  * @brief Тест расчета коэффициентов ПИД
