@@ -1,0 +1,99 @@
+\doxysection{pid Class Reference}
+\hypertarget{classpid}{}\label{classpid}\index{pid@{pid}}
+
+
+Класс PID-\/регулятора  
+
+
+
+
+{\ttfamily \#include $<$pid.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpid_ae8014e9c3f602dcd6b88686fb917442e}{pid}} (const \mbox{\hyperlink{structpid__coeffs}{pid\+\_\+coeffs}} \&coeffs, double \+\_\+u, double \+\_\+e, double \+\_\+\+\_\+e)
+\begin{DoxyCompactList}\small\item\em Конструктор PID-\/регулятора \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classpid_a75f23675900ca669c3f12875ce55d78a}{process}} (double e)
+\begin{DoxyCompactList}\small\item\em Выполнить шаг PID-\/регулятора \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Класс PID-\/регулятора 
+
+\label{doc-constructors}
+\Hypertarget{classpid_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classpid_ae8014e9c3f602dcd6b88686fb917442e}\index{pid@{pid}!pid@{pid}}
+\index{pid@{pid}!pid@{pid}}
+\doxysubsubsection{\texorpdfstring{pid()}{pid()}}
+{\footnotesize\ttfamily \label{classpid_ae8014e9c3f602dcd6b88686fb917442e} 
+pid\+::pid (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structpid__coeffs}{pid\+\_\+coeffs}} \&}]{coeffs}{, }\item[{double}]{\+\_\+u}{, }\item[{double}]{\+\_\+e}{, }\item[{double}]{\+\_\+\+\_\+e}{}\end{DoxyParamCaption})}
+
+
+
+Конструктор PID-\/регулятора 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coeffs} & структура коэффициентов \\
+\hline
+{\em \+\_\+u} & начальное значение управляющего воздействия \\
+\hline
+{\em \+\_\+e} & предыдущее значение отклонения \\
+\hline
+{\em \+\_\+\+\_\+e} & предпредыдущее значение отклонения\\
+\hline
+\end{DoxyParams}
+Инициализирует регулятор с заданными коэффициентами и начальными условиями.
+
+
+\begin{DoxyParams}{Parameters}
+{\em coeffs} & структура коэффициентов \\
+\hline
+{\em \+\_\+u} & начальное значение управляющего воздействия \\
+\hline
+{\em \+\_\+e} & предыдущее значение отклонения \\
+\hline
+{\em \+\_\+\+\_\+e} & предпредыдущее значение отклонения \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classpid_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpid_a75f23675900ca669c3f12875ce55d78a}\index{pid@{pid}!process@{process}}
+\index{process@{process}!pid@{pid}}
+\doxysubsubsection{\texorpdfstring{process()}{process()}}
+{\footnotesize\ttfamily \label{classpid_a75f23675900ca669c3f12875ce55d78a} 
+double pid\+::process (\begin{DoxyParamCaption}\item[{double}]{e}{}\end{DoxyParamCaption})}
+
+
+
+Выполнить шаг PID-\/регулятора 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & текущее значение отклонения \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+новое управляющее воздействие
+\end{DoxyReturn}
+Вычисляет новое управляющее воздействие на основе текущей ошибки.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+e} & текущее значение отклонения \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+новое управляющее воздействие 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{pid_8h}{pid.\+h}}\item 
+src/\mbox{\hyperlink{pid_8cpp}{pid.\+cpp}}\end{DoxyCompactItemize}

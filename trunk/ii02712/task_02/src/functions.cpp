@@ -1,10 +1,12 @@
 #include "functions.h"
 #include <cmath>
 
-double linearModel(double y, double u) {
-    return a * y + b * u;
+// Линейная модель
+double linearModel(double y, double u, const LinearParams& p) {
+    return p.a * y + p.b * u;
 }
 
-double nonlinearModel(double y, double u, double y_pred, double u_pred) {
-    return a * y - b * pow(y_pred, 2) + c * u + d * sin(u_pred);
+// Нелинейная модель
+double nonlinearModel(double y, double y_prev, double u, double u_prev, const NonlinearParams& p) {
+    return p.a * y - p.b * std::pow(y_prev, 2.0) + p.c * u + p.d * std::sin(u_prev);
 }
