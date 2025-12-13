@@ -3,9 +3,8 @@
 #include <cmath>
 #include <vector>
 
-void linear(double a, double b, std::vector<double>& y, const int steps)
+void linear(double a, double b, std::vector<double>& y, const int steps, double target)
 {
-	double target = 100;
 	double u;
 	double P = 1.6;
 	double I = 0.32;

@@ -11,4 +11,4 @@
 	 * @param y Вектор значений температуры
 	 * @param steps Количество шагов моделирования
 	 */
-void linear(double a, double b, std::vector<double>& y, const int steps);
+void linear(double a, double b, std::vector<double>& y, const int steps, double target);

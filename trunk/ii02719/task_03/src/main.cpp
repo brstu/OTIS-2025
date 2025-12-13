@@ -16,7 +16,7 @@ int main()
 {
 	setlocale(LC_ALL, "Russian");
 	/// Количество шагов моделирования
-	const int steps = 30;
+	const int steps = 100;
 	/// Вектор значений температуры на каждом шаге
 	std::vector<double> y;
 	y.resize(steps);
@@ -24,14 +24,17 @@ int main()
 	double a = 0.8;
 	/// Коэффициент линейной модели (второй параметр)
 	double b = 0.5;
+	double target = 100;
 
-	std::cout << "Рассчет по линейной модели\n";
-	std::cout << "Введите начальную температуру объекта y(0): ";
+	std::cout << "Calculation using a linear model\n";
+	std::cout << "Enter the initial temperature of the object y(0): ";
 	std::cin >> y[0];
+	std::cout << "Enter the target temperature of the object: ";
+	std::cin >> target;
 
-    linear(a, b, y, steps);
+    linear(a, b, y, steps, target);
 
-	std::cout << "Нажмите Enter для выхода...";
+	std::cout << "Press Enter to exit...";
 	std::cin.ignore();
 	std::cin.get();
 }
