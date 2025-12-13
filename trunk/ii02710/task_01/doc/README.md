@@ -49,7 +49,7 @@ int main() {
     const double a = 0.4; // Coefficient for previous output (y)
     const double b = 0.3; // Coefficient for input (u)
     const int n = 15; // Simulation time steps
-    double u = 0.5; // Constant input (step) u
+    double u = 0.5; // Step size for input signal increment
     double y_current = 0; // Initialize y_current value
     
     for (int tau = 0; tau < n; tau++) {
