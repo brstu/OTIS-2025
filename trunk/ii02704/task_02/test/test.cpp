@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "../src/linear.h"
+#include "../src/Linear.h"
 
 TEST(Test, linearr) {
 	double res;
@@ -36,5 +36,5 @@ TEST(Test, linearr3) {
 	u[0] = 9.6;
 	linear(0,2, y, u, 12.3, 7.3);
 	res = y[1];
-	EXPECT_NEAR(res, 75, 0.01);//123.92 правильный
+	EXPECT_NEAR(res, 75, 0.01);//123.92 ГЇГ°Г ГўГЁГ«ГјГ­Г»Г©
 }
