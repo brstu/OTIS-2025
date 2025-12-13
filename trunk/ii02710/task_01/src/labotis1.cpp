@@ -24,8 +24,8 @@ int main() {
     double u_prev = 1.0; // Step size for input signal previous increment ( u[tau-1] )
     double u_curr = 2.0; // Step size for input signal current increment ( u[tau] )
     
-    double y_prev = 25.0; // y[tau-1]
-    double y_curr = 26.0; // y[tau]
+    double y_prev = 0.0; // y[tau-1] (set to 0.0 for realistic initial temperature)
+    double y_curr = 0.0; // y[tau]   (set to 0.0 for realistic initial temperature)
     double y_next;        // y[tau+1]
 
     const double u_offset = 0.3;
