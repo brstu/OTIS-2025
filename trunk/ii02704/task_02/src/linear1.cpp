@@ -1,4 +1,4 @@
-#include "linear.h"
+#include "Linear.h"
 #include <iostream>
 #include <vector>
 
