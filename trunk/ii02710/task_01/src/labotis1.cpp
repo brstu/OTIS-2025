@@ -16,7 +16,7 @@ int main() {
     std::cout << std::endl;
 
     std::cout << "\nSecond system - Nonlinear" << std::endl;
-    const double a2 = 0.5; // Coefficient for previous output (y)
+    const double a2 = 0.5; // Coefficient for current output (y[τ])
     const double b2 = 0.2; // Nonlinear coefficient for squared previous output (prevY²)
     const double c2 = 0.1; // Linear coefficient for input (u)
     const double d2 = 0.3; // Nonlinear coefficient for sinusoidal input term
