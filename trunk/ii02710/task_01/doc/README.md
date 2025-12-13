@@ -50,7 +50,6 @@ int main() {
     const double b = 0.3; // Coefficient for input (u)
     const int n = 15; // Simulation time steps
     double u = 0.5; // Constant input value (u)
-    double u = 0.5; // Constant input (step) u
     double y_current = 0; // Initialize y_current value
     
     for (int tau = 0; tau < n; tau++) {
