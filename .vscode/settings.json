@@ -76,13 +76,12 @@
         "xtr1common": "cpp",
         "xtree": "cpp",
         "xutility": "cpp",
-<<<<<<< HEAD
+        "filesystem": "cpp",
+        "regex": "cpp"
         "regex": "cpp",
         "csignal": "cpp",
         "span": "cpp"
-=======
         "filesystem": "cpp",
         "regex": "cpp"
->>>>>>> origin/task_03
     }
 }
