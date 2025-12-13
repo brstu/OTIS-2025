@@ -76,7 +76,6 @@ int main() {
     for (int tau = 1; tau < n; tau++) {
         y_next = a2 * y_curr - b2 * (y_prev * y_prev) + c2 * u_curr + d2 * std::sin(u_prev);
         
-        std::cout << "y[" << tau + 1 << "] = " << y_next << '\n';
         std::cout << "y[" << tau + 1 << "] = " << y_next << std::endl;
         
         // Update for next iteration
