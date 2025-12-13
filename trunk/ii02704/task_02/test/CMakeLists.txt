@@ -27,7 +27,7 @@ add_executable(
   test.cpp
 
   ../src/linear1.cpp
-  ../src/linear.h
+  ../src/Linear.h
 )
 target_link_libraries(
   ${CMAKE_PROJECT_NAME}
