@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <vector>
-#include "linear.h"
+#include "Linear.h"
 
 using namespace std;
 
