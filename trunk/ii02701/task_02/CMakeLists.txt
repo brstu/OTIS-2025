@@ -12,6 +12,16 @@ FetchContent_Declare(
     DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
 
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    message(STATUS "Building with coverage flags")
+    add_compile_options(--coverage)
+    add_link_options(--coverage)
+endif()
+
+install(DIRECTORY doc
+        DESTINATION .
+        FILES_MATCHING PATTERN "*.md" PATTERN "*.pdf")
+
 FetchContent_MakeAvailable(googletest)
 
 add_subdirectory(src)
