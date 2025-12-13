@@ -37,8 +37,8 @@ git checkout 69858165c3b5fb26ca783950c74bfe7bddd64a00
 docker compose up --no-build
 ```
 Теперь всё готово. Контейнеры появились:
-![containers](images/1.jpg)
+![containers](1.jpg)
  
 ## Эапуск NIKA
 dialogue web UI - localhost:3033
-![containers](images/2.jpg)
+![containers](2.jpg)
