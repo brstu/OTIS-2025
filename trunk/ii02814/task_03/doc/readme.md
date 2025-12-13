@@ -357,7 +357,7 @@ double calculateNonlinearModel(double a, double b, double c, double d,
 double applyTemperatureProtection(double temperature);
 
 /**
- * @brief Расчет ошибки регулирования
+ * @brief Расчет ошибки регулированиz
  * @param setpoint Заданное значение (уставка)
  * @param current_value Текущее значение процесса
  * @return Ошибка регулирования
