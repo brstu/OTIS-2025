@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <cmath>
-#include "model.h"
+#include "../src/model.h"
 
 // Первый тест: проверка линейной системы
 TEST(SystemTests, LinearSystemTest) {

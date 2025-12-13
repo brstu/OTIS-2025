@@ -1,5 +1,5 @@
-#ifndef MODEL_H
-#define MODEL_H
+#ifndef model_h
+#define model_h
 
 // Функция для одного шага линейной системы
 double linearStep(double a, double b, double u, double y_prev);

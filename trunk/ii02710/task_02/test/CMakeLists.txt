@@ -1,13 +1,13 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.10)
 
-# Находим GoogleTest
-find_package(GTest REQUIRED)
+# Используйте правильное имя для вашей группы (ii02710)
+add_executable(runTests_ii02710 test.cpp ../src/model.cpp)
 
-# Создаем тестовый исполняемый файл
-add_executable(runTests_ii002713 test.cpp ../src/model.cpp)
+# Добавляем путь к заголовочным файлам
+target_include_directories(runTests_ii02710 PRIVATE ../src)
 
-# Линкуем с GoogleTest
-target_link_libraries(runTests_ii002713 GTest::gtest GTest::gtest_main)
+# Линкуем с Google Test
+target_link_libraries(runTests_ii02710 gtest gtest_main)
 
-# Добавляем тест в CTest
-add_test(NAME task_02_tests COMMAND runTests_ii002713)
+# Добавляем тест
+add_test(NAME task_02_tests COMMAND runTests_ii02710)

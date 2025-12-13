@@ -89,16 +89,16 @@ int main(int argc, char **argv) {
 
 ```
 ## Результаты юнит-тестирования (GoogleTest)
-text
 [==========] Running 2 tests from 1 test suite.
 [----------] Global test environment set-up.
 [----------] 2 tests from SystemTests
 [ RUN      ] SystemTests.LinearSystemTest
-[       OK  ] SystemTests.LinearSystemTest (0 ms)
+[       OK ] SystemTests.LinearSystemTest (0 ms)
 [ RUN      ] SystemTests.NonlinearSystemTest
-[       OK  ] SystemTests.NonlinearSystemTest (0 ms)
-[----------] 2 tests from SystemTests (10 ms total)
+[       OK ] SystemTests.NonlinearSystemTest (0 ms)
+[----------] 2 tests from SystemTests (2 ms total)
 
 [----------] Global test environment tear-down
-[==========] 2 tests from 1 test suite ran. (20 ms total)
+[==========] 2 tests from 1 test suite ran. (7 ms total)
 [  PASSED  ] 2 tests.
+PS D:\OTIS-2025\trunk\ii02710\task_02\build\test> 
