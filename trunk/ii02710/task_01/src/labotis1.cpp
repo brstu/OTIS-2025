@@ -24,10 +24,7 @@ int main() {
     double u_prev = 1.0; // Step size for input signal previous increment ( u[tau-1] )
     double u_curr = 2.0; // Step size for input signal current increment ( u[tau] )
     
-    double y_prev = 0.0; // y[tau-1] (set to 0.0 for realistic initial temperature)
-    double y_curr = 0.0; // y[tau]   (set to 0.0 for realistic initial temperature)
-    double y_next;        // y[tau+1]
-
+    // y_prev, y_curr, and y_next are initialized below for the simulation.
     // u_offset defines the incremental change applied to the input signal (u_curr) at each time step.
     // The value 0.3 is chosen to demonstrate the effect of a steadily increasing input on the system's response.
     double y_prev = 25.0; // y[tau-1]
