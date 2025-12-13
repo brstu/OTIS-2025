@@ -16,9 +16,8 @@ const double T = 0.5;
 const double q0 = K * (1.0 + Td/T0);
 const double q1 = -K * (1.0 + 2.0 * Td/T0 - T0/T);
 const double q2 = K * Td/T0;
-bool second_iter = true;
 
 
-double liner_funcnt(double& y1);
-double nonliner_funct(double& y2, double& y_previous, bool& second_iteration);
+void liner_funcnt(double& y1);
+double nonliner_funct (double& y2, double& y_previous, bool& second_iteration);
 std::vector<double> simulatePIDRegulatorByNonLinearModel(double w, int steps);
