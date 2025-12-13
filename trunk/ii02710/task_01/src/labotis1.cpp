@@ -28,6 +28,8 @@ int main() {
     double y_curr = 0.0; // y[tau]   (set to 0.0 for realistic initial temperature)
     double y_next;        // y[tau+1]
 
+    // u_offset defines the incremental change applied to the input signal (u_curr) at each time step.
+    // The value 0.3 is chosen to demonstrate the effect of a steadily increasing input on the system's response.
     const double u_offset = 0.3;
     
     for (int tau = 1; tau < n; tau++) {
