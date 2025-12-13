@@ -1,9 +1,9 @@
 #include "linear.h"
-
 #include <iostream>
 #include <vector>
 
 using namespace std;
+
 
 void input(int& k, vector<double> &u, vector<double> &y, double& a, double& b) {
 	cout << "Enter amount of iterations: ";
