@@ -8,9 +8,9 @@ using namespace std;
 
 // Генератор целых случайных чисел в диапазоне [min, max]
 int randomIntInRange(int min, int max) {
-    static random_device rd;
-    static mt19937 gen(rd());
-    uniform_int_distribution dis(min, max);
+    static std::random_device rd;       
+    static std::mt19937 gen(rd());      
+    std::uniform_int_distribution dis(min, max);
     return dis(gen);
 }
 
