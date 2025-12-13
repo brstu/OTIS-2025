@@ -7,6 +7,7 @@ int main() {
     const double b = 0.3; // Coefficient for input (u)
     const int n = 15; // Simulation time steps
     double u = 0.5; // Constant input value (u)
+    double u = 0.5; // Step size for input signal increment
     double y_current = 0; // Initialize y_current value
     
     for (int tau = 0; tau < n; tau++) {
@@ -17,6 +18,7 @@ int main() {
 
     std::cout << "\nSecond system - Nonlinear" << std::endl;
     const double a2 = 0.5; // Coefficient for current output (y[τ])
+    const double a2 = 0.5; // Coefficient for previous output (y)
     const double b2 = 0.2; // Nonlinear coefficient for squared previous output (prevY²)
     const double c2 = 0.1; // Linear coefficient for input (u)
     const double d2 = 0.3; // Nonlinear coefficient for sinusoidal input term
@@ -30,6 +32,10 @@ int main() {
 
     // u_offset defines the incremental change applied to the input signal (u_curr) at each time step.
     // The value 0.3 is chosen to demonstrate the effect of a steadily increasing input on the system's response.
+    double y_prev = 25.0; // y[tau-1]
+    double y_curr = 26.0; // y[tau]
+    double y_next;        // y[tau+1]
+
     const double u_offset = 0.3;
     
     for (int tau = 1; tau < n; tau++) {

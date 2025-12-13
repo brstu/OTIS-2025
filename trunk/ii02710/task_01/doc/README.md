@@ -50,6 +50,7 @@ int main() {
     const double b = 0.3; // Coefficient for input (u)
     const int n = 15; // Simulation time steps
     double u = 0.5; // Constant input value (u)
+    double u = 0.5; // Constant input (step) u
     double y_current = 0; // Initialize y_current value
     
     for (int tau = 0; tau < n; tau++) {
@@ -60,6 +61,7 @@ int main() {
 
     std::cout << "\nSecond system - Nonlinear" << std::endl;
     const double a2 = 0.5; // Coefficient for current output (y)
+    const double a2 = 0.5; // Coefficient for input (u)
     const double b2 = 0.2; // Nonlinear coefficient for squared previous output (prevY²)
     const double c2 = 0.1; // Linear coefficient for input (u)
     const double d2 = 0.3; // Nonlinear coefficient for sinusoidal input term
@@ -77,6 +79,7 @@ int main() {
         y_next = a2 * y_curr - b2 * (y_prev * y_prev) + c2 * u_curr + d2 * std::sin(u_prev);
         
         std::cout << "y[" << tau + 1 << "] = " << y_next << '\n';
+        std::cout << "y[" << tau + 1 << "] = " << y_next << std::endl;
         
         // Update for next iteration
         y_prev = y_curr;
