@@ -28,88 +28,56 @@
 ## Код юнит-тестов [ src/main.cpp ]
 #include <iostream>
 #include <vector>
-#include <cmath>
 #include <locale>
 #include "module.h"
 
 int main()
 {
     std::setlocale(LC_ALL, "ru_RU.UTF-8");
-    
-    int steps_count;
-    
-    std::cout << "Введите число шагов N (N < 100): ";
-    std::cin >> steps_count;
-    
-    bool invalid_count = steps_count >= 100;
 
-    if (bool negative_count = steps_count < 0; invalid_count || negative_count)
+    int N{};
+    std::cout << "Введите число шагов N (N < 100): ";
+    std::cin >> N;
+
+    if (N < 0 || N >= 100)
     {
         std::cout << "Ошибка: N должно быть в диапазоне 0 <= N < 100\n";
         return 1;
     }
 
-    double parameter_a;
-    
-    double parameter_b;
-    
-    double parameter_c;
-    
-    double parameter_d;
-    
+    double a{}, b{}, c{}, d{};
     std::cout << "Введите константы a, b, c, d через пробел: ";
-    std::cin >> parameter_a;
-    std::cin >> parameter_b;
-    std::cin >> parameter_c;
-    std::cin >> parameter_d;
+    std::cin >> a >> b >> c >> d;
 
-    std::vector<double> input_values(steps_count);
-    
-    if (steps_count > 0)
+    std::vector<double> u(N);
+    for (int t = 0; t < N; ++t)
     {
-        std::cout << "Введите значения u(t) для t = 0." << steps_count - 1 << ":\n"; 
-        
-        for (int current_time = 0; current_time < steps_count; ++current_time)
-        {
-            std::cout << "u[" << current_time << "] = ";
-            std::cin >> input_values[current_time];
-        }
+        std::cout << "u[" << t << "] = ";
+        std::cin >> u[t];
     }
 
-    std::vector<double> linear_output(steps_count + 1, 0.0);
-    
-    std::vector<double> nonlinear_output(steps_count + 1, 0.0);
+    std::vector<double> yLin(N + 1);
+    std::vector<double> yNon(N + 1);
 
-    if (steps_count > 0)
-    {
-        std::cout << "Введите начальную температуру y[0]: ";
-        std::cin >> linear_output[0];
-        nonlinear_output[0] = linear_output[0];
-    }
+    std::cout << "Введите начальную температуру y[0]: ";
+    std::cin >> yLin[0];
+    yNon[0] = yLin[0];
 
-    if (bool need_second_value = steps_count > 1; need_second_value)
+    if (N > 1)
     {
         std::cout << "Введите y[1] для нелинейной модели: ";
-        std::cin >> nonlinear_output[1];
+        std::cin >> yNon[1];
     }
 
-    if (steps_count > 0)
-    {
-        calculate_linear_model(steps_count, parameter_a, parameter_b, input_values, linear_output);
-        
-        if (bool calculate_nonlinear = steps_count > 1; calculate_nonlinear)
-        {
-            calculate_nonlinear_model(steps_count, parameter_a, parameter_b, parameter_c, parameter_d, input_values, nonlinear_output);
-        }
-    }
+    calculate_linear_model(N, a, b, u, yLin);
 
-    std::cout << "\nРезультаты моделирования:\n";
+    if (N > 1)
+        calculate_nonlinear_model(N, a, b, c, d, u, yNon);
+
+    std::cout << "\nРезультаты:\n";
     std::cout << "t\ty_lin\ty_nl\n";
-    
-    for (int output_time = 0; output_time <= steps_count; ++output_time)
-    {
-        std::cout << output_time << "\t" << linear_output[output_time] << "\t" << nonlinear_output[output_time] << "\n";
-    }
+    for (int t = 0; t <= N; ++t)
+        std::cout << t << "\t" << yLin[t] << "\t" << yNon[t] << "\n";
 
     return 0;
 }
@@ -119,53 +87,48 @@ int main()
 #include <cmath>
 
 void calculate_linear_model(
-    int total_steps,
-    double coefficient_a,
-    double coefficient_b,
-    const std::vector<double>& input_signal,
-    std::vector<double>& linear_result
+        int steps,
+        double a,
+        double b,
+        const std::vector<double>& u,
+        std::vector<double>& y
 )
 {
-    for (int current_step = 0; current_step < total_steps; ++current_step)
+    for (int i = 0; i < steps; ++i)
     {
-        int next_index = current_step + 1;
-        double current_value = linear_result[current_step];
-        double input_value = input_signal[current_step];
-        
-        linear_result[next_index] = coefficient_a * current_value + coefficient_b * input_value;
+        double prevValue = y[i];
+        double inputValue = u[i];
+
+        y[i + 1] = a * prevValue + b * inputValue;
     }
 }
 
+
+
 void calculate_nonlinear_model(
-    int iteration_count,
-    double alpha,
-    double beta,
-    double gamma,
-    double delta,
-    const std::vector<double>& control_input,
-    std::vector<double>& nonlinear_result
+        int total,
+        double alpha,
+        double beta,
+        double gamma,
+        double delta,
+        const std::vector<double>& u,
+        std::vector<double>& y
 )
 {
-    for (int step_index = 1; step_index < iteration_count; ++step_index)
+    for (int i = 1; i < total; ++i)
     {
-        bool valid_previous_index = step_index - 1 >= 0;
-        bool valid_current_index = step_index < static_cast<int>(nonlinear_result.size());
-        
-        if (valid_previous_index && valid_current_index)
-        {
-            double first_component = alpha * nonlinear_result[step_index];
-            
-            double second_component = beta * nonlinear_result[step_index - 1];
-            second_component = second_component * nonlinear_result[step_index - 1];
-            
-            double third_component = gamma * control_input[step_index];
-            
-            double fourth_component = delta * std::sin(control_input[step_index - 1]);
-            
-            int target_index = step_index + 1;
-            
-            nonlinear_result[target_index] = first_component - second_component + third_component + fourth_component;
-        }
+        double yt = y[i];
+        double ym1 = y[i - 1];
+
+        double ut = u[i];
+        double um1 = u[i - 1];
+
+        double part1 = alpha * yt;
+        double part2 = beta * ym1 * ym1;
+        double part3 = gamma * ut;
+        double part4 = delta * std::sin(um1);
+
+        y[i + 1] = part1 - part2 + part3 + part4;
     }
 }
 
@@ -175,24 +138,24 @@ void calculate_nonlinear_model(
 
 #include <vector>
 
-const int MAXIMUM_STEPS = 101;
+constexpr int MAXIMUM_STEPS = 101;
 
 void calculate_linear_model(
-    int total_steps,
-    double coefficient_a,
-    double coefficient_b,
-    const std::vector<double>& input_signal,
-    std::vector<double>& linear_result
+        int nSteps,
+        double aCoef,
+        double bCoef,
+        const std::vector<double>& u,
+        std::vector<double>& y
 );
 
 void calculate_nonlinear_model(
-    int iteration_count,
-    double alpha,
-    double beta,
-    double gamma,
-    double delta,
-    const std::vector<double>& control_input,
-    std::vector<double>& nonlinear_result
+        int numberOfSteps,
+        double a,
+        double b,
+        double c,
+        double d,
+        const std::vector<double>& u,
+        std::vector<double>& y
 );
 
 #endif
