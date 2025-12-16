@@ -1,0 +1,42 @@
+cmake_minimum_required(VERSION 3.15)
+project(lab3)
+
+set(CMAKE_CXX_STANDARD 17)
+
+# Основная программа
+add_executable(lab3
+    main.cpp
+    pid_controller.cpp
+    model.cpp
+)
+
+# Включаем директории для основной программы
+target_include_directories(lab3 PRIVATE .)
+
+# Google Test
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+  DOWNLOAD_EXTRACT_TIMESTAMP TRUE
+)
+FetchContent_MakeAvailable(googletest)
+
+enable_testing()
+
+add_executable(pid_tests
+    pid_controller_test.cpp
+    pid_controller.cpp
+    model.cpp
+)
+
+# Включаем директории для тестов
+target_include_directories(pid_tests PRIVATE .)
+
+target_link_libraries(pid_tests gtest gtest_main)
+
+add_test(NAME PIDControllerTests COMMAND pid_tests)
+
+message(STATUS "Конфигурация завершена")
+message(STATUS "Основная программа: lab3")
+message(STATUS "Тесты: pid_tests")
