@@ -17,7 +17,10 @@ int main()
         return 1;
     }
 
-    double a{}, b{}, c{}, d{};
+    double a{};
+    double b{};
+    double c{};
+    double d{};
     std::cout << "Введите константы a, b, c, d через пробел: ";
     std::cin >> a >> b >> c >> d;
 
