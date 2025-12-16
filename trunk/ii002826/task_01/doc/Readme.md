@@ -14,6 +14,13 @@
 <p align="right">Проверил:</p>
 <p align="right">Иванюк Д.С.</p>
 <br><br><br><br><br>
+<p align="right">Выполнил:</p>
+<p align="right">Студент 2 курса</p>
+<p align="right">Группы ИИ-28</p>
+<p align="right">Шумский И.Н.</p>
+<p align="right">Проверил:</p>
+<p align="right">Иванюк Д.С.</p>
+<br><br><br><br><br>
 <p align="center">Брест 2025</p>
 
 Общее задание
