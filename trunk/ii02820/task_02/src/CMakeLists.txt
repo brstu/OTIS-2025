@@ -20,21 +20,24 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-# ФАЙЛЫ УЖЕ НАХОДЯТСЯ В src/, ПОЭТОМУ ПУТИ ПРОСТЫЕ
+# ТЕКУЩАЯ ПАПКА (src)
+set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+# ПАПКА НА УРОВЕНЬ ВЫШЕ (task_02)
+set(PARENT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/..)
+
 add_executable(ii02820_task02_main_program 
-    main.cpp           # ← уже в папке src
-    functions.cpp      # ← уже в папке src
+    ${SRC_DIR}/main.cpp
+    ${SRC_DIR}/functions.cpp
 )
 
-# ДЛЯ ТЕСТОВ НУЖНО ВЫЙТИ НА УРОВЕНЬ ВЫШЕ
 add_executable(ii02820_task02_tests
-    ../test/test_functions.cpp  # ← выходим из src в test
-    functions.cpp               # ← файл из текущей папки
+    ${PARENT_DIR}/test/test_functions.cpp
+    ${SRC_DIR}/functions.cpp
 )
 
 target_include_directories(ii02820_task02_tests PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}           # для functions.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../test   # для test_functions.cpp
+    ${SRC_DIR}
+    ${PARENT_DIR}/test
 )
 
 target_link_libraries(
