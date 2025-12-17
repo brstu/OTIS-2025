@@ -6,6 +6,7 @@
 <p align="center">Лабораторная работа №1</p>
 <p align="center">По дисциплине “Общая теория интеллектуальных систем”</p>
 <p align="center">Тема: “Моделирования температуры объекта”</p>
+<p align="center">Тема: “Моделирование температуры объекта”</p>
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
@@ -58,6 +59,7 @@ int main()
 	y0 = y1;
 	int n = 10;
 	cout << endl << "Liner"<<endl;
+	cout << endl << "Linear"<<endl;
 	for (int i = 0; i < n; i++)
 	{
 		cout << "t" << i + 1 << " = ";
@@ -68,6 +70,7 @@ int main()
 	}
 
 	cout << endl << "unliner:" << endl;
+	cout << endl << "Nonlinear:" << endl;
 	for (int i = 0; i < n; i++)
 	{
 		cout << "t" << i + 1 << " = ";
@@ -106,3 +109,29 @@ Result of the 6 step of non-linear model: 0.492238
 Enter u for the 7 step: 10
 Result of the 7 step of non-linear model: 0.492195
 
+y1 = ?
+1
+
+Linear
+t1 = 1.3
+t2 = 0.91
+t3 = 0.757
+t4 = 0.6785
+t5 = 0.63925
+t6 = 0.619625
+t7 = 0.609812
+t8 = 0.604906
+t9 = 0.602453
+t10 = 0.601227
+
+Nonlinear
+t1 = 1.3
+t2 = 0.8775
+t3 = 0.697019
+t4 = 0.613212
+t5 = 0.573222
+t6 = 0.553837
+t7 = 0.544073
+t8 = 0.539191
+t9 = 0.536751
+t10 = 0.535531
