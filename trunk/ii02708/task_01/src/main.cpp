@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cmath>
 using namespace std;
 
 float a=0.5,
