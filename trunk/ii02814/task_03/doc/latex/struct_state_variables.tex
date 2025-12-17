@@ -1,0 +1,40 @@
+\doxysection{State\+Variables Struct Reference}
+\hypertarget{struct_state_variables}{}\label{struct_state_variables}\index{StateVariables@{StateVariables}}
+
+
+Структура для хранения переменных состояния системы  
+
+
+
+
+{\ttfamily \#include $<$module.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_state_variables_a663e3c0dbf10c0d03357964f0cb675f5}\label{struct_state_variables_a663e3c0dbf10c0d03357964f0cb675f5} 
+std\+::array$<$ double, 3 $>$ {\bfseries y}
+\begin{DoxyCompactList}\small\item\em Массив температур\+: \doxylink{struct_state_variables_a663e3c0dbf10c0d03357964f0cb675f5}{y(k)}, y(k-\/1), y(k-\/2). \end{DoxyCompactList}\item 
+\Hypertarget{struct_state_variables_ac0832248c84e960044c6d709989aba80}\label{struct_state_variables_ac0832248c84e960044c6d709989aba80} 
+std\+::array$<$ double, 2 $>$ {\bfseries u}
+\begin{DoxyCompactList}\small\item\em Массив управлений\+: \doxylink{struct_state_variables_ac0832248c84e960044c6d709989aba80}{u(k)}, u(k-\/1). \end{DoxyCompactList}\item 
+\Hypertarget{struct_state_variables_af384483bb5082664e4ae45f107f9222b}\label{struct_state_variables_af384483bb5082664e4ae45f107f9222b} 
+double {\bfseries e\+\_\+prev}
+\begin{DoxyCompactList}\small\item\em Предыдущая ошибка регулирования \end{DoxyCompactList}\item 
+\Hypertarget{struct_state_variables_a8341fbe643102035e40a9983844c92b2}\label{struct_state_variables_a8341fbe643102035e40a9983844c92b2} 
+double {\bfseries e\+\_\+prev2}
+\begin{DoxyCompactList}\small\item\em Предпредыдущая ошибка регулирования \end{DoxyCompactList}\item 
+\Hypertarget{struct_state_variables_addac2b42780200821287135d316edbda}\label{struct_state_variables_addac2b42780200821287135d316edbda} 
+double {\bfseries u\+\_\+prev}
+\begin{DoxyCompactList}\small\item\em Предыдущее управляющее воздействие \end{DoxyCompactList}\item 
+\Hypertarget{struct_state_variables_a967286ad51cd9932ec3eff353c7c3a02}\label{struct_state_variables_a967286ad51cd9932ec3eff353c7c3a02} 
+double {\bfseries e\+\_\+k}
+\begin{DoxyCompactList}\small\item\em Текущая ошибка регулирования \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Структура для хранения переменных состояния системы 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+OTIS/\+OTIS-\/2025/trunk/ii02814/task\+\_\+03/src/\mbox{\hyperlink{module_8h}{module.\+h}}\end{DoxyCompactItemize}
