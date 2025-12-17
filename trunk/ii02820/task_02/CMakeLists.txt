@@ -1,31 +1,25 @@
-cmake_minimum_required(VERSION 3.15)
-project(ii002820)
+cmake_minimum_required(VERSION 3.14)
+project(ii02820_task02)
 
-# Укажите путь к vcpkg toolchain ДО project()
-set(VCPKG_ROOT "C:/Users/anton/OTIS-2025/vcpkg")
-set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
-
-# Установите путь к GTest конфигурации
-set(GTest_DIR "${VCPKG_ROOT}/installed/x64-windows/share/gtest")
-find_package(GTest REQUIRED CONFIG)
-
-# Ищем GoogleTest через vcpkg (только CONFIG mode)
-find_package(GTest REQUIRED CONFIG NO_MODULE)
-message(STATUS "GoogleTest найден через vcpkg: ${GTest_VERSION}")
+set(CMAKE_CXX_STANDARD 17)
 
 # Основная программа
-add_executable(ii002820_model src/main.cpp src/model.cpp)
-target_include_directories(ii002820_model PRIVATE src)
+add_executable(ii02820_main src/main.cpp src/model.cpp)
 
-# Тесты
-add_executable(model_tests test/model_tests.cpp src/model.cpp)
-target_include_directories(model_tests PRIVATE src)
+# Google Test (скачивается автоматически)
+include(FetchContent)
+FetchContent_Declare(
+    googletest
+    GIT_REPOSITORY https://github.com/google/googletest.git
+    GIT_TAG release-1.14.0
+)
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
 
-# Связываем с GoogleTest
-target_link_libraries(model_tests PRIVATE GTest::gtest GTest::gtest_main)
+# Тесты с Google Test
+add_executable(ii02820_gtests test/test_model.cpp src/model.cpp)
+target_link_libraries(ii02820_gtests PRIVATE gtest_main)
+target_include_directories(ii02820_gtests PRIVATE ${CMAKE_SOURCE_DIR}/src)
 
-# Включаем тестирование
-enable_testing()
-add_test(NAME ModelTests COMMAND model_tests)
-
-message(STATUS "=== Проект настроен ===")
+include(GoogleTest)
+gtest_discover_tests(ii02820_gtests)
