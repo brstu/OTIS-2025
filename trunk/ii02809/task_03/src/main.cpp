@@ -1,12 +1,19 @@
 #include <iostream>
 #include "functions.h"
 
-int main() {
-    double a, b, c, d;
+int main()
+{
+    double a;
+    double b;
+    double c;
+    double d;
     std::cout << "Enter model parameters a, b, c, d: ";
     std::cin >> a >> b >> c >> d;
 
-    double K, Ti, Td, To;
+    double K;
+    double Ti;
+    double Td;
+    double To;
     std::cout << "Enter PID parameters K, Ti, Td, To: ";
     std::cin >> K >> Ti >> Td >> To;
 
@@ -14,7 +21,7 @@ int main() {
     std::cout << "Enter desired value w: ";
     std::cin >> w;
 
-    int model_type; 
+    int model_type;
     std::cout << "Enter model type (1: linear, 2: nonlinear): ";
     std::cin >> model_type;
 
@@ -28,14 +35,20 @@ int main() {
 
     std::cout << "step,y,u,e" << std::endl;
 
-    for (int k = 0; k < num_steps; ++k) {
+    for (int k = 0; k < num_steps; ++k)
+    {
         double e = w - y;
         double u = pid.compute(e);
-        if (model_type == 1) {
+
+        if (model_type == 1)
+        {
             y = linear(y, u, a, b);
-        } else {
+        }
+        else
+        {
             y = nonlinear(y, u, a, b, c, d);
         }
+
         std::cout << k << "," << y << "," << u << "," << e << std::endl;
     }
 
