@@ -4,7 +4,10 @@
 
 TEST(PIDControllerTest, ConstructorAndParameters) {
     PIDController pid(2.0, 0.5, 0.1, 0.01);
-    double K, Ti, Td, T;
+    double K;
+    double Ti;
+    double Td;
+    double T;
     pid.getParameters(K, Ti, Td, T);
     EXPECT_DOUBLE_EQ(K, 2.0);
     EXPECT_DOUBLE_EQ(Ti, 0.5);
@@ -37,7 +40,10 @@ TEST(PIDControllerTest, ResetController) {
 TEST(PIDControllerTest, SetParameters) {
     PIDController pid(1.0, 0.1, 0.05, 0.01);
     pid.setParameters(2.0, 0.2, 0.1, 0.02);
-    double K, Ti, Td, T;
+    double K;
+    double Ti;
+    double Td;
+    double T;
     pid.getParameters(K, Ti, Td, T);
     EXPECT_DOUBLE_EQ(K, 2.0);
     EXPECT_DOUBLE_EQ(Ti, 0.2);

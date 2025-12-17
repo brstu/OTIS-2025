@@ -1,12 +1,13 @@
 ﻿#include <cmath>
 
-// Глобальные переменные делаем const и разделяем объявления
-static const double K_obj_default = 1.0;
-static const double T_obj_default = 0.5;
+namespace {
+    const double K_obj_default = 1.0;
+    const double T_obj_default = 0.5;
 
-static double K_obj = K_obj_default;
-static double T_obj = T_obj_default;
-static double y_prev = 0.0;
+    double K_obj = K_obj_default;
+    double T_obj = T_obj_default;
+    double y_prev = 0.0;
+}
 
 void modelInit(double K, double T) {
     K_obj = K;
