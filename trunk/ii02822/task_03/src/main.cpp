@@ -130,32 +130,32 @@ int main() {
     const int steady_start = 20;
     const int steady_end = 25;
 
-    if (const int steady_start = 20;
-        steady_start < static_cast<int>(linear_results.size())) {
+    if (steady_start < static_cast<int>(linear_results.size()) &&
+        steady_end < static_cast<int>(linear_results.size())) {
 
-        if (const int steady_end = 25;
-            steady_end < static_cast<int>(linear_results.size())) {
+        double lin_sum = 0.0;
+        double nl_sum = 0.0;
+        int count = 0;
 
-            double lin_sum = 0.0;
-            double nl_sum = 0.0;
-            int count = 0;
-
-            for (int i = steady_start; i <= steady_end; ++i) {
-                lin_sum += linear_results[i];
-                nl_sum += nonlinear_results[i];
-                ++count;
-            }
-            const double lin_avg = lin_sum / count;
-            const double nl_avg = nl_sum / count;
-
-            std::cout << "Steady-state average (target = 20.0):\n";
-            std::cout << "  Linear model:    " << std::setprecision(3) << lin_avg << "\n";
-            std::cout << "  Nonlinear model: " << nl_avg << "\n";
-            std::cout << "  Difference:      " << (nl_avg - lin_avg)
-                << " (" << std::setprecision(1)
-                << std::fabs(100.0 * (nl_avg - lin_avg) / lin_avg) << "%)\n";
+        for (int i = steady_start; i <= steady_end; ++i) {
+            lin_sum += linear_results[i];
+            nl_sum += nonlinear_results[i];
+            ++count;
         }
 
+        const double lin_avg = lin_sum / count;
+        const double nl_avg = nl_sum / count;
+
+        std::cout << "Steady-state average (target = 20.0):\n";
+        std::cout << "  Linear model:    " << std::setprecision(3) << lin_avg << "\n";
+        std::cout << "  Nonlinear model: " << nl_avg << "\n";
+        std::cout << "  Difference:      " << (nl_avg - lin_avg)
+            << " (" << std::setprecision(1)
+            << std::fabs(100.0 * (nl_avg - lin_avg) / lin_avg) << "%)\n";
+    }
+    else {
+        std::cout << "Warning: Not enough data for steady-state analysis\n";
+    }
         double lin_max = 0.0;
         double nl_max = 0.0;
 
