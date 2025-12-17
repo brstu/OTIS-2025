@@ -1,9 +1,9 @@
 var indexSectionsWithContent =
 {
-  0: "cglmopr",
+  0: "cglpr",
   1: "p",
-  2: "op",
-  3: "cglmpr"
+  2: "p",
+  3: "cglpr"
 };
 
 var indexSectionNames =
@@ -16,9 +16,9 @@ var indexSectionNames =
 
 var indexSectionLabels =
 {
-  0: "Указатель",
-  1: "Классы",
-  2: "Файлы",
-  3: "Функции"
+  0: "All",
+  1: "Classes",
+  2: "Files",
+  3: "Functions"
 };
 
