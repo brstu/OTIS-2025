@@ -3,16 +3,16 @@
 
 int main()
 {
-	const float a = 0.5f;
-	const float b = 0.2f;
-	const float c = 0.15f;
-	const float d = 0.3f;
-	const float u = 1.2f;
+	const double a = 0.5;
+	const double b = 0.2;
+	const double c = 0.15;
+	const double d = 0.3;
+	const double u = 1.2;
 
-	float y0;
-	float y1;
-	float y2;
-	float y_temp;
+	double y0;
+	double y1;
+	double y2;
+	double y_temp;
 	std::cout << "y1 = ";
 	std::cin >> y_temp;
 	y1 = y_temp;
