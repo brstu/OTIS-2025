@@ -3,17 +3,17 @@
 class ModelState {
 private:
     static double& getK() {
-        static double K_obj = 1.0;
+        inline static double K_obj = 1.0;
         return K_obj;
     }
 
     static double& getT() {
-        static double T_obj = 0.5;
+        inline static double T_obj = 0.5;
         return T_obj;
     }
 
     static double& getYPrev() {
-        static double y_prev = 0.0;
+        inline static double y_prev = 0.0;
         return y_prev;
     }
 

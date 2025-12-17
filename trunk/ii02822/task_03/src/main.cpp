@@ -130,19 +130,21 @@ int main() {
     const int steady_start = 20;
     const int steady_end = 25;
 
-    if (steady_start < static_cast<int>(linear_results.size()) &&
-        steady_end < static_cast<int>(linear_results.size())) {
+    if (const int steady_start = 20;
+        steady_start < static_cast<int>(linear_results.size())) {
 
-        double lin_sum = 0.0;
-        double nl_sum = 0.0;
-        int count = 0;
+        if (const int steady_end = 25;
+            steady_end < static_cast<int>(linear_results.size())) {
 
-        for (int i = steady_start; i <= steady_end; ++i) {
-            lin_sum += linear_results[i];
-            nl_sum += nonlinear_results[i];
-            ++count;
-        }
+            double lin_sum = 0.0;
+            double nl_sum = 0.0;
+            int count = 0;
 
+            for (int i = steady_start; i <= steady_end; ++i) {
+                lin_sum += linear_results[i];
+                nl_sum += nonlinear_results[i];
+                ++count;
+            }
         const double lin_avg = lin_sum / count;
         const double nl_avg = nl_sum / count;
 
