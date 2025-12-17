@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="struct_state_variables" kind="struct" language="C++" prot="public">
+    <compoundname>StateVariables</compoundname>
+    <includes refid="module_8h" local="no">module.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_state_variables_1a663e3c0dbf10c0d03357964f0cb675f5" prot="public" static="no" mutable="no">
+        <type>std::array&lt; double, 3 &gt;</type>
+        <definition>std::array&lt;double, 3&gt; StateVariables::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>StateVariables::y</qualifiedname>
+        <briefdescription>
+<para>Массив температур: <ref refid="struct_state_variables_1a663e3c0dbf10c0d03357964f0cb675f5" kindref="member">y(k)</ref>, y(k-1), y(k-2). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" line="44" column="16" bodyfile="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_state_variables_1ac0832248c84e960044c6d709989aba80" prot="public" static="no" mutable="no">
+        <type>std::array&lt; double, 2 &gt;</type>
+        <definition>std::array&lt;double, 2&gt; StateVariables::u</definition>
+        <argsstring></argsstring>
+        <name>u</name>
+        <qualifiedname>StateVariables::u</qualifiedname>
+        <briefdescription>
+<para>Массив управлений: <ref refid="struct_state_variables_1ac0832248c84e960044c6d709989aba80" kindref="member">u(k)</ref>, u(k-1). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" line="45" column="16" bodyfile="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_state_variables_1af384483bb5082664e4ae45f107f9222b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double StateVariables::e_prev</definition>
+        <argsstring></argsstring>
+        <name>e_prev</name>
+        <qualifiedname>StateVariables::e_prev</qualifiedname>
+        <briefdescription>
+<para>Предыдущая ошибка регулирования </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" line="46" column="12" bodyfile="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_state_variables_1a8341fbe643102035e40a9983844c92b2" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double StateVariables::e_prev2</definition>
+        <argsstring></argsstring>
+        <name>e_prev2</name>
+        <qualifiedname>StateVariables::e_prev2</qualifiedname>
+        <briefdescription>
+<para>Предпредыдущая ошибка регулирования </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" line="47" column="12" bodyfile="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_state_variables_1addac2b42780200821287135d316edbda" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double StateVariables::u_prev</definition>
+        <argsstring></argsstring>
+        <name>u_prev</name>
+        <qualifiedname>StateVariables::u_prev</qualifiedname>
+        <briefdescription>
+<para>Предыдущее управляющее воздействие </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" line="48" column="12" bodyfile="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_state_variables_1a967286ad51cd9932ec3eff353c7c3a02" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double StateVariables::e_k</definition>
+        <argsstring></argsstring>
+        <name>e_k</name>
+        <qualifiedname>StateVariables::e_k</qualifiedname>
+        <briefdescription>
+<para>Текущая ошибка регулирования </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" line="49" column="12" bodyfile="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Структура для хранения переменных состояния системы </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" line="43" column="1" bodyfile="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" bodystart="43" bodyend="50"/>
+    <listofallmembers>
+      <member refid="struct_state_variables_1a967286ad51cd9932ec3eff353c7c3a02" prot="public" virt="non-virtual"><scope>StateVariables</scope><name>e_k</name></member>
+      <member refid="struct_state_variables_1af384483bb5082664e4ae45f107f9222b" prot="public" virt="non-virtual"><scope>StateVariables</scope><name>e_prev</name></member>
+      <member refid="struct_state_variables_1a8341fbe643102035e40a9983844c92b2" prot="public" virt="non-virtual"><scope>StateVariables</scope><name>e_prev2</name></member>
+      <member refid="struct_state_variables_1ac0832248c84e960044c6d709989aba80" prot="public" virt="non-virtual"><scope>StateVariables</scope><name>u</name></member>
+      <member refid="struct_state_variables_1addac2b42780200821287135d316edbda" prot="public" virt="non-virtual"><scope>StateVariables</scope><name>u_prev</name></member>
+      <member refid="struct_state_variables_1a663e3c0dbf10c0d03357964f0cb675f5" prot="public" virt="non-virtual"><scope>StateVariables</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
