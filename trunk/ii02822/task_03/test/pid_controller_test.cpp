@@ -1,4 +1,5 @@
-﻿#include <gtest/gtest.h>
+﻿#include <cmath>
+#include <gtest/gtest.h>
 #include "pid_controller.h"
 
 TEST(PIDControllerTest, ConstructorAndParameters) {
