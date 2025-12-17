@@ -1,0 +1,32 @@
+# DoxyfileNG - конфигурация Doxygen для Task03
+
+# Проект
+PROJECT_NAME           = "Task03 PID"
+PROJECT_BRIEF          = "Документация для лабораторной работы с ПИД-регулятором"
+PROJECT_LOGO           = 
+
+# Входные файлы
+INPUT                  = src test
+RECURSIVE              = YES
+EXCLUDE_PATTERNS       = 
+
+# Вывод
+OUTPUT_DIRECTORY       = doc
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+GENERATE_MAN           = NO
+GENERATE_RTF           = NO
+GENERATE_XML           = NO
+HTML_OUTPUT            = html
+
+# Настройка стиля
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+FULL_PATH_NAMES        = NO
+STRIP_FROM_PATH        = src
+
+# Дополнительно
+QUIET                  = NO
+WARNINGS               = YES
+GENERATE_TREEVIEW      = YES
