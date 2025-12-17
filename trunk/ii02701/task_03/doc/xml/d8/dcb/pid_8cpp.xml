@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="d8/dcb/pid_8cpp" kind="file" language="C++">
+    <compoundname>pid.cpp</compoundname>
+    <includes refid="da/df0/pid_8h" local="yes">pid.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>pid.cpp</label>
+        <link refid="d8/dcb/pid_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>pid.h</label>
+        <link refid="da/df0/pid_8h"/>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="d8/dcb/pid_8cpp_1a1bfa28135d708de923736e4d546bced2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initPID</definition>
+        <argsstring>(PID &amp;pid, double q0, double q1, double q2)</argsstring>
+        <name>initPID</name>
+        <param>
+          <type><ref refid="da/dba/struct_p_i_d" kindref="compound">PID</ref> &amp;</type>
+          <declname>pid</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>q0</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>q1</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>q2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.cpp" line="3" column="6" bodyfile="src/pid.cpp" bodystart="3" bodyend="11"/>
+        <references refid="da/dba/struct_p_i_d_1a9e9287696502b7183b65e52cfe165848" compoundref="da/df0/pid_8h" startline="10">PID::e_prev1</references>
+        <references refid="da/dba/struct_p_i_d_1af5539d613fcb09081d26ede79d6ecae6" compoundref="da/df0/pid_8h" startline="11">PID::e_prev2</references>
+        <references refid="da/dba/struct_p_i_d_1ac6f4a7e29f84d9eb60e7f672a3665a65" compoundref="da/df0/pid_8h" startline="5">PID::q0</references>
+        <references refid="da/dba/struct_p_i_d_1a84c6ee207e6449ee6082094f697f701a" compoundref="da/df0/pid_8h" startline="6">PID::q1</references>
+        <references refid="da/dba/struct_p_i_d_1addf8b9728e070dc19ddbc5e80b44c550" compoundref="da/df0/pid_8h" startline="7">PID::q2</references>
+        <references refid="da/dba/struct_p_i_d_1ab7d24c057c566a8128a654f933c2610f" compoundref="da/df0/pid_8h" startline="9">PID::u_prev</references>
+        <referencedby refid="df/d0a/main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="df/d0a/main_8cpp" startline="6" endline="28">main</referencedby>
+        <referencedby refid="d5/de5/test__pid_8cpp_1a593b4d74059f33eee2d5c006ebd512f7" compoundref="d5/de5/test__pid_8cpp" startline="12" endline="20">TEST</referencedby>
+        <referencedby refid="d5/de5/test__pid_8cpp_1a3f91ab8cefbb580364696f13ee370f11" compoundref="d5/de5/test__pid_8cpp" startline="4" endline="10">TEST</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/dcb/pid_8cpp_1a06d33d4317438f0fefa00494b29d3afe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double updatePID</definition>
+        <argsstring>(PID &amp;pid, double e)</argsstring>
+        <name>updatePID</name>
+        <param>
+          <type><ref refid="da/dba/struct_p_i_d" kindref="compound">PID</ref> &amp;</type>
+          <declname>pid</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.cpp" line="13" column="8" bodyfile="src/pid.cpp" bodystart="13" bodyend="24"/>
+        <references refid="da/dba/struct_p_i_d_1a9e9287696502b7183b65e52cfe165848" compoundref="da/df0/pid_8h" startline="10">PID::e_prev1</references>
+        <references refid="da/dba/struct_p_i_d_1af5539d613fcb09081d26ede79d6ecae6" compoundref="da/df0/pid_8h" startline="11">PID::e_prev2</references>
+        <references refid="da/dba/struct_p_i_d_1ac6f4a7e29f84d9eb60e7f672a3665a65" compoundref="da/df0/pid_8h" startline="5">PID::q0</references>
+        <references refid="da/dba/struct_p_i_d_1a84c6ee207e6449ee6082094f697f701a" compoundref="da/df0/pid_8h" startline="6">PID::q1</references>
+        <references refid="da/dba/struct_p_i_d_1addf8b9728e070dc19ddbc5e80b44c550" compoundref="da/df0/pid_8h" startline="7">PID::q2</references>
+        <references refid="da/dba/struct_p_i_d_1ab7d24c057c566a8128a654f933c2610f" compoundref="da/df0/pid_8h" startline="9">PID::u_prev</references>
+        <referencedby refid="df/d0a/main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="df/d0a/main_8cpp" startline="6" endline="28">main</referencedby>
+        <referencedby refid="d5/de5/test__pid_8cpp_1a593b4d74059f33eee2d5c006ebd512f7" compoundref="d5/de5/test__pid_8cpp" startline="12" endline="20">TEST</referencedby>
+        <referencedby refid="d5/de5/test__pid_8cpp_1a3f91ab8cefbb580364696f13ee370f11" compoundref="d5/de5/test__pid_8cpp" startline="4" endline="10">TEST</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="da/df0/pid_8h" kindref="compound">pid.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3" refid="d8/dcb/pid_8cpp_1a1bfa28135d708de923736e4d546bced2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dcb/pid_8cpp_1a1bfa28135d708de923736e4d546bced2" kindref="member">initPID</ref>(<ref refid="da/dba/struct_p_i_d" kindref="compound">PID</ref>&amp;<sp/>pid,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q0,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q1,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q2)<sp/>{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/>pid.<ref refid="da/dba/struct_p_i_d_1ac6f4a7e29f84d9eb60e7f672a3665a65" kindref="member">q0</ref><sp/>=<sp/>q0;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/>pid.<ref refid="da/dba/struct_p_i_d_1a84c6ee207e6449ee6082094f697f701a" kindref="member">q1</ref><sp/>=<sp/>q1;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>pid.<ref refid="da/dba/struct_p_i_d_1addf8b9728e070dc19ddbc5e80b44c550" kindref="member">q2</ref><sp/>=<sp/>q2;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>pid.<ref refid="da/dba/struct_p_i_d_1ab7d24c057c566a8128a654f933c2610f" kindref="member">u_prev</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>pid.<ref refid="da/dba/struct_p_i_d_1a9e9287696502b7183b65e52cfe165848" kindref="member">e_prev1</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>pid.<ref refid="da/dba/struct_p_i_d_1af5539d613fcb09081d26ede79d6ecae6" kindref="member">e_prev2</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="d8/dcb/pid_8cpp_1a06d33d4317438f0fefa00494b29d3afe" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="d8/dcb/pid_8cpp_1a06d33d4317438f0fefa00494b29d3afe" kindref="member">updatePID</ref>(<ref refid="da/dba/struct_p_i_d" kindref="compound">PID</ref>&amp;<sp/>pid,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u<sp/>=<sp/>pid.<ref refid="da/dba/struct_p_i_d_1ab7d24c057c566a8128a654f933c2610f" kindref="member">u_prev</ref></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>pid.<ref refid="da/dba/struct_p_i_d_1ac6f4a7e29f84d9eb60e7f672a3665a65" kindref="member">q0</ref><sp/>*<sp/>e</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>pid.<ref refid="da/dba/struct_p_i_d_1a84c6ee207e6449ee6082094f697f701a" kindref="member">q1</ref><sp/>*<sp/>pid.<ref refid="da/dba/struct_p_i_d_1a9e9287696502b7183b65e52cfe165848" kindref="member">e_prev1</ref></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>pid.<ref refid="da/dba/struct_p_i_d_1addf8b9728e070dc19ddbc5e80b44c550" kindref="member">q2</ref><sp/>*<sp/>pid.<ref refid="da/dba/struct_p_i_d_1af5539d613fcb09081d26ede79d6ecae6" kindref="member">e_prev2</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>pid.<ref refid="da/dba/struct_p_i_d_1af5539d613fcb09081d26ede79d6ecae6" kindref="member">e_prev2</ref><sp/>=<sp/>pid.<ref refid="da/dba/struct_p_i_d_1a9e9287696502b7183b65e52cfe165848" kindref="member">e_prev1</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>pid.<ref refid="da/dba/struct_p_i_d_1a9e9287696502b7183b65e52cfe165848" kindref="member">e_prev1</ref><sp/>=<sp/>e;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>pid.<ref refid="da/dba/struct_p_i_d_1ab7d24c057c566a8128a654f933c2610f" kindref="member">u_prev</ref><sp/>=<sp/>u;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>u;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/pid.cpp"/>
+  </compounddef>
+</doxygen>
