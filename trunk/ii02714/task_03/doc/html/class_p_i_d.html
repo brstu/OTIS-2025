@@ -78,7 +78,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Class for <a class="el" href="class_p_i_d.html" title="Class for PID controller implementation.">PID</a> controller implementation.  
+<p>Class for implementing a <a class="el" href="class_p_i_d.html" title="Class for implementing a PID controller.">PID</a> controller.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_p_i_d_8h_source.html">PID.h</a>&gt;</code></p>
@@ -86,26 +86,26 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0311b6f7de348499ce24e53ba353514a" id="r_a0311b6f7de348499ce24e53ba353514a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0311b6f7de348499ce24e53ba353514a">PID</a> ()</td></tr>
-<tr class="memdesc:a0311b6f7de348499ce24e53ba353514a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for intializing variables and vectors.  <br /></td></tr>
+<tr class="memdesc:a0311b6f7de348499ce24e53ba353514a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for instantiating variables and vectors.  <br /></td></tr>
 <tr class="memitem:ac651d7c29b2ad138f138ffbed134456c" id="r_ac651d7c29b2ad138f138ffbed134456c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac651d7c29b2ad138f138ffbed134456c">linear</a> (int place)</td></tr>
 <tr class="memdesc:ac651d7c29b2ad138f138ffbed134456c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A linear function of the form: y[t] = a * y[t - 1] + b * u[t - 1].  <br /></td></tr>
 <tr class="memitem:a62051cfd09a92a76b63a45ff7fff5697" id="r_a62051cfd09a92a76b63a45ff7fff5697"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62051cfd09a92a76b63a45ff7fff5697">calcul_DeltU</a> (int place)</td></tr>
 <tr class="memdesc:a62051cfd09a92a76b63a45ff7fff5697"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for calculating delta_u[place] delta_u variable needed to calculate U.  <br /></td></tr>
 <tr class="memitem:a903d1997345417e3bc4050dc50d91f9e" id="r_a903d1997345417e3bc4050dc50d91f9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a903d1997345417e3bc4050dc50d91f9e">calcul_U</a> (int place)</td></tr>
-<tr class="memdesc:a903d1997345417e3bc4050dc50d91f9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">U calculation function.  <br /></td></tr>
+<tr class="memdesc:a903d1997345417e3bc4050dc50d91f9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция вычисления U.  <br /></td></tr>
 <tr class="memitem:a831809c529809cb4a8d7ca697dae3a6c" id="r_a831809c529809cb4a8d7ca697dae3a6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a831809c529809cb4a8d7ca697dae3a6c">calcul_q0_q1_q2</a> ()</td></tr>
-<tr class="memdesc:a831809c529809cb4a8d7ca697dae3a6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculation function q0 q1 q2 Variables k, Td, To, T are constants necessary for calculating the values.  <br /></td></tr>
+<tr class="memdesc:a831809c529809cb4a8d7ca697dae3a6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">U calculation function.  <br /></td></tr>
 <tr class="memitem:af48e8879d1778989c718383cb6f2abb1" id="r_af48e8879d1778989c718383cb6f2abb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af48e8879d1778989c718383cb6f2abb1">calcul_e</a> (int place)</td></tr>
-<tr class="memdesc:af48e8879d1778989c718383cb6f2abb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error calculation function e.  <br /></td></tr>
+<tr class="memdesc:af48e8879d1778989c718383cb6f2abb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate error function e.  <br /></td></tr>
 <tr class="memitem:a14e49007ae54c7597aee446fad97a412" id="r_a14e49007ae54c7597aee446fad97a412"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14e49007ae54c7597aee446fad97a412">calcul_PID</a> (int place)</td></tr>
-<tr class="memdesc:a14e49007ae54c7597aee446fad97a412"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main function simulating the operation of the <a class="el" href="class_p_i_d.html" title="Class for PID controller implementation.">PID</a> controller.  <br /></td></tr>
+<tr class="memdesc:a14e49007ae54c7597aee446fad97a412"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main function that simulates the operation of the <a class="el" href="class_p_i_d.html" title="Class for implementing a PID controller.">PID</a> controller.  <br /></td></tr>
 <tr class="memitem:af38946a88084ca28d22b1eb575385a9f" id="r_af38946a88084ca28d22b1eb575385a9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af38946a88084ca28d22b1eb575385a9f">RegCoefs</a> (double val)</td></tr>
-<tr class="memdesc:af38946a88084ca28d22b1eb575385a9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">\briefA function that regulates the values ​​of constants a and b by decreasing them  <br /></td></tr>
+<tr class="memdesc:af38946a88084ca28d22b1eb575385a9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that adjusts the values ​​of constants a and b, decreasing them.  <br /></td></tr>
 <tr class="memitem:a662f8438aae39223b7f33626c48e06f2" id="r_a662f8438aae39223b7f33626c48e06f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a662f8438aae39223b7f33626c48e06f2">GetQs</a> (double &amp;val1, double &amp;val2, double &amp;val3) const</td></tr>
-<tr class="memdesc:a662f8438aae39223b7f33626c48e06f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for obtaining the values ​​of q0, q1, q2 Called in tests to verify the program's operation.  <br /></td></tr>
+<tr class="memdesc:a662f8438aae39223b7f33626c48e06f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for getting the values ​​of q0, q1, q2 Called in tests to check the program's operation.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class for <a class="el" href="class_p_i_d.html" title="Class for PID controller implementation.">PID</a> controller implementation. </p>
+<div class="textblock"><p>Class for implementing a <a class="el" href="class_p_i_d.html" title="Class for implementing a PID controller.">PID</a> controller. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0311b6f7de348499ce24e53ba353514a" name="a0311b6f7de348499ce24e53ba353514a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0311b6f7de348499ce24e53ba353514a">&#9670;&#160;</a></span>PID()</h2>
@@ -122,7 +122,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor for intializing variables and vectors. </p>
+<p>Constructor for instantiating variables and vectors. </p>
 
 </div>
 </div>
@@ -145,7 +145,7 @@ Public Member Functions</h2></td></tr>
 <p>Function for calculating delta_u[place] delta_u variable needed to calculate U. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">place</td><td>serves to determine the temperature at a certain moment </td></tr>
+    <tr><td class="paramname">place</td><td>is used to determine the temperature at a specific moment </td></tr>
   </table>
   </dd>
 </dl>
@@ -167,7 +167,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Error calculation function e. </p>
+<p>Calculate error function e. </p>
 
 </div>
 </div>
@@ -186,10 +186,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The main function simulating the operation of the <a class="el" href="class_p_i_d.html" title="Class for PID controller implementation.">PID</a> controller. </p>
+<p>The main function that simulates the operation of the <a class="el" href="class_p_i_d.html" title="Class for implementing a PID controller.">PID</a> controller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">place</td><td>serves to determine the temperature at a certain moment </td></tr>
+    <tr><td class="paramname">place</td><td>is used to determine the temperature at a specific moment </td></tr>
   </table>
   </dd>
 </dl>
@@ -211,7 +211,13 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Calculation function q0 q1 q2 Variables k, Td, To, T are constants necessary for calculating the values. </p>
+<p>U calculation function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">place</td><td>is used to determine the temperature at a specific moment </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -230,10 +236,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>U calculation function. </p>
+<p>Функция вычисления U. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">place</td><td>serves to determine the temperature at a certain moment </td></tr>
+    <tr><td class="paramname">place</td><td>служит для определения температуры в определнный момент </td></tr>
   </table>
   </dd>
 </dl>
@@ -264,7 +270,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Function for obtaining the values ​​of q0, q1, q2 Called in tests to verify the program's operation. </p>
+<p>Function for getting the values ​​of q0, q1, q2 Called in tests to check the program's operation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">val1</td><td>assigns the value to q0 </td></tr>
@@ -294,7 +300,7 @@ Public Member Functions</h2></td></tr>
 <p>A linear function of the form: y[t] = a * y[t - 1] + b * u[t - 1]. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">place</td><td>serves to determine the temperature at a certain moment </td></tr>
+    <tr><td class="paramname">place</td><td>is used to determine the temperature at a certain moment </td></tr>
   </table>
   </dd>
 </dl>
@@ -316,10 +322,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>\briefA function that regulates the values ​​of constants a and b by decreasing them </p>
+<p>A function that adjusts the values ​​of constants a and b, decreasing them. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">val</td><td>he value by which a is divided </td></tr>
+    <tr><td class="paramname">val</td><td>is the value by which a is divided. </td></tr>
   </table>
   </dd>
 </dl>
