@@ -9,6 +9,13 @@ protected:
     void SetUp() override {
         testInput = {5.0, 5.0, 5.0, 5.0};
     }
+    
+    // Метод для безопасного доступа к testInput
+    const std::vector<double>& getTestInput() const {
+        return testInput;
+    }
+
+private:
     std::vector<double> testInput;
 };
 
@@ -30,7 +37,8 @@ TEST_F(LinearSystemTest, SingleIterationPreservesInitialState) {
 
 // Тест корректности вычислений
 TEST_F(LinearSystemTest, ComputationsFollowDynamicEquation) {
-    auto simulationResult = linearSystemSimulator(5, 10.0, testInput);
+    const auto& input = getTestInput();
+    auto simulationResult = linearSystemSimulator(5, 10.0, input);
     
     ASSERT_EQ(simulationResult.size(), 5);
     EXPECT_NEAR(simulationResult[1], 0.9 * 10.0 + 0.1 * 5.0, 1e-6);
@@ -43,18 +51,27 @@ protected:
     void SetUp() override {
         testInput = {5.0, 5.0, 5.0};
     }
+    
+    // Метод для безопасного доступа к testInput
+    const std::vector<double>& getTestInput() const {
+        return testInput;
+    }
+
+private:
     std::vector<double> testInput;
 };
 
 // Тест на нулевое количество итераций
 TEST_F(NonlinearSystemTest, ZeroIterationsYieldsEmptyVector) {
-    auto simulationResult = nonlinearSystemSimulator(0, 10.0, testInput);
+    const auto& input = getTestInput();
+    auto simulationResult = nonlinearSystemSimulator(0, 10.0, input);
     EXPECT_TRUE(simulationResult.empty());
 }
 
 // Тест на единственную итерацию
 TEST_F(NonlinearSystemTest, SingleIterationReturnsInitialValue) {
-    auto simulationResult = nonlinearSystemSimulator(1, 10.0, testInput);
+    const auto& input = getTestInput();
+    auto simulationResult = nonlinearSystemSimulator(1, 10.0, input);
     
     ASSERT_EQ(simulationResult.size(), 1);
     EXPECT_DOUBLE_EQ(simulationResult[0], 10.0);
@@ -62,7 +79,8 @@ TEST_F(NonlinearSystemTest, SingleIterationReturnsInitialValue) {
 
 // Тест корректности нелинейных вычислений
 TEST_F(NonlinearSystemTest, NonlinearDynamicsProduceCorrectValues) {
-    auto simulationResult = nonlinearSystemSimulator(3, 10.0, testInput);
+    const auto& input = getTestInput();
+    auto simulationResult = nonlinearSystemSimulator(3, 10.0, input);
     
     ASSERT_EQ(simulationResult.size(), 3);
     EXPECT_NEAR(simulationResult[1], 0.9 * 10.0 + 0.1 * 5.0, 1e-6);
