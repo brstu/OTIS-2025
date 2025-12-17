@@ -127,12 +127,14 @@ int main() {
     std::cout << "\n4. PERFORMANCE ANALYSIS:\n";
     std::cout << std::string(50, '-') << "\n";
 
-    const int steady_start = 20;
-    const int steady_end = 25;
+    const int ANALYSIS_START = 20;
+    const int ANALYSIS_END = 25;
 
-    if (steady_start < static_cast<int>(linear_results.size()) &&
-        steady_end < static_cast<int>(linear_results.size())) {
+    if (const int steady_start = ANALYSIS_START;
+        steady_start < static_cast<int>(linear_results.size()) &&
+        ANALYSIS_END < static_cast<int>(linear_results.size())) {
 
+        const int steady_end = ANALYSIS_END;
         double lin_sum = 0.0;
         double nl_sum = 0.0;
         int count = 0;
