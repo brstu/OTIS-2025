@@ -21,19 +21,20 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-# Main program
+# Main program - добавлено имя группы
 add_executable(model_app_ii02820_task02
     main.cpp
-    model.cpp_
+    model.cpp  # ← исправлено: было model.cpp_
 )
 
-# Tests
+# Tests - добавлено имя группы
 add_executable(model_tests_ii02820_task02
     ../test/test_model.cpp
     model.cpp
 )
 
-target_include_directories(model_tests PRIVATE
+# target_include_directories должно ссылаться на правильный таргет
+target_include_directories(model_tests_ii02820_task02 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
@@ -43,4 +44,4 @@ target_link_libraries(
 )
 
 include(GoogleTest)
-gtest_discover_tests(model_tests)
+gtest_discover_tests(model_tests_ii02820_task02)  # ← исправлено имя таргета
