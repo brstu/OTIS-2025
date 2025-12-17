@@ -1,14 +1,12 @@
 cmake_minimum_required(VERSION 3.25)
 project(ii02820_task02)
 
-
 if(POLICY CMP0135)
     cmake_policy(SET CMP0135 NEW)
 endif()
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 
 include(FetchContent)
 FetchContent_Declare(
@@ -22,21 +20,21 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-
+# ФАЙЛЫ УЖЕ НАХОДЯТСЯ В src/, ПОЭТОМУ ПУТИ ПРОСТЫЕ
 add_executable(ii02820_task02_main_program 
-    main.cpp
-    functions.cpp
+    main.cpp           # ← уже в папке src
+    functions.cpp      # ← уже в папке src
 )
 
-
+# ДЛЯ ТЕСТОВ НУЖНО ВЫЙТИ НА УРОВЕНЬ ВЫШЕ
 add_executable(ii02820_task02_tests
-    ../test/test_functions.cpp
-    functions.cpp
+    ../test/test_functions.cpp  # ← выходим из src в test
+    functions.cpp               # ← файл из текущей папки
 )
 
 target_include_directories(ii02820_task02_tests PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/../test
+    ${CMAKE_CURRENT_SOURCE_DIR}           # для functions.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../test   # для test_functions.cpp
 )
 
 target_link_libraries(
