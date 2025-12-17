@@ -11,11 +11,7 @@ add_executable(lab3_ii02822
     model.cpp
 )
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-
-# ----------------------------
 # GoogleTest через FetchContent
-# ----------------------------
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -26,9 +22,9 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-# Тестовый бинарник
+# ИСПРАВЛЕННЫЙ путь к тестам - используем абсолютный путь
 add_executable(testlab3_runner
-    ../test/pid_controller_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../test/pid_controller_test.cpp  # ← ИСПРАВЛЕНО
     pid_controller.cpp
     model.cpp
 )
