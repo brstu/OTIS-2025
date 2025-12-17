@@ -1,0 +1,58 @@
+name: Deploy Doxygen Docs to GitHub Pages
+
+on:
+  push:
+    branches: ["task_03_ii02815"] 
+
+
+  workflow_dispatch:
+
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Doxygen (для генерации на лету)
+        run: sudo apt-get update && sudo apt-get install -y doxygen graphviz
+
+      - name: Generate Doxygen HTML
+        run: |
+          cd trunk/ii02822/task_03
+          doxygen Doxyfile 2>&1 | tee doxygen.log
+       
+      - name: Verify generated files
+        run: |
+          echo "Проверка содержимого doc/html:"
+          ls -la trunk/ii02822/task_03/doc/html/ || echo "Директория не найдена"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'trunk/ii02822/task_03/doc/html/'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
