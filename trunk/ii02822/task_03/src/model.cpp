@@ -1,47 +1,71 @@
 ﻿#include <cmath>
 
-namespace {
-    // Константы по умолчанию
-    const double K_obj_default = 1.0;
-    const double T_obj_default = 0.5;
+class ModelState {
+private:
+    static double& getK() {
+        static double K_obj = 1.0;
+        return K_obj;
+    }
 
-    // Переменные состояния модели (видны только в этом файле)
-    double K_obj = K_obj_default;
-    double T_obj = T_obj_default;
-    double y_prev = 0.0;
-}
+    static double& getT() {
+        static double T_obj = 0.5;
+        return T_obj;
+    }
+
+    static double& getYPrev() {
+        static double y_prev = 0.0;
+        return y_prev;
+    }
+
+public:
+    static void init(double K, double T) {
+        getK() = K;
+        getT() = T;
+        getYPrev() = 0.0;
+    }
+
+    static double update(double u, double dt) {
+        double a = 0.0;
+        double b = 0.0;
+
+        if (getT() > 0.0) {
+            a = 1.0 - dt / getT();
+            b = getK() * dt / getT();
+        }
+        else {
+            a = 0.0;
+            b = getK();
+        }
+
+        const double y = a * getYPrev() + b * u;
+        getYPrev() = y;
+
+        return y;
+    }
+
+    static void reset() {
+        getYPrev() = 0.0;
+    }
+
+    static void setParameters(double K, double T) {
+        getK() = K;
+        getT() = T;
+        reset();
+    }
+};
 
 void modelInit(double K, double T) {
-    K_obj = K;
-    T_obj = T;
-    y_prev = 0.0;
+    ModelState::init(K, T);
 }
 
 double modelUpdate(double u, double dt) {
-    double a = 0.0;
-    double b = 0.0;
-
-    if (T_obj > 0.0) {
-        a = 1.0 - dt / T_obj;
-        b = K_obj * dt / T_obj;
-    }
-    else {
-        a = 0.0;
-        b = K_obj;
-    }
-
-    const double y = a * y_prev + b * u;
-    y_prev = y;
-
-    return y;
+    return ModelState::update(u, dt);
 }
 
 void modelReset() {
-    y_prev = 0.0;
+    ModelState::reset();
 }
 
 void modelSetParameters(double K, double T) {
-    K_obj = K;
-    T_obj = T;
-    modelReset();
+    ModelState::setParameters(K, T);
 }

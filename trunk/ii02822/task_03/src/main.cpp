@@ -124,12 +124,13 @@ int main() {
             std::cout << std::string(75, '-') << "\n";
         }
     }
-
     std::cout << "\n4. PERFORMANCE ANALYSIS:\n";
     std::cout << std::string(50, '-') << "\n";
 
-    if (const int steady_start = 20, steady_end = 25;
-        steady_start < static_cast<int>(linear_results.size()) &&
+    const int steady_start = 20;
+    const int steady_end = 25;
+
+    if (steady_start < static_cast<int>(linear_results.size()) &&
         steady_end < static_cast<int>(linear_results.size())) {
 
         double lin_sum = 0.0;
