@@ -10,5 +10,5 @@ project ("code_task_01")
 add_executable (task_01 "code_task_01.cpp" )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET task_01 PROPERTY CXX_STANDARD 20)
+  set_property(TARGET code_task_01 PROPERTY CXX_STANDARD 20)
 endif()
