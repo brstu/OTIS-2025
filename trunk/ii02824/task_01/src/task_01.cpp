@@ -4,11 +4,11 @@
 #include <iomanip>
 
 struct ModelParameters {
-    double a, b, c, d;
-};
+    double a1, b, c, d;
+}
 
-double computeLinear(double y, double u, double a, double b) {
-    return a * y + b * u;
+double computeLinear(double y1, double u1, double a1, double b1) {
+    return a1 * y1 + b1 * u1;
 }
 
 double computeNonLinear(double y, double& prev_y, double u, const ModelParameters& params) {
