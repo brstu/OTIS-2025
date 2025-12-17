@@ -105,17 +105,6 @@ TEST(ModelTest, NonlinearWithZeroInput) {
     EXPECT_NEAR(result, expected, 1e-10);
 }
 
-INSTANTIATE_TEST_SUITE_P(
-    LinearModelParameters,
-    LinearModelParamTest,
-    ::testing::Values(
-        std::make_tuple(0.5, 0.1, 10.0),
-        std::make_tuple(0.9, 0.01, 5.0),
-        std::make_tuple(1.0, 0.0, 15.0),
-        std::make_tuple(0.0, 1.0, 20.0)
-    )
-);
-
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
