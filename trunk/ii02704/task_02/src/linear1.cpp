@@ -1,34 +1,31 @@
 #include "Linear.h"
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
-
-void input(int& k, vector<double> &u, vector<double> &y, double& a, double& b) {
+void input(Params &s) {
 	cout << "Enter amount of iterations: ";
-	cin >> k;
-	u.resize(k + 1, 0);
-	y.resize(k + 1, 0);
+	cin >> s.k;
+	s.u.resize(s.k + 1, 0);
+	s.y.resize(s.k + 1, 0);
 	cout << "\nEnter temperature: ";
-	cin >> y.at(0);
-	for (auto& warm : u) {
+	cin >> s.y.at(0);
+	for (auto& warm : s.u) {
 		cout << "\nEnter warm: ";
 		cin >> warm;
 	}
 	
 	cout << "Enter const a: ";
 
-	cin >> a;
+	cin >> s.a;
 
 	cout << "Enter const b: ";
 
-	cin >> b;
+	cin >> s.b;
 
 }
-
-void linear(const int& place, const int& k, vector<double>& y, const vector<double>& u, const double& a, const double& b) {
-	    if(k > 0){
-		y.at(place + 1) = a * y.at(place) + b * u.at(place);
+void linear(Params &s, const int& place) {
+	    if(s.k >= 0){
+			s.y.at(place + 1) = s.a * s.y.at(place) + s.b * s.u.at(place);
 		}
 }
