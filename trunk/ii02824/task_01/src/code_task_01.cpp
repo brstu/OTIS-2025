@@ -12,7 +12,7 @@ double computeLinear(double y1, double u1, double a1, double b1) {
 }
 
 double computeNonLinear(double y, double& prev_y, double u, const ModelParameters& params) {
-    double result = params.a * y - params.b * prev_y * prev_y +
+    double result = params.a1 * y - params.b * prev_y * prev_y +
         params.c * u + params.d * std::sin(u);
     prev_y = y;
     return result;
@@ -29,7 +29,7 @@ void simulateModel(int steps, double u, const ModelParameters& params,
     double prev_y_nonlinear = init_prev_y;
 
     for (int step = 0; step < steps; ++step) {
-        y_linear = computeLinear(y_linear, u, params.a, params.b);
+        y_linear = computeLinear(y_linear, u, params.a1, params.b);
         y_nonlinear = computeNonLinear(y_nonlinear, prev_y_nonlinear, u, params);
 
         std::cout << "Step " << std::setw(2) << step << ": ";
@@ -45,7 +45,7 @@ int main() {
 
     ModelParameters params;
     std::cout << "Enter model parameters (A, B, C, D): ";
-    std::cin >> params.a >> params.b >> params.c >> params.d;
+    std::cin >> params.a1 >> params.b >> params.c >> params.d;
 
     int num_steps;
     std::cout << "Enter number of simulation steps: ";
