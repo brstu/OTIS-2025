@@ -17,7 +17,7 @@ private:
     void calculateCoefficients();
 
 public:
-    PIDController(double K = 1.0, double Ti = 0.0, double Td = 0.0, double T = 0.01);
+    explicit PIDController(double K = 1.0, double Ti = 0.0, double Td = 0.0, double T = 0.01);
     double calculate(double setpoint, double current_value);
     void reset();
     void setParameters(double K, double Ti, double Td, double T);
