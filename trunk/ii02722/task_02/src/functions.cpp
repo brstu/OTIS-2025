@@ -2,46 +2,75 @@
 #include <vector>
 #include "functions.h"
 
-const double a1 = 0.9;
-const double b = 0.1;
-const double c = 0.05;
-const double d = 0.02;
+// Параметры системы
+const double alpha_param = 0.9;
+const double beta_param = 0.1;
+const double gamma_param = 0.05;
+const double delta_param = 0.02;
 
-std::vector<double> simulateLinearfunc(int steps, double y_init, const std::vector<double>& u) {
-    if (steps <= 0 || u.empty()) {
+// Функция моделирования линейной динамической системы
+std::vector<double> linearSystemSimulator(int iterationCount, 
+                                         double initialState, 
+                                         const std::vector<double>& externalInputs) {
+    // Проверка некорректных условий
+    if (iterationCount <= 0 || externalInputs.empty()) {
         return std::vector<double>();
-    } else if (steps == 1) {
-        return std::vector<double>(1, y_init);
+    }
+    
+    // Обработка частного случая одного шага
+    if (iterationCount == 1) {
+        return std::vector<double>(1, initialState);
     }
 
-    if (u.size() < static_cast<size_t>(steps - 1)) {
+    // Проверка достаточности входных данных
+    if (externalInputs.size() < static_cast<size_t>(iterationCount - 1)) {
         return std::vector<double>();
     }
 
-    std::vector<double> y(steps);
-    y[0] = y_init;
+    // Инициализация вектора результатов
+    std::vector<double> systemResponse(iterationCount);
+    systemResponse[0] = initialState;
 
-    for (int t = 1; t < steps; ++t) {
-        y[t] = a1 * y[t - 1] + b * u[t - 1];
+    // Основной цикл моделирования
+    for (int currentStep = 1; currentStep < iterationCount; ++currentStep) {
+        systemResponse[currentStep] = alpha_param * systemResponse[currentStep - 1] + 
+                                     beta_param * externalInputs[currentStep - 1];
     }
 
-    return y;
+    return systemResponse;
 }
 
-std::vector<double> simulateNonlinearfunc(int steps, double y_init, const std::vector<double>& u) {
-    if (steps == 0) {
+// Функция моделирования нелинейной динамической системы
+std::vector<double> nonlinearSystemSimulator(int iterationCount, 
+                                            double initialState, 
+                                            const std::vector<double>& externalInputs) {
+    // Проверка нулевого количества итераций
+    if (iterationCount == 0) {
         return std::vector<double>();
-    } else if (steps == 1) {
-        return std::vector<double>(1, y_init);
+    }
+    
+    // Обработка частного случая одного шага
+    if (iterationCount == 1) {
+        return std::vector<double>(1, initialState);
     }
 
-    std::vector<double> y(steps);
-    y[0] = y_init;
-    y[1] = a1 * y[0] + b * u[0];
+    // Инициализация вектора результатов
+    std::vector<double> systemResponse(iterationCount);
+    systemResponse[0] = initialState;
+    
+    // Вычисление первого шага (линейный случай)
+    systemResponse[1] = alpha_param * systemResponse[0] + beta_param * externalInputs[0];
 
-    for (int t = 2; t < steps; ++t) {
-        y[t] = a1 * y[t - 1] - b * std::pow(y[t - 2], 2) + c * u[t - 1] + d * std::sin(u[t - 2]);
+    // Основной цикл моделирования с нелинейными эффектами
+    for (int currentStep = 2; currentStep < iterationCount; ++currentStep) {
+        double quadraticTerm = beta_param * std::pow(systemResponse[currentStep - 2], 2);
+        double sinusoidalTerm = delta_param * std::sin(externalInputs[currentStep - 2]);
+        
+        systemResponse[currentStep] = alpha_param * systemResponse[currentStep - 1] - 
+                                     quadraticTerm + 
+                                     gamma_param * externalInputs[currentStep - 1] + 
+                                     sinusoidalTerm;
     }
 
-    return y;
+    return systemResponse;
 }

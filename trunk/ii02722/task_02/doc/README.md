@@ -38,64 +38,75 @@
 #include <vector>
 #include "functions.h"
 
-// ------------------------------
-// Тесты для simulateLinear()
-// ------------------------------
+// Тестовый набор для линейного симулятора
+class LinearSystemTest : public ::testing::Test {
+protected:
+    void SetUp() override {
+        testInput = {5.0, 5.0, 5.0, 5.0};
+    }
+    std::vector<double> testInput;
+};
 
-TEST(SimulateLinearTest, HandlesEmptyInput) {
-    std::vector<double> u;
-    auto result = simulateLinear(5, 10.0, u);
-    EXPECT_TRUE(result.empty());
+// Тест на обработку пустого ввода
+TEST_F(LinearSystemTest, EmptyInputReturnsEmptyResult) {
+    std::vector<double> emptyInput;
+    auto simulationResult = linearSystemSimulator(5, 10.0, emptyInput);
+    EXPECT_TRUE(simulationResult.empty());
 }
 
-TEST(SimulateLinearTest, HandlesSingleStep) {
-    std::vector<double> u = {1.0};
-    auto result = simulateLinear(1, 10.0, u);
-    ASSERT_EQ(result.size(), 1);
-    EXPECT_DOUBLE_EQ(result[0], 10.0);
+// Тест на обработку одного шага
+TEST_F(LinearSystemTest, SingleIterationPreservesInitialState) {
+    std::vector<double> minimalInput = {1.0};
+    auto simulationResult = linearSystemSimulator(1, 10.0, minimalInput);
+    
+    ASSERT_EQ(simulationResult.size(), 1);
+    EXPECT_DOUBLE_EQ(simulationResult[0], 10.0);
 }
 
-TEST(SimulateLinearTest, ProducesCorrectSequence) {
-    std::vector<double> u = {5.0, 5.0, 5.0, 5.0};
-    auto result = simulateLinear(5, 10.0, u);
-
-    ASSERT_EQ(result.size(), 5);
-    EXPECT_NEAR(result[1], 0.9 * 10.0 + 0.1 * 5.0, 1e-6);
-    EXPECT_NEAR(result[2], 0.9 * result[1] + 0.1 * 5.0, 1e-6);
+// Тест корректности вычислений
+TEST_F(LinearSystemTest, ComputationsFollowDynamicEquation) {
+    auto simulationResult = linearSystemSimulator(5, 10.0, testInput);
+    
+    ASSERT_EQ(simulationResult.size(), 5);
+    EXPECT_NEAR(simulationResult[1], 0.9 * 10.0 + 0.1 * 5.0, 1e-6);
+    EXPECT_NEAR(simulationResult[2], 0.9 * simulationResult[1] + 0.1 * 5.0, 1e-6);
 }
 
-// ------------------------------
-// Тесты для simulateNonlinear()
-// ------------------------------
+// Тестовый набор для нелинейного симулятора
+class NonlinearSystemTest : public ::testing::Test {
+protected:
+    void SetUp() override {
+        testInput = {5.0, 5.0, 5.0};
+    }
+    std::vector<double> testInput;
+};
 
-TEST(SimulateNonlinearTest, HandlesZeroSteps) {
-    std::vector<double> u = {5.0, 5.0};
-    auto result = simulateNonlinear(0, 10.0, u);
-    EXPECT_TRUE(result.empty());
+// Тест на нулевое количество итераций
+TEST_F(NonlinearSystemTest, ZeroIterationsYieldsEmptyVector) {
+    auto simulationResult = nonlinearSystemSimulator(0, 10.0, testInput);
+    EXPECT_TRUE(simulationResult.empty());
 }
 
-TEST(SimulateNonlinearTest, HandlesOneStep) {
-    std::vector<double> u = {5.0, 5.0};
-    auto result = simulateNonlinear(1, 10.0, u);
-    ASSERT_EQ(result.size(), 1);
-    EXPECT_DOUBLE_EQ(result[0], 10.0);
+// Тест на единственную итерацию
+TEST_F(NonlinearSystemTest, SingleIterationReturnsInitialValue) {
+    auto simulationResult = nonlinearSystemSimulator(1, 10.0, testInput);
+    
+    ASSERT_EQ(simulationResult.size(), 1);
+    EXPECT_DOUBLE_EQ(simulationResult[0], 10.0);
 }
 
-TEST(SimulateNonlinearTest, ProducesCorrectValues) {
-    std::vector<double> u = {5.0, 5.0, 5.0};
-    auto result = simulateNonlinear(3, 10.0, u);
-
-    ASSERT_EQ(result.size(), 3);
-    EXPECT_NEAR(result[1], 0.9 * 10.0 + 0.1 * 5.0, 1e-6);
-    double expected2 = 0.9 * result[1] - 0.1 * std::pow(10.0, 2) + 0.05 * 5.0 + 0.02 * std::sin(5.0);
-    EXPECT_NEAR(result[2], expected2, 1e-6);
+// Тест корректности нелинейных вычислений
+TEST_F(NonlinearSystemTest, NonlinearDynamicsProduceCorrectValues) {
+    auto simulationResult = nonlinearSystemSimulator(3, 10.0, testInput);
+    
+    ASSERT_EQ(simulationResult.size(), 3);
+    EXPECT_NEAR(simulationResult[1], 0.9 * 10.0 + 0.1 * 5.0, 1e-6);
+    
+    double expectedSecondStep = 0.9 * simulationResult[1] - 
+                               0.1 * std::pow(10.0, 2) + 
+                               0.05 * 5.0 + 
+                               0.02 * std::sin(5.0);
+    EXPECT_NEAR(simulationResult[2], expectedSecondStep, 1e-6);
 }
 
 ```
-## Результаты юнит-тестирования (GoogleTest)
-
-![Результаты тестов](../src/images/tests.png)
-
-## Покрытие тестами (gcovr)
-
-![Покрытие кода](../src/images/coverage.png)
