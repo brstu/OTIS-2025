@@ -11,7 +11,7 @@ add_executable(lab3_ii02822
 )
 
 # Включаем директории для основной программы
-target_include_directories(lab3 PRIVATE .)
+target_include_directories(lab3_ii02822 PRIVATE .)  # ← исправлено имя таргета
 
 # Google Test
 include(FetchContent)
@@ -24,6 +24,7 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
+# Тестовый исполняемый файл
 add_executable(pid_tests_ii02822
     pid_controller_test.cpp
     pid_controller.cpp
@@ -33,9 +34,18 @@ add_executable(pid_tests_ii02822
 # Включаем директории для тестов
 target_include_directories(pid_tests_ii02822 PRIVATE .)
 
-target_link_libraries(pid_tests_ii02822 gtest gtest_main)
+# Линковка с Google Test
+target_link_libraries(pid_tests_ii02822 PRIVATE 
+    gtest 
+    gtest_main
+)
 
-add_test(NAME PIDControllerTests COMMAND pid_tests)
+# Регистрация теста
+add_test(NAME PIDControllerTests COMMAND pid_tests_ii02822)  # ← исправлено имя
+
+# Альтернативно, можно использовать gtest_discover_tests для автоматического обнаружения тестов
+include(GoogleTest)
+gtest_discover_tests(pid_tests_ii02822)
 
 message(STATUS "Конфигурация завершена")
 message(STATUS "Основная программа: lab3_ii02822")
