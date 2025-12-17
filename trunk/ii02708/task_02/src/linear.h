@@ -16,7 +16,6 @@ std::vector<double> calculateLinear(const LinearCoeff &coeff, double y0, int n)
 	{
 		y2 = coeff.a * y1 + coeff.b * coeff.u;
         results.push_back(y2);
-		y0 = y1;
 		y1 = y2;
 	}
     return results;
