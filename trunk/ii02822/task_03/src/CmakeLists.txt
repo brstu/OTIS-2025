@@ -15,9 +15,9 @@ add_executable(lab3_ii02822
 include(FetchContent)
 FetchContent_Declare(
   googletest
-  GIT_REPOSITORY https://github.com/google/googletest.git  # ← ИСПРАВЛЕНО
-  GIT_TAG        v1.14.0
-  DOWNLOAD_EXTRACT_TIMESTAMP TRUE  # ← ДОБАВИТЬ
+  # Используйте ZIP архив вместо GIT репозитория
+  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+  DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
 FetchContent_MakeAvailable(googletest)
 
@@ -25,7 +25,7 @@ enable_testing()
 
 # Тесты
 add_executable(testlab3_runner
-    ${CMAKE_CURRENT_SOURCE_DIR}/../test/pid_controller_test.cpp
+    ../test/pid_controller_test.cpp
     pid_controller.cpp
     model.cpp
 )
