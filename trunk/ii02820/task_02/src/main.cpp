@@ -2,6 +2,7 @@
 #include <cmath>
 #include "model.h"
 #include <vector>
+#include <iomanip>
 using namespace std;
 
 int main() {
@@ -21,13 +22,15 @@ int main() {
     double y_nonlinear_prev = initial_y;
     double y_nonlinear_current = initial_y;
     
+    cout << fixed << setprecision(4);
     cout << "0\t0\t" << initial_y << "\t" << initial_y << endl;
 
     for (int i = 0; i < steps; i++) {
         double power = u[i];
         
-        y_linear = linear(y_linear, power, a, b);
-        double new_y_nonlinear = non_linear(
+        // ИСПРАВЛЕННЫЕ ВЫЗОВЫ:
+        y_linear = linear_model(y_linear, power, a, b);
+        double new_y_nonlinear = nonlinear_model(
             y_nonlinear_current, 
             y_nonlinear_prev, 
             power, 
