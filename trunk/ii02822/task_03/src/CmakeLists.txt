@@ -10,8 +10,7 @@ add_executable(lab3_ii02822
     model.cpp
 )
 
-# Включаем директории для основной программы
-target_include_directories(lab3_ii02822 PRIVATE .)  # ← исправлено имя таргета
+target_include_directories(lab3_ii02822 PRIVATE .)
 
 # Google Test
 include(FetchContent)
@@ -23,10 +22,8 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 
 enable_testing()
-
-# Тестовый исполняемый файл
 add_executable(pid_tests_ii02822
-    pid_controller_test.cpp
+    ../test/pid_controller_test.cpp  
     pid_controller.cpp
     model.cpp
 )
@@ -40,10 +37,8 @@ target_link_libraries(pid_tests_ii02822 PRIVATE
     gtest_main
 )
 
-# Регистрация теста
-add_test(NAME PIDControllerTests COMMAND pid_tests_ii02822)  # ← исправлено имя
+add_test(NAME PIDControllerTests COMMAND pid_tests_ii02822)
 
-# Альтернативно, можно использовать gtest_discover_tests для автоматического обнаружения тестов
 include(GoogleTest)
 gtest_discover_tests(pid_tests_ii02822)
 
