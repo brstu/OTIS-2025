@@ -1,63 +1,16 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.16...3.30)
+project(Task03 LANGUAGES C CXX)
 
-# Название проекта
-project(task_03_pid LANGUAGES CXX)
-
-# Стандарт C++
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
-# Включаем предупреждения (важно для SonarQube)
-if (MSVC)
-    add_compile_options(/W4)
-else()
-    add_compile_options(-Wall -Wextra -Wpedantic)
-endif()
-
-# ===============================
-# Библиотека ПИД-регулятора
-# ===============================
-add_library(pid
-    src/pid.cpp
-)
-
-target_include_directories(pid
-    PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/src
-)
-
-# ===============================
-# Основное приложение
-# ===============================
-add_executable(pid_app
-    src/main.cpp
-)
-
-target_link_libraries(pid_app
-    PRIVATE
-        pid
-)
-
-# ===============================
-# Google Test
-# ===============================
+# Включаем возможность запускать тесты
 enable_testing()
 
-find_package(GTest REQUIRED)
+# Если используется vcpkg, подключаем toolchain
+if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
+    if(EXISTS "C:/vcpkg/scripts/buildsystems/vcpkg.cmake")
+        set(CMAKE_TOOLCHAIN_FILE "C:/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
+    endif()
+endif()
 
-add_executable(pid_tests
-    test/test_pid.cpp
-)
-
-target_link_libraries(pid_tests
-    PRIVATE
-        pid
-        GTest::GTest
-        GTest::Main
-)
-
-add_test(
-    NAME PIDTests
-    COMMAND pid_tests
-)
+# Добавляем подкаталоги
+add_subdirectory(src)
+add_subdirectory(test)
