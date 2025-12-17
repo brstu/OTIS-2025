@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="pid_8h" kind="file" language="C++">
+    <compoundname>pid.h</compoundname>
+    <includedby refid="main_8cpp" local="yes">src/main.cpp</includedby>
+    <includedby refid="pid_8cpp" local="yes">src/pid.cpp</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="3">
+        <label>src/pid.cpp</label>
+        <link refid="pid_8cpp"/>
+      </node>
+      <node id="1">
+        <label>src/pid.h</label>
+        <link refid="pid_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_p_i_d_controller" prot="public">PIDController</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="class_p_i_d_controller" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_p_i_d_controller_1abf67fb062ae3787f8e668a7f7b3b6815" kindref="member">PIDController</ref><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_p_i_d_controller_1abf67fb062ae3787f8e668a7f7b3b6815" kindref="member">PIDController</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Kp<sp/>=<sp/>1.0,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Ti<sp/>=<sp/>1e12,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Td<sp/>=<sp/>0.0,</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dt<sp/>=<sp/>1.0,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_min<sp/>=<sp/>0.0,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_max<sp/>=<sp/>100.0);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_p_i_d_controller_1a1aa6a2ef1fb81ef036eac60950db35cf" kindref="member">calculate</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>setpoint,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>measured);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_p_i_d_controller_1ab6adfbffa30414f0a83b95ba999a2fea" kindref="member">reset</ref>();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_p_i_d_controller_1a83db13272bc22079748f37f2a64ce11a" kindref="member">setParameters</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Kp,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Ti,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Td);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updateCoefficients();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Kp_<sp/><sp/><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Ti_<sp/><sp/><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Td_<sp/><sp/><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dt_<sp/><sp/><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_min_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_max_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q0{};</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q1{};</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q2{};</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_prev_<sp/><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e_prev1_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e_prev2_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="src/pid.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.15.0" xml:lang="en-US">
+  <compound refid="struct_control_params" kind="struct"><name>ControlParams</name>
+    <member refid="struct_control_params_1a593b700eb25b3cfd6de14336cbaa2f4f" kind="variable"><name>q0</name></member>
+    <member refid="struct_control_params_1ac66f5757c44106891fec15dc09567d5b" kind="variable"><name>q1</name></member>
+    <member refid="struct_control_params_1a801e7914c94793e9b811c7fce6ff2fcc" kind="variable"><name>q2</name></member>
+    <member refid="struct_control_params_1a055afd98130333b25f0e408b3ef784ca" kind="variable"><name>e_k</name></member>
+    <member refid="struct_control_params_1abb316870dcfd97d8cae7861ecd2803a3" kind="variable"><name>e_prev</name></member>
+    <member refid="struct_control_params_1af55657e30020dfd72e9a268e17a74602" kind="variable"><name>e_prev2</name></member>
+    <member refid="struct_control_params_1a50783997dcf004279a405a145fd861a6" kind="variable"><name>u_prev</name></member>
+  </compound>
+  <compound refid="struct_model_params" kind="struct"><name>ModelParams</name>
+    <member refid="struct_model_params_1ac6808834410822ab1c93f66fa560bbcc" kind="variable"><name>a</name></member>
+    <member refid="struct_model_params_1a1c535f855a85be50750c79530b4a2e7d" kind="variable"><name>b</name></member>
+    <member refid="struct_model_params_1a8cadb4ecf7a534fa7e3777af19c886a1" kind="variable"><name>c</name></member>
+    <member refid="struct_model_params_1a7c6b420a834e5d5528d4bea79918e0a5" kind="variable"><name>d</name></member>
+    <member refid="struct_model_params_1a7b545efa35f62b1f2b00d6a44936cccb" kind="variable"><name>y1</name></member>
+    <member refid="struct_model_params_1a688af4d6e48c41f62fb738a13a692a4f" kind="variable"><name>y0</name></member>
+    <member refid="struct_model_params_1ab0293a86b5ffbe337e930f2653165e5f" kind="variable"><name>u1</name></member>
+    <member refid="struct_model_params_1ae3d8bc897c62796c72762551880bc989" kind="variable"><name>u0</name></member>
+  </compound>
+  <compound refid="struct_state_variables" kind="struct"><name>StateVariables</name>
+    <member refid="struct_state_variables_1a663e3c0dbf10c0d03357964f0cb675f5" kind="variable"><name>y</name></member>
+    <member refid="struct_state_variables_1ac0832248c84e960044c6d709989aba80" kind="variable"><name>u</name></member>
+    <member refid="struct_state_variables_1af384483bb5082664e4ae45f107f9222b" kind="variable"><name>e_prev</name></member>
+    <member refid="struct_state_variables_1a8341fbe643102035e40a9983844c92b2" kind="variable"><name>e_prev2</name></member>
+    <member refid="struct_state_variables_1addac2b42780200821287135d316edbda" kind="variable"><name>u_prev</name></member>
+    <member refid="struct_state_variables_1a967286ad51cd9932ec3eff353c7c3a02" kind="variable"><name>e_k</name></member>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="module_8cpp" kind="file"><name>module.cpp</name>
+    <member refid="module_8cpp_1a827655d27cff6904006c0d8776e48235" kind="function"><name>calculatePidCoefficients</name></member>
+    <member refid="module_8cpp_1a25dd5396e96a7e20add9f351b762cbc4" kind="function"><name>calculateControl</name></member>
+    <member refid="module_8cpp_1a622fee89f0094b54cbc31cbc3de3e4d7" kind="function"><name>applyControlLimits</name></member>
+    <member refid="module_8cpp_1a460df141e98805c675c3147587b703fe" kind="function"><name>calculateNonlinearModel</name></member>
+    <member refid="module_8cpp_1a7caa32bcc053d05f8ad42258bedd8f5c" kind="function"><name>applyTemperatureProtection</name></member>
+    <member refid="module_8cpp_1a2f38e8c4bcbfe94e4a9b5a4314e12554" kind="function"><name>calculateError</name></member>
+    <member refid="module_8cpp_1a36a910d9807c25459dbcbf3db68b721f" kind="function"><name>updateStateVariables</name></member>
+  </compound>
+  <compound refid="module_8h" kind="file"><name>module.h</name>
+    <member refid="module_8h_1a827655d27cff6904006c0d8776e48235" kind="function"><name>calculatePidCoefficients</name></member>
+    <member refid="module_8h_1a25dd5396e96a7e20add9f351b762cbc4" kind="function"><name>calculateControl</name></member>
+    <member refid="module_8h_1a622fee89f0094b54cbc31cbc3de3e4d7" kind="function"><name>applyControlLimits</name></member>
+    <member refid="module_8h_1a460df141e98805c675c3147587b703fe" kind="function"><name>calculateNonlinearModel</name></member>
+    <member refid="module_8h_1a7caa32bcc053d05f8ad42258bedd8f5c" kind="function"><name>applyTemperatureProtection</name></member>
+    <member refid="module_8h_1a2f38e8c4bcbfe94e4a9b5a4314e12554" kind="function"><name>calculateError</name></member>
+    <member refid="module_8h_1a36a910d9807c25459dbcbf3db68b721f" kind="function"><name>updateStateVariables</name></member>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

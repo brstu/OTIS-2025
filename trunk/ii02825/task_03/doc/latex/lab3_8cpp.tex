@@ -1,0 +1,58 @@
+\doxysection{src/lab3.cpp File Reference}
+\hypertarget{lab3_8cpp}{}\label{lab3_8cpp}\index{src/lab3.cpp@{src/lab3.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include "{}pid.\+h"{}}\newline
+{\ttfamily \#include "{}model.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{lab3_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Точка входа в программу. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{lab3_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{lab3_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{lab3.cpp@{lab3.cpp}!main@{main}}
+\index{main@{main}!lab3.cpp@{lab3.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{lab3_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Точка входа в программу. 
+
+Программа моделирует работу PID-\/регулятора для двух моделей объекта\+:
+\begin{DoxyItemize}
+\item линейной\+: y(k+1) = a\texorpdfstring{$\ast$}{*}y(k) + b\texorpdfstring{$\ast$}{*}u(k)
+\item нелинейной\+: y(k+1) = a\texorpdfstring{$\ast$}{*}y(k) − b\texorpdfstring{$\ast$}{*}y²(k) + c\texorpdfstring{$\ast$}{*}u(k) + d\texorpdfstring{$\ast$}{*}sin(u(k))
+\end{DoxyItemize}
+
+Выводит на каждом шаге\+:
+\begin{DoxyItemize}
+\item ошибку e
+\item управляющее воздействие u
+\item состояние объекта для линейной модели
+\item состояние объекта для нелинейной модели
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+0 — успешное завершение 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Начальная температура объекта
+
+\texorpdfstring{$<$}{<} Коэффициенты линейной модели
+
+\texorpdfstring{$<$}{<} Целевая температура
+
+\texorpdfstring{$<$}{<} Количество шагов моделирования
+
+\texorpdfstring{$<$}{<} Состояние линейной модели
+
+\texorpdfstring{$<$}{<} Состояние нелинейной модели
+
+\texorpdfstring{$<$}{<} Ошибка управления
+
+\texorpdfstring{$<$}{<} Управляющее воздействие

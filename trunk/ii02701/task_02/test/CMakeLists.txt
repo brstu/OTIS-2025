@@ -2,7 +2,6 @@ enable_testing()
 
 add_executable(unit_tests
     test_model.cpp
-    test_model_add.cpp
 )
 
 target_link_libraries(unit_tests

@@ -1,0 +1,484 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_p_i_d" kind="class" language="C++" prot="public">
+    <compoundname>PID</compoundname>
+    <includes refid="pid_8h" local="no">pid.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_p_i_d_1a0b7cf5ad8d3913f6dc570d0917fa1fd3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::K</definition>
+        <argsstring></argsstring>
+        <name>K</name>
+        <qualifiedname>PID::K</qualifiedname>
+        <briefdescription>
+<para>Коэффициент усиления (пропорциональная составляющая). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="24" column="12" bodyfile="src/pid.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a7cd57cae8a9e785849b6af11f699afab" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::Ti</definition>
+        <argsstring></argsstring>
+        <name>Ti</name>
+        <qualifiedname>PID::Ti</qualifiedname>
+        <briefdescription>
+<para>Постоянная времени интегрирования </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="25" column="12" bodyfile="src/pid.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a6d3306e34c941e0a0858c7d9844ad34a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::Td</definition>
+        <argsstring></argsstring>
+        <name>Td</name>
+        <qualifiedname>PID::Td</qualifiedname>
+        <briefdescription>
+<para>Постоянная времени дифференцирования </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="26" column="12" bodyfile="src/pid.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1af69630823959fdbc57637cbc7e69c9c7" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::T0</definition>
+        <argsstring></argsstring>
+        <name>T0</name>
+        <qualifiedname>PID::T0</qualifiedname>
+        <briefdescription>
+<para>Период дискретизации </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="27" column="12" bodyfile="src/pid.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1ac6f4a7e29f84d9eb60e7f672a3665a65" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q0</definition>
+        <argsstring></argsstring>
+        <name>q0</name>
+        <qualifiedname>PID::q0</qualifiedname>
+        <briefdescription>
+<para>Коэффициент q0 дискретного регулятора </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="29" column="12" bodyfile="src/pid.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a84c6ee207e6449ee6082094f697f701a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q1</definition>
+        <argsstring></argsstring>
+        <name>q1</name>
+        <qualifiedname>PID::q1</qualifiedname>
+        <briefdescription>
+<para>Коэффициент q1 дискретного регулятора </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="30" column="12" bodyfile="src/pid.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1addf8b9728e070dc19ddbc5e80b44c550" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q2</definition>
+        <argsstring></argsstring>
+        <name>q2</name>
+        <qualifiedname>PID::q2</qualifiedname>
+        <briefdescription>
+<para>Коэффициент q2 дискретного регулятора </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="31" column="12" bodyfile="src/pid.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a9e9287696502b7183b65e52cfe165848" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::e_prev1</definition>
+        <argsstring></argsstring>
+        <name>e_prev1</name>
+        <qualifiedname>PID::e_prev1</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+<para>Ошибка на предыдущем шаге (e[k-1]). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="33" column="12" bodyfile="src/pid.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1af5539d613fcb09081d26ede79d6ecae6" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::e_prev2</definition>
+        <argsstring></argsstring>
+        <name>e_prev2</name>
+        <qualifiedname>PID::e_prev2</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+<para>Ошибка на два шага назад (e[k-2]). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="34" column="12" bodyfile="src/pid.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1ab7d24c057c566a8128a654f933c2610f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::u_prev</definition>
+        <argsstring></argsstring>
+        <name>u_prev</name>
+        <qualifiedname>PID::u_prev</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+<para>Управляющее воздействие на предыдущем шаге </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="35" column="12" bodyfile="src/pid.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a7792de52992d0c0362f12df93a7abb28" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::integral</definition>
+        <argsstring></argsstring>
+        <name>integral</name>
+        <qualifiedname>PID::integral</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+<para>Интегральная составляющая </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="37" column="12" bodyfile="src/pid.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1ad791467d0c467a655dd42baffbd209a9" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::d_prev</definition>
+        <argsstring></argsstring>
+        <name>d_prev</name>
+        <qualifiedname>PID::d_prev</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+<para>Предыдущее значение производной </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="38" column="12" bodyfile="src/pid.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_p_i_d_1a17795e8c074bdb9c7952d093571ba6d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PID::PID</definition>
+        <argsstring>(double K, double Ti, double Td, double T0=1.0)</argsstring>
+        <name>PID</name>
+        <qualifiedname>PID::PID</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>K</declname>
+          <defname>K_val</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Ti</declname>
+          <defname>Ti_val</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Td</declname>
+          <defname>Td_val</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>T0</declname>
+          <defname>T0_val</defname>
+          <defval>1.0</defval>
+        </param>
+        <briefdescription>
+<para>Конструктор класса <ref refid="class_p_i_d" kindref="compound">PID</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент усиления </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Ti</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Постоянная времени интегрирования </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Td</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Постоянная времени дифференцирования </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>T0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Период дискретизации (по умолчанию 1.0)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Инициализирует коэффициенты дискретного регулятора</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>K_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент усиления </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Ti_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Постоянная времени интегрирования </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Td_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Постоянная времени дифференцирования </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>T0_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Период дискретизации</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Рассчитывает коэффициенты дискретного регулятора по формулам: q0 = K*(1 + Td/T0) q1 = -K*(1 + 2*Td/T0 - T0/Ti) q2 = K*Td/T0 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="50" column="5" bodyfile="src/pid.cpp" bodystart="27" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1a95bd8270c27ddf8cb98a85b68a16211a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PID::calculate</definition>
+        <argsstring>(double setpoint, double current_value)</argsstring>
+        <name>calculate</name>
+        <qualifiedname>PID::calculate</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>setpoint</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>current_value</declname>
+        </param>
+        <briefdescription>
+<para>Расчет управляющего воздействия </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>setpoint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Задающее воздействие </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>current_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Текущее значение процесса </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Управляющее воздействие</para>
+</simplesect>
+Уравнение регулятора: u[k] = q0*e[k] + q1*e[k-1] + q2*e[k-2] + u[k-1]</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>setpoint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Задающее воздействие </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>current_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Текущее значение процесса </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Управляющее воздействие (ограниченное 0-100%)</para>
+</simplesect>
+Алгоритм расчета:<orderedlist>
+<listitem><para>Вычисление ошибки: e[k] = setpoint - current_value</para>
+</listitem><listitem><para>Расчет приращения: Δu = q0*e[k] + q1*e[k-1] + q2*e[k-2]</para>
+</listitem><listitem><para>Новое значение: u[k] = u[k-1] + Δu</para>
+</listitem><listitem><para>Ограничение значения </para>
+</listitem></orderedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="60" column="12" bodyfile="src/pid.cpp" bodystart="57" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1af9677e76cb1beffbcf3f54cbc627c530" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PID::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>PID::reset</qualifiedname>
+        <briefdescription>
+<para>Сброс состояния регулятора </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Обнуляет все накопленные значения (интеграл, предыдущие ошибки и т.д.)</para>
+<para>Обнуляет все внутренние переменные регулятора. Используется при перезапуске системы или изменении режима работы. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="67" column="10" bodyfile="src/pid.cpp" bodystart="83" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1a05cc28e1b9efe654681fa29eec5e0663" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; PID::getCoefficients</definition>
+        <argsstring>() const</argsstring>
+        <name>getCoefficients</name>
+        <qualifiedname>PID::getCoefficients</qualifiedname>
+        <briefdescription>
+<para>Получение коэффициентов дискретного регулятора </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Вектор коэффициентов [q0, q1, q2] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="73" column="17" bodyfile="src/pid.cpp" bodystart="95" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1af1e9df26131257a81b224f0e766dcb34" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PID::getParameters</definition>
+        <argsstring>(double &amp;K_param, double &amp;Ti_param, double &amp;Td_param) const</argsstring>
+        <name>getParameters</name>
+        <qualifiedname>PID::getParameters</qualifiedname>
+        <param>
+          <type>double &amp;</type>
+          <declname>K_param</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>Ti_param</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>Td_param</declname>
+        </param>
+        <briefdescription>
+<para>Получение параметров ПИД-регулятора </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">K_param</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент усиления </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">Ti_param</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Постоянная времени интегрирования </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">Td_param</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Постоянная времени дифференцирования </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="81" column="10" bodyfile="src/pid.cpp" bodystart="105" bodyend="109"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Класс цифрового ПИД-регулятора </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Реализует цифровой ПИД-регулятор с дискретной передаточной функцией. Поддерживает стандартную форму (Пропорционально-Интегрально-Дифференциальный регулятор). </para>
+    </detaileddescription>
+    <location file="src/pid.h" line="22" column="1" bodyfile="src/pid.h" bodystart="22" bodyend="82"/>
+    <listofallmembers>
+      <member refid="class_p_i_d_1a95bd8270c27ddf8cb98a85b68a16211a" prot="public" virt="non-virtual"><scope>PID</scope><name>calculate</name></member>
+      <member refid="class_p_i_d_1ad791467d0c467a655dd42baffbd209a9" prot="private" virt="non-virtual"><scope>PID</scope><name>d_prev</name></member>
+      <member refid="class_p_i_d_1a9e9287696502b7183b65e52cfe165848" prot="private" virt="non-virtual"><scope>PID</scope><name>e_prev1</name></member>
+      <member refid="class_p_i_d_1af5539d613fcb09081d26ede79d6ecae6" prot="private" virt="non-virtual"><scope>PID</scope><name>e_prev2</name></member>
+      <member refid="class_p_i_d_1a05cc28e1b9efe654681fa29eec5e0663" prot="public" virt="non-virtual"><scope>PID</scope><name>getCoefficients</name></member>
+      <member refid="class_p_i_d_1af1e9df26131257a81b224f0e766dcb34" prot="public" virt="non-virtual"><scope>PID</scope><name>getParameters</name></member>
+      <member refid="class_p_i_d_1a7792de52992d0c0362f12df93a7abb28" prot="private" virt="non-virtual"><scope>PID</scope><name>integral</name></member>
+      <member refid="class_p_i_d_1a0b7cf5ad8d3913f6dc570d0917fa1fd3" prot="private" virt="non-virtual"><scope>PID</scope><name>K</name></member>
+      <member refid="class_p_i_d_1a17795e8c074bdb9c7952d093571ba6d6" prot="public" virt="non-virtual"><scope>PID</scope><name>PID</name></member>
+      <member refid="class_p_i_d_1ac6f4a7e29f84d9eb60e7f672a3665a65" prot="private" virt="non-virtual"><scope>PID</scope><name>q0</name></member>
+      <member refid="class_p_i_d_1a84c6ee207e6449ee6082094f697f701a" prot="private" virt="non-virtual"><scope>PID</scope><name>q1</name></member>
+      <member refid="class_p_i_d_1addf8b9728e070dc19ddbc5e80b44c550" prot="private" virt="non-virtual"><scope>PID</scope><name>q2</name></member>
+      <member refid="class_p_i_d_1af9677e76cb1beffbcf3f54cbc627c530" prot="public" virt="non-virtual"><scope>PID</scope><name>reset</name></member>
+      <member refid="class_p_i_d_1af69630823959fdbc57637cbc7e69c9c7" prot="private" virt="non-virtual"><scope>PID</scope><name>T0</name></member>
+      <member refid="class_p_i_d_1a6d3306e34c941e0a0858c7d9844ad34a" prot="private" virt="non-virtual"><scope>PID</scope><name>Td</name></member>
+      <member refid="class_p_i_d_1a7cd57cae8a9e785849b6af11f699afab" prot="private" virt="non-virtual"><scope>PID</scope><name>Ti</name></member>
+      <member refid="class_p_i_d_1ab7d24c057c566a8128a654f933c2610f" prot="private" virt="non-virtual"><scope>PID</scope><name>u_prev</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

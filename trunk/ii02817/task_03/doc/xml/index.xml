@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.15.0" xml:lang="en-US">
+  <compound refid="class_p_i_d_controller" kind="class"><name>PIDController</name>
+    <member refid="class_p_i_d_controller_1a942359208f9726e38f9f90b7cd201752" kind="variable"><name>K</name></member>
+    <member refid="class_p_i_d_controller_1a1ade2f500183abc89e261017f5bf197c" kind="variable"><name>Ti</name></member>
+    <member refid="class_p_i_d_controller_1aa98955cf3d687a47a549c08df2cbd5e2" kind="variable"><name>Td</name></member>
+    <member refid="class_p_i_d_controller_1a6dfa260ea80ae6a36402b2634b3fe2db" kind="variable"><name>T0</name></member>
+    <member refid="class_p_i_d_controller_1aa11e9fe0c2933f67cbe41c084d320b6a" kind="variable"><name>q0</name></member>
+    <member refid="class_p_i_d_controller_1af534a1a7c82691b91cb46ab97931ebc1" kind="variable"><name>q1</name></member>
+    <member refid="class_p_i_d_controller_1a81f9a883343ea5afd87ea095a1631ee0" kind="variable"><name>q2</name></member>
+    <member refid="class_p_i_d_controller_1a8b0e2c8bb2799cfb13a642412c395bab" kind="variable"><name>u_prev</name></member>
+    <member refid="class_p_i_d_controller_1aaeb23bac8e2ebbaf834c8727ad5ef54d" kind="variable"><name>e_prev1</name></member>
+    <member refid="class_p_i_d_controller_1a09a85c0dadbffee6be2ca23fda7f7bf7" kind="variable"><name>e_prev2</name></member>
+    <member refid="class_p_i_d_controller_1ac65dfc23a03cd19da78df21df035d49b" kind="variable"><name>u_min</name></member>
+    <member refid="class_p_i_d_controller_1ac95bdadfe65cd7c84d879b11e4bc4813" kind="variable"><name>u_max</name></member>
+    <member refid="class_p_i_d_controller_1a970b2fb3c3d8517db45b066030ea1723" kind="function"><name>PIDController</name></member>
+    <member refid="class_p_i_d_controller_1a85a66025d7a1a8c040036feaa63faf05" kind="function"><name>PIDController</name></member>
+    <member refid="class_p_i_d_controller_1ac43ca81ca1c80f123773dc0296283514" kind="function"><name>setParameters</name></member>
+    <member refid="class_p_i_d_controller_1a2f11970d0216de3802e81a8fe84f14e8" kind="function"><name>setLimits</name></member>
+    <member refid="class_p_i_d_controller_1ab6adfbffa30414f0a83b95ba999a2fea" kind="function"><name>reset</name></member>
+    <member refid="class_p_i_d_controller_1af31656b67630f25fe8b85eefa24fe956" kind="function"><name>calculate</name></member>
+    <member refid="class_p_i_d_controller_1a3f6a05e6457da67ca575c0da2280dcba" kind="function"><name>getCoefficients</name></member>
+  </compound>
+  <compound refid="class_plant_model" kind="class"><name>PlantModel</name>
+    <member refid="class_plant_model_1a3a13ccf39287af08f6b123a56422c0fb" kind="variable"><name>a</name></member>
+    <member refid="class_plant_model_1a01a012d8e5214fe0b46bc76269d433cf" kind="variable"><name>b</name></member>
+    <member refid="class_plant_model_1a1a89f9b6fe44f08131aba4ee7ff7ebf7" kind="variable"><name>c</name></member>
+    <member refid="class_plant_model_1a782034076e98316b56d70424af0db5d4" kind="variable"><name>d</name></member>
+    <member refid="class_plant_model_1ae01a33acff58b1af8f9c9fd2efb92612" kind="variable"><name>t_curr</name></member>
+    <member refid="class_plant_model_1a22a6254b3d2e5be5e39374fe0294a112" kind="variable"><name>t_prev</name></member>
+    <member refid="class_plant_model_1a9301e94549e9ac06971a8a67f373d703" kind="variable"><name>u_curr</name></member>
+    <member refid="class_plant_model_1a333545c91ab32159b69689b0ba5d5227" kind="variable"><name>u_prev</name></member>
+    <member refid="class_plant_model_1aa43bd77e2783d08d0e23afd69fa0b8db" kind="function"><name>PlantModel</name></member>
+    <member refid="class_plant_model_1a52ef4f497e9231fd8316574a2f0d4d57" kind="function"><name>PlantModel</name></member>
+    <member refid="class_plant_model_1a23e795fe4f0351117bdba4a197688c40" kind="function"><name>setParameters</name></member>
+    <member refid="class_plant_model_1a25e1496652f7d97c9c93c35bb18eb95d" kind="function"><name>setState</name></member>
+    <member refid="class_plant_model_1af76e6d3c9e05d6f7c0c4b847acfe49be" kind="function"><name>getOutput</name></member>
+    <member refid="class_plant_model_1a5aba471744e92f4e93abdaacaa6bd951" kind="function"><name>linearStep</name></member>
+    <member refid="class_plant_model_1ac9799cb700d1f26b4dd8758d34a5dde9" kind="function"><name>nonlinearStep</name></member>
+    <member refid="class_plant_model_1ad7733a467a1d833967a6cc3b48731722" kind="function"><name>linear</name></member>
+    <member refid="class_plant_model_1abadb2876a8862aa167d8f1acb3523cbb" kind="function"><name>nonlinear</name></member>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1a6f0920bfae69b5111bd59c7741b2e89f" kind="function"><name>simulateSystem</name></member>
+    <member refid="main_8cpp_1ae05a0508b72e53ffdfcff2070c06cd27" kind="function"><name>writeResultsToFile</name></member>
+    <member refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="model_8cpp" kind="file"><name>model.cpp</name>
+  </compound>
+  <compound refid="model_8h" kind="file"><name>model.h</name>
+  </compound>
+  <compound refid="pid_8cpp" kind="file"><name>pid.cpp</name>
+  </compound>
+  <compound refid="pid_8h" kind="file"><name>pid.h</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

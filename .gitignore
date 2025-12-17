@@ -34,6 +34,17 @@
 .DS_Store
 .vs/
 out/
-build/
+/build/
 .idea/
 cmake-build-debug/
+
+# Doxygen documentation
+doc/html/
+doc/xml/
+doc/latex/
+*.doxygen
+
+build/
+*/build/
+*/build*/
+*/*/build*/

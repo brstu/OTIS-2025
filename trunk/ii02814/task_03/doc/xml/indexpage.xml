@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>Документация ПИД-регулятора</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<sect1 id="index_1intro">
+<title>Введение</title><para>Программа реализует ПИД-регулятор для управления нелинейным объектом (температурой). Используется дискретная форма ПИД-регулятора и нелинейная модель объекта.</para>
+</sect1>
+<sect1 id="index_1algorithm">
+<title>Алгоритм работы</title><para><orderedlist>
+<listitem><para>Ввод параметров модели объекта и ПИД-регулятора</para>
+</listitem><listitem><para>Расчет коэффициентов ПИД-регулятора в дискретной форме</para>
+</listitem><listitem><para>Циклическое моделирование системы управления</para>
+</listitem><listitem><para>Расчет ошибки, управляющего воздействия и новой температуры</para>
+</listitem><listitem><para>Вывод результатов моделирования </para>
+</listitem></orderedlist>
+</para>
+</sect1>
+    </detaileddescription>
+    <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/main.cpp"/>
+  </compounddef>
+</doxygen>

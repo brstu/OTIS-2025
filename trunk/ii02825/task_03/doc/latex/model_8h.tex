@@ -1,0 +1,137 @@
+\doxysection{src/model.h File Reference}
+\hypertarget{model_8h}{}\label{model_8h}\index{src/model.h@{src/model.h}}
+
+
+Заголовочный файл для математических моделей объекта управления.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{model_8h_a82cf4dbd2f60c32e470774b41c7f7ad7}{linear}} (double y, double u, double a, double b)
+\begin{DoxyCompactList}\small\item\em Линейная модель динамики объекта. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{model_8h_a9ee3270cf2f0e5314c373a0f9a990ba6}{non\+\_\+linear}} (double y, double u, double a, double b, double c, double d)
+\begin{DoxyCompactList}\small\item\em Нелинейная модель динамики объекта. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Заголовочный файл для математических моделей объекта управления. 
+
+Содержит реализацию двух моделей\+:
+\begin{DoxyItemize}
+\item линейной;
+\item нелинейной. 
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{model_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{model_8h_a82cf4dbd2f60c32e470774b41c7f7ad7}\index{model.h@{model.h}!linear@{linear}}
+\index{linear@{linear}!model.h@{model.h}}
+\doxysubsubsection{\texorpdfstring{linear()}{linear()}}
+{\footnotesize\ttfamily \label{model_8h_a82cf4dbd2f60c32e470774b41c7f7ad7} 
+double linear (\begin{DoxyParamCaption}\item[{double}]{y}{, }\item[{double}]{u}{, }\item[{double}]{a}{, }\item[{double}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Линейная модель динамики объекта. 
+
+Описывает простое зависимое поведение системы\+:   \[    y(k+1) = a \cdot y(k) + b \cdot u(k)
+\]
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & Текущее значение состояния объекта. \\
+\hline
+{\em u} & Управляющее воздействие. \\
+\hline
+{\em a} & Коэффициент сохранения состояния. \\
+\hline
+{\em b} & Коэффициент влияния управления.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Новое значение состояния.
+\end{DoxyReturn}
+Линейная модель динамики объекта.
+
+Функция рассчитывает новое состояние системы на основе текущего значения ( y ) и управляющего воздействия ( u ).
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & Текущее значение состояния объекта. \\
+\hline
+{\em u} & Управляющее воздействие. \\
+\hline
+{\em a} & Коэффициент влияния предыдущего состояния. \\
+\hline
+{\em b} & Коэффициент влияния управляющего воздействия.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Новое значение параметра объекта. 
+\end{DoxyReturn}
+\Hypertarget{model_8h_a9ee3270cf2f0e5314c373a0f9a990ba6}\index{model.h@{model.h}!non\_linear@{non\_linear}}
+\index{non\_linear@{non\_linear}!model.h@{model.h}}
+\doxysubsubsection{\texorpdfstring{non\_linear()}{non\_linear()}}
+{\footnotesize\ttfamily \label{model_8h_a9ee3270cf2f0e5314c373a0f9a990ba6} 
+double non\+\_\+linear (\begin{DoxyParamCaption}\item[{double}]{y}{, }\item[{double}]{u}{, }\item[{double}]{a}{, }\item[{double}]{b}{, }\item[{double}]{c}{, }\item[{double}]{d}{}\end{DoxyParamCaption})}
+
+
+
+Нелинейная модель динамики объекта. 
+
+Расширяет линейную модель входящими нелинейными терминами\+:   \[ y(k+1) = a \cdot y - b \cdot y^2 + c \cdot u + d \cdot \sin(u)
+\]
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & Текущее состояние объекта. \\
+\hline
+{\em u} & Управляющее воздействие. \\
+\hline
+{\em a} & Линейный коэффициент. \\
+\hline
+{\em b} & Коэффициент квадратичного торможения. \\
+\hline
+{\em c} & Коэффициент влияния управления. \\
+\hline
+{\em d} & Коэффициент синусоидального влияния сигнала.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Новое значение состояния.
+\end{DoxyReturn}
+Нелинейная модель динамики объекта.
+
+Учитывает нелинейные эффекты насыщения и колебательность управления\+:
+
+\[y(k+1) = a \cdot y - b \cdot y^2 + c \cdot u + d \cdot \sin(u)
+\]
+
+где\+:
+\begin{DoxyItemize}
+\item ( a ) — влияние предыдущего состояния,
+\item ( b ) — коэффициент нелинейного затухания,
+\item ( c ) — коэффициент влияния управляющего воздействия,
+\item ( d ) — амплитуда синусоидального воздействия.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & Текущее состояние объекта. \\
+\hline
+{\em u} & Управляющий сигнал. \\
+\hline
+{\em a} & Коэффициент сохранения состояния. \\
+\hline
+{\em b} & Коэффициент квадратичного влияния состояния. \\
+\hline
+{\em c} & Коэффициент влияния управляющего сигнала. \\
+\hline
+{\em d} & Коэффициент синусоидального влияния.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Новое значение состояния системы. 
+\end{DoxyReturn}
