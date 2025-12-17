@@ -14,3 +14,18 @@ endif()
 # Добавляем подкаталоги
 add_subdirectory(src)
 add_subdirectory(test)
+
+find_package(Doxygen)
+
+if(DOXYGEN_FOUND)
+    set(DOXY_IN ${CMAKE_SOURCE_DIR}/DoxyfileNG.xml)
+    set(DOXY_OUT ${CMAKE_BINARY_DIR}/DoxyfileNG.xml)
+
+    configure_file(${DOXY_IN} ${DOXY_OUT} COPYONLY)
+
+    add_custom_target(doc
+        COMMAND ${DOXYGEN_EXECUTABLE} ${DOXY_OUT}
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+        COMMENT "Generating XML documentation for SonarQube"
+    )
+endif()
