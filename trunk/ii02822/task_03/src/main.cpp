@@ -128,7 +128,7 @@ int main() {
     std::cout << "\n4. PERFORMANCE ANALYSIS:\n";
     std::cout << std::string(50, '-') << "\n";
 
-    if (int steady_start = 20, steady_end = 25;
+    if (const int steady_start = 20, steady_end = 25;
         steady_start < static_cast<int>(linear_results.size()) &&
         steady_end < static_cast<int>(linear_results.size())) {
 
@@ -162,12 +162,11 @@ int main() {
         }
     }
 
-    std::for_each(nonlinear_results.begin(), nonlinear_results.end(),
-        [&nl_max](const double& value) {
-            if (value > nl_max) {
-                nl_max = value;
-            }
-        });
+    for (const double& value : nonlinear_results) {
+        if (value > nl_max) {
+            nl_max = value;
+        }
+    }
 
     std::cout << "\nMaximum overshoot:\n";
     std::cout << "  Linear model:    " << std::setprecision(3) << lin_max << "\n";
