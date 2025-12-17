@@ -1,8 +1,7 @@
 #include <iostream>
-#include <cmath>
-#include "model.h"
-#include <vector>
 #include <iomanip>
+#include "model.h"  // ВАЖНО: двойные кавычки, не угловые скобки!
+
 using namespace std;
 
 int main() {
@@ -10,38 +9,36 @@ int main() {
     double b = 0.002;
     double c = 0.05;
     double d = 0.1;
-    double initial_y = 23;
+    double y0 = 23.0;
 
-    double u[] = { 10, 15, 20, 25, 30, 25, 20, 15, 10, 5 };
+    double u[] = {10, 15, 20, 25, 30, 25, 20, 15, 10, 5};
     int steps = 10;
 
     cout << "Model Comparison:" << endl;
     cout << "Time\tu\tLinear\tNonlinear" << endl;
     
-    double y_linear = initial_y;
-    double y_nonlinear_prev = initial_y;
-    double y_nonlinear_current = initial_y;
+    double y_linear = y0;
+    double y_nl_prev = y0;
+    double y_nl_curr = y0;
     
     cout << fixed << setprecision(4);
-    cout << "0\t0\t" << initial_y << "\t" << initial_y << endl;
+    cout << "0\t0\t" << y0 << "\t" << y0 << endl;
 
     for (int i = 0; i < steps; i++) {
         double power = u[i];
         
-        // ИСПРАВЛЕННЫЕ ВЫЗОВЫ:
+        // Линейная модель
         y_linear = linear_model(y_linear, power, a, b);
-        double new_y_nonlinear = nonlinear_model(
-            y_nonlinear_current, 
-            y_nonlinear_prev, 
-            power, 
-            a, b, c, d
-        );
         
-        y_nonlinear_prev = y_nonlinear_current;
-        y_nonlinear_current = new_y_nonlinear;
+        // Нелинейная модель
+        double y_nl_new = nonlinear_model(y_nl_curr, y_nl_prev, power, a, b, c, d);
+        
+        // Обновление состояний
+        y_nl_prev = y_nl_curr;
+        y_nl_curr = y_nl_new;
         
         cout << i + 1 << "\t" << power << "\t" 
-             << y_linear << "\t" << y_nonlinear_current << endl;
+             << y_linear << "\t" << y_nl_curr << endl;
     }
 
     return 0;
