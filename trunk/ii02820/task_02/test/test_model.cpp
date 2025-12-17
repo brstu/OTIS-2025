@@ -1,117 +1,107 @@
+// test/test_model.cpp
 #include <gtest/gtest.h>
 #include <cmath>
-#include "model.h"
+#include "../src/model.h"
 
-
-class LinearModelTest : public ::testing::Test {
-protected:
-    void SetUp() override {
-        model = new LinearModel(0.95, 0.002, 10.0);
-    }
-    
-    void TearDown() override {
-        delete model;
-    }
-    
-    LinearModel* model;
-};
-
-TEST_F(LinearModelTest, Initialization) {
-    EXPECT_DOUBLE_EQ(model->getPreviousY(), 10.0);
-}
-
-TEST_F(LinearModelTest, CalculateFirstStep) {
-    double result = model->calculate(5.0);
-    double expected = 0.95 * 10.0 + 0.002 * 5.0;
-    EXPECT_NEAR(result, expected, 1e-10);
-}
-
-TEST_F(LinearModelTest, CalculateMultipleSteps) {
-    double result1 = model->calculate(5.0);
-    double result2 = model->calculate(10.0);
-    
-    double expected1 = 0.95 * 10.0 + 0.002 * 5.0;
-    double expected2 = 0.95 * expected1 + 0.002 * 10.0;
-    
-    EXPECT_NEAR(result1, expected1, 1e-10);
-    EXPECT_NEAR(result2, expected2, 1e-10);
-}
-
-TEST_F(LinearModelTest, ResetFunction) {
-    model->calculate(5.0);
-    model->reset(15.0);
-    EXPECT_DOUBLE_EQ(model->getPreviousY(), 15.0);
-}
-
-
-class NonlinearModelTest : public ::testing::Test {
-protected:
-    void SetUp() override {
-        model = new NonlinearModel(0.95, 0.002, 0.05, 0.1, 10.0);
-    }
-    
-    void TearDown() override {
-        delete model;
-    }
-    
-    NonlinearModel* model;
-};
-
-TEST_F(NonlinearModelTest, Initialization) {
-    EXPECT_DOUBLE_EQ(model->getPreviousY(), 10.0);
-}
-
-TEST_F(NonlinearModelTest, CalculateFirstStep) {
-    double u = 5.0;
-    double result = model->calculate(u);
-    double expected = 0.95 * 10.0 - 0.002 * 10.0 * 10.0 + 0.05 * u + 0.1 * sin(u);
-    EXPECT_NEAR(result, expected, 1e-10);
-}
-
-TEST_F(NonlinearModelTest, CalculateMultipleSteps) {
-    double u1 = 5.0;
-    double result1 = model->calculate(u1);
-    
-    double u2 = 10.0;
-    double result2 = model->calculate(u2);
-    
-    double expected1 = 0.95 * 10.0 - 0.002 * 10.0 * 10.0 + 0.05 * u1 + 0.1 * sin(u1);
-    double expected2 = 0.95 * result1 - 0.002 * 10.0 * 10.0 + 0.05 * u2 + 0.1 * sin(u2);
-    
-    EXPECT_NEAR(result1, expected1, 1e-10);
-    EXPECT_NEAR(result2, expected2, 1e-10);
-}
-
-TEST_F(NonlinearModelTest, ResetFunction) {
-    model->calculate(5.0);
-    model->reset(20.0);
-    EXPECT_DOUBLE_EQ(model->getPreviousY(), 20.0);
-}
-
-
-TEST(ModelsComparisonTest, SameParametersComparison) {
-    LinearModel linear(0.95, 0.002, 15.0);
-    NonlinearModel nonlinear(0.95, 0.002, 0.0, 0.0, 15.0);
-    
+TEST(ModelTest, LinearFunction) {
+    double y = 23.0;
     double u = 10.0;
-    double y_linear = linear.calculate(u);
-    double y_nonlinear = nonlinear.calculate(u);
+    double a = 0.95;
+    double b = 0.002;
     
- 
-    EXPECT_NEAR(y_linear, y_nonlinear, 1e-10);
+    double result = linear(y, u, a, b);
+    double expected = a * y + b * u;
+    EXPECT_DOUBLE_EQ(result, expected);
 }
 
-
-class LinearModelParamTest : public ::testing::TestWithParam<std::tuple<double, double, double>> {};
-
-TEST_P(LinearModelParamTest, VariousParameters) {
-    auto [a, b, initial_y] = GetParam();
-    LinearModel model(a, b, initial_y);
+TEST(ModelTest, LinearFunctionMultipleSteps) {
+    double y = 23.0;
+    double a = 0.95;
+    double b = 0.002;
     
-    double u = 5.0;
-    double result = model.calculate(u);
-    double expected = a * initial_y + b * u;
+    double u1 = 10.0;
+    y = linear(y, u1, a, b);
+    EXPECT_NEAR(y, 21.87, 0.01);
     
+    double u2 = 15.0;
+    y = linear(y, u2, a, b);
+    EXPECT_NEAR(y, 20.8065, 0.01);
+}
+
+TEST(ModelTest, NonlinearFunction) {
+    double y_current = 23.0;
+    double y_prev = 23.0;
+    double u = 10.0;
+    double a = 0.95;
+    double b = 0.002;
+    double c = 0.05;
+    double d = 0.1;
+    
+    double result = non_linear(y_current, y_prev, u, a, b, c, d);
+    double expected = a * y_current - b * y_prev * y_prev + c * u + d * sin(u);
+    EXPECT_NEAR(result, expected, 1e-10);
+}
+
+TEST(ModelTest, NonlinearFunctionSequence) {
+    double y_prev = 23.0;
+    double y_current = 23.0;
+    double a = 0.95;
+    double b = 0.002;
+    double c = 0.05;
+    double d = 0.1;
+    
+    double u1 = 10.0;
+    double result1 = non_linear(y_current, y_prev, u1, a, b, c, d);
+    EXPECT_NEAR(result1, 21.2376, 0.01);
+    
+    y_prev = y_current;
+    y_current = result1;
+    
+    double u2 = 15.0;
+    double result2 = non_linear(y_current, y_prev, u2, a, b, c, d);
+    EXPECT_NEAR(result2, 19.9327, 0.01);
+}
+
+TEST(ModelTest, CompareLinearAndNonlinear) {
+    double y_linear = 23.0;
+    double y_nonlinear_prev = 23.0;
+    double y_nonlinear_current = 23.0;
+    
+    double a = 0.95;
+    double b = 0.002;
+    double c = 0.05;
+    double d = 0.1;
+    double u = 10.0;
+    
+    y_linear = linear(y_linear, u, a, b);
+    double y_nonlinear = non_linear(y_nonlinear_current, y_nonlinear_prev, u, a, b, c, d);
+    
+    EXPECT_NE(y_linear, y_nonlinear);
+    EXPECT_NEAR(y_linear, 21.87, 0.01);
+    EXPECT_NEAR(y_nonlinear, 21.2376, 0.01);
+}
+
+TEST(ModelTest, LinearWithZeroInput) {
+    double y = 23.0;
+    double u = 0.0;
+    double a = 0.95;
+    double b = 0.002;
+    
+    double result = linear(y, u, a, b);
+    EXPECT_DOUBLE_EQ(result, a * y);
+}
+
+TEST(ModelTest, NonlinearWithZeroInput) {
+    double y_current = 23.0;
+    double y_prev = 23.0;
+    double u = 0.0;
+    double a = 0.95;
+    double b = 0.002;
+    double c = 0.05;
+    double d = 0.1;
+    
+    double result = non_linear(y_current, y_prev, u, a, b, c, d);
+    double expected = a * y_current - b * y_prev * y_prev;
     EXPECT_NEAR(result, expected, 1e-10);
 }
 
