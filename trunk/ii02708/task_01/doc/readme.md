@@ -5,7 +5,7 @@
 <br><br><br><br><br><br><br>
 <p align="center">Лабораторная работа №1</p>
 <p align="center">По дисциплине “Общая теория интеллектуальных систем”</p>
-<p align="center">Тема: “Моделирование температуры объекта”</p>
+<p align="center">Тема: “Реализация моделирования температуры объекта”</p>
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
@@ -39,7 +39,7 @@ where $\tau$ – time discrete moments ($1,2,3{\dots}n$); $a,b,c,d$ – some con
 Task is to write program (**С++**), which simulates this object temperature.
 
 
-## Код программы:
+## Код программы [src/main.cpp]:
 ```C++
 #include<iostream>
 #include<cmath>
@@ -82,6 +82,14 @@ int main()
 	}
 
 }
+```
+
+
+## Запуск проекта
+```
+cd src
+cmake -S ./ -B build -G "MinGW Makefiles"
+cmake --build build
 ```
 
 ## Результат:
