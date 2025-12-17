@@ -5,21 +5,19 @@
 
 struct ModelParameters {
     double a1, b, c, d;
-}
+};
 
 double computeLinear(double y1, double u1, double a1, double b1) {
     return a1 * y1 + b1 * u1;
 }
 
 double computeNonLinear(double y, double& prev_y, double u, const ModelParameters& params) {
-    double result = params.a1 * y - params.b * prev_y * prev_y +
-        params.c * u + params.d * std::sin(u);
+    double result = params.a1 * y - params.b * prev_y * prev_y + params.c * u + params.d * std::sin(u);
     prev_y = y;
     return result;
 }
 
-void simulateModel(int steps, double u, const ModelParameters& params,
-    double init_y_linear, double init_y_nonlinear, double init_prev_y) {
+void simulateModel(int steps, double u, const ModelParameters& params, double init_y_linear, double init_y_nonlinear, double init_prev_y) {
 
     std::cout << "\nSimulation Results:\n";
     std::cout << std::string(50, '-') << std::endl;
