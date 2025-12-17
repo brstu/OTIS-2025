@@ -4,7 +4,7 @@ project(lab3)
 set(CMAKE_CXX_STANDARD 17)
 
 # Основная программа
-add_executable(lab3
+add_executable(lab3_ii02822
     main.cpp
     pid_controller.cpp
     model.cpp
@@ -24,19 +24,19 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_executable(pid_tests
+add_executable(pid_tests_ii02822
     pid_controller_test.cpp
     pid_controller.cpp
     model.cpp
 )
 
 # Включаем директории для тестов
-target_include_directories(pid_tests PRIVATE .)
+target_include_directories(pid_tests_ii02822 PRIVATE .)
 
-target_link_libraries(pid_tests gtest gtest_main)
+target_link_libraries(pid_tests_ii02822 gtest gtest_main)
 
 add_test(NAME PIDControllerTests COMMAND pid_tests)
 
 message(STATUS "Конфигурация завершена")
-message(STATUS "Основная программа: lab3")
-message(STATUS "Тесты: pid_tests")
+message(STATUS "Основная программа: lab3_ii02822")
+message(STATUS "Тесты: pid_tests_ii02822")
