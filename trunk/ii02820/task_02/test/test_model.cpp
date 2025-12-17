@@ -4,6 +4,7 @@
 #include "../src/model.h"
 
 TEST(LinearModelTest, PositiveValues) {
+    // linear_model(a, b, y_prev, u)
     EXPECT_DOUBLE_EQ(linear_model(2.0, 3.0, 1.0, 4.0), 2.0 * 1.0 + 3.0 * 4.0);
 }
 
@@ -16,6 +17,7 @@ TEST(LinearModelTest, NegativeValues) {
 }
 
 TEST(NonLinearModelTest, BasicCalculation) {
+    // nonlinear_model(a, b, c, d, y0, y1, u, u_prev)
     double res = nonlinear_model(1.0, 1.0, 1.0, 0.0, 2.0, 3.0, 1.0, 0.0);
     double expected = 1.0 * 3.0 - 1.0 * pow(2.0, 2) + 1.0 * 1.0 + 0.0 * sin(0.0);
     EXPECT_NEAR(res, expected, 1e-9);
