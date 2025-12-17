@@ -2,7 +2,7 @@ name: Deploy Doxygen Docs to GitHub Pages
 
 on:
   push:
-    branches: ["task_03_ii02815"] 
+    branches: ["task_03_ii02822"] 
 
 
   workflow_dispatch:
