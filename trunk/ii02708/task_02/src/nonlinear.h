@@ -10,7 +10,7 @@ struct NonLinearCoeff{
     double u;
 };
 
-std::vector<double> calculateNonlinear(NonLinearCoeff coeff, double y0, int n)
+std::vector<double> calculateNonlinear(const NonLinearCoeff &coeff, double y0, int n)
 {
     std::vector<double> results;
     double y1 = y0;

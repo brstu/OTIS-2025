@@ -7,7 +7,7 @@ struct LinearCoeff{
     double u;
 };
 
-std::vector<double> calculateLinear(LinearCoeff coeff, double y0, int n)
+std::vector<double> calculateLinear(const LinearCoeff &coeff, double y0, int n)
 {
     std::vector<double> results;
     double y1 = y0;

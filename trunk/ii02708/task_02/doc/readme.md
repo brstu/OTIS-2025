@@ -26,7 +26,7 @@
 5. Также необходимо отразить выполнение работы в общем файле [`readme.md`](https://github.com/brstu/OTIS-2025/blob/main/README.md) в соответствующей строке (например, для студента под порядковым номером 1 - https://github.com/brstu/OTIS-2025/blob/b2d60c2765b369aed21af76af8fa4461da2c8da6/README.md?plain=1#L13).
 
 ## Покрытие кода с использованием gcovr:
-![gcovr](img/gcovr.png)
+![gcovr](img/gcovr.jpg)
 
 ## Исходный код Тестов [test/test.cpp]:
 ```C++
