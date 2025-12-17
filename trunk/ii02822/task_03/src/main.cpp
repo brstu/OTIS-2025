@@ -145,57 +145,58 @@ int main() {
                 nl_sum += nonlinear_results[i];
                 ++count;
             }
-        const double lin_avg = lin_sum / count;
-        const double nl_avg = nl_sum / count;
+            const double lin_avg = lin_sum / count;
+            const double nl_avg = nl_sum / count;
 
-        std::cout << "Steady-state average (target = 20.0):\n";
-        std::cout << "  Linear model:    " << std::setprecision(3) << lin_avg << "\n";
-        std::cout << "  Nonlinear model: " << nl_avg << "\n";
-        std::cout << "  Difference:      " << (nl_avg - lin_avg)
-            << " (" << std::setprecision(1)
-            << std::fabs(100.0 * (nl_avg - lin_avg) / lin_avg) << "%)\n";
-    }
-
-    double lin_max = 0.0;
-    double nl_max = 0.0;
-
-    for (const double& value : linear_results) {
-        if (value > lin_max) {
-            lin_max = value;
+            std::cout << "Steady-state average (target = 20.0):\n";
+            std::cout << "  Linear model:    " << std::setprecision(3) << lin_avg << "\n";
+            std::cout << "  Nonlinear model: " << nl_avg << "\n";
+            std::cout << "  Difference:      " << (nl_avg - lin_avg)
+                << " (" << std::setprecision(1)
+                << std::fabs(100.0 * (nl_avg - lin_avg) / lin_avg) << "%)\n";
         }
-    }
 
-    for (const double& value : nonlinear_results) {
-        if (value > nl_max) {
-            nl_max = value;
+        double lin_max = 0.0;
+        double nl_max = 0.0;
+
+        for (const double& value : linear_results) {
+            if (value > lin_max) {
+                lin_max = value;
+            }
         }
+
+        for (const double& value : nonlinear_results) {
+            if (value > nl_max) {
+                nl_max = value;
+            }
+        }
+
+        std::cout << "\nMaximum overshoot:\n";
+        std::cout << "  Linear model:    " << std::setprecision(3) << lin_max << "\n";
+        std::cout << "  Nonlinear model: " << nl_max << "\n";
+
+        std::cout << "\n5. SYSTEM PARAMETERS:\n";
+        std::cout << std::string(30, '-') << "\n";
+
+        double pK = 0.0;
+        double pTi = 0.0;
+        double pTd = 0.0;
+        double pT = 0.0;
+
+        pid.getParameters(pK, pTi, pTd, pT);
+
+        std::cout << "PID Controller:\n";
+        std::cout << "  K = " << pK << ", Ti = " << pTi
+            << ", Td = " << pTd << ", T = " << pT << "\n";
+
+        std::cout << "\nSimulation parameters:\n";
+        std::cout << "  Total steps: " << setpoints.size() << "\n";
+        std::cout << "  Time step (dt): " << T << " sec\n";
+        std::cout << "  Model: K_obj = 1.0, T_obj = 0.5\n";
+
+        std::cout << "\n" << std::string(75, '=') << "\n";
+        std::cout << "SIMULATION COMPLETED SUCCESSFULLY!\n";
+
+        return 0;
     }
-
-    std::cout << "\nMaximum overshoot:\n";
-    std::cout << "  Linear model:    " << std::setprecision(3) << lin_max << "\n";
-    std::cout << "  Nonlinear model: " << nl_max << "\n";
-
-    std::cout << "\n5. SYSTEM PARAMETERS:\n";
-    std::cout << std::string(30, '-') << "\n";
-
-    double pK = 0.0;
-    double pTi = 0.0;
-    double pTd = 0.0;
-    double pT = 0.0;
-
-    pid.getParameters(pK, pTi, pTd, pT);
-
-    std::cout << "PID Controller:\n";
-    std::cout << "  K = " << pK << ", Ti = " << pTi
-        << ", Td = " << pTd << ", T = " << pT << "\n";
-
-    std::cout << "\nSimulation parameters:\n";
-    std::cout << "  Total steps: " << setpoints.size() << "\n";
-    std::cout << "  Time step (dt): " << T << " sec\n";
-    std::cout << "  Model: K_obj = 1.0, T_obj = 0.5\n";
-
-    std::cout << "\n" << std::string(75, '=') << "\n";
-    std::cout << "SIMULATION COMPLETED SUCCESSFULLY!\n";
-
-    return 0;
 }
