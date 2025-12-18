@@ -31,11 +31,6 @@ public:
 * \brief Constructor to set variables
 * Used in tests
 */
-	PID(double T, double To, double Td, double k);
-/**
-* \brief Function for calculating q0 q1 q2
-* \param Variable place used for loop
-*/
 	void Qs();
 /**
 * \brief Function for calculating error E
