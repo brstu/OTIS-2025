@@ -15,12 +15,6 @@ PID::PID() {
 	cin >> w;
 	PID::init();
 }
-PID::PID(double T, double To, double Td, double k):PID::PID() {
-	this->T = T;
-	this->To = To;
-	this->Td = Td;
-	this->k = k;
-}
 void PID::init() {
 	a = 0.85;
 	b = 0.05;
