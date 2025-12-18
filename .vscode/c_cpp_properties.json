@@ -4,7 +4,8 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/trunk/ii02820/task_02/src"
+                "${workspaceFolder}/trunk/ii02820/task_02/src",
+                "${workspaceFolder}/trunk/ii002713/task_02/src"
             ],
             "defines": [
                 "_DEBUG",
