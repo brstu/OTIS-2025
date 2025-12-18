@@ -9,7 +9,7 @@ void linearMod(Arg& g, const int& place) {
 void E(Arg& g, const int& place) {
 	g.e[place] = g.w - g.y[place];
 }
-void findU(Qs& q,Arg& g, const int& place) {
+void findU(const Qs& q,Arg& g, const int& place) {
 	if (place >= 2) {
        g.delt_u[place] = q.q0 * g.e[place] + q.q1 * g.e[place  - 1] + q.q2 * g.e[place - 2];
 	}
