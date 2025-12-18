@@ -45,7 +45,7 @@ void findQ(Qs& q);
 * \param Arg& g struct where all variables located
 * \param place used for loop
 */
-void findU(Qs& q,Arg& g, const int& place);
+void findU(const Qs& q,Arg& g, const int& place);
 /**
 * \brief Function for decreasing q when temperature higher than needed
 * \param Qs& q struct where all variables located
