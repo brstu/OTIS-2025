@@ -2,23 +2,20 @@
 #include <cmath>
 
 void calculate_linear_model(
-        int steps,
-        double a,
-        double b,
+        int nSteps,
+        double aCoef,
+        double bCoef,
         const std::vector<double>& u,
         std::vector<double>& y
 )
 {
-    for (int i = 0; i < steps; ++i)
+    for (int i = 0; i < nSteps; ++i)
     {
         double prevValue = y[i];
         double inputValue = u[i];
-
-        y[i + 1] = a * prevValue + b * inputValue;
+        y[i + 1] = aCoef * prevValue + bCoef * inputValue;
     }
 }
-
-
 
 void calculate_nonlinear_model(
         int total,
