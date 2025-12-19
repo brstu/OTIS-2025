@@ -5,7 +5,7 @@
  * Автор: [Ваше полное имя]
  * Группа: [Ваша группа]
  * Дата: [Текущая дата]
- * Версия: 2.1 (исправлено по замечаниям SonarCloud)
+ * Версия: 2.2 (полностью исправлено по замечаниям SonarCloud)
  */
 
 #include <gtest/gtest.h>
@@ -15,6 +15,7 @@
 #include <algorithm>
 #include <array>
 #include <sstream>
+#include <numeric>
 
 
 // ===== УНИКАЛЬНАЯ РЕАЛИЗАЦИЯ КОНТРОЛЛЕРА ДЛЯ ТЕСТОВ =====
@@ -31,28 +32,32 @@ private:
         double integration_constant; // Постоянная времени интегратора
         double derivative_constant;  // Постоянная времени дифференциатора
         double sampling_rate;        // Частота дискретизации
-    } coefficients;
+    };
+    ControlCoefficients coefficients;
     
     struct SystemState {
         double last_issued_command{0.0}; // Последняя выданная команда
         std::array<double, 3> error_sequence{0.0, 0.0, 0.0}; // История ошибок [k, k-1, k-2]
         double integral_accumulation{0.0}; // Накопленная интегральная составляющая
         bool controller_active{true};      // Флаг активности контроллера
-    } state;
+    };
+    SystemState state;
     
     struct ProtectionMechanisms {
         double lower_safety_bound{-1e9};   // Нижняя граница безопасности
-        double upper_safety_bound{1e9};   // Верхняя граница безопасности
+        double upper_safety_bound{1e9};    // Верхняя граница безопасности
         bool anti_windup_active{true};     // Активация защиты от насыщения
         double emergency_threshold{1000.0}; // Аварийный порог
-    } protection;
+    };
+    ProtectionMechanisms protection;
     
     // РАСЧЕТНЫЕ ПАРАМЕТРЫ
     struct ComputationParams {
         double primary_factor;       // Основной множитель
         double secondary_factor;     // Вторичный множитель
         double tertiary_factor;      // Третичный множитель
-    } computation;
+    };
+    ComputationParams computation;
     
     // УНИКАЛЬНЫЕ МЕТОДЫ ДЛЯ ВНУТРЕННИХ РАСЧЕТОВ
     void recomputeInternalFactors() {
@@ -103,8 +108,12 @@ public:
      * @brief Конструктор интеллектуального регулятора
      */
     explicit IntelligentRegulator(double gain = 1.0, double int_time = 1.0,
-                                  double sample_time = 0.1, double deriv_time = 0.01)
-        : coefficients{gain, int_time, deriv_time, sample_time} {
+                                  double sample_time = 0.1, double deriv_time = 0.01) {
+        // Инициализация коэффициентов
+        coefficients.main_gain = gain;
+        coefficients.integration_constant = int_time;
+        coefficients.sampling_rate = sample_time;
+        coefficients.derivative_constant = deriv_time;
         
         // Первоначальный расчет
         recomputeInternalFactors();
@@ -211,10 +220,8 @@ double enhancedSystemModel(double previous_state, double control_input,
 double calculateRMSE(const std::vector<double>& errors) {
     if (errors.empty()) return 0.0;
     
-    double sum_squares = 0.0;
-    for (double err : errors) {
-        sum_squares += err * err;
-    }
+    double sum_squares = std::accumulate(errors.begin(), errors.end(), 0.0,
+        [](double sum, double err) { return sum + err * err; });
     
     return std::sqrt(sum_squares / static_cast<double>(errors.size()));
 }
@@ -363,12 +370,12 @@ TEST(IntelligentControllerValidation, MathematicalCorrectnessTest) {
     double T0 = 0.5;
     double Td = 0.8;
     
+    // Инициализация регулятора
     IntelligentRegulator controller(K, T, T0, Td);
     
-    // Ручной расчет ожидаемых коэффициентов
+    // Ручной расчет ожидаемого коэффициента
     double expected_primary = K * (1.0 + Td / T0);
-    double expected_secondary = -K * (1.0 + 2.0 * Td / T0 - T0 / T);
-    // Переменная tertiary_factor используется внутри класса
+    
     double error = 1.5;
     double command = controller.computeRegulationCommand(error);
     
@@ -405,7 +412,7 @@ int main(int argc, char** argv) {
     std::cout << "================================================" << std::endl;
     std::cout << "Control System Validation Test Suite" << std::endl;
     std::cout << "Developer: [Your Name Here]" << std::endl;
-    std::cout << "Version: 2.1 (Advanced Implementation - SonarCloud Fixed)" << std::endl;
+    std::cout << "Version: 2.2 (Advanced Implementation - SonarCloud Fixed)" << std::endl;
     std::cout << "================================================" << std::endl;
     
     // Инициализация тестов
