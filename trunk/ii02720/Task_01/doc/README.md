@@ -6,6 +6,12 @@
 <p align="center">Лабораторная работа №1</p>
 <p align="center">По дисциплине "Общая теория интеллектуальных систем"</p>
 <p align="center">Тема: "Моделирования температуры объекта"</p>
+<p align="center">“Брестский Государственный технический университет”</p>
+<p align="center">Кафедра ИИТ</p>
+<br><br><br><br><br><br><br>
+<p align="center">Лабораторная работа №1</p>
+<p align="center">По дисциплине “Общая теория интеллектуальных систем”</p>
+<p align="center">Тема: “Моделирования температуры объекта”</p>
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
@@ -21,6 +27,7 @@
 2. Исходный код написанной программы разместить в каталоге: **trunk\ii0xxyy\task_01\src**.
 3. Выполнить рецензирование ([review](https://linearb.io/blog/code-review-on-github), [checklist](https://linearb.io/blog/code-review-checklist)) запросов других студентов (минимум 2-е рецензии).
 4. Отразить выполнение работы в файле readme.md в соответствующей строке.
+4. Отразить выполнение работы в файле readme.md в соответствующей строке (например, для студента под порядковым номером 1 - https://github.com/brstu/OTIS-2023/edit/main/readme.md?#L17-L17).
 
 ## Task 1. Modeling controlled object ##
 Let's get some object to be controlled. We want to control its temperature, which can be described by this differential equation:
@@ -65,6 +72,42 @@ public:
         prevY = result;
         prevU = u;
         return result;
+
+## Код программы:
+C++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+class TemperatureModel {
+private:
+    double a, b, c, d;
+    double y_prev, y_prev2, u_prev;
+
+public:
+    TemperatureModel(double a_val, double b_val, double c_val, double d_val, double Y0) {
+        a = a_val;
+        b = b_val;
+        c = c_val;
+        d = d_val;
+        y_prev = Y0;
+        y_prev2 = Y0;
+        u_prev = 0;
+    }
+
+    double linear_step(double u) {
+        double y = a * y_prev + b * u;
+        y_prev = y;
+        return y;
+    }
+
+    double nonlinear_step(double u) {
+        double y = a * y_prev - b * y_prev2 * y_prev2 + c * u + d * sin(u_prev);
+        y_prev2 = y_prev;
+        y_prev = y;
+        u_prev = u;
+        return y;
     }
 };
 
@@ -83,6 +126,26 @@ int main() {
         double lin = linSim.computeLinear(inputs[i]);
         double nlin = nlinSim.computeNonLinear(inputs[i]);
         std::cout << i << "\t" << lin << "\t" << nlin << "\n";
+    double a = 0.8;
+    double b_linear = 0.3;
+    double b_nonlinear = 0.01;
+    double c = 0.4;
+    double d = 0.1;
+    double Y0 = 20.0;
+    
+    double u[] = {2.0, 3.0, 4.0, 5.0, 4.0, 3.0, 2.0, 1.0, 0.5, 0.0};
+    int n = 10;
+    
+    TemperatureModel linear_model(a, b_linear, 0, 0, Y0);
+    TemperatureModel nonlinear_model(a, b_nonlinear, c, d, Y0);
+    
+    cout << "Time\tLinear\tNonlinear" << endl;
+    
+    for (int tau = 0; tau < n; tau++) {
+        double y_linear = linear_model.linear_step(u[tau]);
+        double y_nonlinear = nonlinear_model.nonlinear_step(u[tau]);
+        
+        cout << tau << "\t" << y_linear << "\t" << y_nonlinear << endl;
     }
     
     return 0;
@@ -91,3 +154,19 @@ int main() {
 
 ## Результаты
 Программа выводит значения температуры для линейной и нелинейной моделей на каждом шаге моделирования.
+
+## Вывод программы:
+<br> 
+![Output:](Output.jpg)
+
+
+## Reviews:
+<br>
+Ревью1:
+<br>
+![Review1:](review1.jpg)
+<br>
+Ревью2:
+<br>
+![Review2:](review2.jpg)
+

@@ -23,6 +23,38 @@ public:
         prevY = result;
         prevU = u;
         return result;
+#include <array>
+
+using namespace std;
+
+class TemperatureModel {
+private:
+    double a;
+    double b;
+    double c; 
+    double d;
+    double y_prev;
+    double y_prev2;
+    double u_prev{0};
+
+public:
+    TemperatureModel(double a_val, double b_val, double c_val, double d_val, double Y0) 
+        : a(a_val), b(b_val), c(c_val), d(d_val), y_prev(Y0), y_prev2(Y0)
+{
+}
+
+    double linear_step(double u) {
+        double y = a * y_prev + b * u;
+        y_prev = y;
+        return y;
+    }
+
+    double nonlinear_step(double u) {
+        double y = a * y_prev - b * y_prev2 * y_prev2 + c * u + d * sin(u_prev);
+        y_prev2 = y_prev;
+        y_prev = y;
+        u_prev = u;
+        return y;
     }
 };
 
