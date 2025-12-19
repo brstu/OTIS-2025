@@ -345,4 +345,4 @@ TEST(TestPid, WhenCustomPidCoefficients)
 [graph](images/graph.png)
 
 ## Документация
-[]()
+[https://kriskess.github.io/OTIS-2025/](https://kriskess.github.io/OTIS-2025/)
