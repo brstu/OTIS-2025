@@ -2,7 +2,7 @@
 #include <cmath>
 #include <vector>
 
-struct NonLinearCff{    
+struct NonLinear_Cff{    
     double a;
     double b;
     double c;
@@ -10,14 +10,14 @@ struct NonLinearCff{
     double u;
 };
 
-std::vector<double> calculateNonlinear(const NonLinearCff &coeff, double y0, int n)
+std::vector<double> calculateNonlinear(const NonLinear_Cff &cff, double y0, int n)
 {
     std::vector<double> result;
     double y1 = y0;
     double y2 = y0;
     for (int i = 0; i < n; i++)
 	{
-		y2 = coeff.a * y1 - coeff.b * y0 * y0 + coeff.c * coeff.u + coeff.d * sin(coeff.u);
+		y2 = cff.a * y1 - cff.b * y0 * y0 + cff.c * cff.u + cff.d * sin(cff.u);
         result.push_back(y2);
 		y0 = y1;
 		y1 = y2;
