@@ -1,9 +1,14 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-
-double Nonlinear(double a, double b, double c, double d, double y_prev, double u, double u_prev, double& y_next, double y) {
-	y_next = a * y - b * (y_prev * y_prev) + c * u + d * sin(u_prev);
+struct Constant {
+	double a;
+	double b;
+	double c;
+	double d;
+};
+double Nonlinear(Constant &c, double y_prev, double u, double u_prev, double& y_next, double y) {
+	y_next = c.a * y - c.b * (y_prev * y_prev) + c.c * u + c.d * sin(u_prev);
 	return y_next;
 }
 double Linear(double a, double b, double y, double& y_next, double u) {
@@ -14,10 +19,13 @@ double Linear(double a, double b, double y, double& y_next, double u) {
 int main()
 {
 	setlocale(LC_ALL, "RU");
-	double a = 0.01;
-	double b = 0.02;
-	double c = 0.03;
-	double d = 0.04;
+	Constant k;
+	k.a = 0.01;
+	k.b = 0.02;
+	k.c = 0.03;
+	k.d = 0.04;
+	double a = k.a;
+	double b = k.b;
 	double y_next;
 	double y;
 	int t = 3;
@@ -42,7 +50,7 @@ int main()
 		double u;
 		cout << "Введите значение U на итерации: " << i << endl;
 		cin >> u;
-		double res = Nonlinear(a, b, c, d, y_prev, u, u_prev, y_next, y);
+		double res = Nonlinear(k, y_prev, u, u_prev, y_next, y);
 		cout << "Нелинейное уравнение." << endl << "Итерация: " << i << endl << "Результат: " << res << endl;
 		y_prev = y;
 		u_prev = u;
