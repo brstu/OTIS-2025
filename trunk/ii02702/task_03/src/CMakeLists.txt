@@ -3,8 +3,8 @@ project (task_03_ii02702_src)
 
 set(PROJECT_SOURCES
     main.cpp
-    models.hpp
-    models.cpp
+    modelsAndPID.hpp
+    modelsAndPID.cpp
     pid.hpp
     pid.cpp
 )

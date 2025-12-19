@@ -19,8 +19,8 @@ enable_testing()
 add_executable(
   ${PROJECT_NAME}
   test.cpp
-  ../src/models.hpp
-  ../src/models.cpp
+  ../src/modelsAndPID.hpp
+  ../src/modelsAndPID.cpp
   ../src/pid.hpp
   ../src/pid.cpp
 )

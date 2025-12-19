@@ -4,13 +4,25 @@ import numpy as np
 import os
 from datetime import datetime
 
+# Константы для подписей графиков
 SETPOINT_LABEL = "Заданное значение"
 TEMPERATURE_LABEL = "Температура (°C)"
 TIME_LABEL = "Время (шаги)"
 ERROR_LABEL = "Ошибка (°C)"
 CONTROL_LABEL = "Управляющее воздействие"
+CONTROL_Y_LABEL = "Управление"  # Добавлена константа для оси Y
 PLOT_TITLE = "Сравнение систем регулирования температуры"
 
+# Константы для легенд
+TEMPERATURE_LEGEND = "Температура"  # Добавлена константа для легенды
+WITHOUT_CONTROLLER_LEGEND = "Без регулятора"  # Константа для системы без регулятора
+WITH_PID_LEGEND = "С ПИД-регулятором"  # Константа для системы с регулятором
+ERROR_WITHOUT_LEGEND = "Ошибка без регулятора"  # Константа для ошибки без регулятора
+ERROR_WITH_LEGEND = "Ошибка с ПИД"  # Константа для ошибки с регулятором
+START_LEGEND = "Начало"  # Константа для начала на графике
+END_LEGEND = "Конец"  # Константа для конца на графике
+
+# Константы для стилей графика
 GRID_ALPHA = 0.3
 LINE_WIDTH = 2
 PLOT_FIGSIZE = (14, 12)
@@ -19,6 +31,19 @@ TITLE_FONTWEIGHT = 'bold'
 BBOX_STYLE = {'boxstyle': 'round', 'facecolor': 'wheat', 'alpha': 0.5}
 TEXT_VERTICAL_ALIGNMENT = 'top'
 STATS_TEXT_POSITION = (0.02, 0.98)
+
+# Константы для заголовков графиков
+LINEAR_NO_CONTROL_TITLE = 'Без регулятора (постоянный нагрев)'
+LINEAR_WITH_CONTROL_TITLE = 'С ПИД-регулятором'
+LINEAR_COMPARISON_TITLE = 'Сравнение обеих систем'
+LINEAR_ERROR_TITLE = 'Отклонение от заданного значения'
+LINEAR_CONTROL_TITLE = 'Управляющее воздействие ПИД-регулятора'
+LINEAR_PHASE_TITLE = 'Фазовый портрет (температура vs управление)'
+
+NONLINEAR_NO_CONTROL_TITLE = 'Нелинейная система без регулятора'
+NONLINEAR_WITH_CONTROL_TITLE = 'Нелинейная система с ПИД-регулятором'
+NONLINEAR_COMPARISON_TITLE = 'Сравнение нелинейных систем'
+NONLINEAR_CONTROL_TITLE = 'Управляющее воздействие (нелинейная система)'
 
 def read_temperature_data(filename):
     """Чтение данных температуры из CSV файла"""
@@ -55,7 +80,7 @@ def plot_linear_comparison():
     # График 1: Без регулятора
     ax1 = axes[0, 0]
     ax1.plot(df_without['Time'], df_without['Value'], 'r-', 
-             linewidth=LINE_WIDTH, label='Температура')
+             linewidth=LINE_WIDTH, label=TEMPERATURE_LEGEND)
     
     if 'Setpoint' in df_without.columns:
         setpoint_value = df_without['Setpoint'].iloc[0]
@@ -65,14 +90,14 @@ def plot_linear_comparison():
     
     ax1.set_xlabel(TIME_LABEL)
     ax1.set_ylabel(TEMPERATURE_LABEL)
-    ax1.set_title('Без регулятора (постоянный нагрев)')
+    ax1.set_title(LINEAR_NO_CONTROL_TITLE)
     ax1.grid(True, alpha=GRID_ALPHA)
     ax1.legend()
     
     # График 2: С регулятором
     ax2 = axes[0, 1]
     ax2.plot(df_with['Time'], df_with['Value'], 'b-', 
-             linewidth=LINE_WIDTH, label='Температура')
+             linewidth=LINE_WIDTH, label=TEMPERATURE_LEGEND)
     
     if 'Setpoint' in df_with.columns:
         setpoint_value = df_with['Setpoint'].iloc[0]
@@ -81,16 +106,16 @@ def plot_linear_comparison():
     
     ax2.set_xlabel(TIME_LABEL)
     ax2.set_ylabel(TEMPERATURE_LABEL)
-    ax2.set_title('С ПИД-регулятором')
+    ax2.set_title(LINEAR_WITH_CONTROL_TITLE)
     ax2.grid(True, alpha=GRID_ALPHA)
     ax2.legend()
     
     # График 3: Сравнение обеих систем
     ax3 = axes[1, 0]
     ax3.plot(df_without['Time'], df_without['Value'], 'r-', 
-             linewidth=LINE_WIDTH, label='Без регулятора')
+             linewidth=LINE_WIDTH, label=WITHOUT_CONTROLLER_LEGEND)
     ax3.plot(df_with['Time'], df_with['Value'], 'b-', 
-             linewidth=LINE_WIDTH, label='С ПИД-регулятором')
+             linewidth=LINE_WIDTH, label=WITH_PID_LEGEND)
     
     if 'Setpoint' in df_with.columns:
         setpoint_value = df_with['Setpoint'].iloc[0]
@@ -99,7 +124,7 @@ def plot_linear_comparison():
     
     ax3.set_xlabel(TIME_LABEL)
     ax3.set_ylabel(TEMPERATURE_LABEL)
-    ax3.set_title('Сравнение обеих систем')
+    ax3.set_title(LINEAR_COMPARISON_TITLE)
     ax3.grid(True, alpha=GRID_ALPHA)
     ax3.legend()
     
@@ -111,12 +136,12 @@ def plot_linear_comparison():
         error_with = np.abs(df_with['Value'] - setpoint_value)
         
         ax4.plot(df_without['Time'], error_without, 'r-', 
-                 linewidth=LINE_WIDTH, label='Ошибка без регулятора')
+                 linewidth=LINE_WIDTH, label=ERROR_WITHOUT_LEGEND)
         ax4.plot(df_with['Time'], error_with, 'b-', 
-                 linewidth=LINE_WIDTH, label='Ошибка с ПИД')
+                 linewidth=LINE_WIDTH, label=ERROR_WITH_LEGEND)
         ax4.set_xlabel(TIME_LABEL)
         ax4.set_ylabel(ERROR_LABEL)
-        ax4.set_title('Отклонение от заданного значения')
+        ax4.set_title(LINEAR_ERROR_TITLE)
         ax4.grid(True, alpha=GRID_ALPHA)
         ax4.legend()
         
@@ -140,8 +165,8 @@ def plot_linear_comparison():
         ax5.plot(df_with['Time'], df_with['Control'], 'g-', 
                  linewidth=LINE_WIDTH, label=CONTROL_LABEL)
         ax5.set_xlabel(TIME_LABEL)
-        ax5.set_ylabel('Управление')
-        ax5.set_title('Управляющее воздействие ПИД-регулятора')
+        ax5.set_ylabel(CONTROL_Y_LABEL)  # Используем константу
+        ax5.set_title(LINEAR_CONTROL_TITLE)
         ax5.grid(True, alpha=GRID_ALPHA)
         ax5.legend()
     
@@ -151,12 +176,12 @@ def plot_linear_comparison():
         ax6.plot(df_with['Value'][:-1], df_with['Control'][1:], 'purple', 
                  linewidth=LINE_WIDTH, alpha=0.7)
         ax6.scatter(df_with['Value'][0], df_with['Control'][1], 
-                   color='red', s=100, label='Начало', zorder=5)
+                   color='red', s=100, label=START_LEGEND, zorder=5)
         ax6.scatter(df_with['Value'].iloc[-1], df_with['Control'].iloc[-1], 
-                   color='green', s=100, label='Конец', zorder=5)
-        ax6.set_xlabel('Температура')
-        ax6.set_ylabel('Управление')
-        ax6.set_title('Фазовый портрет (температура vs управление)')
+                   color='green', s=100, label=END_LEGEND, zorder=5)
+        ax6.set_xlabel(TEMPERATURE_LABEL)
+        ax6.set_ylabel(CONTROL_Y_LABEL)  # Используем константу
+        ax6.set_title(LINEAR_PHASE_TITLE)
         ax6.grid(True, alpha=GRID_ALPHA)
         ax6.legend()
     
@@ -194,7 +219,7 @@ def plot_nonlinear_comparison():
     # График 1: Без регулятора
     ax1 = axes[0, 0]
     ax1.plot(df_without['Time'], df_without['Value'], 'r-', 
-             linewidth=LINE_WIDTH, label='Температура')
+             linewidth=LINE_WIDTH, label=TEMPERATURE_LEGEND)
     
     if 'Setpoint' in df_without.columns:
         setpoint_value = df_without['Setpoint'].iloc[0]
@@ -204,14 +229,14 @@ def plot_nonlinear_comparison():
     
     ax1.set_xlabel(TIME_LABEL)
     ax1.set_ylabel(TEMPERATURE_LABEL)
-    ax1.set_title('Нелинейная система без регулятора')
+    ax1.set_title(NONLINEAR_NO_CONTROL_TITLE)
     ax1.grid(True, alpha=GRID_ALPHA)
     ax1.legend()
     
     # График 2: С регулятором
     ax2 = axes[0, 1]
     ax2.plot(df_with['Time'], df_with['Value'], 'b-', 
-             linewidth=LINE_WIDTH, label='Температура')
+             linewidth=LINE_WIDTH, label=TEMPERATURE_LEGEND)
     
     if 'Setpoint' in df_with.columns:
         setpoint_value = df_with['Setpoint'].iloc[0]
@@ -220,16 +245,16 @@ def plot_nonlinear_comparison():
     
     ax2.set_xlabel(TIME_LABEL)
     ax2.set_ylabel(TEMPERATURE_LABEL)
-    ax2.set_title('Нелинейная система с ПИД-регулятором')
+    ax2.set_title(NONLINEAR_WITH_CONTROL_TITLE)
     ax2.grid(True, alpha=GRID_ALPHA)
     ax2.legend()
     
     # График 3: Сравнение обеих систем
     ax3 = axes[1, 0]
     ax3.plot(df_without['Time'], df_without['Value'], 'r-', 
-             linewidth=LINE_WIDTH, label='Без регулятора')
+             linewidth=LINE_WIDTH, label=WITHOUT_CONTROLLER_LEGEND)
     ax3.plot(df_with['Time'], df_with['Value'], 'b-', 
-             linewidth=LINE_WIDTH, label='С ПИД-регулятором')
+             linewidth=LINE_WIDTH, label=WITH_PID_LEGEND)
     
     if 'Setpoint' in df_with.columns:
         setpoint_value = df_with['Setpoint'].iloc[0]
@@ -238,7 +263,7 @@ def plot_nonlinear_comparison():
     
     ax3.set_xlabel(TIME_LABEL)
     ax3.set_ylabel(TEMPERATURE_LABEL)
-    ax3.set_title('Сравнение нелинейных систем')
+    ax3.set_title(NONLINEAR_COMPARISON_TITLE)
     ax3.grid(True, alpha=GRID_ALPHA)
     ax3.legend()
     
@@ -248,8 +273,8 @@ def plot_nonlinear_comparison():
         ax4.plot(df_with['Time'], df_with['Control'], 'g-', 
                  linewidth=LINE_WIDTH, label=CONTROL_LABEL)
         ax4.set_xlabel(TIME_LABEL)
-        ax4.set_ylabel('Управление')
-        ax4.set_title('Управляющее воздействие (нелинейная система)')
+        ax4.set_ylabel(CONTROL_Y_LABEL)  # Используем константу
+        ax4.set_title(NONLINEAR_CONTROL_TITLE)
         ax4.grid(True, alpha=GRID_ALPHA)
         ax4.legend()
     
