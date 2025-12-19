@@ -132,8 +132,8 @@ TEST(ModelTest, NonlinearWithZeroInput) {
     EXPECT_NEAR(result, expected, 1e-10);
 }
 
-![test](images/google_test.png)
+![test](C:\Users\anton\OneDrive\Изображения\Пленка\google_test.png)
 
 
 
-![покрытие](images/coverage.png)
+![покрытие]()
