@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\ii02725_simulator.dir/objects.a
+D:\Programmi\mingw64\bin\ar.exe qc CMakeFiles\ii02725_simulator.dir/objects.a @CMakeFiles\ii02725_simulator.dir\objects1.rsp
+D:\Programmi\mingw64\bin\c++.exe -g -fprofile-arcs -ftest-coverage -Wl,--whole-archive CMakeFiles\ii02725_simulator.dir/objects.a -Wl,--no-whole-archive -o ii02725_simulator.exe -Wl,--out-implib,libii02725_simulator.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\ii02725_simulator.dir\linkLibs.rsp

@@ -1,0 +1,2 @@
+D:\Programmi\mingw64\bin\ar.exe qc libii02725_core.a CMakeFiles/ii02725_core.dir/src/pid.cpp.obj CMakeFiles/ii02725_core.dir/src/plant.cpp.obj
+D:\Programmi\mingw64\bin\ranlib.exe libii02725_core.a

@@ -1,0 +1,42 @@
+{
+  "tests": 6,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "PID",
+      "tests": 6,
+      "testsuite": [
+        {
+          "name": "ConstructorContinuous",
+          "file": "D:\\papka_for_git\\OTIS-2025\\trunk\\ii02725\\task_03\\test\\test_pid.cpp",
+          "line": 8
+        },
+        {
+          "name": "ConstructorDiscrete",
+          "file": "D:\\papka_for_git\\OTIS-2025\\trunk\\ii02725\\task_03\\test\\test_pid.cpp",
+          "line": 19
+        },
+        {
+          "name": "UpdateAndReset",
+          "file": "D:\\papka_for_git\\OTIS-2025\\trunk\\ii02725\\task_03\\test\\test_pid.cpp",
+          "line": 29
+        },
+        {
+          "name": "ProportionalDerivativeOnly",
+          "file": "D:\\papka_for_git\\OTIS-2025\\trunk\\ii02725\\task_03\\test\\test_pid.cpp",
+          "line": 45
+        },
+        {
+          "name": "LinearPlantConverges",
+          "file": "D:\\papka_for_git\\OTIS-2025\\trunk\\ii02725\\task_03\\test\\test_pid.cpp",
+          "line": 55
+        },
+        {
+          "name": "NonlinearPlantConverges",
+          "file": "D:\\papka_for_git\\OTIS-2025\\trunk\\ii02725\\task_03\\test\\test_pid.cpp",
+          "line": 68
+        }
+      ]
+    }
+  ]
+}
