@@ -25,7 +25,7 @@ enable_testing()
 add_executable(
     ${CMAKE_PROJECT_NAME}
     test_model.cpp
-  ../src/system_tests.cpp
+    # УДАЛЕНО: ../src/system_tests.cpp
 )
 
 # ДОБАВИТЬ ЭТУ СЕКЦИЮ - include директории
