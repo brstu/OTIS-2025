@@ -26,7 +26,7 @@ add_executable(
   ${CMAKE_PROJECT_NAME}
   test.cpp
 
-  ../src/equations.h
+  ../src/LinearSystem.h
   ../src/equations.cpp
 )
 target_link_libraries(

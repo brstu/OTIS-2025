@@ -23,4 +23,20 @@
 4. В файле `readme.md` отразить количество написанных тестов и процент покрытия кода тестами (использовать любой инструмент для анализа покрытия, например, [gcovr](https://gcovr.com/en/stable/)).
 
 ## Задание 2.##
-В ходе выполнения было написано 4 теста. Было написано по два теста для каждой функции(Nonlinear,Linear). Покрытие программы составляет 87%. Замер производился с помощью программы OpenCppCoverage(https://github.com/OpenCppCoverage/OpenCppCoverage/releases).
+В ходе выполнения было написано 4 теста. Было написано по два теста для каждой функции(Nonlinear,Linear). Покрытие программы составляет 54%. Замер производился с помощью программы OpenCppCoverage(https://github.com/OpenCppCoverage/OpenCppCoverage/releases).
+[==========] Running 4 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 4 tests from TestFuns
+[ RUN      ] TestFuns.LinearSystem_chek1
+[       OK ] TestFuns.LinearSystem_chek1 (0 ms)
+[ RUN      ] TestFuns.LinearSystem_chek2
+[       OK ] TestFuns.LinearSystem_chek2 (0 ms)
+[ RUN      ] TestFuns.NonLinearSystem_chek1
+[       OK ] TestFuns.NonLinearSystem_chek1 (0 ms)
+[ RUN      ] TestFuns.NonLinearSystem_chek2
+[       OK ] TestFuns.NonLinearSystem_chek2 (0 ms)
+[----------] 4 tests from TestFuns (5 ms total)
+
+[----------] Global test environment tear-down
+[==========] 4 tests from 1 test suite ran. (8 ms total)
+[  PASSED  ] 4 tests.
