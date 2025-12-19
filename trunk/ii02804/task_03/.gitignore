@@ -1,0 +1,39 @@
+# --- Build directories ---
+/build/
+/test/build/
+/src/build/
+
+# --- Doxygen output ---
+/doc/html/
+/doc/latex/
+
+# Иногда Doxygen создаёт временные файлы
+doc/*.tmp
+doc/*.log
+
+# --- Coverage files (gcov, lcov, etc.) ---
+*.gcno
+*.gcda
+*.gcov
+coverage.info
+/coverage_html/
+
+# --- CMake files ---
+CMakeFiles/
+/CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+
+# --- VSCode local settings ---
+.vscode/
+*.code-workspace
+
+# --- OS garbage ---
+.DS_Store
+Thumbs.db
+
+# --- Executables ---
+*.exe
+*.out
+*.obj
+*.o

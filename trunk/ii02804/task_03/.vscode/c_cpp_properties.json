@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Win64",
+            "includePath": [
+                "${workspaceFolder}/src",
+                "${workspaceFolder}/test",
+                "C:/Users/Admin/anaconda3/Library/include", 
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "C:/msys64/ucrt64/bin/g++.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}
