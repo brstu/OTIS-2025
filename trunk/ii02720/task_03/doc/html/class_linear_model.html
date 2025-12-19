@@ -93,9 +93,6 @@ $(function(){initNavTree('class_linear_model.html','','class_linear_model-member
 </div><!--header-->
 <div class="contents">
 
-<p>Class for representing <a class="el" href="class_linear_model.html" title="Class for representing LinearModel.">LinearModel</a>.  
- <a href="#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="linearmodel_8hpp_source.html">linearmodel.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for LinearModel:</div>
@@ -103,41 +100,31 @@ Inheritance diagram for LinearModel:</div>
  <div class="center">
   <img src="class_linear_model.png" usemap="#LinearModel_map" alt=""/>
   <map id="LinearModel_map" name="LinearModel_map">
-<area href="class_i_simulated_model.html" title="Interface for simulated models classes." alt="ISimulatedModel" shape="rect" coords="0,0,104,24"/>
+<area href="class_i_simulated_model.html" alt="ISimulatedModel" shape="rect" coords="0,0,104,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4418d08b99107d0bd6060a1111b7ff93" id="r_a4418d08b99107d0bd6060a1111b7ff93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4418d08b99107d0bd6060a1111b7ff93">LinearModel</a> (const double a, const double b)</td></tr>
-<tr class="memdesc:a4418d08b99107d0bd6060a1111b7ff93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for creating <a class="el" href="class_linear_model.html" title="Class for representing LinearModel.">LinearModel</a>.  <br /></td></tr>
+<tr class="memitem:a331cb211b3468886b43d2ccf287afee1" id="r_a331cb211b3468886b43d2ccf287afee1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a331cb211b3468886b43d2ccf287afee1">LinearModel</a> (double coeffA, double coeffB)</td></tr>
 <tr class="memitem:a4a9d9e4e2ce4e51ed5a1e70aebdece31" id="r_a4a9d9e4e2ce4e51ed5a1e70aebdece31"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a9d9e4e2ce4e51ed5a1e70aebdece31">~LinearModel</a> () override=default</td></tr>
-<tr class="memdesc:a4a9d9e4e2ce4e51ed5a1e70aebdece31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for safe polymorphic usage.  <br /></td></tr>
-<tr class="memitem:aba1755b56686d7e84c5a3180c082f5aa" id="r_aba1755b56686d7e84c5a3180c082f5aa"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba1755b56686d7e84c5a3180c082f5aa">step</a> (const double u) override</td></tr>
-<tr class="memdesc:aba1755b56686d7e84c5a3180c082f5aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates next temperature (y).  <br /></td></tr>
-<tr class="memitem:a5416ffa606a5a9b75beb3c33536bf410" id="r_a5416ffa606a5a9b75beb3c33536bf410"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5416ffa606a5a9b75beb3c33536bf410">simulate</a> (double y, const double u, int t) override</td></tr>
-<tr class="memdesc:a5416ffa606a5a9b75beb3c33536bf410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a vector of calculated temperatures &amp; returns it according to y, u, t.  <br /></td></tr>
+<tr class="memitem:a8f078822c075e14a5af229d18081ed9c" id="r_a8f078822c075e14a5af229d18081ed9c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f078822c075e14a5af229d18081ed9c">calculate</a> (const double inputWarm) override</td></tr>
+<tr class="memitem:ad6e78edede0e3521d5fc4d42df407cd5" id="r_ad6e78edede0e3521d5fc4d42df407cd5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6e78edede0e3521d5fc4d42df407cd5">runSimulation</a> (double initialTemp, const double inputWarm, int steps) override</td></tr>
 <tr class="inherit_header pub_methods_class_i_simulated_model"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_i_simulated_model')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_i_simulated_model.html">ISimulatedModel</a></td></tr>
 <tr class="memitem:a633bd4274072567356203c7f624e464e inherit pub_methods_class_i_simulated_model" id="r_a633bd4274072567356203c7f624e464e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_simulated_model.html#a633bd4274072567356203c7f624e464e">~ISimulatedModel</a> ()=default</td></tr>
-<tr class="memdesc:a633bd4274072567356203c7f624e464e inherit pub_methods_class_i_simulated_model"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for safe polymorphic usage.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a098b583cbba421ed936e5b627b936423" id="r_a098b583cbba421ed936e5b627b936423"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a098b583cbba421ed936e5b627b936423">m_a</a></td></tr>
-<tr class="memdesc:a098b583cbba421ed936e5b627b936423"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear coefficient for previous output (y).  <br /></td></tr>
-<tr class="memitem:a43e7a67cb547ece065061c79b7d792f7" id="r_a43e7a67cb547ece065061c79b7d792f7"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43e7a67cb547ece065061c79b7d792f7">m_b</a></td></tr>
-<tr class="memdesc:a43e7a67cb547ece065061c79b7d792f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear coefficient for input (u).  <br /></td></tr>
-<tr class="memitem:aca0168397f543151a267030d52c065a9" id="r_aca0168397f543151a267030d52c065a9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca0168397f543151a267030d52c065a9">m_y</a> { 0 }</td></tr>
-<tr class="memdesc:aca0168397f543151a267030d52c065a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial temperature of the model.  <br /></td></tr>
+<tr class="memitem:a0b95f9017b20b2af958301ea18acab0a" id="r_a0b95f9017b20b2af958301ea18acab0a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b95f9017b20b2af958301ea18acab0a">m_coeffA</a></td></tr>
+<tr class="memitem:a577a00dc9cac153a4aa90e3de9f94c73" id="r_a577a00dc9cac153a4aa90e3de9f94c73"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a577a00dc9cac153a4aa90e3de9f94c73">m_coeffB</a></td></tr>
+<tr class="memitem:a52769977ba52c1697d5dbe4e8202970b" id="r_a52769977ba52c1697d5dbe4e8202970b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52769977ba52c1697d5dbe4e8202970b">m_currentTemp</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class for representing <a class="el" href="class_linear_model.html" title="Class for representing LinearModel.">LinearModel</a>. </p>
-<p>This class defines a way to calculate next temperature (y) according to it's formula. </p>
-
-<p class="definition">Definition at line <a class="el" href="linearmodel_8hpp_source.html#l00011">11</a> of file <a class="el" href="linearmodel_8hpp_source.html">linearmodel.hpp</a>.</p>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="linearmodel_8hpp_source.html#l00005">5</a> of file <a class="el" href="linearmodel_8hpp_source.html">linearmodel.hpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a4418d08b99107d0bd6060a1111b7ff93" name="a4418d08b99107d0bd6060a1111b7ff93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4418d08b99107d0bd6060a1111b7ff93">&#9670;&#160;</a></span>LinearModel()</h2>
+<a id="a331cb211b3468886b43d2ccf287afee1" name="a331cb211b3468886b43d2ccf287afee1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a331cb211b3468886b43d2ccf287afee1">&#9670;&#160;</a></span>LinearModel()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -148,31 +135,22 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">LinearModel::LinearModel </td>
           <td>(</td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>coeffA</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>coeffB</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Default constructor for creating <a class="el" href="class_linear_model.html" title="Class for representing LinearModel.">LinearModel</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td>Linear coefficient for previous output (y). </td></tr>
-    <tr><td class="paramname">b</td><td>Linear coefficient for input (u). </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="linearmodel_8hpp_source.html#l00020">20</a> of file <a class="el" href="linearmodel_8hpp_source.html">linearmodel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="linearmodel_8hpp_source.html#l00008">8</a> of file <a class="el" href="linearmodel_8hpp_source.html">linearmodel.hpp</a>.</p>
 
 </div>
 </div>
@@ -199,13 +177,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Virtual destructor for safe polymorphic usage. </p>
-
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a5416ffa606a5a9b75beb3c33536bf410" name="a5416ffa606a5a9b75beb3c33536bf410"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5416ffa606a5a9b75beb3c33536bf410">&#9670;&#160;</a></span>simulate()</h2>
+<a id="a8f078822c075e14a5af229d18081ed9c" name="a8f078822c075e14a5af229d18081ed9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f078822c075e14a5af229d18081ed9c">&#9670;&#160;</a></span>calculate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,58 +190,9 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; double &gt; LinearModel::simulate </td>
+          <td class="memname">double LinearModel::calculate </td>
           <td>(</td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>u</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>t</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Computes a vector of calculated temperatures &amp; returns it according to y, u, t. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">y</td><td>Initial temperature. </td></tr>
-    <tr><td class="paramname">u</td><td>Input warm. </td></tr>
-    <tr><td class="paramname">t</td><td>Time step at which vector of calculated temperatures is computed.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector of calculated temperatures. </dd></dl>
-
-<p>Implements <a class="el" href="class_i_simulated_model.html#a971060b31948ccad0ca2fa06c46b3e21">ISimulatedModel</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="linearmodel_8hpp_source.html#l00057">57</a> of file <a class="el" href="linearmodel_8hpp_source.html">linearmodel.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aba1755b56686d7e84c5a3180c082f5aa" name="aba1755b56686d7e84c5a3180c082f5aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba1755b56686d7e84c5a3180c082f5aa">&#9670;&#160;</a></span>step()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double LinearModel::step </td>
-          <td>(</td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>u</em></span></td><td>)</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>inputWarm</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -276,28 +203,53 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Calculates next temperature (y). </p>
-<p>Formula for the next temperature (y):   </p><p class="formulaDsp">
-<picture><source srcset="form_0_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\&zwj;[\Large y_{\tau+1} = a y_{\tau} + b u_{\tau}
-\&zwj;]" src="form_0.png"/></picture>
-</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">u</td><td>Input warm.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Calculated next temperature (y). </dd></dl>
+<p>Implements <a class="el" href="class_i_simulated_model.html#af7f35eff4d0f42e334ef8b34abe20c4b">ISimulatedModel</a>.</p>
 
-<p>Implements <a class="el" href="class_i_simulated_model.html#a69e2339060948388fee8280701baf9c3">ISimulatedModel</a>.</p>
+<p class="definition">Definition at line <a class="el" href="linearmodel_8hpp_source.html#l00014">14</a> of file <a class="el" href="linearmodel_8hpp_source.html">linearmodel.hpp</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="linearmodel_8hpp_source.html#l00041">41</a> of file <a class="el" href="linearmodel_8hpp_source.html">linearmodel.hpp</a>.</p>
+</div>
+</div>
+<a id="ad6e78edede0e3521d5fc4d42df407cd5" name="ad6e78edede0e3521d5fc4d42df407cd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6e78edede0e3521d5fc4d42df407cd5">&#9670;&#160;</a></span>runSimulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; double &gt; LinearModel::runSimulation </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>initialTemp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>inputWarm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>steps</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_i_simulated_model.html#a181f941ff73416c0229f407a0489303c">ISimulatedModel</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="linearmodel_8hpp_source.html#l00020">20</a> of file <a class="el" href="linearmodel_8hpp_source.html">linearmodel.hpp</a>.</p>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a098b583cbba421ed936e5b627b936423" name="a098b583cbba421ed936e5b627b936423"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a098b583cbba421ed936e5b627b936423">&#9670;&#160;</a></span>m_a</h2>
+<a id="a0b95f9017b20b2af958301ea18acab0a" name="a0b95f9017b20b2af958301ea18acab0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b95f9017b20b2af958301ea18acab0a">&#9670;&#160;</a></span>m_coeffA</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -306,7 +258,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const double LinearModel::m_a</td>
+          <td class="memname">double LinearModel::m_coeffA</td>
         </tr>
       </table>
   </td>
@@ -316,14 +268,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Linear coefficient for previous output (y). </p>
-
-<p class="definition">Definition at line <a class="el" href="linearmodel_8hpp_source.html#l00069">69</a> of file <a class="el" href="linearmodel_8hpp_source.html">linearmodel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="linearmodel_8hpp_source.html#l00033">33</a> of file <a class="el" href="linearmodel_8hpp_source.html">linearmodel.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a43e7a67cb547ece065061c79b7d792f7" name="a43e7a67cb547ece065061c79b7d792f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43e7a67cb547ece065061c79b7d792f7">&#9670;&#160;</a></span>m_b</h2>
+<a id="a577a00dc9cac153a4aa90e3de9f94c73" name="a577a00dc9cac153a4aa90e3de9f94c73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a577a00dc9cac153a4aa90e3de9f94c73">&#9670;&#160;</a></span>m_coeffB</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -332,7 +282,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const double LinearModel::m_b</td>
+          <td class="memname">double LinearModel::m_coeffB</td>
         </tr>
       </table>
   </td>
@@ -342,14 +292,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Linear coefficient for input (u). </p>
-
-<p class="definition">Definition at line <a class="el" href="linearmodel_8hpp_source.html#l00070">70</a> of file <a class="el" href="linearmodel_8hpp_source.html">linearmodel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="linearmodel_8hpp_source.html#l00034">34</a> of file <a class="el" href="linearmodel_8hpp_source.html">linearmodel.hpp</a>.</p>
 
 </div>
 </div>
-<a id="aca0168397f543151a267030d52c065a9" name="aca0168397f543151a267030d52c065a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca0168397f543151a267030d52c065a9">&#9670;&#160;</a></span>m_y</h2>
+<a id="a52769977ba52c1697d5dbe4e8202970b" name="a52769977ba52c1697d5dbe4e8202970b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52769977ba52c1697d5dbe4e8202970b">&#9670;&#160;</a></span>m_currentTemp</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -358,7 +306,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double LinearModel::m_y { 0 }</td>
+          <td class="memname">double LinearModel::m_currentTemp</td>
         </tr>
       </table>
   </td>
@@ -368,9 +316,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initial temperature of the model. </p>
-
-<p class="definition">Definition at line <a class="el" href="linearmodel_8hpp_source.html#l00072">72</a> of file <a class="el" href="linearmodel_8hpp_source.html">linearmodel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="linearmodel_8hpp_source.html#l00035">35</a> of file <a class="el" href="linearmodel_8hpp_source.html">linearmodel.hpp</a>.</p>
 
 </div>
 </div>

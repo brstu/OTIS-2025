@@ -93,9 +93,6 @@ $(function(){initNavTree('class_non_linear_model.html','','class_non_linear_mode
 </div><!--header-->
 <div class="contents">
 
-<p>Class for representing <a class="el" href="class_non_linear_model.html" title="Class for representing NonLinearModel.">NonLinearModel</a>.  
- <a href="#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for NonLinearModel:</div>
@@ -103,55 +100,35 @@ Inheritance diagram for NonLinearModel:</div>
  <div class="center">
   <img src="class_non_linear_model.png" usemap="#NonLinearModel_map" alt=""/>
   <map id="NonLinearModel_map" name="NonLinearModel_map">
-<area href="class_i_simulated_model.html" title="Interface for simulated models classes." alt="ISimulatedModel" shape="rect" coords="0,0,106,24"/>
+<area href="class_i_simulated_model.html" alt="ISimulatedModel" shape="rect" coords="0,0,106,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a07009f707dce40107dea8941ccec2e5d" id="r_a07009f707dce40107dea8941ccec2e5d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07009f707dce40107dea8941ccec2e5d">NonLinearModel</a> (const double a, const double b, const double c, const double d)</td></tr>
-<tr class="memdesc:a07009f707dce40107dea8941ccec2e5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for creating <a class="el" href="class_non_linear_model.html" title="Class for representing NonLinearModel.">NonLinearModel</a>.  <br /></td></tr>
+<tr class="memitem:a188b8497584a8b7abd6b06e7b584234b" id="r_a188b8497584a8b7abd6b06e7b584234b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a188b8497584a8b7abd6b06e7b584234b">NonLinearModel</a> (double a, double b, double c, double d)</td></tr>
 <tr class="memitem:ac558b1556d769c4fee9261ce77ef7f3b" id="r_ac558b1556d769c4fee9261ce77ef7f3b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac558b1556d769c4fee9261ce77ef7f3b">~NonLinearModel</a> () override=default</td></tr>
-<tr class="memdesc:ac558b1556d769c4fee9261ce77ef7f3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for safe polymorphic usage.  <br /></td></tr>
-<tr class="memitem:ad79cbedb8375089a86fb54172e4a6966" id="r_ad79cbedb8375089a86fb54172e4a6966"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad79cbedb8375089a86fb54172e4a6966">step</a> (const double u) override</td></tr>
-<tr class="memdesc:ad79cbedb8375089a86fb54172e4a6966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates next temperature (y).  <br /></td></tr>
-<tr class="memitem:ac4ec5911cf8264c0a7bc00fb107c1685" id="r_ac4ec5911cf8264c0a7bc00fb107c1685"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4ec5911cf8264c0a7bc00fb107c1685">simulate</a> (double y, const double u, int t) override</td></tr>
-<tr class="memdesc:ac4ec5911cf8264c0a7bc00fb107c1685"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a vector of calculated temperatures &amp; returns it according to y, u, t.  <br /></td></tr>
+<tr class="memitem:ac07737d5b84c9d869729ed7a164313e9" id="r_ac07737d5b84c9d869729ed7a164313e9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac07737d5b84c9d869729ed7a164313e9">calculate</a> (const double inputWarm) override</td></tr>
+<tr class="memitem:a7957c5dced3f3bc83fd30825a2e17a1f" id="r_a7957c5dced3f3bc83fd30825a2e17a1f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7957c5dced3f3bc83fd30825a2e17a1f">runSimulation</a> (double initialTemp, const double inputWarm, int steps) override</td></tr>
 <tr class="inherit_header pub_methods_class_i_simulated_model"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_i_simulated_model')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_i_simulated_model.html">ISimulatedModel</a></td></tr>
 <tr class="memitem:a633bd4274072567356203c7f624e464e inherit pub_methods_class_i_simulated_model" id="r_a633bd4274072567356203c7f624e464e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_simulated_model.html#a633bd4274072567356203c7f624e464e">~ISimulatedModel</a> ()=default</td></tr>
-<tr class="memdesc:a633bd4274072567356203c7f624e464e inherit pub_methods_class_i_simulated_model"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for safe polymorphic usage.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a33c7428de48a1cb4b41978de43db7b99" id="r_a33c7428de48a1cb4b41978de43db7b99"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33c7428de48a1cb4b41978de43db7b99">m_a</a></td></tr>
-<tr class="memdesc:a33c7428de48a1cb4b41978de43db7b99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nonlinear coefficient for current output (y).  <br /></td></tr>
-<tr class="memitem:aa1266531cc37e1ab23ae5596452b197c" id="r_aa1266531cc37e1ab23ae5596452b197c"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1266531cc37e1ab23ae5596452b197c">m_b</a></td></tr>
-<tr class="memdesc:aa1266531cc37e1ab23ae5596452b197c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nonlinear coefficient for squared previous output (prevY²).  <br /></td></tr>
-<tr class="memitem:ac801faada895e5fd374cff7e2427d5dd" id="r_ac801faada895e5fd374cff7e2427d5dd"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac801faada895e5fd374cff7e2427d5dd">m_c</a></td></tr>
-<tr class="memdesc:ac801faada895e5fd374cff7e2427d5dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nonlinear coefficient for input (u).  <br /></td></tr>
-<tr class="memitem:a4e2c85b0d4d761f7de3d3bf3a497fa8e" id="r_a4e2c85b0d4d761f7de3d3bf3a497fa8e"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e2c85b0d4d761f7de3d3bf3a497fa8e">m_d</a></td></tr>
-<tr class="memdesc:a4e2c85b0d4d761f7de3d3bf3a497fa8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nonlinear coefficient for sinusoidal input term.  <br /></td></tr>
-<tr class="memitem:abc58b8ae6a67c98ab1e1303e6181f3c3" id="r_abc58b8ae6a67c98ab1e1303e6181f3c3"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc58b8ae6a67c98ab1e1303e6181f3c3">y_offset</a> { 0.001 }</td></tr>
-<tr class="memdesc:abc58b8ae6a67c98ab1e1303e6181f3c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial offset for previous output value.  <br /></td></tr>
-<tr class="memitem:a28f2248e0cca94fa72a3f2c9878d82f1" id="r_a28f2248e0cca94fa72a3f2c9878d82f1"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28f2248e0cca94fa72a3f2c9878d82f1">u_offset</a> { 1 }</td></tr>
-<tr class="memdesc:a28f2248e0cca94fa72a3f2c9878d82f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial offset for previous input value.  <br /></td></tr>
-<tr class="memitem:ab5a8b462993bb41e44e9a5b53e4bed77" id="r_ab5a8b462993bb41e44e9a5b53e4bed77"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5a8b462993bb41e44e9a5b53e4bed77">u_step</a> { 0.5 }</td></tr>
-<tr class="memdesc:ab5a8b462993bb41e44e9a5b53e4bed77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step size for input signal increment.  <br /></td></tr>
-<tr class="memitem:a10fac32214ef1e8e6d99d1d02f3a41f8" id="r_a10fac32214ef1e8e6d99d1d02f3a41f8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10fac32214ef1e8e6d99d1d02f3a41f8">m_prevY</a> { 0 }</td></tr>
-<tr class="memdesc:a10fac32214ef1e8e6d99d1d02f3a41f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Previous output value.  <br /></td></tr>
-<tr class="memitem:aa5d855057d557ff75cc8c2c00aff3be2" id="r_aa5d855057d557ff75cc8c2c00aff3be2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5d855057d557ff75cc8c2c00aff3be2">m_prevU</a> { 0 }</td></tr>
-<tr class="memdesc:aa5d855057d557ff75cc8c2c00aff3be2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Previous input value.  <br /></td></tr>
-<tr class="memitem:aa79914bc38c9c453e071dab3c67a5600" id="r_aa79914bc38c9c453e071dab3c67a5600"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa79914bc38c9c453e071dab3c67a5600">m_y</a> { 0 }</td></tr>
-<tr class="memdesc:aa79914bc38c9c453e071dab3c67a5600"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial temperature of the model.  <br /></td></tr>
+<tr class="memitem:a2deaffcf711ca514cf0611e4e53e3ea3" id="r_a2deaffcf711ca514cf0611e4e53e3ea3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2deaffcf711ca514cf0611e4e53e3ea3">m_paramA</a></td></tr>
+<tr class="memitem:a91e0be86bc4e3a61bf06594d41fdc951" id="r_a91e0be86bc4e3a61bf06594d41fdc951"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91e0be86bc4e3a61bf06594d41fdc951">m_paramB</a></td></tr>
+<tr class="memitem:a65424f494dde8d39326a12fb095ad902" id="r_a65424f494dde8d39326a12fb095ad902"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65424f494dde8d39326a12fb095ad902">m_paramC</a></td></tr>
+<tr class="memitem:a264e3ad175f0ba4a3bb8d63346a98713" id="r_a264e3ad175f0ba4a3bb8d63346a98713"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a264e3ad175f0ba4a3bb8d63346a98713">m_paramD</a></td></tr>
+<tr class="memitem:a8d306ce3d3b4c73d8968db10072621a7" id="r_a8d306ce3d3b4c73d8968db10072621a7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d306ce3d3b4c73d8968db10072621a7">m_temp</a></td></tr>
+<tr class="memitem:a43f82087e00567bc2e0328428486da50" id="r_a43f82087e00567bc2e0328428486da50"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43f82087e00567bc2e0328428486da50">m_prevTemp</a></td></tr>
+<tr class="memitem:a7ef8b3625e8320a963644ffb6ed2b435" id="r_a7ef8b3625e8320a963644ffb6ed2b435"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ef8b3625e8320a963644ffb6ed2b435">m_prevInput</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class for representing <a class="el" href="class_non_linear_model.html" title="Class for representing NonLinearModel.">NonLinearModel</a>. </p>
-<p>This class defines a way to calculate next temperature (y) according to it's formula. </p>
-
-<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00012">12</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00006">6</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a07009f707dce40107dea8941ccec2e5d" name="a07009f707dce40107dea8941ccec2e5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07009f707dce40107dea8941ccec2e5d">&#9670;&#160;</a></span>NonLinearModel()</h2>
+<a id="a188b8497584a8b7abd6b06e7b584234b" name="a188b8497584a8b7abd6b06e7b584234b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a188b8497584a8b7abd6b06e7b584234b">&#9670;&#160;</a></span>NonLinearModel()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,43 +139,32 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">NonLinearModel::NonLinearModel </td>
           <td>(</td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>d</em></span>&#160;)</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>d</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Default constructor for creating <a class="el" href="class_non_linear_model.html" title="Class for representing NonLinearModel.">NonLinearModel</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td>Nonlinear coefficient for current output (y). </td></tr>
-    <tr><td class="paramname">b</td><td>Nonlinear coefficient for squared previous output (prevY²). </td></tr>
-    <tr><td class="paramname">c</td><td>Nonlinear coefficient for input (u). </td></tr>
-    <tr><td class="paramname">d</td><td>Nonlinear coefficient for sinusoidal input term. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00023">23</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00009">9</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
 
 </div>
 </div>
@@ -225,13 +191,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Virtual destructor for safe polymorphic usage. </p>
-
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ac4ec5911cf8264c0a7bc00fb107c1685" name="ac4ec5911cf8264c0a7bc00fb107c1685"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4ec5911cf8264c0a7bc00fb107c1685">&#9670;&#160;</a></span>simulate()</h2>
+<a id="ac07737d5b84c9d869729ed7a164313e9" name="ac07737d5b84c9d869729ed7a164313e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac07737d5b84c9d869729ed7a164313e9">&#9670;&#160;</a></span>calculate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -240,58 +204,9 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; double &gt; NonLinearModel::simulate </td>
+          <td class="memname">double NonLinearModel::calculate </td>
           <td>(</td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>u</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>t</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Computes a vector of calculated temperatures &amp; returns it according to y, u, t. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">y</td><td>Initial temperature. </td></tr>
-    <tr><td class="paramname">u</td><td>Input warm. </td></tr>
-    <tr><td class="paramname">t</td><td>Time step at which vector of calculated temperatures is computed.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector of calculated temperatures. </dd></dl>
-
-<p>Implements <a class="el" href="class_i_simulated_model.html#a971060b31948ccad0ca2fa06c46b3e21">ISimulatedModel</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00062">62</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ad79cbedb8375089a86fb54172e4a6966" name="ad79cbedb8375089a86fb54172e4a6966"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad79cbedb8375089a86fb54172e4a6966">&#9670;&#160;</a></span>step()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double NonLinearModel::step </td>
-          <td>(</td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>u</em></span></td><td>)</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>inputWarm</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -302,28 +217,53 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Calculates next temperature (y). </p>
-<p>Formula for the next temperature (y):   </p><p class="formulaDsp">
-<picture><source srcset="form_1_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\&zwj;[\Large y_{\tau+1}=ay_{\tau}-by_{\tau-1}^2+cu_{\tau}+d\sin(u_{\tau-1})
-\&zwj;]" src="form_1.png"/></picture>
-</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">u</td><td>Input warm.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Calculated next temperature (y). </dd></dl>
+<p>Implements <a class="el" href="class_i_simulated_model.html#af7f35eff4d0f42e334ef8b34abe20c4b">ISimulatedModel</a>.</p>
 
-<p>Implements <a class="el" href="class_i_simulated_model.html#a69e2339060948388fee8280701baf9c3">ISimulatedModel</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00016">16</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00044">44</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
+</div>
+</div>
+<a id="a7957c5dced3f3bc83fd30825a2e17a1f" name="a7957c5dced3f3bc83fd30825a2e17a1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7957c5dced3f3bc83fd30825a2e17a1f">&#9670;&#160;</a></span>runSimulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; double &gt; NonLinearModel::runSimulation </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>initialTemp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>inputWarm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>steps</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_i_simulated_model.html#a181f941ff73416c0229f407a0489303c">ISimulatedModel</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00030">30</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a33c7428de48a1cb4b41978de43db7b99" name="a33c7428de48a1cb4b41978de43db7b99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33c7428de48a1cb4b41978de43db7b99">&#9670;&#160;</a></span>m_a</h2>
+<a id="a2deaffcf711ca514cf0611e4e53e3ea3" name="a2deaffcf711ca514cf0611e4e53e3ea3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2deaffcf711ca514cf0611e4e53e3ea3">&#9670;&#160;</a></span>m_paramA</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -332,7 +272,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const double NonLinearModel::m_a</td>
+          <td class="memname">double NonLinearModel::m_paramA</td>
         </tr>
       </table>
   </td>
@@ -342,14 +282,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Nonlinear coefficient for current output (y). </p>
-
-<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00077">77</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00045">45</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
 
 </div>
 </div>
-<a id="aa1266531cc37e1ab23ae5596452b197c" name="aa1266531cc37e1ab23ae5596452b197c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1266531cc37e1ab23ae5596452b197c">&#9670;&#160;</a></span>m_b</h2>
+<a id="a91e0be86bc4e3a61bf06594d41fdc951" name="a91e0be86bc4e3a61bf06594d41fdc951"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91e0be86bc4e3a61bf06594d41fdc951">&#9670;&#160;</a></span>m_paramB</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -358,7 +296,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const double NonLinearModel::m_b</td>
+          <td class="memname">double NonLinearModel::m_paramB</td>
         </tr>
       </table>
   </td>
@@ -368,14 +306,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Nonlinear coefficient for squared previous output (prevY²). </p>
-
-<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00078">78</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00045">45</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ac801faada895e5fd374cff7e2427d5dd" name="ac801faada895e5fd374cff7e2427d5dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac801faada895e5fd374cff7e2427d5dd">&#9670;&#160;</a></span>m_c</h2>
+<a id="a65424f494dde8d39326a12fb095ad902" name="a65424f494dde8d39326a12fb095ad902"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65424f494dde8d39326a12fb095ad902">&#9670;&#160;</a></span>m_paramC</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -384,7 +320,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const double NonLinearModel::m_c</td>
+          <td class="memname">double NonLinearModel::m_paramC</td>
         </tr>
       </table>
   </td>
@@ -394,14 +330,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Nonlinear coefficient for input (u). </p>
-
-<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00079">79</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00045">45</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a4e2c85b0d4d761f7de3d3bf3a497fa8e" name="a4e2c85b0d4d761f7de3d3bf3a497fa8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e2c85b0d4d761f7de3d3bf3a497fa8e">&#9670;&#160;</a></span>m_d</h2>
+<a id="a264e3ad175f0ba4a3bb8d63346a98713" name="a264e3ad175f0ba4a3bb8d63346a98713"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a264e3ad175f0ba4a3bb8d63346a98713">&#9670;&#160;</a></span>m_paramD</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -410,7 +344,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const double NonLinearModel::m_d</td>
+          <td class="memname">double NonLinearModel::m_paramD</td>
         </tr>
       </table>
   </td>
@@ -420,14 +354,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Nonlinear coefficient for sinusoidal input term. </p>
-
-<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00080">80</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00045">45</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
 
 </div>
 </div>
-<a id="aa5d855057d557ff75cc8c2c00aff3be2" name="aa5d855057d557ff75cc8c2c00aff3be2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5d855057d557ff75cc8c2c00aff3be2">&#9670;&#160;</a></span>m_prevU</h2>
+<a id="a7ef8b3625e8320a963644ffb6ed2b435" name="a7ef8b3625e8320a963644ffb6ed2b435"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ef8b3625e8320a963644ffb6ed2b435">&#9670;&#160;</a></span>m_prevInput</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -436,7 +368,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double NonLinearModel::m_prevU { 0 }</td>
+          <td class="memname">double NonLinearModel::m_prevInput</td>
         </tr>
       </table>
   </td>
@@ -446,14 +378,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Previous input value. </p>
-
-<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00087">87</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00046">46</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a10fac32214ef1e8e6d99d1d02f3a41f8" name="a10fac32214ef1e8e6d99d1d02f3a41f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10fac32214ef1e8e6d99d1d02f3a41f8">&#9670;&#160;</a></span>m_prevY</h2>
+<a id="a43f82087e00567bc2e0328428486da50" name="a43f82087e00567bc2e0328428486da50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43f82087e00567bc2e0328428486da50">&#9670;&#160;</a></span>m_prevTemp</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -462,7 +392,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double NonLinearModel::m_prevY { 0 }</td>
+          <td class="memname">double NonLinearModel::m_prevTemp</td>
         </tr>
       </table>
   </td>
@@ -472,14 +402,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Previous output value. </p>
-
-<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00086">86</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00046">46</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
 
 </div>
 </div>
-<a id="aa79914bc38c9c453e071dab3c67a5600" name="aa79914bc38c9c453e071dab3c67a5600"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa79914bc38c9c453e071dab3c67a5600">&#9670;&#160;</a></span>m_y</h2>
+<a id="a8d306ce3d3b4c73d8968db10072621a7" name="a8d306ce3d3b4c73d8968db10072621a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d306ce3d3b4c73d8968db10072621a7">&#9670;&#160;</a></span>m_temp</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -488,7 +416,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double NonLinearModel::m_y { 0 }</td>
+          <td class="memname">double NonLinearModel::m_temp</td>
         </tr>
       </table>
   </td>
@@ -498,87 +426,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initial temperature of the model. </p>
-
-<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00089">89</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a28f2248e0cca94fa72a3f2c9878d82f1" name="a28f2248e0cca94fa72a3f2c9878d82f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28f2248e0cca94fa72a3f2c9878d82f1">&#9670;&#160;</a></span>u_offset</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int NonLinearModel::u_offset { 1 }</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initial offset for previous input value. </p>
-
-<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00083">83</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ab5a8b462993bb41e44e9a5b53e4bed77" name="ab5a8b462993bb41e44e9a5b53e4bed77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5a8b462993bb41e44e9a5b53e4bed77">&#9670;&#160;</a></span>u_step</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const double NonLinearModel::u_step { 0.5 }</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Step size for input signal increment. </p>
-
-<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00084">84</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
-
-</div>
-</div>
-<a id="abc58b8ae6a67c98ab1e1303e6181f3c3" name="abc58b8ae6a67c98ab1e1303e6181f3c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc58b8ae6a67c98ab1e1303e6181f3c3">&#9670;&#160;</a></span>y_offset</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const double NonLinearModel::y_offset { 0.001 }</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initial offset for previous output value. </p>
-
-<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00082">82</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nonlinearmodel_8hpp_source.html#l00046">46</a> of file <a class="el" href="nonlinearmodel_8hpp_source.html">nonlinearmodel.hpp</a>.</p>
 
 </div>
 </div>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pidregulator_0',['PIDRegulator',['../class_p_i_d_regulator.html',1,'PIDRegulator'],['../class_p_i_d_regulator.html#adeda86734b2d5e96b136c663e723c9d4',1,'PIDRegulator::PIDRegulator()']]],
-  ['pidregulator_2ehpp_1',['pidregulator.hpp',['../pidregulator_8hpp.html',1,'']]]
+  ['nonlinearmodel_0',['NonLinearModel',['../class_non_linear_model.html',1,'NonLinearModel'],['../class_non_linear_model.html#a188b8497584a8b7abd6b06e7b584234b',1,'NonLinearModel::NonLinearModel()']]],
+  ['nonlinearmodel_2ehpp_1',['nonlinearmodel.hpp',['../nonlinearmodel_8hpp.html',1,'']]]
 ];

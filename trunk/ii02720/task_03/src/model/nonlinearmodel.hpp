@@ -3,89 +3,45 @@
 #include <vector>
 #include <cmath>
 
-/** 
- * @brief Class for representing NonLinearModel.
- * 
- * This class defines a way to calculate next temperature (y)
- * according to it's formula.
- */ 
 class NonLinearModel : public ISimulatedModel
 {
 public:
-    /**
-     * @brief Default constructor for creating NonLinearModel.
-     * 
-     * @param a Nonlinear coefficient for current output (y).
-     * @param b Nonlinear coefficient for squared previous output (prevY²).
-     * @param c Nonlinear coefficient for input (u).
-     * @param d Nonlinear coefficient for sinusoidal input term.
-     */
-    explicit NonLinearModel(const double a, const double b, const double c, const double d)
-        : m_a(a), m_b(b), m_c(c), m_d(d) 
+    NonLinearModel(double a, double b, double c, double d)
+        : m_paramA(a), m_paramB(b), m_paramC(c), m_paramD(d),
+          m_temp(0.0), m_prevTemp(0.0), m_prevInput(0.0)
     {}
 
-    /**
-     * @brief Virtual destructor for safe polymorphic usage.
-     */
     ~NonLinearModel() override = default;
 
-    /**
-     * @brief Calculates next temperature (y).
-     * 
-     * Formula for the next temperature (y): 
-     * \f[
-     * \Large y_{\tau+1}=ay_{\tau}-by_{\tau-1}^2+cu_{\tau}+d\sin(u_{\tau-1})
-     * \f]
-     * 
-     * @param u Input warm.
-     * 
-     * @return Calculated next temperature (y).
-     */
-    double step(const double u) override
+    double calculate(const double inputWarm) override
     {     
-        double nextY = m_a * m_y - m_b * m_prevY * m_prevY + m_c * u + m_d * sin(m_prevU);
-        m_prevY = m_y;
-        m_y = nextY;
-        m_prevU = u;
-        return nextY;
+        double newTemp = m_paramA * m_temp 
+                       - m_paramB * m_prevTemp * m_prevTemp 
+                       + m_paramC * inputWarm 
+                       + m_paramD * std::sin(m_prevInput);
+        
+        m_prevTemp = m_temp;
+        m_temp = newTemp;
+        m_prevInput = inputWarm;
+        
+        return newTemp;
     }
 
-    /**
-     * @brief Computes a vector of calculated temperatures & returns it according to y, u, t.
-     * 
-     * @param y Initial temperature.
-     * @param u Input warm.
-     * @param t Time step at which vector of calculated temperatures is computed.
-     * 
-     * @return A vector of calculated temperatures.
-     */
-    std::vector<double> simulate(double y, const double u, int t) override
+    std::vector<double> runSimulation(double initialTemp, const double inputWarm, int steps) override
     {  
-        m_prevY = y - y_offset;
-        std::vector<double> results;
-        for(int i = 0; i <= t; i++)
+        m_prevTemp = initialTemp - 0.001;
+        std::vector<double> output;
+        
+        for(int i = 0; i <= steps; ++i)
         {
-            m_prevU = u - u_offset;
-            m_prevU += i * u_step;
-            results.push_back(y);
-            y = step(u);
+            m_prevInput = inputWarm - 1 + i * 0.5;
+            output.push_back(initialTemp);
+            initialTemp = calculate(inputWarm);
         }
-        return results;
+        return output;
     }
 
 private:
-    const double m_a; ///< Nonlinear coefficient for current output (y).
-    const double m_b; ///< Nonlinear coefficient for squared previous output (prevY²).
-    const double m_c; ///< Nonlinear coefficient for input (u).
-    const double m_d; ///< Nonlinear coefficient for sinusoidal input term.
-
-    const double y_offset { 0.001 }; ///< Initial offset for previous output value.
-    const int u_offset { 1 }; ///< Initial offset for previous input value.
-    const double u_step { 0.5 }; ///< Step size for input signal increment.
-
-    double m_prevY { 0 }; ///< Previous output value.
-    double m_prevU { 0 }; ///< Previous input value.
-
-    double m_y { 0 }; ///< Initial temperature of the model. 
+    double m_paramA, m_paramB, m_paramC, m_paramD;
+    double m_temp, m_prevTemp, m_prevInput;
 };
-

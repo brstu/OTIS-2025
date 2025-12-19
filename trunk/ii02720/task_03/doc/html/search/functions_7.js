@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['run_0',['run',['../class_adaptive_controller.html#a495a1fe3e4231312f991e4b70d96b34b',1,'AdaptiveController']]]
+  ['pidregulator_0',['PIDRegulator',['../class_p_i_d_regulator.html#adeda86734b2d5e96b136c663e723c9d4',1,'PIDRegulator']]]
 ];

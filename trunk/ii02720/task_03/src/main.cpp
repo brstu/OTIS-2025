@@ -1,42 +1,31 @@
 #include <iostream>
-
 #include "factory/factorylinearmodel.hpp"
 #include "factory/factorynonlinearmodel.hpp"
-
 #include "adaptivecontroller.hpp"
 #include "regulator/pidregulator.hpp"
 
 int main() 
 {
-    const double w = 10; // Input warm.
-    const int t = 10;    // Simulation time steps.
+    double setpoint = 10.0;
+    int duration = 10;
     
-    std::cout << "Linear simulation:" << std::endl;
-    auto pidRegulatorForLinearModel = std::make_unique<PIDRegulator>();
-    auto linearFactory = std::make_unique<FactoryLinearModel>();
-    auto linearModel = linearFactory->getDefaultModel();
+    std::cout << "=== Linear Model ===" << std::endl;
+    auto linReg = std::make_unique<PIDRegulator>();
+    auto linFactory = std::make_unique<FactoryLinearModel>();
+    auto linModel = linFactory->createModel();
+    auto linController = std::make_unique<AdaptiveController>(std::move(linReg), std::move(linModel)); 
+    
+    for (auto val : linController->execute(setpoint, duration)) 
+        std::cout << val << std::endl;
 
-    auto linearController = std::make_unique<AdaptiveController>(std::move(pidRegulatorForLinearModel), std::move(linearModel)); 
-    auto linear_result = linearController->run(w, t);
-    for (const auto& value : linear_result) 
-    {
-        std::cout << value << std::endl;
-    }
-    std::cout << std::endl;
-
-
-    std::cout << "Nonlinear simulation:" << std::endl; 
-    auto pidRegulatorForNonLinearModel = std::make_unique<PIDRegulator>();
-    auto nonlinearFactory = std::make_unique<FactoryNonLinearModel>();
-    auto nonlinearModel = nonlinearFactory->getDefaultModel();
-
-    auto nonlinearController = std::make_unique<AdaptiveController>(std::move(pidRegulatorForNonLinearModel), std::move(nonlinearModel)); 
-    auto nonlinear_result = nonlinearController->run(w, t);
-    for (const auto& value : nonlinear_result) 
-    {
-        std::cout << value << std::endl;
-    }
+    std::cout << "\n=== NonLinear Model ===" << std::endl; 
+    auto nlReg = std::make_unique<PIDRegulator>();
+    auto nlFactory = std::make_unique<FactoryNonLinearModel>();
+    auto nlModel = nlFactory->createModel();
+    auto nlController = std::make_unique<AdaptiveController>(std::move(nlReg), std::move(nlModel)); 
+    
+    for (auto val : nlController->execute(setpoint, duration)) 
+        std::cout << val << std::endl;
 
     return 0;
 }
-

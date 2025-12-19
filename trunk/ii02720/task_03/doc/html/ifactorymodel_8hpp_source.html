@@ -95,21 +95,18 @@ $(function(){initNavTree('ifactorymodel_8hpp_source.html','',''); });
 <a href="ifactorymodel_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="isimulatedmodel_8hpp.html">../model/isimulatedmodel.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span></div>
-<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_i_factory_model.html">   11</a></span><span class="keyword">class </span><a class="code hl_class" href="class_i_factory_model.html">IFactoryModel</a></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_i_factory_model.html#a7b24bb494392e77d08b96af111965641">   17</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="class_i_factory_model.html#a7b24bb494392e77d08b96af111965641">~IFactoryModel</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_i_factory_model.html#af4826f947c2625646f3a900693ac0644">   24</a></span>    <span class="keyword">virtual</span> std::unique_ptr&lt;ISimulatedModel&gt; <a class="code hl_function" href="class_i_factory_model.html#af4826f947c2625646f3a900693ac0644">getDefaultModel</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_i_factory_model.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="class_i_factory_model.html">IFactoryModel</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_i_factory_model.html#a7b24bb494392e77d08b96af111965641">    8</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="class_i_factory_model.html#a7b24bb494392e77d08b96af111965641">~IFactoryModel</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_i_factory_model.html#ab7c511a6c86819bc2bc8f5c866b62d27">    9</a></span>    <span class="keyword">virtual</span> std::unique_ptr&lt;ISimulatedModel&gt; <a class="code hl_function" href="class_i_factory_model.html#ab7c511a6c86819bc2bc8f5c866b62d27">createModel</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>};</div>
 </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="ttc" id="aclass_i_factory_model_html"><div class="ttname"><a href="class_i_factory_model.html">IFactoryModel</a></div><div class="ttdoc">Interface for factory classes that produce simulated models.</div><div class="ttdef"><b>Definition</b> <a href="#l00011">ifactorymodel.hpp:12</a></div></div>
-<div class="ttc" id="aclass_i_factory_model_html_a7b24bb494392e77d08b96af111965641"><div class="ttname"><a href="class_i_factory_model.html#a7b24bb494392e77d08b96af111965641">IFactoryModel::~IFactoryModel</a></div><div class="ttdeci">virtual ~IFactoryModel()=default</div><div class="ttdoc">Virtual destructor for safe polymorphic usage.</div></div>
-<div class="ttc" id="aclass_i_factory_model_html_af4826f947c2625646f3a900693ac0644"><div class="ttname"><a href="class_i_factory_model.html#af4826f947c2625646f3a900693ac0644">IFactoryModel::getDefaultModel</a></div><div class="ttdeci">virtual std::unique_ptr&lt; ISimulatedModel &gt; getDefaultModel() const =0</div><div class="ttdoc">Creates and returns a default simulated model.</div></div>
+<div class="ttc" id="aclass_i_factory_model_html"><div class="ttname"><a href="class_i_factory_model.html">IFactoryModel</a></div><div class="ttdef"><b>Definition</b> <a href="#l00005">ifactorymodel.hpp:6</a></div></div>
+<div class="ttc" id="aclass_i_factory_model_html_a7b24bb494392e77d08b96af111965641"><div class="ttname"><a href="class_i_factory_model.html#a7b24bb494392e77d08b96af111965641">IFactoryModel::~IFactoryModel</a></div><div class="ttdeci">virtual ~IFactoryModel()=default</div></div>
+<div class="ttc" id="aclass_i_factory_model_html_ab7c511a6c86819bc2bc8f5c866b62d27"><div class="ttname"><a href="class_i_factory_model.html#ab7c511a6c86819bc2bc8f5c866b62d27">IFactoryModel::createModel</a></div><div class="ttdeci">virtual std::unique_ptr&lt; ISimulatedModel &gt; createModel() const =0</div></div>
 <div class="ttc" id="aisimulatedmodel_8hpp_html"><div class="ttname"><a href="isimulatedmodel_8hpp.html">isimulatedmodel.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

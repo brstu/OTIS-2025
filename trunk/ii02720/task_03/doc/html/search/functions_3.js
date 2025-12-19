@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['linearmodel_0',['LinearModel',['../class_linear_model.html#a4418d08b99107d0bd6060a1111b7ff93',1,'LinearModel']]]
+  ['factorylinearmodel_0',['FactoryLinearModel',['../class_factory_linear_model.html#a23bcd741e15fb442a6200ecd2978e859',1,'FactoryLinearModel']]],
+  ['factorynonlinearmodel_1',['FactoryNonLinearModel',['../class_factory_non_linear_model.html#a443fdad0982aa8aef906787d7be20bac',1,'FactoryNonLinearModel']]]
 ];

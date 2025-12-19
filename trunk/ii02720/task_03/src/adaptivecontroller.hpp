@@ -4,48 +4,29 @@
 #include <memory>
 #include <vector>
 
-/**
- * @brief Class that controlls temperature using Regulator & SimulatedModel.
- */
 class AdaptiveController
 {
 public:
-    /**
-     * @brief Default constructor for creating AdaptiveController.
-     * 
-     * @param regulator Copy of IRegulator class.
-     * @param model Copy of ISimulatedModel class.
-     */
-    explicit AdaptiveController(std::unique_ptr<IRegulator> regulator, std::unique_ptr<ISimulatedModel> model)
-        : m_regulator(std::move(regulator))
-        , m_model(std::move(model))
+    AdaptiveController(std::unique_ptr<IRegulator> reg, std::unique_ptr<ISimulatedModel> mod)
+        : m_regulator(std::move(reg)), m_model(std::move(mod))
     {}
 
-    /**
-     * @brief Computes a vector of calculated temperatures & returns it according to w & t.
-     * 
-     * @param w Algorithm of system functioning.
-     * @param t Time step at which vector of calculated temperatures is computed.
-     * 
-     * @return A vector of calculated temperatures.
-     */
-    std::vector<double> run(const double w, const int t)
+    std::vector<double> execute(double setpoint, int duration)
     {
-        std::vector<double> temperatures;
-        double e = w;
-        for(int i = 0; i <= t; i++)
+        std::vector<double> temps;
+        double error = setpoint;
+        
+        for(int t = 0; t <= duration; ++t)
         {
-            double u = m_regulator->step(e, i);
-            double y = m_model->step(u);
-            temperatures.push_back(y);
-            e = w - y;
+            double control = m_regulator->compute(error, t);
+            double output = m_model->calculate(control);
+            temps.push_back(output);
+            error = setpoint - output;
         }
-        return temperatures;
+        return temps;
     }
 
 private:
     std::unique_ptr<IRegulator> m_regulator;
     std::unique_ptr<ISimulatedModel> m_model; 
-
 };
-

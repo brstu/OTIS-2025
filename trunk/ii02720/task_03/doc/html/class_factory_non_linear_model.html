@@ -93,9 +93,6 @@ $(function(){initNavTree('class_factory_non_linear_model.html','','class_factory
 </div><!--header-->
 <div class="contents">
 
-<p>Factory class that produces <a class="el" href="class_non_linear_model.html" title="Class for representing NonLinearModel.">NonLinearModel</a>.  
- <a href="#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="factorynonlinearmodel_8hpp_source.html">factorynonlinearmodel.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for FactoryNonLinearModel:</div>
@@ -103,26 +100,21 @@ Inheritance diagram for FactoryNonLinearModel:</div>
  <div class="center">
   <img src="class_factory_non_linear_model.png" usemap="#FactoryNonLinearModel_map" alt=""/>
   <map id="FactoryNonLinearModel_map" name="FactoryNonLinearModel_map">
-<area href="class_i_factory_model.html" title="Interface for factory classes that produce simulated models." alt="IFactoryModel" shape="rect" coords="0,0,150,24"/>
+<area href="class_i_factory_model.html" alt="IFactoryModel" shape="rect" coords="0,0,150,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a443fdad0982aa8aef906787d7be20bac" id="r_a443fdad0982aa8aef906787d7be20bac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a443fdad0982aa8aef906787d7be20bac">FactoryNonLinearModel</a> ()=default</td></tr>
-<tr class="memdesc:a443fdad0982aa8aef906787d7be20bac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <br /></td></tr>
 <tr class="memitem:a2d24e63ec60337e62ee82c67ebc83da1" id="r_a2d24e63ec60337e62ee82c67ebc83da1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d24e63ec60337e62ee82c67ebc83da1">~FactoryNonLinearModel</a> () override=default</td></tr>
-<tr class="memdesc:a2d24e63ec60337e62ee82c67ebc83da1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for safe polymorphic usage.  <br /></td></tr>
-<tr class="memitem:a6378a67bacb2a8da165505e30af54a77" id="r_a6378a67bacb2a8da165505e30af54a77"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_i_simulated_model.html">ISimulatedModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6378a67bacb2a8da165505e30af54a77">getDefaultModel</a> () const override</td></tr>
-<tr class="memdesc:a6378a67bacb2a8da165505e30af54a77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and returns a default <a class="el" href="class_non_linear_model.html" title="Class for representing NonLinearModel.">NonLinearModel</a>.  <br /></td></tr>
+<tr class="memitem:ad505344e27ae51d6c390e28162aafc5f" id="r_ad505344e27ae51d6c390e28162aafc5f"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_i_simulated_model.html">ISimulatedModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad505344e27ae51d6c390e28162aafc5f">createModel</a> () const override</td></tr>
 <tr class="inherit_header pub_methods_class_i_factory_model"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_i_factory_model')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_i_factory_model.html">IFactoryModel</a></td></tr>
 <tr class="memitem:a7b24bb494392e77d08b96af111965641 inherit pub_methods_class_i_factory_model" id="r_a7b24bb494392e77d08b96af111965641"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_factory_model.html#a7b24bb494392e77d08b96af111965641">~IFactoryModel</a> ()=default</td></tr>
-<tr class="memdesc:a7b24bb494392e77d08b96af111965641 inherit pub_methods_class_i_factory_model"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for safe polymorphic usage.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Factory class that produces <a class="el" href="class_non_linear_model.html" title="Class for representing NonLinearModel.">NonLinearModel</a>. </p>
-
-<p class="definition">Definition at line <a class="el" href="factorynonlinearmodel_8hpp_source.html#l00009">9</a> of file <a class="el" href="factorynonlinearmodel_8hpp_source.html">factorynonlinearmodel.hpp</a>.</p>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="factorynonlinearmodel_8hpp_source.html#l00006">6</a> of file <a class="el" href="factorynonlinearmodel_8hpp_source.html">factorynonlinearmodel.hpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a443fdad0982aa8aef906787d7be20bac" name="a443fdad0982aa8aef906787d7be20bac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a443fdad0982aa8aef906787d7be20bac">&#9670;&#160;</a></span>FactoryNonLinearModel()</h2>
@@ -142,12 +134,10 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel explicit">explicit</span><span class="mlabel default">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Default constructor. </p>
 
 </div>
 </div>
@@ -174,13 +164,11 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Virtual destructor for safe polymorphic usage. </p>
-
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a6378a67bacb2a8da165505e30af54a77" name="a6378a67bacb2a8da165505e30af54a77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6378a67bacb2a8da165505e30af54a77">&#9670;&#160;</a></span>getDefaultModel()</h2>
+<a id="ad505344e27ae51d6c390e28162aafc5f" name="ad505344e27ae51d6c390e28162aafc5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad505344e27ae51d6c390e28162aafc5f">&#9670;&#160;</a></span>createModel()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -189,7 +177,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt; <a class="el" href="class_i_simulated_model.html">ISimulatedModel</a> &gt; FactoryNonLinearModel::getDefaultModel </td>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="class_i_simulated_model.html">ISimulatedModel</a> &gt; FactoryNonLinearModel::createModel </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -202,12 +190,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates and returns a default <a class="el" href="class_non_linear_model.html" title="Class for representing NonLinearModel.">NonLinearModel</a>. </p>
-<dl class="section return"><dt>Returns</dt><dd>A unique pointer to a newly created <a class="el" href="class_non_linear_model.html" title="Class for representing NonLinearModel.">NonLinearModel</a> instance. </dd></dl>
+<p>Implements <a class="el" href="class_i_factory_model.html#ab7c511a6c86819bc2bc8f5c866b62d27">IFactoryModel</a>.</p>
 
-<p>Implements <a class="el" href="class_i_factory_model.html#af4826f947c2625646f3a900693ac0644">IFactoryModel</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="factorynonlinearmodel_8hpp_source.html#l00026">26</a> of file <a class="el" href="factorynonlinearmodel_8hpp_source.html">factorynonlinearmodel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="factorynonlinearmodel_8hpp_source.html#l00012">12</a> of file <a class="el" href="factorynonlinearmodel_8hpp_source.html">factorynonlinearmodel.hpp</a>.</p>
 
 </div>
 </div>
