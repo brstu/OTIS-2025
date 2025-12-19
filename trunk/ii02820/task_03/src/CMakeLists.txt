@@ -8,7 +8,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(SRC_FILES
     ${SRC_DIR}/main.cpp
-    ${SRC_DIR}/advanced_regulator.cpp
     ${SRC_DIR}/lin_model.cpp
 )
 
@@ -32,7 +31,6 @@ enable_testing()
 # Тестовый бинарник
 add_executable(testlab3_runner_ii02820
     ${CMAKE_CURRENT_SOURCE_DIR}/../test/test_model.cpp
-    ${SRC_DIR}/advanced_regulator.cpp
     ${SRC_DIR}/lin_model.cpp
 )
 
