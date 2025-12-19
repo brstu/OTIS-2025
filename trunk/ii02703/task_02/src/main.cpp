@@ -2,18 +2,18 @@
 #include "models.hpp" 
 
 int main() {
-    double y, u, a, b, c, d;
+    double yy, u, a, b, c, d;
     int n;
 
     std::cout << "Enter start temperature and heat: ";
-    std::cin >> y >> u;
+    std::cin >> yy >> u;
     std::cout << "Enter a, b, c, d: ";
     std::cin >> a >> b >> c >> d;
     std::cout << "Steps: ";
     std::cin >> n;
 
  
-    double y_lin = y;
+    double y_lin = yy;
     std::cout << "\nLinear model:\n";
     for (int i = 0; i < n; i++) {
         y_lin = linear_model(y_lin, u, a, b);
@@ -21,8 +21,8 @@ int main() {
     }
 
 
-    double y_curr = y;
-    double y_prev_nl = y;
+    double y_curr = yy;
+    double y_prev_nl = yy;
     double u_prev_nl = u;
     std::cout << "\nNonlinear model:\n";
 
