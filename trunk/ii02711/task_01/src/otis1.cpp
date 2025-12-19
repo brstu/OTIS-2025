@@ -7,7 +7,7 @@ struct Constant {
 	double c;
 	double d;
 };
-double Nonlinear(Constant &c, double y_prev, double u, double u_prev, double& y_next, double y) {
+double Nonlinear(const Constant &c, double y_prev, double u, double u_prev, double& y_next, double y) {
 	y_next = c.a * y - c.b * (y_prev * y_prev) + c.c * u + c.d * sin(u_prev);
 	return y_next;
 }
