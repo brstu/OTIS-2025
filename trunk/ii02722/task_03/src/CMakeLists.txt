@@ -13,7 +13,7 @@ else()
     add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-# Paths
+# Fix paths - use relative paths
 set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(TEST_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../test)
 set(DOC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../doc)
@@ -22,18 +22,20 @@ set(DOC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../doc)
 add_library(model_ii002722 STATIC ${SRC_DIR}/model.cpp)
 target_include_directories(model_ii002722 PUBLIC ${SRC_DIR})
 
-add_library(pid_ii002713 STATIC ${SRC_DIR}/pid.cpp)
+# Fix: Имя библиотеки должно быть согласовано
+add_library(pid_ii002722 STATIC ${SRC_DIR}/pid.cpp)
 target_include_directories(pid_ii002722 PUBLIC ${SRC_DIR})
 
 # Main executable
-add_executable(pid_sim_ii002713 ${SRC_DIR}/main.cpp)
-target_link_libraries(pid_sim_ii002722 PRIVATE pid_ii002722)
+add_executable(pid_sim ${SRC_DIR}/main.cpp)
+target_link_libraries(pid_sim PRIVATE pid_ii002722 model_ii002722)
 
 # Google Test
 include(FetchContent)
 FetchContent_Declare(
     googletest
     URL https://github.com/google/googletest/archive/refs/tags/v1.15.2.zip
+    DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
@@ -42,16 +44,11 @@ enable_testing()
 include(GoogleTest)
 
 # Tests
-file(GLOB TEST_SOURCES "${TEST_DIR}/*.cpp")
-if(TEST_SOURCES)
-    add_executable(runTests_ii002713_task03 ${TEST_SOURCES})
-    target_link_libraries(runTests_ii002713_task03 PRIVATE gtest_main pid_ii002722 model_ii002722)
-    gtest_discover_tests(runTests_ii002713_task03)
+if(EXISTS ${TEST_DIR})
+    add_executable(runTests ${TEST_DIR}/test_pid.cpp)
+    target_link_libraries(runTests PRIVATE gtest_main pid_ii002722 model_ii002722)
+    target_include_directories(runTests PRIVATE ${SRC_DIR})
+    gtest_discover_tests(runTests)
 else()
-    message(WARNING "Test files not found in ${TEST_DIR}")
+    message(WARNING "Test directory not found: ${TEST_DIR}")
 endif()
-
-# Documentation
-# Note: Doxygen / local HTML documentation is no longer generated via CMake.
-#       All documentation is now hosted externally on GitHub Pages:
-#       https://topg1616.github.io/OTIS-2025/

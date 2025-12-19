@@ -20,6 +20,7 @@ public:
      * @param dt_ Time step (in seconds).
      */
     explicit PID(double Kp_ = 0.0, double Ki_ = 0.0, double Kd_ = 0.0, double dt_ = DEFAULT_DT);
+    
     /**
      * @brief Computes the PID controller output for the given setpoint and measured value.
      * @param setpoint The desired target value.
@@ -29,12 +30,14 @@ public:
      * This method updates the internal state (integral and previous error).
      */
     double compute(double setpoint, double measured) noexcept;
+    
     /**
      * @brief Resets the internal state of the PID controller.
      *
      * This clears the integral term and previous error.
      */
     void reset() noexcept;
+    
     /**
      * @brief Sets the minimum and maximum output limits for the controller.
      * @param min Minimum output value.
@@ -43,6 +46,7 @@ public:
      * The output will be clamped to this range.
      */
     void setOutputLimits(double min, double max);
+    
     /**
      * @brief Sets the minimum and maximum limits for the integral term (anti-windup).
      * @param min Minimum integral value.
@@ -51,6 +55,7 @@ public:
      * The integral term will be clamped to this range.
      */
     void setIntegralLimits(double min, double max);
+    
     /**
      * @brief Sets the time step (dt) for the PID controller.
      * @param new_dt New time step value (in seconds).
@@ -70,9 +75,9 @@ private:
     bool prev_error_initialized = false;
 
     double output_min = -std::numeric_limits<double>::infinity();
-    double output_max =  std::numeric_limits<double>::infinity();
+    double output_max = std::numeric_limits<double>::infinity();
     double integral_min = -std::numeric_limits<double>::infinity();
-    double integral_max =  std::numeric_limits<double>::infinity();
+    double integral_max = std::numeric_limits<double>::infinity();
 
     static constexpr double DEFAULT_DT = 0.01;
 };

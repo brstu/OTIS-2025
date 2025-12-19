@@ -20,9 +20,8 @@ TEST(PIDTest, BasicResponse) {
 
     for (int i = 0; i < 5; ++i) {
         double u = pid.compute(setpoint, measured);
-        // should remain positive and not immediately drop below previous (basic sanity)
+        // should remain positive and not immediately drop below previous
         EXPECT_GT(u, 0.0);
-        // relax tolerance a bit to avoid flaky failures on different platforms/optimizations
         EXPECT_GE(u, prev_u - EPS);
         prev_u = u;
     }
@@ -36,7 +35,7 @@ TEST(PIDTest, InvalidDtInitializesInvDt) {
 
     // Compute once to ensure no crash or undefined behavior
     double u = pid.compute(1.0, 0.0);
-    EXPECT_TRUE(std::isfinite(u)); // Output must be finite (no NaN or inf)
+    EXPECT_TRUE(std::isfinite(u)); // Output must be finite
 }
 
 /**
@@ -57,11 +56,11 @@ TEST(PIDTest, DerivativeScaling) {
     double u_fast_after = pid_fast.compute(setpoint, 0.9);
     double u_slow_after = pid_slow.compute(setpoint, 0.9);
 
-    // With smaller dt (larger inv_dt), derivative term produces larger change in output
+    // With smaller dt (larger inv_dt), derivative term produces larger change
     double delta_u_fast = u_fast_after - u_fast_before;
     double delta_u_slow = u_slow_after - u_slow_before;
 
-    // be conservative: require strictly larger magnitude for fast
+    // require strictly larger magnitude for fast
     EXPECT_GT(std::fabs(delta_u_fast), std::fabs(delta_u_slow));
 }
 
@@ -108,10 +107,10 @@ TEST(PIDTest, ResetAndSetDt) {
     pid.reset();
     double u_after_reset = pid.compute(1.0, 0.0);
 
-    // After reset, integral and prev_error cleared — output should be finite and reasonable
+    // After reset, integral and prev_error cleared
     EXPECT_TRUE(std::isfinite(u_after_reset));
 
-    // Changing dt should not crash and should affect derivative scaling
+    // Changing dt should not crash
     pid.setDt(0.05);
     double u_after_dt_change = pid.compute(1.0, 0.0);
     EXPECT_TRUE(std::isfinite(u_after_dt_change));

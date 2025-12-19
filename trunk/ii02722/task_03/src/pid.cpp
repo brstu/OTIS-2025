@@ -4,15 +4,13 @@
 
 // Constructor
 PID::PID(double Kp_, double Ki_, double Kd_, double dt_)
-    : Kp(Kp_), Ki(Ki_), Kd(Kd_)
+    : Kp(Kp_), Ki(Ki_), Kd(Kd_), dt(dt_), inv_dt(1.0/dt_)
 {
     if (dt_ <= 0.0) {
         std::cerr << "PID::PID: invalid dt <= 0, using DEFAULT_DT=" << DEFAULT_DT << "\n";
         dt = DEFAULT_DT;
-    } else {
-        dt = dt_;
+        inv_dt = 1.0 / dt;
     }
-    inv_dt = 1.0 / dt;
 }
 
 // Compute control signal
