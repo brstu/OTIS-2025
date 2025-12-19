@@ -10,7 +10,7 @@ using namespace std;
 
 int main() {
     const int ITERATIONS = 10;
-    float initialY1;
+    double initialY1;
 
     cout << "Enter initial value y1 = ";
 
