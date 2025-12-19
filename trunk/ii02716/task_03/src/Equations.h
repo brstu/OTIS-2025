@@ -34,7 +34,7 @@ public:
 * \brief Constructor for init variables used in equations
 */
 	Equations(double u_val, double y_prev_val, double delt_u_val,double w_val) :
-		u(u_val), y_prev(y_prev_val), delt_u(delt_u_val), w(w_val), f_u(1.5), q0(0), q1(0), q2(0), y(0) {
+		u(u_val), y_prev(y_prev_val), delt_u(delt_u_val), w(w_val) {
 		e.resize(500, 0);
 	}
 	/**
@@ -57,10 +57,10 @@ public:
 	* \param place uses for controlling outrange of vector
 	*/
 	void E_calcul(int place);
-	double GetY();
-	double GetU();
+	double GetY() const;
+	double GetU() const;
 	void SetDelt_U(double val);
-	double Get_E(int place);
+	double Get_E(int place) const;
 	/**
 	* \brief Checking if temperature already have reached necessary temp
 	* return true if reached and false if not

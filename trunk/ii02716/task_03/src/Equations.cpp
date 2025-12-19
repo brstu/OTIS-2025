@@ -22,22 +22,22 @@ void Equations::Qs_calcul(const Constunts& c) {
 void Equations::E_calcul(int place) {
 	e[place] = w - y;
 }
-double Equations::GetY() {
+double Equations::GetY() const {
 	return y;
 }
-double Equations::GetU() {
+double Equations::GetU() const {
 	return u;
 }
 void Equations::SetDelt_U(double val) {
 	delt_u = val;
 }
-double Equations::Get_E(int place) {
+double Equations::Get_E(int place) const {
 	return e[place];
 }
 bool Equations::chek() {
 	return w > y_prev;
 }
-void Equations::SetW(double w) {
-	this->w = w;
+void Equations::SetW(double w_val) {
+	w = w_val;
 }
 
