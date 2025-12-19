@@ -18,7 +18,7 @@ enable_testing()
 add_executable(
   ii02716_test3
   test.cpp
-  ../src/PID.cpp
+  ../src/Equations.cpp
 )
 
 target_link_libraries(
