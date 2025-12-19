@@ -1,44 +1,39 @@
-/**
- * @file main.cpp
- * @brief Простой симулятор: PID + линейный объект. Выводит красивую таблицу в stdout.
-*/
-
 #include <iostream>
 #include <iomanip>
 #include "pid.h"
 #include "plant.h"
 
 int main() {
-    const double T0 = 0.1;
-    const int steps = 100;
-    const double setpoint = 50.0;
+    constexpr double dt = 0.1; //Шаг времени
+    constexpr int N = 100; //Длина симуляции
+    constexpr double ref = 50.0; //Заданное значение
 
-    LinearPlant plant(0.98, 0.05, 0.0, 0.0);
-    PID pid(10.0, 0.1, 0.01, T0);
+    LinearPlant sys(0.98, 0.05, 0.0);
+    PID controller(10.0, 0.1, 0.01, dt);
 
-    // Заголовок таблицы
     std::cout << "+-------+----------+----------+----------+----------+\n";
-    std::cout << "|   t   | setpoint |    y     |    u     |    e     |\n";
+    std::cout << "|   t   |   ref    |    y     |    u     |    e     |\n";
     std::cout << "+-------+----------+----------+----------+----------+\n";
 
-    double t = 0.0;
-    for (int k = 0; k < steps; ++k) {
-        double y = plant.y();
-        double e = setpoint - y;
-        double u = pid.update(e);
-        plant.step(u);
+    double time = 0.0;
 
-        std::cout << "| " 
-                  << std::setw(5) << std::fixed << std::setprecision(2) << t << " | "
-                  << std::setw(8) << setpoint << " | "
-                  << std::setw(8) << plant.y() << " | "
-                  << std::setw(8) << u << " | "
-                  << std::setw(8) << e << " |\n";
+    for (int i = 0; i < N; ++i) {
+        const double y = sys.y();
+        const double err = ref - y;
+        const double ctrl = controller.update(err);
 
-        t += T0;
+        sys.step(ctrl);
+
+        std::cout << "| "
+                  << std::setw(5) << std::fixed << std::setprecision(2) << time << " | "
+                  << std::setw(8) << ref << " | "
+                  << std::setw(8) << sys.y() << " | "
+                  << std::setw(8) << ctrl << " | "
+                  << std::setw(8) << err << " |\n";
+
+        time += dt;
     }
 
     std::cout << "+-------+----------+----------+----------+----------+\n";
-
     return 0;
 }

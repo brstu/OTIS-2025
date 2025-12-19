@@ -1,54 +1,52 @@
-/**
- * @file pid.cpp
- * @brief Реализация дискретного ПИД-регулятора.
- */
-
 #include "pid.h"
-#include <array>
-#include <cmath>
 
 namespace {
 
-inline std::array<double,3> compute_q_values(double K, double T, double TD, double T0) {
-    std::array<double,3> q = {0.0, 0.0, 0.0};
-    if (T <= 0.0) {
-        q[0] = K * (1.0 + TD / T0);
-        q[1] = -K * (1.0 + 2.0 * TD / T0);
-        q[2] = K * (TD / T0);
+void makeDiscrete(double K, double Ti, double Td, double T,
+                  double& q0, double& q1, double& q2)
+{
+    if (Ti <= 0.0) {
+        // Пропорционально-дифференциальный регулятор (без интегральной составляющей)
+        q0 = K * (1.0 + Td / T);
+        q1 = -K * (1.0 + 2.0 * Td / T);
+        q2 = K * (Td / T);
     } else {
-        q[0] = K * (1.0 + T0 / (2.0 * T) + TD / T0);
-        q[1] = -K * (1.0 - T0 / (2.0 * T) + 2.0 * TD / T0);
-        q[2] = K * (TD / T0);
+        // Полный ПИД-регулятор
+        const double a = T / (2.0 * Ti);
+        const double b = Td / T;
+
+        q0 = K * (1.0 + a + b);
+        q1 = -K * (1.0 - a + 2.0 * b);
+        q2 = K * b;
     }
-    return q;
 }
 
-} 
+} // namespace
 
+PID::PID(double K, double Ti, double Td, double T)
+{
+    makeDiscrete(K, Ti, Td, T, q0, q1, q2);
+}
 
-PID::PID(double K, double T, double TD, double T0)
-    : q0(compute_q_values(K, T, TD, T0)[0]),
-      q1(compute_q_values(K, T, TD, T0)[1]),
-      q2(compute_q_values(K, T, TD, T0)[2])
+PID::PID(DiscreteTag, double a, double b, double c, double u0)
+    : q0(a), q1(b), q2(c), u_prev(u0)
 {
 }
 
-
-PID::PID(DiscreteTag, double q0_, double q1_, double q2_, double u0)
-    : q0(q0_), q1(q1_), q2(q2_), u_prev(u0)
+void PID::reset(double u0)
 {
-
-}
-
-void PID::reset(double u0) {
     u_prev = u0;
     e_prev1 = 0.0;
     e_prev2 = 0.0;
 }
 
-double PID::update(double e) {
-    double delta = q0 * e + q1 * e_prev1 + q2 * e_prev2;
-    double u = u_prev + delta;
+double PID::update(double e)
+{
+    const double u =
+        u_prev +
+        q0 * e +
+        q1 * e_prev1 +
+        q2 * e_prev2;
 
     e_prev2 = e_prev1;
     e_prev1 = e;

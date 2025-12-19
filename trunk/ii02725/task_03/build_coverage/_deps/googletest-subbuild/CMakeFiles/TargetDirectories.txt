@@ -1,3 +1,0 @@
-D:/papka_for_git/OTIS-2025/trunk/ii02725/task_03/build_coverage/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
-D:/papka_for_git/OTIS-2025/trunk/ii02725/task_03/build_coverage/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
-D:/papka_for_git/OTIS-2025/trunk/ii02725/task_03/build_coverage/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir

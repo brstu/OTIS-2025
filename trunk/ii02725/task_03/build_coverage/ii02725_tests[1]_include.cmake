@@ -1,5 +1,0 @@
-if(EXISTS "D:/papka_for_git/OTIS-2025/trunk/ii02725/task_03/build_coverage/ii02725_tests[1]_tests.cmake")
-  include("D:/papka_for_git/OTIS-2025/trunk/ii02725/task_03/build_coverage/ii02725_tests[1]_tests.cmake")
-else()
-  add_test(ii02725_tests_NOT_BUILT ii02725_tests_NOT_BUILT)
-endif()

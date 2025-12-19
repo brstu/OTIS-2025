@@ -1,13 +1,8 @@
-/**
- * @file plant.cpp
- * @brief Реализация моделей объекта управления.
- */
-
 #include "plant.h"
 #include <cmath>
 
-LinearPlant::LinearPlant(double a_, double b_, double c_, double y0)
-    : a(a_), b(b_), c(c_), yk(y0)
+LinearPlant::LinearPlant(double aa, double bb, double cc, double y0)
+    : a(aa), b(bb), c(cc), yk(y0)
 {
 }
 
@@ -20,14 +15,14 @@ void LinearPlant::reset() {
     yk = 0.0;
 }
 
-NonlinearPlant::NonlinearPlant(double a_, double b_, double c_, double alpha_, double y0)
-    : a(a_), b(b_), c(c_), alpha(alpha_), yk(y0)
+NonlinearPlant::NonlinearPlant(double aa, double bb, double cc, double al, double y0)
+    : a(aa), b(bb), c(cc), alpha(al), yk(y0)
 {
 }
 
 double NonlinearPlant::step(double u) {
-    double u_eff = u / (1.0 + alpha * std::fabs(u));
-    yk = a * yk + b * u_eff + c;
+    const double limited = u / (1.0 + alpha * std::fabs(u));
+    yk = a * yk + b * limited + c;
     return yk;
 }
 
