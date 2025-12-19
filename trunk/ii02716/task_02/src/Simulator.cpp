@@ -1,28 +1,28 @@
 #include "Simulater.h"
 
 struct SystemConstants {
-    const float a = 0.5f;
-    const float b = 0.2f;
-    const float c = 0.15f;
-    const float d = 0.3f;
-    const float u = 1.2f;
+    const double a = 0.5f;
+    const double b = 0.2f;
+    const double c = 0.15f;
+    const double d = 0.3f;
+    const double u = 1.2f;
 };
 
-void printResult(int iteration, float value) { 
+void printResult(int iteration, double value) { 
     std::cout << " t" << iteration + 1 << " = " << value << std::endl;
 }
 
 
-void simulateSystem(float initialY1, int iterations) {
+void simulateSystem(double initialY1, int iterations) {
     SystemConstants constants;
 
     LinearSystem linearSys(constants.a, constants.b, constants.u);
     NonlinearSystem nonlinearSys(constants.a, constants.b,
         constants.c, constants.d, constants.u);
 
-    float y0 = initialY1;
-    float y1 = initialY1;
-    float y2;
+    double y0 = initialY1;
+    double y1 = initialY1;
+    double y2;
 
     std::cout << "\nLinear system simulation:" << std::endl;
     for (int i = 0; i < iterations; i++) {
