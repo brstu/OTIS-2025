@@ -3,8 +3,9 @@ project(ii02725_task03 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-# ОСНОВНАЯ ПРОГРАММА
+# ОСНОВНАЯ ПРОГРАММА 
 add_library(ii02725_core
     src/pid.cpp
     src/plant.cpp
@@ -44,7 +45,7 @@ target_link_libraries(ii02725_tests PRIVATE
     gtest_main
 )
 
-#COVERAGE ФЛАГИ 
+# COVERAGE ФЛАГИ 
 if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     # Для библиотеки core
     target_compile_options(ii02725_core PRIVATE 
