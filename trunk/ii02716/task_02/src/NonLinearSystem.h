@@ -4,7 +4,11 @@
 
 class NonlinearSystem {
 private:
-    float a, b, c, d, u;
+    float a;
+    float b; 
+    float c;
+    float d;
+    float u;
 
 public:
     NonlinearSystem(float a_val, float b_val, float c_val,
