@@ -22,10 +22,11 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
+# ДОБАВЬ lin_model.cpp сюда тоже!
 add_executable(
     ${CMAKE_PROJECT_NAME}
     test_model.cpp
-    # УДАЛЕНО: ../src/system_tests.cpp
+    ../src/lin_model.cpp  # ДОБАВЛЕНО!
 )
 
 # ДОБАВИТЬ ЭТУ СЕКЦИЮ - include директории
