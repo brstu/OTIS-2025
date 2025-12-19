@@ -4,19 +4,19 @@
 
 class NonlinearSystem {
 private:
-    float a;
-    float b; 
-    float c;
-    float d;
-    float u;
+    double a;
+    double b; 
+    double c;
+    double d;
+    double u;
 
 public:
-    NonlinearSystem(float a_val, float b_val, float c_val,
-        float d_val, float u_val)
+    NonlinearSystem(double a_val, double b_val, double c_val,
+        double d_val, double u_val)
         : a(a_val), b(b_val), c(c_val), d(d_val), u(u_val) {
     }
 
-    double calculateNext(float y1, float y0) const;
+    double calculateNext(double y1, double y0) const;
 };
 
 
