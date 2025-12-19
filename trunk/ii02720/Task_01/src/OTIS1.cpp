@@ -1,61 +1,46 @@
 #include <iostream>
 #include <cmath>
-#include <array>
+#include <vector>
 
-using namespace std;
-
-class TemperatureModel {
-private:
-    double a;
-    double b;
-    double c; 
-    double d;
-    double y_prev;
-    double y_prev2;
-    double u_prev{0};
+class TempSimulator {
+    double coefA, coefB, coefC, coefD;
+    double prevY, prevPrevY, prevU;
 
 public:
-    TemperatureModel(double a_val, double b_val, double c_val, double d_val, double Y0) 
-        : a(a_val), b(b_val), c(c_val), d(d_val), y_prev(Y0), y_prev2(Y0)
-{
-}
+    TempSimulator(double a, double b, double c, double d, double startTemp)
+        : coefA(a), coefB(b), coefC(c), coefD(d), 
+          prevY(startTemp), prevPrevY(startTemp), prevU(0) {}
 
-    double linear_step(double u) {
-        double y = a * y_prev + b * u;
-        y_prev = y;
-        return y;
+    double computeLinear(double u) {
+        prevY = coefA * prevY + coefB * u;
+        return prevY;
     }
 
-    double nonlinear_step(double u) {
-        double y = a * y_prev - b * y_prev2 * y_prev2 + c * u + d * sin(u_prev);
-        y_prev2 = y_prev;
-        y_prev = y;
-        u_prev = u;
-        return y;
+    double computeNonLinear(double u) {
+        double result = coefA * prevY - coefB * prevPrevY * prevPrevY 
+                      + coefC * u + coefD * std::sin(prevU);
+        prevPrevY = prevY;
+        prevY = result;
+        prevU = u;
+        return result;
     }
 };
 
 int main() {
-    double a = 0.8;
-    double b_linear = 0.3;
-    double b_nonlinear = 0.01;
-    double c = 0.4;
-    double d = 0.1;
-    double Y0 = 20.0;
+    const double A = 0.8, B_LIN = 0.3, B_NLIN = 0.01;
+    const double C = 0.4, D = 0.1, START_TEMP = 20.0;
     
-    std::array<double, 10> u = {2.0, 3.0, 4.0, 5.0, 4.0, 3.0, 2.0, 1.0, 0.5, 0.0};
-    int n = 10;
+    std::vector<double> inputs = {2.0, 3.0, 4.0, 5.0, 4.0, 3.0, 2.0, 1.0, 0.5, 0.0};
     
-    TemperatureModel linear_model(a, b_linear, 0, 0, Y0);
-    TemperatureModel nonlinear_model(a, b_nonlinear, c, d, Y0);
+    TempSimulator linSim(A, B_LIN, 0, 0, START_TEMP);
+    TempSimulator nlinSim(A, B_NLIN, C, D, START_TEMP);
     
-    cout << "Time\tLinear\tNonlinear" << endl;
+    std::cout << "Step\tLinear\tNonLinear\n";
     
-    for (int tau = 0; tau < n; tau++) {
-        double y_linear = linear_model.linear_step(u[tau]);
-        double y_nonlinear = nonlinear_model.nonlinear_step(u[tau]);
-        
-        cout << tau << "\t" << y_linear << "\t" << y_nonlinear << endl;
+    for (size_t i = 0; i < inputs.size(); ++i) {
+        double lin = linSim.computeLinear(inputs[i]);
+        double nlin = nlinSim.computeNonLinear(inputs[i]);
+        std::cout << i << "\t" << lin << "\t" << nlin << "\n";
     }
     
     return 0;

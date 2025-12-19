@@ -36,6 +36,7 @@ src/
 ├── regulator/       - ПИД-регулятор
 ├── adaptivecontroller.hpp
 └── main.cpp
+
 test/
 └── test.cpp         - юнит-тесты
 ```
