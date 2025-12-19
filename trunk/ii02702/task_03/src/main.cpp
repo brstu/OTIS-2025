@@ -22,15 +22,15 @@ int main() {
     std::cout << "Initial temperature: " << initial_temperature << " °C" << std::endl;
     std::cout << "Simulation time: " << simulation_time << " steps" << std::endl;
  
-    PIDController linear_pid(0.8, 0.05, 0.1,    // Kp, Ki, Kd
+    PIDController linear_pid({0.8, 0.05, 0.1,    // Kp, Ki, Kd
                             -10.0, 10.0,        // ограничения выхода
                             -20.0, 20.0,        // ограничения интеграла
-                            1.0);               // шаг времени
+                            1.0});               // шаг времени
     
-    PIDController nonlinear_pid(1.0, 0.03, 0.15,
+    PIDController nonlinear_pid({1.0, 0.03, 0.15,
                                -10.0, 10.0,
                                -20.0, 20.0,
-                               1.0);
+                               1.0});
     
     std::cout << "\n1. Linear system without PID controller..." << std::endl;
     simulateLinearSystemWithoutPID("temperature_linear_without_pid.csv",

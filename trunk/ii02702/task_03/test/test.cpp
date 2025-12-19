@@ -7,7 +7,7 @@
 #include "../src/pid.hpp"
 
 TEST(PIDControllerTest, SystemStabilization) {
-    PIDController pid(2.0, 0.5, 0.1, -10.0, 10.0);
+    PIDController pid({2.0, 0.5, 0.1, -10.0, 10.0});
     
     double y = 0.0;
     const double setpoint = 2.0;
@@ -25,7 +25,7 @@ TEST(PIDControllerTest, SystemStabilization) {
 }
 
 TEST(PIDControllerTest, DisturbanceRejection) {
-    PIDController pid(2.0, 0.3, 0.2, -10.0, 10.0);
+    PIDController pid({2.0, 0.3, 0.2, -10.0, 10.0});
     
     double y = 2.0;
     const double setpoint = 2.0;

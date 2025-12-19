@@ -1,32 +1,27 @@
 #include "pid.hpp"
 #include <algorithm>
 
-PIDController::PIDController(double kp, double ki, double kd, 
-                             double min_out, double max_out,
-                             double min_int, double max_int,
-                             double step_time) 
-    : Kp(kp), Ki(ki), Kd(kd),
-      min_output(min_out), max_output(max_out),
-      min_integral(min_int), max_integral(max_int),
-      dt(step_time) {
+PIDController::PIDController(PIDParameters param) 
+{
+    params = param;
     reset();
 }
 
 double PIDController::calculate(double setpoint, double measured_value) {
     double error = setpoint - measured_value;
-    double P = Kp * error;
+    double P = params.Kp * error;
     
-    integral += error * dt;
-    integral = std::clamp(integral, min_integral, max_integral);
-    double I = Ki * integral;
+    integral += error * params.dt;
+    integral = std::clamp(integral, params.min_integral, params.max_integral);
+    double I = params.Ki * integral;
     
-    double derivative = (error - prev_error) / dt;
-    double D = Kd * derivative;
+    double derivative = (error - prev_error) / params.dt;
+    double D = params.Kd * derivative;
 
     prev_error = error;
     double output = P + I + D;
 
-    return std::clamp(output, min_output, max_output);
+    return std::clamp(output, params.min_output, params.max_output);
 }
 
 void PIDController::reset() {
@@ -35,17 +30,17 @@ void PIDController::reset() {
 }
 
 void PIDController::setParameters(double kp, double ki, double kd) {
-    Kp = kp;
-    Ki = ki;
-    Kd = kd;
+    params.Kp = kp;
+    params.Ki = ki;
+    params.Kd = kd;
 }
 
 void PIDController::setOutputLimits(double min, double max) {
-    min_output = min;
-    max_output = max;
+    params.min_output = min;
+    params.max_output = max;
 }
 
 void PIDController::setIntegralLimits(double min, double max) {
-    min_integral = min;
-    max_integral = max;
+    params.min_integral = min;
+    params.max_integral = max;
 }

@@ -1,25 +1,25 @@
 #pragma once
 
+struct PIDParameters {
+    double Kp = 1.0;           ///< Пропорциональный коэффициент
+    double Ki = 0.0;           ///< Интегральный коэффициент
+    double Kd = 0.0;           ///< Дифференциальный коэффициент
+    double min_output = -1.0;  ///< Минимальное значение выходного сигнала
+    double max_output = 1.0;   ///< Максимальное значение выходного сигнала
+    double min_integral = -10.0; ///< Минимальное значение интегральной суммы
+    double max_integral = 10.0;  ///< Максимальное значение интегральной суммы
+    double dt = 1.0;           ///< Время дискретизации (шаг регулирования)
+};
+
 /**
  * @class PIDController
  * @brief Класс ПИД-регулятора с ограничением интегральной составляющей
  */
 class PIDController {
 private:
-    double Kp;          ///< Пропорциональный коэффициент
-    double Ki;          ///< Интегральный коэффициент
-    double Kd;          ///< Дифференциальный коэффициент
-    
+    PIDParameters params;
     double integral;    ///< Интегральная сумма ошибки
     double prev_error;  ///< Предыдущее значение ошибки для дифференцирования
-    
-    double min_output;  ///< Минимальное значение выходного сигнала
-    double max_output;  ///< Максимальное значение выходного сигнала
-    
-    double min_integral; ///< Минимальное значение интегральной суммы
-    double max_integral; ///< Максимальное значение интегральной суммы
-    
-    double dt;          ///< Время дискретизации (шаг регулирования)
 
 public:
     /**
@@ -33,10 +33,7 @@ public:
      * @param max_int Максимальное значение интегральной суммы (по умолчанию 10.0)
      * @param step_time Время дискретизации (по умолчанию 1.0)
      */
-    PIDController(double kp, double ki, double kd, 
-                  double min_out = -1.0, double max_out = 1.0,
-                  double min_int = -10.0, double max_int = 10.0,
-                  double step_time = 1.0);
+    PIDController(PIDParameters param);
     
     /**
      * @brief Вычисление управляющего воздействия
