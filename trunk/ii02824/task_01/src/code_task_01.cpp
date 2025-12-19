@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <format>
 #include <iomanip>
 
 struct ModelParameters {
@@ -33,9 +34,7 @@ void simulateModel(int steps, double u, const ModelParameters& params, double in
         y_linear = computeLinear(y_linear, u, params.a1, params.b);
         y_nonlinear = computeNonLinear(y_nonlinear, prev_y_nonlinear, u, params);
 
-        std::format << "Step " << std::setw(2) << step << ": ";
-        std::format << "Linear = " << std::setw(10) << std::fixed << std::setprecision(4) << y_linear;
-        std::cout << " | Non-linear = " << std::setw(10) << y_nonlinear << std::endl;
+        std::cout << std::format("Step {:2}: Linear = {:10.4f} | Non-linear = {:10.4f}", step, y_linear, y_nonlinear) << std::endl;
     }
 }
 
