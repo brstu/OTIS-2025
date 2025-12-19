@@ -3,16 +3,16 @@
 
 class LinearSystem {
 private:
-    float a;
-    float b;
-    float u;
+    double a;
+    double b;
+    double u;
 
 public:
-    LinearSystem(float a_val, float b_val, float u_val)
+    LinearSystem(double a_val, double b_val, double u_val)
         : a(a_val), b(b_val), u(u_val) {
     }
 
-    double calculateNext(float y1) const;
+    double calculateNext(double y1) const;
 };
 
 #endif 
