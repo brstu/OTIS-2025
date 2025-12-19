@@ -12,7 +12,7 @@ public:
         : a(a_val), b(b_val), u(u_val) {
     }
 
-    float calculateNext(float y1) const;
+    double calculateNext(float y1) const;
 };
 
 #endif 
