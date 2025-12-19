@@ -70,7 +70,7 @@ int main()
     
     std::cout << "\n2. System with PID regulator:" << std::endl;
     std::vector<double> pidResults = simulatePidRegulatorForNonlinear(
-        nonlinearCoeff, y0, n, setpoint, Kp, Ki, Kd);
+        nonlinearCoeff, y0, n, setpoint, PidParams{ Kp, Ki, Kd });
     
     if (saveToCSV("temperature_with_pid.csv", timeSteps, pidResults, setpoint)) {
         std::cout << "   Results saved to temperature_with_pid.csv\n";
@@ -105,8 +105,7 @@ int main()
     double improvement = ((avgErrorWithoutPID - avgErrorWithPID) / avgErrorWithoutPID) * 100;
     std::cout << "   Improvement: " << std::fixed << std::setprecision(1) << improvement << "%\n";
     
-    std::ofstream summary("simulation_summary.txt");
-    if (summary.is_open()) {
+    if (std::ofstream summary("simulation_summary.txt"); summary.is_open()) {
         summary << "=== Simulation Summary ===\n";
         summary << "Initial temperature: " << y0 << "\n";
         summary << "Desired temperature: " << setpoint << "\n";

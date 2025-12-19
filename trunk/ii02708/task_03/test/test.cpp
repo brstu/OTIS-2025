@@ -49,7 +49,7 @@ TEST(TestPid, WhenCustomPidCoefficients)
     double dt = 1.0;
     
     std::vector<double> results = simulatePidRegulatorForNonlinear(
-        coeff, y0, n, setpoint, Kp, Ki, Kd, dt);
+        coeff, y0, n, setpoint, PidParams{ Kp, Ki, Kd, dt });
     std::vector<double> expected = {
         1.0,
         0.81496360328395412,

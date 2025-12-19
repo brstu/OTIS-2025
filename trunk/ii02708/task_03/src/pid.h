@@ -1,6 +1,13 @@
 #pragma once
 #include "nonlinear.h"
 
+struct PidParams {
+    double Kp = 1.0;
+    double Ki = 0.1;
+    double Kd = 0.01;
+    double dt = 1.0;
+};
+
 /**
  * @brief Моделирование ПИД-регулятора для нелинейной системы
  * 
@@ -47,10 +54,7 @@ std::vector<double> simulatePidRegulatorForNonlinear(
     double y0, 
     int n, 
     double setpoint,
-    double Kp = 1.0,
-    double Ki = 0.1,
-    double Kd = 0.01,
-    double dt = 1.0)
+    const PidParams &params = PidParams())
 {
     std::vector<double> results;
     std::vector<double> controlSignals;
@@ -61,18 +65,20 @@ std::vector<double> simulatePidRegulatorForNonlinear(
     
     double integral = 0.0;
     double prev_error = 0.0;
-    double u_pid = coeff.u;
+    double u_pid;
     
     for (int i = 0; i < n; i++)
     {
         double error = setpoint - y_current;
-        double P = Kp * error;
-        integral += error * dt;
-        double I = Ki * integral;
-        double derivative = (error - prev_error) / dt;
-        double D = Kd * derivative;
+        double P = params.Kp * error;
+        integral += error * params.dt;
+        double I = params.Ki * integral;
+        double derivative = (error - prev_error) / params.dt;
+        double D = params.Kd * derivative;
+        
         u_pid = P + I + D;
         prev_error = error;
+        
         double y_next = coeff.a * y_current - coeff.b * y_prev * y_prev 
                       + coeff.c * u_pid + coeff.d * sin(u_pid);
         
