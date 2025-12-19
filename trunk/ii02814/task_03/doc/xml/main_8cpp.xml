@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="main_8cpp" kind="file" language="C++">
+    <compoundname>main.cpp</compoundname>
+    <includes local="no">iostream</includes>
+    <includes local="no">iomanip</includes>
+    <includes local="no">array</includes>
+    <includes refid="module_8h" local="yes">module.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/main.cpp</label>
+        <link refid="main_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>module.h</label>
+        <link refid="module_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>array</label>
+      </node>
+      <node id="3">
+        <label>iomanip</label>
+      </node>
+      <node id="2">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+<para>Основная функция программы </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Код завершения программы</para>
+</simplesect>
+Функция выполняет моделирование системы управления с ПИД-регулятором. Последовательность работы:<itemizedlist>
+<listitem><para>Ввод параметров модели и регулятора</para>
+</listitem><listitem><para>Инициализация переменных состояния</para>
+</listitem><listitem><para>Расчет коэффициентов ПИД-регулятора</para>
+</listitem><listitem><para>Цикл моделирования на 50 шагов</para>
+</listitem><listitem><para>Вывод промежуточных результатов</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>Используется нелинейная модель объекта: y(k) = a*y(k-1) - b*y(k-2)^2 + c*u(k-1) + d*sin(u(k-2)) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Параметры нелинейной модели объекта a, b, c, d</para>
+<para>Начальные значения температуры y[0] и y[1]</para>
+<para>Параметры ПИД-регулятора: K - коэффициент усиления, T - постоянная времени, Td - постоянная времени дифференцирования</para>
+<para>Заданное значение температуры (уставка)</para>
+<para>Массив температур: y[0], y[1], y[2] - история температур (y(k), y(k-1), y(k-2))</para>
+<para>Массив управлений: u[0], u[1] - история управляющих воздействий (u(k), u(k-1))</para>
+<para>Предыдущее управляющее воздействие u(k-1)</para>
+<para>Предыдущая ошибка регулирования e(k-1)</para>
+<para>Предпредыдущая ошибка регулирования e(k-2)</para>
+<para>Шаг квантования (время дискретизации)</para>
+<para>Коэффициенты ПИД-регулятора в дискретной форме</para>
+<para>Основной цикл моделирования системы управления на 50 шагов</para>
+<para>Текущая ошибка регулирования e(k) = setpoint - y(k-1)</para>
+<para>Управляющее воздействие u(k) = u(k-1) + q0*e(k) + q1*e(k-1) + q2*e(k-2)</para>
+<para>Новая температура по нелинейной модели y(k) = a*y(k-1) - b*y(k-2)^2 + c*u(k-1) + d*sin(u(k-2))</para>
+<para>Вывод результатов каждые 10 шагов для мониторинга</para>
+<para>Обновление истории температур, управлений и ошибок для следующего шага</para>
+        </inbodydescription>
+        <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/main.cpp" line="40" column="5" bodyfile="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/main.cpp" bodystart="40" bodyend="135"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Главный файл программы с ПИД-регулятором для управления температурой </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Козловский Е.Ю. ИИ-28 </para>
+</simplesect>
+<simplesect kind="date"><para>2025 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iomanip&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;array&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="module_8h" kindref="compound">module.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kindref="member">main</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>===<sp/>1.<sp/>Ввод<sp/>параметров<sp/>модели<sp/>объекта<sp/>(из<sp/>1<sp/>лабы)<sp/>===</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>c;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>d;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Parameters<sp/>for<sp/>modeling<sp/>a,b,c,d:<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cin<sp/>&gt;&gt;<sp/>a<sp/>&gt;&gt;<sp/>b<sp/>&gt;&gt;<sp/>c<sp/>&gt;&gt;<sp/>d;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>===<sp/>2.<sp/>Ввод<sp/>начальных<sp/>условий<sp/>===</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y0;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y1;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Nachalnie<sp/>uslovia<sp/>y[0],<sp/>y[1]:<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cin<sp/>&gt;&gt;<sp/>y0<sp/>&gt;&gt;<sp/>y1;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>===<sp/>3.<sp/>Ввод<sp/>параметров<sp/>ПИД-регулятора<sp/>===</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>K;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>T;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Td;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Parameters<sp/>PID<sp/>K,T,Td:<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cin<sp/>&gt;&gt;<sp/>K<sp/>&gt;&gt;<sp/>T<sp/>&gt;&gt;<sp/>Td;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>===<sp/>4.<sp/>Ввод<sp/>желаемой<sp/>температуры<sp/>===</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>setpoint;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Zelaemaya<sp/>temperatura:<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cin<sp/>&gt;&gt;<sp/>setpoint;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>===<sp/>5.<sp/>Инициализация<sp/>переменных<sp/>===</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>std::array&lt;double,<sp/>3&gt;<sp/>y<sp/>=<sp/>{<sp/>y0,<sp/>y1<sp/>};</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>std::array&lt;double,<sp/>2&gt;<sp/>u<sp/>=<sp/>{<sp/>0,<sp/>0<sp/>};</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_prev<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e_prev<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e_prev2<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>T0<sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>===<sp/>6.<sp/>Вычисление<sp/>коэффициентов<sp/>ПИД<sp/>===</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q0;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q1;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q2;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="module_8h_1a827655d27cff6904006c0d8776e48235" kindref="member">calculatePidCoefficients</ref>(K,<sp/>T,<sp/>Td,<sp/>T0,<sp/>q0,<sp/>q1,<sp/>q2);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Koeficienti<sp/>PID:<sp/>q0=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>q0<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>q1=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>q1<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>q2=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>q2<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>===<sp/>7.<sp/>Основной<sp/>цикл<sp/>моделирования<sp/>===</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\nStart<sp/>modeling...\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k<sp/>=<sp/>1;<sp/>k<sp/>&lt;=<sp/>500;<sp/>k++)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Расчет<sp/>ошибки</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e_k<sp/>=<sp/><ref refid="module_8h_1a2f38e8c4bcbfe94e4a9b5a4314e12554" kindref="member">calculateError</ref>(setpoint,<sp/>y[1]);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Расчет<sp/>управления</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_control_params" kindref="compound">ControlParams</ref><sp/>controlParams<sp/>=<sp/>{q0,<sp/>q1,<sp/>q2,<sp/>e_k,<sp/>e_prev,<sp/>e_prev2,<sp/>u_prev};</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u[1]<sp/>=<sp/><ref refid="module_8h_1a25dd5396e96a7e20add9f351b762cbc4" kindref="member">calculateControl</ref>(controlParams);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Расчет<sp/>новой<sp/>температуры</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_model_params" kindref="compound">ModelParams</ref><sp/>modelParams<sp/>=<sp/>{a,<sp/>b,<sp/>c,<sp/>d,<sp/>y[1],<sp/>y[0],<sp/>u[1],<sp/>u[0]};</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y[2]<sp/>=<sp/><ref refid="module_8h_1a460df141e98805c675c3147587b703fe" kindref="member">calculateNonlinearModel</ref>(modelParams);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Вывод<sp/>в<sp/>консоль</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(k<sp/>%<sp/>10<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Shag<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>k<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;:<sp/>Temperatura<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::fixed<sp/>&lt;&lt;<sp/>std::setprecision(4)<sp/>&lt;&lt;<sp/>y[1]</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>Upravlenie<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>u[1]</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>Oshibka<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>e_k<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Обновление<sp/>переменных<sp/>состояния</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_state_variables" kindref="compound">StateVariables</ref><sp/>state<sp/>=<sp/>{y,<sp/>u,<sp/>e_prev,<sp/>e_prev2,<sp/>u_prev,<sp/>e_k};</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="module_8h_1a36a910d9807c25459dbcbf3db68b721f" kindref="member">updateStateVariables</ref>(state);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y<sp/>=<sp/>state.<ref refid="struct_state_variables_1a663e3c0dbf10c0d03357964f0cb675f5" kindref="member">y</ref>;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u<sp/>=<sp/>state.<ref refid="struct_state_variables_1ac0832248c84e960044c6d709989aba80" kindref="member">u</ref>;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e_prev<sp/>=<sp/>state.<ref refid="struct_state_variables_1af384483bb5082664e4ae45f107f9222b" kindref="member">e_prev</ref>;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e_prev2<sp/>=<sp/>state.<ref refid="struct_state_variables_1a8341fbe643102035e40a9983844c92b2" kindref="member">e_prev2</ref>;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_prev<sp/>=<sp/>state.<ref refid="struct_state_variables_1addac2b42780200821287135d316edbda" kindref="member">u_prev</ref>;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\nModelirovanie<sp/>zaversheno!&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/main.cpp"/>
+  </compounddef>
+</doxygen>
