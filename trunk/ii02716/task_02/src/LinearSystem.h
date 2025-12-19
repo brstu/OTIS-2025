@@ -3,7 +3,9 @@
 
 class LinearSystem {
 private:
-    float a, b, u;
+    float a;
+    float b;
+    float u;
 
 public:
     LinearSystem(float a_val, float b_val, float u_val)
