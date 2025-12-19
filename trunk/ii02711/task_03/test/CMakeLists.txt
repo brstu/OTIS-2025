@@ -18,7 +18,7 @@ enable_testing()
 add_executable(
   ii02711_test3
   test.cpp
-  ../src/PID.cpp
+  ../src/Model.cpp
 )
 
 target_link_libraries(
