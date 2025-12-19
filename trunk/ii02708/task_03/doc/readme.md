@@ -180,7 +180,7 @@ int main()
     
     std::cout << "\n2. System with PID regulator:" << std::endl;
     std::vector<double> pidResults = simulatePidRegulatorForNonlinear(
-        nonlinearCoeff, y0, n, setpoint, Kp, Ki, Kd);
+        nonlinearCoeff, y0, n, setpoint, PidParams{ Kp, Ki, Kd });
     
     if (saveToCSV("temperature_with_pid.csv", timeSteps, pidResults, setpoint)) {
         std::cout << "   Results saved to temperature_with_pid.csv\n";
@@ -215,8 +215,7 @@ int main()
     double improvement = ((avgErrorWithoutPID - avgErrorWithPID) / avgErrorWithoutPID) * 100;
     std::cout << "   Improvement: " << std::fixed << std::setprecision(1) << improvement << "%\n";
     
-    std::ofstream summary("simulation_summary.txt");
-    if (summary.is_open()) {
+    if (std::ofstream summary("simulation_summary.txt"); summary.is_open()) {
         summary << "=== Simulation Summary ===\n";
         summary << "Initial temperature: " << y0 << "\n";
         summary << "Desired temperature: " << setpoint << "\n";
@@ -322,7 +321,7 @@ TEST(TestPid, WhenCustomPidCoefficients)
     double dt = 1.0;
     
     std::vector<double> results = simulatePidRegulatorForNonlinear(
-        coeff, y0, n, setpoint, Kp, Ki, Kd, dt);
+        coeff, y0, n, setpoint, PidParams{ Kp, Ki, Kd, dt });
     std::vector<double> expected = {
         1.0,
         0.81496360328395412,
@@ -342,7 +341,7 @@ TEST(TestPid, WhenCustomPidCoefficients)
 ![tests](images/tests.png)
 
 ## Графики
-[graph](images/graph.png)
+![graph](images/graph.png)
 
 ## Документация
 [https://kriskess.github.io/OTIS-2025/](https://kriskess.github.io/OTIS-2025/)
