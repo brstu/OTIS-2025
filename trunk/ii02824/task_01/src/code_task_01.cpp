@@ -4,7 +4,10 @@
 #include <iomanip>
 
 struct ModelParameters {
-    double a1, b, c, d;
+    double a1;
+    double b;
+    double c;
+    double d;
 };
 
 double computeLinear(double y1, double u1, double a1, double b1) {
@@ -30,14 +33,16 @@ void simulateModel(int steps, double u, const ModelParameters& params, double in
         y_linear = computeLinear(y_linear, u, params.a1, params.b);
         y_nonlinear = computeNonLinear(y_nonlinear, prev_y_nonlinear, u, params);
 
-        std::cout << "Step " << std::setw(2) << step << ": ";
-        std::cout << "Linear = " << std::setw(10) << std::fixed << std::setprecision(4) << y_linear;
+        std::format << "Step " << std::setw(2) << step << ": ";
+        std::format << "Linear = " << std::setw(10) << std::fixed << std::setprecision(4) << y_linear;
         std::cout << " | Non-linear = " << std::setw(10) << y_nonlinear << std::endl;
     }
 }
 
 int main() {
-    double y_current, y_previous, u_input;
+    double y_current;
+    double y_previous;
+    double u_input;
     std::cout << "Enter initial conditions (Y_{n-1}, Y_n, U): ";
     std::cin >> y_previous >> y_current >> u_input;
 
