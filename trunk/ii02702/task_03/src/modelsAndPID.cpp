@@ -79,17 +79,17 @@ void simulateLinearSystemWithoutPID(const std::string& filename,
                                     double a, double b) {
     std::vector<int> time_points;
     std::vector<double> temperature_values;
-    
+
     double y = initial_y;
-    
+
     for (int t = 0; t <= simulation_time; t++) {
         time_points.push_back(t);
         temperature_values.push_back(y);
-        
+
         // Обновление состояния системы
         y = a * y + b * constant_u;
     }
-    
+
     // Сохранение данных
     saveToCSV(filename, time_points, temperature_values, {}, 0.0);
 }
@@ -103,9 +103,9 @@ void simulateLinearSystemWithPID(const std::string& filename,
     std::vector<int> time_points;
     std::vector<double> temperature_values;
     std::vector<double> control_signals;
-    
+
     double y = initial_y;
-    
+
     for (int t = 0; t <= simulation_time; t++) {
         time_points.push_back(t);
         temperature_values.push_back(y);
@@ -114,16 +114,12 @@ void simulateLinearSystemWithPID(const std::string& filename,
         control_signals.push_back(u);
         y = a * y + b * u;
     }
-    
+
     saveToCSV(filename, time_points, temperature_values, control_signals, setpoint);
 }
 
-void simulateNonLinearSystemWithoutPID(const std::string& filename,
-                                       double initial_y,
-                                       double initial_u,
-                                       int simulation_time,
-                                       double a, double b,
-                                       double c, double d) {
+void simulateNonLinearSystemWithoutPID(const SimulationConfig& config,
+                                       const NonlinearModelParams& params) {
     std::vector<int> time_points;
     std::vector<double> temperature_values;
     
@@ -131,11 +127,11 @@ void simulateNonLinearSystemWithoutPID(const std::string& filename,
     const double u_offset = 0.1;
     const double u_step = 0.5;
     
-    double y = initial_y;
-    double prevY = initial_y - y_offset;
-    double prevU = initial_u - u_offset;
+    double y = config.initial_y;
+    double prevY = config.initial_y - y_offset;
+    double prevU = config.initial_u - u_offset;
     
-    for (int t = 0; t <= simulation_time; t++) {
+    for (int t = 0; t <= config.simulation_time; t++) {
         time_points.push_back(t);
         temperature_values.push_back(y);
         
@@ -143,7 +139,8 @@ void simulateNonLinearSystemWithoutPID(const std::string& filename,
         double currentY = y;
         
         // Обновление состояния нелинейной системы
-        y = a * y - b * prevY * prevY + c * initial_u + d * sin(prevU);
+        y = params.a * y - params.b * prevY * prevY + 
+            params.c * config.initial_u + params.d * sin(prevU);
         
         // Обновление предыдущих значений
         prevU += u_step;
@@ -151,16 +148,11 @@ void simulateNonLinearSystemWithoutPID(const std::string& filename,
     }
     
     // Сохранение данных
-    saveToCSV(filename, time_points, temperature_values, {}, 0.0);
+    saveToCSV(config.filename, time_points, temperature_values, {}, 0.0);
 }
 
-void simulateNonLinearSystemWithPID(const std::string& filename,
-                                    double setpoint,
-                                    double initial_y,
-                                    double initial_u,
-                                    int simulation_time,
-                                    double a, double b,
-                                    double c, double d,
+void simulateNonLinearSystemWithPID(const SimulationConfig& config,
+                                    const NonlinearModelParams& params,
                                     PIDController& pid) {
     std::vector<int> time_points;
     std::vector<double> temperature_values;
@@ -169,16 +161,16 @@ void simulateNonLinearSystemWithPID(const std::string& filename,
     const double y_offset = 0.1;
     const double u_offset = 0.1;
     
-    double y = initial_y;
-    double prevY = initial_y - y_offset;
-    double prevU = initial_u - u_offset;
+    double y = config.initial_y;
+    double prevY = config.initial_y - y_offset;
+    double prevU = config.initial_u - u_offset;
     
-    for (int t = 0; t <= simulation_time; t++) {
+    for (int t = 0; t <= config.simulation_time; t++) {
         time_points.push_back(t);
         temperature_values.push_back(y);
         
         // Вычисление управляющего воздействия
-        double u = pid.calculate(setpoint, y);
+        double u = pid.calculate(config.setpoint, y);
         control_signals.push_back(u);
         
         // Сохранение текущих значений
@@ -186,7 +178,8 @@ void simulateNonLinearSystemWithPID(const std::string& filename,
         double currentU = u;
         
         // Обновление состояния нелинейной системы
-        y = a * y - b * prevY * prevY + c * u + d * sin(prevU);
+        y = params.a * y - params.b * prevY * prevY + 
+            params.c * u + params.d * sin(prevU);
         
         // Обновление предыдущих значений
         prevU = currentU;
@@ -194,5 +187,6 @@ void simulateNonLinearSystemWithPID(const std::string& filename,
     }
     
     // Сохранение данных
-    saveToCSV(filename, time_points, temperature_values, control_signals, setpoint);
+    saveToCSV(config.filename, time_points, temperature_values, 
+              control_signals, config.setpoint);
 }

@@ -3,6 +3,30 @@
 #include <string>
 #include "pid.hpp"
 
+
+/**
+ * @struct SimulationConfig
+ * @brief Конфигурация симуляции
+ */
+struct SimulationConfig {
+    std::string filename;     ///< Имя файла для сохранения результатов
+    double initial_y = 20.0;  ///< Начальное значение выхода
+    double initial_u = 0.0;   ///< Начальное управляющее воздействие
+    int simulation_time = 100;///< Время симуляции (шаги)
+    double setpoint = 25.0;   ///< Заданное значение (уставка)
+};
+
+/**
+ * @struct NonlinearModelParams
+ * @brief Параметры нелинейной модели
+ */
+struct NonlinearModelParams {
+    double a = 0.85;   ///< Линейный коэффициент при y
+    double b = 0.01;   ///< Коэффициент при квадрате предыдущего значения y
+    double c = 0.25;   ///< Коэффициент при входном воздействии u
+    double d = 0.05;   ///< Коэффициент при синусоидальном члене
+};
+
 /**
  * @brief Моделирование линейной системы первого порядка
  * @param y Начальное значение выходной переменной
@@ -75,40 +99,18 @@ void simulateLinearSystemWithPID(const std::string& filename,
 
 /**
  * @brief Моделирование нелинейной системы без ПИД-регулятора
- * @param filename Имя файла для сохранения результатов
- * @param initial_y Начальное состояние системы
- * @param initial_u Начальное входное воздействие
- * @param simulation_time Время симуляции
- * @param a Линейный коэффициент при y
- * @param b Коэффициент при квадрате предыдущего значения y
- * @param c Коэффициент при входном воздействии u
- * @param d Коэффициент при синусоидальном члене
+ * @param config Конфигурация симуляции
+ * @param params Параметры нелинейной модели
  */
-void simulateNonLinearSystemWithoutPID(const std::string& filename,
-                                       double initial_y,
-                                       double initial_u,
-                                       int simulation_time,
-                                       double a, double b,
-                                       double c, double d);
+void simulateNonLinearSystemWithoutPID(const SimulationConfig& config,
+                                       const NonlinearModelParams& params);
 
 /**
  * @brief Моделирование нелинейной системы с ПИД-регулятором
- * @param filename Имя файла для сохранения результатов
- * @param setpoint Заданное значение температуры
- * @param initial_y Начальное состояние системы
- * @param initial_u Начальное входное воздействие
- * @param simulation_time Время симуляции
- * @param a Линейный коэффициент при y
- * @param b Коэффициент при квадрате предыдущего значения y
- * @param c Коэффициент при входном воздействии u
- * @param d Коэффициент при синусоидальном члене
+ * @param config Конфигурация симуляции
+ * @param params Параметры нелинейной модели
  * @param pid ПИД-регулятор
  */
-void simulateNonLinearSystemWithPID(const std::string& filename,
-                                    double setpoint,
-                                    double initial_y,
-                                    double initial_u,
-                                    int simulation_time,
-                                    double a, double b,
-                                    double c, double d,
+void simulateNonLinearSystemWithPID(const SimulationConfig& config,
+                                    const NonlinearModelParams& params,
                                     PIDController& pid);

@@ -1,9 +1,9 @@
 #include "pid.hpp"
 #include <algorithm>
 
-PIDController::PIDController(PIDParameters param) 
+PIDController::PIDController(const PIDParameters &param) 
+    : params(param)
 {
-    params = param;
     reset();
 }
 

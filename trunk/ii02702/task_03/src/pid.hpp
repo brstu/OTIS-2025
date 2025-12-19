@@ -33,7 +33,7 @@ public:
      * @param max_int Максимальное значение интегральной суммы (по умолчанию 10.0)
      * @param step_time Время дискретизации (по умолчанию 1.0)
      */
-    PIDController(PIDParameters param);
+    explicit PIDController(const PIDParameters &param);
     
     /**
      * @brief Вычисление управляющего воздействия

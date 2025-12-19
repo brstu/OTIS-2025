@@ -3,8 +3,7 @@
 #include <memory>
 #include <vector>
 
-#include "../src/models.hpp"
-#include "../src/pid.hpp"
+#include "../src/modelsAndPID.hpp"
 
 TEST(PIDControllerTest, SystemStabilization) {
     PIDController pid({2.0, 0.5, 0.1, -10.0, 10.0});
