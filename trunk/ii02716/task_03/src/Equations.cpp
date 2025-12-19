@@ -34,7 +34,7 @@ void Equations::SetDelt_U(double val) {
 double Equations::Get_E(int place) const {
 	return e[place];
 }
-bool Equations::chek() {
+bool Equations::chek() const {
 	return w > y_prev;
 }
 void Equations::SetW(double w_val) {

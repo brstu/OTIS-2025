@@ -65,7 +65,7 @@ public:
 	* \brief Checking if temperature already have reached necessary temp
 	* return true if reached and false if not
 	*/
-	bool chek();
+	bool chek() const;
 	void SetW(double w);
 };
 
