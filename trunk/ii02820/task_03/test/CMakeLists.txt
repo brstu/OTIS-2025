@@ -25,15 +25,14 @@ enable_testing()
 add_executable(
     ${CMAKE_PROJECT_NAME}
     test_model.cpp
-  ../src/lin_model.cpp
-  #../src/pid_controller.cpp
+  ../src/system_tests.cpp
 )
 
 # ДОБАВИТЬ ЭТУ СЕКЦИЮ - include директории
 target_include_directories(
     ${CMAKE_PROJECT_NAME}
     PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src  # для lin_model.h и pid_controller.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src  
 )
 
 target_link_libraries(
