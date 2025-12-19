@@ -5,7 +5,7 @@
  * Автор: [Ваше полное имя]
  * Группа: [Ваша группа]
  * Дата: [Текущая дата]
- * Версия: 2.0 (уникальная реализация)
+ * Версия: 2.1 (исправлено по замечаниям SonarCloud)
  */
 
 #include <gtest/gtest.h>
@@ -13,6 +13,8 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <array>
+#include <sstream>
 
 
 // ===== УНИКАЛЬНАЯ РЕАЛИЗАЦИЯ КОНТРОЛЛЕРА ДЛЯ ТЕСТОВ =====
@@ -32,17 +34,17 @@ private:
     } coefficients;
     
     struct SystemState {
-        double last_issued_command; // Последняя выданная команда
-        double error_sequence[3];   // История ошибок [k, k-1, k-2]
-        double integral_accumulation; // Накопленная интегральная составляющая
-        bool controller_active;      // Флаг активности контроллера
+        double last_issued_command{0.0}; // Последняя выданная команда
+        std::array<double, 3> error_sequence{0.0, 0.0, 0.0}; // История ошибок [k, k-1, k-2]
+        double integral_accumulation{0.0}; // Накопленная интегральная составляющая
+        bool controller_active{true};      // Флаг активности контроллера
     } state;
     
     struct ProtectionMechanisms {
-        double lower_safety_bound;   // Нижняя граница безопасности
-        double upper_safety_bound;   // Верхняя граница безопасности
-        bool anti_windup_active;     // Активация защиты от насыщения
-        double emergency_threshold;  // Аварийный порог
+        double lower_safety_bound{-1e9};   // Нижняя граница безопасности
+        double upper_safety_bound{1e9};   // Верхняя граница безопасности
+        bool anti_windup_active{true};     // Активация защиты от насыщения
+        double emergency_threshold{1000.0}; // Аварийный порог
     } protection;
     
     // РАСЧЕТНЫЕ ПАРАМЕТРЫ
@@ -76,7 +78,7 @@ private:
         }
     }
     
-    double calculateSafeIntegral(double current_error) {
+    double calculateSafeIntegral(double current_error) const {
         if (!protection.anti_windup_active || 
             coefficients.integration_constant < 1e-12) {
             return 0.0;
@@ -86,10 +88,9 @@ private:
                              coefficients.integration_constant * current_error;
         
         // Проверка на возможное насыщение
-        double test_output = state.last_issued_command + new_integral + 
-                            state.integral_accumulation;
-        
-        if (test_output > protection.upper_safety_bound || 
+        if (double test_output = state.last_issued_command + new_integral + 
+                                 state.integral_accumulation;
+            test_output > protection.upper_safety_bound || 
             test_output < protection.lower_safety_bound) {
             return 0.0; // Не накапливать интеграл при насыщении
         }
@@ -101,25 +102,9 @@ public:
     /**
      * @brief Конструктор интеллектуального регулятора
      */
-    IntelligentRegulator(double gain = 1.0, double int_time = 1.0,
-                        double sample_time = 0.1, double deriv_time = 0.01) {
-        // Инициализация коэффициентов
-        coefficients.main_gain = gain;
-        coefficients.integration_constant = int_time;
-        coefficients.sampling_rate = sample_time;
-        coefficients.derivative_constant = deriv_time;
-        
-        // Инициализация состояния
-        state.last_issued_command = 0.0;
-        for (int i = 0; i < 3; ++i) state.error_sequence[i] = 0.0;
-        state.integral_accumulation = 0.0;
-        state.controller_active = true;
-        
-        // Инициализация защиты
-        protection.lower_safety_bound = -1e9;
-        protection.upper_safety_bound = 1e9;
-        protection.anti_windup_active = true;
-        protection.emergency_threshold = 1000.0;
+    explicit IntelligentRegulator(double gain = 1.0, double int_time = 1.0,
+                                  double sample_time = 0.1, double deriv_time = 0.01)
+        : coefficients{gain, int_time, deriv_time, sample_time} {
         
         // Первоначальный расчет
         recomputeInternalFactors();
@@ -231,7 +216,7 @@ double calculateRMSE(const std::vector<double>& errors) {
         sum_squares += err * err;
     }
     
-    return std::sqrt(sum_squares / errors.size());
+    return std::sqrt(sum_squares / static_cast<double>(errors.size()));
 }
 // ===== КОНЕЦ ВСПОМОГАТЕЛЬНЫХ ФУНКЦИЙ =====
 
@@ -383,8 +368,7 @@ TEST(IntelligentControllerValidation, MathematicalCorrectnessTest) {
     // Ручной расчет ожидаемых коэффициентов
     double expected_primary = K * (1.0 + Td / T0);
     double expected_secondary = -K * (1.0 + 2.0 * Td / T0 - T0 / T);
-    double expected_tertiary = K * Td / T0;
-    
+    // Переменная tertiary_factor используется внутри класса
     double error = 1.5;
     double command = controller.computeRegulationCommand(error);
     
@@ -400,7 +384,6 @@ TEST(SystemIntegrationValidation, PerformanceBenchmarkTest) {
     IntelligentRegulator controller(1.0, 2.0, 0.1, 0.2);
     
     const int NUM_ITERATIONS = 1000;
-    std::vector<double> execution_times;
     
     double output = 0.0;
     double target = 10.0;
@@ -422,7 +405,7 @@ int main(int argc, char** argv) {
     std::cout << "================================================" << std::endl;
     std::cout << "Control System Validation Test Suite" << std::endl;
     std::cout << "Developer: [Your Name Here]" << std::endl;
-    std::cout << "Version: 2.0 (Advanced Implementation)" << std::endl;
+    std::cout << "Version: 2.1 (Advanced Implementation - SonarCloud Fixed)" << std::endl;
     std::cout << "================================================" << std::endl;
     
     // Инициализация тестов
