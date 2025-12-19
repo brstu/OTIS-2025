@@ -5,7 +5,7 @@
  * Автор: [Ваше полное имя]
  * Группа: [Ваша группа]
  * Дата: [Текущая дата]
- * Версия: 4.0 (уникальная реализация)
+ * Версия: 4.1 (исправлена по замечаниям SonarCloud)
  */
 
 #include <iomanip>
@@ -15,6 +15,7 @@
 #include <vector>
 #include <algorithm>
 #include <cmath>
+#include <array>
 #include "lin_model.h"
 
 // ===== УНИКАЛЬНЫЙ КЛАСС КОНТРОЛЛЕРА ТЕМПЕРАТУРЫ =====
@@ -32,14 +33,14 @@ private:
     double sampling_time;           // Время дискретизации
     
     // Состояние системы
-    double previous_control_signal; // Предыдущее управляющее воздействие
-    double error_history[2];        // История ошибок [k-1, k-2]
-    double accumulated_integral;    // Накопленный интеграл
+    double previous_control_signal{0.0}; // Предыдущее управляющее воздействие
+    std::array<double, 2> error_history{0.0, 0.0}; // История ошибок [k-1, k-2]
+    double accumulated_integral{0.0};    // Накопленный интеграл
     
     // Настройки безопасности
-    double minimum_allowed_output;  // Минимально допустимый выход
-    double maximum_allowed_output;  // Максимально допустимый выход
-    bool anti_windup_enabled;       // Защита от насыщения
+    double minimum_allowed_output{-1e9};  // Минимально допустимый выход
+    double maximum_allowed_output{1e9};   // Максимально допустимый выход
+    bool anti_windup_enabled{true};       // Защита от насыщения
     
     // Внутренние коэффициенты
     double coeff_current;           // Коэффициент для текущей ошибки
@@ -75,14 +76,8 @@ public:
         : amplification_factor(gain),
           integration_period(integration_time),
           differentiation_window(derivative_time),
-          sampling_time(sampling_period),
-          previous_control_signal(0.0),
-          accumulated_integral(0.0),
-          minimum_allowed_output(-1e9),
-          maximum_allowed_output(1e9),
-          anti_windup_enabled(true) {
+          sampling_time(sampling_period) {
         
-        error_history[0] = error_history[1] = 0.0;
         recalculateCoefficients();
     }
     
@@ -299,7 +294,7 @@ int main() {
     }
 
     // Финальный отчет
-    double average_error = sum_error / simulation_steps;
+    double average_error = sum_error / static_cast<double>(simulation_steps);
     
     std::cout << "\n" << std::string(50, '=') << std::endl;
     std::cout << "МОДЕЛИРОВАНИЕ ЗАВЕРШЕНО" << std::endl;
