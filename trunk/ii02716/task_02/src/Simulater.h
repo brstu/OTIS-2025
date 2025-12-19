@@ -6,9 +6,9 @@
 
 struct SystemConstantsl;
 
-void printResult(int iteration, float value);
+void printResult(int iteration, double value);
 
-void simulateSystem(float initialY1, int iterations);
+void simulateSystem(double initialY1, int iterations);
 
 #endif 
 
