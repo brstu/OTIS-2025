@@ -9,8 +9,8 @@
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
-<p align="right">Группы ИИ-27</p>
-<p align="right">Дорошенко М.Д.</p>
+<p align="right">Группы ИИ-28</p>
+<p align="right">Ковалевич Е.А.</p>
 <p align="right">Проверил:</p>
 <p align="right">Иванюк Д.С.</p>
 <br><br><br><br><br>
@@ -45,123 +45,132 @@ Task is to write program (**С++**), which simulates this object temperature.
 #include <memory>
 #include <cmath>
 
-class ISimulatedModel
+
+class ModelSimulator 
 {
 public:
-    virtual void simulate(double y, const double u, int t) const = 0;
-    virtual ~ISimulatedModel() = default;
-
+    virtual void runSimulation(double initialOutput, const double input, int steps) const = 0;
+    virtual ~ModelSimulator() = default;
 };
-class LinearModel : public ISimulatedModel
+
+class LinearDynamicSystem : public ModelSimulator 
 {
 public:
-    LinearModel(const double a, const double b)
-        : m_a(a), m_b(b) 
+    LinearDynamicSystem(const double coefficientA, const double coefficientB)
+        : coeffA(coefficientA), coeffB(coefficientB) 
     {}
-    ~LinearModel() override = default;
+    
+    ~LinearDynamicSystem() override = default;
 
-    void simulate(double y, const double u, int t) const override
+    void runSimulation(double currentOutput, const double systemInput, int timeSteps) const override
     {   
-        for(int i = 0; i <= t; i++)
+        for(int step = 0; step <= timeSteps; step++)
         {
-            std::cout << i << ' ' << y << std::endl;
-            y = m_a * y + m_b * u;
+            std::cout << step << ' ' << currentOutput << std::endl;
+            currentOutput = coeffA * currentOutput + coeffB * systemInput;
         } 
     }
 
 private:
-    const double m_a;
-    const double m_b;
-
+    const double coeffA;
+    const double coeffB;
 };
-class NonLinearModel : public ISimulatedModel
+
+
+class NonlinearDynamicSystem : public ModelSimulator 
 {
 public:
-    NonLinearModel(const double a, const double b, const double c, const double d)
-            : m_a(a), m_b(b), m_c(c), m_d(d) 
+    NonlinearDynamicSystem(const double a, const double b, const double c, const double d)
+            : paramA(a), paramB(b), paramC(c), paramD(d) 
     {}
-    ~NonLinearModel() override = default;
+    
+    ~NonlinearDynamicSystem() override = default;
 
-    void simulate(double y, const double u, int t) const override
+    void runSimulation(double currentOutput, const double systemInput, int timeSteps) const override
     {
-        double prevY = y;
-        double prevU = u;
-        for(int i = 0; i <= t; i++)
+        double previousOutput = currentOutput;
+        double previousInput = systemInput;
+        for(int step = 0; step <= timeSteps; step++)
         {
-            std::cout << i << ' ' << y << std::endl;
-            double nextY = m_a * y - m_b * prevY * prevY + m_c * u + m_d * sin(prevU);
-            prevU += u_step;
-            prevY = y;
-            y = nextY;
+            std::cout << step << ' ' << currentOutput << std::endl;
+            previousOutput = currentOutput;
+            double nextOutput = paramA * currentOutput - paramB * previousOutput * previousOutput 
+                                + paramC * systemInput + paramD * sin(previousInput);
+            previousInput += INPUT_INCREMENT;
+            currentOutput = nextOutput;
         }
     }
 
 private:
-    const double m_a;
-    const double m_b;
-    const double m_c;
-    const double m_d;
-	
-	const double u_step { 0.5 };
+    const double paramA;
+    const double paramB;
+    const double paramC;
+    const double paramD;
 
+    static constexpr double INPUT_INCREMENT = 0.5;
 };
 
 
-class IFactoryModel
+class ModelFactory 
 {
 public:
-    virtual std::unique_ptr<ISimulatedModel> getModel() const = 0;
-    virtual ~IFactoryModel() = default;
-
+    virtual std::unique_ptr<ModelSimulator> createModel() const = 0;
+    virtual ~ModelFactory() = default;
 };
-class FactoryLinearModel : public IFactoryModel
+
+
+class LinearModelFactory : public ModelFactory 
 {
 public:
-    ~FactoryLinearModel() override = default;
+    ~LinearModelFactory() override = default;
 
-    std::unique_ptr<ISimulatedModel> getModel() const override
-    { return std::make_unique<LinearModel>(m_a, m_b); }
+    std::unique_ptr<ModelSimulator> createModel() const override
+    { 
+        return std::make_unique<LinearDynamicSystem>(DEFAULT_COEFF_A, DEFAULT_COEFF_B); 
+    }
 
 private:
-    const double m_a { 0.5 };
-    const double m_b { 0.5 };
-
+    static constexpr double DEFAULT_COEFF_A = 0.5;
+    static constexpr double DEFAULT_COEFF_B = 0.5;
 };
-class FactoryNonLinearModel : public IFactoryModel
+
+class NonlinearModelFactory : public ModelFactory 
 {
 public:
-    ~FactoryNonLinearModel() override = default;
+    ~NonlinearModelFactory() override = default;
 
-    std::unique_ptr<ISimulatedModel> getModel() const override
-    { return std::make_unique<NonLinearModel>(m_a, m_b, m_c, m_d); }
+    std::unique_ptr<ModelSimulator> createModel() const override
+    { 
+        return std::make_unique<NonlinearDynamicSystem>(
+            DEFAULT_PARAM_A, DEFAULT_PARAM_B, DEFAULT_PARAM_C, DEFAULT_PARAM_D); 
+    }
 
 private:
-    const double m_a { 0.5 };
-    const double m_b { 0.5 };
-    const double m_c { 0.5 };
-    const double m_d { 0.5 };
-
+    static constexpr double DEFAULT_PARAM_A = 0.5;
+    static constexpr double DEFAULT_PARAM_B = 0.5;
+    static constexpr double DEFAULT_PARAM_C = 0.5;
+    static constexpr double DEFAULT_PARAM_D = 0.5;
 };
 
 int main() 
 {
-    std::unique_ptr<IFactoryModel> factory;
-    std::unique_ptr<ISimulatedModel> model;
+    std::unique_ptr<ModelFactory> factory;
+    std::unique_ptr<ModelSimulator> simulator;
     
-    const double y = 0;
-    const double u = 1;
-    const int t = 25;
+    const double INITIAL_OUTPUT = 0;
+    const double SYSTEM_INPUT = 1;
+    const int SIMULATION_STEPS = 25;
 
     std::cout << "Linear simulation:" << std::endl;
-    factory = std::make_unique<FactoryLinearModel>();
-    model = factory->getModel();
-    model->simulate(y, u, t);
+    factory = std::make_unique<LinearModelFactory>();
+    simulator = factory->createModel();
+    simulator->runSimulation(INITIAL_OUTPUT, SYSTEM_INPUT, SIMULATION_STEPS);
     std::cout << std::endl;
 
     std::cout << "Nonlinear simulation:" << std::endl; 
-    factory = std::make_unique<FactoryNonLinearModel>();
-    model = factory->getModel();
-    model->simulate(y, u, t);
+    factory = std::make_unique<NonlinearModelFactory>();
+    simulator = factory->createModel();
+    simulator->runSimulation(INITIAL_OUTPUT, SYSTEM_INPUT, SIMULATION_STEPS);
     std::cout << std::endl;
 
     return 0;
