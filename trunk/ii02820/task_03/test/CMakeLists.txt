@@ -25,8 +25,8 @@ enable_testing()
 add_executable(
     ${CMAKE_PROJECT_NAME}
     test_model.cpp
-    ../src/lin_model.cpp
-   ../src/pid_controller.cpp
+  ../src/lin_model.cpp
+  #../src/pid_controller.cpp
 )
 
 # ДОБАВИТЬ ЭТУ СЕКЦИЮ - include директории
@@ -39,7 +39,7 @@ target_include_directories(
 target_link_libraries(
     ${CMAKE_PROJECT_NAME}
     PRIVATE
-    gtest_main
+    gtest
     gmock
 )
 
