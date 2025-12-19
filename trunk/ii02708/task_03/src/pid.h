@@ -85,7 +85,6 @@ std::vector<double> simulatePidRegulatorForNonlinear(
         results.push_back(y_current);
         controlSignals.push_back(u_pid);
 
-        y_prev_prev = y_prev;
         y_prev = y_current;
         y_current = y_next;
     }

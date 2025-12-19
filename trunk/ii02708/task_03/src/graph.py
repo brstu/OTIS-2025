@@ -17,7 +17,7 @@ LINE_WIDTH = 2
 PLOT_FIGSIZE = (14, 10)
 TITLE_FONTSIZE = 16
 TITLE_FONTWEIGHT = 'bold'
-BBOX_STYLE = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+BBOX_STYLE = {'boxstyle': 'round', 'facecolor': 'wheat', 'alpha': 0.5}  # Используем литерал
 TEXT_VERTICAL_ALIGNMENT = 'top'
 STATS_TEXT_POSITION = (0.02, 0.98)
 
@@ -50,7 +50,6 @@ def plot_temperature_comparison():
     ax1 = axes[0, 0]
     ax1.plot(df_without['Time'], df_without['Value'], 'r-', linewidth=LINE_WIDTH, label='Температура')
     
-    # Используем константу для setpoint линии
     if 'Setpoint' in df_without.columns:
         setpoint_value = df_without['Setpoint'].iloc[0]
         ax1.axhline(y=setpoint_value, color='g', linestyle='--', 
@@ -113,7 +112,6 @@ def plot_temperature_comparison():
         stats_text += f'Средняя ошибка с ПИД: {avg_error_with:.3f} °C\n'
         stats_text += f'Улучшение: {improvement:.1f}%'
         
-        # Используем литерал вместо конструктора dict
         ax4.text(
             STATS_TEXT_POSITION[0], 
             STATS_TEXT_POSITION[1], 
