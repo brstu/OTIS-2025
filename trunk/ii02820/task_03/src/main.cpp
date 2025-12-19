@@ -7,7 +7,7 @@
 #include <limits>
 #include <string>
 #include "pid_controller.h"
-#include "model.h"
+#include "lin_model.h"
 
  /**
   * @brief Проверка корректности ввода числового значения.
