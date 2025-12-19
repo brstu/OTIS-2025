@@ -28,7 +28,6 @@ void simulateSystem(float initialY1, int iterations) {
     for (int i = 0; i < iterations; i++) {
         y2 = linearSys.calculateNext(y1);
         printResult(i, y2);
-        y0 = y1;
         y1 = y2;
     }
 
