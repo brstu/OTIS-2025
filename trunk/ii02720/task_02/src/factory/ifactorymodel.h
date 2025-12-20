@@ -3,7 +3,7 @@
 #include "../model/isimulatedmodel.h"
 #include <memory>
 
-class IFactoryModel
+class IFactoryModel123
 {
 public:
     virtual std::unique_ptr<ISimulatedModel> getModel() const = 0;

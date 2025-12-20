@@ -123,8 +123,8 @@ task_02/
 // Тест линейной модели с множественными шагами
 TEST(TestLinearModel, MultipleStepsSimulation)
 {   
-    const double a = 0.8;
-    const double b = 0.3;
+    const double a1 = 0.8;
+    const double b1 = 0.3;
     const double initialY = 20.0;
     std::vector<double> inputs = {2.0, 3.0, 4.0};
     
@@ -144,10 +144,10 @@ TEST(TestLinearModel, MultipleStepsSimulation)
 // Тест нелинейной модели с отрицательным входом
 TEST(TestNonLinearModel, NegativeInputSimulation)
 {   
-    const double a = 0.8;
-    const double b = 0.01;
-    const double c = 0.4;
-    const double d = 0.1;
+    const double a1 = 0.8;
+    const double b1 = 0.01;
+    const double c1 = 0.4;
+    const double d1 = 0.1;
     const double initialY = 20.0;
     const double u = -3.0;
 

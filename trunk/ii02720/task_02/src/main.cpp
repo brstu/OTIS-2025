@@ -6,8 +6,8 @@
 
 int main() 
 {
-    std::unique_ptr<IFactoryModel> factry;
-    std::unique_ptr<ISimulatedModel> mdl;
+    std::unique_ptr<IFactoryModel123> factry;
+    std::unique_ptr<ISimulatedModel123> mdl;
     
     std::vector<double> inp = {2.0, 3.0, 4.0, 5.0, 4.0, 3.0, 2.0, 1.0, 0.5, 0.0};
 
