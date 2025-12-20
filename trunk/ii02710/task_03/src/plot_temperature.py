@@ -187,12 +187,12 @@ def _analyze_single_change(self, data, change_number, change_index):
 def _calculate_settling_time(self, window, new_setpoint, old_setpoint, start_time):
     """Calculate settling time for a setpoint change"""
     tolerance = 0.05 * abs(new_setpoint - old_setpoint)
-    settled_indices = np.where(np.abs(window['Temperature'] - new_setpoint) < tolerance)[0]
+    condition = np.abs(window['Temperature'] - new_setpoint) < tolerance
+    settled_indices = np.nonzero(condition)[0]
     
     if len(settled_indices) > 0:
-        settle_time = window.loc[settled_indices[0], 'Time'] - start_time
+        settle_time = window.iloc[settled_indices[0]]['Time'] - start_time
         print(f"  Settling time: {settle_time:.2f} s")
-
 
 def _calculate_overshoot(self, window, new_setpoint, old_setpoint):
     """Calculate overshoot for a setpoint change"""

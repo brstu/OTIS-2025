@@ -49,7 +49,7 @@ int main() {
     double current_temp = 20.0;  // Initial temperature °C
     double dt = 0.1;  // Time step in seconds
     int simulation_time = 100;  // Simulation time in seconds
-    int steps = static_cast<int>(simulation_time / dt);
+    auto steps = static_cast<int>(simulation_time / dt);
 
     // Data storage vectors
     std::vector<double> time_points;
@@ -63,8 +63,7 @@ int main() {
     // Используем seed_seq для лучшего качества случайных чисел
     std::seed_seq seed_seq{
         static_cast<std::uint64_t>(std::chrono::steady_clock::now().time_since_epoch().count()),
-        static_cast<std::uint64_t>(rd()),
-        static_cast<std::uint64_t>(reinterpret_cast<std::uintptr_t>(&rd))
+        static_cast<std::uint64_t>(rd())
     };
     
     std::mt19937 gen(seed_seq);  // Более безопасная инициализация
@@ -115,8 +114,8 @@ int main() {
     }
 
     // Write data to CSV file
-    std::ofstream csv_file("temperature_data.csv");
-    if (csv_file.is_open()) {
+    
+    if ((std::ofstream csv_file("temperature_data.csv"); csv_file.is_open())) {
         csv_file << "Time,Temperature,Setpoint,Control_Signal\n";
         for (size_t i = 0; i < time_points.size(); i++) {
             csv_file << time_points[i] << ","
