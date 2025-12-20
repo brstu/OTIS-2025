@@ -28,6 +28,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+          with:
+          ref: task_03_ii02816
+          submodules: false  # ВАЖНО!
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
