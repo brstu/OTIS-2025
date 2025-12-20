@@ -66,7 +66,7 @@ int main() {
         static_cast<std::uint64_t>(rd())
     };
     
-    std::mt19937 gen(seed_seq);  // Более безопасная инициализация
+    std::minstd_rand gen(seed_seq); // Более безопасная инициализация
 
     // Исправлено: использование вывода аргументов шаблона
     std::normal_distribution noise(0.0, 0.2);  // Noise with std dev 0.2°C
