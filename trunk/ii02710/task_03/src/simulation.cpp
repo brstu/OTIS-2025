@@ -57,20 +57,6 @@ int main() {
     std::vector<double> control_signals;
     std::vector<double> setpoints;
 
-    // Исправлено: более надежная инициализация генератора случайных чисел
-    std::random_device rd;
-    
-    // Используем seed_seq для лучшего качества случайных чисел
-    std::seed_seq seed_seq{
-        static_cast<std::uint64_t>(std::chrono::steady_clock::now().time_since_epoch().count()),
-        static_cast<std::uint64_t>(rd())
-    };
-    
-    std::minstd_rand gen(seed_seq); // Более безопасная инициализация
-
-    // Исправлено: использование вывода аргументов шаблона
-    std::normal_distribution noise(0.0, 0.2);  // Noise with std dev 0.2°C
-
     std::cout << "Starting PID controller simulation..." << std::endl;
     std::cout << "Target temperature: " << setpoint << " °C" << std::endl;
     std::cout << "Simulation time: " << simulation_time << " sec" << std::endl;
@@ -91,7 +77,7 @@ int main() {
         }
 
         // Add noise to measured temperature
-        double measured_temp = current_temp + noise(gen);
+        double measured_temp = current_temp;
 
         // Calculate control signal
         double control = pid.calculate(measured_temp, dt);
