@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(task_02)
+project(task_02_ii02710)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -16,7 +16,7 @@ set(BUILD_GMOCK OFF CACHE BOOL "" FORCE)
 add_subdirectory(googletest)
 
 # Основная программа
-add_executable(task_02 src/task_02.cpp src/model.cpp)
+add_executable(task_02_ii02710 src/task_02.cpp src/model.cpp)
 
 # Поддиректория с тестами (используем ваше имя ii02710)
 add_subdirectory(test)
