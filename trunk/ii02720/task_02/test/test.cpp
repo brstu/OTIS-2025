@@ -67,7 +67,7 @@ TEST(TestLinearModel, ZeroInputSimulation)
     
     EXPECT_EQ(result.size(), 1);
     EXPECT_NEAR(result[0], 20.0, 1e-5);
-    
+
     result = model->simulate(u);
     EXPECT_NEAR(result[0], 16.0, 1e-5);
 }

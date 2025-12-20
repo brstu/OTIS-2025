@@ -10,9 +10,9 @@ public:
     FactoryNonLinearModel() = default;
     ~FactoryNonLinearModel() override = default;
 
-    std::unique_ptr<ISimulatedModel> getModel() const override
-    { 
-        return std::make_unique<NonLinearModel>(m_a, m_b, m_c, m_d, m_initialY); 
+    std::unique_ptr<ISimulatedModel_2720> getModel() const override
+    {
+        return std::make_unique<NonLinearModel>(m_a, m_b, m_c, m_d, m_initialY);
     }
 
 private:
@@ -21,6 +21,4 @@ private:
     const double m_c { 0.4 };        // Coefficient for input
     const double m_d { 0.1 };        // Coefficient for sinusoidal term
     const double m_initialY { 20.0 }; // Initial temperature
-
 };
-
