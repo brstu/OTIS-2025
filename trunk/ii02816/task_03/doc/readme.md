@@ -10,7 +10,7 @@
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
 <p align="right">Группы ИИ-28/24</p>
-<p align="right">Артыш Е.А.</p>
+<p align="right">Литвинчук И.М.</p>
 <p align="right">Проверил:</p>
 <p align="right">Дворанинович Д.А.</p>
 <br><br><br><br><br>
@@ -112,7 +112,7 @@
 #include <vector>
 #include <fstream>
 #include "pid.h"
-#include "model.h"
+#include "mdl.h"
 
 std::vector<double> simulateSystem(PIDController& pid, ProcessModel& process, 
                                   const std::vector<double>& setpoints, bool use_nonlinear = false) {
@@ -189,7 +189,7 @@ int main() {
 
 
 ## Link to documentation
-[https://v1tyokkk.github.io/OTIS-2025/](https://oniisssss.github.io/OTIS-2025/)
+[https://flikyy.github.io/OTIS-2025/](https://flikyy.github.io/OTIS-2025/)
 
 ## Код юнит-тестов [ test/testlab3.cpp ]
 ```C++
