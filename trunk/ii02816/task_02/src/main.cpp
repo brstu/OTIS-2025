@@ -9,7 +9,7 @@ int main()
     linears_cff.b = 0.2;
     linears_cff.u = 1.2;
 
-    NonLinear_Cff nonlinears_cff;
+    nonlinear_cff nonlinears_cff;
     nonlinears_cff.a = 0.5;
     nonlinears_cff.b = 0.2;
     nonlinears_cff.c = 0.15;
