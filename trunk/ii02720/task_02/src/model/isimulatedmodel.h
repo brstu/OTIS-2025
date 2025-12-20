@@ -3,7 +3,7 @@
 #include <vector>
 #include <memory>
 
-class ISimulatedModel123
+class ISimulatedModel
 {
 public:
     virtual std::vector<double> simulate(double u) = 0;
