@@ -6,31 +6,31 @@
 
 int main() 
 {
-    std::unique_ptr<IFactoryModel> factory;
-    std::unique_ptr<ISimulatedModel> model;
+    std::unique_ptr<IFactoryModel> factry;
+    std::unique_ptr<ISimulatedModel> mdl;
     
-    std::vector<double> inputs = {2.0, 3.0, 4.0, 5.0, 4.0, 3.0, 2.0, 1.0, 0.5, 0.0};
+    std::vector<double> inp = {2.0, 3.0, 4.0, 5.0, 4.0, 3.0, 2.0, 1.0, 0.5, 0.0};
 
     std::cout << "Linear simulation:" << std::endl;
-    factory = std::make_unique<FactoryLinearModel>();
-    model = factory->getModel();
+    factry = std::make_unique<FactoryLinearModel>();
+    mdl = factry->getModel();
     
     std::cout << "Step\tTemperature" << std::endl;
-    for (size_t i = 0; i < inputs.size(); i++) 
+    for (size_t i = 0; i < inp.size(); i++)
     {
-        auto result = model->simulate(inputs[i]);
+        auto result = mdl->simulate(inp[i]);
         std::cout << i << "\t" << result[0] << std::endl;
     }
     std::cout << std::endl;
 
     std::cout << "Nonlinear simulation:" << std::endl; 
-    factory = std::make_unique<FactoryNonLinearModel>();
-    model = factory->getModel();
+    factry = std::make_unique<FactoryNonLinearModel>();
+    mdl = factry->getModel();
     
     std::cout << "Step\tTemperature" << std::endl;
-    for (size_t i = 0; i < inputs.size(); i++) 
+    for (size_t i = 0; i < inp.size(); i++)
     {
-        auto result = model->simulate(inputs[i]);
+        auto result = mdl->simulate(inp[i]);
         std::cout << i << "\t" << result[0] << std::endl;
     }
 
