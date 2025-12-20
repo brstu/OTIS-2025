@@ -1,35 +1,38 @@
 cmake_minimum_required(VERSION 3.14)
-project(ii002722_task_03 LANGUAGES CXX)
+project(ii02822_task_03 LANGUAGES CXX)
 
-# General settings
+# Политика для FetchContent (убирает предупреждение CMP0135)
+if(POLICY CMP0135)
+    cmake_policy(SET CMP0135 NEW)
+endif()
+
+# Настройки компиляции
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Strict warnings
 if(MSVC)
     add_compile_options(/W4 /permissive-)
 else()
     add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-# Fix paths - use relative paths
+# Пути
 set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(TEST_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../test)
-set(DOC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../doc)
 
-# Project libraries with UNIQUE names
-add_library(model_ii02722 STATIC ${SRC_DIR}/model.cpp)
-target_include_directories(model_ii02722 PUBLIC ${SRC_DIR})
+# Библиотеки
+add_library(model_ii02822 STATIC ${SRC_DIR}/model.cpp)
+target_include_directories(model_ii02822 PUBLIC ${SRC_DIR})
 
-add_library(pid_lib_ii02722 STATIC ${SRC_DIR}/pid.cpp)  # Уникальное имя
-target_include_directories(pid_lib_ii02722 PUBLIC ${SRC_DIR})
+add_library(pid_lib_ii02822 STATIC ${SRC_DIR}/pid.cpp)
+target_include_directories(pid_lib_ii02822 PUBLIC ${SRC_DIR})
 
-# Main executable with UNIQUE name
-add_executable(pid_sim_ii02722 ${SRC_DIR}/main.cpp)  # Уникальное имя
-target_link_libraries(pid_sim_ii02722 PRIVATE pid_lib_ii02722 model_ii02722)
+# Основной exe
+add_executable(pid_sim_ii02822 ${SRC_DIR}/main.cpp)
+target_link_libraries(pid_sim_ii02822 PRIVATE pid_lib_ii02822 model_ii02822)
 
-# Google Test
+# GoogleTest
 include(FetchContent)
 FetchContent_Declare(
     googletest
@@ -42,12 +45,12 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 include(GoogleTest)
 
-# Tests with UNIQUE name
+# Тесты
 if(EXISTS ${TEST_DIR})
-    add_executable(runTests_ii002722 ${TEST_DIR}/test_pid.cpp)  # Уникальное имя
-    target_link_libraries(runTests_ii002722 PRIVATE gtest_main pid_lib_ii02722 model_ii02722)
-    target_include_directories(runTests_ii02722 PRIVATE ${SRC_DIR})
-    gtest_discover_tests(runTests_ii02722)
+    add_executable(runTests_ii02822 ${TEST_DIR}/test_pid.cpp)
+    target_link_libraries(runTests_ii02822 PRIVATE gtest_main pid_lib_ii02822 model_ii02822)
+    target_include_directories(runTests_ii02822 PRIVATE ${SRC_DIR})
+    gtest_discover_tests(runTests_ii02822)
 else()
     message(WARNING "Test directory not found: ${TEST_DIR}")
 endif()

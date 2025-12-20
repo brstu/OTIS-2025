@@ -1,14 +1,15 @@
 #include "model.h"
 
-Model::Model(double y0) noexcept
-    : y(y0) {}
+Model::Model(double initial_state, double a_coeff)
+    : x(initial_state), a(a_coeff) {}
 
-double Model::getY() const noexcept {
-    return y;
+double Model::update(double u, double dt) {
+    // dx/dt = -a * x + u
+    double dx = -a * x + u;
+    x += dx * dt;
+    return x;
 }
 
-double Model::update(double u, double dt) noexcept {
-    // simple integrator dynamic model: y += u * dt
-    y += u * dt;
-    return y;
+double Model::getState() const {
+    return x;
 }
