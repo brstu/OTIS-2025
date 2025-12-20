@@ -15,11 +15,8 @@
   * @param max Максимальное значение выходного сигнала
   */
 PIDController::PIDController(double p, double i, double d, double min, double max)
-    : Kp(p), Ki(i), Kd(d), output_min(min), output_max(max) {
-    setpoint = 0;
-    integral = 0;
-    prev_error = 0;
-}
+    : Kp(p), Ki(i), Kd(d), output_min(min), output_max(max) 
+{}
 
 /**
  * @brief Вычисляет выходной сигнал ПИД-регулятора

@@ -8,6 +8,7 @@
 #include <cmath>
 #include <vector>
 #include <random>
+#include <chrono>
 #include "pid_controller.h"
 
 /**
@@ -56,10 +57,20 @@ int main() {
     std::vector<double> control_signals;
     std::vector<double> setpoints;
 
-    // Random number generator for noise
+    // Исправлено: более надежная инициализация генератора случайных чисел
     std::random_device rd;
-    std::mt19937 gen(rd());
-    std::normal_distribution<> noise(0.0, 0.2);  // Noise with std dev 0.2°C
+    
+    // Используем seed_seq для лучшего качества случайных чисел
+    std::seed_seq seed_seq{
+        static_cast<std::uint64_t>(std::chrono::steady_clock::now().time_since_epoch().count()),
+        static_cast<std::uint64_t>(rd()),
+        static_cast<std::uint64_t>(reinterpret_cast<std::uintptr_t>(&rd))
+    };
+    
+    std::mt19937 gen(seed_seq);  // Более безопасная инициализация
+
+    // Исправлено: использование вывода аргументов шаблона
+    std::normal_distribution noise(0.0, 0.2);  // Noise with std dev 0.2°C
 
     std::cout << "Starting PID controller simulation..." << std::endl;
     std::cout << "Target temperature: " << setpoint << " °C" << std::endl;
