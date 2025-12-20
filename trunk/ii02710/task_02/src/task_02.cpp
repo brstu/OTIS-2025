@@ -32,7 +32,7 @@ int main() {
     const double u_offset = 0.3;
 
     for (int tau = 1; tau < n; tau++) {
-        y_next = nonlinearStep(a2, b2, c2, d2, y_curr, y_prev, u_curr, u_prev);
+        y_next = nonlinearStep({a2, b2, c2, d2}, y_curr, y_prev, u_curr, u_prev);
 
         std::cout << "y[" << tau + 1 << "] = " << y_next << '\n';
 

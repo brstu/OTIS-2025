@@ -25,7 +25,7 @@ TEST(SystemTests, LinearSystemTest) {
 // Второй тест: проверка нелинейной системы
 TEST(SystemTests, NonlinearSystemTest) {
     // Тест 1: Первый шаг из main
-    double result = nonlinearStep(0.5, 0.2, 0.1, 0.3, 26.0, 25.0, 2.0, 1.0);
+    double result = nonlinearStep({0.5, 0.2, 0.1, 0.3}, 26.0, 25.0, 2.0, 1.0);
     double expected = 0.5 * 26.0 - 0.2 * (25.0 * 25.0) + 0.1 * 2.0 + 0.3 * std::sin(1.0);
     EXPECT_NEAR(result, expected, 1e-6);
 
@@ -37,7 +37,7 @@ TEST(SystemTests, NonlinearSystemTest) {
     const double u_offset = 0.3;
 
     // Первая итерация
-    double y_next = nonlinearStep(0.5, 0.2, 0.1, 0.3, y_curr, y_prev, u_curr, u_prev);
+    double y_next = nonlinearStep({0.5, 0.2, 0.1, 0.3}, y_curr, y_prev, u_curr, u_prev);
 
     // Обновление для второй итерации
     y_prev = y_curr;
@@ -46,12 +46,12 @@ TEST(SystemTests, NonlinearSystemTest) {
     u_curr += u_offset;
 
     // Вторая итерация
-    y_next = nonlinearStep(0.5, 0.2, 0.1, 0.3, y_curr, y_prev, u_curr, u_prev);
+    y_next = nonlinearStep({0.5, 0.2, 0.1, 0.3}, y_curr, y_prev, u_curr, u_prev);
     // Проверяем, что результат является числом (не NaN и не бесконечным)
     EXPECT_TRUE(std::isfinite(y_next));
 
     // Тест 3: Проверка граничного случая
-    EXPECT_NEAR(nonlinearStep(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0), 0.0, 1e-6);
+    EXPECT_NEAR(nonlinearStep({0.0, 0.0, 0.0, 0.0}, 0.0, 0.0, 0.0, 0.0), 0.0, 1e-6);
 }
 
 int main(int argc, char** argv) {
