@@ -114,8 +114,8 @@ int main() {
     }
 
     // Write data to CSV file
-    
-    if ((std::ofstream csv_file("temperature_data.csv"); csv_file.is_open())) {
+    // Исправлено: правильный синтаксис if с инициализацией (C++17)
+    if (std::ofstream csv_file("temperature_data.csv"); csv_file.is_open()) {
         csv_file << "Time,Temperature,Setpoint,Control_Signal\n";
         for (size_t i = 0; i < time_points.size(); i++) {
             csv_file << time_points[i] << ","
