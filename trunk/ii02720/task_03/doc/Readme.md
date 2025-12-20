@@ -189,7 +189,7 @@ int main() {
 
 
 ## Link to documentation
-[https://v1tyokkk.github.io/OTIS-2025/](https://oniisssss.github.io/OTIS-2025/)
+
 
 ## Код юнит-тестов [ test/testlab3.cpp ]
 ```C++
