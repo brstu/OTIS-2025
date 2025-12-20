@@ -250,7 +250,7 @@ int main() {
 ![graph2](images/graph2.png)
 
 ## documentation
-[]()
+[https://darthdevby.github.io/OTIS-2025/](https://darthdevby.github.io/OTIS-2025/)
 
 ## Код юнит-тестов [ test/test.cpp ]
 ```C++
