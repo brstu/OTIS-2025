@@ -27,7 +27,7 @@ TEST(TestLinear, WhenTimeIsFive)
 
 TEST(TestNonlinear, WhenTimeIsFive)
 {   
-    NonLinearCoeff coeff;
+    nonlinear_cff coeff;
     coeff.a = 0.5;
     coeff.b = 0.2;
     coeff.c = 0.15;
