@@ -1,3 +1,7 @@
 [submodule "extern/googletest"]
 	path = extern/googletest
 	url = https://github.com/google/googletest.git
+
+[submodule "trunk/ii02825/task_03/_deps/googletest-src"]
+	path = trunk/ii02825/task_03/_deps/googletest-src
+	url = https://github.com/google/googletest.git
