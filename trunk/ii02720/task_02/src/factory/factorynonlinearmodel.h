@@ -4,7 +4,7 @@
 #include "../model/nonlinearmodel.h"
 #include <memory>
 
-class FactoryNonLinearModel : public IFactoryModel
+class FactoryNonLinearModel : public IFactoryModel_2720
 {
 public:
     FactoryNonLinearModel() = default;

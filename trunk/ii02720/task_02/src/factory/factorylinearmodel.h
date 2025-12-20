@@ -4,7 +4,7 @@
 #include "../model/linearmodel.h"
 #include <memory>
 
-class FactoryLinearModel : public IFactoryModel
+class FactoryLinearModel : public IFactoryModel_2720
 {
 public:
     FactoryLinearModel() = default;

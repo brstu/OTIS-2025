@@ -3,7 +3,7 @@
 #include "isimulatedmodel.h"
 #include <vector>
 
-class LinearModel : public ISimulatedModel
+class LinearModel : public ISimulatedModel_2720
 {
 public:
     LinearModel(double a, double b, double initialY)

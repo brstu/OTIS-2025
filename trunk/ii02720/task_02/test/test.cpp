@@ -68,7 +68,6 @@ TEST(TestLinearModel, ZeroInputSimulation)
     EXPECT_EQ(result.size(), 1);
     EXPECT_NEAR(result[0], 20.0, 1e-5);
     
-    // Next step should be 0.8 * 20.0 = 16.0
     result = model->simulate(u);
     EXPECT_NEAR(result[0], 16.0, 1e-5);
 }
@@ -86,8 +85,7 @@ TEST(TestLinearModel, NegativeInputSimulation)
     
     EXPECT_EQ(result.size(), 1);
     EXPECT_NEAR(result[0], 20.0, 1e-5);
-    
-    // Next step: 0.8 * 20.0 + 0.3 * (-5.0) = 16.0 - 1.5 = 14.5
+
     result = model->simulate(u);
     EXPECT_NEAR(result[0], 14.5, 1e-5);
 }
@@ -190,7 +188,6 @@ TEST(TestNonLinearModel, NegativeInputSimulation)
     EXPECT_NEAR(result[0], 20.0, 1e-5);
     
     // Calculate expected next value
-    // result = 0.8*20.0 - 0.01*20.0^2 + 0.4*(-3.0) + 0.1*sin(0)
     double expected = 0.8 * 20.0 - 0.01 * 20.0 * 20.0 + 0.4 * (-3.0) + 0.1 * std::sin(0);
     result = model->simulate(u);
     EXPECT_NEAR(result[0], expected, 1e-5);
