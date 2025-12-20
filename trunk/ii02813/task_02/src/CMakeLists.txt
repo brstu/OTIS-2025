@@ -17,8 +17,8 @@ enable_testing()
 
 add_executable(
   my_tests
-  ${CMAKE_CURRENT_SOURCE_DIR}/task_01.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/../test/test.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/mainbubu.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/../test/testbubu.cpp
 )
 
 target_include_directories(my_tests PRIVATE
