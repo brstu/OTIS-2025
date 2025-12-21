@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.10.0)
 
 # Используйте правильное имя для вашей группы (ii02710)
 add_executable(runTests_ii02710 test.cpp ../src/model.cpp)
