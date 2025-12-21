@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.15.0" xml:lang="en-US">
+  <compound refid="class_heater_model" kind="class"><name>HeaterModel</name>
+    <member refid="class_heater_model_1a0f25d10130d5af5007844f5c1ec89c6d" kind="variable"><name>K_</name></member>
+    <member refid="class_heater_model_1a099aecb7e14f05a3c290ed281416ad40" kind="variable"><name>T_</name></member>
+    <member refid="class_heater_model_1a2e09acd46cf6f98c51c735d169acca4f" kind="variable"><name>tau_</name></member>
+    <member refid="class_heater_model_1a50871ba74e730f7c166d9a5f039fb814" kind="variable"><name>dt_</name></member>
+    <member refid="class_heater_model_1a8c612fdaee0913c4f7aba77006ace419" kind="variable"><name>y_</name></member>
+    <member refid="class_heater_model_1a8226748d16d740c6f6b31ec80e4c9b7a" kind="variable"><name>u_delay_line_</name></member>
+    <member refid="class_heater_model_1a39cc4b9e183e31e446edc6ce96e02817" kind="variable"><name>delay_steps_</name></member>
+    <member refid="class_heater_model_1a1339db20631a39d1663d27ce98742509" kind="function"><name>HeaterModel</name></member>
+    <member refid="class_heater_model_1a298d7a609b10a4d2140497f64c7f349a" kind="function"><name>step</name></member>
+    <member refid="class_heater_model_1a28ac9486783b6dc05b8307ab3a1c58c4" kind="function"><name>reset</name></member>
+    <member refid="class_heater_model_1a04c19627f2791f25e1b5d77eb5a8c4e0" kind="function"><name>getTemperature</name></member>
+  </compound>
+  <compound refid="class_p_i_d_controller" kind="class"><name>PIDController</name>
+    <member refid="class_p_i_d_controller_1a497ce32b2f2859b793777770e5e1231a" kind="variable"><name>Kp_</name></member>
+    <member refid="class_p_i_d_controller_1a50e26f7fa2240553253477d4f76882bd" kind="variable"><name>Ti_</name></member>
+    <member refid="class_p_i_d_controller_1aeda115e8f96dc2716f748f92d95ba695" kind="variable"><name>Td_</name></member>
+    <member refid="class_p_i_d_controller_1a358c698bce43feeb2ec75026fe56fe38" kind="variable"><name>dt_</name></member>
+    <member refid="class_p_i_d_controller_1ab5b7ebab499796a761becb7203c0753e" kind="variable"><name>u_min_</name></member>
+    <member refid="class_p_i_d_controller_1a1f80954529fa8a728a87ba166e793c00" kind="variable"><name>u_max_</name></member>
+    <member refid="class_p_i_d_controller_1aa11e9fe0c2933f67cbe41c084d320b6a" kind="variable"><name>q0</name></member>
+    <member refid="class_p_i_d_controller_1af534a1a7c82691b91cb46ab97931ebc1" kind="variable"><name>q1</name></member>
+    <member refid="class_p_i_d_controller_1a81f9a883343ea5afd87ea095a1631ee0" kind="variable"><name>q2</name></member>
+    <member refid="class_p_i_d_controller_1a760643f1a04c0913e00b0b6095adb2a9" kind="variable"><name>u_prev_</name></member>
+    <member refid="class_p_i_d_controller_1a27553f4ca41aa043bf1329b0d9f07fe4" kind="variable"><name>e_prev1_</name></member>
+    <member refid="class_p_i_d_controller_1adb14ea1a8a34de50df99a38ede6a044e" kind="variable"><name>e_prev2_</name></member>
+    <member refid="class_p_i_d_controller_1abf67fb062ae3787f8e668a7f7b3b6815" kind="function"><name>PIDController</name></member>
+    <member refid="class_p_i_d_controller_1a1aa6a2ef1fb81ef036eac60950db35cf" kind="function"><name>calculate</name></member>
+    <member refid="class_p_i_d_controller_1ab6adfbffa30414f0a83b95ba999a2fea" kind="function"><name>reset</name></member>
+    <member refid="class_p_i_d_controller_1a83db13272bc22079748f37f2a64ce11a" kind="function"><name>setParameters</name></member>
+    <member refid="class_p_i_d_controller_1a632cbe744e6288c0257c9f71801b3421" kind="function"><name>updateCoefficients</name></member>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="model_8cpp" kind="file"><name>model.cpp</name>
+  </compound>
+  <compound refid="model_8h" kind="file"><name>model.h</name>
+  </compound>
+  <compound refid="pid_8cpp" kind="file"><name>pid.cpp</name>
+  </compound>
+  <compound refid="pid_8h" kind="file"><name>pid.h</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>
