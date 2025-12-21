@@ -172,7 +172,6 @@ int main() {
 
 
 ## Link to documentation
-=======
 [https://mishanya2281337.github.io/OTIS-2025/](https://mishanya2281337.github.io/OTIS-2025/)
 
 ## Код юнит-тестов [ test/testlab3.cpp ]
@@ -326,4 +325,5 @@ TEST(PIDTest, InvalidState) {
 ![GoogleTest](images/g_tests.png)
 
 ## Покрытие GCC Code Coverage
+
 ![GCC Coverage](images/coverage.png)
