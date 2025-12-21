@@ -29,7 +29,7 @@ TEST(NonLinearModelTest, BasicCase) {
     double c2 = 0.5;
     double d2 = 1.0;
 
-    double expected2 = a2 * y2 - b1 * y2 * y2 + c2 * u2 + d2 * std::sin(u2);
+    double expected2 = a2 * y2 - b2 * y2 * y2 + c2 * u2 + d2 * std::sin(u2);
     double result2 = non_linear(y2, y2_p2, u2, a2, b2, c2, d2);
 
     EXPECT_DOUBLE_EQ(result2, expected2);
