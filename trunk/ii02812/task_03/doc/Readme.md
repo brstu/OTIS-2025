@@ -327,3 +327,4 @@ TEST(PIDTest, InvalidState) {
 ## Покрытие GCC Code Coverage
 
 ![GCC Coverage](images/coverage.png)
+
