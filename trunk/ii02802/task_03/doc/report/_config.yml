@@ -1,6 +1,8 @@
+baseurl: "/ii02802"
+url: "https://threenebula23.github.io/OTIS-2025"
 title: Документация лабораторной работы №3 — ПИД-регулятор
 description: API-документация, сгенерированная Doxygen + Moxygen
-theme: jekyll-theme-minimal  #
+theme: jekyll-theme-minimal 
 
 plugins:
   - jekyll-seo-tag

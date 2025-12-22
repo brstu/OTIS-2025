@@ -28,7 +28,7 @@ jobs:
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./trunk/ii02802/task_03/doc/report      # путь к папке с _config.yml и .md
-          destination: ./_site                           # куда Jekyll положит готовый сайт
+          destination: ./_site/ii02802                           # куда Jekyll положит готовый сайт
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
