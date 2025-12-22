@@ -1,0 +1,602 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>task_03 - PID Controller: Класс Model</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">task_03 - PID Controller<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Система управления с PID регулятором</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('classModel.html','','classModel-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс Model</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Модель объекта управления  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="model_8h_source.html">model.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ab5d4a33e22070b59a4543e6de34199e2" id="r_ab5d4a33e22070b59a4543e6de34199e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5d4a33e22070b59a4543e6de34199e2">Model</a> (double a_val=0.2, double b_val=0.3, double c_val=0.4, double d_val=0.5)</td></tr>
+<tr class="memdesc:ab5d4a33e22070b59a4543e6de34199e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор модели  <br /></td></tr>
+<tr class="memitem:a016819d78d29f1533d3351cdcd83b2e5" id="r_a016819d78d29f1533d3351cdcd83b2e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a016819d78d29f1533d3351cdcd83b2e5">init</a> (double y0, double y1, double u0, double u1)</td></tr>
+<tr class="memdesc:a016819d78d29f1533d3351cdcd83b2e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация начальных условий  <br /></td></tr>
+<tr class="memitem:a947cfcb5e6035d29f0ead62a26fd18de" id="r_a947cfcb5e6035d29f0ead62a26fd18de"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a947cfcb5e6035d29f0ead62a26fd18de">linearModel</a> (double u)</td></tr>
+<tr class="memdesc:a947cfcb5e6035d29f0ead62a26fd18de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Линейная модель объекта  <br /></td></tr>
+<tr class="memitem:ab31570881280566275abef961ed0e68f" id="r_ab31570881280566275abef961ed0e68f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab31570881280566275abef961ed0e68f">nonlinearModel</a> (double u)</td></tr>
+<tr class="memdesc:ab31570881280566275abef961ed0e68f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Нелинейная модель объекта  <br /></td></tr>
+<tr class="memitem:aa23799a2cfa94ab5b9ac78ec4c5e365c" id="r_aa23799a2cfa94ab5b9ac78ec4c5e365c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa23799a2cfa94ab5b9ac78ec4c5e365c">getCurrentValue</a> () const</td></tr>
+<tr class="memdesc:aa23799a2cfa94ab5b9ac78ec4c5e365c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение текущего значения выхода  <br /></td></tr>
+<tr class="memitem:a1c926807f26dc8c433a5b8a4261c5475" id="r_a1c926807f26dc8c433a5b8a4261c5475"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c926807f26dc8c433a5b8a4261c5475">setCurrentValue</a> (double value)</td></tr>
+<tr class="memdesc:a1c926807f26dc8c433a5b8a4261c5475"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка текущего значения выхода  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a18e5ef915d4c3b58c5e81c94ddc89057" id="r_a18e5ef915d4c3b58c5e81c94ddc89057"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18e5ef915d4c3b58c5e81c94ddc89057">a</a></td></tr>
+<tr class="memitem:aaa9d87e6468505f959f734782fe34554" id="r_aaa9d87e6468505f959f734782fe34554"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa9d87e6468505f959f734782fe34554">b</a></td></tr>
+<tr class="memitem:a1d6db59b5d8289c26eec41757bd69cae" id="r_a1d6db59b5d8289c26eec41757bd69cae"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d6db59b5d8289c26eec41757bd69cae">c</a></td></tr>
+<tr class="memitem:a4b9e59ab1411828b1d484cca6b08a8ee" id="r_a4b9e59ab1411828b1d484cca6b08a8ee"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b9e59ab1411828b1d484cca6b08a8ee">d</a></td></tr>
+<tr class="memitem:a928a0a8c991419c3393e80816e1610d2" id="r_a928a0a8c991419c3393e80816e1610d2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a928a0a8c991419c3393e80816e1610d2">y_prev1</a></td></tr>
+<tr class="memitem:a8b15b595d778f562aea827e9b7c707ca" id="r_a8b15b595d778f562aea827e9b7c707ca"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b15b595d778f562aea827e9b7c707ca">y_prev2</a></td></tr>
+<tr class="memitem:ad0354b53b1cf4503b7263d070a9206d5" id="r_ad0354b53b1cf4503b7263d070a9206d5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0354b53b1cf4503b7263d070a9206d5">u_prev1</a></td></tr>
+<tr class="memitem:aab56c04266baf7acb33775e4fe7a21e2" id="r_aab56c04266baf7acb33775e4fe7a21e2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab56c04266baf7acb33775e4fe7a21e2">u_prev2</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Модель объекта управления </p>
+
+<p class="definition">См. определение в файле <a class="el" href="model_8h_source.html">model.h</a> строка <a class="el" href="model_8h_source.html#l00008">8</a></p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="ab5d4a33e22070b59a4543e6de34199e2" name="ab5d4a33e22070b59a4543e6de34199e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5d4a33e22070b59a4543e6de34199e2">&#9670;&#160;</a></span>Model()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Model::Model </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a_val</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.2</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>b_val</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.3</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>c_val</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.4</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>d_val</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.5</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор модели </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a_val</td><td>Коэффициент a (по умолчанию 0.2) </td></tr>
+    <tr><td class="paramname">b_val</td><td>Коэффициент b (по умолчанию 0.3) </td></tr>
+    <tr><td class="paramname">c_val</td><td>Коэффициент c (по умолчанию 0.4) </td></tr>
+    <tr><td class="paramname">d_val</td><td>Коэффициент d (по умолчанию 0.5) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="model_8cpp_source.html">model.cpp</a> строка <a class="el" href="model_8cpp_source.html#l00008">8</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="model_8h_source.html#l00010">a</a>, <a class="el" href="model_8h_source.html#l00011">b</a>, <a class="el" href="model_8h_source.html#l00012">c</a>, <a class="el" href="model_8h_source.html#l00013">d</a>, <a class="el" href="model_8h_source.html#l00017">u_prev1</a>, <a class="el" href="model_8h_source.html#l00018">u_prev2</a>, <a class="el" href="model_8h_source.html#l00015">y_prev1</a> и <a class="el" href="model_8h_source.html#l00016">y_prev2</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="aa23799a2cfa94ab5b9ac78ec4c5e365c" name="aa23799a2cfa94ab5b9ac78ec4c5e365c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa23799a2cfa94ab5b9ac78ec4c5e365c">&#9670;&#160;</a></span>getCurrentValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Model::getCurrentValue </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение текущего значения выхода </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Текущее значение y[k-1] </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="model_8h_source.html">model.h</a> строка <a class="el" href="model_8h_source.html#l00059">59</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="model_8h_source.html#l00015">y_prev1</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="main_8cpp_source.html#l00018">main()</a>.</p>
+
+</div>
+</div>
+<a id="a016819d78d29f1533d3351cdcd83b2e5" name="a016819d78d29f1533d3351cdcd83b2e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a016819d78d29f1533d3351cdcd83b2e5">&#9670;&#160;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Model::init </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>y0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>y1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>u0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>u1</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Инициализация начальных условий </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">y0</td><td>Начальное значение y[k-2] </td></tr>
+    <tr><td class="paramname">y1</td><td>Начальное значение y[k-1] </td></tr>
+    <tr><td class="paramname">u0</td><td>Начальное значение u[k-2] </td></tr>
+    <tr><td class="paramname">u1</td><td>Начальное значение u[k-1] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="model_8cpp_source.html">model.cpp</a> строка <a class="el" href="model_8cpp_source.html#l00015">15</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="model_8h_source.html#l00017">u_prev1</a>, <a class="el" href="model_8h_source.html#l00018">u_prev2</a>, <a class="el" href="model_8h_source.html#l00015">y_prev1</a> и <a class="el" href="model_8h_source.html#l00016">y_prev2</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="main_8cpp_source.html#l00018">main()</a>.</p>
+
+</div>
+</div>
+<a id="a947cfcb5e6035d29f0ead62a26fd18de" name="a947cfcb5e6035d29f0ead62a26fd18de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a947cfcb5e6035d29f0ead62a26fd18de">&#9670;&#160;</a></span>linearModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Model::linearModel </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>u</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Линейная модель объекта </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u</td><td>Текущее управляющее воздействие </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Текущее значение выхода </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="model_8cpp_source.html">model.cpp</a> строка <a class="el" href="model_8cpp_source.html#l00025">25</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="model_8h_source.html#l00010">a</a>, <a class="el" href="model_8h_source.html#l00011">b</a>, <a class="el" href="model_8h_source.html#l00017">u_prev1</a>, <a class="el" href="model_8h_source.html#l00018">u_prev2</a>, <a class="el" href="model_8h_source.html#l00015">y_prev1</a> и <a class="el" href="model_8h_source.html#l00016">y_prev2</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="main_8cpp_source.html#l00018">main()</a>.</p>
+
+</div>
+</div>
+<a id="ab31570881280566275abef961ed0e68f" name="ab31570881280566275abef961ed0e68f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab31570881280566275abef961ed0e68f">&#9670;&#160;</a></span>nonlinearModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Model::nonlinearModel </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>u</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Нелинейная модель объекта </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u</td><td>Текущее управляющее воздействие </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Текущее значение выхода </dd></dl>
+<dl class="section warning"><dt>Предупреждения</dt><dd>Включает ограничение выходных значений ±1000 </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="model_8cpp_source.html">model.cpp</a> строка <a class="el" href="model_8cpp_source.html#l00040">40</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="model_8h_source.html#l00010">a</a>, <a class="el" href="model_8h_source.html#l00011">b</a>, <a class="el" href="model_8h_source.html#l00012">c</a>, <a class="el" href="model_8h_source.html#l00013">d</a>, <a class="el" href="model_8h_source.html#l00017">u_prev1</a>, <a class="el" href="model_8h_source.html#l00018">u_prev2</a>, <a class="el" href="model_8h_source.html#l00015">y_prev1</a> и <a class="el" href="model_8h_source.html#l00016">y_prev2</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="main_8cpp_source.html#l00018">main()</a>.</p>
+
+</div>
+</div>
+<a id="a1c926807f26dc8c433a5b8a4261c5475" name="a1c926807f26dc8c433a5b8a4261c5475"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c926807f26dc8c433a5b8a4261c5475">&#9670;&#160;</a></span>setCurrentValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Model::setCurrentValue </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Установка текущего значения выхода </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Новое значение </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="model_8h_source.html">model.h</a> строка <a class="el" href="model_8h_source.html#l00065">65</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="model_8h_source.html#l00015">y_prev1</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Данные класса</h2>
+<a id="a18e5ef915d4c3b58c5e81c94ddc89057" name="a18e5ef915d4c3b58c5e81c94ddc89057"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18e5ef915d4c3b58c5e81c94ddc89057">&#9670;&#160;</a></span>a</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Model::a</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="model_8h_source.html">model.h</a> строка <a class="el" href="model_8h_source.html#l00010">10</a></p>
+
+<p class="reference">Используется в <a class="el" href="model_8cpp_source.html#l00025">linearModel()</a>, <a class="el" href="model_8cpp_source.html#l00008">Model()</a> и <a class="el" href="model_8cpp_source.html#l00040">nonlinearModel()</a>.</p>
+
+</div>
+</div>
+<a id="aaa9d87e6468505f959f734782fe34554" name="aaa9d87e6468505f959f734782fe34554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa9d87e6468505f959f734782fe34554">&#9670;&#160;</a></span>b</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Model::b</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="model_8h_source.html">model.h</a> строка <a class="el" href="model_8h_source.html#l00011">11</a></p>
+
+<p class="reference">Используется в <a class="el" href="model_8cpp_source.html#l00025">linearModel()</a>, <a class="el" href="model_8cpp_source.html#l00008">Model()</a> и <a class="el" href="model_8cpp_source.html#l00040">nonlinearModel()</a>.</p>
+
+</div>
+</div>
+<a id="a1d6db59b5d8289c26eec41757bd69cae" name="a1d6db59b5d8289c26eec41757bd69cae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d6db59b5d8289c26eec41757bd69cae">&#9670;&#160;</a></span>c</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Model::c</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="model_8h_source.html">model.h</a> строка <a class="el" href="model_8h_source.html#l00012">12</a></p>
+
+<p class="reference">Используется в <a class="el" href="model_8cpp_source.html#l00008">Model()</a> и <a class="el" href="model_8cpp_source.html#l00040">nonlinearModel()</a>.</p>
+
+</div>
+</div>
+<a id="a4b9e59ab1411828b1d484cca6b08a8ee" name="a4b9e59ab1411828b1d484cca6b08a8ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b9e59ab1411828b1d484cca6b08a8ee">&#9670;&#160;</a></span>d</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Model::d</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="model_8h_source.html">model.h</a> строка <a class="el" href="model_8h_source.html#l00013">13</a></p>
+
+<p class="reference">Используется в <a class="el" href="model_8cpp_source.html#l00008">Model()</a> и <a class="el" href="model_8cpp_source.html#l00040">nonlinearModel()</a>.</p>
+
+</div>
+</div>
+<a id="ad0354b53b1cf4503b7263d070a9206d5" name="ad0354b53b1cf4503b7263d070a9206d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0354b53b1cf4503b7263d070a9206d5">&#9670;&#160;</a></span>u_prev1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Model::u_prev1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="model_8h_source.html">model.h</a> строка <a class="el" href="model_8h_source.html#l00017">17</a></p>
+
+<p class="reference">Используется в <a class="el" href="model_8cpp_source.html#l00015">init()</a>, <a class="el" href="model_8cpp_source.html#l00025">linearModel()</a>, <a class="el" href="model_8cpp_source.html#l00008">Model()</a> и <a class="el" href="model_8cpp_source.html#l00040">nonlinearModel()</a>.</p>
+
+</div>
+</div>
+<a id="aab56c04266baf7acb33775e4fe7a21e2" name="aab56c04266baf7acb33775e4fe7a21e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab56c04266baf7acb33775e4fe7a21e2">&#9670;&#160;</a></span>u_prev2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Model::u_prev2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="model_8h_source.html">model.h</a> строка <a class="el" href="model_8h_source.html#l00018">18</a></p>
+
+<p class="reference">Используется в <a class="el" href="model_8cpp_source.html#l00015">init()</a>, <a class="el" href="model_8cpp_source.html#l00025">linearModel()</a>, <a class="el" href="model_8cpp_source.html#l00008">Model()</a> и <a class="el" href="model_8cpp_source.html#l00040">nonlinearModel()</a>.</p>
+
+</div>
+</div>
+<a id="a928a0a8c991419c3393e80816e1610d2" name="a928a0a8c991419c3393e80816e1610d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a928a0a8c991419c3393e80816e1610d2">&#9670;&#160;</a></span>y_prev1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Model::y_prev1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="model_8h_source.html">model.h</a> строка <a class="el" href="model_8h_source.html#l00015">15</a></p>
+
+<p class="reference">Используется в <a class="el" href="model_8h_source.html#l00059">getCurrentValue()</a>, <a class="el" href="model_8cpp_source.html#l00015">init()</a>, <a class="el" href="model_8cpp_source.html#l00025">linearModel()</a>, <a class="el" href="model_8cpp_source.html#l00008">Model()</a>, <a class="el" href="model_8cpp_source.html#l00040">nonlinearModel()</a> и <a class="el" href="model_8h_source.html#l00065">setCurrentValue()</a>.</p>
+
+</div>
+</div>
+<a id="a8b15b595d778f562aea827e9b7c707ca" name="a8b15b595d778f562aea827e9b7c707ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b15b595d778f562aea827e9b7c707ca">&#9670;&#160;</a></span>y_prev2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Model::y_prev2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="model_8h_source.html">model.h</a> строка <a class="el" href="model_8h_source.html#l00016">16</a></p>
+
+<p class="reference">Используется в <a class="el" href="model_8cpp_source.html#l00015">init()</a>, <a class="el" href="model_8cpp_source.html#l00025">linearModel()</a>, <a class="el" href="model_8cpp_source.html#l00008">Model()</a> и <a class="el" href="model_8cpp_source.html#l00040">nonlinearModel()</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>src/<a class="el" href="model_8h_source.html">model.h</a></li>
+<li>src/<a class="el" href="model_8cpp_source.html">model.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="classModel.html">Model</a></li>
+    <li class="footer">Документация по task_03 - PID Controller. Последние изменения: <span class="timestamp"></span>. Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>
