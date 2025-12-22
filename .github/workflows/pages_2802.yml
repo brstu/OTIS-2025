@@ -2,7 +2,7 @@ name: Deploy Jekyll to GitHub Pages
 
 on:
   push:
-    branches: ["task03"]  # или ваша ветка
+    branches: ["task_03"]
   workflow_dispatch:
 
 permissions:
