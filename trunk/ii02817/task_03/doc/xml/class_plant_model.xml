@@ -1,0 +1,516 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_plant_model" kind="class" language="C++" prot="public">
+    <compoundname>PlantModel</compoundname>
+    <includes refid="model_8h" local="no">model.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_plant_model_1a3a13ccf39287af08f6b123a56422c0fb" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PlantModel::a</definition>
+        <argsstring></argsstring>
+        <name>a</name>
+        <qualifiedname>PlantModel::a</qualifiedname>
+        <initializer>= 1.0</initializer>
+        <briefdescription>
+<para>Коэффициент a модели </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="22" column="12" bodyfile="src/model.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_plant_model_1a01a012d8e5214fe0b46bc76269d433cf" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PlantModel::b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <qualifiedname>PlantModel::b</qualifiedname>
+        <initializer>= 1.0</initializer>
+        <briefdescription>
+<para>Коэффициент b модели </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="23" column="12" bodyfile="src/model.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_plant_model_1a1a89f9b6fe44f08131aba4ee7ff7ebf7" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PlantModel::c</definition>
+        <argsstring></argsstring>
+        <name>c</name>
+        <qualifiedname>PlantModel::c</qualifiedname>
+        <initializer>= 1.0</initializer>
+        <briefdescription>
+<para>Коэффициент c модели </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="24" column="12" bodyfile="src/model.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_plant_model_1a782034076e98316b56d70424af0db5d4" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PlantModel::d</definition>
+        <argsstring></argsstring>
+        <name>d</name>
+        <qualifiedname>PlantModel::d</qualifiedname>
+        <initializer>= 1.0</initializer>
+        <briefdescription>
+<para>Коэффициент d модели </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="25" column="12" bodyfile="src/model.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_plant_model_1ae01a33acff58b1af8f9c9fd2efb92612" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PlantModel::t_curr</definition>
+        <argsstring></argsstring>
+        <name>t_curr</name>
+        <qualifiedname>PlantModel::t_curr</qualifiedname>
+        <initializer>= 1.0</initializer>
+        <briefdescription>
+<para>Текущее значение выходной переменной </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="26" column="12" bodyfile="src/model.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_plant_model_1a22a6254b3d2e5be5e39374fe0294a112" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PlantModel::t_prev</definition>
+        <argsstring></argsstring>
+        <name>t_prev</name>
+        <qualifiedname>PlantModel::t_prev</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+<para>Предыдущее значение выходной переменной </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="27" column="12" bodyfile="src/model.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_plant_model_1a9301e94549e9ac06971a8a67f373d703" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PlantModel::u_curr</definition>
+        <argsstring></argsstring>
+        <name>u_curr</name>
+        <qualifiedname>PlantModel::u_curr</qualifiedname>
+        <initializer>= 1.0</initializer>
+        <briefdescription>
+<para>Текущее значение входной переменной </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="28" column="12" bodyfile="src/model.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_plant_model_1a333545c91ab32159b69689b0ba5d5227" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PlantModel::u_prev</definition>
+        <argsstring></argsstring>
+        <name>u_prev</name>
+        <qualifiedname>PlantModel::u_prev</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+<para>Предыдущее значение входной переменной </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="29" column="12" bodyfile="src/model.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_plant_model_1aa43bd77e2783d08d0e23afd69fa0b8db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PlantModel::PlantModel</definition>
+        <argsstring>()=default</argsstring>
+        <name>PlantModel</name>
+        <qualifiedname>PlantModel::PlantModel</qualifiedname>
+        <briefdescription>
+<para>Конструктор по умолчанию </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="35" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plant_model_1a52ef4f497e9231fd8316574a2f0d4d57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PlantModel::PlantModel</definition>
+        <argsstring>(double a, double b, double c, double d)</argsstring>
+        <name>PlantModel</name>
+        <qualifiedname>PlantModel::PlantModel</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+<para>Параметризованный конструктор </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент a </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент b </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент c </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент d </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="44" column="5" bodyfile="src/model.cpp" bodystart="3" bodyend="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plant_model_1a23e795fe4f0351117bdba4a197688c40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlantModel::setParameters</definition>
+        <argsstring>(double a, double b, double c, double d)</argsstring>
+        <name>setParameters</name>
+        <qualifiedname>PlantModel::setParameters</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+<para>Установка параметров модели </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент a </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент b </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент c </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент d </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="53" column="10" bodyfile="src/model.cpp" bodystart="8" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plant_model_1a25e1496652f7d97c9c93c35bb18eb95d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlantModel::setState</definition>
+        <argsstring>(double tcurr, double tprev, double ucurr, double uprev)</argsstring>
+        <name>setState</name>
+        <qualifiedname>PlantModel::setState</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>tcurr</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tprev</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>ucurr</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>uprev</declname>
+        </param>
+        <briefdescription>
+<para>Установка состояния модели </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tcurr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Текущее значение выходной переменной </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tprev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Предыдущее значение выходной переменной </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ucurr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Текущее значение входной переменной </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>uprev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Предыдущее значение входной переменной </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="62" column="10" bodyfile="src/model.cpp" bodystart="16" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plant_model_1af76e6d3c9e05d6f7c0c4b847acfe49be" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PlantModel::getOutput</definition>
+        <argsstring>() const</argsstring>
+        <name>getOutput</name>
+        <qualifiedname>PlantModel::getOutput</qualifiedname>
+        <briefdescription>
+<para>Получение текущего выхода модели </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Текущее значение выходной переменной </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="68" column="12" bodyfile="src/model.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plant_model_1a5aba471744e92f4e93abdaacaa6bd951" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PlantModel::linearStep</definition>
+        <argsstring>(double u)</argsstring>
+        <name>linearStep</name>
+        <qualifiedname>PlantModel::linearStep</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+<para>Линейная модель на один шаг </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Входное воздействие </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Новое значение выходной переменной </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="75" column="12" bodyfile="src/model.cpp" bodystart="29" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plant_model_1ac9799cb700d1f26b4dd8758d34a5dde9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PlantModel::nonlinearStep</definition>
+        <argsstring>(double u)</argsstring>
+        <name>nonlinearStep</name>
+        <qualifiedname>PlantModel::nonlinearStep</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+<para>Нелинейная модель на один шаг </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Входное воздействие </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Новое значение выходной переменной </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="82" column="12" bodyfile="src/model.cpp" bodystart="39" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plant_model_1ad7733a467a1d833967a6cc3b48731722" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; PlantModel::linear</definition>
+        <argsstring>(int steps) const</argsstring>
+        <name>linear</name>
+        <qualifiedname>PlantModel::linear</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>steps</declname>
+        </param>
+        <briefdescription>
+<para>Линейная модель на несколько шагов </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>steps</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Количество шагов </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Вектор значений выходной переменной </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="89" column="17" bodyfile="src/model.cpp" bodystart="49" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plant_model_1abadb2876a8862aa167d8f1acb3523cbb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; PlantModel::nonlinear</definition>
+        <argsstring>(int steps) const</argsstring>
+        <name>nonlinear</name>
+        <qualifiedname>PlantModel::nonlinear</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>steps</declname>
+        </param>
+        <briefdescription>
+<para>Нелинейная модель на несколько шагов </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>steps</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Количество шагов </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Вектор значений выходной переменной </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="96" column="17" bodyfile="src/model.cpp" bodystart="63" bodyend="82"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Модель объекта управления с линейной и нелинейной динамикой </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/model.h" line="19" column="1" bodyfile="src/model.h" bodystart="20" bodyend="97"/>
+    <listofallmembers>
+      <member refid="class_plant_model_1a3a13ccf39287af08f6b123a56422c0fb" prot="private" virt="non-virtual"><scope>PlantModel</scope><name>a</name></member>
+      <member refid="class_plant_model_1a01a012d8e5214fe0b46bc76269d433cf" prot="private" virt="non-virtual"><scope>PlantModel</scope><name>b</name></member>
+      <member refid="class_plant_model_1a1a89f9b6fe44f08131aba4ee7ff7ebf7" prot="private" virt="non-virtual"><scope>PlantModel</scope><name>c</name></member>
+      <member refid="class_plant_model_1a782034076e98316b56d70424af0db5d4" prot="private" virt="non-virtual"><scope>PlantModel</scope><name>d</name></member>
+      <member refid="class_plant_model_1af76e6d3c9e05d6f7c0c4b847acfe49be" prot="public" virt="non-virtual"><scope>PlantModel</scope><name>getOutput</name></member>
+      <member refid="class_plant_model_1ad7733a467a1d833967a6cc3b48731722" prot="public" virt="non-virtual"><scope>PlantModel</scope><name>linear</name></member>
+      <member refid="class_plant_model_1a5aba471744e92f4e93abdaacaa6bd951" prot="public" virt="non-virtual"><scope>PlantModel</scope><name>linearStep</name></member>
+      <member refid="class_plant_model_1abadb2876a8862aa167d8f1acb3523cbb" prot="public" virt="non-virtual"><scope>PlantModel</scope><name>nonlinear</name></member>
+      <member refid="class_plant_model_1ac9799cb700d1f26b4dd8758d34a5dde9" prot="public" virt="non-virtual"><scope>PlantModel</scope><name>nonlinearStep</name></member>
+      <member refid="class_plant_model_1aa43bd77e2783d08d0e23afd69fa0b8db" prot="public" virt="non-virtual"><scope>PlantModel</scope><name>PlantModel</name></member>
+      <member refid="class_plant_model_1a52ef4f497e9231fd8316574a2f0d4d57" prot="public" virt="non-virtual"><scope>PlantModel</scope><name>PlantModel</name></member>
+      <member refid="class_plant_model_1a23e795fe4f0351117bdba4a197688c40" prot="public" virt="non-virtual"><scope>PlantModel</scope><name>setParameters</name></member>
+      <member refid="class_plant_model_1a25e1496652f7d97c9c93c35bb18eb95d" prot="public" virt="non-virtual"><scope>PlantModel</scope><name>setState</name></member>
+      <member refid="class_plant_model_1ae01a33acff58b1af8f9c9fd2efb92612" prot="private" virt="non-virtual"><scope>PlantModel</scope><name>t_curr</name></member>
+      <member refid="class_plant_model_1a22a6254b3d2e5be5e39374fe0294a112" prot="private" virt="non-virtual"><scope>PlantModel</scope><name>t_prev</name></member>
+      <member refid="class_plant_model_1a9301e94549e9ac06971a8a67f373d703" prot="private" virt="non-virtual"><scope>PlantModel</scope><name>u_curr</name></member>
+      <member refid="class_plant_model_1a333545c91ab32159b69689b0ba5d5227" prot="private" virt="non-virtual"><scope>PlantModel</scope><name>u_prev</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

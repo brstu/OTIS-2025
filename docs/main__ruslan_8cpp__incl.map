@@ -1,0 +1,11 @@
+<map id="src/main_ruslan.cpp" name="src/main_ruslan.cpp">
+<area shape="rect" id="Node000001" title="Главный файл программы &#45; симулятор PID регулятора" alt="" coords="87,5,226,32"/>
+<area shape="rect" id="Node000002" href="$pid__ruslan_8h.html" title=" " alt="" coords="5,80,97,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,35,84,73,80,69,140,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="121,80,192,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="158,30,159,65,154,63,155,35"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="216,80,270,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="172,30,219,70,214,70,171,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="25,155,77,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="53,105,54,140,48,138,49,109"/>
+</map>
