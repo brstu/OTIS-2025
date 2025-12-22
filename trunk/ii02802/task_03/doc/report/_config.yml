@@ -1,0 +1,10 @@
+title: Документация лабораторной работы №3 — ПИД-регулятор
+description: API-документация, сгенерированная Doxygen + Moxygen
+theme: jekyll-theme-minimal  #
+
+plugins:
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock

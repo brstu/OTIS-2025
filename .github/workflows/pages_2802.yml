@@ -1,10 +1,8 @@
-name: Deploy Jekyll with GitHub Pages dependencies
+name: Deploy Jekyll to GitHub Pages
 
 on:
-
   push:
-    branches: ["task03"]
-
+    branches: ["task03"]  # или ваша ветка
   workflow_dispatch:
 
 permissions:
@@ -22,15 +20,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./trunk/ii02802/task_03/doc/report
-          destination: ./_site
+          source: ./trunk/ii02802/task_03/doc/report      # путь к папке с _config.yml и .md
+          destination: ./_site                           # куда Jekyll положит готовый сайт
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site                                  # обязательно _site
 
   deploy:
     environment:
