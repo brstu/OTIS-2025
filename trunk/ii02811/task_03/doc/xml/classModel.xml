@@ -1,0 +1,450 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="ru">
+  <compounddef id="classModel" kind="class" language="C++" prot="public">
+    <compoundname>Model</compoundname>
+    <includes refid="model_8h" local="no">model.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classModel_1a18e5ef915d4c3b58c5e81c94ddc89057" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Model::a</definition>
+        <argsstring></argsstring>
+        <name>a</name>
+        <qualifiedname>Model::a</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="10" column="12" bodyfile="src/model.h" bodystart="10" bodyend="-1"/>
+        <referencedby refid="classModel_1a947cfcb5e6035d29f0ead62a26fd18de" compoundref="model_8cpp" startline="25" endline="35">linearModel</referencedby>
+        <referencedby refid="classModel_1ab5d4a33e22070b59a4543e6de34199e2" compoundref="model_8cpp" startline="8" endline="10">Model</referencedby>
+        <referencedby refid="classModel_1ab31570881280566275abef961ed0e68f" compoundref="model_8cpp" startline="40" endline="60">nonlinearModel</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classModel_1aaa9d87e6468505f959f734782fe34554" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Model::b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <qualifiedname>Model::b</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="11" column="12" bodyfile="src/model.h" bodystart="11" bodyend="-1"/>
+        <referencedby refid="classModel_1a947cfcb5e6035d29f0ead62a26fd18de" compoundref="model_8cpp" startline="25" endline="35">linearModel</referencedby>
+        <referencedby refid="classModel_1ab5d4a33e22070b59a4543e6de34199e2" compoundref="model_8cpp" startline="8" endline="10">Model</referencedby>
+        <referencedby refid="classModel_1ab31570881280566275abef961ed0e68f" compoundref="model_8cpp" startline="40" endline="60">nonlinearModel</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classModel_1a1d6db59b5d8289c26eec41757bd69cae" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Model::c</definition>
+        <argsstring></argsstring>
+        <name>c</name>
+        <qualifiedname>Model::c</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="12" column="12" bodyfile="src/model.h" bodystart="12" bodyend="-1"/>
+        <referencedby refid="classModel_1ab5d4a33e22070b59a4543e6de34199e2" compoundref="model_8cpp" startline="8" endline="10">Model</referencedby>
+        <referencedby refid="classModel_1ab31570881280566275abef961ed0e68f" compoundref="model_8cpp" startline="40" endline="60">nonlinearModel</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classModel_1a4b9e59ab1411828b1d484cca6b08a8ee" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Model::d</definition>
+        <argsstring></argsstring>
+        <name>d</name>
+        <qualifiedname>Model::d</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="13" column="12" bodyfile="src/model.h" bodystart="13" bodyend="-1"/>
+        <referencedby refid="classModel_1ab5d4a33e22070b59a4543e6de34199e2" compoundref="model_8cpp" startline="8" endline="10">Model</referencedby>
+        <referencedby refid="classModel_1ab31570881280566275abef961ed0e68f" compoundref="model_8cpp" startline="40" endline="60">nonlinearModel</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classModel_1a928a0a8c991419c3393e80816e1610d2" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Model::y_prev1</definition>
+        <argsstring></argsstring>
+        <name>y_prev1</name>
+        <qualifiedname>Model::y_prev1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="15" column="12" bodyfile="src/model.h" bodystart="15" bodyend="-1"/>
+        <referencedby refid="classModel_1aa23799a2cfa94ab5b9ac78ec4c5e365c" compoundref="model_8h" startline="59" endline="59">getCurrentValue</referencedby>
+        <referencedby refid="classModel_1a016819d78d29f1533d3351cdcd83b2e5" compoundref="model_8cpp" startline="15" endline="20">init</referencedby>
+        <referencedby refid="classModel_1a947cfcb5e6035d29f0ead62a26fd18de" compoundref="model_8cpp" startline="25" endline="35">linearModel</referencedby>
+        <referencedby refid="classModel_1ab5d4a33e22070b59a4543e6de34199e2" compoundref="model_8cpp" startline="8" endline="10">Model</referencedby>
+        <referencedby refid="classModel_1ab31570881280566275abef961ed0e68f" compoundref="model_8cpp" startline="40" endline="60">nonlinearModel</referencedby>
+        <referencedby refid="classModel_1a1c926807f26dc8c433a5b8a4261c5475" compoundref="model_8h" startline="65" endline="65">setCurrentValue</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classModel_1a8b15b595d778f562aea827e9b7c707ca" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Model::y_prev2</definition>
+        <argsstring></argsstring>
+        <name>y_prev2</name>
+        <qualifiedname>Model::y_prev2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="16" column="12" bodyfile="src/model.h" bodystart="16" bodyend="-1"/>
+        <referencedby refid="classModel_1a016819d78d29f1533d3351cdcd83b2e5" compoundref="model_8cpp" startline="15" endline="20">init</referencedby>
+        <referencedby refid="classModel_1a947cfcb5e6035d29f0ead62a26fd18de" compoundref="model_8cpp" startline="25" endline="35">linearModel</referencedby>
+        <referencedby refid="classModel_1ab5d4a33e22070b59a4543e6de34199e2" compoundref="model_8cpp" startline="8" endline="10">Model</referencedby>
+        <referencedby refid="classModel_1ab31570881280566275abef961ed0e68f" compoundref="model_8cpp" startline="40" endline="60">nonlinearModel</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classModel_1ad0354b53b1cf4503b7263d070a9206d5" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Model::u_prev1</definition>
+        <argsstring></argsstring>
+        <name>u_prev1</name>
+        <qualifiedname>Model::u_prev1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="17" column="12" bodyfile="src/model.h" bodystart="17" bodyend="-1"/>
+        <referencedby refid="classModel_1a016819d78d29f1533d3351cdcd83b2e5" compoundref="model_8cpp" startline="15" endline="20">init</referencedby>
+        <referencedby refid="classModel_1a947cfcb5e6035d29f0ead62a26fd18de" compoundref="model_8cpp" startline="25" endline="35">linearModel</referencedby>
+        <referencedby refid="classModel_1ab5d4a33e22070b59a4543e6de34199e2" compoundref="model_8cpp" startline="8" endline="10">Model</referencedby>
+        <referencedby refid="classModel_1ab31570881280566275abef961ed0e68f" compoundref="model_8cpp" startline="40" endline="60">nonlinearModel</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classModel_1aab56c04266baf7acb33775e4fe7a21e2" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Model::u_prev2</definition>
+        <argsstring></argsstring>
+        <name>u_prev2</name>
+        <qualifiedname>Model::u_prev2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="18" column="12" bodyfile="src/model.h" bodystart="18" bodyend="-1"/>
+        <referencedby refid="classModel_1a016819d78d29f1533d3351cdcd83b2e5" compoundref="model_8cpp" startline="15" endline="20">init</referencedby>
+        <referencedby refid="classModel_1a947cfcb5e6035d29f0ead62a26fd18de" compoundref="model_8cpp" startline="25" endline="35">linearModel</referencedby>
+        <referencedby refid="classModel_1ab5d4a33e22070b59a4543e6de34199e2" compoundref="model_8cpp" startline="8" endline="10">Model</referencedby>
+        <referencedby refid="classModel_1ab31570881280566275abef961ed0e68f" compoundref="model_8cpp" startline="40" endline="60">nonlinearModel</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classModel_1ab5d4a33e22070b59a4543e6de34199e2" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Model::Model</definition>
+        <argsstring>(double a_val=0.2, double b_val=0.3, double c_val=0.4, double d_val=0.5)</argsstring>
+        <name>Model</name>
+        <qualifiedname>Model::Model</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>a_val</declname>
+          <defval>0.2</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>b_val</declname>
+          <defval>0.3</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c_val</declname>
+          <defval>0.4</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>d_val</declname>
+          <defval>0.5</defval>
+        </param>
+        <briefdescription>
+<para>Конструктор модели </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент a (по умолчанию 0.2) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент b (по умолчанию 0.3) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент c (по умолчанию 0.4) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент d (по умолчанию 0.5) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="28" column="14" bodyfile="src/model.cpp" bodystart="8" bodyend="10"/>
+        <references refid="classModel_1a18e5ef915d4c3b58c5e81c94ddc89057" compoundref="model_8h" startline="10">a</references>
+        <references refid="classModel_1aaa9d87e6468505f959f734782fe34554" compoundref="model_8h" startline="11">b</references>
+        <references refid="classModel_1a1d6db59b5d8289c26eec41757bd69cae" compoundref="model_8h" startline="12">c</references>
+        <references refid="classModel_1a4b9e59ab1411828b1d484cca6b08a8ee" compoundref="model_8h" startline="13">d</references>
+        <references refid="classModel_1ad0354b53b1cf4503b7263d070a9206d5" compoundref="model_8h" startline="17">u_prev1</references>
+        <references refid="classModel_1aab56c04266baf7acb33775e4fe7a21e2" compoundref="model_8h" startline="18">u_prev2</references>
+        <references refid="classModel_1a928a0a8c991419c3393e80816e1610d2" compoundref="model_8h" startline="15">y_prev1</references>
+        <references refid="classModel_1a8b15b595d778f562aea827e9b7c707ca" compoundref="model_8h" startline="16">y_prev2</references>
+      </memberdef>
+      <memberdef kind="function" id="classModel_1a016819d78d29f1533d3351cdcd83b2e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Model::init</definition>
+        <argsstring>(double y0, double y1, double u0, double u1)</argsstring>
+        <name>init</name>
+        <qualifiedname>Model::init</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>y0</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y1</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>u0</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>u1</declname>
+        </param>
+        <briefdescription>
+<para>Инициализация начальных условий </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>y0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Начальное значение y[k-2] </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Начальное значение y[k-1] </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>u0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Начальное значение u[k-2] </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>u1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Начальное значение u[k-1] </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="38" column="10" bodyfile="src/model.cpp" bodystart="15" bodyend="20"/>
+        <references refid="classModel_1ad0354b53b1cf4503b7263d070a9206d5" compoundref="model_8h" startline="17">u_prev1</references>
+        <references refid="classModel_1aab56c04266baf7acb33775e4fe7a21e2" compoundref="model_8h" startline="18">u_prev2</references>
+        <references refid="classModel_1a928a0a8c991419c3393e80816e1610d2" compoundref="model_8h" startline="15">y_prev1</references>
+        <references refid="classModel_1a8b15b595d778f562aea827e9b7c707ca" compoundref="model_8h" startline="16">y_prev2</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="18" endline="104">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classModel_1a947cfcb5e6035d29f0ead62a26fd18de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Model::linearModel</definition>
+        <argsstring>(double u)</argsstring>
+        <name>linearModel</name>
+        <qualifiedname>Model::linearModel</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+<para>Линейная модель объекта </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Текущее управляющее воздействие </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Текущее значение выхода </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="45" column="12" bodyfile="src/model.cpp" bodystart="25" bodyend="35"/>
+        <references refid="classModel_1a18e5ef915d4c3b58c5e81c94ddc89057" compoundref="model_8h" startline="10">a</references>
+        <references refid="classModel_1aaa9d87e6468505f959f734782fe34554" compoundref="model_8h" startline="11">b</references>
+        <references refid="classModel_1ad0354b53b1cf4503b7263d070a9206d5" compoundref="model_8h" startline="17">u_prev1</references>
+        <references refid="classModel_1aab56c04266baf7acb33775e4fe7a21e2" compoundref="model_8h" startline="18">u_prev2</references>
+        <references refid="classModel_1a928a0a8c991419c3393e80816e1610d2" compoundref="model_8h" startline="15">y_prev1</references>
+        <references refid="classModel_1a8b15b595d778f562aea827e9b7c707ca" compoundref="model_8h" startline="16">y_prev2</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="18" endline="104">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classModel_1ab31570881280566275abef961ed0e68f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Model::nonlinearModel</definition>
+        <argsstring>(double u)</argsstring>
+        <name>nonlinearModel</name>
+        <qualifiedname>Model::nonlinearModel</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+<para>Нелинейная модель объекта </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Текущее управляющее воздействие </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Текущее значение выхода </para>
+</simplesect>
+<simplesect kind="warning"><para>Включает ограничение выходных значений ±1000 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="53" column="12" bodyfile="src/model.cpp" bodystart="40" bodyend="60"/>
+        <references refid="classModel_1a18e5ef915d4c3b58c5e81c94ddc89057" compoundref="model_8h" startline="10">a</references>
+        <references refid="classModel_1aaa9d87e6468505f959f734782fe34554" compoundref="model_8h" startline="11">b</references>
+        <references refid="classModel_1a1d6db59b5d8289c26eec41757bd69cae" compoundref="model_8h" startline="12">c</references>
+        <references refid="classModel_1a4b9e59ab1411828b1d484cca6b08a8ee" compoundref="model_8h" startline="13">d</references>
+        <references refid="classModel_1ad0354b53b1cf4503b7263d070a9206d5" compoundref="model_8h" startline="17">u_prev1</references>
+        <references refid="classModel_1aab56c04266baf7acb33775e4fe7a21e2" compoundref="model_8h" startline="18">u_prev2</references>
+        <references refid="classModel_1a928a0a8c991419c3393e80816e1610d2" compoundref="model_8h" startline="15">y_prev1</references>
+        <references refid="classModel_1a8b15b595d778f562aea827e9b7c707ca" compoundref="model_8h" startline="16">y_prev2</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="18" endline="104">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classModel_1aa23799a2cfa94ab5b9ac78ec4c5e365c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Model::getCurrentValue</definition>
+        <argsstring>() const</argsstring>
+        <name>getCurrentValue</name>
+        <qualifiedname>Model::getCurrentValue</qualifiedname>
+        <briefdescription>
+<para>Получение текущего значения выхода </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Текущее значение y[k-1] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="59" column="12" bodyfile="src/model.h" bodystart="59" bodyend="59"/>
+        <references refid="classModel_1a928a0a8c991419c3393e80816e1610d2" compoundref="model_8h" startline="15">y_prev1</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="18" endline="104">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classModel_1a1c926807f26dc8c433a5b8a4261c5475" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Model::setCurrentValue</definition>
+        <argsstring>(double value)</argsstring>
+        <name>setCurrentValue</name>
+        <qualifiedname>Model::setCurrentValue</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Установка текущего значения выхода </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Новое значение </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="65" column="10" bodyfile="src/model.h" bodystart="65" bodyend="65"/>
+        <references refid="classModel_1a928a0a8c991419c3393e80816e1610d2" compoundref="model_8h" startline="15">y_prev1</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Модель объекта управления </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/model.h" line="8" column="1" bodyfile="src/model.h" bodystart="8" bodyend="66"/>
+    <listofallmembers>
+      <member refid="classModel_1a18e5ef915d4c3b58c5e81c94ddc89057" prot="private" virt="non-virtual"><scope>Model</scope><name>a</name></member>
+      <member refid="classModel_1aaa9d87e6468505f959f734782fe34554" prot="private" virt="non-virtual"><scope>Model</scope><name>b</name></member>
+      <member refid="classModel_1a1d6db59b5d8289c26eec41757bd69cae" prot="private" virt="non-virtual"><scope>Model</scope><name>c</name></member>
+      <member refid="classModel_1a4b9e59ab1411828b1d484cca6b08a8ee" prot="private" virt="non-virtual"><scope>Model</scope><name>d</name></member>
+      <member refid="classModel_1aa23799a2cfa94ab5b9ac78ec4c5e365c" prot="public" virt="non-virtual"><scope>Model</scope><name>getCurrentValue</name></member>
+      <member refid="classModel_1a016819d78d29f1533d3351cdcd83b2e5" prot="public" virt="non-virtual"><scope>Model</scope><name>init</name></member>
+      <member refid="classModel_1a947cfcb5e6035d29f0ead62a26fd18de" prot="public" virt="non-virtual"><scope>Model</scope><name>linearModel</name></member>
+      <member refid="classModel_1ab5d4a33e22070b59a4543e6de34199e2" prot="public" virt="non-virtual"><scope>Model</scope><name>Model</name></member>
+      <member refid="classModel_1ab31570881280566275abef961ed0e68f" prot="public" virt="non-virtual"><scope>Model</scope><name>nonlinearModel</name></member>
+      <member refid="classModel_1a1c926807f26dc8c433a5b8a4261c5475" prot="public" virt="non-virtual"><scope>Model</scope><name>setCurrentValue</name></member>
+      <member refid="classModel_1ad0354b53b1cf4503b7263d070a9206d5" prot="private" virt="non-virtual"><scope>Model</scope><name>u_prev1</name></member>
+      <member refid="classModel_1aab56c04266baf7acb33775e4fe7a21e2" prot="private" virt="non-virtual"><scope>Model</scope><name>u_prev2</name></member>
+      <member refid="classModel_1a928a0a8c991419c3393e80816e1610d2" prot="private" virt="non-virtual"><scope>Model</scope><name>y_prev1</name></member>
+      <member refid="classModel_1a8b15b595d778f562aea827e9b7c707ca" prot="private" virt="non-virtual"><scope>Model</scope><name>y_prev2</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

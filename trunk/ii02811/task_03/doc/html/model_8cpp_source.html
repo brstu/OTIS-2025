@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>task_03 - PID Controller: Исходный файл src/model.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">task_03 - PID Controller<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Система управления с PID регулятором</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('model_8cpp_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">model.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="model_8cpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="model_8h.html">model.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span></div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="}">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classModel.html#ab5d4a33e22070b59a4543e6de34199e2">    8</a></span><a class="code hl_function" href="classModel.html#ab5d4a33e22070b59a4543e6de34199e2">Model::Model</a>(<span class="keywordtype">double</span> a_val, <span class="keywordtype">double</span> b_val, <span class="keywordtype">double</span> c_val, <span class="keywordtype">double</span> d_val)</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    : <a class="code hl_variable" href="classModel.html#a18e5ef915d4c3b58c5e81c94ddc89057">a</a>(a_val), <a class="code hl_variable" href="classModel.html#aaa9d87e6468505f959f734782fe34554">b</a>(b_val), <a class="code hl_variable" href="classModel.html#a1d6db59b5d8289c26eec41757bd69cae">c</a>(c_val), <a class="code hl_variable" href="classModel.html#a4b9e59ab1411828b1d484cca6b08a8ee">d</a>(d_val),</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>      <a class="code hl_variable" href="classModel.html#a928a0a8c991419c3393e80816e1610d2">y_prev1</a>(0.0), <a class="code hl_variable" href="classModel.html#a8b15b595d778f562aea827e9b7c707ca">y_prev2</a>(0.0), <a class="code hl_variable" href="classModel.html#ad0354b53b1cf4503b7263d070a9206d5">u_prev1</a>(0.0), <a class="code hl_variable" href="classModel.html#aab56c04266baf7acb33775e4fe7a21e2">u_prev2</a>(0.0) {}</div>
+</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span></div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classModel.html#a016819d78d29f1533d3351cdcd83b2e5">   15</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classModel.html#a016819d78d29f1533d3351cdcd83b2e5">Model::init</a>(<span class="keywordtype">double</span> y0, <span class="keywordtype">double</span> y1, <span class="keywordtype">double</span> u0, <span class="keywordtype">double</span> u1) {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_variable" href="classModel.html#a8b15b595d778f562aea827e9b7c707ca">y_prev2</a> = y0;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_variable" href="classModel.html#a928a0a8c991419c3393e80816e1610d2">y_prev1</a> = y1;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_variable" href="classModel.html#aab56c04266baf7acb33775e4fe7a21e2">u_prev2</a> = u0;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_variable" href="classModel.html#ad0354b53b1cf4503b7263d070a9206d5">u_prev1</a> = u1;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
+</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span></div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classModel.html#a947cfcb5e6035d29f0ead62a26fd18de">   25</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classModel.html#a947cfcb5e6035d29f0ead62a26fd18de">Model::linearModel</a>(<span class="keywordtype">double</span> u) {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_variable" href="classModel.html#aab56c04266baf7acb33775e4fe7a21e2">u_prev2</a> = <a class="code hl_variable" href="classModel.html#ad0354b53b1cf4503b7263d070a9206d5">u_prev1</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_variable" href="classModel.html#ad0354b53b1cf4503b7263d070a9206d5">u_prev1</a> = u;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">double</span> y = <a class="code hl_variable" href="classModel.html#a18e5ef915d4c3b58c5e81c94ddc89057">a</a> * <a class="code hl_variable" href="classModel.html#a928a0a8c991419c3393e80816e1610d2">y_prev1</a> + <a class="code hl_variable" href="classModel.html#aaa9d87e6468505f959f734782fe34554">b</a> * u;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_variable" href="classModel.html#a8b15b595d778f562aea827e9b7c707ca">y_prev2</a> = <a class="code hl_variable" href="classModel.html#a928a0a8c991419c3393e80816e1610d2">y_prev1</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_variable" href="classModel.html#a928a0a8c991419c3393e80816e1610d2">y_prev1</a> = y;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">return</span> y;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classModel.html#ab31570881280566275abef961ed0e68f">   40</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classModel.html#ab31570881280566275abef961ed0e68f">Model::nonlinearModel</a>(<span class="keywordtype">double</span> u) {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_variable" href="classModel.html#aab56c04266baf7acb33775e4fe7a21e2">u_prev2</a> = <a class="code hl_variable" href="classModel.html#ad0354b53b1cf4503b7263d070a9206d5">u_prev1</a>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_variable" href="classModel.html#ad0354b53b1cf4503b7263d070a9206d5">u_prev1</a> = u;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">double</span> y2 = <a class="code hl_variable" href="classModel.html#a8b15b595d778f562aea827e9b7c707ca">y_prev2</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">double</span> smooth_quad = y2 * std::tanh(y2);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">double</span> y = <a class="code hl_variable" href="classModel.html#a18e5ef915d4c3b58c5e81c94ddc89057">a</a> * <a class="code hl_variable" href="classModel.html#a928a0a8c991419c3393e80816e1610d2">y_prev1</a></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>               - <a class="code hl_variable" href="classModel.html#aaa9d87e6468505f959f734782fe34554">b</a> * smooth_quad</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>               + <a class="code hl_variable" href="classModel.html#a1d6db59b5d8289c26eec41757bd69cae">c</a> * u</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>               + <a class="code hl_variable" href="classModel.html#a4b9e59ab1411828b1d484cca6b08a8ee">d</a> * std::sin(<a class="code hl_variable" href="classModel.html#ad0354b53b1cf4503b7263d070a9206d5">u_prev1</a>);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">if</span> (y &gt; 1000.0) y = 1000.0;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">if</span> (y &lt; -1000.0) y = -1000.0;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">if</span> (std::isnan(y)) y = 0.0;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_variable" href="classModel.html#a8b15b595d778f562aea827e9b7c707ca">y_prev2</a> = <a class="code hl_variable" href="classModel.html#a928a0a8c991419c3393e80816e1610d2">y_prev1</a>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_variable" href="classModel.html#a928a0a8c991419c3393e80816e1610d2">y_prev1</a> = y;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">return</span> y;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
+</div>
+<div class="ttc" id="aclassModel_html_a016819d78d29f1533d3351cdcd83b2e5"><div class="ttname"><a href="classModel.html#a016819d78d29f1533d3351cdcd83b2e5">Model::init</a></div><div class="ttdeci">void init(double y0, double y1, double u0, double u1)</div><div class="ttdoc">Инициализация начальных условий</div><div class="ttdef"><b>Определения</b> <a href="#l00015">model.cpp:15</a></div></div>
+<div class="ttc" id="aclassModel_html_a18e5ef915d4c3b58c5e81c94ddc89057"><div class="ttname"><a href="classModel.html#a18e5ef915d4c3b58c5e81c94ddc89057">Model::a</a></div><div class="ttdeci">double a</div><div class="ttdef"><b>Определения</b> <a href="model_8h_source.html#l00010">model.h:10</a></div></div>
+<div class="ttc" id="aclassModel_html_a1d6db59b5d8289c26eec41757bd69cae"><div class="ttname"><a href="classModel.html#a1d6db59b5d8289c26eec41757bd69cae">Model::c</a></div><div class="ttdeci">double c</div><div class="ttdef"><b>Определения</b> <a href="model_8h_source.html#l00012">model.h:12</a></div></div>
+<div class="ttc" id="aclassModel_html_a4b9e59ab1411828b1d484cca6b08a8ee"><div class="ttname"><a href="classModel.html#a4b9e59ab1411828b1d484cca6b08a8ee">Model::d</a></div><div class="ttdeci">double d</div><div class="ttdef"><b>Определения</b> <a href="model_8h_source.html#l00013">model.h:13</a></div></div>
+<div class="ttc" id="aclassModel_html_a8b15b595d778f562aea827e9b7c707ca"><div class="ttname"><a href="classModel.html#a8b15b595d778f562aea827e9b7c707ca">Model::y_prev2</a></div><div class="ttdeci">double y_prev2</div><div class="ttdef"><b>Определения</b> <a href="model_8h_source.html#l00016">model.h:16</a></div></div>
+<div class="ttc" id="aclassModel_html_a928a0a8c991419c3393e80816e1610d2"><div class="ttname"><a href="classModel.html#a928a0a8c991419c3393e80816e1610d2">Model::y_prev1</a></div><div class="ttdeci">double y_prev1</div><div class="ttdef"><b>Определения</b> <a href="model_8h_source.html#l00015">model.h:15</a></div></div>
+<div class="ttc" id="aclassModel_html_a947cfcb5e6035d29f0ead62a26fd18de"><div class="ttname"><a href="classModel.html#a947cfcb5e6035d29f0ead62a26fd18de">Model::linearModel</a></div><div class="ttdeci">double linearModel(double u)</div><div class="ttdoc">Линейная модель объекта</div><div class="ttdef"><b>Определения</b> <a href="#l00025">model.cpp:25</a></div></div>
+<div class="ttc" id="aclassModel_html_aaa9d87e6468505f959f734782fe34554"><div class="ttname"><a href="classModel.html#aaa9d87e6468505f959f734782fe34554">Model::b</a></div><div class="ttdeci">double b</div><div class="ttdef"><b>Определения</b> <a href="model_8h_source.html#l00011">model.h:11</a></div></div>
+<div class="ttc" id="aclassModel_html_aab56c04266baf7acb33775e4fe7a21e2"><div class="ttname"><a href="classModel.html#aab56c04266baf7acb33775e4fe7a21e2">Model::u_prev2</a></div><div class="ttdeci">double u_prev2</div><div class="ttdef"><b>Определения</b> <a href="model_8h_source.html#l00018">model.h:18</a></div></div>
+<div class="ttc" id="aclassModel_html_ab31570881280566275abef961ed0e68f"><div class="ttname"><a href="classModel.html#ab31570881280566275abef961ed0e68f">Model::nonlinearModel</a></div><div class="ttdeci">double nonlinearModel(double u)</div><div class="ttdoc">Нелинейная модель объекта</div><div class="ttdef"><b>Определения</b> <a href="#l00040">model.cpp:40</a></div></div>
+<div class="ttc" id="aclassModel_html_ab5d4a33e22070b59a4543e6de34199e2"><div class="ttname"><a href="classModel.html#ab5d4a33e22070b59a4543e6de34199e2">Model::Model</a></div><div class="ttdeci">Model(double a_val=0.2, double b_val=0.3, double c_val=0.4, double d_val=0.5)</div><div class="ttdoc">Конструктор модели</div><div class="ttdef"><b>Определения</b> <a href="#l00008">model.cpp:8</a></div></div>
+<div class="ttc" id="aclassModel_html_ad0354b53b1cf4503b7263d070a9206d5"><div class="ttname"><a href="classModel.html#ad0354b53b1cf4503b7263d070a9206d5">Model::u_prev1</a></div><div class="ttdeci">double u_prev1</div><div class="ttdef"><b>Определения</b> <a href="model_8h_source.html#l00017">model.h:17</a></div></div>
+<div class="ttc" id="amodel_8h_html"><div class="ttname"><a href="model_8h.html">model.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="model_8cpp.html">model.cpp</a></li>
+    <li class="footer">Документация по task_03 - PID Controller. Последние изменения: <span class="timestamp"></span>. Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>
