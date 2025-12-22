@@ -510,3 +510,4 @@ int main(int argc, char **argv) {
 ![Результаты тестирования:](img/Снимок экрана 2025-12-22 190003.png)
 
 ## Page ##
+https://gdkostettt.github.io/Page/
