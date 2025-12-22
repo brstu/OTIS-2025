@@ -40,7 +40,7 @@ int main() {
 
     // Параметры моделирования
     double sim_time = 10.0; // Общее время моделирования
-    int steps = static_cast<int>(sim_time / Ts);
+    auto steps = static_cast<int>(sim_time / Ts);
     std::vector<double> time(steps);
     std::vector<double> setpoint(steps);
     std::vector<double> y_out(steps);

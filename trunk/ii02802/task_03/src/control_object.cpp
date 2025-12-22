@@ -5,9 +5,7 @@
  * @brief Реализация класса объекта управления.
  */
 
-ControlObject::ControlObject(double K, double T, double xi) : K_obj(K), T_obj(T), xi(xi) {
-    y = 0.0;
-    dy = 0.0;
+ControlObject::ControlObject(double K, double T, double xi) : K_obj(K), T_obj(T), xi(xi), y(0.0), dy(0.0) {
 }
 
 double ControlObject::update(double u, double dt) {
