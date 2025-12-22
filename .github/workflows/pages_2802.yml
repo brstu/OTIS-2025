@@ -27,13 +27,13 @@ jobs:
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./trunk/ii02802/task_03/doc/report      # путь к папке с _config.yml и .md
-          destination: ./_site/ii02802/task_03                           # куда Jekyll положит готовый сайт
+          source: ./trunk/ii02802/task_03/doc/report     
+          destination: ./_site                              
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./_site                                  # обязательно _site
+          path: ./_site                                  
 
   deploy:
     environment:
