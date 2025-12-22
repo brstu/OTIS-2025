@@ -9,8 +9,8 @@
  */
 class ControlObject {
 private:
-    double y; ///< Выход y
-    double dy; ///< Производная dy/dt
+    double y = 0.0; ///< Выход y
+    double dy = 0.0; ///< Производная dy/dt
     double K_obj; ///< Коэффициент усиления K
     double T_obj; ///< Постоянная времени T
     double xi; ///< Коэффициент демпфирования ξ
