@@ -10,3 +10,6 @@ plugins:
 exclude:
   - Gemfile
   - Gemfile.lock
+
+include:
+  - assets
