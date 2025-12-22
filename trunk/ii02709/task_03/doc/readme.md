@@ -9,8 +9,8 @@
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
-<p align="right">Группы ИИ-28/24</p>
-<p align="right">Клименко М.C.</p>
+<p align="right">Группы ИИ-27</p>
+<p align="right">Козел А. В.</p>
 <p align="right">Проверил:</p>
 <p align="right">Дворанинович Д.А.</p>
 <br><br><br><br><br>
@@ -105,52 +105,41 @@
 На **C++** реализовать программу, моделирующую рассмотренный выше ПИД-регулятор.  В качестве объекта управления использовать математическую модель, полученную в предыдущей работе.
 В отчете также привести графики для разных заданий температуры объекта, пояснить полученные результаты.
 
-## Код программы [ src/lab3.cpp ]
+
+## Код программы [ src/main.cpp ]
 ```C++
+/**
+ * @file main.cpp
+ * @brief Простой симулятор: PID + линейный объект. Выводит CSV в stdout.
+ */
+
 #include <iostream>
+#include <iomanip>
 #include "pid.h"
-#include "lin_model.h"
+#include "plant.h"
 
-template <typename N>
-void validate(N& number, const std::string& message) {
-    std::cout << message;
-    while (!(std::cin >> number)) {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Input correct number: ";
-    }
-}
 int main() {
+    const double T0 = 0.1;
+    const int steps = 1000;
+    const double setpoint = 50.0;
 
-    double y_prev;
-    double y;
-    double a;
-    double b;
-    double w;
-    int n;
+    LinearPlant plant(0.98, 0.05, 0.0, 0.0);
+    PID pid(10.0, 0.1, 0.01, T0);
 
-    double K = 0.5;
-    double T = 2.0;
-    double Td = 0.3;
-    double T0 = 1.0;
+    std::cout << "t,setpoint,y,u,e\n";
 
-    validate(y_prev, "Enter input temperature (y): ");
-    validate(a, "Enter constant a (for linear model): ");
-    validate(b, "Enter constant b (for linear model: ");
-    validate(w, "Enter target temperature (w): ");
-    validate(n, "Enter an amount of steps (n): ");
+    double t = 0.0;
+    for (int k = 0; k < steps; ++k) {
+        double y = plant.y();
+        double e = setpoint - y;
+        double u = pid.update(e);
+        plant.step(u);
 
-    PID pid(K, T, Td, T0);
-    for (int i = 0; i < n; i++) {
-        double e = w - y_prev;
-        double u = pid.u_calc(e);
-        y = linear_model(y_prev, u, a, b);
-        y_prev = y;
+        std::cout << std::fixed << std::setprecision(3)
+                  << t << "," << setpoint << "," << plant.y()
+                  << "," << u << "," << e << "\n";
 
-        std::cout << "Step " << i + 1
-            << "  e = " << e << '\t'
-            << "  u = " << u << '\t'
-            << "  y = " << y << '\n';
+        t += T0;
     }
 
     return 0;
@@ -158,173 +147,144 @@ int main() {
 
 ```
 
-## Результат программы [ src/main.cpp ]
-![Result](images/res.png)
-
 ## График
-### При `K = 0.5 T = 4.0 T0 = 1.5 TD = 0.2 a = 0.9 b = 0.3 y0 = 15.234 w = 25.7562`
+![alt text](image-2.png)
 
-![schedule1](images/schedule1.png)
-<br>
+На графике отображены:
 
+w(t) — задающее воздействие (ступенька 1 → 2),
 
-## Вывод полученных данных при использовании ПИД-регулятора
+y(t) — выход объекта управления,
 
+u(t) — управляющее воздействие ПИД-регулятора.
+
+1. Первое задание (w = 1.0)
+
+После подачи ступеньки ПИД-регулятор создаёт резкое управляющее воздействие u(t), что вызывает:
+
+быстрый подъём выходного сигнала,
+
+заметные перерегулирования и колебания.
+
+Это типично для ПИД-регулятора с большим коэффициентом передачи K = 10, когда объект реагирует быстро, а дифференцирующее звено пытается компенсировать быстрые изменения ошибки.
+
+2. Установление режима
+
+После нескольких колебаний выход стабилизируется вблизи заданного значения, что подтверждает:
+
+правильную работу интегрального звена (устраняет статическую ошибку),
+
+способность регулятора довести систему к установившемуся режиму.
+
+3. Второе задание (w = 2.0)
+
+На 100-м шаге подаётся новая ступенька. Регулятор снова даёт резкий скачок управляющего воздействия:
+
+u(t) значительно возрастает,
+
+система разгоняется и снова выходит на новое установившееся состояние,
+
+динамика похожа на первую, но с большим энергопотреблением (больший скачок u).
+
+4. Вывод о работе ПИД-регулятора
+
+✔ Регулятор обеспечивает быстрое реагирование на изменение задания.
+✔ Выходная величина достигает требуемого значения.
+✖ Наблюдаются выраженные колебания и перерегулирование, что говорит о том, что:
+
+коэффициент передачи K = 10 слишком велик,
+
+параметр дифференцирования TD = 0.05 усиливает реакцию на изменение ошибки,
+
+система склонна к резким колебательным процессам.
 
 ## Link to documentation
-[https://mishanya2281337.github.io/OTIS-2025/](https://mishanya2281337.github.io/OTIS-2025/)
+https://risomuv.github.io/OTIS-2025/
 
-## Код юнит-тестов [ test/testlab3.cpp ]
+## Код тестов [ test/pid_test.cpp ]
 ```C++
-#include "../src/pid.h"
-#include "../src/lin_model.h"
 #include <gtest/gtest.h>
 #include <cmath>
+#include <array>
+#include "pid.h"
+#include "plant.h"
 
-TEST(LinearModelTest, PositiveValues) {
-    EXPECT_DOUBLE_EQ(linear_model(2.0, 3.0, 1.0, 4.0), 2.0 * 1.0 + 3.0 * 4.0);
+// Тест конструктора по непрерывным параметрам
+TEST(PID, ConstructorContinuous) {
+    PID pid(10.0, 0.1, 0.01, 0.1);
+
+    auto q = pid.q();
+    EXPECT_NEAR(q[0], 10.0 * (1.0 + 0.1/(2*0.1) + 0.01/0.1), 1e-6);
+    EXPECT_NEAR(q[1], -10.0 * (1.0 - 0.1/(2*0.1) + 2*0.01/0.1), 1e-6);
+    EXPECT_NEAR(q[2], 10.0 * (0.01/0.1), 1e-6);
+    EXPECT_DOUBLE_EQ(pid.last_u(), 0.0);
 }
 
-TEST(LinearModelTest, ZeroInput) {
-    EXPECT_DOUBLE_EQ(linear_model(1.5, 2.0, 0.0, 0.0), 0.0);
+// Тест конструктора по дискретным коэффициентам
+TEST(PID, ConstructorDiscrete) {
+    PID pid(DiscreteTag{}, 1.0, -0.9, 0.1, 42.0);
+    EXPECT_DOUBLE_EQ(pid.last_u(), 42.0);
+    auto q = pid.q();
+    EXPECT_DOUBLE_EQ(q[0], 1.0);
+    EXPECT_DOUBLE_EQ(q[1], -0.9);
+    EXPECT_DOUBLE_EQ(q[2], 0.1);
 }
 
-TEST(LinearModelTest, NegativeValues) {
-    EXPECT_DOUBLE_EQ(linear_model(-1.0, 2.0, 3.0, -4.0), -1.0 * 3.0 + 2.0 * -4.0);
+// Тест update и reset
+TEST(PID, UpdateAndReset) {
+    PID pid(DiscreteTag{}, 1.0, -1.5, 0.5);
+
+    double u1 = pid.update(2.0);
+    EXPECT_DOUBLE_EQ(u1, 2.0);  // u = 0 + 1*2 + (-1.5)*0 + 0.5*0
+
+    double u2 = pid.update(3.0);
+    EXPECT_DOUBLE_EQ(u2, 2.0 + 1*3 + (-1.5)*2 + 0.5*0);  // = 2 + 3 - 3 = 2
+
+    pid.reset(100.0);
+    EXPECT_DOUBLE_EQ(pid.last_u(), 100.0);
+    double u3 = pid.update(1.0);
+    EXPECT_DOUBLE_EQ(u3, 100.0 + 1.0);  // e_prev1=e_prev2=0 после reset
 }
 
-TEST(LinearModelTest, MixedValues) {
-    double result = linear_model(6, 8, 0.5, 0.2);
-    EXPECT_DOUBLE_EQ(result, 0.5 * 6 + 0.2 * 8);
+// Тест случая T <= 0 (чистый PD-регулятор)
+TEST(PID, ProportionalDerivativeOnly) {
+    PID pid(5.0, 0.0, 1.0, 0.1);  // T=0
+
+    auto q = pid.q();
+    EXPECT_DOUBLE_EQ(q[0], 5.0 * (1.0 + 1.0/0.1));  // = 5*(1+10) = 55
+    EXPECT_DOUBLE_EQ(q[1], -5.0 * (1.0 + 2*1.0/0.1)); // = -5*(1+20) = -105
+    EXPECT_DOUBLE_EQ(q[2], 5.0 * (1.0/0.1));       // = 50
 }
 
-TEST(PIDTest, CoefficientsCalculation) {
-    double K = 0.5;
-    double T = 2.0;
-    double Td = 0.3;
-    double T0 = 1.0;
+// Покрытие линейного объекта (уже было)
+TEST(PID, LinearPlantConverges) {
+    LinearPlant plant(0.98, 0.05, 0.0);
+    PID pid(10.0, 0.1, 0.01, 0.1);
 
-    PID pid(K, T, Td, T0);
-
-    double expected_q0 = K * (1.0 + Td / T0);
-    double expected_q1 = -K * (1 + 2 * Td / T0 - T0 / T);
-    double expected_q2 = K * Td / T0;
-
-    double u1 = pid.u_calc(0.7);
-    double expected_u = 0.0 + expected_q0 * 0.7 + expected_q1 * 0.0 + expected_q2 * 0.0;
-
-    EXPECT_NEAR(u1, expected_u, 1e-10);
-}
-
-TEST(PIDTest, SequentialCalculations) {
-    PID pid(1.0, 1.0, 0.1, 0.1);
-
-    double u1 = pid.u_calc(1.0);
-    double u2 = pid.u_calc(0.5);
-    double u3 = pid.u_calc(0.2);
-
-    EXPECT_NE(u1, u2);
-    EXPECT_NE(u2, u3);
-}
-
-TEST(PIDTest, ZeroError) {
-    PID pid(1.0, 1.0, 0.1, 0.1);
-
-    double u1 = pid.u_calc(0.0);
-    EXPECT_DOUBLE_EQ(u1, 0.0);
-}
-
-TEST(PIDSystemTest, SystemStabilization) {
-    PID pid(1.5, 3.0, 0.2, 1.0);
-
-    double y_prev = 15.0;
-    double w = 35.0;
-    double a = 0.8;
-    double b = 0.1;
-    double y = y_prev;
-
-    for (int i = 0; i < 50; i++) {
-        double e = w - y;
-        double u = pid.u_calc(e);
-        y = linear_model(y, u, a, b);
+    for (int i = 0; i < 1000; ++i) {
+        double e = 50.0 - plant.y();
+        double u = pid.update(e);
+        plant.step(u);
     }
-
-    EXPECT_NEAR(y, w, 2.0);
+    EXPECT_LT(std::abs(50.0 - plant.y()), 0.5);
 }
 
-TEST(PIDSystemTest, ConvergenceTest) {
-    PID pid(0.8, 2.0, 0.1, 0.5);
+// Покрытие нелинейного объекта
+TEST(PID, NonlinearPlantConverges) {
+    NonlinearPlant plant(0.98, 0.05, 0.0, 0.01);
+    PID pid(12.0, 0.2, 0.02, 0.1);
 
-    double y = 10.0;
-    double w = 25.0;
-    double a = 0.9;
-    double b = 0.15;
-
-    std::vector<double> errors;
-
-    for (int i = 0; i < 30; i++) {
-        double e = w - y;
-        errors.push_back(std::abs(e));
-        double u = pid.u_calc(e);
-        y = linear_model(y, u, a, b);
+    for (int i = 0; i < 2000; ++i) {
+        double e = 50.0 - plant.y();
+        double u = pid.update(e);
+        plant.step(u);
     }
-
-    EXPECT_LT(errors.back(), errors.front());
+    EXPECT_LT(std::abs(50.0 - plant.y()), 1.0);
 }
-
-
-TEST(PIDTest, ExtremeCoefficients) {
-
-    PID pid_small(0.001, 0.001, 0.001, 0.001);
-    double u_small = pid_small.u_calc(1.0);
-    EXPECT_NEAR(u_small, 0.002, 1e-10); 
-
-    PID pid_large(10.0, 10.0, 10.0, 10.0);
-    double u_large = pid_large.u_calc(1.0);
-    EXPECT_NEAR(u_large, 20.0, 1e-10);
-}
-
-TEST(PIDTest, ConstantError) {
-    PID pid(1.0, 2.0, 0.5, 1.0);
-
-    double constant_error = 2.0;
-    double u_prev = 0.0;
-
-    for (int i = 0; i < 5; i++) {
-        double u = pid.u_calc(constant_error);
-        if (i > 0) {
-            EXPECT_NE(u, 0.0);
-        }
-        u_prev = u;
-    }
-}
-
-TEST(PIDTest, NegativeError) {
-    PID pid(1.0, 1.0, 0.1, 0.1);
-
-    double u_positive = pid.u_calc(1.0);
-    PID pid_negative(1.0, 1.0, 0.1, 0.1);
-    double u_negative = pid_negative.u_calc(-1.0);
-
-    EXPECT_LT(u_negative, 0.0);
-    EXPECT_GT(u_positive, 0.0);
-}
-
-TEST(PIDTest, InvalidState) {
-    PID pid(1.0, 1.0, 1.0, 1.0);
-
-    pid.invalidate();
-
-    double u = pid.u_calc(1.0);
-    EXPECT_DOUBLE_EQ(u, 0.0);
-}
-
-
 ```
+
 ## Результаты юнит-тестирования (GoogleTest)
-![GoogleTest](images/g_tests.png)
+![alt text](image.png)
 
-## Покрытие GCC Code Coverage
-
-![GCC Coverage](images/coverage.png)
-
+## Ссылка на github Pages
+https://risomuv.github.io/
