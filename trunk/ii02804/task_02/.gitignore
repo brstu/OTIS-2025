@@ -1,0 +1,63 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+.DS_Store
+.vs/
+out/
+/build/
+.idea/
+cmake-build-debug/
+
+# Doxygen documentation
+doc/html/
+doc/xml/
+doc/latex/
+*.doxygen
+
+build/
+*/build/
+*/build*/
+*/*/build*/
+
+
+# CMake FetchContent / googletest deps
+_deps/
+**/_deps/
+
+# GCov and coverage builds
+build_gcov/
+**/build_gcov/
+
+# GoogleTest / vendor stuff
+**/googletest/
+**/googlemock/
