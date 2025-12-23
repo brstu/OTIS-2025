@@ -15,11 +15,11 @@
  Members                        | Descriptions                                
 --------------------------------|---------------------------------------------
 `public  `[`pid1`](#classpid1_1ae8014e9c3f602dcd6b88686fb917442e)`(const `[`pid1_coeffs`](#structpid1__coeffs)` & coeffs,double _u,double _e,double __e)` | Конструктор PID-регулятора
-`public double `[`process`](#classpid_1a75f23675900ca669c3f12875ce55d78a)`(double e)` | Выполнить шаг PID-регулятора
+`public double `[`process`](#classpid1_1a75f23675900ca669c3f12875ce55d78a)`(double e)` | Выполнить шаг PID-регулятора
 
 ## Members
 
-#### `public double `[`process`](#classpid_1a75f23675900ca669c3f12875ce55d78a)`(double e)` 
+#### `public double `[`process`](#classpid1_1a75f23675900ca669c3f12875ce55d78a)`(double e)` 
 
 Выполнить шаг PID-регулятора
 
