@@ -1,128 +1,167 @@
 /**
  * @file module.h
- * @brief Заголовочный файл с функциями ПИД-регулятора и модели объекта
- * @author Соловчук И.Г. ИИ-27
+ * @brief Заголовочный файл модуля управления ПИД-регулятором
+ * @author Соловчук И.Г.
+ * @version 1.0
  * @date 2025
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ * @defgroup PID_Module Модуль ПИД-регулятора
+ * @brief Функции для реализации дискретного ПИД-регулятора
+ * 
+ * @defgroup Model_Module Модуль модели объекта
+ * @brief Функции для моделирования нелинейного объекта
+ * 
+ * @defgroup Utility_Module Вспомогательные функции
+ * @brief Вспомогательные функции для работы системы
  */
 
-#ifndef MODULE_H
-#define MODULE_H
+#ifndef PID_MODULE_H
+#define PID_MODULE_H
 
 #include <array>
 
 /**
- * @brief Структура для хранения параметров управления ПИД-регулятором
+ * @brief Пространство имен для систем управления
+ */
+namespace ControlSystem {
+
+/**
+ * @struct ControlParams
+ * @brief Структура параметров для расчета управления ПИД-регулятором
+ * @ingroup PID_Module
  */
 struct ControlParams {
-    double q0;      ///< Коэффициент q0 ПИД-регулятора
-    double q1;      ///< Коэффициент q1 ПИД-регулятора
-    double q2;      ///< Коэффициент q2 ПИД-регулятора
-    double e_k;     ///< Текущая ошибка регулирования
-    double e_prev;  ///< Ошибка на предыдущем шаге
-    double e_prev2; ///< Ошибка на предпредыдущем шаге
-    double u_prev;  ///< Управление на предыдущем шаге
+    double q0;      ///< Пропорциональный коэффициент дискретного регулятора
+    double q1;      ///< Интегральный коэффициент дискретного регулятора
+    double q2;      ///< Дифференциальный коэффициент дискретного регулятора
+    double e_k;     ///< Ошибка регулирования на текущем шаге
+    double e_prev;  ///< Ошибка регулирования на предыдущем шаге
+    double e_prev2; ///< Ошибка регулирования на предпредыдущем шаге
+    double u_prev;  ///< Управляющее воздействие на предыдущем шаге
 };
 
 /**
- * @brief Структура для хранения параметров нелинейной модели
+ * @struct ModelParams
+ * @brief Структура параметров нелинейной модели объекта
+ * @ingroup Model_Module
  */
 struct ModelParams {
-    double a;       ///< Коэффициент a нелинейной модели
-    double b;       ///< Коэффициент b нелинейной модели
-    double c;       ///< Коэффициент c нелинейной модели
-    double d;       ///< Коэффициент d нелинейной модели
-    double y1;      ///< Выход объекта на предыдущем шаге (y(k-1))
-    double y0;      ///< Выход объекта на предпредыдущем шаге (y(k-2))
-    double u1;      ///< Управление на предыдущем шаге (u(k-1))
-    double u0;      ///< Управление на предпредыдущем шаге (u(k-2))
+    double a;       ///< Коэффициент линейной части модели
+    double b;       ///< Коэффициент нелинейной квадратичной части
+    double c;       ///< Коэффициент управления
+    double d;       ///< Коэффициент нелинейной синусоидальной части
+    double y1;      ///< Выход объекта на шаге k-1
+    double y0;      ///< Выход объекта на шаге k-2
+    double u1;      ///< Управление на шаге k-1
+    double u0;      ///< Управление на шаге k-2
 };
 
 /**
- * @brief Структура для хранения переменных состояния системы
+ * @struct StateVariables
+ * @brief Структура переменных состояния системы
+ * @ingroup Utility_Module
  */
 struct StateVariables {
-    std::array<double, 3> y;    ///< Массив температур: y(k), y(k-1), y(k-2)
-    std::array<double, 2> u;    ///< Массив управлений: u(k), u(k-1)
-    double e_prev;              ///< Предыдущая ошибка регулирования
-    double e_prev2;             ///< Предпредыдущая ошибка регулирования  
-    double u_prev;              ///< Предыдущее управляющее воздействие
-    double e_k;                 ///< Текущая ошибка регулирования
+    std::array<double, 3> y;    ///< История температур: [y(k), y(k-1), y(k-2)]
+    std::array<double, 2> u;    ///< История управлений: [u(k), u(k-1)]
+    double e_prev;              ///< Предыдущая ошибка e(k-1)
+    double e_prev2;             ///< Пред-предыдущая ошибка e(k-2)
+    double u_prev;              ///< Предыдущее управление u(k-1)
+    double e_k;                 ///< Текущая ошибка e(k)
 };
 
 /**
- * @brief Расчет коэффициентов ПИД-регулятора для дискретной формы
- * @param K Коэффициент усиления объекта
- * @param T Постоянная времени объекта
+ * @brief Вычисляет коэффициенты дискретного ПИД-регулятора
+ * @param K Коэффициент усиления регулятора
+ * @param T Постоянная времени интегрирования
  * @param Td Постоянная времени дифференцирования
- * @param T0 Время дискретизации
- * @param[out] q0 Выходной параметр: коэффициент q0
- * @param[out] q1 Выходной параметр: коэффициент q1  
- * @param[out] q2 Выходной параметр: коэффициент q2
+ * @param T0 Время дискретизации системы
+ * @param[out] q0 Рассчитанный коэффициент q0
+ * @param[out] q1 Рассчитанный коэффициент q1
+ * @param[out] q2 Рассчитанный коэффициент q2
+ * @ingroup PID_Module
  * 
- * Функция вычисляет коэффициенты ПИД-регулятора в дискретной форме
- * на основе параметров объекта и времени дискретизации.
+ * @details Формулы расчета:
+ * q0 = K * (1 + Td/T0)
+ * q1 = -K * (1 + 2*Td/T0 - T0/T)
+ * q2 = K * Td/T0
  */
-void calculatePidCoefficients(double K, double T, double Td, double T0, 
+void calculatePidCoefficients(double K, double T, double Td, double T0,
                              double& q0, double& q1, double& q2);
 
 /**
- * @brief Расчет управляющего воздействия ПИД-регулятором
- * @param params Структура с параметрами управления
- * @return Рассчитанное управляющее воздействие
+ * @brief Вычисляет управляющее воздействие ПИД-регулятора
+ * @param params Параметры для расчета управления
+ * @return Управляющее воздействие на текущем шаге
+ * @ingroup PID_Module
  * 
- * Функция реализует алгоритм ПИД-регулятора в дискретной форме:
- * u(k) = u(k-1) + q0*e(k) + q1*e(k-1) + q2*e(k-2)
+ * @note Формула расчета: u(k) = u(k-1) + q0*e(k) + q1*e(k-1) + q2*e(k-2)
+ * @warning Результат ограничивается функцией applyControlLimits
  */
 double calculateControl(const ControlParams& params);
 
 /**
- * @brief Применение ограничений к управляющему воздействию
- * @param u Рассчитанное управляющее воздействие
- * @return Управление с примененными ограничениями
+ * @brief Применяет ограничения к управляющему воздействию
+ * @param control Сигнал управления
+ * @return Ограниченный сигнал управления
+ * @ingroup PID_Module
  * 
- * Функция ограничивает управляющее воздействие в диапазоне [0, 100]
- * для предотвращения насыщения исполнительных механизмов.
+ * @details Ограничения: 0% ≤ control ≤ 100%
  */
-double applyControlLimits(double u);
+double applyControlLimits(double control);
 
 /**
- * @brief Расчет нелинейной модели объекта управления
- * @param params Структура с параметрами модели
- * @return Текущее значение выхода объекта
+ * @brief Моделирует нелинейный объект управления
+ * @param params Параметры модели объекта
+ * @return Новое значение температуры объекта
+ * @ingroup Model_Module
  * 
- * Функция реализует нелинейную модель объекта вида:
- * y(k) = a*y(k-1) - b*y(k-2)^2 + c*u(k-1) + d*sin(u(k-2))
+ * @details Модель: y(k) = a*y(k-1) - b*y(k-2)² + c*u(k-1) + d*sin(u(k-2))
  */
 double calculateNonlinearModel(const ModelParams& params);
 
 /**
- * @brief Защита от отрицательной температуры
- * @param temperature Рассчитанная температура
+ * @brief Защита от отрицательных значений температуры
+ * @param temperature Рассчитанное значение температуры
  * @return Скорректированная температура
+ * @ingroup Utility_Module
  * 
- * Функция обеспечивает защиту от физически некорректных 
- * отрицательных значений температуры, ограничивая снизу нулем.
+ * @details Обеспечивает физическую корректность модели
  */
 double applyTemperatureProtection(double temperature);
 
 /**
- * @brief Расчет ошибки регулирования
- * @param setpoint Заданное значение (уставка)
- * @param current_value Текущее значение процесса
+ * @brief Вычисляет ошибку регулирования
+ * @param setpoint Заданное значение
+ * @param current_value Текущее значение
  * @return Ошибка регулирования
- * 
- * Функция вычисляет разность между заданным и текущим значением.
- * Для систем, где ошибка вычисляется иначе, требуется модификация.
+ * @ingroup Utility_Module
  */
 double calculateError(double setpoint, double current_value);
 
 /**
- * @brief Обновление переменных состояния для следующей итерации
- * @param[in,out] state Структура с переменными состояния
+ * @brief Обновляет переменные состояния системы
+ * @param[in,out] state Переменные состояния для обновления
+ * @ingroup Utility_Module
  * 
- * Функция сдвигает массивы и переменные состояния для подготовки
- * к следующему шагу расчета, сохраняя историю значений.
+ * @details Сдвигает массивы истории для подготовки к следующему шагу
  */
 void updateStateVariables(StateVariables& state);
 
-#endif
+} // namespace ControlSystem
+
+// Псевдонимы для удобства использования
+using ControlParams = ControlSystem::ControlParams;
+using ModelParams = ControlSystem::ModelParams;
+using StateVariables = ControlSystem::StateVariables;
+using ControlSystem::calculatePidCoefficients;
+using ControlSystem::calculateControl;
+using ControlSystem::applyControlLimits;
+using ControlSystem::calculateNonlinearModel;
+using ControlSystem::applyTemperatureProtection;
+using ControlSystem::calculateError;
+using ControlSystem::updateStateVariables;
+
+#endif // PID_MODULE_H

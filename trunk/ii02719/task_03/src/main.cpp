@@ -1,135 +1,194 @@
 /**
  * @file main.cpp
- * @brief Главный файл программы с ПИД-регулятором для управления температурой
- * @author Соловчук И.Г. ИИ-27
+ * @brief Основной файл программы, реализующей ПИД-регулирование температуры
+ * @author Соловчук И.Г.
+ * @version 1.0
  * @date 2025
  * 
- * @mainpage Документация ПИД-регулятора
+ * @copyright Copyright (c) 2025
  * 
- * @section intro Введение
- * Программа реализует ПИД-регулятор для управления нелинейным объектом (температурой).
- * Используется дискретная форма ПИД-регулятора и нелинейная модель объекта.
+ * @mainpage Система управления температурой с ПИД-регулятором
  * 
- * @section algorithm Алгоритм работы
- * 1. Ввод параметров модели объекта и ПИД-регулятора
- * 2. Расчет коэффициентов ПИД-регулятора в дискретной форме
- * 3. Циклическое моделирование системы управления
- * 4. Расчет ошибки, управляющего воздействия и новой температуры
- * 5. Вывод результатов моделирования
+ * @section overview Обзор
+ * Данная программа предназначена для моделирования системы автоматического
+ * управления температурой объекта с использованием дискретного ПИД-регулятора.
+ * Объект управления описывается нелинейной математической моделью.
+ * 
+ * @section features Основные возможности
+ * - Моделирование нелинейной динамики объекта
+ * - Реализация дискретного ПИД-алгоритма
+ * - Визуализация процесса регулирования
+ * - Защита от физически некорректных значений
  */
+
 #include <iostream>
 #include <iomanip>
 #include <array>
+#include <string>
 #include "module.h"
 
 /**
+ * @brief Выводит заголовок программы на экран
+ */
+void printProgramHeader() {
+    std::cout << "========================================\n";
+    std::cout << "   СИСТЕМА УПРАВЛЕНИЯ ТЕМПЕРАТУРОЙ\n";
+    std::cout << "      с ПИД-регулятором\n";
+    std::cout << "========================================\n\n";
+}
+
+/**
+ * @brief Выводит шаг моделирования с форматированием
+ * @param step Номер текущего шага
+ * @param temperature Текущая температура
+ * @param control Текущее управляющее воздействие
+ * @param error Текущая ошибка регулирования
+ */
+void printStepInfo(int step, double temperature, double control, double error) {
+    std::cout << "Шаг " << std::setw(3) << step << ": ";
+    std::cout << "Температура = " << std::fixed << std::setprecision(2) 
+              << std::setw(7) << temperature << "°C, ";
+    std::cout << "Управление = " << std::setw(6) << control << "%, ";
+    std::cout << "Ошибка = " << std::setw(7) << error << "°C\n";
+}
+
+/**
  * @brief Основная функция программы
- * @return Код завершения программы
+ * @return Код завершения программы (0 - успешно)
  * 
- * Функция выполняет моделирование системы управления с ПИД-регулятором.
- * Последовательность работы:
- * - Ввод параметров модели и регулятора
- * - Инициализация переменных состояния
- * - Расчет коэффициентов ПИД-регулятора
- * - Цикл моделирования на 50 шагов
- * - Вывод промежуточных результатов
+ * @detaileddescription Функция выполняет следующие действия:
+ * 1. Запрашивает у пользователя параметры системы
+ * 2. Инициализирует переменные состояния
+ * 3. Вычисляет коэффициенты ПИД-регулятора
+ * 4. Запускает цикл моделирования
+ * 5. Выводит результаты на каждом шаге
  * 
- * @note Используется нелинейная модель объекта: 
- *       y(k) = a*y(k-1) - b*y(k-2)^2 + c*u(k-1) + d*sin(u(k-2))
+ * @note Время моделирования фиксировано - 500 шагов
+ * @warning При вводе некорректных параметров поведение системы может быть непредсказуемым
  */
 int main() {
-    // === 1. Ввод параметров модели объекта (из 1 лабы) ===
-    /// @brief Параметры нелинейной модели объекта a, b, c, d
-    double a;
-    double b;
-    double c;
-    double d;
-    std::cout << "Parameters for modeling a,b,c,d: ";
-    std::cin >> a >> b >> c >> d;
+    printProgramHeader();
+    
+    // Константы программы
+    const int TOTAL_STEPS = 500;      ///< Общее количество шагов моделирования
+    const int PRINT_INTERVAL = 10;    ///< Интервал вывода информации
+    const double SAMPLING_TIME = 1.0; ///< Время дискретизации (сек)
+
+    // === 1. Ввод параметров нелинейной модели ===
+    std::cout << "ВВЕДИТЕ ПАРАМЕТРЫ НЕЛИНЕЙНОЙ МОДЕЛИ:\n";
+    std::cout << "Коэффициенты a, b, c, d: ";
+    double model_a;
+    double model_b;
+    double model_c;
+    double model_d;
+    std::cin >> model_a; 
+    std::cin >> model_b;
+    std::cin >> model_c;
+    std::cin >> model_d;
 
     // === 2. Ввод начальных условий ===
-    /// @brief Начальные значения температуры y[0] и y[1]
-    double y0;
-    double y1;
-    std::cout << "Nachalnie uslovia y[0], y[1]: ";
-    std::cin >> y0 >> y1;
+    std::cout << "\nВВЕДИТЕ НАЧАЛЬНЫЕ УСЛОВИЯ:\n";
+    std::cout << "Температура на шаге 0 и шаге 1: ";
+    double temp_0;
+    double temp_1;
+    std::cin >> temp_0 
+    std::cin >> temp_1;
 
     // === 3. Ввод параметров ПИД-регулятора ===
-    /// @brief Параметры ПИД-регулятора: K - коэффициент усиления, T - постоянная времени, Td - постоянная времени дифференцирования
-    double K;
-    double T;
-    double Td;
-    std::cout << "Parameters PID K,T,Td: ";
-    std::cin >> K >> T >> Td;
+    std::cout << "\nВВЕДИТЕ НАСТРОЙКИ ПИД-РЕГУЛЯТОРА:\n";
+    std::cout << "Коэффициенты K, T, Td: ";
+    double pid_K;
+    double pid_T;
+    double pid_Td;
+    std::cin >> pid_K;
+    std::cin >> pid_T;
+    std::cin >> pid_Td;
 
-    // === 4. Ввод желаемой температуры ===
-    /// @brief Заданное значение температуры (уставка)
-    double setpoint;
-    std::cout << "Zelaemaya temperatura: ";
-    std::cin >> setpoint;
+    // === 4. Ввод целевого значения ===
+    std::cout << "\nЗАДАЙТЕ ЦЕЛЕВУЮ ТЕМПЕРАТУРУ:\n";
+    std::cout << "Температура уставки: ";
+    double target_temperature;
+    std::cin >> target_temperature;
 
-    // === 5. Инициализация переменных ===
-    /// @brief Массив температур: y[0], y[1], y[2] - история температур (y(k), y(k-1), y(k-2))
-    std::array<double, 3> y = { y0, y1 };
-    /// @brief Массив управлений: u[0], u[1] - история управляющих воздействий (u(k), u(k-1))
-    std::array<double, 2> u = { 0, 0 };
-
-    /// @brief Предыдущее управляющее воздействие u(k-1)
-    double u_prev = 0;
-    /// @brief Предыдущая ошибка регулирования e(k-1)
-    double e_prev = 0;
-    /// @brief Предпредыдущая ошибка регулирования e(k-2)
-    double e_prev2 = 0;
-    /// @brief Шаг квантования (время дискретизации)
-    double T0 = 1.0;
+    // === 5. Инициализация переменных состояния ===
+    std::array<double, 3> temperature_history = {temp_0, temp_1, 0.0};
+    std::array<double, 2> control_history = {0.0, 0.0};
+    
+    double previous_error = 0.0;
+    double error_before_previous = 0.0;
+    double previous_control = 0.0;
 
     // === 6. Вычисление коэффициентов ПИД ===
-    /// @brief Коэффициенты ПИД-регулятора в дискретной форме
-    double q0;
-    double q1;
-    double q2;
-    calculatePidCoefficients(K, T, Td, T0, q0, q1, q2);
+    double coeff_q0;
+    double coeff_q1;
+    double coeff_q2;
+    calculatePidCoefficients(pid_K, pid_T, pid_Td, SAMPLING_TIME,
+                             coeff_q0, coeff_q1, coeff_q2);
 
-    std::cout << "Koeficienti PID: q0=" << q0 << ", q1=" << q1 << ", q2=" << q2 << std::endl;
+    std::cout << "\nРАСЧЕТНЫЕ КОЭФФИЦИЕНТЫ ПИД-РЕГУЛЯТОРА:\n";
+    std::cout << "q0 = " << coeff_q0 << ", q1 = " << coeff_q1 
+              << ", q2 = " << coeff_q2 << "\n";
 
     // === 7. Основной цикл моделирования ===
-    /// @brief Основной цикл моделирования системы управления на 50 шагов
-    std::cout << "\nStart modeling...\n";
+    std::cout << "\n" << std::string(60, '=') << "\n";
+    std::cout << "НАЧАЛО МОДЕЛИРОВАНИЯ\n";
+    std::cout << std::string(60, '=') << "\n\n";
 
-    for (int k = 1; k <= 500; k++) {
-        // Расчет ошибки
-        /// @brief Текущая ошибка регулирования e(k) = setpoint - y(k-1)
-        double e_k = calculateError(setpoint, y[1]);
+    for (int current_step = 1; current_step <= TOTAL_STEPS; ++current_step) {
+        // Расчет текущей ошибки
+        double current_error = calculateError(target_temperature, 
+                                              temperature_history[1]);
 
-        // Расчет управления
-        /// @brief Управляющее воздействие u(k) = u(k-1) + q0*e(k) + q1*e(k-1) + q2*e(k-2)
-        ControlParams controlParams = {q0, q1, q2, e_k, e_prev, e_prev2, u_prev};
-        u[1] = calculateControl(controlParams);
+        // Формирование структуры параметров управления
+        ControlParams control_parameters = {
+            coeff_q0, coeff_q1, coeff_q2,
+            current_error, previous_error, error_before_previous,
+            previous_control
+        };
+
+        // Расчет управляющего воздействия
+        double current_control = calculateControl(control_parameters);
+        control_history[0] = current_control;
+
+        // Формирование структуры параметров модели
+        ModelParams model_parameters = {
+            model_a, model_b, model_c, model_d,
+            temperature_history[1], temperature_history[0],
+            control_history[0], control_history[1]
+        };
 
         // Расчет новой температуры
-        /// @brief Новая температура по нелинейной модели y(k) = a*y(k-1) - b*y(k-2)^2 + c*u(k-1) + d*sin(u(k-2))
-        ModelParams modelParams = {a, b, c, d, y[1], y[0], u[1], u[0]};
-        y[2] = calculateNonlinearModel(modelParams);
+        double new_temperature = calculateNonlinearModel(model_parameters);
+        temperature_history[2] = new_temperature;
 
-        // Вывод в консоль
-        /// @brief Вывод результатов каждые 10 шагов для мониторинга
-        if (k % 10 == 0) {
-            std::cout << "Shag " << k << ": Temperatura = " << std::fixed << std::setprecision(4) << y[1]
-                << ", Upravlenie = " << u[1]
-                << ", Oshibka = " << e_k << std::endl;
+        // Вывод информации о текущем шаге
+        if (current_step % PRINT_INTERVAL == 0) {
+            printStepInfo(current_step, temperature_history[1], 
+                         current_control, current_error);
         }
 
+        // Подготовка структур для обновления состояния
+        StateVariables system_state = {
+            temperature_history, control_history,
+            previous_error, error_before_previous,
+            previous_control, current_error
+        };
+
         // Обновление переменных состояния
-        /// @brief Обновление истории температур, управлений и ошибок для следующего шага
-        StateVariables state = {y, u, e_prev, e_prev2, u_prev, e_k};
-        updateStateVariables(state);
-        y = state.y;
-        u = state.u;
-        e_prev = state.e_prev;
-        e_prev2 = state.e_prev2;
-        u_prev = state.u_prev;
+        updateStateVariables(system_state);
+        
+        // Обновление локальных переменных
+        temperature_history = system_state.y;
+        control_history = system_state.u;
+        previous_error = system_state.e_prev;
+        error_before_previous = system_state.e_prev2;
+        previous_control = system_state.u_prev;
     }
 
-    std::cout << "\nModelirovanie zaversheno!" << std::endl;
+    // === 8. Завершение программы ===
+    std::cout << "\n" << std::string(60, '=') << "\n";
+    std::cout << "МОДЕЛИРОВАНИЕ ЗАВЕРШЕНО УСПЕШНО!\n";
+    std::cout << std::string(60, '=') << "\n";
+
     return 0;
 }
