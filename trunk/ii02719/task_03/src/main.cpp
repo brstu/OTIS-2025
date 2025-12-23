@@ -91,7 +91,7 @@ int main() {
     std::cout << "Температура на шаге 0 и шаге 1: ";
     double temp_0;
     double temp_1;
-    std::cin >> temp_0 
+    std::cin >> temp_0; 
     std::cin >> temp_1;
 
     // === 3. Ввод параметров ПИД-регулятора ===
