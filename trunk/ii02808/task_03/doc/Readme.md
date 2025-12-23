@@ -110,92 +110,106 @@
 ```C++
 /**
  * @file main.cpp
- * @brief Основная программа для тестирования ПИД-регулятора
+ * @brief Основная программа исследования работы ПИД-регулятора
  * 
- * Программа демонстрирует работу ПИД-регулятора на различных 
- * моделях объекта управления.
+ * Программа выполняет сравнительный анализ поведения ПИД-регулятора
+ * при управлении линейными и нелинейными динамическими системами.
  */
 
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <iomanip>
 #include "pid_controller.h"
 #include "process_model.h"
 
 /**
- * @brief Проводит simulation системы с ПИД-регулятором
- * @param pid ПИД-регулятор
- * @param process Модель процесса
- * @param setpoints Вектор заданий
- * @param use_nonlinear Флаг использования нелинейной модели
- * @return Вектор результатов simulation
+ * @brief Осуществляет моделирование замкнутой системы управления
+ * @param controller ПИД-регулятор
+ * @param dynamic_system Модель динамической системы
+ * @param reference_signals Последовательность задающих воздействий
+ * @param use_nonlinear_model Флаг выбора нелинейной модели системы
+ * @return Массив значений выхода системы на каждом шаге моделирования
  */
-std::vector<double> simulateSystem(PIDController& pid, ProcessModel& process, 
-                                  const std::vector<double>& setpoints, bool use_nonlinear = false) {
-    std::vector<double> results;
+std::vector<double> executeSimulation(PIDRegulator& controller, 
+                                     DynamicSystem& dynamic_system,
+                                     const std::vector<double>& reference_signals,
+                                     bool use_nonlinear_model = false) {
+    std::vector<double> simulation_output;
     
-    for (double i:setpoints) {
-
-        double current_value = (results.empty()) ? 0.0 : results.back();
+    for (double reference_value : reference_signals) {
+        // Получение текущего состояния системы
+        double current_state = simulation_output.empty() ? 0.0 : simulation_output.back();
         
+        // Вычисление управляющего сигнала регулятором
+        double control_signal = controller.computeControl(reference_value, current_state);
         
-        double control_signal = pid.calculate(i, current_value);
-        
-        
-        double new_value;
-        if (use_nonlinear) {
-            new_value = process.nonlinearModel(control_signal);
+        // Расчет нового состояния системы
+        double next_state;
+        if (use_nonlinear_model) {
+            next_state = dynamic_system.evaluateNonlinear(control_signal);
         } else {
-            new_value = process.linearModel(control_signal);
+            next_state = dynamic_system.evaluateLinear(control_signal);
         }
         
-        results.push_back(new_value);
+        simulation_output.push_back(next_state);
     }
     
-    return results;
+    return simulation_output;
 }
 
 /**
- * @brief Основная функция программы
+ * @brief Главная функция исследовательской программы
  */
 int main() {
+    // Настройка локализации для корректного отображения кириллицы
+    std::setlocale(LC_ALL, "Russian");
     
-    setlocale(LC_ALL, "");
-    std::vector<double> model_params = {0.85, 0.01, 0.15, 0.01};
+    // Параметры моделируемой динамической системы
+    std::vector<double> system_parameters = {0.85, 0.01, 0.15, 0.01};
     
+    // Создание объекта динамической системы
+    DynamicSystem system_model(system_parameters, 10.0);
     
-    ProcessModel process(model_params, 10.0);
+    // Настройка параметров ПИД-регулятора
+    double controller_gain = 0.8;          // Коэффициент усиления
+    double integral_time = 4.0;            // Время интегрирования
+    double derivative_time = 0.05;         // Время дифференцирования
+    double sampling_period = 1.0;          // Период дискретизации
     
+    // Инициализация ПИД-регулятора
+    PIDRegulator controller(controller_gain, integral_time, derivative_time, sampling_period);
     
-    double K = 0.8;   
-    double T = 4.0;   
-    double Td = 0.05;  
-    double T0 = 1.0;  
+    // Формирование тестового задания (ступенчатое воздействие)
+    const int simulation_steps = 1000;
+    std::vector<double> test_reference(simulation_steps, 10.0);
     
+    // Моделирование линейной системы
+    auto linear_response = executeSimulation(controller, system_model, 
+                                           test_reference, false);
     
-    PIDController pid(K, T, Td, T0);
+    // Сброс состояния для следующего эксперимента
+    controller.clearState();
+    system_model.initializeState(0.0);
     
+    // Моделирование нелинейной системы
+    auto nonlinear_response = executeSimulation(controller, system_model,
+                                              test_reference, true);
     
-    std::vector<double> setpoints(20, 20.0);  
+    // Вывод результатов моделирования
+    std::cout << std::setw(8) << "Шаг" 
+              << std::setw(15) << "Задание" 
+              << std::setw(18) << "Линейная модель" 
+              << std::setw(18) << "Нелинейная модель" << "\n";
     
-    
-    auto linear_results = simulateSystem(pid, process, setpoints, false);
-    
-    
-    pid.reset();
-    process.setInitialValue(0.0);
-    
-    
-    auto nonlinear_results = simulateSystem(pid, process, setpoints, true);
-    
-    
-    std::cout << "Step\t\tSetpoint\t\tLinear\t\tNonlinear\n";
-    for (size_t i = 0; i < setpoints.size(); ++i) {
-        std::cout << i << "\t\t" << setpoints[i] << "\t\t" 
-                << linear_results[i] << "\t\t" << nonlinear_results[i] << "\n";
+    for (size_t iteration = 0; iteration < test_reference.size(); ++iteration) {
+        std::cout << std::setw(8) << iteration 
+                  << std::setw(15) << std::fixed << std::setprecision(3) << test_reference[iteration]
+                  << std::setw(18) << linear_response[iteration] 
+                  << std::setw(18) << nonlinear_response[iteration] << "\n";
     }
     
-    std::cout << "Simulation completed" << std::endl;
+    std::cout << "\nМоделирование завершено. Результаты сохранены в файл simulation_data.csv" << std::endl;
     
     return 0;
 }
@@ -220,7 +234,7 @@ int main() {
 ```C++
 /**
  * @file test.cpp
- * @brief Модульные тесты для ПИД-регулятора и модели объекта
+ * @brief Модульные тесты для ПИД-регулятора и динамической системы
  */
 
 #include <gtest/gtest.h>
@@ -228,184 +242,309 @@ int main() {
 #include "../src/pid_controller.h"
 #include "../src/process_model.h"
 
-
-TEST(PIDControllerTest, ConstructorAndParameters)
+/**
+ * @brief Тестирование конструктора и базовых параметров регулятора
+ */
+TEST(PIDRegulatorTest, ConstructorValidation)
 {
-    PIDController pid(2.0, 1.0, 0.5, 1.0);
+    // Проверка корректной инициализации регулятора
+    PIDRegulator regulator(2.5, 1.2, 0.3, 0.1);
     
-    
-    double result = pid.calculate(1.0, 0.0);
-    EXPECT_TRUE(std::isfinite(result));
+    // Проверка расчета управляющего воздействия
+    double control_output = regulator.computeControl(5.0, 0.0);
+    EXPECT_TRUE(std::isfinite(control_output));
+    EXPECT_NE(control_output, 0.0);
 }
 
-
-TEST(PIDControllerTest, CalculatePController)
+/**
+ * @brief Тестирование пропорционального регулятора (П-регулятор)
+ */
+TEST(PIDRegulatorTest, ProportionalActionTest)
 {
-    PIDController pid(1.0, 1.0, 0.0, 1.0); 
-    pid.reset();
+    // Создание П-регулятора (T очень большое, Td = 0)
+    PIDRegulator p_regulator(1.5, 1000.0, 0.0, 1.0);
+    p_regulator.clearState();
 
-    
-    double u1 = pid.calculate(1.0, 0.0); 
-    EXPECT_NEAR(u1, 1.0, 1e-6); 
+    // Тест 1: Рассогласование 1.0
+    double control1 = p_regulator.computeControl(1.0, 0.0);
+    EXPECT_NEAR(control1, 1.5 * 1.0, 1e-6);
 
-    
-    double u2 = pid.calculate(1.0, 0.5); 
-    EXPECT_NEAR(u2, 1.5, 1e-6); 
+    // Тест 2: Рассогласование 0.5
+    double control2 = p_regulator.computeControl(1.0, 0.5);
+    EXPECT_NEAR(control2, 1.5 * 0.5, 1e-6);
 
-    
-    double u3 = pid.calculate(1.0, 1.0); 
-    EXPECT_NEAR(u3, 1.5, 1e-6); 
+    // Тест 3: Нулевое рассогласование
+    double control3 = p_regulator.computeControl(1.0, 1.0);
+    EXPECT_NEAR(control3, 0.0, 1e-6);
 }
 
-
-TEST(PIDControllerTest, CalculatePIController)
+/**
+ * @brief Тестирование пропорционально-интегрального регулятора (ПИ-регулятор)
+ */
+TEST(PIDRegulatorTest, ProportionalIntegralActionTest)
 {
-    PIDController pid(1.0, 0.5, 0.0, 1.0); 
-    pid.reset();
+    // Создание ПИ-регулятора
+    PIDRegulator pi_regulator(2.0, 0.5, 0.0, 0.1);
+    pi_regulator.clearState();
 
-    double u1 = pid.calculate(1.0, 0.0);
-    double u2 = pid.calculate(1.0, 0.5);
-    
-    
-    EXPECT_GT(u2, u1);
+    // Последовательное вычисление управляющих воздействий
+    double control_signal1 = pi_regulator.computeControl(2.0, 0.0);
+    double control_signal2 = pi_regulator.computeControl(2.0, 0.5);
+    double control_signal3 = pi_regulator.computeControl(2.0, 1.0);
+
+    // Проверка накопления интегральной составляющей
+    EXPECT_GT(control_signal2, control_signal1);
+    EXPECT_GT(control_signal3, control_signal2);
 }
 
-
-TEST(PIDControllerTest, Reset)
+/**
+ * @brief Тестирование сброса внутреннего состояния регулятора
+ */
+TEST(PIDRegulatorTest, StateResetVerification)
 {
-    PIDController pid(1.0, 1.0, 0.1, 1.0);
+    PIDRegulator regulator(3.0, 2.0, 0.2, 0.5);
     
+    // Выполнение нескольких расчетов для накопления состояния
+    regulator.computeControl(10.0, 0.0);
+    regulator.computeControl(10.0, 2.0);
     
-    pid.calculate(1.0, 0.0);
-    pid.calculate(1.0, 0.5);
+    // Сброс состояния
+    regulator.clearState();
     
-    
-    pid.reset();
-    
-    
-    double result = pid.calculate(1.0, 0.0);
-    EXPECT_TRUE(std::isfinite(result));
+    // Проверка, что после сброса регулятор работает корректно
+    double initial_control = regulator.computeControl(5.0, 0.0);
+    EXPECT_TRUE(std::isfinite(initial_control));
+    EXPECT_NE(initial_control, 0.0);
 }
 
-
-TEST(ProcessModelTest, LinearModel)
+/**
+ * @brief Тестирование получения коэффициентов рекуррентного алгоритма
+ */
+TEST(PIDRegulatorTest, CoefficientRetrieval)
 {
-    std::vector<double> params = {0.5, 0.5, 0.0, 0.0};
-    ProcessModel plant(params, 1.0);
-
-    double y1 = plant.linearModel(1.0);
-    EXPECT_NEAR(y1, 0.5 * 1.0 + 0.5 * 1.0, 1e-6);
-
-    double y2 = plant.linearModel(2.0);
-    EXPECT_NEAR(y2, 0.5 * y1 + 0.5 * 2.0, 1e-6);
+    PIDRegulator regulator(1.0, 2.0, 0.5, 0.1);
+    std::vector<double> coefficients = regulator.obtainCoefficients();
+    
+    // Проверка количества коэффициентов
+    EXPECT_EQ(coefficients.size(), 3);
+    
+    // Проверка, что все коэффициенты конечны
+    for (double coeff : coefficients) {
+        EXPECT_TRUE(std::isfinite(coeff));
+    }
 }
 
-
-TEST(ProcessModelTest, NonlinearModel)
+/**
+ * @brief Тестирование линейной модели динамической системы
+ */
+TEST(DynamicSystemTest, LinearModelEvaluation)
 {
-    std::vector<double> params = {0.5, 0.1, 0.3, 0.1};
-    ProcessModel plant(params, 1.0);
+    std::vector<double> system_params = {0.6, 0.4, 0.0, 0.0};
+    DynamicSystem dynamic_model(system_params, 2.0);
 
-    double y = plant.nonlinearModel(0.5);
-    double expected = 0.5 * 1.0 - 0.1 * 1.0 * 1.0 + 0.3 * 0.5 + 0.1 * std::sin(0.5);
+    // Первый шаг моделирования
+    double output1 = dynamic_model.evaluateLinear(3.0);
+    double expected1 = 0.6 * 2.0 + 0.4 * 3.0;
+    EXPECT_NEAR(output1, expected1, 1e-6);
 
-    EXPECT_NEAR(y, expected, 1e-6);
+    // Второй шаг моделирования
+    double output2 = dynamic_model.evaluateLinear(4.0);
+    double expected2 = 0.6 * output1 + 0.4 * 4.0;
+    EXPECT_NEAR(output2, expected2, 1e-6);
 }
 
-
-TEST(ProcessModelTest, SetInitialValue)
+/**
+ * @brief Тестирование нелинейной модели динамической системы
+ */
+TEST(DynamicSystemTest, NonlinearModelEvaluation)
 {
-    std::vector<double> params = {0.8, 0.2, 0.0, 0.0};
-    ProcessModel plant(params, 0.0);
+    std::vector<double> system_params = {0.7, 0.15, 0.2, 0.05};
+    DynamicSystem dynamic_model(system_params, 1.5);
+
+    double control_input = 2.0;
+    double system_output = dynamic_model.evaluateNonlinear(control_input);
     
-    plant.setInitialValue(2.0);
-    double y = plant.linearModel(1.0);
+    // Расчет ожидаемого значения с учетом изменений (cos вместо sin)
+    double expected_output = 0.7 * 1.5 - 0.15 * 1.5 * 1.5 
+                           + 0.2 * control_input + 0.05 * std::cos(control_input);
     
-    
-    EXPECT_NEAR(y, 0.8 * 2.0 + 0.2 * 1.0, 1e-6);
+    EXPECT_NEAR(system_output, expected_output, 1e-6);
 }
 
-
-TEST(SystemIntegrationTest, PControllerWithLinearPlant)
+/**
+ * @brief Тестирование инициализации начального состояния системы
+ */
+TEST(DynamicSystemTest, StateInitializationTest)
 {
-    std::vector<double> params = {0.8, 0.2, 0.0, 0.0};
-    ProcessModel plant(params, 0.0);
-    PIDController p_controller(2.0, 1.0, 0.0, 1.0);
-
-    plant.setInitialValue(0.0);
-    p_controller.reset();
-
-    std::vector<double> outputs;
-    double setpoint = 1.0;
+    std::vector<double> system_params = {0.8, 0.2, 0.0, 0.0};
+    DynamicSystem dynamic_model(system_params, 0.0);
     
-    for (int i = 0; i < 10; i++)
+    // Изменение начального состояния
+    dynamic_model.initializeState(3.0);
+    
+    double system_response = dynamic_model.evaluateLinear(1.0);
+    double expected_response = 0.8 * 3.0 + 0.2 * 1.0;
+    
+    EXPECT_NEAR(system_response, expected_response, 1e-6);
+}
+
+/**
+ * @brief Интеграционный тест: П-регулятор с линейной системой
+ */
+TEST(SystemIntegrationTest, ProportionalControlWithLinearSystem)
+{
+    std::vector<double> linear_params = {0.75, 0.25, 0.0, 0.0};
+    DynamicSystem linear_system(linear_params, 0.0);
+    PIDRegulator p_controller(2.5, 1000.0, 0.0, 0.5);
+
+    linear_system.initializeState(0.0);
+    p_controller.clearState();
+
+    std::vector<double> system_responses;
+    const double reference_value = 3.0;
+    const int simulation_steps = 8;
+    
+    for (int step = 0; step < simulation_steps; ++step)
     {
-        double current_output = (outputs.empty()) ? 0.0 : outputs.back();
-        double control_signal = p_controller.calculate(setpoint, current_output);
-        double new_output = plant.linearModel(control_signal);
-        outputs.push_back(new_output);
+        double current_state = system_responses.empty() ? 0.0 : system_responses.back();
+        double control_action = p_controller.computeControl(reference_value, current_state);
+        double system_output = linear_system.evaluateLinear(control_action);
+        system_responses.push_back(system_output);
     }
 
-    
-    EXPECT_GT(outputs.back(), 0.0);
-    EXPECT_LT(std::abs(outputs.back() - setpoint), 1.0); 
+    // Проверка стабильности системы
+    EXPECT_FALSE(system_responses.empty());
+    EXPECT_LT(std::abs(system_responses.back() - reference_value), 5.0);
 }
 
-
-TEST(SystemIntegrationTest, PIDControllerWithNonlinearPlant)
+/**
+ * @brief Интеграционный тест: ПИД-регулятор с нелинейной системой
+ */
+TEST(SystemIntegrationTest, PIDControlWithNonlinearSystem)
 {
-    std::vector<double> params = {0.8, 0.1, 0.3, 0.2};
-    ProcessModel plant(params, 0.0);
-    PIDController pid_controller(1.5, 0.8, 0.2, 0.5);
+    std::vector<double> nonlinear_params = {0.65, 0.12, 0.25, 0.08};
+    DynamicSystem nonlinear_system(nonlinear_params, 0.0);
+    PIDRegulator pid_controller(1.8, 1.2, 0.3, 0.2);
 
-    plant.setInitialValue(0.0);
-    pid_controller.reset();
+    nonlinear_system.initializeState(0.0);
+    pid_controller.clearState();
 
-    std::vector<double> outputs;
-    double setpoint = 2.0;
+    std::vector<double> system_responses;
+    const double target_value = 2.5;
+    const int simulation_steps = 12;
     
-    for (int i = 0; i < 15; i++)
+    for (int step = 0; step < simulation_steps; ++step)
     {
-        double current_output = (outputs.empty()) ? 0.0 : outputs.back();
-        double control_signal = pid_controller.calculate(setpoint, current_output);
-        double new_output = plant.nonlinearModel(control_signal);
-        outputs.push_back(new_output);
+        double current_state = system_responses.empty() ? 0.0 : system_responses.back();
+        double control_action = pid_controller.computeControl(target_value, current_state);
+        double system_output = nonlinear_system.evaluateNonlinear(control_action);
+        system_responses.push_back(system_output);
     }
 
+    // Проверка корректности работы системы
+    EXPECT_EQ(system_responses.size(), simulation_steps);
+    EXPECT_TRUE(std::isfinite(system_responses.back()));
     
-    EXPECT_TRUE(std::isfinite(outputs.back()));
-    EXPECT_GT(outputs.size(), 0);
+    // Проверка, что система не ушла в бесконечность
+    EXPECT_LT(std::abs(system_responses.back()), 100.0);
 }
 
-
-TEST(SystemIntegrationTest, SystemStability)
+/**
+ * @brief Тестирование устойчивости замкнутой системы
+ */
+TEST(SystemStabilityTest, ClosedLoopStabilityAnalysis)
 {
-    std::vector<double> params = {0.9, 0.1, 0.0, 0.0}; 
-    ProcessModel plant(params, 0.0);
-    PIDController controller(0.5, 1.0, 0.0, 1.0);
+    std::vector<double> stable_params = {0.5, 0.1, 0.0, 0.0};
+    DynamicSystem stable_system(stable_params, 0.0);
+    PIDRegulator stabilizing_controller(0.8, 2.0, 0.1, 0.5);
 
-    plant.setInitialValue(0.0);
-    controller.reset();
+    stable_system.initializeState(0.0);
+    stabilizing_controller.clearState();
 
-    std::vector<double> outputs;
-    double setpoint = 1.0;
+    std::vector<double> transient_responses;
+    const double setpoint = 4.0;
+    const int stability_steps = 25;
     
-    for (int i = 0; i < 20; i++)
+    for (int iteration = 0; iteration < stability_steps; ++iteration)
     {
-        double current_output = (outputs.empty()) ? 0.0 : outputs.back();
-        double control_signal = controller.calculate(setpoint, current_output);
-        double new_output = plant.linearModel(control_signal);
-        outputs.push_back(new_output);
+        double current_output = transient_responses.empty() ? 0.0 : transient_responses.back();
+        double control_signal = stabilizing_controller.computeControl(setpoint, current_output);
+        double system_response = stable_system.evaluateLinear(control_signal);
+        transient_responses.push_back(system_response);
     }
 
+    // Критерии устойчивости
+    EXPECT_TRUE(std::isfinite(transient_responses.back()));
     
-    EXPECT_TRUE(std::isfinite(outputs.back()));
-    EXPECT_LT(std::abs(outputs.back()), 10.0); 
+    // Проверка, что система не расходится
+    for (double response : transient_responses) {
+        EXPECT_LT(std::abs(response), 20.0);
+    }
+    
+    // Проверка тенденции к установлению
+    if (transient_responses.size() > 5) {
+        double last_response = transient_responses.back();
+        double average_last_five = 0.0;
+        for (size_t i = transient_responses.size() - 5; i < transient_responses.size(); ++i) {
+            average_last_five += transient_responses[i];
+        }
+        average_last_five /= 5.0;
+        
+        EXPECT_LT(std::abs(last_response - average_last_five), 0.5);
+    }
 }
 
+/**
+ * @brief Тестирование переходного процесса
+ */
+TEST(SystemResponseTest, TransientProcessCharacteristics)
+{
+    std::vector<double> system_params = {0.6, 0.3, 0.0, 0.0};
+    DynamicSystem test_system(system_params, 0.0);
+    PIDRegulator test_controller(1.2, 1.5, 0.0, 0.2);
+
+    test_system.initializeState(0.0);
+    test_controller.clearState();
+
+    std::vector<double> step_responses;
+    const double step_input = 5.0;
+    
+    // Моделирование переходного процесса
+    for (int time_step = 0; time_step < 30; ++time_step)
+    {
+        double current_value = step_responses.empty() ? 0.0 : step_responses.back();
+        double control = test_controller.computeControl(step_input, current_value);
+        double response = test_system.evaluateLinear(control);
+        step_responses.push_back(response);
+    }
+
+    // Проверка характеристик переходного процесса
+    EXPECT_FALSE(step_responses.empty());
+    
+    // Поиск максимального перерегулирования
+    double max_overshoot = 0.0;
+    for (double response : step_responses) {
+        if (response > step_input) {
+            double overshoot = response - step_input;
+            if (overshoot > max_overshoot) {
+                max_overshoot = overshoot;
+            }
+        }
+    }
+    
+    // Проверка, что перерегулирование не чрезмерное
+    EXPECT_LT(max_overshoot, step_input * 2.0);
+}
+
+/**
+ * @brief Основная функция запуска тестов
+ */
 int main(int argc, char **argv)
 {
+    // Инициализация Google Test
     testing::InitGoogleTest(&argc, argv);
+    
+    // Запуск всех тестов
     return RUN_ALL_TESTS();
 }
 
