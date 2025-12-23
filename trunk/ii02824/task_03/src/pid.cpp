@@ -10,24 +10,15 @@
  * @param Td постоянная дифференцирования
  * @param T0 шаг
  */
-pid_coeffs::pid_coeffs(double K, double T, double Td, double T0)
-        : K(K), T(T), Td(Td), T0(T0) {}
+pid_coeffs::pid_coeffs(double K1, double T1, double Td1, double T01)
+        : K1(K1), T1(T1), Td1(Td1), T01(T01) {}
 
-/**
- * @brief Конструктор PID-регулятора
- * 
- * Инициализирует регулятор с заданными коэффициентами и начальными условиями.
- * 
- * @param coeffs структура коэффициентов
- * @param _u начальное значение управляющего воздействия
- * @param _e предыдущее значение отклонения
- * @param __e предпредыдущее значение отклонения
- */
+
 pid::pid(const pid_coeffs& coeffs, double _u, double _e, double __e)
     : coeffs(coeffs),
-      q0(coeffs.K * (1 + coeffs.Td / coeffs.T0)),
-      q1(-coeffs.K * (1 + 2 * coeffs.Td / coeffs.T0 - coeffs.T0 / coeffs.T)),
-      q2(coeffs.K * coeffs.Td / coeffs.T0),
+      q0(coeffs.K1 * (1 + coeffs.Td1 / coeffs.T01)),
+      q1(-coeffs.K1 * (1 + 2 * coeffs.Td1 / coeffs.T01 - coeffs.T01 / coeffs.T1)),
+      q2(coeffs.K1 * coeffs.Td1 / coeffs.T01),
       u_prev(_u),
       e_prev(_e),
       e_prev_prev(__e)

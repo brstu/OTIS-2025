@@ -5,10 +5,10 @@
  */
 struct pid_coeffs
 {
-    const double K;  ///< коэффициент передачи
-    const double T;  ///< постоянная интегрирования
-    const double Td; ///< постоянная дифференцирования
-    const double T0; ///< шаг
+    const double K1;  ///< коэффициент передачи
+    const double T1;  ///< постоянная интегрирования
+    const double Td1; ///< постоянная дифференцирования
+    const double T01; ///< шаг
 
     /**
      * @brief Конструктор коэффициентов PID-регулятора
@@ -17,7 +17,7 @@ struct pid_coeffs
      * @param Td постоянная дифференцирования
      * @param T0 шаг
      */
-    pid_coeffs(double K, double T, double Td, double T0);
+    pid_coeffs(double K1, double T1, double Td1, double T01);
 };
 
 /**
@@ -37,19 +37,8 @@ private:
     double e_prev_prev; ///< предпредыдущее значение отклонения
 
 public:
-    /**
-     * @brief Конструктор PID-регулятора
-     * @param coeffs структура коэффициентов
-     * @param _u начальное значение управляющего воздействия
-     * @param _e предыдущее значение отклонения
-     * @param __e предпредыдущее значение отклонения
-     */
+    
     pid(const pid_coeffs& coeffs, double _u, double _e, double __e);
 
-    /**
-     * @brief Выполнить шаг PID-регулятора
-     * @param e текущее значение отклонения
-     * @return новое управляющее воздействие
-     */
     double process(double e);
 };

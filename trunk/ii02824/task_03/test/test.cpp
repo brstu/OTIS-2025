@@ -7,11 +7,11 @@
 TEST(LinearModelTest, BasicCase) {
     double y = 2.0;
     double u = 3.0;
-    double a = 1.5;
-    double b = -0.5;
-    double expected = a * y + b * u;
+    double a1 = 1.5;
+    double b1 = -0.5;
+    double expected = a1 * y + b1 * u;
 
-    EXPECT_DOUBLE_EQ(linear(y, u, a, b), expected);
+    EXPECT_DOUBLE_EQ(linear(y, u, a1, b1), expected);
 }
 
 TEST(LinearModelTest, ZeroCoefficients) {
@@ -28,7 +28,7 @@ TEST(NonLinearModelTest, BasicCase) {
     double u   = 0.5;
     double u_p = 0.2;
     NonLinearCoeffs coeffs{2.0, 1.0, 0.5, 1.0};
-    double expected = coeffs.a * y - coeffs.b * y_p * y_p + coeffs.c * u + coeffs.d * std::sin(u_p);
+    double expected = coeffs.a1 * y - coeffs.b1 * y_p * y_p + coeffs.c1 * u + coeffs.d1 * std::sin(u_p);
 
     EXPECT_DOUBLE_EQ(non_linear(y, y_p, u, u_p, coeffs), expected);
 }

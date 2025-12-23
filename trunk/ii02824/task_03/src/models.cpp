@@ -1,21 +1,10 @@
 #include "models.h"
 #include <cmath>
 
-/**
- * @brief Линейная модель объекта управления
- * 
- * Рассчитывает новое значение выходной величины по линейной модели:
- * \f$ y_{k+1} = a \cdot y_k + b \cdot u_k \f$
- * 
- * @param y текущее значение выходной величины
- * @param u управляющее воздействие
- * @param a коэффициент модели
- * @param b коэффициент модели
- * @return новое значение выходной величины
- */
-double linear(double y, double u, double a, double b)
+
+double linear(double y, double u, double a1, double b1)
 {
-    return a * y + b * u;
+    return a1 * y + b1 * u;
 }
 
 /**
@@ -33,5 +22,5 @@ double linear(double y, double u, double a, double b)
  */
 double non_linear(double y, double y_p, double u, double u_p, const NonLinearCoeffs& coeffs)
 {
-    return coeffs.a * y - coeffs.b * y_p * y_p + coeffs.c * u + coeffs.d * std::sin(u_p);
+    return coeffs.a1 * y - coeffs.b1 * y_p * y_p + coeffs.c1 * u + coeffs.d1 * std::sin(u_p);
 }
