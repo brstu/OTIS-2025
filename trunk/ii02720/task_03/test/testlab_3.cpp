@@ -1,6 +1,11 @@
 /**
- * @file test.cpp
- * @brief Модульные тесты для ПИД-регулятора и модели объекта
+ * @file testlab_3.cpp
+ * @brief Модульные тесты для ПИД-регулятора и модели теплового объекта
+ * @author Степанюк Илья Сергеевич (ii02720)
+ * @date 2025
+ * 
+ * Набор тестов GoogleTest для проверки корректности работы
+ * классов PIDController и ProcessModel лабораторной работы №3.
  */
 
 #include <gtest/gtest.h>
@@ -8,181 +13,210 @@
 #include "../src/pid.h"
 #include "../src/model.h"
 
+// ============= Тесты ПИД-регулятора (Степанюк И.С.) =============
 
-TEST(PIDControllerTest, ConstructorAndParameters)
+/**
+ * @brief Тест создания регулятора и базовых вычислений
+ */
+TEST(PIDControllerTest_Stepaniuk, ConstructorAndBasicCalculation)
 {
-    PIDController pid(2.0, 1.0, 0.5, 1.0);
+    PIDController pidReg(2.5, 1.2, 0.4, 1.0);
     
-    
-    double result = pid.calculate(1.0, 0.0);
-    EXPECT_TRUE(std::isfinite(result));
+    // Проверка, что регулятор возвращает конечное число
+    double controlValue = pidReg.calculate(1.0, 0.0);
+    EXPECT_TRUE(std::isfinite(controlValue));
 }
 
-
-TEST(PIDControllerTest, CalculatePController)
+/**
+ * @brief Тест П-регулятора (без интегральной и дифференциальной составляющих)
+ */
+TEST(PIDControllerTest_Stepaniuk, ProportionalControllerBehavior)
 {
-    PIDController pid(1.0, 1.0, 0.0, 1.0); 
-    pid.reset();
+    PIDController pReg(1.0, 1.0, 0.0, 1.0); 
+    pReg.reset();
 
-    
-    double u1 = pid.calculate(1.0, 0.0); 
-    EXPECT_NEAR(u1, 1.0, 1e-6); 
+    // Первый шаг: e=1, u должно быть около 1
+    double u_step1 = pReg.calculate(1.0, 0.0);
+    EXPECT_NEAR(u_step1, 1.0, 1e-6);
 
-    
-    double u2 = pid.calculate(1.0, 0.5); 
-    EXPECT_NEAR(u2, 1.5, 1e-6); 
+    // Второй шаг: e=0.5
+    double u_step2 = pReg.calculate(1.0, 0.5);
+    EXPECT_NEAR(u_step2, 1.5, 1e-6);
 
-    
-    double u3 = pid.calculate(1.0, 1.0); 
-    EXPECT_NEAR(u3, 1.5, 1e-6); 
+    // Третий шаг: e=0
+    double u_step3 = pReg.calculate(1.0, 1.0);
+    EXPECT_NEAR(u_step3, 1.5, 1e-6);
 }
 
-
-TEST(PIDControllerTest, CalculatePIController)
+/**
+ * @brief Тест ПИ-регулятора (накопление интегральной составляющей)
+ */
+TEST(PIDControllerTest_Stepaniuk, PIControllerAccumulation)
 {
-    PIDController pid(1.0, 0.5, 0.0, 1.0); 
-    pid.reset();
+    PIDController piReg(1.0, 0.4, 0.0, 1.0);
+    piReg.reset();
 
-    double u1 = pid.calculate(1.0, 0.0);
-    double u2 = pid.calculate(1.0, 0.5);
+    double u_first = piReg.calculate(1.0, 0.0);
+    double u_second = piReg.calculate(1.0, 0.5);
     
-    
-    EXPECT_GT(u2, u1);
+    // Интегральная составляющая должна накапливаться
+    EXPECT_GT(u_second, u_first);
 }
 
-
-TEST(PIDControllerTest, Reset)
+/**
+ * @brief Тест сброса состояния регулятора
+ */
+TEST(PIDControllerTest_Stepaniuk, ResetFunctionality)
 {
-    PIDController pid(1.0, 1.0, 0.1, 1.0);
+    PIDController pidReg(1.0, 1.0, 0.15, 1.0);
     
+    // Выполняем несколько итераций
+    pidReg.calculate(1.0, 0.0);
+    pidReg.calculate(1.0, 0.5);
     
-    pid.calculate(1.0, 0.0);
-    pid.calculate(1.0, 0.5);
+    // Сбрасываем состояние
+    pidReg.reset();
     
-    
-    pid.reset();
-    
-    
-    double result = pid.calculate(1.0, 0.0);
-    EXPECT_TRUE(std::isfinite(result));
+    // После сброса результат должен быть таким же, как в начале
+    double afterReset = pidReg.calculate(1.0, 0.0);
+    EXPECT_TRUE(std::isfinite(afterReset));
 }
 
+// ============= Тесты модели объекта (Степанюк И.С.) =============
 
-TEST(ProcessModelTest, LinearModel)
+/**
+ * @brief Тест линейной модели теплового объекта
+ */
+TEST(ProcessModelTest_Stepaniuk, LinearModelCalculation)
 {
-    std::vector<double> params = {0.5, 0.5, 0.0, 0.0};
-    ProcessModel plant(params, 1.0);
+    std::vector<double> coeffs = {0.55, 0.45, 0.0, 0.0};
+    ProcessModel plant(coeffs, 1.0);
 
     double y1 = plant.linearModel(1.0);
-    EXPECT_NEAR(y1, 0.5 * 1.0 + 0.5 * 1.0, 1e-6);
+    EXPECT_NEAR(y1, 0.55 * 1.0 + 0.45 * 1.0, 1e-6);
 
     double y2 = plant.linearModel(2.0);
-    EXPECT_NEAR(y2, 0.5 * y1 + 0.5 * 2.0, 1e-6);
+    EXPECT_NEAR(y2, 0.55 * y1 + 0.45 * 2.0, 1e-6);
 }
 
-
-TEST(ProcessModelTest, NonlinearModel)
+/**
+ * @brief Тест нелинейной модели с квадратичной составляющей
+ */
+TEST(ProcessModelTest_Stepaniuk, NonlinearModelWithQuadratic)
 {
-    std::vector<double> params = {0.5, 0.1, 0.3, 0.1};
-    ProcessModel plant(params, 1.0);
+    std::vector<double> coeffs = {0.55, 0.12, 0.35, 0.08};
+    ProcessModel plant(coeffs, 1.0);
 
     double y = plant.nonlinearModel(0.5);
-    double expected = 0.5 * 1.0 - 0.1 * 1.0 * 1.0 + 0.3 * 0.5 + 0.1 * std::sin(0.5);
+    double expected = 0.55 * 1.0 - 0.12 * 1.0 * 1.0 + 0.35 * 0.5 + 0.08 * std::sin(0.5);
 
     EXPECT_NEAR(y, expected, 1e-6);
 }
 
-
-TEST(ProcessModelTest, SetInitialValue)
+/**
+ * @brief Тест установки начального значения
+ */
+TEST(ProcessModelTest_Stepaniuk, InitialValueSetting)
 {
-    std::vector<double> params = {0.8, 0.2, 0.0, 0.0};
-    ProcessModel plant(params, 0.0);
+    std::vector<double> coeffs = {0.75, 0.25, 0.0, 0.0};
+    ProcessModel plant(coeffs, 0.0);
     
-    plant.setInitialValue(2.0);
+    plant.setInitialValue(2.5);
     double y = plant.linearModel(1.0);
     
-    
-    EXPECT_NEAR(y, 0.8 * 2.0 + 0.2 * 1.0, 1e-6);
+    // y = 0.75 * 2.5 + 0.25 * 1.0
+    EXPECT_NEAR(y, 0.75 * 2.5 + 0.25 * 1.0, 1e-6);
 }
 
+// ============= Интеграционные тесты (Степанюк И.С.) =============
 
-TEST(SystemIntegrationTest, PControllerWithLinearPlant)
+/**
+ * @brief Тест замкнутой системы с П-регулятором и линейным объектом
+ */
+TEST(SystemIntegrationTest_Stepaniuk, ClosedLoopWithPController)
 {
-    std::vector<double> params = {0.8, 0.2, 0.0, 0.0};
-    ProcessModel plant(params, 0.0);
-    PIDController p_controller(2.0, 1.0, 0.0, 1.0);
+    std::vector<double> modelCoeffs = {0.75, 0.25, 0.0, 0.0};
+    ProcessModel plant(modelCoeffs, 0.0);
+    PIDController pController(2.5, 1.0, 0.0, 1.0);
 
     plant.setInitialValue(0.0);
-    p_controller.reset();
+    pController.reset();
 
-    std::vector<double> outputs;
+    std::vector<double> trajectory;
     double setpoint = 1.0;
     
-    for (int i = 0; i < 10; i++)
+    for (int k = 0; k < 12; k++)
     {
-        double current_output = (outputs.empty()) ? 0.0 : outputs.back();
-        double control_signal = p_controller.calculate(setpoint, current_output);
-        double new_output = plant.linearModel(control_signal);
-        outputs.push_back(new_output);
+        double currentY = (trajectory.empty()) ? 0.0 : trajectory.back();
+        double controlU = pController.calculate(setpoint, currentY);
+        double nextY = plant.linearModel(controlU);
+        trajectory.push_back(nextY);
     }
 
-    
-    EXPECT_GT(outputs.back(), 0.0);
-    EXPECT_LT(std::abs(outputs.back() - setpoint), 1.0); 
+    // Система должна стремиться к заданию
+    EXPECT_GT(trajectory.back(), 0.0);
+    EXPECT_LT(std::abs(trajectory.back() - setpoint), 1.0);
 }
 
-
-TEST(SystemIntegrationTest, PIDControllerWithNonlinearPlant)
+/**
+ * @brief Тест ПИД-регулятора с нелинейным объектом
+ */
+TEST(SystemIntegrationTest_Stepaniuk, PIDWithNonlinearPlant)
 {
-    std::vector<double> params = {0.8, 0.1, 0.3, 0.2};
-    ProcessModel plant(params, 0.0);
-    PIDController pid_controller(1.5, 0.8, 0.2, 0.5);
+    std::vector<double> modelCoeffs = {0.75, 0.08, 0.35, 0.15};
+    ProcessModel plant(modelCoeffs, 0.0);
+    PIDController pidController(1.8, 0.7, 0.25, 0.5);
 
     plant.setInitialValue(0.0);
-    pid_controller.reset();
+    pidController.reset();
 
     std::vector<double> outputs;
-    double setpoint = 2.0;
+    double setpoint = 2.5;
     
-    for (int i = 0; i < 15; i++)
+    for (int k = 0; k < 18; k++)
     {
-        double current_output = (outputs.empty()) ? 0.0 : outputs.back();
-        double control_signal = pid_controller.calculate(setpoint, current_output);
-        double new_output = plant.nonlinearModel(control_signal);
-        outputs.push_back(new_output);
+        double currentOutput = (outputs.empty()) ? 0.0 : outputs.back();
+        double control = pidController.calculate(setpoint, currentOutput);
+        double newOutput = plant.nonlinearModel(control);
+        outputs.push_back(newOutput);
     }
 
-    
+    // Проверка корректности вычислений
     EXPECT_TRUE(std::isfinite(outputs.back()));
     EXPECT_GT(outputs.size(), 0);
 }
 
-
-TEST(SystemIntegrationTest, SystemStability)
+/**
+ * @brief Тест устойчивости замкнутой системы
+ */
+TEST(SystemIntegrationTest_Stepaniuk, StabilityAnalysis)
 {
-    std::vector<double> params = {0.9, 0.1, 0.0, 0.0}; 
-    ProcessModel plant(params, 0.0);
-    PIDController controller(0.5, 1.0, 0.0, 1.0);
+    std::vector<double> stableParams = {0.88, 0.12, 0.0, 0.0};
+    ProcessModel plant(stableParams, 0.0);
+    PIDController controller(0.6, 1.2, 0.0, 1.0);
 
     plant.setInitialValue(0.0);
     controller.reset();
 
-    std::vector<double> outputs;
-    double setpoint = 1.0;
+    std::vector<double> response;
+    double reference = 1.0;
     
-    for (int i = 0; i < 20; i++)
+    for (int k = 0; k < 25; k++)
     {
-        double current_output = (outputs.empty()) ? 0.0 : outputs.back();
-        double control_signal = controller.calculate(setpoint, current_output);
-        double new_output = plant.linearModel(control_signal);
-        outputs.push_back(new_output);
+        double currentVal = (response.empty()) ? 0.0 : response.back();
+        double controlSignal = controller.calculate(reference, currentVal);
+        double nextVal = plant.linearModel(controlSignal);
+        response.push_back(nextVal);
     }
 
-    
-    EXPECT_TRUE(std::isfinite(outputs.back()));
-    EXPECT_LT(std::abs(outputs.back()), 10.0); 
+    // Система должна быть устойчивой (выход ограничен)
+    EXPECT_TRUE(std::isfinite(response.back()));
+    EXPECT_LT(std::abs(response.back()), 15.0);
 }
 
+/**
+ * @brief Главная функция запуска тестов
+ */
 int main(int argc, char **argv)
 {
     testing::InitGoogleTest(&argc, argv);

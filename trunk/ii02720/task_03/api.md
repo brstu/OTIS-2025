@@ -1,114 +1,135 @@
-# Summary
+# API Documentation - PID Control System
+## Автор: Степанюк Илья Сергеевич (ii02720, группа ИИ-27)
 
- Members                        | Descriptions                                
---------------------------------|---------------------------------------------
-`class `[`PIDController`](#class_p_i_d_controller) | Класс, реализующий дискретный ПИД-регулятор
-`class `[`ProcessModel`](#class_process_model) | Класс, моделирующий объект управления
+Документация API для системы моделирования ПИД-регулятора теплового объекта.
+Лабораторная работа №3 по дисциплине "Общая теория интеллектуальных систем".
 
-# class `PIDController` 
+---
 
-Класс, реализующий дискретный ПИД-регулятор
+## Содержание
 
-Данный класс реализует дискретный ПИД-регулятор с использованием рекуррентного алгоритма для вычисления управляющего воздействия.
+| Класс | Описание |
+|-------|----------|
+| [`PIDController`](#class-pidcontroller) | Дискретный ПИД-регулятор с рекуррентным алгоритмом |
+| [`ProcessModel`](#class-processmodel) | Модель теплового объекта управления |
 
-## Summary
+---
 
- Members                        | Descriptions                                
---------------------------------|---------------------------------------------
-`public  `[`PIDController`](#class_p_i_d_controller_1a157932707dcbafd2bc927dfa0f9d1333)`(double K,double T,double Td,double T0)` | Конструктор ПИД-регулятора
-`public double `[`calculate`](#class_p_i_d_controller_1a64a55d7634ebed47fdd75da1195ad019)`(double setpoint,double current_value)` | Вычисляет управляющее воздействие
-`public void `[`reset`](#class_p_i_d_controller_1ab6adfbffa30414f0a83b95ba999a2fea)`()` | Сбрасывает состояние регулятора
-`public std::vector< double > `[`getCoefficients`](#class_p_i_d_controller_1a3f6a05e6457da67ca575c0da2280dcba)`() const` | Возвращает коэффициенты регулятора
+# class `PIDController`
 
-## Members
+Класс дискретного пропорционально-интегрально-дифференциального регулятора.
 
-#### `public  `[`PIDController`](#class_p_i_d_controller_1a157932707dcbafd2bc927dfa0f9d1333)`(double K,double T,double Td,double T0)` 
+Реализует рекуррентный алгоритм вычисления управляющего воздействия:
+`u(k) = u(k-1) + q0*e(k) + q1*e(k-1) + q2*e(k-2)`
 
-Конструктор ПИД-регулятора
+## Методы класса PIDController
 
-#### Parameters
-* `K` Коэффициент передачи 
+| Метод | Описание |
+|-------|----------|
+| `PIDController(double K, double T, double Td, double T0)` | Конструктор регулятора |
+| `double calculate(double setpoint, double current_value)` | Расчёт управляющего воздействия |
+| `void reset()` | Сброс внутреннего состояния |
+| `std::vector<double> getCoefficients() const` | Получение коэффициентов [q0, q1, q2] |
+| `std::vector<double> getParameters() const` | Получение параметров [K, T, Td, T0] |
 
-* `T` Постоянная интегрирования 
+## Детальное описание методов
 
-* `Td` Постоянная дифференцирования 
+### `PIDController(double K, double T, double Td, double T0)`
 
-* `T0` Время квантования
+Создаёт экземпляр ПИД-регулятора с заданными параметрами настройки.
 
-#### `public double `[`calculate`](#class_p_i_d_controller_1a64a55d7634ebed47fdd75da1195ad019)`(double setpoint,double current_value)` 
+**Параметры:**
+- `K` — коэффициент передачи (пропорциональный коэффициент)
+- `T` — постоянная интегрирования (Ти)
+- `Td` — постоянная дифференцирования (Тд)
+- `T0` — период квантования (шаг дискретизации)
 
-Вычисляет управляющее воздействие
+**Исключения:**
+- `std::invalid_argument` — если T0 ≤ 0
 
-#### Parameters
-* `setpoint` Заданное значение 
+### `double calculate(double setpoint, double current_value)`
 
-* `current_value` Текущее значение процесса 
+Вычисляет очередное значение управляющего воздействия.
 
-#### Returns
-Управляющее воздействие
+**Параметры:**
+- `setpoint` — заданное (желаемое) значение w(k)
+- `current_value` — текущее измеренное значение y(k)
 
-#### `public void `[`reset`](#class_p_i_d_controller_1ab6adfbffa30414f0a83b95ba999a2fea)`()` 
+**Возвращает:** управляющее воздействие u(k)
 
-Сбрасывает состояние регулятора
+### `void reset()`
 
-#### `public std::vector< double > `[`getCoefficients`](#class_p_i_d_controller_1a3f6a05e6457da67ca575c0da2280dcba)`() const` 
+Обнуляет буфер ошибок и предыдущее управление. Используется при перезапуске моделирования.
 
-Возвращает коэффициенты регулятора
+### `std::vector<double> getCoefficients() const`
 
-#### Returns
-Вектор коэффициентов [q0, q1, q2]
+**Возвращает:** вектор коэффициентов рекуррентного алгоритма [q0, q1, q2]
 
-# class `ProcessModel` 
+### `std::vector<double> getParameters() const`
 
-Класс, моделирующий объект управления
+**Возвращает:** вектор исходных параметров регулятора [K, T, Td, T0]
 
-Модель объекта управления, которая может работать как в линейном, так и в нелинейном режиме.
+---
 
-## Summary
+# class `ProcessModel`
 
- Members                        | Descriptions                                
---------------------------------|---------------------------------------------
-`public  `[`ProcessModel`](#class_process_model_1adcdba43c05676dfe398eed1e233aad34)`(const std::vector< double > & params,double initial_value)` | Конструктор модели процесса
-`public double `[`linearModel`](#class_process_model_1a4efaa82d0840e6c4501c69a34bc5370f)`(double input)` | Линейная модель объекта
-`public double `[`nonlinearModel`](#class_process_model_1a568c4c289598cb4646005fb13ea7967b)`(double input)` | Нелинейная модель объекта
-`public void `[`setInitialValue`](#class_process_model_1ad055d88198824729f99f2ae0e8702b89)`(double value)` | Устанавливает начальное значение
+Класс математической модели теплового объекта управления.
 
-## Members
+Поддерживает два режима работы: линейный и нелинейный.
 
-#### `public  `[`ProcessModel`](#class_process_model_1adcdba43c05676dfe398eed1e233aad34)`(const std::vector< double > & params,double initial_value)` 
+## Методы класса ProcessModel
 
-Конструктор модели процесса
+| Метод | Описание |
+|-------|----------|
+| `ProcessModel(const std::vector<double>& params, double initial_value)` | Конструктор модели |
+| `double linearModel(double input)` | Вычисление линейной модели |
+| `double nonlinearModel(double input)` | Вычисление нелинейной модели |
+| `void setInitialValue(double value)` | Установка начального значения |
+| `double getCurrentValue() const` | Получение текущего выхода |
 
-#### Parameters
-* `params` Вектор параметров модели 
+## Детальное описание методов
 
-* `initial_value` Начальное значение
+### `ProcessModel(const std::vector<double>& params, double initial_value)`
 
-#### `public double `[`linearModel`](#class_process_model_1a4efaa82d0840e6c4501c69a34bc5370f)`(double input)` 
+Создаёт модель теплового объекта с заданными параметрами.
 
-Линейная модель объекта
+**Параметры:**
+- `params` — вектор параметров модели [a, b, c, d] (минимум 4 элемента)
+- `initial_value` — начальное значение выходной переменной y(0)
 
-#### Parameters
-* `input` Входное воздействие 
+**Исключения:**
+- `std::invalid_argument` — если параметров меньше 4
 
-#### Returns
-Выходное значение
+### `double linearModel(double input)`
 
-#### `public double `[`nonlinearModel`](#class_process_model_1a568c4c289598cb4646005fb13ea7967b)`(double input)` 
+Вычисляет выход линейной модели: `y(k) = a*y(k-1) + b*u(k)`
 
-Нелинейная модель объекта
+**Параметры:**
+- `input` — входное управляющее воздействие u(k)
 
-#### Parameters
-* `input` Входное воздействие 
+**Возвращает:** выходное значение y(k)
 
-#### Returns
-Выходное значение
+### `double nonlinearModel(double input)`
 
-#### `public void `[`setInitialValue`](#class_process_model_1ad055d88198824729f99f2ae0e8702b89)`(double value)` 
+Вычисляет выход нелинейной модели: `y(k) = a*y(k-1) - b*y(k-1)² + c*u(k) + d*sin(u(k))`
 
-Устанавливает начальное значение
+**Параметры:**
+- `input` — входное управляющее воздействие u(k)
 
-#### Parameters
-* `value` Начальное значение
+**Возвращает:** выходное значение y(k)
 
-Generated by [Moxygen](https://sourcey.com/moxygen)
+### `void setInitialValue(double value)`
+
+Устанавливает начальное значение выхода модели (для перезапуска моделирования).
+
+**Параметры:**
+- `value` — новое начальное значение y(0)
+
+### `double getCurrentValue() const`
+
+**Возвращает:** текущее значение выхода модели y(k-1)
+
+---
+
+*Документация сгенерирована для проекта ii02720/task_03*
+*© 2025 Степанюк И.С.*
