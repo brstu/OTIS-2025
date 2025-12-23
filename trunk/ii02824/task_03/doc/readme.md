@@ -32,29 +32,32 @@
 #include <iostream>
 #include "models.h"
 #include "pid.h"
+#include <iostream>
+#include "models.h"
+#include "pid.h"
 
 int main()
 {
-    const double K  = 0.06;
-    const double T  = 20.0;
-    const double Td = 0.0;
-    const double T0 = 1.0;
+    const double K1  = 0.06;  
+    const double T1  = 20.0; 
+    const double Td1 = 0.0;  
+    const double T01 = 1.0;  
     
-    pid_coeffs coeffs(K, T, Td, T0);
-    pid PID(coeffs, 1, 2, 3);
+    pid1_coeffs coeffs(K1, T1, Td1, T01);
+    pid1 PID(coeffs, 1, 2, 3);
 
-    const double a_lin = 0.8;
-    const double b_lin = 0.1;
+    const double a_lin = 0.8; 
+    const double b_lin = 0.1; 
 
     NonLinearCoeffs coeffs_nl;
-    coeffs_nl.a = 0.8;
-    coeffs_nl.b = 0.0;
-    coeffs_nl.c = 0.1;
-    coeffs_nl.d = 0.05;
+    coeffs_nl.a1 = 0.8; 
+    coeffs_nl.b1 = 0.0; 
+    coeffs_nl.c1 = 0.1; 
+    coeffs_nl.d1 = 0.05;
 
     double y;
-    double w;
-    int n;
+    double w; 
+    int n;    
 
     std::cout << "Enter initial temperature -> ";
     std::cin >> y;
@@ -65,19 +68,17 @@ int main()
 
     double e;
     double u;
-
     double y_nl = y;
     double y_prev = 0;
     double u_prev = 0;
 
     for (int i = 0; i < n; i++)
     {
-        e = w - y;
-        u = PID.process(e);
+        e = w - y;              
+        u = PID.process(e);     
+        y = linear(y, u, a_lin, b_lin); 
 
-        y = linear(y, u, a_lin, b_lin);
-
-        y_nl = non_linear(y_nl, y_prev, u, u_prev, coeffs_nl);
+        y_nl = non_linear(y_nl, y_prev, u, u_prev, coeffs_nl); 
         y_prev = y_nl;
         u_prev = u;
 
@@ -110,11 +111,11 @@ int main()
 TEST(LinearModelTest, BasicCase) {
     double y = 2.0;
     double u = 3.0;
-    double a = 1.5;
-    double b = -0.5;
-    double expected = a * y + b * u;
+    double a1 = 1.5;
+    double b1 = -0.5;
+    double expected = a1 * y + b1 * u;
 
-    EXPECT_DOUBLE_EQ(linear(y, u, a, b), expected);
+    EXPECT_DOUBLE_EQ(linear(y, u, a1, b1), expected);
 }
 
 TEST(LinearModelTest, ZeroCoefficients) {
@@ -131,7 +132,7 @@ TEST(NonLinearModelTest, BasicCase) {
     double u   = 0.5;
     double u_p = 0.2;
     NonLinearCoeffs coeffs{2.0, 1.0, 0.5, 1.0};
-    double expected = coeffs.a * y - coeffs.b * y_p * y_p + coeffs.c * u + coeffs.d * std::sin(u_p);
+    double expected = coeffs.a1 * y - coeffs.b1 * y_p * y_p + coeffs.c1 * u + coeffs.d1 * std::sin(u_p);
 
     EXPECT_DOUBLE_EQ(non_linear(y, y_p, u, u_p, coeffs), expected);
 }
@@ -157,8 +158,8 @@ TEST(NonLinearModelTest, SinusoidalEffect) {
 }
 
 TEST(PidTest, Initialization) {
-    pid_coeffs coeffs(2.0, 1.0, 0.5, 0.1);
-    pid PID(coeffs, 0.0, 0.0, 0.0);
+    pid1_coeffs coeffs(2.0, 1.0, 0.5, 0.1);
+    pid1 PID(coeffs, 0.0, 0.0, 0.0);
     double e = 1.0;
     double expected = PID.process(e);
 
@@ -166,8 +167,8 @@ TEST(PidTest, Initialization) {
 }
 
 TEST(PidTest, StateUpdate) {
-    pid_coeffs coeffs(1.0, 1.0, 1.0, 1.0);
-    pid PID(coeffs, 0.0, 0.0, 0.0);
+    pid1_coeffs coeffs(1.0, 1.0, 1.0, 1.0);
+    pid1 PID(coeffs, 0.0, 0.0, 0.0);
     double u1 = PID.process(1.0);
     double u2 = PID.process(2.0);
 
@@ -175,16 +176,16 @@ TEST(PidTest, StateUpdate) {
 }
 
 TEST(PidTest, ZeroCoefficients) {
-    pid_coeffs coeffs(0.0, 1.0, 1.0, 1.0);
-    pid PID(coeffs, 0.0, 0.0, 0.0);
+    pid1_coeffs coeffs(0.0, 1.0, 1.0, 1.0);
+    pid1 PID(coeffs, 0.0, 0.0, 0.0);
     double result = PID.process(5.0);
 
     EXPECT_DOUBLE_EQ(result, 0.0);
 }
 
 TEST(PidTest, MultipleSteps) {
-    pid_coeffs coeffs(1.0, 2.0, 0.5, 0.1);
-    pid PID(coeffs, 0.0, 0.0, 0.0);
+    pid1_coeffs coeffs(1.0, 2.0, 0.5, 0.1);
+    pid1 PID(coeffs, 0.0, 0.0, 0.0);
     double u1 = PID.process(1.0);
     double u2 = PID.process(1.0);
     double u3 = PID.process(1.0);
