@@ -70,18 +70,19 @@ int main() {
     printProgramHeader();
     
     // Константы программы
-    const int TOTAL_STEPS = 500;      ///< Общее количество шагов моделирования
-    const int PRINT_INTERVAL = 10;    ///< Интервал вывода информации
-    const double SAMPLING_TIME = 1.0; ///< Время дискретизации (сек)
+    const int TOTAL_STEPS = 500;
+    const int PRINT_INTERVAL = 10;
+    const double SAMPLING_TIME = 1.0;
 
     // === 1. Ввод параметров нелинейной модели ===
     std::cout << "ВВЕДИТЕ ПАРАМЕТРЫ НЕЛИНЕЙНОЙ МОДЕЛИ:\n";
     std::cout << "Коэффициенты a, b, c, d: ";
+    
     double model_a;
     double model_b;
     double model_c;
     double model_d;
-    std::cin >> model_a; 
+    std::cin >> model_a;
     std::cin >> model_b;
     std::cin >> model_c;
     std::cin >> model_d;
@@ -89,14 +90,16 @@ int main() {
     // === 2. Ввод начальных условий ===
     std::cout << "\nВВЕДИТЕ НАЧАЛЬНЫЕ УСЛОВИЯ:\n";
     std::cout << "Температура на шаге 0 и шаге 1: ";
+    
     double temp_0;
     double temp_1;
-    std::cin >> temp_0; 
+    std::cin >> temp_0;
     std::cin >> temp_1;
 
     // === 3. Ввод параметров ПИД-регулятора ===
     std::cout << "\nВВЕДИТЕ НАСТРОЙКИ ПИД-РЕГУЛЯТОРА:\n";
     std::cout << "Коэффициенты K, T, Td: ";
+    
     double pid_K;
     double pid_T;
     double pid_Td;
@@ -107,6 +110,7 @@ int main() {
     // === 4. Ввод целевого значения ===
     std::cout << "\nЗАДАЙТЕ ЦЕЛЕВУЮ ТЕМПЕРАТУРУ:\n";
     std::cout << "Температура уставки: ";
+    
     double target_temperature;
     std::cin >> target_temperature;
 

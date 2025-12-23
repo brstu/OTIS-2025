@@ -24,20 +24,22 @@
  */
 TEST(PID_TestSuite, CoefficientsCalculation) {
     // Тестовые данные
-    double K = 0.8;    // Коэффициент усиления
-    double T = 10.0;   // Постоянная времени интегрирования
-    double Td = 0.3;   // Постоянная времени дифференцирования
-    double T0 = 1.0;   // Время дискретизации
+    double K = 0.8;
+    double T = 10.0;
+    double Td = 0.3;
+    double T0 = 1.0;
     
-    double q0, q1, q2;
+    double q0;
+    double q1;
+    double q2;
     
     // Вычисление коэффициентов
     calculatePidCoefficients(K, T, Td, T0, q0, q1, q2);
     
-    // Проверка ожидаемых значений (расчет вручную)
-    double expected_q0 = K * (1.0 + Td / T0);               // 0.8 * (1 + 0.3) = 1.04
-    double expected_q1 = -K * (1.0 + 2.0 * Td / T0 - T0 / T); // -0.8 * (1 + 0.6 - 0.1) = -1.2
-    double expected_q2 = K * Td / T0;                      // 0.8 * 0.3 = 0.24
+    // Проверка ожидаемых значений
+    double expected_q0 = K * (1.0 + Td / T0);
+    double expected_q1 = -K * (1.0 + 2.0 * Td / T0 - T0 / T);
+    double expected_q2 = K * Td / T0;
     
     // Проверка с допустимой погрешностью
     EXPECT_NEAR(q0, expected_q0, 0.001);
@@ -77,28 +79,26 @@ TEST(PID_TestSuite, ControlLimitsApplication) {
 TEST(PID_TestSuite, ControlSignalCalculation) {
     // Подготовка тестовых данных
     ControlParams params = {
-        1.0,    // q0
-        -0.5,   // q1
-        0.3,    // q2
-        10.0,   // e_k
-        5.0,    // e_prev
-        3.0,    // e_prev2
-        20.0    // u_prev
+        1.0,
+        -0.5,
+        0.3,
+        10.0,
+        5.0,
+        3.0,
+        20.0
     };
     
     // Расчет управления
     double result = calculateControl(params);
     
-    // Проверка вычислений:
-    // delta_u = 1.0*10.0 + (-0.5)*5.0 + 0.3*3.0 = 10.0 - 2.5 + 0.9 = 8.4
-    // u = 20.0 + 8.4 = 28.4
+    // Проверка вычислений
     double expected_control = 20.0 + (1.0 * 10.0 + (-0.5) * 5.0 + 0.3 * 3.0);
     
     EXPECT_NEAR(result, expected_control, 0.001);
     
     // Дополнительные проверки
-    EXPECT_GE(result, 0.0);      // Управление не должно быть отрицательным
-    EXPECT_LE(result, 100.0);    // Управление не должно превышать 100%
+    EXPECT_GE(result, 0.0);
+    EXPECT_LE(result, 100.0);
 }
 
 /**
@@ -109,25 +109,25 @@ TEST(PID_TestSuite, ControlSignalCalculation) {
 TEST(Model_TestSuite, NonlinearModelSimulation) {
     // Подготовка тестовых данных
     ModelParams params = {
-        0.9,    // a
-        0.005,  // b
-        1.0,    // c
-        0.1,    // d
-        20.1,   // y1
-        20.0,   // y0
-        25.0,   // u1
-        0.0     // u0
+        0.9,
+        0.005,
+        1.0,
+        0.1,
+        20.1,
+        20.0,
+        25.0,
+        0.0
     };
     
     // Расчет выходного значения
     double output = calculateNonlinearModel(params);
     
     // Проверка корректности результата
-    EXPECT_GT(output, 0.0);              // Температура должна быть положительной
-    EXPECT_FALSE(std::isnan(output));    // Результат не должен быть NaN
-    EXPECT_FALSE(std::isinf(output));    // Результат не должен быть бесконечностью
+    EXPECT_GT(output, 0.0);
+    EXPECT_FALSE(std::isnan(output));
+    EXPECT_FALSE(std::isinf(output));
     
-    // Проверка расчета (примерные значения)
+    // Проверка расчета
     double expected_output = params.a * params.y1 -
                            params.b * params.y0 * params.y0 +
                            params.c * params.u1 +
@@ -183,39 +183,36 @@ TEST(Utility_TestSuite, TemperatureProtection) {
 TEST(Utility_TestSuite, StateVariablesUpdate) {
     // Исходное состояние системы
     StateVariables state = {
-        {10.0, 20.0, 30.0},  // y: [y(k), y(k-1), y(k-2)]
-        {40.0, 50.0},        // u: [u(k), u(k-1)]
-        60.0,                // e_prev
-        70.0,                // e_prev2
-        80.0,                // u_prev
-        90.0                 // e_k
+        {10.0, 20.0, 30.0},
+        {40.0, 50.0},
+        60.0,
+        70.0,
+        80.0,
+        90.0
     };
     
-    // Сохраняем исходные значения для проверки
-    double original_y0 = state.y[0];
+    // Сохраняем необходимые исходные значения
     double original_y1 = state.y[1];
     double original_u0 = state.u[0];
     double original_e_prev = state.e_prev;
-    double original_e_prev2 = state.e_prev2;
-    double original_u_prev = state.u_prev;
     double original_e_k = state.e_k;
     
     // Выполняем обновление состояния
     updateStateVariables(state);
     
     // Проверка обновления ошибок
-    EXPECT_DOUBLE_EQ(state.e_prev2, original_e_prev);   // e_prev2 ← e_prev
-    EXPECT_DOUBLE_EQ(state.e_prev, original_e_k);       // e_prev ← e_k
+    EXPECT_DOUBLE_EQ(state.e_prev2, original_e_prev);
+    EXPECT_DOUBLE_EQ(state.e_prev, original_e_k);
     
     // Проверка обновления управления
-    EXPECT_DOUBLE_EQ(state.u_prev, original_u0);        // u_prev ← u[0]
+    EXPECT_DOUBLE_EQ(state.u_prev, original_u0);
     
     // Проверка сдвига массива температур
-    EXPECT_DOUBLE_EQ(state.y[0], original_y1);          // y[0] ← y[1]
-    EXPECT_DOUBLE_EQ(state.y[1], 30.0);                 // y[1] ← y[2] (бывшее значение)
+    EXPECT_DOUBLE_EQ(state.y[0], original_y1);
+    EXPECT_DOUBLE_EQ(state.y[1], 30.0);
     
     // Проверка сдвига массива управлений
-    EXPECT_DOUBLE_EQ(state.u[1], original_u0);          // u[1] ← u[0]
+    EXPECT_DOUBLE_EQ(state.u[1], original_u0);
 }
 
 /**
@@ -225,7 +222,9 @@ TEST(Utility_TestSuite, StateVariablesUpdate) {
  */
 TEST(System_TestSuite, IntegratedSystemTest) {
     // Шаг 1: Расчет коэффициентов ПИД
-    double q0, q1, q2;
+    double q0;
+    double q1;
+    double q2;
     calculatePidCoefficients(1.0, 5.0, 0.5, 1.0, q0, q1, q2);
     
     EXPECT_GT(q0, 0.0);

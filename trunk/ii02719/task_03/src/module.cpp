@@ -171,10 +171,7 @@ void updateStateVariables(StateVariables& state) {
     // Сохранение текущего управления как предыдущего
     state.u_prev = state.u[0];
     
-    // Сдвиг массива истории температур:
-    // Новая позиция 0 ← старая позиция 1
-    // Новая позиция 1 ← старая позиция 2
-    double temp_y0 = state.y[0];
+    // Сдвиг массива истории температур
     double temp_y1 = state.y[1];
     double temp_y2 = state.y[2];
     
