@@ -12,10 +12,10 @@ struct pid1_coeffs
 
     /**
      * @brief Конструктор коэффициентов PID-регулятора
-     * @param K коэффициент передачи
-     * @param T постоянная интегрирования
-     * @param Td постоянная дифференцирования
-     * @param T0 шаг
+     * @param K1 коэффициент передачи
+     * @param T1 постоянная интегрирования
+     * @param Td1 постоянная дифференцирования
+     * @param T01 шаг
      */
     pid1_coeffs(double K1, double T1, double Td1, double T01);
 };
