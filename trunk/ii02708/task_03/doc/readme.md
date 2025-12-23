@@ -5,12 +5,12 @@
 <br><br><br><br><br><br><br>
 <p align="center">Лабораторная работа №3</p>
 <p align="center">По дисциплине “Общая теория интеллектуальных систем”</p>
-<p align="center">Тема: “Моделирование системы автоматического управления с ПИД-регулятором для объекта теплового класса.”</p>
+<p align="center">Тема: “Реализация ПИД регулятора.”</p>
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
-<p align="right">Группы ИИ-28/24</p>
-<p align="right">Клименко М.C.</p>
+<p align="right">Группы ИИ-27</p>
+<p align="right">Киричук В.А.</p>
 <p align="right">Проверил:</p>
 <p align="right">Дворанинович Д.А.</p>
 <br><br><br><br><br>
@@ -105,226 +105,243 @@
 На **C++** реализовать программу, моделирующую рассмотренный выше ПИД-регулятор.  В качестве объекта управления использовать математическую модель, полученную в предыдущей работе.
 В отчете также привести графики для разных заданий температуры объекта, пояснить полученные результаты.
 
-## Код программы [ src/lab3.cpp ]
+
+## Код программы [ src/main.cpp ]
 ```C++
 #include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <vector>
+#include "nonlinear.h"
 #include "pid.h"
-#include "lin_model.h"
 
-template <typename N>
-void validate(N& number, const std::string& message) {
-    std::cout << message;
-    while (!(std::cin >> number)) {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Input correct number: ";
-    }
-}
-int main() {
+/**
+ * @brief Сохраняет данные в CSV файл
+ * 
+ * @param filename Имя файла для сохранения
+ * @param time Вектор временных меток
+ * @param values Вектор значений
+ * @param setpoint Заданное значение (опционально)
+ * @return true Файл успешно сохранен
+ * @return false Ошибка при сохранении
+ */
+bool saveToCSV(const std::string& filename, 
+               const std::vector<int>& time, 
+               const std::vector<double>& values,
+               double setpoint = 0.0);
 
-    double y_prev;
-    double y;
-    double a;
-    double b;
-    double w;
-    int n;
-
-    double K = 0.5;
-    double T = 2.0;
-    double Td = 0.3;
-    double T0 = 1.0;
-
-    validate(y_prev, "Enter input temperature (y): ");
-    validate(a, "Enter constant a (for linear model): ");
-    validate(b, "Enter constant b (for linear model: ");
-    validate(w, "Enter target temperature (w): ");
-    validate(n, "Enter an amount of steps (n): ");
-
-    PID pid(K, T, Td, T0);
+int main()
+{
+    NonLinearCoeff nonlinearCoeff;
+    nonlinearCoeff.a = 0.5;
+    nonlinearCoeff.b = 0.2;
+    nonlinearCoeff.c = 0.15;
+    nonlinearCoeff.d = 0.3;
+    nonlinearCoeff.u = 1.2;
+    
+    double y0;
+    std::cout << "Enter initial temperature y1: ";
+    std::cin >> y0;
+    
+    int n = 20;
+    double setpoint = 2.0;
+    
+    double Kp = 1.5;
+    double Ki = 0.2;
+    double Kd = 0.05;
+    
+    std::cout << "\n=== Temperature Regulation System Simulation ===\n";
+    std::cout << "Initial temperature: " << y0 << "\n";
+    std::cout << "Desired temperature: " << setpoint << "\n";
+    std::cout << "Number of steps: " << n << "\n";
+    std::cout << "PID parameters: Kp=" << Kp << ", Ki=" << Ki << ", Kd=" << Kd << "\n\n";
+    
+    std::cout << "1. System without regulator:" << std::endl;
+    std::vector<double> nonlinearResults = calculateNonlinear(nonlinearCoeff, y0, n);
+    
+    std::vector<int> timeSteps(n);
     for (int i = 0; i < n; i++) {
-        double e = w - y_prev;
-        double u = pid.u_calc(e);
-        y = linear_model(y_prev, u, a, b);
-        y_prev = y;
-
-        std::cout << "Step " << i + 1
-            << "  e = " << e << '\t'
-            << "  u = " << u << '\t'
-            << "  y = " << y << '\n';
+        timeSteps[i] = i + 1;
+    }
+    
+    if (saveToCSV("temperature_without_pid.csv", timeSteps, nonlinearResults, setpoint)) {
+        std::cout << "   Results saved to temperature_without_pid.csv\n";
+    }
+    
+    for (int i = 0; i < std::min(5, n); i++) {
+        std::cout << "   t" << i + 1 << " = " << nonlinearResults[i];
+        std::cout << " (deviation: " << std::abs(setpoint - nonlinearResults[i]) << " )" << std::endl;
+    }
+    if (n > 5) {
+        std::cout << "   ...\n";
+        std::cout << "   t" << n << " = " << nonlinearResults[n-1];
+        std::cout << " (deviation: " << std::abs(setpoint - nonlinearResults[n-1]) << " )" << std::endl;
+    }
+    
+    std::cout << "\n2. System with PID regulator:" << std::endl;
+    std::vector<double> pidResults = simulatePidRegulatorForNonlinear(
+        nonlinearCoeff, y0, n, setpoint, PidParams{ Kp, Ki, Kd });
+    
+    if (saveToCSV("temperature_with_pid.csv", timeSteps, pidResults, setpoint)) {
+        std::cout << "   Results saved to temperature_with_pid.csv\n";
+    }
+    
+    for (int i = 0; i < std::min(5, n); i++) {
+        std::cout << "   t" << i + 1 << " = " << pidResults[i];
+        std::cout << " (deviation: " << std::abs(setpoint - pidResults[i]) << " )" << std::endl;
+    }
+    if (n > 5) {
+        std::cout << "   ...\n";
+        std::cout << "   t" << n << " = " << pidResults[n-1];
+        std::cout << " (deviation: " << std::abs(setpoint - pidResults[n-1]) << " )" << std::endl;
     }
 
+    std::cout << "\n3. Efficiency comparison:" << std::endl;
+    
+    double sumErrorWithoutPID = 0.0;
+    double sumErrorWithPID = 0.0;
+    
+    for (int i = 0; i < n; i++) {
+        sumErrorWithoutPID += std::abs(setpoint - nonlinearResults[i]);
+        sumErrorWithPID += std::abs(setpoint - pidResults[i]);
+    }
+    
+    double avgErrorWithoutPID = sumErrorWithoutPID / n;
+    double avgErrorWithPID = sumErrorWithPID / n;
+    
+    std::cout << "   Average deviation without regulator: " << avgErrorWithoutPID << "\n";
+    std::cout << "   Average deviation with PID regulator: " << avgErrorWithPID << "\n";
+    
+    double improvement = ((avgErrorWithoutPID - avgErrorWithPID) / avgErrorWithoutPID) * 100;
+    std::cout << "   Improvement: " << std::fixed << std::setprecision(1) << improvement << "%\n";
+    
+    if (std::ofstream summary("simulation_summary.txt"); summary.is_open()) {
+        summary << "=== Simulation Summary ===\n";
+        summary << "Initial temperature: " << y0 << "\n";
+        summary << "Desired temperature: " << setpoint << "\n";
+        summary << "Number of steps: " << n << "\n";
+        summary << "PID parameters: Kp=" << Kp << ", Ki=" << Ki << ", Kd=" << Kd << "\n";
+        summary << "Average error without PID: " << avgErrorWithoutPID << "\n";
+        summary << "Average error with PID: " << avgErrorWithPID << "\n";
+        summary << "Improvement: " << improvement << "%\n";
+        summary << "\nTo plot graphs run: python plot_temperature.py\n";
+        summary.close();
+        std::cout << "\nSummary saved to simulation_summary.txt\n";
+    }
+    
+    std::cout << "\nTo plot graphs run the command: python plot_temperature.py\n";
+    
     return 0;
 }
 
+bool saveToCSV(const std::string& filename, 
+               const std::vector<int>& time, 
+               const std::vector<double>& values,
+               double setpoint)
+{
+    std::ofstream file(filename);
+    if (!file.is_open()) {
+        std::cerr << "Error opening file: " << filename << std::endl;
+        return false;
+    }
+    
+    file << "Time,Value";
+    if (setpoint != 0.0) {
+        file << ",Setpoint";
+    }
+    file << std::endl;
+    
+    for (size_t i = 0; i < values.size(); ++i) {
+        file << time[i] << "," << std::fixed << std::setprecision(6) << values[i];
+        if (setpoint != 0.0) {
+            file << "," << setpoint;
+        }
+        file << std::endl;
+    }
+    
+    file.close();
+    std::cout << "Data saved to file: " << filename << std::endl;
+    return true;
+}
 ```
 
 ## Результат программы [ src/main.cpp ]
-![Result](images/res.png)
+![results](images/results.png)
 
-## График
-### При `K = 0.5 T = 4.0 T0 = 1.5 TD = 0.2 a = 0.9 b = 0.3 y0 = 15.234 w = 25.7562`
-
-![schedule1](images/schedule1.png)
-<br>
-
-
-## Вывод полученных данных при использовании ПИД-регулятора
-
-
-## Link to documentation
-[https://mishanya2281337.github.io/OTIS-2025/](https://mishanya2281337.github.io/OTIS-2025/)
-
-## Код юнит-тестов [ test/testlab3.cpp ]
+## Код юнит-тестов [ test/test.cpp ]
 ```C++
-#include "../src/pid.h"
-#include "../src/lin_model.h"
 #include <gtest/gtest.h>
-#include <cmath>
+#include <gmock/gmock.h>
 
-TEST(LinearModelTest, PositiveValues) {
-    EXPECT_DOUBLE_EQ(linear_model(2.0, 3.0, 1.0, 4.0), 2.0 * 1.0 + 3.0 * 4.0);
-}
+#include "../src/pid.h"
 
-TEST(LinearModelTest, ZeroInput) {
-    EXPECT_DOUBLE_EQ(linear_model(1.5, 2.0, 0.0, 0.0), 0.0);
-}
-
-TEST(LinearModelTest, NegativeValues) {
-    EXPECT_DOUBLE_EQ(linear_model(-1.0, 2.0, 3.0, -4.0), -1.0 * 3.0 + 2.0 * -4.0);
-}
-
-TEST(LinearModelTest, MixedValues) {
-    double result = linear_model(6, 8, 0.5, 0.2);
-    EXPECT_DOUBLE_EQ(result, 0.5 * 6 + 0.2 * 8);
-}
-
-TEST(PIDTest, CoefficientsCalculation) {
-    double K = 0.5;
-    double T = 2.0;
-    double Td = 0.3;
-    double T0 = 1.0;
-
-    PID pid(K, T, Td, T0);
-
-    double expected_q0 = K * (1.0 + Td / T0);
-    double expected_q1 = -K * (1 + 2 * Td / T0 - T0 / T);
-    double expected_q2 = K * Td / T0;
-
-    double u1 = pid.u_calc(0.7);
-    double expected_u = 0.0 + expected_q0 * 0.7 + expected_q1 * 0.0 + expected_q2 * 0.0;
-
-    EXPECT_NEAR(u1, expected_u, 1e-10);
-}
-
-TEST(PIDTest, SequentialCalculations) {
-    PID pid(1.0, 1.0, 0.1, 0.1);
-
-    double u1 = pid.u_calc(1.0);
-    double u2 = pid.u_calc(0.5);
-    double u3 = pid.u_calc(0.2);
-
-    EXPECT_NE(u1, u2);
-    EXPECT_NE(u2, u3);
-}
-
-TEST(PIDTest, ZeroError) {
-    PID pid(1.0, 1.0, 0.1, 0.1);
-
-    double u1 = pid.u_calc(0.0);
-    EXPECT_DOUBLE_EQ(u1, 0.0);
-}
-
-TEST(PIDSystemTest, SystemStabilization) {
-    PID pid(1.5, 3.0, 0.2, 1.0);
-
-    double y_prev = 15.0;
-    double w = 35.0;
-    double a = 0.8;
-    double b = 0.1;
-    double y = y_prev;
-
-    for (int i = 0; i < 50; i++) {
-        double e = w - y;
-        double u = pid.u_calc(e);
-        y = linear_model(y, u, a, b);
-    }
-
-    EXPECT_NEAR(y, w, 2.0);
-}
-
-TEST(PIDSystemTest, ConvergenceTest) {
-    PID pid(0.8, 2.0, 0.1, 0.5);
-
-    double y = 10.0;
-    double w = 25.0;
-    double a = 0.9;
-    double b = 0.15;
-
-    std::vector<double> errors;
-
-    for (int i = 0; i < 30; i++) {
-        double e = w - y;
-        errors.push_back(std::abs(e));
-        double u = pid.u_calc(e);
-        y = linear_model(y, u, a, b);
-    }
-
-    EXPECT_LT(errors.back(), errors.front());
-}
-
-
-TEST(PIDTest, ExtremeCoefficients) {
-
-    PID pid_small(0.001, 0.001, 0.001, 0.001);
-    double u_small = pid_small.u_calc(1.0);
-    EXPECT_NEAR(u_small, 0.002, 1e-10); 
-
-    PID pid_large(10.0, 10.0, 10.0, 10.0);
-    double u_large = pid_large.u_calc(1.0);
-    EXPECT_NEAR(u_large, 20.0, 1e-10);
-}
-
-TEST(PIDTest, ConstantError) {
-    PID pid(1.0, 2.0, 0.5, 1.0);
-
-    double constant_error = 2.0;
-    double u_prev = 0.0;
-
-    for (int i = 0; i < 5; i++) {
-        double u = pid.u_calc(constant_error);
-        if (i > 0) {
-            EXPECT_NE(u, 0.0);
-        }
-        u_prev = u;
+TEST(TestPid, WhenSetpointIsTwo)
+{   
+    NonLinearCoeff coeff;
+    coeff.a = 0.5;
+    coeff.b = 0.2;
+    coeff.c = 0.15;
+    coeff.d = 0.3;
+    coeff.u = 1.2;
+    
+    double y0 = 1.0;
+    int n = 5;
+    double setpoint = 2.0;
+    
+    std::vector<double> results = simulatePidRegulatorForNonlinear(coeff, y0, n, setpoint);
+    std::vector<double> expected = {
+        1.0,
+        0.73520960570401428,
+        0.69080628322815185,
+        0.78596368906104797,
+        0.84912544875185891
+    };
+    
+    for (int i = 0; i < expected.size(); i++) 
+    {
+        EXPECT_NEAR(results[i], expected[i], 1e-6) << "Mismatch at index " << i;
     }
 }
 
-TEST(PIDTest, NegativeError) {
-    PID pid(1.0, 1.0, 0.1, 0.1);
-
-    double u_positive = pid.u_calc(1.0);
-    PID pid_negative(1.0, 1.0, 0.1, 0.1);
-    double u_negative = pid_negative.u_calc(-1.0);
-
-    EXPECT_LT(u_negative, 0.0);
-    EXPECT_GT(u_positive, 0.0);
+TEST(TestPid, WhenCustomPidCoefficients)
+{   
+    NonLinearCoeff coeff;
+    coeff.a = 0.5;
+    coeff.b = 0.2;
+    coeff.c = 0.15;
+    coeff.d = 0.3;
+    coeff.u = 1.2;
+    
+    double y0 = 1.0;
+    int n = 5;
+    double setpoint = 3.0;
+    double Kp = 2.0;
+    double Ki = 0.5;
+    double Kd = 0.1;
+    double dt = 1.0;
+    
+    std::vector<double> results = simulatePidRegulatorForNonlinear(
+        coeff, y0, n, setpoint, PidParams{ Kp, Ki, Kd, dt });
+    std::vector<double> expected = {
+        1.0,
+        0.81496360328395412,
+        1.2386319653734363,
+        1.5053874385565871,
+        1.5651009452716802
+    };
+    
+    for (int i = 0; i < expected.size(); i++) 
+    {
+        EXPECT_NEAR(results[i], expected[i], 1e-6) << "Mismatch at index " << i;
+    }
 }
-
-TEST(PIDTest, InvalidState) {
-    PID pid(1.0, 1.0, 1.0, 1.0);
-
-    pid.invalidate();
-
-    double u = pid.u_calc(1.0);
-    EXPECT_DOUBLE_EQ(u, 0.0);
-}
-
-
 ```
-## Результаты юнит-тестирования (GoogleTest)
-![GoogleTest](images/g_tests.png)
 
-## Покрытие GCC Code Coverage
+## Тестирование
+![tests](images/tests.png)
 
-![GCC Coverage](images/coverage.png)
+## Графики
+![graph](images/graph.png)
 
+## Документация
+[https://kriskess.github.io/OTIS-2025/](https://kriskess.github.io/OTIS-2025/)
