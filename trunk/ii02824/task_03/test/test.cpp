@@ -54,8 +54,8 @@ TEST(NonLinearModelTest, SinusoidalEffect) {
 }
 
 TEST(PidTest, Initialization) {
-    pid_coeffs coeffs(2.0, 1.0, 0.5, 0.1);
-    pid PID(coeffs, 0.0, 0.0, 0.0);
+    pid1_coeffs coeffs(2.0, 1.0, 0.5, 0.1);
+    pid1 PID(coeffs, 0.0, 0.0, 0.0);
     double e = 1.0;
     double expected = PID.process(e);
 
@@ -63,8 +63,8 @@ TEST(PidTest, Initialization) {
 }
 
 TEST(PidTest, StateUpdate) {
-    pid_coeffs coeffs(1.0, 1.0, 1.0, 1.0);
-    pid PID(coeffs, 0.0, 0.0, 0.0);
+    pid1_coeffs coeffs(1.0, 1.0, 1.0, 1.0);
+    pid1 PID(coeffs, 0.0, 0.0, 0.0);
     double u1 = PID.process(1.0);
     double u2 = PID.process(2.0);
 
@@ -72,16 +72,16 @@ TEST(PidTest, StateUpdate) {
 }
 
 TEST(PidTest, ZeroCoefficients) {
-    pid_coeffs coeffs(0.0, 1.0, 1.0, 1.0);
-    pid PID(coeffs, 0.0, 0.0, 0.0);
+    pid1_coeffs coeffs(0.0, 1.0, 1.0, 1.0);
+    pid1 PID(coeffs, 0.0, 0.0, 0.0);
     double result = PID.process(5.0);
 
     EXPECT_DOUBLE_EQ(result, 0.0);
 }
 
 TEST(PidTest, MultipleSteps) {
-    pid_coeffs coeffs(1.0, 2.0, 0.5, 0.1);
-    pid PID(coeffs, 0.0, 0.0, 0.0);
+    pid1_coeffs coeffs(1.0, 2.0, 0.5, 0.1);
+    pid1 PID(coeffs, 0.0, 0.0, 0.0);
     double u1 = PID.process(1.0);
     double u2 = PID.process(1.0);
     double u3 = PID.process(1.0);

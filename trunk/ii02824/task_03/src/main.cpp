@@ -9,17 +9,17 @@ int main()
     const double Td1 = 0.0;  ///< постоянная дифференцирования
     const double T01 = 1.0;  ///< шаг
     
-    pid_coeffs coeffs(K1, T1, Td1, T01);
-    pid PID(coeffs, 1, 2, 3);
+    pid1_coeffs coeffs(K1, T1, Td1, T01);
+    pid1 PID(coeffs, 1, 2, 3);
 
     const double a_lin = 0.8; ///< коэффициент линейной модели a
     const double b_lin = 0.1; ///< коэффициент линейной модели b
 
     NonLinearCoeffs coeffs_nl;
-    coeffs_nl.a1 = 0.8;  ///< коэффициент нелинейной модели a
-    coeffs_nl.b1 = 0.0;  ///< коэффициент нелинейной модели b
-    coeffs_nl.c1 = 0.1;  ///< коэффициент нелинейной модели c
-    coeffs_nl.d1 = 0.05; ///< коэффициент нелинейной модели d
+    coeffs_nl.a1 = 0.8;  ///< коэффициент нелинейной модели a1
+    coeffs_nl.b1 = 0.0;  ///< коэффициент нелинейной модели b1
+    coeffs_nl.c1 = 0.1;  ///< коэффициент нелинейной модели c1
+    coeffs_nl.d1 = 0.05; ///< коэффициент нелинейной модели d1
 
     double y; ///< текущее значение температуры
     double w; ///< целевая температура

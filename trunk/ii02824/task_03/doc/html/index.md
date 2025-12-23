@@ -2,11 +2,11 @@
 
  Members                        | Descriptions                                
 --------------------------------|---------------------------------------------
-`class `[`pid`](#classpid) | Класс PID-регулятора
+`class `[`pid1`](#classpid) | Класс PID-регулятора
 `struct `[`NonLinearCoeffs`](#struct_non_linear_coeffs) | Структура коэффициентов нелинейной модели объекта управления
-`struct `[`pid_coeffs`](#structpid__coeffs) | Структура коэффициентов PID-регулятора
+`struct `[`pid1_coeffs`](#structpid__coeffs) | Структура коэффициентов PID-регулятора
 
-# class `pid` 
+# class `pid1` 
 
 Класс PID-регулятора
 
@@ -14,12 +14,12 @@
 
  Members                        | Descriptions                                
 --------------------------------|---------------------------------------------
-`public  `[`pid`](#classpid_1ae8014e9c3f602dcd6b88686fb917442e)`(const `[`pid_coeffs`](#structpid__coeffs)` & coeffs,double _u,double _e,double __e)` | Конструктор PID-регулятора
+`public  `[`pid1`](#classpid_1ae8014e9c3f602dcd6b88686fb917442e)`(const `[`pid1_coeffs`](#structpid__coeffs)` & coeffs,double _u,double _e,double __e)` | Конструктор PID-регулятора
 `public double `[`process`](#classpid_1a75f23675900ca669c3f12875ce55d78a)`(double e)` | Выполнить шаг PID-регулятора
 
 ## Members
 
-#### `public  `[`pid`](#classpid_1ae8014e9c3f602dcd6b88686fb917442e)`(const `[`pid_coeffs`](#structpid__coeffs)` & coeffs,double _u,double _e,double __e)` 
+#### `public  `[`pid1`](#classpid_1ae8014e9c3f602dcd6b88686fb917442e)`(const `[`pid1_coeffs`](#structpid__coeffs)` & coeffs,double _u,double _e,double __e)` 
 
 Конструктор PID-регулятора
 
@@ -102,7 +102,7 @@
 
 коэффициент синусоидальной нелинейности
 
-# struct `pid_coeffs` 
+# struct `pid1_coeffs` 
 
 Структура коэффициентов PID-регулятора
 
@@ -114,7 +114,7 @@
 `public const double `[`T1`](#structpid__coeffs_1aa69708722314150cbd2810cc8b7c8476) | постоянная интегрирования
 `public const double `[`Td1`](#structpid__coeffs_1a5cc8572ddb54086cc7b97f754b1f86c1) | постоянная дифференцирования
 `public const double `[`T01`](#structpid__coeffs_1a9fa8f52e69c498586a22bc748d38fab2) | шаг
-`public  `[`pid_coeffs`](#structpid__coeffs_1a1565a55a5421ee3da66debe43db919b8)`(double K1,double T1,double Td1,double T01)` | Конструктор коэффициентов PID-регулятора
+`public  `[`pid1_coeffs`](#structpid__coeffs_1a1565a55a5421ee3da66debe43db919b8)`(double K1,double T1,double Td1,double T01)` | Конструктор коэффициентов PID-регулятора
 
 ## Members
 
@@ -134,7 +134,7 @@
 
 шаг
 
-#### `public  `[`pid_coeffs`](#structpid__coeffs_1a1565a55a5421ee3da66debe43db919b8)`(double K1,double T1,double Td1,double T01)` 
+#### `public  `[`pid1_coeffs`](#structpid__coeffs_1a1565a55a5421ee3da66debe43db919b8)`(double K1,double T1,double Td1,double T01)` 
 
 Конструктор коэффициентов PID-регулятора
 

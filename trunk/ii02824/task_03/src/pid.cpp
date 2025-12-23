@@ -5,16 +5,16 @@
  * 
  * Инициализирует структуру коэффициентов PID-регулятора.
  * 
- * @param K коэффициент передачи
- * @param T постоянная интегрирования
- * @param Td постоянная дифференцирования
- * @param T0 шаг
+ * @param K1 коэффициент передачи
+ * @param T1 постоянная интегрирования
+ * @param Td1 постоянная дифференцирования
+ * @param T01 шаг
  */
-pid_coeffs::pid_coeffs(double K1, double T1, double Td1, double T01)
+pid1_coeffs::pid1_coeffs(double K1, double T1, double Td1, double T01)
         : K1(K1), T1(T1), Td1(Td1), T01(T01) {}
 
 
-pid::pid(const pid_coeffs& coeffs, double _u, double _e, double __e)
+pid1::pid1(const pid1_coeffs& coeffs, double _u, double _e, double __e)
     : coeffs(coeffs),
       q0(coeffs.K1 * (1 + coeffs.Td1 / coeffs.T01)),
       q1(-coeffs.K1 * (1 + 2 * coeffs.Td1 / coeffs.T01 - coeffs.T01 / coeffs.T1)),
@@ -34,7 +34,7 @@ pid::pid(const pid_coeffs& coeffs, double _u, double _e, double __e)
  * @param _e текущее значение отклонения
  * @return новое управляющее воздействие
  */
-double pid::process(double e)
+double pid1::process(double e)
 {
     double _u = q0 * e + q1 * e_prev + q2 * e_prev_prev;
     double u = u_prev + _u;

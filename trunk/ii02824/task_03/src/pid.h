@@ -3,7 +3,7 @@
 /**
  * @brief Структура коэффициентов PID-регулятора
  */
-struct pid_coeffs
+struct pid1_coeffs
 {
     const double K1;  ///< коэффициент передачи
     const double T1;  ///< постоянная интегрирования
@@ -17,16 +17,16 @@ struct pid_coeffs
      * @param Td постоянная дифференцирования
      * @param T0 шаг
      */
-    pid_coeffs(double K1, double T1, double Td1, double T01);
+    pid1_coeffs(double K1, double T1, double Td1, double T01);
 };
 
 /**
  * @brief Класс PID-регулятора
  */
-class pid
+class pid1
 {
 private:
-    pid_coeffs coeffs;  ///< коэффициенты PID-регулятора   
+    pid1_coeffs coeffs;  ///< коэффициенты PID-регулятора   
 
     double q0;          ///< параметр PID-регулятора
     double q1;          ///< параметр PID-регулятора
@@ -38,7 +38,7 @@ private:
 
 public:
     
-    pid(const pid_coeffs& coeffs, double _u, double _e, double __e);
+    pid1(const pid1_coeffs& coeffs, double _u, double _e, double __e);
 
     double process(double e);
 };
