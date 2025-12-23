@@ -1,5 +1,3 @@
-
-
 name: Deploy Jekyll with GitHub Pages dependencies
 
 on:
@@ -8,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  # Only keep id-token at workflow level as it's needed for authentication
+  pages: write
   id-token: write
 
 concurrency:
@@ -18,9 +16,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # Add contents: read permission to build job
     permissions:
-      contents: read
+      contents: read  # Moved to job level
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,7 +26,7 @@ jobs:
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./trunk/ii02820/task_03/doc/html
+          source: ./trunk/ii02812/task_03/doc/report
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -40,10 +37,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
-    # Add pages: write permission to deploy job
-    permissions:
-      pages: write
-      id-token: write  # Also include id-token here since deploy needs it
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
