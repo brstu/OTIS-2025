@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_process_model" kind="class" language="C++" prot="public">
+    <compoundname>ProcessModel</compoundname>
+    <includes refid="model_8h" local="no">model.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_process_model_1a5729da598b4c82b138328877043e2802" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; ProcessModel::params</definition>
+        <argsstring></argsstring>
+        <name>params</name>
+        <qualifiedname>ProcessModel::params</qualifiedname>
+        <briefdescription>
+<para>Параметры модели </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="21" column="17" bodyfile="src/model.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_process_model_1aee77cc3e529bb885798798b94ccc63c3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ProcessModel::prev_value</definition>
+        <argsstring></argsstring>
+        <name>prev_value</name>
+        <qualifiedname>ProcessModel::prev_value</qualifiedname>
+        <briefdescription>
+<para>Предыдущее значение выхода </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="22" column="12" bodyfile="src/model.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_process_model_1adcdba43c05676dfe398eed1e233aad34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ProcessModel::ProcessModel</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;params, double initial_value)</argsstring>
+        <name>ProcessModel</name>
+        <qualifiedname>ProcessModel::ProcessModel</qualifiedname>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>params</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>initial_value</declname>
+        </param>
+        <briefdescription>
+<para>Конструктор модели процесса </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Вектор параметров модели </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>initial_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Начальное значение </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="30" column="5" bodyfile="src/model.cpp" bodystart="9" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_process_model_1a4efaa82d0840e6c4501c69a34bc5370f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double ProcessModel::linearModel</definition>
+        <argsstring>(double input)</argsstring>
+        <name>linearModel</name>
+        <qualifiedname>ProcessModel::linearModel</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+<para>Линейная модель объекта </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Входное воздействие </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Выходное значение </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="37" column="12" bodyfile="src/model.cpp" bodystart="17" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_process_model_1a568c4c289598cb4646005fb13ea7967b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double ProcessModel::nonlinearModel</definition>
+        <argsstring>(double input)</argsstring>
+        <name>nonlinearModel</name>
+        <qualifiedname>ProcessModel::nonlinearModel</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+<para>Нелинейная модель объекта </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Входное воздействие </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Выходное значение </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="44" column="12" bodyfile="src/model.cpp" bodystart="24" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="class_process_model_1ad055d88198824729f99f2ae0e8702b89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ProcessModel::setInitialValue</definition>
+        <argsstring>(double value)</argsstring>
+        <name>setInitialValue</name>
+        <qualifiedname>ProcessModel::setInitialValue</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Устанавливает начальное значение </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Начальное значение </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="50" column="10" bodyfile="src/model.cpp" bodystart="32" bodyend="34"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Класс, моделирующий объект управления </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Модель объекта управления, которая может работать как в линейном, так и в нелинейном режиме. </para>
+    </detaileddescription>
+    <location file="src/model.h" line="19" column="1" bodyfile="src/model.h" bodystart="19" bodyend="51"/>
+    <listofallmembers>
+      <member refid="class_process_model_1a4efaa82d0840e6c4501c69a34bc5370f" prot="public" virt="non-virtual"><scope>ProcessModel</scope><name>linearModel</name></member>
+      <member refid="class_process_model_1a568c4c289598cb4646005fb13ea7967b" prot="public" virt="non-virtual"><scope>ProcessModel</scope><name>nonlinearModel</name></member>
+      <member refid="class_process_model_1a5729da598b4c82b138328877043e2802" prot="private" virt="non-virtual"><scope>ProcessModel</scope><name>params</name></member>
+      <member refid="class_process_model_1aee77cc3e529bb885798798b94ccc63c3" prot="private" virt="non-virtual"><scope>ProcessModel</scope><name>prev_value</name></member>
+      <member refid="class_process_model_1adcdba43c05676dfe398eed1e233aad34" prot="public" virt="non-virtual"><scope>ProcessModel</scope><name>ProcessModel</name></member>
+      <member refid="class_process_model_1ad055d88198824729f99f2ae0e8702b89" prot="public" virt="non-virtual"><scope>ProcessModel</scope><name>setInitialValue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
