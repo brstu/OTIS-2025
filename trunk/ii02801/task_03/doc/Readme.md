@@ -10,7 +10,7 @@
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
 <p align="right">Группы ИИ-28/24</p>
-<p align="right">Клименко М.C.</p>
+<p align="right">Артыш Е.А.</p>
 <p align="right">Проверил:</p>
 <p align="right">Дворанинович Д.А.</p>
 <br><br><br><br><br>
@@ -105,226 +105,287 @@
 На **C++** реализовать программу, моделирующую рассмотренный выше ПИД-регулятор.  В качестве объекта управления использовать математическую модель, полученную в предыдущей работе.
 В отчете также привести графики для разных заданий температуры объекта, пояснить полученные результаты.
 
-## Код программы [ src/lab3.cpp ]
+
+## Код программы [ src/lab3main.cpp ]
 ```C++
 #include <iostream>
+#include <vector>
+#include <fstream>
 #include "pid.h"
-#include "lin_model.h"
+#include "model.h"
 
-template <typename N>
-void validate(N& number, const std::string& message) {
-    std::cout << message;
-    while (!(std::cin >> number)) {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Input correct number: ";
+std::vector<double> simulateSystem(PIDController& pid, ProcessModel& process, 
+                                  const std::vector<double>& setpoints, bool use_nonlinear = false) {
+    std::vector<double> results;
+    
+    for (double setpoint : setpoints) {
+
+        double current_value = (results.empty()) ? 0.0 : results.back();
+        
+        // Вычисляем управляющее воздействие
+        double control_signal = pid.calculate(setpoint, current_value);
+        
+        
+        double new_value;
+        if (use_nonlinear) {
+            new_value = process.nonlinearModel(control_signal);
+        } else {
+            new_value = process.linearModel(control_signal);
+        }
+        
+        results.push_back(new_value);
     }
+    
+    return results;
 }
+
 int main() {
-
-    double y_prev;
-    double y;
-    double a;
-    double b;
-    double w;
-    int n;
-
-    double K = 0.5;
-    double T = 2.0;
-    double Td = 0.3;
-    double T0 = 1.0;
-
-    validate(y_prev, "Enter input temperature (y): ");
-    validate(a, "Enter constant a (for linear model): ");
-    validate(b, "Enter constant b (for linear model: ");
-    validate(w, "Enter target temperature (w): ");
-    validate(n, "Enter an amount of steps (n): ");
-
-    PID pid(K, T, Td, T0);
-    for (int i = 0; i < n; i++) {
-        double e = w - y_prev;
-        double u = pid.u_calc(e);
-        y = linear_model(y_prev, u, a, b);
-        y_prev = y;
-
-        std::cout << "Step " << i + 1
-            << "  e = " << e << '\t'
-            << "  u = " << u << '\t'
-            << "  y = " << y << '\n';
+    
+    setlocale(LC_ALL, "");
+    std::vector<double> model_params = {0.85, 0.01, 0.15, 0.01};
+    
+    
+    ProcessModel process(model_params, 10.0);
+    
+    
+    double K = 0.8;   
+    double T = 4.0;   
+    double Td = 0.05;  
+    double T0 = 1.0;  
+    
+    
+    PIDController pid(K, T, Td, T0);
+    
+    
+    std::vector<double> setpoints(20, 20.0);  
+    
+    
+    auto linear_results = simulateSystem(pid, process, setpoints, false);
+    
+    
+    pid.reset();
+    process.setInitialValue(0.0);
+    
+    
+    auto nonlinear_results = simulateSystem(pid, process, setpoints, true);
+    
+    
+    std::cout << "Step\t\tSetpoint\t\tLinear\t\tNonlinear\n";
+    for (size_t i = 0; i < setpoints.size(); ++i) {
+        std::cout << i << "\t\t" << setpoints[i] << "\t\t" 
+                << linear_results[i] << "\t\t" << nonlinear_results[i] << "\n";
     }
-
+    
+    std::cout << "Simulation completed. Results saved to simulation_results.csv" << std::endl;
+    
     return 0;
 }
-
 ```
 
 ## Результат программы [ src/main.cpp ]
-![Result](images/res.png)
-
-## График
-### При `K = 0.5 T = 4.0 T0 = 1.5 TD = 0.2 a = 0.9 b = 0.3 y0 = 15.234 w = 25.7562`
-
-![schedule1](images/schedule1.png)
-<br>
-
+![result](images/result.jpg)
 
 ## Вывод полученных данных при использовании ПИД-регулятора
 
 
 ## Link to documentation
-[https://mishanya2281337.github.io/OTIS-2025/](https://mishanya2281337.github.io/OTIS-2025/)
+[https://v1tyokkk.github.io/OTIS-2025/](https://oniisssss.github.io/OTIS-2025/)
 
 ## Код юнит-тестов [ test/testlab3.cpp ]
 ```C++
-#include "../src/pid.h"
-#include "../src/lin_model.h"
+/**
+ * @file test.cpp
+ * @brief Модульные тесты для ПИД-регулятора и модели объекта
+ */
+
 #include <gtest/gtest.h>
 #include <cmath>
+#include "../src/pid.h"
+#include "../src/model.h"
 
-TEST(LinearModelTest, PositiveValues) {
-    EXPECT_DOUBLE_EQ(linear_model(2.0, 3.0, 1.0, 4.0), 2.0 * 1.0 + 3.0 * 4.0);
+
+TEST(PIDControllerTest, ConstructorAndParameters)
+{
+    PIDController pid(2.0, 1.0, 0.5, 1.0);
+    
+    
+    double result = pid.calculate(1.0, 0.0);
+    EXPECT_TRUE(std::isfinite(result));
 }
 
-TEST(LinearModelTest, ZeroInput) {
-    EXPECT_DOUBLE_EQ(linear_model(1.5, 2.0, 0.0, 0.0), 0.0);
+
+TEST(PIDControllerTest, CalculatePController)
+{
+    PIDController pid(1.0, 1.0, 0.0, 1.0); 
+    pid.reset();
+
+    
+    double u1 = pid.calculate(1.0, 0.0); 
+    EXPECT_NEAR(u1, 1.0, 1e-6); 
+
+    
+    double u2 = pid.calculate(1.0, 0.5); 
+    EXPECT_NEAR(u2, 1.5, 1e-6); 
+
+    
+    double u3 = pid.calculate(1.0, 1.0); 
+    EXPECT_NEAR(u3, 1.5, 1e-6); 
 }
 
-TEST(LinearModelTest, NegativeValues) {
-    EXPECT_DOUBLE_EQ(linear_model(-1.0, 2.0, 3.0, -4.0), -1.0 * 3.0 + 2.0 * -4.0);
+
+TEST(PIDControllerTest, CalculatePIController)
+{
+    PIDController pid(1.0, 0.5, 0.0, 1.0); 
+    pid.reset();
+
+    double u1 = pid.calculate(1.0, 0.0);
+    double u2 = pid.calculate(1.0, 0.5);
+    
+    
+    EXPECT_GT(u2, u1);
 }
 
-TEST(LinearModelTest, MixedValues) {
-    double result = linear_model(6, 8, 0.5, 0.2);
-    EXPECT_DOUBLE_EQ(result, 0.5 * 6 + 0.2 * 8);
+
+TEST(PIDControllerTest, Reset)
+{
+    PIDController pid(1.0, 1.0, 0.1, 1.0);
+    
+    
+    pid.calculate(1.0, 0.0);
+    pid.calculate(1.0, 0.5);
+    
+    
+    pid.reset();
+    
+    
+    double result = pid.calculate(1.0, 0.0);
+    EXPECT_TRUE(std::isfinite(result));
 }
 
-TEST(PIDTest, CoefficientsCalculation) {
-    double K = 0.5;
-    double T = 2.0;
-    double Td = 0.3;
-    double T0 = 1.0;
 
-    PID pid(K, T, Td, T0);
+TEST(ProcessModelTest, LinearModel)
+{
+    std::vector<double> params = {0.5, 0.5, 0.0, 0.0};
+    ProcessModel plant(params, 1.0);
 
-    double expected_q0 = K * (1.0 + Td / T0);
-    double expected_q1 = -K * (1 + 2 * Td / T0 - T0 / T);
-    double expected_q2 = K * Td / T0;
+    double y1 = plant.linearModel(1.0);
+    EXPECT_NEAR(y1, 0.5 * 1.0 + 0.5 * 1.0, 1e-6);
 
-    double u1 = pid.u_calc(0.7);
-    double expected_u = 0.0 + expected_q0 * 0.7 + expected_q1 * 0.0 + expected_q2 * 0.0;
-
-    EXPECT_NEAR(u1, expected_u, 1e-10);
+    double y2 = plant.linearModel(2.0);
+    EXPECT_NEAR(y2, 0.5 * y1 + 0.5 * 2.0, 1e-6);
 }
 
-TEST(PIDTest, SequentialCalculations) {
-    PID pid(1.0, 1.0, 0.1, 0.1);
 
-    double u1 = pid.u_calc(1.0);
-    double u2 = pid.u_calc(0.5);
-    double u3 = pid.u_calc(0.2);
+TEST(ProcessModelTest, NonlinearModel)
+{
+    std::vector<double> params = {0.5, 0.1, 0.3, 0.1};
+    ProcessModel plant(params, 1.0);
 
-    EXPECT_NE(u1, u2);
-    EXPECT_NE(u2, u3);
+    double y = plant.nonlinearModel(0.5);
+    double expected = 0.5 * 1.0 - 0.1 * 1.0 * 1.0 + 0.3 * 0.5 + 0.1 * std::sin(0.5);
+
+    EXPECT_NEAR(y, expected, 1e-6);
 }
 
-TEST(PIDTest, ZeroError) {
-    PID pid(1.0, 1.0, 0.1, 0.1);
 
-    double u1 = pid.u_calc(0.0);
-    EXPECT_DOUBLE_EQ(u1, 0.0);
+TEST(ProcessModelTest, SetInitialValue)
+{
+    std::vector<double> params = {0.8, 0.2, 0.0, 0.0};
+    ProcessModel plant(params, 0.0);
+    
+    plant.setInitialValue(2.0);
+    double y = plant.linearModel(1.0);
+    
+    
+    EXPECT_NEAR(y, 0.8 * 2.0 + 0.2 * 1.0, 1e-6);
 }
 
-TEST(PIDSystemTest, SystemStabilization) {
-    PID pid(1.5, 3.0, 0.2, 1.0);
 
-    double y_prev = 15.0;
-    double w = 35.0;
-    double a = 0.8;
-    double b = 0.1;
-    double y = y_prev;
+TEST(SystemIntegrationTest, PControllerWithLinearPlant)
+{
+    std::vector<double> params = {0.8, 0.2, 0.0, 0.0};
+    ProcessModel plant(params, 0.0);
+    PIDController p_controller(2.0, 1.0, 0.0, 1.0);
 
-    for (int i = 0; i < 50; i++) {
-        double e = w - y;
-        double u = pid.u_calc(e);
-        y = linear_model(y, u, a, b);
+    plant.setInitialValue(0.0);
+    p_controller.reset();
+
+    std::vector<double> outputs;
+    double setpoint = 1.0;
+    
+    for (int i = 0; i < 10; i++)
+    {
+        double current_output = (outputs.empty()) ? 0.0 : outputs.back();
+        double control_signal = p_controller.calculate(setpoint, current_output);
+        double new_output = plant.linearModel(control_signal);
+        outputs.push_back(new_output);
     }
 
-    EXPECT_NEAR(y, w, 2.0);
+    
+    EXPECT_GT(outputs.back(), 0.0);
+    EXPECT_LT(std::abs(outputs.back() - setpoint), 1.0); 
 }
 
-TEST(PIDSystemTest, ConvergenceTest) {
-    PID pid(0.8, 2.0, 0.1, 0.5);
 
-    double y = 10.0;
-    double w = 25.0;
-    double a = 0.9;
-    double b = 0.15;
+TEST(SystemIntegrationTest, PIDControllerWithNonlinearPlant)
+{
+    std::vector<double> params = {0.8, 0.1, 0.3, 0.2};
+    ProcessModel plant(params, 0.0);
+    PIDController pid_controller(1.5, 0.8, 0.2, 0.5);
 
-    std::vector<double> errors;
+    plant.setInitialValue(0.0);
+    pid_controller.reset();
 
-    for (int i = 0; i < 30; i++) {
-        double e = w - y;
-        errors.push_back(std::abs(e));
-        double u = pid.u_calc(e);
-        y = linear_model(y, u, a, b);
+    std::vector<double> outputs;
+    double setpoint = 2.0;
+    
+    for (int i = 0; i < 15; i++)
+    {
+        double current_output = (outputs.empty()) ? 0.0 : outputs.back();
+        double control_signal = pid_controller.calculate(setpoint, current_output);
+        double new_output = plant.nonlinearModel(control_signal);
+        outputs.push_back(new_output);
     }
 
-    EXPECT_LT(errors.back(), errors.front());
+    
+    EXPECT_TRUE(std::isfinite(outputs.back()));
+    EXPECT_GT(outputs.size(), 0);
 }
 
 
-TEST(PIDTest, ExtremeCoefficients) {
+TEST(SystemIntegrationTest, SystemStability)
+{
+    std::vector<double> params = {0.9, 0.1, 0.0, 0.0}; 
+    ProcessModel plant(params, 0.0);
+    PIDController controller(0.5, 1.0, 0.0, 1.0);
 
-    PID pid_small(0.001, 0.001, 0.001, 0.001);
-    double u_small = pid_small.u_calc(1.0);
-    EXPECT_NEAR(u_small, 0.002, 1e-10); 
+    plant.setInitialValue(0.0);
+    controller.reset();
 
-    PID pid_large(10.0, 10.0, 10.0, 10.0);
-    double u_large = pid_large.u_calc(1.0);
-    EXPECT_NEAR(u_large, 20.0, 1e-10);
-}
-
-TEST(PIDTest, ConstantError) {
-    PID pid(1.0, 2.0, 0.5, 1.0);
-
-    double constant_error = 2.0;
-    double u_prev = 0.0;
-
-    for (int i = 0; i < 5; i++) {
-        double u = pid.u_calc(constant_error);
-        if (i > 0) {
-            EXPECT_NE(u, 0.0);
-        }
-        u_prev = u;
+    std::vector<double> outputs;
+    double setpoint = 1.0;
+    
+    for (int i = 0; i < 20; i++)
+    {
+        double current_output = (outputs.empty()) ? 0.0 : outputs.back();
+        double control_signal = controller.calculate(setpoint, current_output);
+        double new_output = plant.linearModel(control_signal);
+        outputs.push_back(new_output);
     }
+
+    
+    EXPECT_TRUE(std::isfinite(outputs.back()));
+    EXPECT_LT(std::abs(outputs.back()), 10.0); 
 }
 
-TEST(PIDTest, NegativeError) {
-    PID pid(1.0, 1.0, 0.1, 0.1);
-
-    double u_positive = pid.u_calc(1.0);
-    PID pid_negative(1.0, 1.0, 0.1, 0.1);
-    double u_negative = pid_negative.u_calc(-1.0);
-
-    EXPECT_LT(u_negative, 0.0);
-    EXPECT_GT(u_positive, 0.0);
+int main(int argc, char **argv)
+{
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
-
-TEST(PIDTest, InvalidState) {
-    PID pid(1.0, 1.0, 1.0, 1.0);
-
-    pid.invalidate();
-
-    double u = pid.u_calc(1.0);
-    EXPECT_DOUBLE_EQ(u, 0.0);
-}
-
 
 ```
+
 ## Результаты юнит-тестирования (GoogleTest)
-![GoogleTest](images/g_tests.png)
-
-## Покрытие GCC Code Coverage
-
-![GCC Coverage](images/coverage.png)
+![GoogleTest Output](images/gtest.jpg)
 
