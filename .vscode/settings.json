@@ -78,10 +78,5 @@
         "xutility": "cpp",
         "filesystem": "cpp",
         "regex": "cpp"
-        "regex": "cpp",
-        "csignal": "cpp",
-        "span": "cpp"
-        "filesystem": "cpp",
-        "regex": "cpp"
     }
 }
