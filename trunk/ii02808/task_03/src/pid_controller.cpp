@@ -1,53 +1,60 @@
 /**
  * @file pid_controller.cpp
- * @brief Реализация методов класса ПИД-регулятора
+ * @brief Реализация методов класса цифрового ПИД-регулятора
  */
 
 #include "pid_controller.h"
 #include <stdexcept>
 #include <vector>
 
-PIDController::PIDController(double K, double T, double Td, double T0) {
-    if (T0 <= 0) {
-        throw std::invalid_argument("Время квантования должно быть положительным");
+PIDRegulator::PIDRegulator(double gain_factor, double integration_const, 
+                         double differentiation_const, double discretization_step) {
+    if (discretization_step <= 0) {
+        throw std::invalid_argument("Шаг дискретизации должен иметь положительное значение");
     }
     
-    this->K = K;
-    this->T = T;
-    this->Td = Td;
-    this->T0 = T0;
+    this->gain_factor = gain_factor;
+    this->integration_const = integration_const;
+    this->differentiation_const = differentiation_const;
+    this->discretization_step = discretization_step;
     
+    // Расчет коэффициентов разностного уравнения
+    double Td_over_T0 = differentiation_const / discretization_step;
+    double T0_over_T = discretization_step / integration_const;
     
-    this->q0 = K * (1 + Td / T0);
-    this->q1 = -K * (1 + 2 * Td / T0 - T0 / T);
-    this->q2 = K * Td / T0;
+    this->coeff_alpha = gain_factor * (1.0 + Td_over_T0);
+    this->coeff_beta = -gain_factor * (1.0 + 2.0 * Td_over_T0 - T0_over_T);
+    this->coeff_gamma = gain_factor * Td_over_T0;
     
-    
-    prev_error = std::vector<double>(2, 0.0);
-    prev_output = 0.0;
+    // Инициализация начальных условий
+    history_errors = std::vector<double>(2, 0.0);
+    previous_control = 0.0;
 }
 
-double PIDController::calculate(double setpoint, double current_value) {
-    double error = setpoint - current_value;
+double PIDRegulator::computeControl(double target_value, double measured_value) {
+    double current_error = target_value - measured_value;
     
+    // Расчет приращения управляющего воздействия по рекуррентной формуле
+    double control_increment = coeff_alpha * current_error 
+                             + coeff_beta * history_errors[0] 
+                             + coeff_gamma * history_errors[1];
     
-    double delta_u = q0 * error + q1 * prev_error[0] + q2 * prev_error[1];
-    double output = prev_output + delta_u;
+    double current_control = previous_control + control_increment;
     
+    // Обновление истории для следующего шага
+    history_errors[1] = history_errors[0];
+    history_errors[0] = current_error;
+    previous_control = current_control;
     
-    prev_error[1] = prev_error[0];
-    prev_error[0] = error;
-    prev_output = output;
-    
-    return output;
+    return current_control;
 }
 
-void PIDController::reset() {
-    prev_error[0] = 0.0;
-    prev_error[1] = 0.0;
-    prev_output = 0.0;
+void PIDRegulator::clearState() {
+    history_errors[0] = 0.0;
+    history_errors[1] = 0.0;
+    previous_control = 0.0;
 }
 
-std::vector<double> PIDController::getCoefficients() const {
-    return {q0, q1, q2};
+std::vector<double> PIDRegulator::obtainCoefficients() const {
+    return {coeff_alpha, coeff_beta, coeff_gamma};
 }

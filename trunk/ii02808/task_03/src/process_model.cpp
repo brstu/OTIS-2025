@@ -1,34 +1,39 @@
 /**
  * @file process_model.cpp
- * @brief Реализация методов модели объекта управления
+ * @brief Реализация методов класса динамической системы
  */
 
 #include "process_model.h"
 #include <stdexcept>
 
-ProcessModel::ProcessModel(const std::vector<double>& params, double initial_value) {
-    if (params.size() < 4) {
-        throw std::invalid_argument("Недостаточно параметров модели");
+DynamicSystem::DynamicSystem(const std::vector<double>& system_coefficients, double initial_state) {
+    if (system_coefficients.size() < 4) {
+        throw std::invalid_argument("Недостаточное количество параметров модели");
     }
-    this->params = params;
-    this->prev_value = initial_value;
+    this->system_coefficients = system_coefficients;
+    this->internal_state = initial_state;
 }
 
-double ProcessModel::linearModel(double input) {
+double DynamicSystem::evaluateLinear(double control_input) {
+    // Линейная модель первого порядка с запаздыванием
+    double system_output = system_coefficients[0] * internal_state 
+                         + system_coefficients[1] * control_input;
     
-    double output = params[0] * prev_value + params[1] * input;
-    prev_value = output;
-    return output;
+    internal_state = system_output;
+    return system_output;
 }
 
-double ProcessModel::nonlinearModel(double input) {
+double DynamicSystem::evaluateNonlinear(double control_input) {
+    // Нелинейная модель с квадратичной и гармонической составляющими
+    double nonlinear_component = system_coefficients[0] * internal_state 
+                               - system_coefficients[1] * internal_state * internal_state 
+                               + system_coefficients[2] * control_input 
+                               + system_coefficients[3] * std::cos(control_input);
     
-    double output = params[0] * prev_value - params[1] * prev_value * prev_value 
-                   + params[2] * input + params[3] * std::sin(input);
-    prev_value = output;
-    return output;
+    internal_state = nonlinear_component;
+    return nonlinear_component;
 }
 
-void ProcessModel::setInitialValue(double value) {
-    prev_value = value;
+void DynamicSystem::initializeState(double initial_value) {
+    internal_state = initial_value;
 }

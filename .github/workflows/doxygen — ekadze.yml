@@ -1,17 +1,14 @@
 # Sample workflow for building and deploying a Jekyll site to GitHub Pages
 name: ekadze
-
 on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["task_03_2808"]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
   pages: write
   id-token: write
 
@@ -25,6 +22,8 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4

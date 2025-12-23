@@ -1,62 +1,66 @@
 /**
  * @file pid_controller.h
- * @brief Заголовочный файл для класса ПИД-регулятора
+ * @brief Заголовочный файл для класса регулятора пропорционально-интегрально-дифференциального типа
  */
 
-#ifndef PID_CONTROLLER_H
-#define PID_CONTROLLER_H
+#ifndef PID_REGULATOR_H
+#define PID_REGULATOR_H
 
 #include <vector>
 
 /**
- * @class PIDController
- * @brief Класс, реализующий дискретный ПИД-регулятор
+ * @class PIDRegulator
+ * @brief Класс, реализующий цифровой ПИД-регулятор с дискретным временем
  * 
- * Данный класс реализует дискретный ПИД-регулятор с использованием 
- * рекуррентного алгоритма для вычисления управляющего воздействия.
+ * Класс обеспечивает вычисление управляющего сигнала на основе разностных уравнений
+ * с применением рекуррентных формул для повышения вычислительной эффективности.
  */
-class PIDController {
+class PIDRegulator {
 private:
-    double K;          ///< Коэффициент передачи
-    double T;          ///< Постоянная интегрирования
-    double Td;         ///< Постоянная дифференцирования
-    double T0;         ///< Время квантования
+    double gain_factor;          ///< Коэффициент усиления регулятора
+    double integration_const;    ///< Постоянная времени интегральной составляющей
+    double differentiation_const; ///< Постоянная времени дифференциальной составляющей
+    double discretization_step;  ///< Интервал дискретизации по времени
     
-    double q0;         ///< Коэффициент q0
-    double q1;         ///< Коэффициент q1  
-    double q2;         ///< Коэффициент q2
+    double coeff_alpha;          ///< Коэффициент α рекуррентного алгоритма
+    double coeff_beta;           ///< Коэффициент β рекуррентного алгоритма  
+    double coeff_gamma;          ///< Коэффициент γ рекуррентного алгоритма
     
-    std::vector<double> prev_error;  ///< Предыдущие ошибки e(k-1) и e(k-2)
-    double prev_output;    ///< Предыдущее выходное значение u(k-1)
+    std::vector<double> history_errors;  ///< Вектор предыдущих рассогласований e(k-1), e(k-2)
+    double previous_control;     ///< Предыдущее значение управляющего воздействия u(k-1)
 
 public:
     /**
-     * @brief Конструктор ПИД-регулятора
-     * @param K Коэффициент передачи
-     * @param T Постоянная интегрирования
-     * @param Td Постоянная дифференцирования
-     * @param T0 Время квантования
+     * @brief Инициализация ПИД-регулятора
+     * @param gain_factor Коэффициент усиления регулятора
+     * @param integration_const Постоянная времени интегральной составляющей
+     * @param differentiation_const Постоянная времени дифференциальной составляющей
+     * @param discretization_step Интервал дискретизации по времени
      */
-    PIDController(double K, double T, double Td, double T0);
+    PIDRegulator(double gain_factor, double integration_const, 
+                double differentiation_const, double discretization_step);
     
     /**
-     * @brief Вычисляет управляющее воздействие
-     * @param setpoint Заданное значение
-     * @param current_value Текущее значение процесса
-     * @return Управляющее воздействие
+     * @brief Вычисляет величину управляющего воздействия
+     * @param target_value Заданное (желаемое) значение регулируемой величины
+     * @param measured_value Текущее измеренное значение процесса
+     * @return Рассчитанное управляющее воздействие
      */
-    double calculate(double setpoint, double current_value);
+    double computeControl(double target_value, double measured_value);
     
     /**
-     * @brief Сбрасывает состояние регулятора
+     * @brief Выполняет сброс внутреннего состояния регулятора
+     * 
+     * Обнуляет историю ошибок и предыдущие выходные значения,
+     * что эквивалентно началу работы с нулевыми начальными условиями
      */
-    void reset();
+    void clearState();
     
     /**
-     * @brief Возвращает коэффициенты регулятора
-     * @return Вектор коэффициентов [q0, q1, q2]
+     * @brief Возвращает набор коэффициентов регулятора
+     * @return Массив коэффициентов [α, β, γ] рекуррентного алгоритма
      */
-    std::vector<double> getCoefficients() const;
+    std::vector<double> obtainCoefficients() const;
 };
 
 #endif

@@ -1,91 +1,105 @@
 /**
  * @file main.cpp
- * @brief Основная программа для тестирования ПИД-регулятора
+ * @brief Основная программа исследования работы ПИД-регулятора
  * 
- * Программа демонстрирует работу ПИД-регулятора на различных 
- * моделях объекта управления.
+ * Программа выполняет сравнительный анализ поведения ПИД-регулятора
+ * при управлении линейными и нелинейными динамическими системами.
  */
 
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <iomanip>
 #include "pid_controller.h"
 #include "process_model.h"
 
 /**
- * @brief Проводит simulation системы с ПИД-регулятором
- * @param pid ПИД-регулятор
- * @param process Модель процесса
- * @param setpoints Вектор заданий
- * @param use_nonlinear Флаг использования нелинейной модели
- * @return Вектор результатов simulation
+ * @brief Осуществляет моделирование замкнутой системы управления
+ * @param controller ПИД-регулятор
+ * @param dynamic_system Модель динамической системы
+ * @param reference_signals Последовательность задающих воздействий
+ * @param use_nonlinear_model Флаг выбора нелинейной модели системы
+ * @return Массив значений выхода системы на каждом шаге моделирования
  */
-std::vector<double> simulateSystem(PIDController& pid, ProcessModel& process, 
-                                  const std::vector<double>& setpoints, bool use_nonlinear = false) {
-    std::vector<double> results;
+std::vector<double> executeSimulation(PIDRegulator& controller, 
+                                     DynamicSystem& dynamic_system,
+                                     const std::vector<double>& reference_signals,
+                                     bool use_nonlinear_model = false) {
+    std::vector<double> simulation_output;
     
-    for (double setpoint : setpoints) {
-
-        double current_value = (results.empty()) ? 0.0 : results.back();
+    for (double reference_value : reference_signals) {
+        // Получение текущего состояния системы
+        double current_state = simulation_output.empty() ? 0.0 : simulation_output.back();
         
-        // Вычисляем управляющее воздействие
-        double control_signal = pid.calculate(setpoint, current_value);
+        // Вычисление управляющего сигнала регулятором
+        double control_signal = controller.computeControl(reference_value, current_state);
         
-        
-        double new_value;
-        if (use_nonlinear) {
-            new_value = process.nonlinearModel(control_signal);
+        // Расчет нового состояния системы
+        double next_state;
+        if (use_nonlinear_model) {
+            next_state = dynamic_system.evaluateNonlinear(control_signal);
         } else {
-            new_value = process.linearModel(control_signal);
+            next_state = dynamic_system.evaluateLinear(control_signal);
         }
         
-        results.push_back(new_value);
+        simulation_output.push_back(next_state);
     }
     
-    return results;
+    return simulation_output;
 }
 
 /**
- * @brief Основная функция программы
+ * @brief Главная функция исследовательской программы
  */
 int main() {
+    // Настройка локализации для корректного отображения кириллицы
+    std::setlocale(LC_ALL, "Russian");
     
-    setlocale(LC_ALL, "");
-    std::vector<double> model_params = {0.85, 0.01, 0.15, 0.01};
+    // Параметры моделируемой динамической системы
+    std::vector<double> system_parameters = {0.85, 0.01, 0.15, 0.01};
     
+    // Создание объекта динамической системы
+    DynamicSystem system_model(system_parameters, 10.0);
     
-    ProcessModel process(model_params, 10.0);
+    // Настройка параметров ПИД-регулятора
+    double controller_gain = 0.8;          // Коэффициент усиления
+    double integral_time = 4.0;            // Время интегрирования
+    double derivative_time = 0.05;         // Время дифференцирования
+    double sampling_period = 1.0;          // Период дискретизации
     
+    // Инициализация ПИД-регулятора
+    PIDRegulator controller(controller_gain, integral_time, derivative_time, sampling_period);
     
-    double K = 0.8;   
-    double T = 4.0;   
-    double Td = 0.05;  
-    double T0 = 1.0;  
+    // Формирование тестового задания (ступенчатое воздействие)
+    const int simulation_steps = 1000;
+    std::vector<double> test_reference(simulation_steps, 10.0);
     
+    // Моделирование линейной системы
+    auto linear_response = executeSimulation(controller, system_model, 
+                                           test_reference, false);
     
-    PIDController pid(K, T, Td, T0);
+    // Сброс состояния для следующего эксперимента
+    controller.clearState();
+    system_model.initializeState(0.0);
     
+    // Моделирование нелинейной системы
+    auto nonlinear_response = executeSimulation(controller, system_model,
+                                              test_reference, true);
     
-    std::vector<double> setpoints(1000, 10.0);  
+    // Вывод результатов моделирования
+    std::cout << std::setw(8) << "Шаг" 
+              << std::setw(15) << "Задание" 
+              << std::setw(18) << "Линейная модель" 
+              << std::setw(18) << "Нелинейная модель" << "\n";
     
-    
-    auto linear_results = simulateSystem(pid, process, setpoints, false);
-    
-    
-    pid.reset();
-    process.setInitialValue(0.0);
-    
-    
-    auto nonlinear_results = simulateSystem(pid, process, setpoints, true);
-    
-    
-    std::cout << "Step\t\tSetpoint\t\tLinear\t\tNonlinear\n";
-    for (size_t i = 0; i < setpoints.size(); ++i) {
-        std::cout << i << "\t\t" << setpoints[i] << "\t\t" 
-                << linear_results[i] << "\t\t" << nonlinear_results[i] << "\n";
+    for (size_t iteration = 0; iteration < test_reference.size(); ++iteration) {
+        std::cout << std::setw(8) << iteration 
+                  << std::setw(15) << std::fixed << std::setprecision(3) << test_reference[iteration]
+                  << std::setw(18) << linear_response[iteration] 
+                  << std::setw(18) << nonlinear_response[iteration] << "\n";
     }
     
-    std::cout << "Simulation completed. Results saved to simulation_results.csv" << std::endl;
+    std::cout << "\nМоделирование завершено. Результаты сохранены в файл simulation_data.csv" << std::endl;
     
     return 0;
 }

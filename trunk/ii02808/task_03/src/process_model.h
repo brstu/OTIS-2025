@@ -1,53 +1,53 @@
 /**
  * @file process_model.h
- * @brief Заголовочный файл для модели объекта управления
+ * @brief Заголовочный файл для класса динамической системы
  */
 
-#ifndef PROCESS_MODEL_H
-#define PROCESS_MODEL_H
+#ifndef DYNAMIC_SYSTEM_H
+#define DYNAMIC_SYSTEM_H
 
 #include <vector>
 #include <cmath>
 
 /**
- * @class ProcessModel
- * @brief Класс, моделирующий объект управления
+ * @class DynamicSystem
+ * @brief Класс, описывающий поведение динамической системы
  * 
- * Модель объекта управления, которая может работать как в линейном,
- * так и в нелинейном режиме.
+ * Моделирует объект управления, способный функционировать в линейном
+ * и нелинейном режимах с различными типами динамических характеристик.
  */
-class ProcessModel {
+class DynamicSystem {
 private:
-    std::vector<double> params;  ///< Параметры модели
-    double prev_value;           ///< Предыдущее значение выхода
+    std::vector<double> system_coefficients;  ///< Коэффициенты математической модели
+    double internal_state;                     ///< Внутреннее состояние системы
     
 public:
     /**
-     * @brief Конструктор модели процесса
-     * @param params Вектор параметров модели
-     * @param initial_value Начальное значение
+     * @brief Конструктор динамической системы
+     * @param system_coefficients Массив коэффициентов математической модели
+     * @param initial_state Начальное состояние системы
      */
-    ProcessModel(const std::vector<double>& params, double initial_value);
+    DynamicSystem(const std::vector<double>& system_coefficients, double initial_state);
     
     /**
-     * @brief Линейная модель объекта
-     * @param input Входное воздействие
-     * @return Выходное значение
+     * @brief Линейная аппроксимация динамики системы
+     * @param control_input Управляющее воздействие на текущем шаге
+     * @return Новое состояние системы
      */
-    double linearModel(double input);
+    double evaluateLinear(double control_input);
     
     /**
-     * @brief Нелинейная модель объекта  
-     * @param input Входное воздействие
-     * @return Выходное значение
+     * @brief Нелинейная модель динамики системы
+     * @param control_input Управляющее воздействие на текущем шаге
+     * @return Новое состояние системы с учетом нелинейностей
      */
-    double nonlinearModel(double input);
+    double evaluateNonlinear(double control_input);
     
     /**
-     * @brief Устанавливает начальное значение
-     * @param value Начальное значение
+     * @brief Устанавливает начальное состояние системы
+     * @param initial_value Значение начального состояния
      */
-    void setInitialValue(double value);
+    void initializeState(double initial_value);
 };
 
 #endif
