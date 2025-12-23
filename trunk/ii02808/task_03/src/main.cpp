@@ -66,7 +66,7 @@ int main() {
     PIDController pid(K, T, Td, T0);
     
     
-    std::vector<double> setpoints(20, 20.0);  
+    std::vector<double> setpoints(1000, 10.0);  
     
     
     auto linear_results = simulateSystem(pid, process, setpoints, false);
