@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="model_8cpp" kind="file" language="C++">
+    <compoundname>model.cpp</compoundname>
+    <includes refid="model_8h" local="yes">model.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/model.cpp</label>
+        <link refid="model_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>model.h</label>
+        <link refid="model_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>cmath</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="model_8cpp_1a2eda51203134f3bcd3dd373005493c56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double linearModel</definition>
+        <argsstring>(double y_current, double u_current, const ModelParameters &amp;params)</argsstring>
+        <name>linearModel</name>
+        <param>
+          <type>double</type>
+          <declname>y_current</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>u_current</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_model_parameters" kindref="compound">ModelParameters</ref> &amp;</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Реализация линейной математической модели </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Линейная модель</para>
+<para>Использует формулу: y_next = a*y_current + b*u_current </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.cpp" line="14" column="8" bodyfile="src/model.cpp" bodystart="14" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="model_8cpp_1a84dab4d695c760ecd365f3c8e9682417" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double nonlinearModel</definition>
+        <argsstring>(double y_current, double y_previous, double u_current, double u_previous, const ModelParameters &amp;params)</argsstring>
+        <name>nonlinearModel</name>
+        <param>
+          <type>double</type>
+          <declname>y_current</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y_previous</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>u_current</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>u_previous</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_model_parameters" kindref="compound">ModelParameters</ref> &amp;</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Реализация нелинейной математической модели </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Нелиненая модель</para>
+<para>Использует формулу: y_next = a*y_current - b*y_previous^2 + c*u_current + d*sin(u_previous) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.cpp" line="24" column="8" bodyfile="src/model.cpp" bodystart="24" bodyend="28"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Реализация математических моделей </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="model_8h" kindref="compound">model.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="model_8cpp_1a2eda51203134f3bcd3dd373005493c56" kindref="member">linearModel</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y_current,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_current,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_model_parameters" kindref="compound">ModelParameters</ref>&amp;<sp/>params)<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>params.a<sp/>*<sp/>y_current<sp/>+<sp/>params.b<sp/>*<sp/>u_current;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="model_8cpp_1a84dab4d695c760ecd365f3c8e9682417" kindref="member">nonlinearModel</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y_current,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y_previous,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_current,<sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_previous,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_model_parameters" kindref="compound">ModelParameters</ref>&amp;<sp/>params)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>params.a<sp/>*<sp/>y_current<sp/>-<sp/>params.b<sp/>*<sp/>y_previous<sp/>*<sp/>y_previous<sp/>+<sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>params.c<sp/>*<sp/>u_current<sp/>+<sp/>params.d<sp/>*<sp/>sin(u_previous);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/model.cpp"/>
+  </compounddef>
+</doxygen>
