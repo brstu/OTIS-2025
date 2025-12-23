@@ -18,7 +18,6 @@ PIDRegulator::PIDRegulator(double gain_factor, double integration_const,
     this->differentiation_const = differentiation_const;
     this->discretization_step = discretization_step;
     
-    // Расчет коэффициентов разностного уравнения
     double Td_over_T0 = differentiation_const / discretization_step;
     double T0_over_T = discretization_step / integration_const;
     
@@ -26,7 +25,7 @@ PIDRegulator::PIDRegulator(double gain_factor, double integration_const,
     this->coeff_beta = -gain_factor * (1.0 + 2.0 * Td_over_T0 - T0_over_T);
     this->coeff_gamma = gain_factor * Td_over_T0;
     
-    // Инициализация начальных условий
+    
     history_errors = std::vector<double>(2, 0.0);
     previous_control = 0.0;
 }
@@ -34,14 +33,13 @@ PIDRegulator::PIDRegulator(double gain_factor, double integration_const,
 double PIDRegulator::computeControl(double target_value, double measured_value) {
     double current_error = target_value - measured_value;
     
-    // Расчет приращения управляющего воздействия по рекуррентной формуле
+    
     double control_increment = coeff_alpha * current_error 
                              + coeff_beta * history_errors[0] 
                              + coeff_gamma * history_errors[1];
     
     double current_control = previous_control + control_increment;
     
-    // Обновление истории для следующего шага
     history_errors[1] = history_errors[0];
     history_errors[0] = current_error;
     previous_control = current_control;

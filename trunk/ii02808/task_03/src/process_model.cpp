@@ -15,7 +15,7 @@ DynamicSystem::DynamicSystem(const std::vector<double>& system_coefficients, dou
 }
 
 double DynamicSystem::evaluateLinear(double control_input) {
-    // Линейная модель первого порядка с запаздыванием
+    
     double system_output = system_coefficients[0] * internal_state 
                          + system_coefficients[1] * control_input;
     
@@ -24,7 +24,7 @@ double DynamicSystem::evaluateLinear(double control_input) {
 }
 
 double DynamicSystem::evaluateNonlinear(double control_input) {
-    // Нелинейная модель с квадратичной и гармонической составляющими
+   
     double nonlinear_component = system_coefficients[0] * internal_state 
                                - system_coefficients[1] * internal_state * internal_state 
                                + system_coefficients[2] * control_input 
