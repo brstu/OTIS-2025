@@ -67,38 +67,38 @@
 
 Содержит параметры, используемые при расчёте выходной величины по нелинейной модели:
 
-* `a` — коэффициент линейной части
+* `a1` — коэффициент линейной части
 
-* `b` — коэффициент квадратичной нелинейности
+* `b1` — коэффициент квадратичной нелинейности
 
-* `c` — коэффициент управляющего воздействия
+* `c1` — коэффициент управляющего воздействия
 
-* `d` — коэффициент синусоидальной нелинейности
+* `d1` — коэффициент синусоидальной нелинейности
 
 ## Summary
 
  Members                        | Descriptions                                
 --------------------------------|---------------------------------------------
-`public double `[`a`](#struct_non_linear_coeffs_1ad6ff916246dfe8bab31b6f626647a91b) | коэффициент линейной части
-`public double `[`b`](#struct_non_linear_coeffs_1aff8f4e829db8595497575683e77681c7) | коэффициент квадратичной нелинейности
-`public double `[`c`](#struct_non_linear_coeffs_1adf2974d5f4634c09e97fd6114efb2d9b) | коэффициент управляющего воздействия
-`public double `[`d`](#struct_non_linear_coeffs_1a1fea29cf6a6378aeed2600ee88a1bb54) | коэффициент синусоидальной нелинейности
+`public double `[`a1`](#struct_non_linear_coeffs_1ad6ff916246dfe8bab31b6f626647a91b) | коэффициент линейной части
+`public double `[`b1`](#struct_non_linear_coeffs_1aff8f4e829db8595497575683e77681c7) | коэффициент квадратичной нелинейности
+`public double `[`c1`](#struct_non_linear_coeffs_1adf2974d5f4634c09e97fd6114efb2d9b) | коэффициент управляющего воздействия
+`public double `[`d1`](#struct_non_linear_coeffs_1a1fea29cf6a6378aeed2600ee88a1bb54) | коэффициент синусоидальной нелинейности
 
 ## Members
 
-#### `public double `[`a`](#struct_non_linear_coeffs_1ad6ff916246dfe8bab31b6f626647a91b) 
+#### `public double `[`a1`](#struct_non_linear_coeffs_1ad6ff916246dfe8bab31b6f626647a91b) 
 
 коэффициент линейной части
 
-#### `public double `[`b`](#struct_non_linear_coeffs_1aff8f4e829db8595497575683e77681c7) 
+#### `public double `[`b1`](#struct_non_linear_coeffs_1aff8f4e829db8595497575683e77681c7) 
 
 коэффициент квадратичной нелинейности
 
-#### `public double `[`c`](#struct_non_linear_coeffs_1adf2974d5f4634c09e97fd6114efb2d9b) 
+#### `public double `[`c1`](#struct_non_linear_coeffs_1adf2974d5f4634c09e97fd6114efb2d9b) 
 
 коэффициент управляющего воздействия
 
-#### `public double `[`d`](#struct_non_linear_coeffs_1a1fea29cf6a6378aeed2600ee88a1bb54) 
+#### `public double `[`d1`](#struct_non_linear_coeffs_1a1fea29cf6a6378aeed2600ee88a1bb54) 
 
 коэффициент синусоидальной нелинейности
 
@@ -110,52 +110,52 @@
 
  Members                        | Descriptions                                
 --------------------------------|---------------------------------------------
-`public const double `[`K`](#structpid__coeffs_1a72db3187cc333a2d93a7d49702cec92e) | коэффициент передачи
-`public const double `[`T`](#structpid__coeffs_1aa69708722314150cbd2810cc8b7c8476) | постоянная интегрирования
-`public const double `[`Td`](#structpid__coeffs_1a5cc8572ddb54086cc7b97f754b1f86c1) | постоянная дифференцирования
-`public const double `[`T0`](#structpid__coeffs_1a9fa8f52e69c498586a22bc748d38fab2) | шаг
-`public  `[`pid_coeffs`](#structpid__coeffs_1a1565a55a5421ee3da66debe43db919b8)`(double K,double T,double Td,double T0)` | Конструктор коэффициентов PID-регулятора
+`public const double `[`K1`](#structpid__coeffs_1a72db3187cc333a2d93a7d49702cec92e) | коэффициент передачи
+`public const double `[`T1`](#structpid__coeffs_1aa69708722314150cbd2810cc8b7c8476) | постоянная интегрирования
+`public const double `[`Td1`](#structpid__coeffs_1a5cc8572ddb54086cc7b97f754b1f86c1) | постоянная дифференцирования
+`public const double `[`T01`](#structpid__coeffs_1a9fa8f52e69c498586a22bc748d38fab2) | шаг
+`public  `[`pid_coeffs`](#structpid__coeffs_1a1565a55a5421ee3da66debe43db919b8)`(double K1,double T1,double Td1,double T01)` | Конструктор коэффициентов PID-регулятора
 
 ## Members
 
-#### `public const double `[`K`](#structpid__coeffs_1a72db3187cc333a2d93a7d49702cec92e) 
+#### `public const double `[`K1`](#structpid__coeffs_1a72db3187cc333a2d93a7d49702cec92e) 
 
 коэффициент передачи
 
-#### `public const double `[`T`](#structpid__coeffs_1aa69708722314150cbd2810cc8b7c8476) 
+#### `public const double `[`T1`](#structpid__coeffs_1aa69708722314150cbd2810cc8b7c8476) 
 
 постоянная интегрирования
 
-#### `public const double `[`Td`](#structpid__coeffs_1a5cc8572ddb54086cc7b97f754b1f86c1) 
+#### `public const double `[`Td1`](#structpid__coeffs_1a5cc8572ddb54086cc7b97f754b1f86c1) 
 
 постоянная дифференцирования
 
-#### `public const double `[`T0`](#structpid__coeffs_1a9fa8f52e69c498586a22bc748d38fab2) 
+#### `public const double `[`T01`](#structpid__coeffs_1a9fa8f52e69c498586a22bc748d38fab2) 
 
 шаг
 
-#### `public  `[`pid_coeffs`](#structpid__coeffs_1a1565a55a5421ee3da66debe43db919b8)`(double K,double T,double Td,double T0)` 
+#### `public  `[`pid_coeffs`](#structpid__coeffs_1a1565a55a5421ee3da66debe43db919b8)`(double K1,double T1,double Td1,double T01)` 
 
 Конструктор коэффициентов PID-регулятора
 
 #### Parameters
-* `K` коэффициент передачи 
+* `K1` коэффициент передачи 
 
-* `T` постоянная интегрирования 
+* `T1` постоянная интегрирования 
 
-* `Td` постоянная дифференцирования 
+* `Td1` постоянная дифференцирования 
 
-* `T0` шаг
+* `T01` шаг
 
 Инициализирует структуру коэффициентов PID-регулятора.
 
 #### Parameters
-* `K` коэффициент передачи 
+* `K1` коэффициент передачи 
 
-* `T` постоянная интегрирования 
+* `T1` постоянная интегрирования 
 
-* `Td` постоянная дифференцирования 
+* `Td1` постоянная дифференцирования 
 
-* `T0` шаг
+* `T01` шаг
 
 Generated by [Moxygen](https://sourcey.com/moxygen)
