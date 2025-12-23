@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.14)   # лучше ≥ 3.14
 project(ii02704_test3)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -24,9 +24,7 @@ add_executable(
 target_link_libraries(
   ii02704_test3
   PRIVATE
-  gtest
-  gtest_main
-  gmock
+  gtest_main   # достаточно этого, gtest подтянется автоматически
 )
 
 target_compile_options(ii02704_test3 PRIVATE --coverage -g -O0)
