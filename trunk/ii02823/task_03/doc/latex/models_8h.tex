@@ -1,0 +1,103 @@
+\doxysection{src/models.h File Reference}
+\hypertarget{models_8h}{}\label{models_8h}\index{src/models.h@{src/models.h}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_non_linear_coeffs}{Non\+Linear\+Coeffs}}
+\begin{DoxyCompactList}\small\item\em Структура коэффициентов нелинейной модели объекта управления \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{models_8h_a82cf4dbd2f60c32e470774b41c7f7ad7}{linear}} (double y, double u, double a, double b)
+\begin{DoxyCompactList}\small\item\em Линейная модель объекта управления \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{models_8h_abb44465a5330a6a6e895d047a93816b3}{non\+\_\+linear}} (double y, double y\+\_\+p, double u, double u\+\_\+p, const \mbox{\hyperlink{struct_non_linear_coeffs}{Non\+Linear\+Coeffs}} \&coeffs)
+\begin{DoxyCompactList}\small\item\em Нелинейная модель объекта управления \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{models_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{models_8h_a82cf4dbd2f60c32e470774b41c7f7ad7}\index{models.h@{models.h}!linear@{linear}}
+\index{linear@{linear}!models.h@{models.h}}
+\doxysubsubsection{\texorpdfstring{linear()}{linear()}}
+{\footnotesize\ttfamily \label{models_8h_a82cf4dbd2f60c32e470774b41c7f7ad7} 
+double linear (\begin{DoxyParamCaption}\item[{double}]{y}{, }\item[{double}]{u}{, }\item[{double}]{a}{, }\item[{double}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Линейная модель объекта управления 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & текущее значение выходной величины \\
+\hline
+{\em u} & управляющее воздействие \\
+\hline
+{\em a} & коэффициент модели \\
+\hline
+{\em b} & коэффициент модели \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+новое значение выходной величины
+\end{DoxyReturn}
+Рассчитывает новое значение выходной величины по линейной модели\+: $ y_{k+1} = a \cdot y_k + b \cdot u_k $
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & текущее значение выходной величины \\
+\hline
+{\em u} & управляющее воздействие \\
+\hline
+{\em a} & коэффициент модели \\
+\hline
+{\em b} & коэффициент модели \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+новое значение выходной величины 
+\end{DoxyReturn}
+\Hypertarget{models_8h_abb44465a5330a6a6e895d047a93816b3}\index{models.h@{models.h}!non\_linear@{non\_linear}}
+\index{non\_linear@{non\_linear}!models.h@{models.h}}
+\doxysubsubsection{\texorpdfstring{non\_linear()}{non\_linear()}}
+{\footnotesize\ttfamily \label{models_8h_abb44465a5330a6a6e895d047a93816b3} 
+double non\+\_\+linear (\begin{DoxyParamCaption}\item[{double}]{y}{, }\item[{double}]{y\+\_\+p}{, }\item[{double}]{u}{, }\item[{double}]{u\+\_\+p}{, }\item[{const \mbox{\hyperlink{struct_non_linear_coeffs}{Non\+Linear\+Coeffs}} \&}]{coeffs}{}\end{DoxyParamCaption})}
+
+
+
+Нелинейная модель объекта управления 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & текущее значение выходной величины \\
+\hline
+{\em y\+\_\+p} & предыдущее значения выходной величины \\
+\hline
+{\em u} & управляющее воздействие \\
+\hline
+{\em u\+\_\+p} & предыдущее управляющее воздействие \\
+\hline
+{\em coeffs} & коэффициенты модели \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+новое значение выходной величины
+\end{DoxyReturn}
+Рассчитывает новое значение выходной величины по нелинейной модели\+: $ y_{k+1} = a \cdot y_k - b \cdot y_{k}^2 + c \cdot u_k + d \cdot \sin(u_k) $
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & текущее значение выходной величины \\
+\hline
+{\em y\+\_\+p} & предыдущее значения выходной величины \\
+\hline
+{\em u} & управляющее воздействие \\
+\hline
+{\em u\+\_\+p} & предыдущее управляющее воздействие \\
+\hline
+{\em coeffs} & коэффициенты модели \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+новое значение выходной величины 
+\end{DoxyReturn}
