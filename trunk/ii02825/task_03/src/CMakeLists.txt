@@ -1,4 +1,8 @@
 cmake_minimum_required(VERSION 3.15)
+# ТОЧНО ТАК ЖЕ добавь в начало
+if(POLICY CMP0135)
+    cmake_policy(SET CMP0135 NEW)
+endif()
 project(task_03_ii02825)
 
 set(CMAKE_CXX_STANDARD 17)

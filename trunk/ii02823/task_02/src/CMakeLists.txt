@@ -1,4 +1,8 @@
 cmake_minimum_required(VERSION 3.14)
+# В самом начале файла после cmake_minimum_required:
+if(POLICY CMP0135)
+    cmake_policy(SET CMP0135 NEW)
+endif()
 project(my_project)
 
 set(CMAKE_CXX_STANDARD 17)
