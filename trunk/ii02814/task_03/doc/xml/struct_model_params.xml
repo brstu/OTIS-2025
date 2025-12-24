@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="struct_model_params" kind="struct" language="C++" prot="public">
+    <compoundname>ModelParams</compoundname>
+    <includes refid="module_8h" local="no">module.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_model_params_1ac6808834410822ab1c93f66fa560bbcc" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ModelParams::a</definition>
+        <argsstring></argsstring>
+        <name>a</name>
+        <qualifiedname>ModelParams::a</qualifiedname>
+        <briefdescription>
+<para>Коэффициент a нелинейной модели </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" line="30" column="12" bodyfile="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_model_params_1a1c535f855a85be50750c79530b4a2e7d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ModelParams::b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <qualifiedname>ModelParams::b</qualifiedname>
+        <briefdescription>
+<para>Коэффициент b нелинейной модели </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" line="31" column="12" bodyfile="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_model_params_1a8cadb4ecf7a534fa7e3777af19c886a1" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ModelParams::c</definition>
+        <argsstring></argsstring>
+        <name>c</name>
+        <qualifiedname>ModelParams::c</qualifiedname>
+        <briefdescription>
+<para>Коэффициент c нелинейной модели </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" line="32" column="12" bodyfile="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_model_params_1a7c6b420a834e5d5528d4bea79918e0a5" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ModelParams::d</definition>
+        <argsstring></argsstring>
+        <name>d</name>
+        <qualifiedname>ModelParams::d</qualifiedname>
+        <briefdescription>
+<para>Коэффициент d нелинейной модели </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" line="33" column="12" bodyfile="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_model_params_1a7b545efa35f62b1f2b00d6a44936cccb" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ModelParams::y1</definition>
+        <argsstring></argsstring>
+        <name>y1</name>
+        <qualifiedname>ModelParams::y1</qualifiedname>
+        <briefdescription>
+<para>Выход объекта на предыдущем шаге (y(k-1)). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" line="34" column="12" bodyfile="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_model_params_1a688af4d6e48c41f62fb738a13a692a4f" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ModelParams::y0</definition>
+        <argsstring></argsstring>
+        <name>y0</name>
+        <qualifiedname>ModelParams::y0</qualifiedname>
+        <briefdescription>
+<para>Выход объекта на предпредыдущем шаге (y(k-2)). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" line="35" column="12" bodyfile="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_model_params_1ab0293a86b5ffbe337e930f2653165e5f" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ModelParams::u1</definition>
+        <argsstring></argsstring>
+        <name>u1</name>
+        <qualifiedname>ModelParams::u1</qualifiedname>
+        <briefdescription>
+<para>Управление на предыдущем шаге (u(k-1)). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" line="36" column="12" bodyfile="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_model_params_1ae3d8bc897c62796c72762551880bc989" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ModelParams::u0</definition>
+        <argsstring></argsstring>
+        <name>u0</name>
+        <qualifiedname>ModelParams::u0</qualifiedname>
+        <briefdescription>
+<para>Управление на предпредыдущем шаге (u(k-2)). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" line="37" column="12" bodyfile="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Структура для хранения параметров нелинейной модели </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" line="29" column="1" bodyfile="D:/OTIS/OTIS-2025/trunk/ii02814/task_03/src/module.h" bodystart="29" bodyend="38"/>
+    <listofallmembers>
+      <member refid="struct_model_params_1ac6808834410822ab1c93f66fa560bbcc" prot="public" virt="non-virtual"><scope>ModelParams</scope><name>a</name></member>
+      <member refid="struct_model_params_1a1c535f855a85be50750c79530b4a2e7d" prot="public" virt="non-virtual"><scope>ModelParams</scope><name>b</name></member>
+      <member refid="struct_model_params_1a8cadb4ecf7a534fa7e3777af19c886a1" prot="public" virt="non-virtual"><scope>ModelParams</scope><name>c</name></member>
+      <member refid="struct_model_params_1a7c6b420a834e5d5528d4bea79918e0a5" prot="public" virt="non-virtual"><scope>ModelParams</scope><name>d</name></member>
+      <member refid="struct_model_params_1ae3d8bc897c62796c72762551880bc989" prot="public" virt="non-virtual"><scope>ModelParams</scope><name>u0</name></member>
+      <member refid="struct_model_params_1ab0293a86b5ffbe337e930f2653165e5f" prot="public" virt="non-virtual"><scope>ModelParams</scope><name>u1</name></member>
+      <member refid="struct_model_params_1a688af4d6e48c41f62fb738a13a692a4f" prot="public" virt="non-virtual"><scope>ModelParams</scope><name>y0</name></member>
+      <member refid="struct_model_params_1a7b545efa35f62b1f2b00d6a44936cccb" prot="public" virt="non-virtual"><scope>ModelParams</scope><name>y1</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
