@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.15.0" xml:lang="en-US">
+  <compound refid="class_process_model" kind="class"><name>ProcessModel</name>
+    <member refid="class_process_model_1a5729da598b4c82b138328877043e2802" kind="variable"><name>params</name></member>
+    <member refid="class_process_model_1aee77cc3e529bb885798798b94ccc63c3" kind="variable"><name>prev_value</name></member>
+    <member refid="class_process_model_1adcdba43c05676dfe398eed1e233aad34" kind="function"><name>ProcessModel</name></member>
+    <member refid="class_process_model_1a4efaa82d0840e6c4501c69a34bc5370f" kind="function"><name>linearModel</name></member>
+    <member refid="class_process_model_1a568c4c289598cb4646005fb13ea7967b" kind="function"><name>nonlinearModel</name></member>
+    <member refid="class_process_model_1ad055d88198824729f99f2ae0e8702b89" kind="function"><name>setInitialValue</name></member>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1a36c0ebd7560621cc0980de220f4aa9c5" kind="function"><name>simulateSystem</name></member>
+    <member refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="pid__controller_8cpp" kind="file"><name>pid_controller.cpp</name>
+  </compound>
+  <compound refid="process__model_8cpp" kind="file"><name>process_model.cpp</name>
+  </compound>
+  <compound refid="process__model_8h" kind="file"><name>process_model.h</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>
