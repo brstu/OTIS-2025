@@ -3,25 +3,36 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
     PID pid;
 
-    initPID(pid, 0.6, 0.3, 0.1);
+    double Kp = 1.2;
+    double Ki = 0.3;
+    double Kd = 0.1;
 
-    double w = 1.0;  // заданное значение
-    double y = 0.0;  // текущее значение объекта
+    double q0 = Kp + Ki + Kd;
+    double q1 = -Kp - 2.0 * Kd;
+    double q2 = Kd;
 
-    for (int k = 0; k < 20; k++) {
+    initPID(pid, q0, q1, q2);
+
+    double w = 271;  // заданное значение
+    double y = 14;  // текущее значение объекта
+
+    for (int k = 0; k < 200; k++)
+    {
         double e = w - y;
         double u = updatePID(pid, e);
 
-        cout << "Шаг " << k
-            << " e=" << e
-            << " u=" << u
+        cout << "Step " << k
+            << " e = " << e
+            << " u = " << u
             << endl;
 
-        // Простейшая модель объекта управления
         y = y + 0.1 * u;
+
+        cout << "y = " << y << endl;
     }
 
     return 0;
