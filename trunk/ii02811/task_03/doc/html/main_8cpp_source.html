@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>task_03 - PID Controller: Исходный файл src/main.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">task_03 - PID Controller<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Система управления с PID регулятором</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('main_8cpp_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">main.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="main_8cpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="pid_8h.html">pid.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="model_8h.html">model.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span></div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   18</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    setlocale(LC_ALL,<span class="stringliteral">&quot;ru&quot;</span>);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;PID Controller - Variant 11\n&quot;</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;==========================\n\n&quot;</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment">// Тест 1: Линейная модель</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;\n=== TEST 1: Linear Model ===\n&quot;</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_class" href="classModel.html">Model</a> model_lin(0.2, 0.3, 0.4, 0.5);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    model_lin.<a class="code hl_function" href="classModel.html#a016819d78d29f1533d3351cdcd83b2e5">init</a>(20.0, 21.0, 0.0, 0.0);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_class" href="classPID.html">PID</a> pid_lin(0.8, 2.0, 0.5, 1.0);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    std::ofstream file_lin(<span class="stringliteral">&quot;results_linear.csv&quot;</span>);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    file_lin &lt;&lt; <span class="stringliteral">&quot;Step,Setpoint,Temperature,Control\n&quot;</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> linear_setpoint = 30.0;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 50; i++) {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordtype">double</span> temp = model_lin.<a class="code hl_function" href="classModel.html#aa23799a2cfa94ab5b9ac78ec4c5e365c">getCurrentValue</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordtype">double</span> control = pid_lin.<a class="code hl_function" href="classPID.html#a95bd8270c27ddf8cb98a85b68a16211a">calculate</a>(linear_setpoint, temp);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        model_lin.<a class="code hl_function" href="classModel.html#a947cfcb5e6035d29f0ead62a26fd18de">linearModel</a>(control);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        file_lin &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; linear_setpoint &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; temp &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; control &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">if</span> (i % 10 == 0) {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;Step &quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;: T=&quot;</span> &lt;&lt; temp </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                      &lt;&lt; <span class="stringliteral">&quot;°C, U=&quot;</span> &lt;&lt; control &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    file_lin.close();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;\n=== TEST 2: Nonlinear Model ===\n&quot;</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_class" href="classModel.html">Model</a> model_nl(0.2, 0.15, 0.4, 0.5);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">double</span> y0 = 21.0;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    model_nl.<a class="code hl_function" href="classModel.html#a016819d78d29f1533d3351cdcd83b2e5">init</a>(y0, y0, 0.0, 0.0);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_class" href="classPID.html">PID</a> pid_nl(0.3, 5.0, 0.2, 1.0);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    pid_nl.<a class="code hl_function" href="classPID.html#af9677e76cb1beffbcf3f54cbc627c530">reset</a>();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    std::ofstream file_nl(<span class="stringliteral">&quot;results_nonlinear.csv&quot;</span>);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    file_nl &lt;&lt; <span class="stringliteral">&quot;Step,Setpoint,Temperature,Control\n&quot;</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> setpoint_start = y0;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> setpoint_final = 40.0;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> ramp_steps = 20;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> U_MAX = 100.0;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 150; i++) {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordtype">double</span> current_setpoint = (i &lt; ramp_steps)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            ? setpoint_start + (setpoint_final - setpoint_start) * i / ramp_steps</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            : setpoint_final;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordtype">double</span> temp = model_nl.<a class="code hl_function" href="classModel.html#aa23799a2cfa94ab5b9ac78ec4c5e365c">getCurrentValue</a>();</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordtype">double</span> control = pid_nl.<a class="code hl_function" href="classPID.html#a95bd8270c27ddf8cb98a85b68a16211a">calculate</a>(current_setpoint, temp);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordflow">if</span> (control &gt; U_MAX) control = U_MAX;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">if</span> (control &lt; 0.0)   control = 0.0;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        model_nl.<a class="code hl_function" href="classModel.html#ab31570881280566275abef961ed0e68f">nonlinearModel</a>(control);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        file_nl &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; current_setpoint &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; temp &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; control &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    file_nl.close();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;\n==========================\n&quot;</span>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Results saved:\n&quot;</span>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;- Linear model: results_linear.csv\n&quot;</span>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;- Nonlinear model: results_nonlinear.csv\n&quot;</span>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}</div>
+</div>
+<div class="ttc" id="aclassModel_html"><div class="ttname"><a href="classModel.html">Model</a></div><div class="ttdoc">Модель объекта управления</div><div class="ttdef"><b>Определения</b> <a href="model_8h_source.html#l00008">model.h:8</a></div></div>
+<div class="ttc" id="aclassModel_html_a016819d78d29f1533d3351cdcd83b2e5"><div class="ttname"><a href="classModel.html#a016819d78d29f1533d3351cdcd83b2e5">Model::init</a></div><div class="ttdeci">void init(double y0, double y1, double u0, double u1)</div><div class="ttdoc">Инициализация начальных условий</div><div class="ttdef"><b>Определения</b> <a href="model_8cpp_source.html#l00015">model.cpp:15</a></div></div>
+<div class="ttc" id="aclassModel_html_a947cfcb5e6035d29f0ead62a26fd18de"><div class="ttname"><a href="classModel.html#a947cfcb5e6035d29f0ead62a26fd18de">Model::linearModel</a></div><div class="ttdeci">double linearModel(double u)</div><div class="ttdoc">Линейная модель объекта</div><div class="ttdef"><b>Определения</b> <a href="model_8cpp_source.html#l00025">model.cpp:25</a></div></div>
+<div class="ttc" id="aclassModel_html_aa23799a2cfa94ab5b9ac78ec4c5e365c"><div class="ttname"><a href="classModel.html#aa23799a2cfa94ab5b9ac78ec4c5e365c">Model::getCurrentValue</a></div><div class="ttdeci">double getCurrentValue() const</div><div class="ttdoc">Получение текущего значения выхода</div><div class="ttdef"><b>Определения</b> <a href="model_8h_source.html#l00059">model.h:59</a></div></div>
+<div class="ttc" id="aclassModel_html_ab31570881280566275abef961ed0e68f"><div class="ttname"><a href="classModel.html#ab31570881280566275abef961ed0e68f">Model::nonlinearModel</a></div><div class="ttdeci">double nonlinearModel(double u)</div><div class="ttdoc">Нелинейная модель объекта</div><div class="ttdef"><b>Определения</b> <a href="model_8cpp_source.html#l00040">model.cpp:40</a></div></div>
+<div class="ttc" id="aclassPID_html"><div class="ttname"><a href="classPID.html">PID</a></div><div class="ttdoc">Цифровой ПИД-регулятор</div><div class="ttdef"><b>Определения</b> <a href="pid_8h_source.html#l00010">pid.h:10</a></div></div>
+<div class="ttc" id="aclassPID_html_a95bd8270c27ddf8cb98a85b68a16211a"><div class="ttname"><a href="classPID.html#a95bd8270c27ddf8cb98a85b68a16211a">PID::calculate</a></div><div class="ttdeci">double calculate(double setpoint, double current_value)</div><div class="ttdoc">Вычисление управляющего воздействия</div><div class="ttdef"><b>Определения</b> <a href="pid_8cpp_source.html#l00025">pid.cpp:25</a></div></div>
+<div class="ttc" id="aclassPID_html_af9677e76cb1beffbcf3f54cbc627c530"><div class="ttname"><a href="classPID.html#af9677e76cb1beffbcf3f54cbc627c530">PID::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Сброс состояния регулятора</div><div class="ttdef"><b>Определения</b> <a href="pid_8cpp_source.html#l00043">pid.cpp:43</a></div></div>
+<div class="ttc" id="amain_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Главная функция программы</div><div class="ttdef"><b>Определения</b> <a href="#l00018">main.cpp:18</a></div></div>
+<div class="ttc" id="amodel_8h_html"><div class="ttname"><a href="model_8h.html">model.h</a></div></div>
+<div class="ttc" id="apid_8h_html"><div class="ttname"><a href="pid_8h.html">pid.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="main_8cpp.html">main.cpp</a></li>
+    <li class="footer">Документация по task_03 - PID Controller. Последние изменения: <span class="timestamp"></span>. Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>
