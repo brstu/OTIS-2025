@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="pid__controller_8cpp" kind="file" language="C++">
+    <compoundname>pid_controller.cpp</compoundname>
+    <includes refid="pid__controller_8h" local="yes">pid_controller.h</includes>
+    <includes local="no">iostream</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/pid_controller.cpp</label>
+        <link refid="pid__controller_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>pid_controller.h</label>
+        <link refid="pid__controller_8h_source"/>
+      </node>
+      <node id="3">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;pid_controller.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><ref refid="class_p_i_d_1a4e3e78aeba86e842d0dc1b66d489f55f" kindref="member">PID::PID</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>in_K,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>in_T,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>in_T0,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>in_Td)<sp/>:<sp/></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>K(in_K),<sp/>T(in_T),<sp/>T0(in_T0),<sp/>Td(in_Td),<sp/>valid(true)<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>q0<sp/>=<sp/>K<sp/>*<sp/>(1.0<sp/>+<sp/>Td<sp/>/<sp/>T0);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>q1<sp/>=<sp/>-K<sp/>*<sp/>(1<sp/>+<sp/>2<sp/>*<sp/>Td<sp/>/<sp/>T0<sp/>-<sp/>T0<sp/>/<sp/>T);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>q2<sp/>=<sp/>K<sp/>*<sp/>Td<sp/>/<sp/>T0;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_p_i_d_1a18ad640cecad68bc30c3956a8fb4feff" kindref="member">PID::u_calc</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(valid)<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>delta_u<sp/>=<sp/>q0<sp/>*<sp/>e<sp/>+<sp/>q1<sp/>*<sp/>e_prev_1<sp/>+<sp/>q2<sp/>*<sp/>e_prev_2;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u<sp/>=<sp/>u_prev<sp/>+<sp/>delta_u;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u_prev<sp/>=<sp/>u;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e_prev_2<sp/>=<sp/>e_prev_1;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e_prev_1<sp/>=<sp/>e;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>u;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Not<sp/>valid<sp/>value<sp/>of<sp/>&apos;q&apos;<sp/>!\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/pid_controller.cpp"/>
+  </compounddef>
+</doxygen>

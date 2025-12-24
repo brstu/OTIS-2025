@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="lin__model_8h" kind="file" language="C++">
+    <compoundname>lin_model.h</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="lin__model_8h_1a3a4dd6c50779f1727c00ad5357bfb367" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double linear_model</definition>
+        <argsstring>(double y_prev, double u, double a, double b)</argsstring>
+        <name>linear_model</name>
+        <param>
+          <type>double</type>
+          <declname>y_prev</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Линейная модель динамического объекта. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>y_prev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Предыдущее значение выхода системы. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Управляющее воздействие. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент обратной связи. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент усиления по управляющему сигналу. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Новое значение выхода системы. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lin_model.h" line="21" column="8" bodyfile="src/lin_model.h" bodystart="21" bodyend="23"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Заголовочный файл с объявлением линейной модели объекта управления. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Линейная модель описывает поведение системы по формуле:   <formula id="1">\[    y(k) = a \cdot y(k-1) + b \cdot u(k)
+\]</formula> </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>LIN_MODEL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LIN_MODEL_H</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="lin__model_8h_1a3a4dd6c50779f1727c00ad5357bfb367" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="lin__model_8h_1a3a4dd6c50779f1727c00ad5357bfb367" kindref="member">linear_model</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y_prev,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b)<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a<sp/>*<sp/>y_prev<sp/>+<sp/>b<sp/>*<sp/>u;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="src/lin_model.h"/>
+  </compounddef>
+</doxygen>
