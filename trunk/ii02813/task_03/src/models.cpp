@@ -33,5 +33,5 @@ double linear(double y01, double u01, double a01, double b01)
  */
 double non_linear(double y01, double y01_p, double u01, double u01_p, const NonLinearCoeffs& coeffs)
 {
-    return coeffs.a * y01 - coeffs.b * y01_p * y01_p + coeffs.c * u01 + coeffs.d * std::sin(u01_p);
+    return coeffs.a01 * y01 - coeffs.b01 * y01_p * y01_p + coeffs.c01 * u01 + coeffs.d01 * std::sin(u01_p);
 }

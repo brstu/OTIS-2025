@@ -11,7 +11,7 @@
  * @param T001 шаг
  */
 pid_coeffs::pid_coeffs(double K01, double T01, double Td01, double T001)
-        : K(K01), T(T01), Td(Td01), T0(T001) {}
+        : K01(K01), T01(T01), Td01(Td01), T001(T001) {}
 
 /**
  * @brief Конструктор PID-регулятора
@@ -25,12 +25,12 @@ pid_coeffs::pid_coeffs(double K01, double T01, double Td01, double T001)
  */
 pid::pid(const pid_coeffs& coeffs, double _u01, double _e01, double __e01)
     : coeffs(coeffs),
-      q0(coeffs.K * (1 + coeffs.Td / coeffs.T0)),
-      q1(-coeffs.K * (1 + 2 * coeffs.Td / coeffs.T0 - coeffs.T0 / coeffs.T)),
-      q2(coeffs.K * coeffs.Td / coeffs.T0),
-      u_prev(_u01),
-      e_prev(_e01),
-      e_prev_prev(__e01)
+      q001(coeffs.K01 * (1 + coeffs.Td01 / coeffs.T001)),
+      q101(-coeffs.K01 * (1 + 2 * coeffs.Td01 / coeffs.T001 - coeffs.T001 / coeffs.T01)),
+      q201(coeffs.K01 * coeffs.Td01 / coeffs.T001),
+      u01_prev(_u01),
+      e01_prev(_e01),
+      e01_prev_prev(__e01)
       {
 
       }
@@ -45,12 +45,12 @@ pid::pid(const pid_coeffs& coeffs, double _u01, double _e01, double __e01)
  */
 double pid::process(double e01)
 {
-    double _u01 = q0 * e01 + q1 * e_prev + q2 * e_prev_prev;
-    double u01 = u_prev + _u01;
+    double _u01 = q001 * e01 + q101 * e01_prev + q201 * e01_prev_prev;
+    double u01 = u01_prev + _u01;
 
-    u_prev = u01;
-    e_prev_prev = e_prev;
-    e_prev = e01;
+    u01_prev = u01;
+    e01_prev_prev = e01_prev;
+    e01_prev = e01;
 
     return u01;
 }
