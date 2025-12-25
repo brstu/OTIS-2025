@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="struct_simulation_data" kind="struct" language="C++" prot="public">
+    <compoundname>SimulationData</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_simulation_data_1a785cffa2a3b36185d091e6a3f0f51c8b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SimulationData::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <qualifiedname>SimulationData::time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.cpp" line="11" column="12" bodyfile="src/main.cpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_simulation_data_1a311d02808d2aff70064344a5356518d1" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SimulationData::setpoint</definition>
+        <argsstring></argsstring>
+        <name>setpoint</name>
+        <qualifiedname>SimulationData::setpoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.cpp" line="12" column="12" bodyfile="src/main.cpp" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_simulation_data_1ae16850b02c1515af5decec21f9096f14" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SimulationData::output</definition>
+        <argsstring></argsstring>
+        <name>output</name>
+        <qualifiedname>SimulationData::output</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.cpp" line="13" column="12" bodyfile="src/main.cpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_simulation_data_1a0eef1a82f8d1fb4afd225dd2233fa237" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SimulationData::control</definition>
+        <argsstring></argsstring>
+        <name>control</name>
+        <qualifiedname>SimulationData::control</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.cpp" line="14" column="12" bodyfile="src/main.cpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_simulation_data_1ab76a041adb1259ffe7432de0c02b6167" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SimulationData::error</definition>
+        <argsstring></argsstring>
+        <name>error</name>
+        <qualifiedname>SimulationData::error</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.cpp" line="15" column="12" bodyfile="src/main.cpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/main.cpp" line="10" column="1" bodyfile="src/main.cpp" bodystart="10" bodyend="16"/>
+    <listofallmembers>
+      <member refid="struct_simulation_data_1a0eef1a82f8d1fb4afd225dd2233fa237" prot="public" virt="non-virtual"><scope>SimulationData</scope><name>control</name></member>
+      <member refid="struct_simulation_data_1ab76a041adb1259ffe7432de0c02b6167" prot="public" virt="non-virtual"><scope>SimulationData</scope><name>error</name></member>
+      <member refid="struct_simulation_data_1ae16850b02c1515af5decec21f9096f14" prot="public" virt="non-virtual"><scope>SimulationData</scope><name>output</name></member>
+      <member refid="struct_simulation_data_1a311d02808d2aff70064344a5356518d1" prot="public" virt="non-virtual"><scope>SimulationData</scope><name>setpoint</name></member>
+      <member refid="struct_simulation_data_1a785cffa2a3b36185d091e6a3f0f51c8b" prot="public" virt="non-virtual"><scope>SimulationData</scope><name>time</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

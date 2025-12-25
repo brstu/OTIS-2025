@@ -1,19 +1,16 @@
 # Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages ii02815_task_03
+name: ILYA_22
 
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["task_03"]
+    branches: ["task_03_ii02822"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -22,23 +19,28 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Build job
+  permissions:
+    contents: read
+    pages: write
+    id-token: write
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: task_03_ii02822
+          submodules: false
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./trunk/ii02815/task_03/docs/html
+          source: ./trunk/ii02816/task_03/doc/html
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
-  # Deployment job
   deploy:
     environment:
       name: github-pages
