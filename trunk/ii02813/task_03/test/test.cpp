@@ -57,7 +57,7 @@ TEST(PidTest, Initialization) {
     pid_coeffs coeffs(2.0, 1.0, 0.5, 0.1);
     pid PID(coeffs, 0.0, 0.0, 0.0);
     double e01 = 1.0;
-    double expected01 = PID.process(e);
+    double expected01 = PID.process(e01);
 
     EXPECT_DOUBLE_EQ(expected01, 12.0);
 }
