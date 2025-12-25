@@ -1,6 +1,7 @@
 #include <cmath>
 using namespace std;
-
+//pamagiti please
+//koncheniy duplecate cheking
 double linear(double y01, double u01, double a01, double b01)
 {
     return a01 * y01 + b01 * u01;
