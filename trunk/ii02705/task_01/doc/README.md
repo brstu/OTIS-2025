@@ -55,7 +55,12 @@ int main()
     double heat;               // u(t)
     double heat_prev;          // u(t-1)
 
-    double a, b, c, d;
+    double a;
+    double b;
+    double c;
+    double d;
+
+
     int steps;
 
     cout << "Введите начальную температуру и начальный нагрев: ";
