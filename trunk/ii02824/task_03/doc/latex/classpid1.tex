@@ -1,0 +1,52 @@
+\doxysection{pid1 Class Reference}
+\label{classpid1}\index{pid1@{pid1}}
+
+
+Класс PID-\/регулятора  
+
+
+
+
+{\ttfamily \#include $<$pid.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\label{classpid1_a438f9a6d4e1118c7dd29661ae5bfa0da} 
+{\bfseries pid1} (const \textbf{ pid1\+\_\+coeffs} \&coeffs, double \+\_\+u, double \+\_\+e, double \+\_\+\+\_\+e)
+\item 
+double \textbf{ process} (double e)
+\begin{DoxyCompactList}\small\item\em Выполнить шаг PID-\/регулятора \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Класс PID-\/регулятора 
+
+\label{doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{pid1@{pid1}!process@{process}}
+\index{process@{process}!pid1@{pid1}}
+\doxysubsubsection{process()}
+{\footnotesize\ttfamily \label{classpid1_ad1aa4408870671ab37e02cad5f49671b} 
+double pid1\+::process (\begin{DoxyParamCaption}\item[{double}]{e}{}\end{DoxyParamCaption})}
+
+
+
+Выполнить шаг PID-\/регулятора 
+
+Вычисляет новое управляющее воздействие на основе текущей ошибки.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+e} & текущее значение отклонения \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+новое управляющее воздействие 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/pid.\+h\item 
+src/pid.\+cpp\end{DoxyCompactItemize}
