@@ -48,6 +48,10 @@ using namespace std;
 
 int main()
 {
+    double a;
+    double b;
+    double c;
+    double d;
     double temperature;        // y(t)
     double temperature_prev;   // y(t-1)
     double temperature_next;   // y(t+1)
@@ -55,10 +59,7 @@ int main()
     double heat;               // u(t)
     double heat_prev;          // u(t-1)
 
-    double a;
-    double b;
-    double c;
-    double d;
+
 
 
     int steps;
