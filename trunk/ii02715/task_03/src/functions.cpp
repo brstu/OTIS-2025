@@ -24,7 +24,7 @@ void linear(double a, double b, std::vector<double>& y, const int steps, double 
 		u = P * e + I * sumE + D * dE;
 		y[i] = a * y[i - 1] + b * u;
 		std::cout << "y[" << i << "] = " << y[i] << std::endl;
-		er = abs(y[i] - target);
+		er = fabs(y[i] - target);
 		std::cout << "Error of value: " << er << std::endl << std::endl;
 	}
 }
