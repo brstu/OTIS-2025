@@ -4,7 +4,7 @@ void Models::calcul_err(int place){
 e.resize(500,0);
 e[place] = w - y_prev;
 }
-void Models::calcul_Q(Qs &q,const Constants &con){
+void Models::calcul_Q(Qs &q,const Constants &con) const{
 q.q0 = con.k * (1 + con.Td/con.To);
 q.q1 = -con.k * (1 + 2 * con.Td/con.To - con.To/con.T);
 q.q2 = con.k * con.Td/con.To;

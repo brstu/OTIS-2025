@@ -38,14 +38,13 @@ private:
 	double u_prev;
 	std::vector<double> e;
 	double delt_u;
-	double desired_temp;
 	double w; 
 public:
 /**
 *\brief Constructor for init variables 
 */
-	Models(double y_prev_val,double u_prev_val,double delt_u_val,double w_val)
-	:y_prev(y_prev_val),u_prev(u_prev_val),delt_u(delt_u_val),w(w_val){}
+	Models(double y_prev_val,double u_prev_val,double delt_u_val,double w_val,double u_val,double y_val)
+	:y_prev(y_prev_val),u_prev(u_prev_val),delt_u(delt_u_val),w(w_val),y(y_val),u(u_val){}
 /**
 *\brief Calculating error
 */ 
@@ -53,7 +52,7 @@ public:
 /**
 *\brief Calculating Q
 */
-	void calcul_Q(Qs &q,const Constants &con);
+	void calcul_Q(Qs &q,const Constants &con) const;
 /**
 *\ brief Calculating Qs
 */

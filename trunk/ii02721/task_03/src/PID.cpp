@@ -1,7 +1,7 @@
 #include "PID.h"
 
 void PID_model(double desired_temp,double start){
-Models m(start,0.0,0.0,desired_temp);
+Models m(start,0.0,0.0,desired_temp,0.0,0.0);
 Constants con(0.85,0.05,1.2,1.3,1.3,1.3);
 Qs q(0.0,0.0,0.0);
 m.calcul_Q(q,con);
@@ -17,7 +17,7 @@ double y = m.GetY();
 std::cout << "Y = " << y << std::endl;
 if(!m.compare()){
 m.SetDelt(15.0);
-	} 
-			}
+} 
+	}
 
 }
