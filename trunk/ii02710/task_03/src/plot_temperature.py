@@ -236,9 +236,9 @@ def analyze_performance(csv_file=CSV_FILENAME):
         setpoint_changes = np.nonzero(setpoint_differences)[0]
         
         if len(setpoint_changes) > 0:
-            self.analyze_setpoint_changes(data, setpoint_changes)
+            analyze_setpoint_changes(data, setpoint_changes)
         
-        self.analyze_steady_state(data)
+        analyze_steady_state(data)
         
     except Exception as e:
         print(f"Error in performance analysis: {e}")
