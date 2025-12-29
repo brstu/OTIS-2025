@@ -356,4 +356,4 @@ int main(int argc, char** argv) {
 ```
 
 ## Результаты юнит-тестирования
-![GoogleTest(images/gtest.png)
+![GoogleTest](images/gtest.png)
