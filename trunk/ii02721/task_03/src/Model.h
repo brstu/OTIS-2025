@@ -32,13 +32,13 @@ struct Qs{
 */
 class Models{
 private:
-	double y_prev;
-	double y;
-	double u;
-	double u_prev;
 	std::vector<double> e;
+	double y_prev;
+	double u_prev;
 	double delt_u;
 	double w; 
+	double y;
+	double u;
 public:
 /**
 *\brief Constructor for init variables 
