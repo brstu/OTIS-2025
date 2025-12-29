@@ -7,18 +7,18 @@
 #include <fstream>
 #include <cmath>
 #include <vector>
-#include <random>
-#include <chrono>
+#include <string>
+#include <limits>
 #include "pid_controller.h"
 
-/**
- * @brief Plant model (heater/cooler)
- * @param current_temp Current temperature
- * @param control_signal Control signal (0-100%)
- * @param dt Time step
- * @param room_temp Ambient temperature
- * @return New temperature
- */
+ /**
+  * @brief Plant model (heater/cooler)
+  * @param current_temp Current temperature
+  * @param control_signal Control signal (0-100%)
+  * @param dt Time step
+  * @param room_temp Ambient temperature
+  * @return New temperature
+  */
 double temperatureModel(double current_temp, double control_signal, double dt, double room_temp = 20.0) {
     // First-order model
     double tau = 10.0;  // System time constant
@@ -34,22 +34,92 @@ double temperatureModel(double current_temp, double control_signal, double dt, d
 }
 
 /**
- * @brief Main program function
- * @return Program exit code
+ * @brief Get temperature input from user
+ * @return Target temperature
  */
-int main() {
-    // Create PID controller
-    PIDController pid(2.5, 0.5, 1.0, 0, 100);
+double getTemperatureInput() {
+    double temperature;
 
-    // Set target temperature
-    double setpoint = 75.0;  // Target temperature °C
-    pid.setSetpoint(setpoint);
+    std::cout << "\n=== Temperature Input ===\n";
+
+    while (true) {
+        std::cout << "Enter target temperature (°C): ";
+        std::cin >> temperature;
+
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid input. Please enter a number.\n";
+        }
+        else if (temperature < -273.15) {
+            std::cout << "Temperature cannot be below absolute zero (-273.15°C).\n";
+        }
+        else if (temperature > 1000) {
+            std::cout << "Warning: Very high temperature (>1000°C). Continue? (y/n): ";
+            char confirm;
+            std::cin >> confirm;
+            if (confirm == 'y' || confirm == 'Y') {
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                break;
+            }
+            else {
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                continue;
+            }
+        }
+        else {
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            break;
+        }
+    }
+
+    return temperature;
+}
+
+/**
+ * @brief Display main menu
+ * @return User's choice
+ */
+int displayMenu() {
+    int choice;
+    while (true) {
+        std::cout << "\n=== PID Controller Simulation ===\n";
+        std::cout << "1. Run simulation with default temperature (75°C)\n";
+        std::cout << "2. Run simulation with custom temperature\n";
+        std::cout << "3. Exit\n";
+        std::cout << "Select option (1-3): ";
+
+        std::cin >> choice;
+
+        if (std::cin.fail() || choice < 1 || choice > 3) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid choice. Please enter 1, 2, or 3.\n";
+        }
+        else {
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            return choice;
+        }
+    }
+}
+
+/**
+ * @brief Run simulation with specified parameters
+ * @param pid PID controller instance
+ * @param setpoint Target temperature
+ * @param initial_temp Initial temperature
+ * @param dt Time step
+ * @param simulation_time Total simulation time
+ */
+void runSimulation(PIDController& pid,
+    double setpoint,
+    double initial_temp,
+    double dt,
+    int simulation_time) {
 
     // Initial conditions
-    double current_temp = 20.0;  // Initial temperature °C
-    double dt = 0.1;  // Time step in seconds
-    int simulation_time = 100;  // Simulation time in seconds
-    auto steps = static_cast<int>(simulation_time / dt);
+    double current_temp = initial_temp;
+    int steps = static_cast<int>(simulation_time / dt);
 
     // Data storage vectors
     std::vector<double> time_points;
@@ -57,50 +127,41 @@ int main() {
     std::vector<double> control_signals;
     std::vector<double> setpoints;
 
-    std::cout << "Starting PID controller simulation..." << std::endl;
-    std::cout << "Target temperature: " << setpoint << " °C" << std::endl;
-    std::cout << "Simulation time: " << simulation_time << " sec" << std::endl;
-    std::cout << "Time step: " << dt << " sec" << std::endl;
+    // Set target temperature
+    pid.setSetpoint(setpoint);
+
+    std::cout << "\n=== Starting Simulation ===\n";
+    std::cout << "Initial temperature: " << initial_temp << " °C\n";
+    std::cout << "Target temperature: " << setpoint << " °C\n";
+    std::cout << "Simulation time: " << simulation_time << " sec\n";
+    std::cout << "Time step: " << dt << " sec\n";
 
     // Main simulation loop
     for (int i = 0; i < steps; i++) {
         double time = i * dt;
 
-        // Change setpoint during simulation
-        if (time > 40 && time < 41) {
-            setpoint = 50.0;  // Lower temperature
-            pid.setSetpoint(setpoint);
-        }
-        else if (time > 70 && time < 71) {
-            setpoint = 85.0;  // Raise temperature
-            pid.setSetpoint(setpoint);
-        }
-
-        // Add noise to measured temperature
-        double measured_temp = current_temp;
-
         // Calculate control signal
-        double control = pid.calculate(measured_temp, dt);
+        double control = pid.calculate(current_temp, dt);
 
         // Update temperature using model
         current_temp = temperatureModel(current_temp, control, dt);
 
         // Save data
         time_points.push_back(time);
-        temperatures.push_back(measured_temp);
+        temperatures.push_back(current_temp);
         control_signals.push_back(control);
-        setpoints.push_back(pid.getSetpoint());
+        setpoints.push_back(setpoint);
 
         // Display progress
         if (i % 100 == 0) {
             std::cout << "Time: " << time
-                << " s, Temperature: " << measured_temp
-                << " °C, Control: " << control << "%" << std::endl;
+                << " sec, Temperature: " << current_temp
+                << " °C, Setpoint: " << setpoint
+                << " °C, Control: " << control << "%\n";
         }
     }
 
     // Write data to CSV file
-    // Èñïðàâëåíî: ïðàâèëüíûé ñèíòàêñèñ if ñ èíèöèàëèçàöèåé (C++17)
     if (std::ofstream csv_file("temperature_data.csv"); csv_file.is_open()) {
         csv_file << "Time,Temperature,Setpoint,Control_Signal\n";
         for (size_t i = 0; i < time_points.size(); i++) {
@@ -110,19 +171,66 @@ int main() {
                 << control_signals[i] << "\n";
         }
         csv_file.close();
-        std::cout << "\nData saved to temperature_data.csv" << std::endl;
+        std::cout << "\nData saved to temperature_data.csv\n";
     }
     else {
-        std::cerr << "Error creating CSV file!" << std::endl;
-        return 1;
+        std::cerr << "Error creating CSV file!\n";
+        return;
     }
 
     // Output statistics
-    std::cout << "\n=== Simulation Statistics ===" << std::endl;
-    std::cout << "Number of data points: " << time_points.size() << std::endl;
-    std::cout << "Final temperature: " << temperatures.back() << " °C" << std::endl;
-    std::cout << "Setpoint: " << setpoint << " °C" << std::endl;
-    std::cout << "Control error: " << setpoint - temperatures.back() << " °C" << std::endl;
+    std::cout << "\n=== Simulation Statistics ===\n";
+    std::cout << "Number of data points: " << time_points.size() << "\n";
+    std::cout << "Final temperature: " << temperatures.back() << " °C\n";
+    std::cout << "Target temperature: " << setpoint << " °C\n";
+    std::cout << "Control error: " << setpoint - temperatures.back() << " °C\n";
+}
+
+/**
+ * @brief Main program function
+ * @return Program exit code
+ */
+int main() {
+    std::cout << "PID Temperature Controller Simulation\n";
+    std::cout << "=====================================\n";
+
+    // Default parameters
+    double Kp = 2.5, Ki = 0.5, Kd = 1.0;
+    double min_output = 0, max_output = 100;
+    double initial_temp = 20.0;
+    double dt = 0.1;
+    int simulation_time = 100;
+
+    PIDController pid(Kp, Ki, Kd, min_output, max_output);
+
+    while (true) {
+        int choice = displayMenu();
+
+        switch (choice) {
+        case 1: {
+            // Run with default temperature (75°C)
+            runSimulation(pid, 75.0, initial_temp, dt, simulation_time);
+            break;
+        }
+
+        case 2: {
+            // Get custom temperature from user
+            double custom_temp = getTemperatureInput();
+            runSimulation(pid, custom_temp, initial_temp, dt, simulation_time);
+            break;
+        }
+
+        case 3: {
+            // Exit
+            std::cout << "Exiting program.\n";
+            return 0;
+        }
+        }
+
+        // Ask if user wants to continue
+        std::cout << "\nPress Enter to continue...";
+        std::cin.get();
+    }
 
     return 0;
 }
