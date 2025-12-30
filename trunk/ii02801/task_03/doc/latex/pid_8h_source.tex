@@ -1,0 +1,38 @@
+\doxysection{pid.\+h}
+\hypertarget{pid_8h_source}{}\label{pid_8h_source}\index{src/pid.h@{src/pid.h}}
+\mbox{\hyperlink{pid_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ PID\_CONTROLLER\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ PID\_CONTROLLER\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_p_i_d_controller_a157932707dcbafd2bc927dfa0f9d1333}{PIDController}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_p_i_d_controller_a942359208f9726e38f9f90b7cd201752}{K}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_p_i_d_controller_aa565895fec3810d9699cfac15b116e13}{T}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_p_i_d_controller_aa98955cf3d687a47a549c08df2cbd5e2}{Td}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_p_i_d_controller_a6dfa260ea80ae6a36402b2634b3fe2db}{T0}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_p_i_d_controller_aa11e9fe0c2933f67cbe41c084d320b6a}{q0}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_p_i_d_controller_af534a1a7c82691b91cb46ab97931ebc1}{q1}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_p_i_d_controller_a81f9a883343ea5afd87ea095a1631ee0}{q2}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ std::vector<double>\ \mbox{\hyperlink{class_p_i_d_controller_a50a6942a4c7bcbfe9306fef64e19207f}{prev\_error}};\ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_p_i_d_controller_a3a2ca17429283fc0e97798b08d720096}{prev\_output}};\ \ \ \ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_p_i_d_controller_a157932707dcbafd2bc927dfa0f9d1333}{PIDController}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_p_i_d_controller_a942359208f9726e38f9f90b7cd201752}{K}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_p_i_d_controller_aa565895fec3810d9699cfac15b116e13}{T}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_p_i_d_controller_aa98955cf3d687a47a549c08df2cbd5e2}{Td}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_p_i_d_controller_a6dfa260ea80ae6a36402b2634b3fe2db}{T0}});}
+\DoxyCodeLine{00041\ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_p_i_d_controller_a64a55d7634ebed47fdd75da1195ad019}{calculate}}(\textcolor{keywordtype}{double}\ setpoint,\ \textcolor{keywordtype}{double}\ current\_value);}
+\DoxyCodeLine{00049\ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_p_i_d_controller_ab6adfbffa30414f0a83b95ba999a2fea}{reset}}();}
+\DoxyCodeLine{00054\ \ \ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ std::vector<double>\ \mbox{\hyperlink{class_p_i_d_controller_a3f6a05e6457da67ca575c0da2280dcba}{getCoefficients}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
