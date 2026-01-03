@@ -20,15 +20,12 @@
   */
 double temperatureModel(double current_temp, double control_signal, double dt, double room_temp = 20.0) {
     // First-order model
-    double tau = 10.0;  // System time constant
-    double max_heating_power = 5.0;  // Maximum heating power in °C/s
-
+    double tau = 10.0;              // System time constant
+    double max_heating_power = 5.0; // Maximum heating power in °C/s
     // Convert control signal (0-100%) to heating power
     double heating_power = max_heating_power * (control_signal / 100.0);
-
     // Calculate temperature change
     double dtemp = (heating_power - (current_temp - room_temp) / tau) * dt;
-
     return current_temp + dtemp;
 }
 
@@ -46,9 +43,9 @@ int main() {
 
     // Initial conditions
     double current_temp = 20.0;  // Initial temperature °C
-    double dt = 0.1;  // Time step in seconds
-    int simulation_time = 100;  // Simulation time in seconds
-    auto steps = static_cast<int>(simulation_time / dt);  // Fixed: using auto instead of redundant int
+    double dt = 0.1;             // Time step in seconds
+    int simulation_time = 100;   // Simulation time in seconds
+    auto steps = static_cast<int>(simulation_time / dt);
 
     // Data storage vectors
     std::vector<double> time_points;
@@ -63,7 +60,7 @@ int main() {
 
     // Main simulation loop
     for (int i = 0; i < steps; i++) {
-        double time = i * dt;
+        auto time = i * dt;
 
         // Change setpoint during simulation
         if (time > 40 && time < 41) {
@@ -75,11 +72,11 @@ int main() {
             pid.setSetpoint(setpoint);
         }
 
-        // Add noise to measured temperature
-        double measured_temp = current_temp;
+        // Add noise to measured temperature (optional, currently just copy)
+        auto measured_temp = current_temp;
 
         // Calculate control signal
-        double control = pid.calculate(measured_temp, dt);
+        auto control = pid.calculate(measured_temp, dt);
 
         // Update temperature using model
         current_temp = temperatureModel(current_temp, control, dt);
@@ -99,10 +96,9 @@ int main() {
     }
 
     // Write data to CSV file
-    // Fixed: correct if-with-initialization syntax (C++17)
     if (std::ofstream csv_file("temperature_data.csv"); csv_file.is_open()) {
         csv_file << "Time,Temperature,Setpoint,Control_Signal\n";
-        for (size_t i = 0; i < time_points.size(); i++) {
+        for (auto i = 0u; i < time_points.size(); i++) {
             csv_file << time_points[i] << ","
                 << temperatures[i] << ","
                 << setpoints[i] << ","
