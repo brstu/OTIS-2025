@@ -48,7 +48,7 @@ int main() {
     double current_temp = 20.0;  // Initial temperature °C
     double dt = 0.1;  // Time step in seconds
     int simulation_time = 100;  // Simulation time in seconds
-    auto steps = static_cast<int>(simulation_time / dt);  // Fixed: using auto
+    auto steps = static_cast<int>(simulation_time / dt);  // Fixed: using auto instead of redundant int
 
     // Data storage vectors
     std::vector<double> time_points;
@@ -99,7 +99,7 @@ int main() {
     }
 
     // Write data to CSV file
-    // Fixed: proper if statement with initialization (C++17)
+    // Fixed: correct if-with-initialization syntax (C++17)
     if (std::ofstream csv_file("temperature_data.csv"); csv_file.is_open()) {
         csv_file << "Time,Temperature,Setpoint,Control_Signal\n";
         for (size_t i = 0; i < time_points.size(); i++) {
