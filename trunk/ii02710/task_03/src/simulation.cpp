@@ -100,7 +100,7 @@ int main() {
     }
 
     // Write data to CSV file
-    // Èñïðàâëåíî: ïðàâèëüíûé ñèíòàêñèñ if ñ èíèöèàëèçàöèåé (C++17)
+    // Fixed: correct if-with-initialization syntax (C++17)
     if (std::ofstream csv_file("temperature_data.csv"); csv_file.is_open()) {
         csv_file << "Time,Temperature,Setpoint,Control_Signal\n";
         for (size_t i = 0; i < time_points.size(); i++) {
