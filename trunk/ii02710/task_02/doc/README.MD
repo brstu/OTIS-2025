@@ -102,3 +102,15 @@ int main(int argc, char **argv) {
 [==========] 2 tests from 1 test suite ran. (7 ms total)
 [  PASSED  ] 2 tests.
 PS D:\OTIS-2025\trunk\ii02710\task_02\build\test> 
+## gtest coverage 
+GCC Code Coverage Report
+Directory: .
+------------------------------------------------------------------------------
+File                                       Lines    Exec  Cover   Missing
+------------------------------------------------------------------------------
+src/model.cpp                                  4       4   100%
+test/test.cpp                                 38      38   100%
+------------------------------------------------------------------------------
+TOTAL                                         42      42   100%
+------------------------------------------------------------------------------
+PS D:\OTIS-2025\trunk\ii02710\task_02> 
