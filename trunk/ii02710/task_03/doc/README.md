@@ -106,39 +106,41 @@
 В отчете также привести графики для разных заданий температуры объекта, пояснить полученные результаты.
 
 
-## Код программы [ src/main.cpp ]
+## Код программы [ src/simulation.cpp ]
 ```C++
 /**
  * @file simulation.cpp
  * @brief PID temperature control system simulation program
  */
 
+/**
+ * @file simulation.cpp
+ * @brief PID temperature control system simulation program
+ */
 #include <iostream>
 #include <fstream>
 #include <cmath>
 #include <vector>
 #include <random>
+#include <chrono>
 #include "pid_controller.h"
 
-/**
- * @brief Plant model (heater/cooler)
- * @param current_temp Current temperature
- * @param control_signal Control signal (0-100%)
- * @param dt Time step
- * @param room_temp Ambient temperature
- * @return New temperature
- */
+ /**
+  * @brief Plant model (heater/cooler)
+  * @param current_temp Current temperature
+  * @param control_signal Control signal (0-100%)
+  * @param dt Time step
+  * @param room_temp Ambient temperature
+  * @return New temperature
+  */
 double temperatureModel(double current_temp, double control_signal, double dt, double room_temp = 20.0) {
     // First-order model
-    double tau = 10.0;  // System time constant
-    double max_heating_power = 5.0;  // Maximum heating power in °C/s
-
+    double tau = 10.0;              // System time constant
+    double max_heating_power = 5.0; // Maximum heating power in �C/s
     // Convert control signal (0-100%) to heating power
     double heating_power = max_heating_power * (control_signal / 100.0);
-
     // Calculate temperature change
     double dtemp = (heating_power - (current_temp - room_temp) / tau) * dt;
-
     return current_temp + dtemp;
 }
 
@@ -155,21 +157,16 @@ int main() {
     pid.setSetpoint(setpoint);
 
     // Initial conditions
-    double current_temp = 20.0;  // Initial temperature °C
-    double dt = 0.1;  // Time step in seconds
-    int simulation_time = 100;  // Simulation time in seconds
-    int steps = static_cast<int>(simulation_time / dt);
+    double current_temp = 20.0;  // Initial temperature �C
+    double dt = 0.1;             // Time step in seconds
+    int simulation_time = 100;   // Simulation time in seconds
+    auto steps = static_cast<int>(simulation_time / dt);
 
     // Data storage vectors
     std::vector<double> time_points;
     std::vector<double> temperatures;
     std::vector<double> control_signals;
     std::vector<double> setpoints;
-
-    // Random number generator for noise
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::normal_distribution<> noise(0.0, 0.2);  // Noise with std dev 0.2°C
 
     std::cout << "Starting PID controller simulation..." << std::endl;
     std::cout << "Target temperature: " << setpoint << " °C" << std::endl;
@@ -178,7 +175,7 @@ int main() {
 
     // Main simulation loop
     for (int i = 0; i < steps; i++) {
-        double time = i * dt;
+        auto time = i * dt;
 
         // Change setpoint during simulation
         if (time > 40 && time < 41) {
@@ -190,11 +187,11 @@ int main() {
             pid.setSetpoint(setpoint);
         }
 
-        // Add noise to measured temperature
-        double measured_temp = current_temp + noise(gen);
+        // Add noise to measured temperature (optional, currently just copy)
+        auto measured_temp = current_temp;
 
         // Calculate control signal
-        double control = pid.calculate(measured_temp, dt);
+        auto control = pid.calculate(measured_temp, dt);
 
         // Update temperature using model
         current_temp = temperatureModel(current_temp, control, dt);
@@ -214,10 +211,9 @@ int main() {
     }
 
     // Write data to CSV file
-    std::ofstream csv_file("temperature_data.csv");
-    if (csv_file.is_open()) {
+    if (std::ofstream csv_file("temperature_data.csv"); csv_file.is_open()) {
         csv_file << "Time,Temperature,Setpoint,Control_Signal\n";
-        for (size_t i = 0; i < time_points.size(); i++) {
+        for (auto i = 0u; i < time_points.size(); i++) {
             csv_file << time_points[i] << ","
                 << temperatures[i] << ","
                 << setpoints[i] << ","
