@@ -1,0 +1,10 @@
+=== Simulation Summary ===
+Initial temperature: 0
+Desired temperature: 2
+Number of steps: 20
+PID parameters: Kp=1.5, Ki=0.2, Kd=0.05
+Average error without PID: 1.29578
+Average error with PID: 1.23505
+Improvement: 4.68699%
+
+To plot graphs run: python plot_temperature.py
