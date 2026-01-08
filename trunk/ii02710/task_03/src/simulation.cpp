@@ -37,8 +37,9 @@ int main() {
     // Create PID controller
     PIDController pid(2.5, 0.5, 1.0, 0, 100);
 
-    // Set target temperature
-    double setpoint = 75.0;  // Target temperature °C
+    double setpoint;
+    std::cout << "Write SetPoint: ";
+    std::cin >> setpoint;
     pid.setSetpoint(setpoint);
 
     // Initial conditions
@@ -111,7 +112,6 @@ int main() {
         std::cerr << "Error creating CSV file!" << std::endl;
         return 1;
     }
-
     // Output statistics
     std::cout << "\n=== Simulation Statistics ===" << std::endl;
     std::cout << "Number of data points: " << time_points.size() << std::endl;
