@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(task_03_ii02820_test)
+project(testlab3_runner_ii02820)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
