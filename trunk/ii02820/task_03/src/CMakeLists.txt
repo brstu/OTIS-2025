@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(lab_3_ii02820)
+project(testlab3_runner_ii02820)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -7,18 +7,19 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Пути к исходникам
 set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 
-# ФАЙЛЫ - ДОБАВЛЕН lin_model.cpp
+# ФАЙЛЫ основной программы
 set(SRC_FILES
     ${SRC_DIR}/main.cpp
     ${SRC_DIR}/lin_model.cpp
+    ${SRC_DIR}/model_validation.cpp
 )
 
 # Основная программа
-add_executable(task_3_ii02820 ${SRC_FILES})
+add_executable(${PROJECT_NAME} ${SRC_FILES})
 include_directories(${SRC_DIR})
 
 # ----------------------------
-# ТЕСТЫ - ОСТАВЛЕНО
+# ТЕСТЫ
 # ----------------------------
 include(FetchContent)
 FetchContent_Declare(
@@ -30,24 +31,25 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-# Тестовый бинарник
-add_executable(testlab3_runner_ii02820
-    ${CMAKE_CURRENT_SOURCE_DIR}/../test/test_model.cpp
-    ${SRC_DIR}/system_tests.cpp
+# Тестовый бинарник - ДРУГОЕ ИМЯ!
+add_executable(${PROJECT_NAME}_tests
+    ${SRC_DIR}/../test/test_model.cpp
+    ${SRC_DIR}/lin_model.cpp
+    ${SRC_DIR}/model_validation.cpp
 )
 
 # Добавить include-директории для тестов
-target_include_directories(testlab3_runner_ii02820 PRIVATE
+target_include_directories(${PROJECT_NAME}_tests PRIVATE
     ${SRC_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/../test
 )
 
 # Правильное подключение Google Test
-target_link_libraries(testlab3_runner_ii02820 
+target_link_libraries(${PROJECT_NAME}_tests 
     PRIVATE 
     gtest_main 
     gtest
 )
 
 include(GoogleTest)
-gtest_discover_tests(testlab3_runner_ii02820)
+gtest_discover_tests(${PROJECT_NAME}_tests)
