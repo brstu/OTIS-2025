@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Пути к исходникам
 set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+
+# ФАЙЛЫ - ДОБАВЛЕН lin_model.cpp
 set(SRC_FILES
     ${SRC_DIR}/main.cpp
     ${SRC_DIR}/lin_model.cpp
@@ -16,13 +18,13 @@ add_executable(task_3_ii02820 ${SRC_FILES})
 include_directories(${SRC_DIR})
 
 # ----------------------------
-# GoogleTest через FetchContent
+# ТЕСТЫ - ОСТАВЛЕНО
 # ----------------------------
 include(FetchContent)
 FetchContent_Declare(
   googletest
   GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG release-1.15.0  # Исправлено: дефис вместо пробела
+  GIT_TAG release-1.15.0
 )
 FetchContent_MakeAvailable(googletest)
 
@@ -31,7 +33,7 @@ enable_testing()
 # Тестовый бинарник
 add_executable(testlab3_runner_ii02820
     ${CMAKE_CURRENT_SOURCE_DIR}/../test/test_model.cpp
-    ${SRC_DIR}/lin_model.cpp
+    ${SRC_DIR}/system_tests.cpp
 )
 
 # Добавить include-директории для тестов

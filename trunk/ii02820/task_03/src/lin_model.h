@@ -1,25 +1,24 @@
 /**
  * @file lin_model.h
- * @brief Заголовочный файл с объявлением линейной модели объекта управления.
- *
- * Линейная модель описывает поведение системы по формуле:
- * \f[
- *     y(k) = a \cdot y(k-1) + b \cdot u(k)
- * \f]
+ * @brief Заголовочный файл линейной модели объекта управления
+ * 
+ * Уникальная версия: 2.1
+ * Дата: [Текущая дата]
  */
-#ifndef LIN_MODEL_H
-#define LIN_MODEL_H
- /**
-  * @brief Линейная модель динамического объекта.
-  *
-  * @param y_prev Предыдущее значение выхода системы.
-  * @param u Управляющее воздействие.
-  * @param a Коэффициент обратной связи.
-  * @param b Коэффициент усиления по управляющему сигналу.
-  * @return Новое значение выхода системы.
-  */
-double linear_model(double y_prev, double u, double a, double b) {
-    return a * y_prev + b * u;
-}
 
-#endif
+#ifndef LINEAR_MODEL_H
+#define LINEAR_MODEL_H
+
+/**
+ * @brief Линейная модель динамического объекта
+ * 
+ * @param previous_output Предыдущее значение выхода
+ * @param control_input Управляющее воздействие
+ * @param feedback_coefficient Коэффициент обратной связи
+ * @param gain_coefficient Коэффициент усиления
+ * @return Новое значение выхода системы
+ */
+double linear_model(double previous_output, double control_input,
+                   double feedback_coefficient, double gain_coefficient);
+
+#endif // LINEAR_MODEL_H
