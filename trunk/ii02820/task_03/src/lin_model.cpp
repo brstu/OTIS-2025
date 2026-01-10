@@ -57,16 +57,17 @@ double linear_model(double previous_output, double control_input,
     // Уникальное мягкое ограничение для предотвращения числовых проблем
     const double MAX_ABS_VALUE = 1e7;  // Уникальное значение
     
-    if (current_output > MAX_ABS_VALUE) {
+    // Исправление для SonarCloud: использование init-statement
+    if (const double max_val = MAX_ABS_VALUE; current_output > max_val) {
         // Мягкое ограничение с информированием
         std::cout << "[Линейная модель] Значение ограничено сверху: " 
-                  << current_output << " -> " << MAX_ABS_VALUE << std::endl;
-        current_output = MAX_ABS_VALUE;
-    } else if (current_output < -MAX_ABS_VALUE) {
+                  << current_output << " -> " << max_val << std::endl;
+        current_output = max_val;
+    } else if (const double min_val = -MAX_ABS_VALUE; current_output < min_val) {
         // Мягкое ограничение с информированием
         std::cout << "[Линейная модель] Значение ограничено снизу: "
-                  << current_output << " -> " << -MAX_ABS_VALUE << std::endl;
-        current_output = -MAX_ABS_VALUE;
+                  << current_output << " -> " << min_val << std::endl;
+        current_output = min_val;
     }
     
     // Уникальная фича: подсчет вызовов функции
@@ -74,15 +75,15 @@ double linear_model(double previous_output, double control_input,
     function_call_counter++;
     
     // Уникальная периодическая проверка (каждые 29 вызовов)
-    if (function_call_counter % 29 == 0) {
+    if (const unsigned long counter = function_call_counter; counter % 29 == 0) {
         // Микро-коррекция для уникальности реализации
         const double MICRO_ADJUSTMENT = 1e-8;
-        current_output += MICRO_ADJUSTMENT * ((function_call_counter % 3) - 1);
+        current_output += MICRO_ADJUSTMENT * ((counter % 3) - 1);
     }
     
     // Уникальное логирование (каждые 37 вызовов)
-    if (function_call_counter % 37 == 0) {
-        std::cout << "[Линейная модель] Вызов №" << function_call_counter 
+    if (const unsigned long counter = function_call_counter; counter % 37 == 0) {
+        std::cout << "[Линейная модель] Вызов №" << counter 
                   << ": y_prev=" << previous_output
                   << ", u=" << control_input
                   << ", y_new=" << current_output << std::endl;
