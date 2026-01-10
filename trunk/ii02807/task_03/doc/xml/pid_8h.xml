@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="pid_8h" kind="file" language="C++">
+    <compoundname>pid.h</compoundname>
+    <includedby refid="lab3_8cpp" local="yes">src/lab3.cpp</includedby>
+    <includedby refid="pid_8cpp" local="yes">src/pid.cpp</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/lab3.cpp</label>
+        <link refid="lab3_8cpp"/>
+      </node>
+      <node id="3">
+        <label>src/pid.cpp</label>
+        <link refid="pid_8cpp"/>
+      </node>
+      <node id="1">
+        <label>src/pid.h</label>
+        <link refid="pid_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_p_i_d" prot="public">PID</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="class_p_i_d" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_p_i_d_1a2147e32f6e109025650c9d7271b013ee" kindref="member">PID</ref><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>K;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>T;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Td;<sp/><sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>T0;<sp/><sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>integral;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>prevError;<sp/><sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_p_i_d_1a2147e32f6e109025650c9d7271b013ee" kindref="member">PID</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>K,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>T,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Td,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>T0);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_p_i_d_1a980f21e5c28912b5c968e60c8ddfa089" kindref="member">compute</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="src/pid.h"/>
+  </compounddef>
+</doxygen>
