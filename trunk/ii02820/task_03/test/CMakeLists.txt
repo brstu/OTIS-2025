@@ -1,53 +1,56 @@
 cmake_minimum_required(VERSION 3.5)
-project(testlab3_runner_ii02820)
+project(testlab3_tests_ii02820)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Добавляем флаги coverage только для GCC/Clang (не для MSVC)
+# Флаги coverage
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
 endif()
 
+# Google Test
 include(FetchContent)
 FetchContent_Declare(
     googletest
     URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
     DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
-# For Windows: Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-# ДОБАВЬ lin_model.cpp сюда тоже!
+# Тестовый бинарник - ТОЛЬКО тесты и нужные модули БЕЗ main()
 add_executable(
     ${CMAKE_PROJECT_NAME}
     test_model.cpp
-    ../src/lin_model.cpp  # ДОБАВЛЕНО!
+    ../src/lin_model.cpp  # ТОЛЬКО lin_model
+    # НЕ добавляем model_validation.cpp если там есть main()
 )
 
-# ДОБАВИТЬ ЭТУ СЕКЦИЮ - include директории
+# Include директории
 target_include_directories(
     ${CMAKE_PROJECT_NAME}
     PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src  
+    ../src
 )
 
+# Ссылки на библиотеки
 target_link_libraries(
     ${CMAKE_PROJECT_NAME}
     PRIVATE
     gtest
-    gmock
+    gtest_main  # gtest_main предоставляет свою main()
 )
 
-# Добавляем флаги coverage только для GCC/Clang
+# Дополнительные флаги coverage
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE --coverage -g -O0)
     target_link_options(${CMAKE_PROJECT_NAME} PRIVATE --coverage)
 endif()
 
-#include(GoogleTest)
-#gtest_discover_tests(${CMAKE_PROJECT_NAME})
+# Google Test интеграция
+include(GoogleTest)
+gtest_discover_tests(${CMAKE_PROJECT_NAME})
