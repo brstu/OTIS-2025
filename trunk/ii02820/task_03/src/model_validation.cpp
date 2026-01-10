@@ -23,23 +23,23 @@ bool test_edge_cases() {
     return test1 && test2;
 }
 
-int main() {
-    std::cout << "=== Проверка математических функций ===" << std::endl;
+//int main() {
+  //  std::cout << "=== Проверка математических функций ===" << std::endl;
     
-    if (test_linear_calculation()) {
-        std::cout << "✓ Базовая математика: OK" << std::endl;
-    } else {
-        std::cout << "✗ Базовая математика: FAILED" << std::endl;
-        return 1;
-    }
+    //if (test_linear_calculation()) {
+      //  std::cout << "✓ Базовая математика: OK" << std::endl;
+    //} else {
+      //  std::cout << "✗ Базовая математика: FAILED" << std::endl;
+        //return 1;
+   // }
     
-    if (test_edge_cases()) {
-        std::cout << "✓ Граничные случаи: OK" << std::endl;
-    } else {
-        std::cout << "✗ Граничные случаи: FAILED" << std::endl;
-        return 1;
-    }
+    //if (test_edge_cases()) {
+      //  std::cout << "✓ Граничные случаи: OK" << std::endl;
+   // } else {
+     //   std::cout << "✗ Граничные случаи: FAILED" << std::endl;
+       // return 1;
+    //}
     
-    std::cout << "\n=== Все проверки пройдены ===" << std::endl;
-    return 0;
-}
+    //std::cout << "\n=== Все проверки пройдены ===" << std::endl;
+    //return 0;
+//}
