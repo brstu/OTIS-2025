@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.15.0" xml:lang="en-US">
+  <compound refid="class_p_i_d_controller" kind="class"><name>PIDController</name>
+    <member refid="class_p_i_d_controller_1a942359208f9726e38f9f90b7cd201752" kind="variable"><name>K</name></member>
+    <member refid="class_p_i_d_controller_1a1ade2f500183abc89e261017f5bf197c" kind="variable"><name>Ti</name></member>
+    <member refid="class_p_i_d_controller_1aa98955cf3d687a47a549c08df2cbd5e2" kind="variable"><name>Td</name></member>
+    <member refid="class_p_i_d_controller_1aa565895fec3810d9699cfac15b116e13" kind="variable"><name>T</name></member>
+    <member refid="class_p_i_d_controller_1aa11e9fe0c2933f67cbe41c084d320b6a" kind="variable"><name>q0</name></member>
+    <member refid="class_p_i_d_controller_1af534a1a7c82691b91cb46ab97931ebc1" kind="variable"><name>q1</name></member>
+    <member refid="class_p_i_d_controller_1a81f9a883343ea5afd87ea095a1631ee0" kind="variable"><name>q2</name></member>
+    <member refid="class_p_i_d_controller_1a8b0e2c8bb2799cfb13a642412c395bab" kind="variable"><name>u_prev</name></member>
+    <member refid="class_p_i_d_controller_1aaeb23bac8e2ebbaf834c8727ad5ef54d" kind="variable"><name>e_prev1</name></member>
+    <member refid="class_p_i_d_controller_1a09a85c0dadbffee6be2ca23fda7f7bf7" kind="variable"><name>e_prev2</name></member>
+    <member refid="class_p_i_d_controller_1a2e1a0dc1508115d57792e7e6ac0f5e70" kind="function"><name>calculateCoefficients</name></member>
+    <member refid="class_p_i_d_controller_1a8abdcd87030facec712a9fd102999f71" kind="function"><name>PIDController</name></member>
+    <member refid="class_p_i_d_controller_1a64a55d7634ebed47fdd75da1195ad019" kind="function"><name>calculate</name></member>
+    <member refid="class_p_i_d_controller_1ab6adfbffa30414f0a83b95ba999a2fea" kind="function"><name>reset</name></member>
+    <member refid="class_p_i_d_controller_1ada2c09c46c8a05464785039343af4b8d" kind="function"><name>setParameters</name></member>
+    <member refid="class_p_i_d_controller_1a07a99a69cb2f6d4970e1bdceb3fe425f" kind="function"><name>getParameters</name></member>
+  </compound>
+  <compound refid="struct_simulation_data" kind="struct"><name>SimulationData</name>
+    <member refid="struct_simulation_data_1a785cffa2a3b36185d091e6a3f0f51c8b" kind="variable"><name>time</name></member>
+    <member refid="struct_simulation_data_1a311d02808d2aff70064344a5356518d1" kind="variable"><name>setpoint</name></member>
+    <member refid="struct_simulation_data_1ae16850b02c1515af5decec21f9096f14" kind="variable"><name>output</name></member>
+    <member refid="struct_simulation_data_1a0eef1a82f8d1fb4afd225dd2233fa237" kind="variable"><name>control</name></member>
+    <member refid="struct_simulation_data_1ab76a041adb1259ffe7432de0c02b6167" kind="variable"><name>error</name></member>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1ac38492aee1004d7a07dd53eb8567094e" kind="function"><name>simulateSystem</name></member>
+    <member refid="main_8cpp_1a3a396e89d3bc1fbcf323f516967728ee" kind="function"><name>stepSetpoint</name></member>
+    <member refid="main_8cpp_1a7131f966c81e3432583b8c63ec560e03" kind="function"><name>sineSetpoint</name></member>
+    <member refid="main_8cpp_1a3fe68688b8529c10bd59787f9d4d83b4" kind="function"><name>saveToCSV</name></member>
+    <member refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="model_8cpp" kind="file"><name>model.cpp</name>
+    <member refid="model_8cpp_1ab6ca6461701d27dc22820dc99750d7ea" kind="variable"><name>K_obj</name></member>
+    <member refid="model_8cpp_1a74b91aff837161ca38027863501796da" kind="variable"><name>T_obj</name></member>
+    <member refid="model_8cpp_1ae1e55c477a79cf61b44482ef6a84cf8d" kind="variable"><name>y_prev</name></member>
+    <member refid="model_8cpp_1a3c4bedd13a507af3d2053686e6505752" kind="function"><name>modelInit</name></member>
+    <member refid="model_8cpp_1a2e4fa7fb9530b392320f152beefe5fcb" kind="function"><name>modelUpdate</name></member>
+    <member refid="model_8cpp_1ab04aa9819a363ae3c1adc31299dedf8f" kind="function"><name>modelReset</name></member>
+    <member refid="model_8cpp_1a0bb67b3cc07d22788cc40fed30bb9aa3" kind="function"><name>modelSetParameters</name></member>
+  </compound>
+  <compound refid="model_8h" kind="file"><name>model.h</name>
+    <member refid="model_8h_1ab565a0282e640b5613fadfe0f0858acf" kind="function"><name>modelInit</name></member>
+    <member refid="model_8h_1a2e4fa7fb9530b392320f152beefe5fcb" kind="function"><name>modelUpdate</name></member>
+    <member refid="model_8h_1ab04aa9819a363ae3c1adc31299dedf8f" kind="function"><name>modelReset</name></member>
+    <member refid="model_8h_1ac90aa0fa2f02b32e77a4cc6164fe0b62" kind="function"><name>modelSetParameters</name></member>
+  </compound>
+  <compound refid="pid__controller_8cpp" kind="file"><name>pid_controller.cpp</name>
+  </compound>
+  <compound refid="pid__controller_8h" kind="file"><name>pid_controller.h</name>
+  </compound>
+  <compound refid="pid__controller__test_8cpp" kind="file"><name>pid_controller_test.cpp</name>
+    <member refid="pid__controller__test_8cpp_1a3267af7e831123351a656ed8585226b2" kind="function"><name>TEST</name></member>
+    <member refid="pid__controller__test_8cpp_1a050dc9863cb53eb3d21b6bbfd0320835" kind="function"><name>TEST</name></member>
+    <member refid="pid__controller__test_8cpp_1a956c0751ea470883a82c196fefa90efc" kind="function"><name>TEST</name></member>
+    <member refid="pid__controller__test_8cpp_1a738ef8c13447fe86b213de260b5f8610" kind="function"><name>TEST</name></member>
+    <member refid="pid__controller__test_8cpp_1afefed42ede2b5e427c66fad3d8505b32" kind="function"><name>TEST</name></member>
+    <member refid="pid__controller__test_8cpp_1a41587359bb395fe2a28e8f6ef37d30d0" kind="function"><name>TEST</name></member>
+    <member refid="pid__controller__test_8cpp_1ade141afd4e3819ecc2120f725a7f0cb6" kind="function"><name>TEST</name></member>
+    <member refid="pid__controller__test_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="dir_13e138d54eb8818da29c3992edef070a" kind="dir"><name>test</name>
+  </compound>
+</doxygenindex>
