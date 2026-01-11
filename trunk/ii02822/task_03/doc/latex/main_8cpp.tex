@@ -1,0 +1,61 @@
+\doxysection{src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include "{}pid\+\_\+controller.\+h"{}}\newline
+{\ttfamily \#include "{}model.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_simulation_data}{Simulation\+Data}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \mbox{\hyperlink{struct_simulation_data}{Simulation\+Data}} $>$ \mbox{\hyperlink{main_8cpp_ac38492aee1004d7a07dd53eb8567094e}{simulate\+System}} (\mbox{\hyperlink{class_p_i_d_controller}{PIDController}} \&pid, double(\texorpdfstring{$\ast$}{*}setpoint)(double), double simulation\+\_\+time, double dt)
+\item 
+double \mbox{\hyperlink{main_8cpp_a3a396e89d3bc1fbcf323f516967728ee}{step\+Setpoint}} (double t)
+\item 
+double \mbox{\hyperlink{main_8cpp_a7131f966c81e3432583b8c63ec560e03}{sine\+Setpoint}} (double t)
+\item 
+void \mbox{\hyperlink{main_8cpp_a3fe68688b8529c10bd59787f9d4d83b4}{save\+To\+CSV}} (const string \&filename, const vector$<$ \mbox{\hyperlink{struct_simulation_data}{Simulation\+Data}} $>$ \&data)
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{main_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a3fe68688b8529c10bd59787f9d4d83b4}\index{main.cpp@{main.cpp}!saveToCSV@{saveToCSV}}
+\index{saveToCSV@{saveToCSV}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{saveToCSV()}{saveToCSV()}}
+{\footnotesize\ttfamily \label{main_8cpp_a3fe68688b8529c10bd59787f9d4d83b4} 
+void save\+To\+CSV (\begin{DoxyParamCaption}\item[{const string \&}]{filename}{, }\item[{const vector$<$ \mbox{\hyperlink{struct_simulation_data}{Simulation\+Data}} $>$ \&}]{data}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_ac38492aee1004d7a07dd53eb8567094e}\index{main.cpp@{main.cpp}!simulateSystem@{simulateSystem}}
+\index{simulateSystem@{simulateSystem}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{simulateSystem()}{simulateSystem()}}
+{\footnotesize\ttfamily \label{main_8cpp_ac38492aee1004d7a07dd53eb8567094e} 
+vector$<$ \mbox{\hyperlink{struct_simulation_data}{Simulation\+Data}} $>$ simulate\+System (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_p_i_d_controller}{PIDController}} \&}]{pid}{, }\item[{double(\texorpdfstring{$\ast$}{*}}]{setpoint~}{)(double), }\item[{double}]{simulation\+\_\+time}{, }\item[{double}]{dt}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a7131f966c81e3432583b8c63ec560e03}\index{main.cpp@{main.cpp}!sineSetpoint@{sineSetpoint}}
+\index{sineSetpoint@{sineSetpoint}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{sineSetpoint()}{sineSetpoint()}}
+{\footnotesize\ttfamily \label{main_8cpp_a7131f966c81e3432583b8c63ec560e03} 
+double sine\+Setpoint (\begin{DoxyParamCaption}\item[{double}]{t}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a3a396e89d3bc1fbcf323f516967728ee}\index{main.cpp@{main.cpp}!stepSetpoint@{stepSetpoint}}
+\index{stepSetpoint@{stepSetpoint}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{stepSetpoint()}{stepSetpoint()}}
+{\footnotesize\ttfamily \label{main_8cpp_a3a396e89d3bc1fbcf323f516967728ee} 
+double step\+Setpoint (\begin{DoxyParamCaption}\item[{double}]{t}{}\end{DoxyParamCaption})}
+
