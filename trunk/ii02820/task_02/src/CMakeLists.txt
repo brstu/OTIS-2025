@@ -1,6 +1,9 @@
-# Создать библиотеку из вашего кода
-add_library(model_lib STATIC model.cpp model.h)
+cmake_minimum_required(VERSION 3.15)
 
-# Создать исполняемый файл для основной программы
-add_executable(task_02_program main.cpp)
-target_link_libraries(task_02_program model_lib)
+# Только библиотека
+add_library(model_lib STATIC model.cpp)
+target_include_directories(model_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+# Основная программа
+add_executable(task_02_main main.cpp)
+target_link_libraries(task_02_main model_lib)
