@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.15.0" xml:lang="en-US">
+  <compound refid="class_p_i_d" kind="class"><name>PID</name>
+    <member refid="class_p_i_d_1a0b7cf5ad8d3913f6dc570d0917fa1fd3" kind="variable"><name>K</name></member>
+    <member refid="class_p_i_d_1acf6dff362a7dd74e543ec9c9ec60a3ab" kind="variable"><name>T</name></member>
+    <member refid="class_p_i_d_1af69630823959fdbc57637cbc7e69c9c7" kind="variable"><name>T0</name></member>
+    <member refid="class_p_i_d_1a6d3306e34c941e0a0858c7d9844ad34a" kind="variable"><name>Td</name></member>
+    <member refid="class_p_i_d_1ac6f4a7e29f84d9eb60e7f672a3665a65" kind="variable"><name>q0</name></member>
+    <member refid="class_p_i_d_1a84c6ee207e6449ee6082094f697f701a" kind="variable"><name>q1</name></member>
+    <member refid="class_p_i_d_1addf8b9728e070dc19ddbc5e80b44c550" kind="variable"><name>q2</name></member>
+    <member refid="class_p_i_d_1ab7d24c057c566a8128a654f933c2610f" kind="variable"><name>u_prev</name></member>
+    <member refid="class_p_i_d_1ad89aaeb94de92257732cd86b7594b817" kind="variable"><name>e_prev_1</name></member>
+    <member refid="class_p_i_d_1a57da74f7f370ab798aa8f20da78bbf87" kind="variable"><name>e_prev_2</name></member>
+    <member refid="class_p_i_d_1a932183d42127f94186fee86a97a5aa1d" kind="variable"><name>valid</name></member>
+    <member refid="class_p_i_d_1a4e3e78aeba86e842d0dc1b66d489f55f" kind="function"><name>PID</name></member>
+    <member refid="class_p_i_d_1a18ad640cecad68bc30c3956a8fb4feff" kind="function"><name>u_calc</name></member>
+    <member refid="class_p_i_d_1a9ba3d7e1eb718cb419f547dacf3f31ed" kind="function"><name>invalidate</name></member>
+    <member refid="class_p_i_d_1acf00e3c3f9b79aab9e548fe67bc06be2" kind="function"><name>~PID</name></member>
+    <member refid="class_p_i_d_1a4e3e78aeba86e842d0dc1b66d489f55f" kind="function"><name>PID</name></member>
+    <member refid="class_p_i_d_1a18ad640cecad68bc30c3956a8fb4feff" kind="function"><name>u_calc</name></member>
+    <member refid="class_p_i_d_1a9ba3d7e1eb718cb419f547dacf3f31ed" kind="function"><name>invalidate</name></member>
+    <member refid="class_p_i_d_1acf00e3c3f9b79aab9e548fe67bc06be2" kind="function"><name>~PID</name></member>
+  </compound>
+  <compound refid="lin__model_8cpp" kind="file"><name>lin_model.cpp</name>
+    <member refid="lin__model_8cpp_1a788455129672084c2e6a087ca7b9c71a" kind="define"><name>PID_H</name></member>
+  </compound>
+  <compound refid="lin__model_8h" kind="file"><name>lin_model.h</name>
+    <member refid="lin__model_8h_1a3a4dd6c50779f1727c00ad5357bfb367" kind="function"><name>linear_model</name></member>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1ad8ed36bedd369991aa6d95e9ebc039f2" kind="function"><name>validate</name></member>
+    <member refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="pid__controller_8cpp" kind="file"><name>pid_controller.cpp</name>
+  </compound>
+  <compound refid="pid__controller_8h" kind="file"><name>pid_controller.h</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>
