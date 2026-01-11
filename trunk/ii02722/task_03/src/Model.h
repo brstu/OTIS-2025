@@ -66,7 +66,7 @@ public:
 * \params Qs q struct with value of qs
 * Const_& c struct with value of all constants
 */
-void PID_model(const Qs& q, const Const_& c,const Params &p);
+void PID_model(const Qs& q, const Const_& c,const Model::Params &p);
 /*
 * \brief Function for calculating qs
 * \params Qs q struct with value of qs
