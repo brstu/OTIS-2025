@@ -36,7 +36,8 @@ void PID_model(const Qs& q, const Const_& c) {
 	std::cin >> t;
 	std::cout << "Enter amout of iterations: " << std::endl;
 	std::cin >> n;
-	Model m(s, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, t, 300, false);
+	Params p(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+	Model m(s, t, false,p);
 	for (int i = 0; i < n; i++) {
 		std::cout << "Iteration " << i << std::endl;
 		m.find_e();
