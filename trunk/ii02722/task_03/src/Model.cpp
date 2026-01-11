@@ -26,7 +26,7 @@ void Model::lin(const Const_& c) {
 	y = y_next;
 
 }
-void PID_model(const Qs& q, const Const_& c) {
+void PID_model(const Qs& q, const Const_& c,Params &p) {
 	double s;
 	double t;
 	double n;
@@ -36,7 +36,6 @@ void PID_model(const Qs& q, const Const_& c) {
 	std::cin >> t;
 	std::cout << "Enter amout of iterations: " << std::endl;
 	std::cin >> n;
-	Params p(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 	Model m(s, t, false,p);
 	for (int i = 0; i < n; i++) {
 		std::cout << "Iteration " << i << std::endl;
