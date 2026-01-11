@@ -40,7 +40,7 @@ public:
 *
 */
 	Model(double y_start, double target_,bool condition_,const Params &p)
-		:y(y_start), u(p.u),u_d(p.u_d), y_next(p.y_next), u_next(p.u_next), e(p.e), e_past(p.e_past), e_past2(p.e_past2), target(target_), condition(condition_)
+		:y(y_start), target(target_), condition(condition_), u(p.u),u_d(p.u_d), y_next(p.y_next), u_next(p.u_next), e(p.e), e_past(p.e_past), e_past2(p.e_past2)
 	{}
 	/*
 	* \brief Function for calculating Error(e)
