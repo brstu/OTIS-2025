@@ -1,20 +1,17 @@
-# Создать исполняемый файл для тестов
-add_executable(task_02_test test_model.cpp)
+# Только здесь создаем testlab3_runner_ii02820
+add_executable(testlab3_runner_ii02820 test_model.cpp)
 
-# Связать с библиотекой и GoogleTest
-target_link_libraries(task_02_test
+target_link_libraries(testlab3_runner_ii02820
     PRIVATE
-        model_lib
-        gtest
-        gtest_main
+    model_lib
+    gtest
+    gtest_main
 )
 
-# Добавить директории с заголовками
-target_include_directories(task_02_test
+target_include_directories(testlab3_runner_ii02820
     PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/../src
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src
 )
 
-# Добавить тест в CTest
 include(GoogleTest)
-gtest_discover_tests(task_02_test)
+gtest_discover_tests(testlab3_runner_ii02820)
