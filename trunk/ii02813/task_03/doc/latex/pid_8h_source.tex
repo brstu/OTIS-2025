@@ -1,0 +1,36 @@
+\doxysection{pid.\+h}
+\hypertarget{pid_8h_source}{}\label{pid_8h_source}\index{src/pid.h@{src/pid.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structpid__coeffs_a2f11e45dce8855ca4bae1b7548f0c90c}{pid\_coeffs}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structpid__coeffs_ab9640fd571352c8a8d47d03fc9a0176c}{K01}};\ \ }
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structpid__coeffs_a620007cb1fd5bb23f5e6b8cdf8d35d05}{T01}};\ \ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structpid__coeffs_ac21c11ead4ebff265976e964408fe53b}{Td01}};\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structpid__coeffs_a2b46af996bc29de09da1538a2d7a28b1}{T001}};\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{structpid__coeffs_a2f11e45dce8855ca4bae1b7548f0c90c}{pid\_coeffs}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{structpid__coeffs_ab9640fd571352c8a8d47d03fc9a0176c}{K01}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structpid__coeffs_a620007cb1fd5bb23f5e6b8cdf8d35d05}{T01}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structpid__coeffs_ac21c11ead4ebff265976e964408fe53b}{Td01}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structpid__coeffs_a2b46af996bc29de09da1538a2d7a28b1}{T001}});}
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classpid_a6e6830ac877f338bd77a51e22a449492}{pid}}}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{structpid__coeffs}{pid\_coeffs}}\ coeffs;\ \ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{double}\ q001;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{double}\ q101;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{double}\ q201;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{double}\ u01\_prev;\ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{double}\ e01\_prev;\ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{double}\ e01\_prev\_prev;\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classpid_a6e6830ac877f338bd77a51e22a449492}{pid}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structpid__coeffs}{pid\_coeffs}}\&\ coeffs,\ \textcolor{keywordtype}{double}\ \_u01,\ \textcolor{keywordtype}{double}\ \_e01,\ \textcolor{keywordtype}{double}\ \_\_e01);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classpid_a78e27a94537ccbfd3666f1944a5d8a43}{process}}(\textcolor{keywordtype}{double}\ e01);}
+\DoxyCodeLine{00055\ \};}
+
+\end{DoxyCode}
