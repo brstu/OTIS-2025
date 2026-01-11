@@ -1,0 +1,320 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_p_i_d_controller" kind="class" language="C++" prot="public">
+    <compoundname>PIDController</compoundname>
+    <includes refid="pid__controller_8h" local="no">pid_controller.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_p_i_d_controller_1a942359208f9726e38f9f90b7cd201752" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::K</definition>
+        <argsstring></argsstring>
+        <name>K</name>
+        <qualifiedname>PIDController::K</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="6" column="12" bodyfile="src/pid_controller.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_controller_1a1ade2f500183abc89e261017f5bf197c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::Ti</definition>
+        <argsstring></argsstring>
+        <name>Ti</name>
+        <qualifiedname>PIDController::Ti</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="7" column="12" bodyfile="src/pid_controller.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_controller_1aa98955cf3d687a47a549c08df2cbd5e2" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::Td</definition>
+        <argsstring></argsstring>
+        <name>Td</name>
+        <qualifiedname>PIDController::Td</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="8" column="12" bodyfile="src/pid_controller.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_controller_1aa565895fec3810d9699cfac15b116e13" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::T</definition>
+        <argsstring></argsstring>
+        <name>T</name>
+        <qualifiedname>PIDController::T</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="9" column="12" bodyfile="src/pid_controller.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_controller_1aa11e9fe0c2933f67cbe41c084d320b6a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::q0</definition>
+        <argsstring></argsstring>
+        <name>q0</name>
+        <qualifiedname>PIDController::q0</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="10" column="12" bodyfile="src/pid_controller.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_controller_1af534a1a7c82691b91cb46ab97931ebc1" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::q1</definition>
+        <argsstring></argsstring>
+        <name>q1</name>
+        <qualifiedname>PIDController::q1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="11" column="12" bodyfile="src/pid_controller.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_controller_1a81f9a883343ea5afd87ea095a1631ee0" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::q2</definition>
+        <argsstring></argsstring>
+        <name>q2</name>
+        <qualifiedname>PIDController::q2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="12" column="12" bodyfile="src/pid_controller.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_controller_1a8b0e2c8bb2799cfb13a642412c395bab" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::u_prev</definition>
+        <argsstring></argsstring>
+        <name>u_prev</name>
+        <qualifiedname>PIDController::u_prev</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="13" column="12" bodyfile="src/pid_controller.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_controller_1aaeb23bac8e2ebbaf834c8727ad5ef54d" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::e_prev1</definition>
+        <argsstring></argsstring>
+        <name>e_prev1</name>
+        <qualifiedname>PIDController::e_prev1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="14" column="12" bodyfile="src/pid_controller.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_controller_1a09a85c0dadbffee6be2ca23fda7f7bf7" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PIDController::e_prev2</definition>
+        <argsstring></argsstring>
+        <name>e_prev2</name>
+        <qualifiedname>PIDController::e_prev2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="15" column="12" bodyfile="src/pid_controller.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_p_i_d_controller_1a2e1a0dc1508115d57792e7e6ac0f5e70" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PIDController::calculateCoefficients</definition>
+        <argsstring>()</argsstring>
+        <name>calculateCoefficients</name>
+        <qualifiedname>PIDController::calculateCoefficients</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="17" column="10" bodyfile="src/pid_controller.cpp" bodystart="10" bodyend="24"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_p_i_d_controller_1a8abdcd87030facec712a9fd102999f71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PIDController::PIDController</definition>
+        <argsstring>(double K=1.0, double Ti=0.0, double Td=0.0, double T=0.01)</argsstring>
+        <name>PIDController</name>
+        <qualifiedname>PIDController::PIDController</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>K</declname>
+          <defval>1.0</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Ti</declname>
+          <defval>0.0</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Td</declname>
+          <defval>0.0</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>T</declname>
+          <defval>0.01</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="20" column="5" bodyfile="src/pid_controller.cpp" bodystart="5" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_controller_1a64a55d7634ebed47fdd75da1195ad019" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PIDController::calculate</definition>
+        <argsstring>(double setpoint, double current_value)</argsstring>
+        <name>calculate</name>
+        <qualifiedname>PIDController::calculate</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>setpoint</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>current_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="21" column="12" bodyfile="src/pid_controller.cpp" bodystart="26" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_controller_1ab6adfbffa30414f0a83b95ba999a2fea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PIDController::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>PIDController::reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="22" column="10" bodyfile="src/pid_controller.cpp" bodystart="37" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_controller_1ada2c09c46c8a05464785039343af4b8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PIDController::setParameters</definition>
+        <argsstring>(double K, double Ti, double Td, double T)</argsstring>
+        <name>setParameters</name>
+        <qualifiedname>PIDController::setParameters</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>K</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Ti</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Td</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>T</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="23" column="10" bodyfile="src/pid_controller.cpp" bodystart="43" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_controller_1a07a99a69cb2f6d4970e1bdceb3fe425f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PIDController::getParameters</definition>
+        <argsstring>(double &amp;K, double &amp;Ti, double &amp;Td, double &amp;T) const</argsstring>
+        <name>getParameters</name>
+        <qualifiedname>PIDController::getParameters</qualifiedname>
+        <param>
+          <type>double &amp;</type>
+          <declname>K</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>Ti</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>Td</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>T</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="24" column="10" bodyfile="src/pid_controller.cpp" bodystart="52" bodyend="57"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/pid_controller.h" line="4" column="1" bodyfile="src/pid_controller.h" bodystart="4" bodyend="25"/>
+    <listofallmembers>
+      <member refid="class_p_i_d_controller_1a64a55d7634ebed47fdd75da1195ad019" prot="public" virt="non-virtual"><scope>PIDController</scope><name>calculate</name></member>
+      <member refid="class_p_i_d_controller_1a2e1a0dc1508115d57792e7e6ac0f5e70" prot="private" virt="non-virtual"><scope>PIDController</scope><name>calculateCoefficients</name></member>
+      <member refid="class_p_i_d_controller_1aaeb23bac8e2ebbaf834c8727ad5ef54d" prot="private" virt="non-virtual"><scope>PIDController</scope><name>e_prev1</name></member>
+      <member refid="class_p_i_d_controller_1a09a85c0dadbffee6be2ca23fda7f7bf7" prot="private" virt="non-virtual"><scope>PIDController</scope><name>e_prev2</name></member>
+      <member refid="class_p_i_d_controller_1a07a99a69cb2f6d4970e1bdceb3fe425f" prot="public" virt="non-virtual"><scope>PIDController</scope><name>getParameters</name></member>
+      <member refid="class_p_i_d_controller_1a942359208f9726e38f9f90b7cd201752" prot="private" virt="non-virtual"><scope>PIDController</scope><name>K</name></member>
+      <member refid="class_p_i_d_controller_1a8abdcd87030facec712a9fd102999f71" prot="public" virt="non-virtual"><scope>PIDController</scope><name>PIDController</name></member>
+      <member refid="class_p_i_d_controller_1aa11e9fe0c2933f67cbe41c084d320b6a" prot="private" virt="non-virtual"><scope>PIDController</scope><name>q0</name></member>
+      <member refid="class_p_i_d_controller_1af534a1a7c82691b91cb46ab97931ebc1" prot="private" virt="non-virtual"><scope>PIDController</scope><name>q1</name></member>
+      <member refid="class_p_i_d_controller_1a81f9a883343ea5afd87ea095a1631ee0" prot="private" virt="non-virtual"><scope>PIDController</scope><name>q2</name></member>
+      <member refid="class_p_i_d_controller_1ab6adfbffa30414f0a83b95ba999a2fea" prot="public" virt="non-virtual"><scope>PIDController</scope><name>reset</name></member>
+      <member refid="class_p_i_d_controller_1ada2c09c46c8a05464785039343af4b8d" prot="public" virt="non-virtual"><scope>PIDController</scope><name>setParameters</name></member>
+      <member refid="class_p_i_d_controller_1aa565895fec3810d9699cfac15b116e13" prot="private" virt="non-virtual"><scope>PIDController</scope><name>T</name></member>
+      <member refid="class_p_i_d_controller_1aa98955cf3d687a47a549c08df2cbd5e2" prot="private" virt="non-virtual"><scope>PIDController</scope><name>Td</name></member>
+      <member refid="class_p_i_d_controller_1a1ade2f500183abc89e261017f5bf197c" prot="private" virt="non-virtual"><scope>PIDController</scope><name>Ti</name></member>
+      <member refid="class_p_i_d_controller_1a8b0e2c8bb2799cfb13a642412c395bab" prot="private" virt="non-virtual"><scope>PIDController</scope><name>u_prev</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
