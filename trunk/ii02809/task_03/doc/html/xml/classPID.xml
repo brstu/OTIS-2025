@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPID" kind="class" language="C++" prot="public">
+    <compoundname>PID</compoundname>
+    <includes refid="functions_8h" local="no">functions.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPID_1ac6f4a7e29f84d9eb60e7f672a3665a65" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q0</definition>
+        <argsstring></argsstring>
+        <name>q0</name>
+        <qualifiedname>PID::q0</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="functions.h" line="48" column="12" bodyfile="functions.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID_1a84c6ee207e6449ee6082094f697f701a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q1</definition>
+        <argsstring></argsstring>
+        <name>q1</name>
+        <qualifiedname>PID::q1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="functions.h" line="48" column="15" bodyfile="functions.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID_1addf8b9728e070dc19ddbc5e80b44c550" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q2</definition>
+        <argsstring></argsstring>
+        <name>q2</name>
+        <qualifiedname>PID::q2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="functions.h" line="48" column="18" bodyfile="functions.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID_1a1cd8de8a3d1545885b602742d6ada65c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::e_prev</definition>
+        <argsstring></argsstring>
+        <name>e_prev</name>
+        <qualifiedname>PID::e_prev</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="functions.h" line="49" column="12" bodyfile="functions.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID_1af5539d613fcb09081d26ede79d6ecae6" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::e_prev2</definition>
+        <argsstring></argsstring>
+        <name>e_prev2</name>
+        <qualifiedname>PID::e_prev2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="functions.h" line="49" column="19" bodyfile="functions.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID_1ab7d24c057c566a8128a654f933c2610f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::u_prev</definition>
+        <argsstring></argsstring>
+        <name>u_prev</name>
+        <qualifiedname>PID::u_prev</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="functions.h" line="50" column="12" bodyfile="functions.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPID_1ae116b856a05d5a17e94a8c8fa6228949" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PID::PID</definition>
+        <argsstring>(double K, double Ti, double Td, double To)</argsstring>
+        <name>PID</name>
+        <qualifiedname>PID::PID</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>K</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Ti</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Td</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>To</declname>
+        </param>
+        <briefdescription>
+<para>Constructor to initialize <ref refid="classPID" kindref="compound">PID</ref> parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Proportional gain. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Ti</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integration time constant. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Td</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Differentiation time constant. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>To</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sampling time. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="functions.h" line="38" column="5" bodyfile="functions.cpp" bodystart="12" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classPID_1a980f21e5c28912b5c968e60c8ddfa089" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PID::compute</definition>
+        <argsstring>(double e)</argsstring>
+        <name>compute</name>
+        <qualifiedname>PID::compute</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Computes the control output u(k) based on error e(k). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current error. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Control output u(k). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="functions.h" line="45" column="12" bodyfile="functions.cpp" bodystart="21" bodyend="28"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="classPID" kindref="compound">PID</ref> controller class for discrete <ref refid="classPID" kindref="compound">PID</ref> regulation. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="functions.h" line="29" column="1" bodyfile="functions.h" bodystart="29" bodyend="51"/>
+    <listofallmembers>
+      <member refid="classPID_1a980f21e5c28912b5c968e60c8ddfa089" prot="public" virt="non-virtual"><scope>PID</scope><name>compute</name></member>
+      <member refid="classPID_1a1cd8de8a3d1545885b602742d6ada65c" prot="private" virt="non-virtual"><scope>PID</scope><name>e_prev</name></member>
+      <member refid="classPID_1af5539d613fcb09081d26ede79d6ecae6" prot="private" virt="non-virtual"><scope>PID</scope><name>e_prev2</name></member>
+      <member refid="classPID_1ae116b856a05d5a17e94a8c8fa6228949" prot="public" virt="non-virtual"><scope>PID</scope><name>PID</name></member>
+      <member refid="classPID_1ac6f4a7e29f84d9eb60e7f672a3665a65" prot="private" virt="non-virtual"><scope>PID</scope><name>q0</name></member>
+      <member refid="classPID_1a84c6ee207e6449ee6082094f697f701a" prot="private" virt="non-virtual"><scope>PID</scope><name>q1</name></member>
+      <member refid="classPID_1addf8b9728e070dc19ddbc5e80b44c550" prot="private" virt="non-virtual"><scope>PID</scope><name>q2</name></member>
+      <member refid="classPID_1ab7d24c057c566a8128a654f933c2610f" prot="private" virt="non-virtual"><scope>PID</scope><name>u_prev</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

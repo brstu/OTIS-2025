@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="classPID" kind="class"><name>PID</name>
+    <member refid="classPID_1ac6f4a7e29f84d9eb60e7f672a3665a65" kind="variable"><name>q0</name></member>
+    <member refid="classPID_1a84c6ee207e6449ee6082094f697f701a" kind="variable"><name>q1</name></member>
+    <member refid="classPID_1addf8b9728e070dc19ddbc5e80b44c550" kind="variable"><name>q2</name></member>
+    <member refid="classPID_1a1cd8de8a3d1545885b602742d6ada65c" kind="variable"><name>e_prev</name></member>
+    <member refid="classPID_1af5539d613fcb09081d26ede79d6ecae6" kind="variable"><name>e_prev2</name></member>
+    <member refid="classPID_1ab7d24c057c566a8128a654f933c2610f" kind="variable"><name>u_prev</name></member>
+    <member refid="classPID_1ae116b856a05d5a17e94a8c8fa6228949" kind="function"><name>PID</name></member>
+    <member refid="classPID_1a980f21e5c28912b5c968e60c8ddfa089" kind="function"><name>compute</name></member>
+  </compound>
+  <compound refid="functions_8cpp" kind="file"><name>functions.cpp</name>
+    <member refid="functions_8cpp_1a82cf4dbd2f60c32e470774b41c7f7ad7" kind="function"><name>linear</name></member>
+    <member refid="functions_8cpp_1a431f59bed8809b9d6486bd8eabeff383" kind="function"><name>nonlinear</name></member>
+  </compound>
+  <compound refid="functions_8h" kind="file"><name>functions.h</name>
+    <member refid="functions_8h_1a82cf4dbd2f60c32e470774b41c7f7ad7" kind="function"><name>linear</name></member>
+    <member refid="functions_8h_1a431f59bed8809b9d6486bd8eabeff383" kind="function"><name>nonlinear</name></member>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+</doxygenindex>
