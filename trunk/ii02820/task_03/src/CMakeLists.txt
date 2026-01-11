@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # ФАЙЛЫ основной программы
 add_executable(${PROJECT_NAME}
     main.cpp
-    lin_model.cpp
+    model.cpp
     model_validation.cpp
 )
 
