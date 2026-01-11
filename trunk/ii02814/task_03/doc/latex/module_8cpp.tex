@@ -1,0 +1,178 @@
+\doxysection{D\+:/\+OTIS/\+OTIS-\/2025/trunk/ii02814/task\+\_\+03/src/module.cpp File Reference}
+\hypertarget{module_8cpp}{}\label{module_8cpp}\index{D:/OTIS/OTIS-\/2025/trunk/ii02814/task\_03/src/module.cpp@{D:/OTIS/OTIS-\/2025/trunk/ii02814/task\_03/src/module.cpp}}
+
+
+Реализация функций ПИД-\/регулятора и модели объекта  
+
+
+{\ttfamily \#include "{}module.\+h"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{module_8cpp_a827655d27cff6904006c0d8776e48235}{calculate\+Pid\+Coefficients}} (double K, double T, double Td, double T0, double \&q0, double \&q1, double \&q2)
+\begin{DoxyCompactList}\small\item\em Расчет коэффициентов ПИД-\/регулятора для дискретной формы \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{module_8cpp_a25dd5396e96a7e20add9f351b762cbc4}{calculate\+Control}} (const \mbox{\hyperlink{struct_control_params}{Control\+Params}} \&params)
+\begin{DoxyCompactList}\small\item\em Расчет управляющего воздействия ПИД-\/регулятором \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{module_8cpp_a622fee89f0094b54cbc31cbc3de3e4d7}{apply\+Control\+Limits}} (double u)
+\begin{DoxyCompactList}\small\item\em Применение ограничений к управляющему воздействию \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{module_8cpp_a460df141e98805c675c3147587b703fe}{calculate\+Nonlinear\+Model}} (const \mbox{\hyperlink{struct_model_params}{Model\+Params}} \&params)
+\begin{DoxyCompactList}\small\item\em Расчет нелинейной модели объекта управления \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{module_8cpp_a7caa32bcc053d05f8ad42258bedd8f5c}{apply\+Temperature\+Protection}} (double temperature)
+\begin{DoxyCompactList}\small\item\em Защита от отрицательной температуры \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{module_8cpp_a2f38e8c4bcbfe94e4a9b5a4314e12554}{calculate\+Error}} (double setpoint, double current\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Расчет ошибки регулирования \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{module_8cpp_a36a910d9807c25459dbcbf3db68b721f}{update\+State\+Variables}} (\mbox{\hyperlink{struct_state_variables}{State\+Variables}} \&state)
+\begin{DoxyCompactList}\small\item\em Обновление переменных состояния для следующей итерации \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Реализация функций ПИД-\/регулятора и модели объекта 
+
+\begin{DoxyAuthor}{Author}
+Козловский Е.\+Ю. ИИ-\/28 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{module_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{module_8cpp_a622fee89f0094b54cbc31cbc3de3e4d7}\index{module.cpp@{module.cpp}!applyControlLimits@{applyControlLimits}}
+\index{applyControlLimits@{applyControlLimits}!module.cpp@{module.cpp}}
+\doxysubsubsection{\texorpdfstring{applyControlLimits()}{applyControlLimits()}}
+{\footnotesize\ttfamily \label{module_8cpp_a622fee89f0094b54cbc31cbc3de3e4d7} 
+double apply\+Control\+Limits (\begin{DoxyParamCaption}\item[{double}]{u}{}\end{DoxyParamCaption})}
+
+
+
+Применение ограничений к управляющему воздействию 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Рассчитанное управляющее воздействие \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Управление с примененными ограничениями
+\end{DoxyReturn}
+Функция ограничивает управляющее воздействие в диапазоне \mbox{[}0, 100\mbox{]} для предотвращения насыщения исполнительных механизмов. \Hypertarget{module_8cpp_a7caa32bcc053d05f8ad42258bedd8f5c}\index{module.cpp@{module.cpp}!applyTemperatureProtection@{applyTemperatureProtection}}
+\index{applyTemperatureProtection@{applyTemperatureProtection}!module.cpp@{module.cpp}}
+\doxysubsubsection{\texorpdfstring{applyTemperatureProtection()}{applyTemperatureProtection()}}
+{\footnotesize\ttfamily \label{module_8cpp_a7caa32bcc053d05f8ad42258bedd8f5c} 
+double apply\+Temperature\+Protection (\begin{DoxyParamCaption}\item[{double}]{temperature}{}\end{DoxyParamCaption})}
+
+
+
+Защита от отрицательной температуры 
+
+
+\begin{DoxyParams}{Parameters}
+{\em temperature} & Рассчитанная температура \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Скорректированная температура
+\end{DoxyReturn}
+Функция обеспечивает защиту от физически некорректных отрицательных значений температуры, ограничивая снизу нулем. \Hypertarget{module_8cpp_a25dd5396e96a7e20add9f351b762cbc4}\index{module.cpp@{module.cpp}!calculateControl@{calculateControl}}
+\index{calculateControl@{calculateControl}!module.cpp@{module.cpp}}
+\doxysubsubsection{\texorpdfstring{calculateControl()}{calculateControl()}}
+{\footnotesize\ttfamily \label{module_8cpp_a25dd5396e96a7e20add9f351b762cbc4} 
+double calculate\+Control (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_control_params}{Control\+Params}} \&}]{params}{}\end{DoxyParamCaption})}
+
+
+
+Расчет управляющего воздействия ПИД-\/регулятором 
+
+
+\begin{DoxyParams}{Parameters}
+{\em params} & Структура с параметрами управления \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Рассчитанное управляющее воздействие
+\end{DoxyReturn}
+Функция реализует алгоритм ПИД-\/регулятора в дискретной форме\+: u(k) = u(k-\/1) + q0\texorpdfstring{$\ast$}{*}e(k) + q1\texorpdfstring{$\ast$}{*}e(k-\/1) + q2\texorpdfstring{$\ast$}{*}e(k-\/2) \Hypertarget{module_8cpp_a2f38e8c4bcbfe94e4a9b5a4314e12554}\index{module.cpp@{module.cpp}!calculateError@{calculateError}}
+\index{calculateError@{calculateError}!module.cpp@{module.cpp}}
+\doxysubsubsection{\texorpdfstring{calculateError()}{calculateError()}}
+{\footnotesize\ttfamily \label{module_8cpp_a2f38e8c4bcbfe94e4a9b5a4314e12554} 
+double calculate\+Error (\begin{DoxyParamCaption}\item[{double}]{setpoint}{, }\item[{double}]{current\+\_\+value}{}\end{DoxyParamCaption})}
+
+
+
+Расчет ошибки регулирования 
+
+
+\begin{DoxyParams}{Parameters}
+{\em setpoint} & Заданное значение (уставка) \\
+\hline
+{\em current\+\_\+value} & Текущее значение процесса \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ошибка регулирования
+\end{DoxyReturn}
+Функция вычисляет разность между заданным и текущим значением. Для систем, где ошибка вычисляется иначе, требуется модификация. \Hypertarget{module_8cpp_a460df141e98805c675c3147587b703fe}\index{module.cpp@{module.cpp}!calculateNonlinearModel@{calculateNonlinearModel}}
+\index{calculateNonlinearModel@{calculateNonlinearModel}!module.cpp@{module.cpp}}
+\doxysubsubsection{\texorpdfstring{calculateNonlinearModel()}{calculateNonlinearModel()}}
+{\footnotesize\ttfamily \label{module_8cpp_a460df141e98805c675c3147587b703fe} 
+double calculate\+Nonlinear\+Model (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_model_params}{Model\+Params}} \&}]{params}{}\end{DoxyParamCaption})}
+
+
+
+Расчет нелинейной модели объекта управления 
+
+
+\begin{DoxyParams}{Parameters}
+{\em params} & Структура с параметрами модели \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Текущее значение выхода объекта
+\end{DoxyReturn}
+Функция реализует нелинейную модель объекта вида\+: y(k) = a\texorpdfstring{$\ast$}{*}y(k-\/1) -\/ b\texorpdfstring{$\ast$}{*}y(k-\/2)\texorpdfstring{$^\wedge$}{\string^}2 + c\texorpdfstring{$\ast$}{*}u(k-\/1) + d\texorpdfstring{$\ast$}{*}sin(u(k-\/2)) \Hypertarget{module_8cpp_a827655d27cff6904006c0d8776e48235}\index{module.cpp@{module.cpp}!calculatePidCoefficients@{calculatePidCoefficients}}
+\index{calculatePidCoefficients@{calculatePidCoefficients}!module.cpp@{module.cpp}}
+\doxysubsubsection{\texorpdfstring{calculatePidCoefficients()}{calculatePidCoefficients()}}
+{\footnotesize\ttfamily \label{module_8cpp_a827655d27cff6904006c0d8776e48235} 
+void calculate\+Pid\+Coefficients (\begin{DoxyParamCaption}\item[{double}]{K}{, }\item[{double}]{T}{, }\item[{double}]{Td}{, }\item[{double}]{T0}{, }\item[{double \&}]{q0}{, }\item[{double \&}]{q1}{, }\item[{double \&}]{q2}{}\end{DoxyParamCaption})}
+
+
+
+Расчет коэффициентов ПИД-\/регулятора для дискретной формы 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em K} & Коэффициент усиления объекта \\
+\hline
+ & {\em T} & Постоянная времени объекта \\
+\hline
+ & {\em Td} & Постоянная времени дифференцирования \\
+\hline
+ & {\em T0} & Время дискретизации \\
+\hline
+\mbox{\texttt{out}}  & {\em q0} & Выходной параметр\+: коэффициент q0 \\
+\hline
+\mbox{\texttt{out}}  & {\em q1} & Выходной параметр\+: коэффициент q1 ~\newline
+ \\
+\hline
+\mbox{\texttt{out}}  & {\em q2} & Выходной параметр\+: коэффициент q2\\
+\hline
+\end{DoxyParams}
+Функция вычисляет коэффициенты ПИД-\/регулятора в дискретной форме на основе параметров объекта и времени дискретизации. \Hypertarget{module_8cpp_a36a910d9807c25459dbcbf3db68b721f}\index{module.cpp@{module.cpp}!updateStateVariables@{updateStateVariables}}
+\index{updateStateVariables@{updateStateVariables}!module.cpp@{module.cpp}}
+\doxysubsubsection{\texorpdfstring{updateStateVariables()}{updateStateVariables()}}
+{\footnotesize\ttfamily \label{module_8cpp_a36a910d9807c25459dbcbf3db68b721f} 
+void update\+State\+Variables (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_state_variables}{State\+Variables}} \&}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Обновление переменных состояния для следующей итерации 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em state} & Структура с переменными состояния\\
+\hline
+\end{DoxyParams}
+Функция сдвигает массивы и переменные состояния для подготовки к следующему шагу расчета, сохраняя историю значений. 

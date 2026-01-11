@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="model_8cpp" kind="file" language="C++">
+    <compoundname>model.cpp</compoundname>
+    <includes refid="model_8h" local="yes">model.h</includes>
+    <includes local="no">cmath</includes>
+    <includes local="no">iostream</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/model.cpp</label>
+        <link refid="model_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>model.h</label>
+        <link refid="model_8h"/>
+      </node>
+      <node id="3">
+        <label>cmath</label>
+      </node>
+      <node id="4">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+<para>Реализация класса <ref refid="class_model" kindref="compound">Model</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Содержит реализацию линейной и нелинейной моделей <simplesect kind="author"><para>Vladimir </para>
+</simplesect>
+<simplesect kind="date"><para>2025-12-09 </para>
+</simplesect>
+<simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="model_8h" kindref="compound">model.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><ref refid="class_model_1ab5d4a33e22070b59a4543e6de34199e2" kindref="member">Model::Model</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a_val,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b_val,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>c_val,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>d_val)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>a(a_val),<sp/>b(b_val),<sp/>c(c_val),<sp/>d(d_val)<sp/>{}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_model_1a016819d78d29f1533d3351cdcd83b2e5" kindref="member">Model::init</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y0,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y1,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u0,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u1)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>y_prev2<sp/>=<sp/>y0;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>y_prev1<sp/>=<sp/>y1;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>u_prev2<sp/>=<sp/>u0;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>u_prev1<sp/>=<sp/>u1;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_model_1a947cfcb5e6035d29f0ead62a26fd18de" kindref="member">Model::linearModel</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Обновление<sp/>истории<sp/>входных<sp/>воздействий</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>u_prev2<sp/>=<sp/>u_prev1;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>u_prev1<sp/>=<sp/>u;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Расчет<sp/>нового<sp/>значения<sp/>выхода</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y<sp/>=<sp/>a<sp/>*<sp/>y_prev1<sp/>+<sp/>b<sp/>*<sp/>u;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Обновление<sp/>истории<sp/>выходных<sp/>значений</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>y_prev2<sp/>=<sp/>y_prev1;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>y_prev1<sp/>=<sp/>y;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>y;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_model_1ab31570881280566275abef961ed0e68f" kindref="member">Model::nonlinearModel</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Обновление<sp/>истории<sp/>входных<sp/>воздействий</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>u_prev2<sp/>=<sp/>u_prev1;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>u_prev1<sp/>=<sp/>u;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y2<sp/>=<sp/>y_prev2;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>smooth_quad<sp/>=<sp/>y2<sp/>*<sp/>std::tanh(y2);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Расчет<sp/>нового<sp/>значения<sp/>выхода<sp/>(нелинейная<sp/>модель)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y<sp/>=<sp/>a<sp/>*<sp/>y_prev1</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>b<sp/>*<sp/>smooth_quad</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>c<sp/>*<sp/>u</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>d<sp/>*<sp/>std::sin(u_prev1);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Ограничение<sp/>выходных<sp/>значений<sp/>для<sp/>предотвращения<sp/>нестабильности</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(y<sp/>&gt;<sp/>1000.0)<sp/>y<sp/>=<sp/>1000.0;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(y<sp/>&lt;<sp/>-1000.0)<sp/>y<sp/>=<sp/>-1000.0;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(std::isnan(y))<sp/>y<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Обновление<sp/>истории<sp/>выходных<sp/>значений</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>y_prev2<sp/>=<sp/>y_prev1;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>y_prev1<sp/>=<sp/>y;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>y;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/model.cpp"/>
+  </compounddef>
+</doxygen>

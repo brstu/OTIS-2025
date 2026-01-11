@@ -1,0 +1,12 @@
+kp=1.2
+ki=0.5
+kd=0.1
+
+dt=0.1
+steps=100
+
+setpoint=10.0
+initial_pid=0.0
+initial_no_pid=0.0
+
+alpha=0.05

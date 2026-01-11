@@ -1,0 +1,454 @@
+<p align="center">Министерство образования Республики Беларусь</p>
+<p align="center">Учреждение образования</p>
+<p align="center">“Брестский Государственный технический университет”</p>
+<p align="center">Кафедра ИИТ</p>
+<br><br><br><br><br><br><br>
+<p align="center">Лабораторная работа №3</p>
+<p align="center">По дисциплине “Общая теория интеллектуальных систем”</p>
+<p align="center">Тема: “Моделирование системы автоматического управления с ПИД-регулятором для объекта теплового класса.”</p>
+<br><br><br><br><br>
+<p align="right">Выполнил:</p>
+<p align="right">Студент 2 курса</p>
+<p align="right">Группы ИИ-28/24</p>
+<p align="right">Гойшик Т.Д.</p>
+<p align="right">Проверил:</p>
+<p align="right">Дворанинович Д.А.</p>
+<br><br><br><br><br>
+<p align="center">Брест 2025</p>
+
+1. Написать отчет по выполненной лабораторной работе №3 в .md формате (*readme.md*) и разместить его в следующем каталоге: **trunk\ii0xxyy\task_03\doc**.
+2. Исходный код написанной программы разместить в каталоге: **trunk\ii0xxyy\task_03\src**.
+3. Отразить выполнение работы в файле readme.md в соответствующей строке (например, для студента под порядковым номером 1 - https://github.com/brstu/OTIS-2025/edit/main/readme.md?#L17-L17).
+4. Документировать исходный код программы с помощью комментариев в стиле **Doxygen**. Полученную документацию разместить в каталоге: **trunk\ii0xxyy\task_03\doc\html**. Настроить `GitHub Pages` для автоматической публикации документации из этого каталога.
+5. Разработанная программа также должна быть покрыта модульными тестами, написанными с использованием **Google Test**. Тесты разместить в каталоге: **trunk\ii0xxyy\task_03\test**.
+
+**Лабораторная работа №3.**
+
+**ПИД-регуляторы**
+
+Структурная схема системы автоматического управления с обратной связью показана на рис.1.
+
+![1](images/1.png)
+
+Здесь w(t) - алгоритм функционирования системы; u(t) - управляющее воздействие; z(t) - внешние возмущающие воздействия, влияние которых нужно свести к минимуму; y(t) - выходная переменная; e(t) = w(t) - y(t) - отклонение выходной переменной y(t) от желаемого значения w(t).
+Выходной переменной может быть температура в печи, скорость вращения вала двигателя, уровень жидкости в баке, рассовмещение знаков привязки фотошаблонов и т.п. Целью управления может быть изменение выходной переменной по заданному закону w(t). Для этого нужно свести к минимуму ошибку управления e(t).
+Эта задача решается автоматическим регулятором G<sub>R</sub> (рис.1), который описывается некоторым законом регулирования u(t) = G<sub>R</sub>[e(t)]. Для правильного выбора закона регулирования нужно знать математическую модель объекта управления y(t) = G<sub>O</sub>[u(t)]. Математическая модель обычно представляет собой систему обыкновенных нелинейных дифференциальных уравнений или дифференциальных уравнений в частных производных. Нахождение вида и коэффициентов этих уравнений представляет собой задачу идентификации объекта управления. Для традиционно используемых объектов управления математические модели часто известны и тогда задача идентификации конкретного объекта сводится к отысканию значений коэффициентов уравнений. Во многих случаях эти коэффициенты можно подобрать опытным путем в процессе настройки системы.
+Выбор закона регулирования u(t) = G<sub>R</sub>[e(t)] является основным звеном в процессе проектирования системы автоматического регулирования. Синтез оптимального регулятора, дающего максимальные показатели качества регулирования, представляет собой достаточно сложную задачу. Кроме того, реализация оптимального регулятора может оказаться экономически неоправданной. Однако во многих случаях для автоматизации производственных процессов могут быть использованы простейшие и наиболее распространенные типы линейных регуляторов - П-, ПИ-. и ПИД-регуляторы.
+Идеализированное уравнение ПИД-регулятора имеет вид
+
+![2](images/2.png)
+
+где K - коэффициент передачи, T - постоянная интегрирования, T<sub>D</sub> - постоянная дифференцирования.
+Эти три параметра подбирают в процессе настройки регулятора таким образом, чтобы максимально приблизить алгоритм функционирования системы к желаемому виду.
+В зависимости от типа объекта управления может быть достаточным применение более простого П-регулятора
+
+![3](images/3.png)
+
+или ПИ-регулятора
+
+![4](images/4.png)
+
+которые являются частными случаями ПИД-регулятора при соответствующем выборе постоянных интегрирования и дифференцирования.
+Графики переходных процессов регулируемой величины представлены на рис. 2-4. Зеленым цветом показана реакция на скачок объекта регулирования, синим цветом - выходная переменная в процессе регулирования, красным - изменение регулируемого параметра во времени.
+
+![5](images/5.png)
+Рисунок 0.2 П-регулятор. К = 10, T=0, TD=0
+
+![6](images/6.png)
+Рисунок 0.3 ПИ-регулятор. К=10, T=0.1, TD=0
+
+![7](images/7.png)
+Рисунок 0.4 ПИД-регулятор. K=10, T=0.1, TD =50
+
+Описанная система автоматического регулирования является непрерывной, т.е. использует непрерывное время. При построении регулятора на базе компьютера входные и выходные переменные регулятора необходимо квантовать по времени с некоторым шагом T<sub>O</sub> , и преобразовать в цифровую форму с помощью аналого-цифровых и цифро-аналоговых преобразователей. При этом уравнении ПИД-регулятора должно быть преобразовано в разностное с помощью замены производных конечной разностью, а интеграла - конечной суммой. В зависимости от выбранного метода перехода от непрерывных операторов к их дискретным аналогам возникает несколько различных уравнений, описывающих дискретные ПИД-регуляторы. При использовании метода прямоугольников для замены интеграла конечной суммой получим:
+
+![8](images/8.png)
+
+где ![9](images/9.png)- порядковый номер отсчета дискретного времени.
+Недостатком такого представления уравнения регулятора является необходимость помнить значения отклонений е(k) для всех моментов времени от начала процесса регулирования.
+Этот недостаток можно устранить, если для вычисления текущего значения управляющей переменной u(k) использовать ее предыдущее значение u(k-1) и поправочный член. Для получения такого рекуррентного алгоритма достаточно вычесть из уравнения (4) следующее уравнение:
+
+![10](images/10.png)
+
+В результате получим:
+
+![11](images/11.png)
+
+где ![12](images/12.png)
+
+![13](images/13.png)
+
+![14](images/14.png)
+
+Таким образом, для вычисления текущего значения управляющего воздействия u(k) на объект управления достаточно хранить в памяти только величины u(k-1), e(k), e(k-1), e(k-2), то есть величины
+
+![15](images/15.png)
+
+![16](images/16.png)
+
+Итак, алгоритм работы ПИД-регулятора может быть представлен в следующем виде:
+
+![17](images/17.png)
+
+![18](images/18.png)
+
+![19](images/19.png)
+
+![20](images/20.png)
+
+![21](images/21.png)
+
+При переходе от непрерывных операторов к дискретным возникает погрешность, величина которой пропорциональна остаточному члену ряда Тейлора функции e(t) . Поэтому полученные дискретные уравнения можно считать эквивалентными непрерывным только при условии, что e(t) изменяется слабо в пределах такта квантования.
+Однако с помощью аппарата z-преобразования можно показать, что основные свойства ПИД-регулятора сохраняются и при больших шагах квантования, если параметры регулятора q<sub>0</sub>, q<sub>1</sub>, q<sub>2</sub> выбирать не на основании параметров его непрерывного аналога (13), а независимо от них, методами параметрической оптимизации, выбрав необходимый критерий качества оптимизации исходя из цели регулирования. Такт квантования выбирают аналогично.
+
+**Задание.**
+На **C++** реализовать программу, моделирующую рассмотренный выше ПИД-регулятор.  В качестве объекта управления использовать математическую модель, полученную в предыдущей работе.
+В отчете также привести графики для разных заданий температуры объекта, пояснить полученные результаты.
+
+## Код программы [ src/main.cpp ]
+```C++
+/**
+ * @file main.cpp
+ * @brief Консольное приложение моделирования PID-регулятора
+ *        для линейной и нелинейной моделей объекта.
+ */
+
+#include <iostream>
+#include <limits>
+#include <string>
+
+#include "pid.h"
+#include "models.h"
+
+/**
+ * @brief Проверка корректности ввода числового значения.
+ */
+template <typename N>
+void validate(N& number, const std::string& message) {
+    std::cout << message;
+    while (!(std::cin >> number)) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Input correct number: ";
+    }
+}
+
+int main() {
+
+    int model_type;           // 1 - линейная, 2 - нелинейная
+    int n;                    // число шагов
+    double w;                 // заданная температура
+    double y;                 // текущая температура
+    double y_prev = 0.0;      // y(k-1) для нелинейной модели
+
+    double K  = 0.5;
+    double T  = 2.0;
+    double Td = 0.3;
+    double T0 = 1.0;
+
+    validate(model_type, "Choose model (1 = linear, 2 = nonlinear): ");
+    validate(y, "Enter input temperature y0: ");
+
+    // Коэффициенты для моделей
+    LinearParams lp{0.0, 0.0};
+    NonlinearParams np{0.0, 0.0, 0.0, 0.0};
+
+    validate(lp.a, "Enter constant a: ");
+    validate(lp.b, "Enter constant b: ");
+
+    if (model_type == 2) {
+        validate(np.c, "Enter constant c (nonlinear coeff): ");
+        validate(np.d, "Enter constant d (sin coeff): ");
+        np.a = lp.a;
+        np.b = lp.b;
+    }
+
+    validate(w, "Enter target temperature w: ");
+    validate(n, "Enter amount of steps n: ");
+
+    PID pid(K, T, Td, T0);
+
+    double u = 0.0;
+    double u_prev = 0.0;
+
+    std::cout << "\nPID Simulation\n";
+
+    for (int i = 0; i < n; i++) {
+
+        double e = w - y;
+        u = pid.u_calc(e);
+
+        double y_next;
+
+        if (model_type == 1) {
+            // Линейная модель 
+            y_next = linear_model(y, u, lp);
+        } else {
+            // Нелинейная модель 
+            y_next = nonlinear_model(y, y_prev, u, u_prev, np);
+        }
+
+        std::cout << "Step " << i + 1
+                  << " | e = " << e
+                  << " | u = " << u
+                  << " | y = " << y_next
+                  << std::endl;
+
+        y_prev = y;
+        y = y_next;
+        u_prev = u;
+    }
+
+    return 0;
+}
+
+
+```
+
+## Результаты программы [ src/main.cpp ]
+### `Линейная функция`
+![res1.1](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/res1.1.png)
+![res1.2](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/res1.2.png)
+
+### `Нелинейная функция`
+![res2](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/res2.png)
+
+## Графики
+### При `K = 0.5 T = 2.0 T0 = 1.0 TD = 0.3 a = 0.8 b = 0.1 y0 = 20 w = 100`
+
+![schedule1](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/schedule1.png)
+<br>
+
+### При `K = 0.5 T = 2.0 T0 = 1.0 TD = 0.3 a = 0.8 b = 0.1 c = 0.05 d = 0.03 y0 = 20 w = 100`
+![schedule2](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/schedule2.png)
+<br>
+
+## Вывод полученных данных при использовании ПИД-регулятора
+
+
+## Link to documentation
+[https://tgoyshik.github.io/OTIS-2025/](https://tgoyshik.github.io/OTIS-2025/)
+
+
+## Код юнит-тестов [ test/test_pid.cpp ]
+```C++
+/**
+ * @file test_pid.cpp
+ * @brief Набор модульных тестов для класса PID и линейной/нелинейной модели.
+ */
+
+#include "../src/pid.h"
+#include "../src/models.h"   
+#include <gtest/gtest.h>
+#include <cmath>
+#include <vector>
+
+// Линейная модель
+
+TEST(LinearModelTest, PositiveValues) {
+    LinearParams p{1.0, 4.0};
+    EXPECT_DOUBLE_EQ(linear_model(2.0, 3.0, p), 2.0 * 1.0 + 3.0 * 4.0);
+}
+
+TEST(LinearModelTest, ZeroInput) {
+    LinearParams p{0.0, 0.0};
+    EXPECT_DOUBLE_EQ(linear_model(1.5, 2.0, p), 0.0);
+}
+
+TEST(LinearModelTest, NegativeValues) {
+    LinearParams p{3.0, -4.0};
+    EXPECT_DOUBLE_EQ(linear_model(-1.0, 2.0, p), -1.0 * 3.0 + 2.0 * -4.0);
+}
+
+TEST(LinearModelTest, MixedValues) {
+    LinearParams p{0.5, 0.2};
+    double result = linear_model(6, 8, p);
+    EXPECT_DOUBLE_EQ(result, 0.5 * 6 + 0.2 * 8);
+}
+
+// PID-регулятор
+
+TEST(PIDTest, CoefficientsCalculation) {
+    double K = 0.5;
+    double T = 2.0;
+    double Td = 0.3;
+    double T0 = 1.0;
+
+    PID pid(K, T, Td, T0);
+
+    double expected_q0 = K * (1.0 + Td / T0);
+    double expected_q1 = -K * (1 + 2 * Td / T0 - T0 / T);
+    double expected_q2 = K * Td / T0;
+
+    double u1 = pid.u_calc(0.7);
+    double expected_u = 0.0 + expected_q0 * 0.7 + expected_q1 * 0.0 + expected_q2 * 0.0;
+
+    EXPECT_NEAR(u1, expected_u, 1e-10);
+}
+
+TEST(PIDTest, SequentialCalculations) {
+    PID pid(1.0, 1.0, 0.1, 0.1);
+
+    double u1 = pid.u_calc(1.0);
+    double u2 = pid.u_calc(0.5);
+    double u3 = pid.u_calc(0.2);
+
+    EXPECT_NE(u1, u2);
+    EXPECT_NE(u2, u3);
+}
+
+TEST(PIDTest, ZeroError) {
+    PID pid(1.0, 1.0, 0.1, 0.1);
+
+    double u1 = pid.u_calc(0.0);
+    EXPECT_DOUBLE_EQ(u1, 0.0);
+}
+
+TEST(PIDTest, ExtremeCoefficients) {
+    PID pid_small(0.001, 0.001, 0.001, 0.001);
+    double u_small = pid_small.u_calc(1.0);
+    EXPECT_NEAR(u_small, 0.002, 1e-10); 
+
+    PID pid_large(10.0, 10.0, 10.0, 10.0);
+    double u_large = pid_large.u_calc(1.0);
+    EXPECT_NEAR(u_large, 20.0, 1e-10);
+}
+
+TEST(PIDTest, ConstantError) {
+    PID pid(1.0, 2.0, 0.5, 1.0);
+
+    double constant_error = 2.0;
+    for (int i = 0; i < 5; i++) {
+        double u = pid.u_calc(constant_error);
+        if (i > 0) {
+            EXPECT_NE(u, 0.0);
+        }
+    }
+}
+
+TEST(PIDTest, NegativeError) {
+    PID pid(1.0, 1.0, 0.1, 0.1);
+
+    double u_positive = pid.u_calc(1.0);
+    PID pid_negative(1.0, 1.0, 0.1, 0.1);
+    double u_negative = pid_negative.u_calc(-1.0);
+
+    EXPECT_LT(u_negative, 0.0);
+    EXPECT_GT(u_positive, 0.0);
+}
+
+TEST(PIDTest, InvalidState) {
+    PID pid(1.0, 1.0, 1.0, 1.0);
+
+    pid.invalidate();
+    double u = pid.u_calc(1.0);
+    EXPECT_DOUBLE_EQ(u, 0.0);
+}
+
+// PID + линейная система
+
+TEST(PIDSystemTest, SystemStabilization) {
+    PID pid(1.5, 3.0, 0.2, 1.0);
+
+    double y_prev = 15.0;
+    double w = 35.0;
+    double a = 0.8;
+    double b = 0.1;
+    double y = y_prev;
+
+    LinearParams p{a, b};
+
+    for (int i = 0; i < 50; i++) {
+        double e = w - y;
+        double u = pid.u_calc(e);
+        y = linear_model(y, u, p);
+    }
+
+    EXPECT_NEAR(y, w, 2.0);
+}
+
+TEST(PIDSystemTest, ConvergenceTest) {
+    PID pid(0.8, 2.0, 0.1, 0.5);
+
+    double y = 10.0;
+    double w = 25.0;
+    double a = 0.9;
+    double b = 0.15;
+
+    LinearParams p{a, b};
+    std::vector<double> errors;
+
+    for (int i = 0; i < 30; i++) {
+        double e = w - y;
+        errors.push_back(std::abs(e));
+        double u = pid.u_calc(e);
+        y = linear_model(y, u, p);
+    }
+
+    EXPECT_LT(errors.back(), errors.front());
+}
+
+// Нелинейная модель
+
+#include <gtest/gtest.h>
+#include "../src/models.h"
+#include <cmath>
+
+TEST(NonlinearModelTest, SimpleCalculation) {
+    double y = 10.0;
+    double y_prev = 5.0;
+    double u = 2.0;
+    double u_prev = 1.0;
+
+    // Создаём структуру с коэффициентами
+    NonlinearParams p{0.9, 0.1, 0.05, 0.02};
+
+    // Вычисляем ожидаемое значение вручную
+    double expected = p.a * y - p.b * std::pow(y_prev, 2.0) + p.c * u + p.d * std::sin(u_prev);
+    double actual = nonlinear_model(y, y_prev, u, u_prev, p);
+
+    EXPECT_NEAR(actual, expected, 1e-10);
+}
+
+
+
+
+// PID + нелинейная система
+TEST(PIDSystemTest, NonlinearSystemStabilization) {
+    PID pid(1.0, 2.0, 0.1, 1.0);
+
+    double y = 10.0;
+    double y_prev = 9.0;
+    double w = 20.0;  
+    double u_prev = 0.0;
+
+    // Создаём структуру с коэффициентами модели
+    NonlinearParams p{0.8, 0.01, 0.05, 0.005};
+
+    for (int i = 0; i < 150; i++) {  
+        double e = w - y;
+        double u = pid.u_calc(e);
+
+        // Вызываем модель с новой структурой
+        double y_next = nonlinear_model(y, y_prev, u, u_prev, p);
+
+        y_prev = y;
+        y = y_next;
+        u_prev = u;
+    }
+
+    EXPECT_NEAR(y, w, 2.0);  
+}
+
+
+
+
+```
+## Результаты юнит-тестирования (GoogleTest)
+![GoogleTest](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/test.png)
+
+## Покрытие GCC Code Coverage
+
+![coverage](https://github.com/tgoyshik/OTIS-2025/blob/task_03/trunk/ii02804/task_03/doc/images/coverage.png)
+=======
+

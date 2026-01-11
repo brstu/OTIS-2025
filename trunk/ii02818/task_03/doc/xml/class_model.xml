@@ -1,0 +1,454 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_model" kind="class" language="C++" prot="public">
+    <compoundname>Model</compoundname>
+    <includes refid="model_8h" local="no">model.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_model_1a18e5ef915d4c3b58c5e81c94ddc89057" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Model::a</definition>
+        <argsstring></argsstring>
+        <name>a</name>
+        <qualifiedname>Model::a</qualifiedname>
+        <briefdescription>
+<para>Коэффициент A модели </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="22" column="12" bodyfile="src/model.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_model_1aaa9d87e6468505f959f734782fe34554" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Model::b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <qualifiedname>Model::b</qualifiedname>
+        <briefdescription>
+<para>Коэффициент B модели </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="23" column="12" bodyfile="src/model.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_model_1a1d6db59b5d8289c26eec41757bd69cae" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Model::c</definition>
+        <argsstring></argsstring>
+        <name>c</name>
+        <qualifiedname>Model::c</qualifiedname>
+        <briefdescription>
+<para>Коэффициент C модели </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="24" column="12" bodyfile="src/model.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_model_1a4b9e59ab1411828b1d484cca6b08a8ee" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Model::d</definition>
+        <argsstring></argsstring>
+        <name>d</name>
+        <qualifiedname>Model::d</qualifiedname>
+        <briefdescription>
+<para>Коэффициент D модели </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="25" column="12" bodyfile="src/model.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_model_1a928a0a8c991419c3393e80816e1610d2" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Model::y_prev1</definition>
+        <argsstring></argsstring>
+        <name>y_prev1</name>
+        <qualifiedname>Model::y_prev1</qualifiedname>
+        <briefdescription>
+<para>Предыдущее значение выхода (y[k-1]). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="26" column="12" bodyfile="src/model.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_model_1a8b15b595d778f562aea827e9b7c707ca" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Model::y_prev2</definition>
+        <argsstring></argsstring>
+        <name>y_prev2</name>
+        <qualifiedname>Model::y_prev2</qualifiedname>
+        <briefdescription>
+<para>Значение выхода на два шага назад (y[k-2]). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="27" column="12" bodyfile="src/model.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_model_1ad0354b53b1cf4503b7263d070a9206d5" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Model::u_prev1</definition>
+        <argsstring></argsstring>
+        <name>u_prev1</name>
+        <qualifiedname>Model::u_prev1</qualifiedname>
+        <briefdescription>
+<para>Предыдущее значение входа (u[k-1]). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="28" column="12" bodyfile="src/model.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_model_1aab56c04266baf7acb33775e4fe7a21e2" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Model::u_prev2</definition>
+        <argsstring></argsstring>
+        <name>u_prev2</name>
+        <qualifiedname>Model::u_prev2</qualifiedname>
+        <briefdescription>
+<para>Значение входа на два шага назад (u[k-2]). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="29" column="12" bodyfile="src/model.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_model_1ab5d4a33e22070b59a4543e6de34199e2" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Model::Model</definition>
+        <argsstring>(double a_val=0.2, double b_val=0.3, double c_val=0.4, double d_val=0.5)</argsstring>
+        <name>Model</name>
+        <qualifiedname>Model::Model</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>a_val</declname>
+          <defval>0.2</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>b_val</declname>
+          <defval>0.3</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c_val</declname>
+          <defval>0.4</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>d_val</declname>
+          <defval>0.5</defval>
+        </param>
+        <briefdescription>
+<para>Конструктор класса <ref refid="class_model" kindref="compound">Model</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент A (по умолчанию 0.2) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент B (по умолчанию 0.3) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент C (по умолчанию 0.4) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент D (по умолчанию 0.5)</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>a_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент A </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент B </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент C </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент D </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="39" column="14" bodyfile="src/model.cpp" bodystart="21" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_model_1a016819d78d29f1533d3351cdcd83b2e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Model::init</definition>
+        <argsstring>(double y0, double y1, double u0, double u1)</argsstring>
+        <name>init</name>
+        <qualifiedname>Model::init</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>y0</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y1</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>u0</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>u1</declname>
+        </param>
+        <briefdescription>
+<para>Инициализация начальных условий модели </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>y0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Начальное значение y[k-2] </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Начальное значение y[k-1] </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>u0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Начальное значение u[k-2] </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>u1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Начальное значение u[k-1] </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="49" column="10" bodyfile="src/model.cpp" bodystart="31" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_model_1a947cfcb5e6035d29f0ead62a26fd18de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Model::linearModel</definition>
+        <argsstring>(double u)</argsstring>
+        <name>linearModel</name>
+        <qualifiedname>Model::linearModel</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+<para>Линейная модель объекта управления </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Текущее управляющее воздействие </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Текущее значение выхода модели</para>
+</simplesect>
+Уравнение модели: y[k] = a*y[k-1] + b*u[k]</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Текущее управляющее воздействие </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Текущее значение выхода модели</para>
+</simplesect>
+Реализует разностное уравнение: y[k] = a*y[k-1] + b*u[k] </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="58" column="12" bodyfile="src/model.cpp" bodystart="46" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_model_1ab31570881280566275abef961ed0e68f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Model::nonlinearModel</definition>
+        <argsstring>(double u)</argsstring>
+        <name>nonlinearModel</name>
+        <qualifiedname>Model::nonlinearModel</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+<para>Нелинейная модель объекта управления </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Текущее управляющее воздействие </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Текущее значение выхода модели</para>
+</simplesect>
+Уравнение модели: y[k] = a*y[k-1] - b*y[k-2]*tanh(y[k-2]) + c*u[k] + d*sin(u[k-1]) <simplesect kind="warning"><para>Включает ограничение выходных значений</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Текущее управляющее воздействие </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Текущее значение выхода модели</para>
+</simplesect>
+Реализует разностное уравнение: y[k] = a*y[k-1] - b*y[k-2]*tanh(y[k-2]) + c*u[k] + d*sin(u[k-1]) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="68" column="12" bodyfile="src/model.cpp" bodystart="69" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="class_model_1aa23799a2cfa94ab5b9ac78ec4c5e365c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Model::getCurrentValue</definition>
+        <argsstring>() const</argsstring>
+        <name>getCurrentValue</name>
+        <qualifiedname>Model::getCurrentValue</qualifiedname>
+        <briefdescription>
+<para>Получение текущего значения модели </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Текущее значение выхода (y[k-1]) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="74" column="12" bodyfile="src/model.h" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="class_model_1a1c926807f26dc8c433a5b8a4261c5475" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Model::setCurrentValue</definition>
+        <argsstring>(double value)</argsstring>
+        <name>setCurrentValue</name>
+        <qualifiedname>Model::setCurrentValue</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Установка текущего значения модели </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Новое значение выхода </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="80" column="10" bodyfile="src/model.h" bodystart="80" bodyend="80"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Класс, представляющий объект управления (модель). </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Класс реализует линейную и нелинейную модели объекта управления. Используется для тестирования ПИД-регулятора. </para>
+    </detaileddescription>
+    <location file="src/model.h" line="20" column="1" bodyfile="src/model.h" bodystart="20" bodyend="81"/>
+    <listofallmembers>
+      <member refid="class_model_1a18e5ef915d4c3b58c5e81c94ddc89057" prot="private" virt="non-virtual"><scope>Model</scope><name>a</name></member>
+      <member refid="class_model_1aaa9d87e6468505f959f734782fe34554" prot="private" virt="non-virtual"><scope>Model</scope><name>b</name></member>
+      <member refid="class_model_1a1d6db59b5d8289c26eec41757bd69cae" prot="private" virt="non-virtual"><scope>Model</scope><name>c</name></member>
+      <member refid="class_model_1a4b9e59ab1411828b1d484cca6b08a8ee" prot="private" virt="non-virtual"><scope>Model</scope><name>d</name></member>
+      <member refid="class_model_1aa23799a2cfa94ab5b9ac78ec4c5e365c" prot="public" virt="non-virtual"><scope>Model</scope><name>getCurrentValue</name></member>
+      <member refid="class_model_1a016819d78d29f1533d3351cdcd83b2e5" prot="public" virt="non-virtual"><scope>Model</scope><name>init</name></member>
+      <member refid="class_model_1a947cfcb5e6035d29f0ead62a26fd18de" prot="public" virt="non-virtual"><scope>Model</scope><name>linearModel</name></member>
+      <member refid="class_model_1ab5d4a33e22070b59a4543e6de34199e2" prot="public" virt="non-virtual"><scope>Model</scope><name>Model</name></member>
+      <member refid="class_model_1ab31570881280566275abef961ed0e68f" prot="public" virt="non-virtual"><scope>Model</scope><name>nonlinearModel</name></member>
+      <member refid="class_model_1a1c926807f26dc8c433a5b8a4261c5475" prot="public" virt="non-virtual"><scope>Model</scope><name>setCurrentValue</name></member>
+      <member refid="class_model_1ad0354b53b1cf4503b7263d070a9206d5" prot="private" virt="non-virtual"><scope>Model</scope><name>u_prev1</name></member>
+      <member refid="class_model_1aab56c04266baf7acb33775e4fe7a21e2" prot="private" virt="non-virtual"><scope>Model</scope><name>u_prev2</name></member>
+      <member refid="class_model_1a928a0a8c991419c3393e80816e1610d2" prot="private" virt="non-virtual"><scope>Model</scope><name>y_prev1</name></member>
+      <member refid="class_model_1a8b15b595d778f562aea827e9b7c707ca" prot="private" virt="non-virtual"><scope>Model</scope><name>y_prev2</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

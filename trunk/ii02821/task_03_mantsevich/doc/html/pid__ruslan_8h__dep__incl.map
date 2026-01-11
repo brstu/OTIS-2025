@@ -1,0 +1,7 @@
+<map id="src/pid_ruslan.h" name="src/pid_ruslan.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="96,5,210,32"/>
+<area shape="rect" id="Node000002" href="$main__ruslan_8cpp.html" title="Главный файл программы &#45; симулятор PID регулятора" alt="" coords="5,80,144,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,42,90,82,86,77,126,44"/>
+<area shape="rect" id="Node000003" href="$pid__ruslan_8cpp.html" title="Implementation of PID controller class." alt="" coords="168,80,296,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="179,40,221,80,216,79,177,45"/>
+</map>

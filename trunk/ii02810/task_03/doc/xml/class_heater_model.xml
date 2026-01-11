@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_heater_model" kind="class" language="C++" prot="public">
+    <compoundname>HeaterModel</compoundname>
+    <includes refid="model_8h" local="no">model.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_heater_model_1a0f25d10130d5af5007844f5c1ec89c6d" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double HeaterModel::K_</definition>
+        <argsstring></argsstring>
+        <name>K_</name>
+        <qualifiedname>HeaterModel::K_</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="16" column="12" bodyfile="src/model.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_heater_model_1a099aecb7e14f05a3c290ed281416ad40" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double HeaterModel::T_</definition>
+        <argsstring></argsstring>
+        <name>T_</name>
+        <qualifiedname>HeaterModel::T_</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="17" column="12" bodyfile="src/model.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_heater_model_1a2e09acd46cf6f98c51c735d169acca4f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double HeaterModel::tau_</definition>
+        <argsstring></argsstring>
+        <name>tau_</name>
+        <qualifiedname>HeaterModel::tau_</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="18" column="12" bodyfile="src/model.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_heater_model_1a50871ba74e730f7c166d9a5f039fb814" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double HeaterModel::dt_</definition>
+        <argsstring></argsstring>
+        <name>dt_</name>
+        <qualifiedname>HeaterModel::dt_</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="19" column="12" bodyfile="src/model.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_heater_model_1a8c612fdaee0913c4f7aba77006ace419" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double HeaterModel::y_</definition>
+        <argsstring></argsstring>
+        <name>y_</name>
+        <qualifiedname>HeaterModel::y_</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="21" column="12" bodyfile="src/model.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_heater_model_1a8226748d16d740c6f6b31ec80e4c9b7a" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; HeaterModel::u_delay_line_</definition>
+        <argsstring></argsstring>
+        <name>u_delay_line_</name>
+        <qualifiedname>HeaterModel::u_delay_line_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="22" column="17" bodyfile="src/model.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_heater_model_1a39cc4b9e183e31e446edc6ce96e02817" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t HeaterModel::delay_steps_</definition>
+        <argsstring></argsstring>
+        <name>delay_steps_</name>
+        <qualifiedname>HeaterModel::delay_steps_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="23" column="12" bodyfile="src/model.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_heater_model_1a1339db20631a39d1663d27ce98742509" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HeaterModel::HeaterModel</definition>
+        <argsstring>(double K=2.0, double T=150.0, double tau=20.0, double dt=1.0)</argsstring>
+        <name>HeaterModel</name>
+        <qualifiedname>HeaterModel::HeaterModel</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>K</declname>
+          <defval>2.0</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>T</declname>
+          <defval>150.0</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tau</declname>
+          <defval>20.0</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+          <defval>1.0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="9" column="14" bodyfile="src/model.cpp" bodystart="4" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_heater_model_1a298d7a609b10a4d2140497f64c7f349a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double HeaterModel::step</definition>
+        <argsstring>(double u)</argsstring>
+        <name>step</name>
+        <qualifiedname>HeaterModel::step</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="11" column="12" bodyfile="src/model.cpp" bodystart="17" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_heater_model_1a28ac9486783b6dc05b8307ab3a1c58c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HeaterModel::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>HeaterModel::reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="12" column="10" bodyfile="src/model.cpp" bodystart="11" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_heater_model_1a04c19627f2791f25e1b5d77eb5a8c4e0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double HeaterModel::getTemperature</definition>
+        <argsstring>() const</argsstring>
+        <name>getTemperature</name>
+        <qualifiedname>HeaterModel::getTemperature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/model.h" line="13" column="12" bodyfile="src/model.h" bodystart="13" bodyend="13"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Модель объекта управления – нагреватель (1-й порядок + чистое запаздывание). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/model.h" line="7" column="1" bodyfile="src/model.h" bodystart="7" bodyend="24"/>
+    <listofallmembers>
+      <member refid="class_heater_model_1a39cc4b9e183e31e446edc6ce96e02817" prot="private" virt="non-virtual"><scope>HeaterModel</scope><name>delay_steps_</name></member>
+      <member refid="class_heater_model_1a50871ba74e730f7c166d9a5f039fb814" prot="private" virt="non-virtual"><scope>HeaterModel</scope><name>dt_</name></member>
+      <member refid="class_heater_model_1a04c19627f2791f25e1b5d77eb5a8c4e0" prot="public" virt="non-virtual"><scope>HeaterModel</scope><name>getTemperature</name></member>
+      <member refid="class_heater_model_1a1339db20631a39d1663d27ce98742509" prot="public" virt="non-virtual"><scope>HeaterModel</scope><name>HeaterModel</name></member>
+      <member refid="class_heater_model_1a0f25d10130d5af5007844f5c1ec89c6d" prot="private" virt="non-virtual"><scope>HeaterModel</scope><name>K_</name></member>
+      <member refid="class_heater_model_1a28ac9486783b6dc05b8307ab3a1c58c4" prot="public" virt="non-virtual"><scope>HeaterModel</scope><name>reset</name></member>
+      <member refid="class_heater_model_1a298d7a609b10a4d2140497f64c7f349a" prot="public" virt="non-virtual"><scope>HeaterModel</scope><name>step</name></member>
+      <member refid="class_heater_model_1a099aecb7e14f05a3c290ed281416ad40" prot="private" virt="non-virtual"><scope>HeaterModel</scope><name>T_</name></member>
+      <member refid="class_heater_model_1a2e09acd46cf6f98c51c735d169acca4f" prot="private" virt="non-virtual"><scope>HeaterModel</scope><name>tau_</name></member>
+      <member refid="class_heater_model_1a8226748d16d740c6f6b31ec80e4c9b7a" prot="private" virt="non-virtual"><scope>HeaterModel</scope><name>u_delay_line_</name></member>
+      <member refid="class_heater_model_1a8c612fdaee0913c4f7aba77006ace419" prot="private" virt="non-virtual"><scope>HeaterModel</scope><name>y_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

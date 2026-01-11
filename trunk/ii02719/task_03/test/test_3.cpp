@@ -1,0 +1,262 @@
+/**
+ * @file test_3.cpp
+ * @brief Модульные тесты для системы ПИД-регулирования
+ * @author Соловчук И.Г.
+ * @version 1.0
+ * @date 2025
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ * @test_suite PID_TestSuite Тесты ПИД-регулятора
+ * @test_suite Model_TestSuite Тесты модели объекта
+ * @test_suite Utility_TestSuite Тесты вспомогательных функций
+ */
+
+#include <gtest/gtest.h>
+#include <cmath>
+#include <array>
+#include "../src/module.h"
+
+/**
+ * @test Тест расчета коэффициентов ПИД-регулятора
+ * @brief Проверка корректности вычисления коэффициентов дискретного ПИД
+ * @test_id PID_001
+ */
+TEST(PID_TestSuite, CoefficientsCalculation) {
+    // Тестовые данные
+    double K = 0.8;
+    double T = 10.0;
+    double Td = 0.3;
+    double T0 = 1.0;
+    
+    double q0;
+    double q1;
+    double q2;
+    
+    // Вычисление коэффициентов
+    calculatePidCoefficients(K, T, Td, T0, q0, q1, q2);
+    
+    // Проверка ожидаемых значений
+    double expected_q0 = K * (1.0 + Td / T0);
+    double expected_q1 = -K * (1.0 + 2.0 * Td / T0 - T0 / T);
+    double expected_q2 = K * Td / T0;
+    
+    // Проверка с допустимой погрешностью
+    EXPECT_NEAR(q0, expected_q0, 0.001);
+    EXPECT_NEAR(q1, expected_q1, 0.001);
+    EXPECT_NEAR(q2, expected_q2, 0.001);
+}
+
+/**
+ * @test Тест ограничения управляющего воздействия
+ * @brief Проверка функции ограничения сигнала управления
+ * @test_id PID_002
+ */
+TEST(PID_TestSuite, ControlLimitsApplication) {
+    // Тест 1: Значение выше верхнего предела
+    EXPECT_DOUBLE_EQ(applyControlLimits(150.0), 100.0);
+    
+    // Тест 2: Значение ниже нижнего предела
+    EXPECT_DOUBLE_EQ(applyControlLimits(-50.0), 0.0);
+    
+    // Тест 3: Значение в допустимом диапазоне
+    EXPECT_DOUBLE_EQ(applyControlLimits(75.0), 75.0);
+    
+    // Тест 4: Граничные значения
+    EXPECT_DOUBLE_EQ(applyControlLimits(0.0), 0.0);
+    EXPECT_DOUBLE_EQ(applyControlLimits(100.0), 100.0);
+    
+    // Тест 5: Дробные значения
+    EXPECT_DOUBLE_EQ(applyControlLimits(25.5), 25.5);
+    EXPECT_DOUBLE_EQ(applyControlLimits(100.1), 100.0);
+}
+
+/**
+ * @test Тест вычисления управляющего воздействия
+ * @brief Проверка алгоритма расчета ПИД-регулятора
+ * @test_id PID_003
+ */
+TEST(PID_TestSuite, ControlSignalCalculation) {
+    // Подготовка тестовых данных
+    ControlParams params = {
+        1.0,
+        -0.5,
+        0.3,
+        10.0,
+        5.0,
+        3.0,
+        20.0
+    };
+    
+    // Расчет управления
+    double result = calculateControl(params);
+    
+    // Проверка вычислений
+    double expected_control = 20.0 + (1.0 * 10.0 + (-0.5) * 5.0 + 0.3 * 3.0);
+    
+    EXPECT_NEAR(result, expected_control, 0.001);
+    
+    // Дополнительные проверки
+    EXPECT_GE(result, 0.0);
+    EXPECT_LE(result, 100.0);
+}
+
+/**
+ * @test Тест нелинейной модели объекта
+ * @brief Проверка корректности моделирования объекта
+ * @test_id MODEL_001
+ */
+TEST(Model_TestSuite, NonlinearModelSimulation) {
+    // Подготовка тестовых данных
+    ModelParams params = {
+        0.9,
+        0.005,
+        1.0,
+        0.1,
+        20.1,
+        20.0,
+        25.0,
+        0.0
+    };
+    
+    // Расчет выходного значения
+    double output = calculateNonlinearModel(params);
+    
+    // Проверка корректности результата
+    EXPECT_GT(output, 0.0);
+    EXPECT_FALSE(std::isnan(output));
+    EXPECT_FALSE(std::isinf(output));
+    
+    // Проверка расчета
+    double expected_output = params.a * params.y1 -
+                           params.b * params.y0 * params.y0 +
+                           params.c * params.u1 +
+                           params.d * std::sin(params.u0);
+    
+    EXPECT_NEAR(output, expected_output, 0.001);
+}
+
+/**
+ * @test Тест функции вычисления ошибки
+ * @brief Проверка корректности расчета ошибки регулирования
+ * @test_id UTIL_001
+ */
+TEST(Utility_TestSuite, ErrorCalculation) {
+    // Тест 1: Текущее значение ниже уставки
+    EXPECT_DOUBLE_EQ(calculateError(25.0, 20.0), 5.0);
+    
+    // Тест 2: Текущее значение выше уставки
+    EXPECT_DOUBLE_EQ(calculateError(25.0, 30.0), -5.0);
+    
+    // Тест 3: Текущее значение равно уставке
+    EXPECT_DOUBLE_EQ(calculateError(25.0, 25.0), 0.0);
+    
+    // Тест 4: Дробные значения
+    EXPECT_DOUBLE_EQ(calculateError(25.5, 25.0), 0.5);
+    EXPECT_DOUBLE_EQ(calculateError(25.0, 25.5), -0.5);
+}
+
+/**
+ * @test Тест защиты температуры
+ * @brief Проверка функции ограничения температуры снизу
+ * @test_id UTIL_002
+ */
+TEST(Utility_TestSuite, TemperatureProtection) {
+    // Тест 1: Положительная температура
+    EXPECT_DOUBLE_EQ(applyTemperatureProtection(25.5), 25.5);
+    
+    // Тест 2: Нулевая температура
+    EXPECT_DOUBLE_EQ(applyTemperatureProtection(0.0), 0.0);
+    
+    // Тест 3: Отрицательная температура
+    EXPECT_DOUBLE_EQ(applyTemperatureProtection(-10.0), 0.0);
+    
+    // Тест 4: Маленькая положительная температура
+    EXPECT_DOUBLE_EQ(applyTemperatureProtection(0.001), 0.001);
+}
+
+/**
+ * @test Тест обновления переменных состояния
+ * @brief Проверка корректности обновления истории системы
+ * @test_id UTIL_003
+ */
+TEST(Utility_TestSuite, StateVariablesUpdate) {
+    // Исходное состояние системы
+    StateVariables state = {
+        {10.0, 20.0, 30.0},
+        {40.0, 50.0},
+        60.0,
+        70.0,
+        80.0,
+        90.0
+    };
+    
+    // Сохраняем необходимые исходные значения
+    double original_y1 = state.y[1];
+    double original_u0 = state.u[0];
+    double original_e_prev = state.e_prev;
+    double original_e_k = state.e_k;
+    
+    // Выполняем обновление состояния
+    updateStateVariables(state);
+    
+    // Проверка обновления ошибок
+    EXPECT_DOUBLE_EQ(state.e_prev2, original_e_prev);
+    EXPECT_DOUBLE_EQ(state.e_prev, original_e_k);
+    
+    // Проверка обновления управления
+    EXPECT_DOUBLE_EQ(state.u_prev, original_u0);
+    
+    // Проверка сдвига массива температур
+    EXPECT_DOUBLE_EQ(state.y[0], original_y1);
+    EXPECT_DOUBLE_EQ(state.y[1], 30.0);
+    
+    // Проверка сдвига массива управлений
+    EXPECT_DOUBLE_EQ(state.u[1], original_u0);
+}
+
+/**
+ * @test Комплексный тест системы
+ * @brief Проверка взаимодействия компонентов системы
+ * @test_id SYSTEM_001
+ */
+TEST(System_TestSuite, IntegratedSystemTest) {
+    // Шаг 1: Расчет коэффициентов ПИД
+    double q0;
+    double q1;
+    double q2;
+    calculatePidCoefficients(1.0, 5.0, 0.5, 1.0, q0, q1, q2);
+    
+    EXPECT_GT(q0, 0.0);
+    EXPECT_LT(q1, 0.0);
+    EXPECT_GT(q2, 0.0);
+    
+    // Шаг 2: Расчет ошибки
+    double error = calculateError(25.0, 20.0);
+    EXPECT_DOUBLE_EQ(error, 5.0);
+    
+    // Шаг 3: Расчет управления
+    ControlParams control_params = {q0, q1, q2, error, 0.0, 0.0, 0.0};
+    double control = calculateControl(control_params);
+    
+    EXPECT_GE(control, 0.0);
+    EXPECT_LE(control, 100.0);
+    
+    // Шаг 4: Моделирование объекта
+    ModelParams model_params = {0.8, 0.01, 0.5, 0.1, 20.0, 19.0, control, 0.0};
+    double temperature = calculateNonlinearModel(model_params);
+    
+    EXPECT_GE(temperature, 0.0);
+    EXPECT_LT(temperature, 100.0);
+}
+
+/**
+ * @brief Основная функция запуска тестов
+ */
+int main(int argc, char **argv) {
+    // Инициализация тестовой среды
+    ::testing::InitGoogleTest(&argc, argv);
+    
+    // Запуск всех тестов
+    return RUN_ALL_TESTS();
+}

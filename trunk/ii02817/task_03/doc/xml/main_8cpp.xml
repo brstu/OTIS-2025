@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="main_8cpp" kind="file" language="C++">
+    <compoundname>main.cpp</compoundname>
+    <includes local="no">iostream</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">fstream</includes>
+    <includes refid="model_8h" local="yes">model.h</includes>
+    <includes refid="pid_8h" local="yes">pid.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/main.cpp</label>
+        <link refid="main_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>model.h</label>
+        <link refid="model_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>pid.h</label>
+        <link refid="pid_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>cmath</label>
+      </node>
+      <node id="4">
+        <label>fstream</label>
+      </node>
+      <node id="2">
+        <label>iostream</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="main_8cpp_1a6f0920bfae69b5111bd59c7741b2e89f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt; std::vector&lt; double &gt; &gt; simulateSystem</definition>
+        <argsstring>(PlantModel &amp;plant, PIDController &amp;pid, double setpoint, int simulation_time, bool use_nonlinear=false)</argsstring>
+        <name>simulateSystem</name>
+        <param>
+          <type><ref refid="class_plant_model" kindref="compound">PlantModel</ref> &amp;</type>
+          <declname>plant</declname>
+        </param>
+        <param>
+          <type><ref refid="class_p_i_d_controller" kindref="compound">PIDController</ref> &amp;</type>
+          <declname>pid</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>setpoint</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>simulation_time</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>use_nonlinear</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Моделирование системы с ПИД-регулятором </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>plant</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Объект управления </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ПИД-регулятор </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>setpoint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Задание (уставка) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>simulation_time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Время моделирования </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>use_nonlinear</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Флаг использования нелинейной модели </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Вектор результатов [время, задание, выход, управление] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.cpp" line="23" column="13" bodyfile="src/main.cpp" bodystart="23" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="main_8cpp_1ae05a0508b72e53ffdfcff2070c06cd27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void writeResultsToFile</definition>
+        <argsstring>(const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;results, const std::string &amp;filename)</argsstring>
+        <name>writeResultsToFile</name>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>results</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+<para>Запись результатов в файл </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>results</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Результаты моделирования </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя файла </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.cpp" line="64" column="6" bodyfile="src/main.cpp" bodystart="64" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.cpp" line="78" column="5" bodyfile="src/main.cpp" bodystart="78" bodyend="118"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Основная программа для тестирования ПИД-регулятора </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Демонстрация работы ПИД-регулятора с различными объектами управления </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="model_8h" kindref="compound">model.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="pid_8h" kindref="compound">pid.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">std::vector&lt;std::vector&lt;double&gt;&gt;<sp/><ref refid="main_8cpp_1a6f0920bfae69b5111bd59c7741b2e89f" kindref="member">simulateSystem</ref>(</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_plant_model" kindref="compound">PlantModel</ref><sp/>&amp;plant,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_p_i_d_controller" kindref="compound">PIDController</ref><sp/>&amp;pid,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>setpoint,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>simulation_time,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>use_nonlinear<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::vector&lt;double&gt;&gt;<sp/>results(4);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>plant.<ref refid="class_plant_model_1a25e1496652f7d97c9c93c35bb18eb95d" kindref="member">setState</ref>(0.0,<sp/>0.0,<sp/>0.0,<sp/>0.0);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>pid.<ref refid="class_p_i_d_controller_1ab6adfbffa30414f0a83b95ba999a2fea" kindref="member">reset</ref>();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k<sp/>=<sp/>0;<sp/>k<sp/>&lt;<sp/>simulation_time;<sp/>k++)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y<sp/>=<sp/>plant.<ref refid="class_plant_model_1af76e6d3c9e05d6f7c0c4b847acfe49be" kindref="member">getOutput</ref>();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e<sp/>=<sp/>setpoint<sp/>-<sp/>y;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u<sp/>=<sp/>pid.<ref refid="class_p_i_d_controller_1af31656b67630f25fe8b85eefa24fe956" kindref="member">calculate</ref>(e);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(use_nonlinear)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plant.<ref refid="class_plant_model_1ac9799cb700d1f26b4dd8758d34a5dde9" kindref="member">nonlinearStep</ref>(u);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plant.<ref refid="class_plant_model_1a5aba471744e92f4e93abdaacaa6bd951" kindref="member">linearStep</ref>(u);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>results[0].push_back(k);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>results[1].push_back(setpoint);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>results[2].push_back(y);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>results[3].push_back(u);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>results;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="main_8cpp_1ae05a0508b72e53ffdfcff2070c06cd27" kindref="member">writeResultsToFile</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::vector&lt;double&gt;&gt;<sp/>&amp;results,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;filename)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>std::ofstream<sp/>file(filename);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Time,Setpoint,Output,Control\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>results[0].size();<sp/>i++)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/>results[0][i]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>results[1][i]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>results[2][i]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>results[3][i]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>file.close();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kindref="member">main</ref>()</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;===<sp/>Лабораторная<sp/>работа<sp/>№3:<sp/>ПИД-регуляторы<sp/>===\n&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Создание<sp/>объекта<sp/>управления</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_plant_model" kindref="compound">PlantModel</ref><sp/>plant(0.8,<sp/>0.2,<sp/>0.1,<sp/>0.05);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Тест<sp/>1:<sp/>П-регулятор</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Тест<sp/>1:<sp/>П-регулятор<sp/>(K=2.0)&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_p_i_d_controller" kindref="compound">PIDController</ref><sp/>p_controller(2.0,<sp/>1.0,<sp/>0.0,<sp/>1.0);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>p_controller.setLimits(-10.0,<sp/>10.0);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>results_p<sp/>=<sp/><ref refid="main_8cpp_1a6f0920bfae69b5111bd59c7741b2e89f" kindref="member">simulateSystem</ref>(plant,<sp/>p_controller,<sp/>5.0,<sp/>50,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Тест<sp/>2:<sp/>ПИ-регулятор</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Тест<sp/>2:<sp/>ПИ-регулятор<sp/>(K=1.5,<sp/>Ti=2.0)&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_p_i_d_controller" kindref="compound">PIDController</ref><sp/>pi_controller(1.5,<sp/>2.0,<sp/>0.0,<sp/>1.0);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>pi_controller.setLimits(-10.0,<sp/>10.0);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>results_pi<sp/>=<sp/><ref refid="main_8cpp_1a6f0920bfae69b5111bd59c7741b2e89f" kindref="member">simulateSystem</ref>(plant,<sp/>pi_controller,<sp/>5.0,<sp/>50,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Тест<sp/>3:<sp/>ПИД-регулятор</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Тест<sp/>3:<sp/>ПИД-регулятор<sp/>(K=1.2,<sp/>Ti=1.5,<sp/>Td=0.5)&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_p_i_d_controller" kindref="compound">PIDController</ref><sp/>pid_controller(1.2,<sp/>1.5,<sp/>0.5,<sp/>1.0);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>pid_controller.setLimits(-10.0,<sp/>10.0);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>results_pid<sp/>=<sp/><ref refid="main_8cpp_1a6f0920bfae69b5111bd59c7741b2e89f" kindref="member">simulateSystem</ref>(plant,<sp/>pid_controller,<sp/>5.0,<sp/>50,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Тест<sp/>4:<sp/>ПИД-регулятор<sp/>с<sp/>нелинейной<sp/>моделью</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Тест<sp/>4:<sp/>ПИД-регулятор<sp/>с<sp/>нелинейной<sp/>моделью&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_plant_model" kindref="compound">PlantModel</ref><sp/>nonlinear_plant(0.9,<sp/>0.1,<sp/>0.3,<sp/>0.2);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_p_i_d_controller" kindref="compound">PIDController</ref><sp/>pid_nonlinear(1.0,<sp/>2.0,<sp/>0.3,<sp/>1.0);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>pid_nonlinear.setLimits(-15.0,<sp/>15.0);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>results_nonlinear<sp/>=<sp/><ref refid="main_8cpp_1a6f0920bfae69b5111bd59c7741b2e89f" kindref="member">simulateSystem</ref>(nonlinear_plant,<sp/>pid_nonlinear,<sp/>5.0,<sp/>50,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Моделирование<sp/>завершено!&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/main.cpp"/>
+  </compounddef>
+</doxygen>

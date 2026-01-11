@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="pid_8h" kind="file" language="C++">
+    <compoundname>pid.h</compoundname>
+    <includes local="no">vector</includes>
+    <includedby refid="main_8cpp" local="yes">src/main.cpp</includedby>
+    <includedby refid="pid_8cpp" local="yes">src/pid.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/pid.h</label>
+        <link refid="pid_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="3">
+        <label>src/pid.cpp</label>
+        <link refid="pid_8cpp"/>
+      </node>
+      <node id="1">
+        <label>src/pid.h</label>
+        <link refid="pid_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_p_i_d_controller" prot="public">PIDController</innerclass>
+    <briefdescription>
+<para>Дискретный ПИД-регулятор </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Реализация дискретного ПИД-регулятора по рекуррентным формулам </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>PID_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PID_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="class_p_i_d_controller" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_p_i_d_controller_1a970b2fb3c3d8517db45b066030ea1723" kindref="member">PIDController</ref></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>K<sp/>=<sp/>1.0;<sp/><sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Ti<sp/>=<sp/>1.0;<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Td<sp/>=<sp/>0.0;<sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>T0<sp/>=<sp/>1.0;<sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q0<sp/>=<sp/>1.0;<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q1<sp/>=<sp/>0.0;<sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q2<sp/>=<sp/>0.0;<sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_prev<sp/>=<sp/>0.0;<sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e_prev1<sp/>=<sp/>0.0;<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e_prev2<sp/>=<sp/>0.0;<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_min<sp/>=<sp/>-100.0;<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_max<sp/>=<sp/>100.0;<sp/><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="38" refid="class_p_i_d_controller_1a970b2fb3c3d8517db45b066030ea1723" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_p_i_d_controller_1a970b2fb3c3d8517db45b066030ea1723" kindref="member">PIDController</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_p_i_d_controller_1a970b2fb3c3d8517db45b066030ea1723" kindref="member">PIDController</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>K,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Ti,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Td,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>T0);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_p_i_d_controller_1ac43ca81ca1c80f123773dc0296283514" kindref="member">setParameters</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>K,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Ti,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Td,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>T0);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_p_i_d_controller_1a2f11970d0216de3802e81a8fe84f14e8" kindref="member">setLimits</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_min,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_max);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_p_i_d_controller_1ab6adfbffa30414f0a83b95ba999a2fea" kindref="member">reset</ref>();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_p_i_d_controller_1af31656b67630f25fe8b85eefa24fe956" kindref="member">calculate</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="class_p_i_d_controller_1a3f6a05e6457da67ca575c0da2280dcba" kindref="member">getCoefficients</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>PID_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/pid.h"/>
+  </compounddef>
+</doxygen>

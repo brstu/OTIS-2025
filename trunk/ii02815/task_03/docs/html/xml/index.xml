@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.15.0" xml:lang="en-US">
+  <compound refid="struct_model_parameters" kind="struct"><name>ModelParameters</name>
+    <member refid="struct_model_parameters_1acbb688c7cb06829f36c0c8cc0e9fb763" kind="variable"><name>a</name></member>
+    <member refid="struct_model_parameters_1ad4765154a71f12ea1690bb6a474136d6" kind="variable"><name>b</name></member>
+    <member refid="struct_model_parameters_1a71c9ed93c9529ef204f437d6209702cc" kind="variable"><name>c</name></member>
+    <member refid="struct_model_parameters_1a479f92f944245cc3bcf594eca7670805" kind="variable"><name>d</name></member>
+  </compound>
+  <compound refid="class_p_i_d" kind="class"><name>PID</name>
+    <member refid="class_p_i_d_1ac6f4a7e29f84d9eb60e7f672a3665a65" kind="variable"><name>q0</name></member>
+    <member refid="class_p_i_d_1a84c6ee207e6449ee6082094f697f701a" kind="variable"><name>q1</name></member>
+    <member refid="class_p_i_d_1addf8b9728e070dc19ddbc5e80b44c550" kind="variable"><name>q2</name></member>
+    <member refid="class_p_i_d_1ab7d24c057c566a8128a654f933c2610f" kind="variable"><name>u_prev</name></member>
+    <member refid="class_p_i_d_1a9e9287696502b7183b65e52cfe165848" kind="variable"><name>e_prev1</name></member>
+    <member refid="class_p_i_d_1af5539d613fcb09081d26ede79d6ecae6" kind="variable"><name>e_prev2</name></member>
+    <member refid="class_p_i_d_1adbf15ea7088506f528d0457e9d51a93f" kind="function"><name>PID</name></member>
+    <member refid="class_p_i_d_1ae10be3c7e62a2c7a13b7e7d698e11b3c" kind="function"><name>PID</name></member>
+    <member refid="class_p_i_d_1a980f21e5c28912b5c968e60c8ddfa089" kind="function"><name>compute</name></member>
+    <member refid="class_p_i_d_1af9677e76cb1beffbcf3f54cbc627c530" kind="function"><name>reset</name></member>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="main3_8cpp" kind="file"><name>main3.cpp</name>
+    <member refid="main3_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="model_8cpp" kind="file"><name>model.cpp</name>
+    <member refid="model_8cpp_1a2eda51203134f3bcd3dd373005493c56" kind="function"><name>linearModel</name></member>
+    <member refid="model_8cpp_1a84dab4d695c760ecd365f3c8e9682417" kind="function"><name>nonlinearModel</name></member>
+  </compound>
+  <compound refid="model_8h" kind="file"><name>model.h</name>
+    <member refid="model_8h_1a2eda51203134f3bcd3dd373005493c56" kind="function"><name>linearModel</name></member>
+    <member refid="model_8h_1a84dab4d695c760ecd365f3c8e9682417" kind="function"><name>nonlinearModel</name></member>
+  </compound>
+  <compound refid="pid__contr_8cpp" kind="file"><name>pid_contr.cpp</name>
+  </compound>
+  <compound refid="pid__contr_8h" kind="file"><name>pid_contr.h</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>
