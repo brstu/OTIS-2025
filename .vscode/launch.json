@@ -1,12 +1,17 @@
 {
+    "version": "0.2.0",
     "configurations": [
         {
-            "type": "cmake",
+            "name": "Run Main Program",
+            "type": "cppdbg",
             "request": "launch",
-            "name": "Debug portfile(s)",
-            "cmakeDebugType": "external",
-            "pipeName": "\\\\.\\pipe\\vcpkg_ext_portfile_dbg",
-            "preLaunchTask": "Debug vcpkg commands"
+            "program": "${workspaceFolder}/main_app",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb"
         }
     ]
 }
