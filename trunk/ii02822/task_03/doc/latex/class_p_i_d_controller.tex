@@ -1,0 +1,65 @@
+\doxysection{PIDController Class Reference}
+\hypertarget{class_p_i_d_controller}{}\label{class_p_i_d_controller}\index{PIDController@{PIDController}}
+
+
+{\ttfamily \#include $<$pid\+\_\+controller.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_i_d_controller_a8abdcd87030facec712a9fd102999f71}{PIDController}} (double K=1.\+0, double Ti=0.\+0, double Td=0.\+0, double T=0.\+01)
+\item 
+double \mbox{\hyperlink{class_p_i_d_controller_a64a55d7634ebed47fdd75da1195ad019}{calculate}} (double setpoint, double current\+\_\+value)
+\item 
+void \mbox{\hyperlink{class_p_i_d_controller_ab6adfbffa30414f0a83b95ba999a2fea}{reset}} ()
+\item 
+void \mbox{\hyperlink{class_p_i_d_controller_ada2c09c46c8a05464785039343af4b8d}{set\+Parameters}} (double K, double Ti, double Td, double T)
+\item 
+void \mbox{\hyperlink{class_p_i_d_controller_a07a99a69cb2f6d4970e1bdceb3fe425f}{get\+Parameters}} (double \&K, double \&Ti, double \&Td, double \&T) const
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_p_i_d_controller_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_p_i_d_controller_a8abdcd87030facec712a9fd102999f71}\index{PIDController@{PIDController}!PIDController@{PIDController}}
+\index{PIDController@{PIDController}!PIDController@{PIDController}}
+\doxysubsubsection{\texorpdfstring{PIDController()}{PIDController()}}
+{\footnotesize\ttfamily \label{class_p_i_d_controller_a8abdcd87030facec712a9fd102999f71} 
+PIDController\+::\+PIDController (\begin{DoxyParamCaption}\item[{double}]{K}{ = {\ttfamily 1.0}, }\item[{double}]{Ti}{ = {\ttfamily 0.0}, }\item[{double}]{Td}{ = {\ttfamily 0.0}, }\item[{double}]{T}{ = {\ttfamily 0.01}}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_p_i_d_controller_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_p_i_d_controller_a64a55d7634ebed47fdd75da1195ad019}\index{PIDController@{PIDController}!calculate@{calculate}}
+\index{calculate@{calculate}!PIDController@{PIDController}}
+\doxysubsubsection{\texorpdfstring{calculate()}{calculate()}}
+{\footnotesize\ttfamily \label{class_p_i_d_controller_a64a55d7634ebed47fdd75da1195ad019} 
+double PIDController\+::calculate (\begin{DoxyParamCaption}\item[{double}]{setpoint}{, }\item[{double}]{current\+\_\+value}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_p_i_d_controller_a07a99a69cb2f6d4970e1bdceb3fe425f}\index{PIDController@{PIDController}!getParameters@{getParameters}}
+\index{getParameters@{getParameters}!PIDController@{PIDController}}
+\doxysubsubsection{\texorpdfstring{getParameters()}{getParameters()}}
+{\footnotesize\ttfamily \label{class_p_i_d_controller_a07a99a69cb2f6d4970e1bdceb3fe425f} 
+void PIDController\+::get\+Parameters (\begin{DoxyParamCaption}\item[{double \&}]{K}{, }\item[{double \&}]{Ti}{, }\item[{double \&}]{Td}{, }\item[{double \&}]{T}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_p_i_d_controller_ab6adfbffa30414f0a83b95ba999a2fea}\index{PIDController@{PIDController}!reset@{reset}}
+\index{reset@{reset}!PIDController@{PIDController}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{class_p_i_d_controller_ab6adfbffa30414f0a83b95ba999a2fea} 
+void PIDController\+::reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_p_i_d_controller_ada2c09c46c8a05464785039343af4b8d}\index{PIDController@{PIDController}!setParameters@{setParameters}}
+\index{setParameters@{setParameters}!PIDController@{PIDController}}
+\doxysubsubsection{\texorpdfstring{setParameters()}{setParameters()}}
+{\footnotesize\ttfamily \label{class_p_i_d_controller_ada2c09c46c8a05464785039343af4b8d} 
+void PIDController\+::set\+Parameters (\begin{DoxyParamCaption}\item[{double}]{K}{, }\item[{double}]{Ti}{, }\item[{double}]{Td}{, }\item[{double}]{T}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{pid__controller_8h}{pid\+\_\+controller.\+h}}\item 
+src/\mbox{\hyperlink{pid__controller_8cpp}{pid\+\_\+controller.\+cpp}}\end{DoxyCompactItemize}
