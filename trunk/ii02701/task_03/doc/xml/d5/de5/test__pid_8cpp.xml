@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="d5/de5/test__pid_8cpp" kind="file" language="C++">
+    <compoundname>test_pid.cpp</compoundname>
+    <includes local="no">gtest/gtest.h</includes>
+    <includes refid="da/df0/pid_8h" local="yes">../src/pid.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>../src/pid.h</label>
+        <link refid="da/df0/pid_8h"/>
+      </node>
+      <node id="1">
+        <label>test_pid.cpp</label>
+        <link refid="d5/de5/test__pid_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>gtest/gtest.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="d5/de5/test__pid_8cpp_1a3f91ab8cefbb580364696f13ee370f11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(PIDTest, ZeroErrorGivesZeroOutput)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>PIDTest</type>
+        </param>
+        <param>
+          <type>ZeroErrorGivesZeroOutput</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_pid.cpp" line="4" column="1" bodyfile="test/test_pid.cpp" bodystart="4" bodyend="10"/>
+        <references refid="d8/dcb/pid_8cpp_1a1bfa28135d708de923736e4d546bced2" compoundref="d8/dcb/pid_8cpp" startline="3" endline="11">initPID</references>
+        <references refid="d8/dcb/pid_8cpp_1a06d33d4317438f0fefa00494b29d3afe" compoundref="d8/dcb/pid_8cpp" startline="13" endline="24">updatePID</references>
+      </memberdef>
+      <memberdef kind="function" id="d5/de5/test__pid_8cpp_1a593b4d74059f33eee2d5c006ebd512f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(PIDTest, ConstantErrorIncreasesOutput)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>PIDTest</type>
+        </param>
+        <param>
+          <type>ConstantErrorIncreasesOutput</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_pid.cpp" line="12" column="1" bodyfile="test/test_pid.cpp" bodystart="12" bodyend="20"/>
+        <references refid="d8/dcb/pid_8cpp_1a1bfa28135d708de923736e4d546bced2" compoundref="d8/dcb/pid_8cpp" startline="3" endline="11">initPID</references>
+        <references refid="d8/dcb/pid_8cpp_1a06d33d4317438f0fefa00494b29d3afe" compoundref="d8/dcb/pid_8cpp" startline="13" endline="24">updatePID</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;gtest/gtest.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="da/df0/pid_8h" kindref="compound">../src/pid.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="d5/de5/test__pid_8cpp_1a3f91ab8cefbb580364696f13ee370f11" refkind="member"><highlight class="normal"><ref refid="d5/de5/test__pid_8cpp_1a3f91ab8cefbb580364696f13ee370f11" kindref="member">TEST</ref>(PIDTest,<sp/>ZeroErrorGivesZeroOutput)<sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="da/dba/struct_p_i_d" kindref="compound">PID</ref><sp/>pid;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d8/dcb/pid_8cpp_1a1bfa28135d708de923736e4d546bced2" kindref="member">initPID</ref>(pid,<sp/>0.6,<sp/>0.3,<sp/>0.1);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u<sp/>=<sp/><ref refid="d8/dcb/pid_8cpp_1a06d33d4317438f0fefa00494b29d3afe" kindref="member">updatePID</ref>(pid,<sp/>0.0);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>EXPECT_DOUBLE_EQ(u,<sp/>0.0);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="d5/de5/test__pid_8cpp_1a593b4d74059f33eee2d5c006ebd512f7" refkind="member"><highlight class="normal"><ref refid="d5/de5/test__pid_8cpp_1a3f91ab8cefbb580364696f13ee370f11" kindref="member">TEST</ref>(PIDTest,<sp/>ConstantErrorIncreasesOutput)<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="da/dba/struct_p_i_d" kindref="compound">PID</ref><sp/>pid;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d8/dcb/pid_8cpp_1a1bfa28135d708de923736e4d546bced2" kindref="member">initPID</ref>(pid,<sp/>1.0,<sp/>0.0,<sp/>0.0);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u1<sp/>=<sp/><ref refid="d8/dcb/pid_8cpp_1a06d33d4317438f0fefa00494b29d3afe" kindref="member">updatePID</ref>(pid,<sp/>1.0);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u2<sp/>=<sp/><ref refid="d8/dcb/pid_8cpp_1a06d33d4317438f0fefa00494b29d3afe" kindref="member">updatePID</ref>(pid,<sp/>1.0);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>EXPECT_GT(u2,<sp/>u1);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="test/test_pid.cpp"/>
+  </compounddef>
+</doxygen>
