@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.14)
-project(task_02_ii02719_src)
+project(task_02_ii02715_src)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
