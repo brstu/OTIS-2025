@@ -26,7 +26,7 @@ void Model::lin(const Const_& c) {
 	y = y_next;
 
 }
-void PID_model(const Qs& q, const Const_& c,const Params &p) {
+void PID_model(const Qs& q, const Const_& c,const Model::Params &p) {
 	double s;
 	double t;
 	double n;
