@@ -39,7 +39,7 @@ public:
 * \brief Constructor of class. Allows user to initialize variables
 *
 */
-	Model(double y_start, double target_,bool condition_, Params &p)
+	Model(double y_start, double target_,bool condition_,const Params &p)
 		:y(y_start), u(p.u),u_d(p.u_d), y_next(p.y_next), u_next(p.u_next), e(p.e), e_past(p.e_past), e_past2(p.e_past2), target(target_), condition(condition_)
 	{}
 	/*
@@ -66,7 +66,7 @@ public:
 * \params Qs q struct with value of qs
 * Const_& c struct with value of all constants
 */
-void PID_model(const Qs& q, const Const_& c);
+void PID_model(const Qs& q, const Const_& c,const Params &p);
 /*
 * \brief Function for calculating qs
 * \params Qs q struct with value of qs
