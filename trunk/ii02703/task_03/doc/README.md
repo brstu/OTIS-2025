@@ -109,63 +109,20 @@
 
 ## Код тестов
 ```C++
-#include <gtest/gtest.h>
-#include "functions.h"
+#include "gtest/gtest.h"
+#include "../src/PID.h"
 
-/**
- * @brief Проверка линейной модели объекта
- */
-TEST(PlantTest, LinearModelWorks)
-{
-    double y = 1.0;
-    double u = 2.0;
-
-    double y_next = linearPlant(y, u);
-
-    double expected = A * y + B * u;
-    EXPECT_NEAR(y_next, expected, 1e-9);
-}
-
-/**
- * @brief Проверка нелинейной модели объекта
- */
-TEST(PlantTest, NonlinearModelWorks)
-{
-    double y = 1.0;
-    double u = 0.5;
-    double y_prev = 0.9;
-    double u_prev = 0.4;
-
-    double y_next = nonlinearPlant(y, u, y_prev, u_prev);
-
-    double expected =
-        A * y
-        - B * y_prev * y_prev
-        + C * u
-        + D * std::sin(u_prev);
-
-    EXPECT_NEAR(y_next, expected, 1e-9);
-}
-
-/**
- * @brief Проверка, что ПИД-регулятор сходится к заданию
- */
-TEST(PIDTest, ConvergesToSetpoint)
-{
-    const double setpoint = 4.0;
-    const int steps = 200;
-
-    std::vector<double> result = runSimulation(setpoint, steps);
-
-    double final_value = result.back();
-
-    EXPECT_NEAR(final_value, setpoint, 1e-2);
+TEST(PIDTest, checkQs) {
+    PID p;
+    p.calcQs();
+    double r0, r1, r2;
+    p.getQs(r0, r1, r2);
+    EXPECT_NEAR(r0, 3, 0.1);
+    EXPECT_NEAR(r1, -3.2, 0.1);
+    EXPECT_NEAR(r2, 1.5, 0.1);
 }
 
 ```
-
-## График
-![PID](images/PID.png)
 
 
 ## Documentation
@@ -175,35 +132,46 @@ https://sstiff.github.io/OTIS-2025/
 ## Консоль и выводы 
 
 ### Консоль с выполнением test
-[==========] Running 3 tests from 2 test suites.
+[==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 2 tests from PlantTest
-[ RUN      ] PlantTest.LinearModelWorks
-[       OK ] PlantTest.LinearModelWorks (0 ms)
-[ RUN      ] PlantTest.NonlinearModelWorks
-[       OK ] PlantTest.NonlinearModelWorks (0 ms)
-[----------] 2 tests from PlantTest (6 ms total)
-
 [----------] 1 test from PIDTest
-[ RUN      ] PIDTest.ConvergesToSetpoint
-[       OK ] PIDTest.ConvergesToSetpoint (0 ms)
-[----------] 1 test from PIDTest (1 ms total)
+[ RUN      ] PIDTest.checkQs
+Enter start temp
+10
+Enter max temp
+100
+Enter needed temp
+40
+[       OK ] PIDTest.checkQs (8671 ms)
+[----------] 1 test from PIDTest (8675 ms total)
 
 [----------] Global test environment tear-down
-[==========] 3 tests from 2 test suites ran. (15 ms total)
-[  PASSED  ] 3 tests.
+[==========] 1 test from 1 test suite ran. (8684 ms total)
+[  PASSED  ] 1 test.
 
 ### Консоль с основным кодом 
-0 : 0.904
-1 : 0.861918
-2 : 0.849313
-3 : 0.870055
-4 : 0.917803
-5 : 0.98899
-6 : 1.0798
-7 : 1.18698
-8 : 1.30759
-9 : 1.43901
-10 : 1.57888
-11 : 1.72507
-12 : 1.87564
+10
+Enter max temp
+100
+Enter needed temp
+40
+Step 1
+Error: 30
+Temperature: 10
+########################
+Step 2
+Error: 31.5
+Temperature: 8.5
+########################
+Step 3
+Error: 32.775
+Temperature: 7.225
+########################
+Step 4
+Error: 33.8588
+Temperature: 6.14125
+########################
+Step 5
+Error: 32.6537
+Temperature: 7.34631
+########################
