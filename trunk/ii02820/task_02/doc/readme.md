@@ -1,3 +1,31 @@
+<img width="1261" height="182" alt="image" src="https://github.com/user-attachments/assets/1a4086e7-0af2-4af2-beeb-8c7f748008d8" /><p align="center"> Министерство образования Республики Беларусь</p>
+<p align="center">Учреждение образования</p>
+<p align="center">“Брестский Государственный технический университет”</p>
+<p align="center">Кафедра ИИТ</p>
+<br><br><br><br><br><br><br>
+<p align="center">Лабораторная работа №2</p>
+<p align="center">По дисциплине “Общая теория интеллектуальных систем”</p>
+<p align="center">Тема: “Google tests”</p>
+<br><br><br><br><br>
+<p align="right">Выполнил:</p>
+<p align="right">Студент 2 курса</p>
+<p align="right">Группы ИИ-28</p>
+<p align="right">Малич А.В.</p>
+<p align="right">Проверил:</p>
+<p align="right">Иванюк Д.С.</p>
+<br><br><br><br><br>
+<p align="center">Брест 2025</p>
+
+# Общее задание #
+Написать модульные тесты для программы, разработанной в лабораторной работе №1.
+Использовать следующий фреймворк для модульного тестирования - Google Test.
+Написать модульные тесты для основных функций программы. Разместить тесты в каталоге: trunk\ii0xxyy\task_02\test.
+Исходный код модифицированной программы разместить в каталоге: trunk\ii0xxyy\task_02\src.
+В файле readme.md отразить количество написанных тестов и процент покрытия кода тестами (использовать любой инструмент для анализа покрытия, например, gcovr).
+Также необходимо отразить выполнение работы в общем файле readme.md в соответствующей строке (например, для студента под порядковым номером 1 - https://github.com/brstu/OTIS-2025/blob/b2d60c2765b369aed21af76af8fa4461da2c8da6/README.md?plain=1#L13).
+
+## Код модульных тестов
+
 #include <gtest/gtest.h>
 #include <cmath>
 #include "../src/model.h"
@@ -104,3 +132,8 @@ TEST(ModelTest, NonlinearWithZeroInput) {
     EXPECT_NEAR(result, expected, 1e-10);
 }
 
+![test](C:\Users\anton\OTIS-2025\trunk\ii02820\task_02\doc\images\google_test.png)
+
+
+
+![покрытие](C:\Users\anton\OTIS-2025\trunk\ii02820\task_02\doc\images\coverage.png)
