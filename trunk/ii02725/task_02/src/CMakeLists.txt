@@ -19,7 +19,6 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-# --- Сборка тестового исполняемого файла ---
 # Пути относительно src/ где лежит CMakeLists.txt
 add_executable(runTests_ii02725 
     ../tests/test.cpp    # из task_02/test/
