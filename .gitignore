@@ -38,6 +38,7 @@ out/
 .idea/
 cmake-build-debug/
 
+vcpkg
 # Doxygen documentation
 doc/html/
 doc/xml/
