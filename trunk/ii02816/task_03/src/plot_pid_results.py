@@ -36,77 +36,85 @@ def read_csv_data(filename):
         print(f"Error: Missing column in CSV: {e}")
         return None
 
-def generate_ascii_plot(data, width=80, height=20):
-    """Генерация ASCII графика в консоли"""
-    print("\n" + "="*80)
-    print("ASCII PLOT - PID Controller Results")
-    print("="*80)
-    
-    # Найдем минимум и максимум для масштабирования
+def _calculate_scale_params(data):
+    """Вычисление параметров масштабирования"""
     all_values = data['Linear_Output'] + data['Nonlinear_Output'] + data['Setpoint']
     y_min = min(all_values)
     y_max = max(all_values)
     y_range = y_max - y_min if y_max != y_min else 1
-    
-    # Масштабируем данные
+    return y_min, y_range
+
+def _scale_data(data, y_min, y_range, height):
+    """Масштабирование данных"""
     scaled_data = {}
     for key in ['Setpoint', 'Linear_Output', 'Nonlinear_Output']:
         scaled_data[key] = [
             int((val - y_min) * (height - 1) / y_range)
             for val in data[key]
         ]
+    return scaled_data
+
+def _get_plot_characters(scaled_data, x, y):
+    """Определение символов для точки графика"""
+    chars = []
+    if scaled_data['Setpoint'][x] == y:
+        chars.append('S')
+    if scaled_data['Linear_Output'][x] == y:
+        chars.append('L')
+    if scaled_data['Nonlinear_Output'][x] == y:
+        chars.append('N')
+    return chars[0] if chars else ' '
+
+def _build_x_axis_labels(data):
+    """Построение подписей оси X"""
+    x_labels = " " * 8 + " "
+    step_count = len(data['Step'])
+    step_size = max(1, step_count // 10)
     
-    # Создаем холст
+    for i in range(0, step_count, step_size):
+        if i < step_count:
+            x_labels += f"{data['Step'][i]:<8}"
+    return x_labels
+
+def _print_plot_header():
+    """Вывод заголовка графика"""
+    print("\n" + "=" * 80)
+    print("ASCII PLOT - PID Controller Results")
+    print("=" * 80)
+
+def generate_ascii_plot(data, width=80, height=20):
+    """Генерация ASCII графика в консоли"""
+    _print_plot_header()
+    
+    # Масштабирование данных
+    y_min, y_range = _calculate_scale_params(data)
+    scaled_data = _scale_data(data, y_min, y_range, height)
+    
+    # Подготовка параметров для построения
+    step_count = len(data['Step'])
+    x_step = max(1, step_count // width)
+    
+    # Построение графика строка за строкой
     for y in range(height-1, -1, -1):
-        line = f"{y+y_min:6.1f} | "
-        for x in range(0, len(data['Step']), max(1, len(data['Step']) // width)):
-            chars = []
-            # Проверяем каждую кривую
-            if x < len(data['Step']):
-                if scaled_data['Setpoint'][x] == y:
-                    chars.append('S')
-                if scaled_data['Linear_Output'][x] == y:
-                    chars.append('L')
-                if scaled_data['Nonlinear_Output'][x] == y:
-                    chars.append('N')
-            
-            if chars:
-                line += chars[0]  # берем первый символ
+        line = f"{y + y_min:6.1f} | "
+        
+        for x in range(0, step_count, x_step):
+            if x < step_count:
+                line += _get_plot_characters(scaled_data, x, y)
             else:
                 line += ' '
+        
         print(line)
     
-    # Ось X
-    print(" " * 8 + "+" + "-" * (width))
-    x_labels = " " * 8 + " "
-    for i in range(0, len(data['Step']), len(data['Step']) // 10):
-        if i < len(data['Step']):
-            x_labels += f"{data['Step'][i]:<8}"
+    # Ось X и подписи
+    print(" " * 8 + "+" + "-" * width)
+    
+    x_labels = _build_x_axis_labels(data)
     print(x_labels)
     print("\nLegend: S=Setpoint, L=Linear, N=Nonlinear")
 
-def generate_html_report(data):
-    """Генерация HTML отчета с текстовой статистикой"""
-    if not data:
-        return
-    
-    # Рассчитаем статистику
-    stats = {
-        'Linear': {
-            'mean_error': 0,
-            'max_error': 0,
-            'min_error': 0,
-            'rmse': 0
-        },
-        'Nonlinear': {
-            'mean_error': 0,
-            'max_error': 0,
-            'min_error': 0,
-            'rmse': 0
-        }
-    }
-    
-    # Вычисляем ошибки
+def _calculate_error_statistics(data):
+    """Вычисление статистики ошибок"""
     linear_errors = []
     nonlinear_errors = []
     
@@ -116,17 +124,37 @@ def generate_html_report(data):
         linear_errors.append(lin_err)
         nonlinear_errors.append(nonlin_err)
     
-    # Статистика для линейной модели
-    stats['Linear']['mean_error'] = sum(linear_errors) / len(linear_errors)
-    stats['Linear']['max_error'] = max(linear_errors)
-    stats['Linear']['min_error'] = min(linear_errors)
-    stats['Linear']['rmse'] = (sum(e*e for e in linear_errors) / len(linear_errors)) ** 0.5
+    return linear_errors, nonlinear_errors
+
+def _calculate_model_stats(errors):
+    """Вычисление статистики для модели"""
+    if not errors:
+        return {'mean_error': 0, 'max_error': 0, 'min_error': 0, 'rmse': 0}
     
-    # Статистика для нелинейной модели
-    stats['Nonlinear']['mean_error'] = sum(nonlinear_errors) / len(nonlinear_errors)
-    stats['Nonlinear']['max_error'] = max(nonlinear_errors)
-    stats['Nonlinear']['min_error'] = min(nonlinear_errors)
-    stats['Nonlinear']['rmse'] = (sum(e*e for e in nonlinear_errors) / len(nonlinear_errors)) ** 0.5
+    mean_error = sum(errors) / len(errors)
+    max_error = max(errors)
+    min_error = min(errors)
+    rmse = (sum(e*e for e in errors) / len(errors)) ** 0.5
+    
+    return {
+        'mean_error': mean_error,
+        'max_error': max_error,
+        'min_error': min_error,
+        'rmse': rmse
+    }
+
+def generate_html_report(data):
+    """Генерация HTML отчета с текстовой статистикой"""
+    if not data:
+        return
+    
+    # Вычисляем ошибки и статистику
+    linear_errors, nonlinear_errors = _calculate_error_statistics(data)
+    
+    stats = {
+        'Linear': _calculate_model_stats(linear_errors),
+        'Nonlinear': _calculate_model_stats(nonlinear_errors)
+    }
     
     # Генерация HTML
     html_content = f"""<!DOCTYPE html>
@@ -187,7 +215,7 @@ def generate_html_report(data):
 """
     
     # Добавляем строки данных
-    for i in range(min(50, len(data['Step']))):  # Ограничим 50 строками для читаемости
+    for i in range(min(50, len(data['Step']))):
         lin_err = data['Setpoint'][i] - data['Linear_Output'][i]
         nonlin_err = data['Setpoint'][i] - data['Nonlinear_Output'][i]
         html_content += f"""
@@ -241,26 +269,20 @@ def print_text_summary(data):
         print(f"{data['Step'][i]:6d} {data['Setpoint'][i]:10.4f} {data['Linear_Output'][i]:10.4f} "
               f"{data['Nonlinear_Output'][i]:10.4f} {lin_err:10.4f} {nonlin_err:10.4f}")
     
-    # Выводим статистику
-    linear_errors = [data['Setpoint'][i] - data['Linear_Output'][i] 
-                     for i in range(len(data['Step']))]
-    nonlinear_errors = [data['Setpoint'][i] - data['Nonlinear_Output'][i] 
-                        for i in range(len(data['Step']))]
-    
-    lin_mean = sum(linear_errors) / len(linear_errors)
-    nonlin_mean = sum(nonlinear_errors) / len(nonlinear_errors)
-    lin_rmse = (sum(e*e for e in linear_errors) / len(linear_errors)) ** 0.5
-    nonlin_rmse = (sum(e*e for e in nonlinear_errors) / len(nonlinear_errors)) ** 0.5
+    # Вычисляем статистику
+    linear_errors, nonlinear_errors = _calculate_error_statistics(data)
+    lin_stats = _calculate_model_stats(linear_errors)
+    nonlin_stats = _calculate_model_stats(nonlinear_errors)
     
     print("\n" + "="*60)
     print("STATISTICS:")
     print("="*60)
     print(f"{'Metric':<20} {'Linear Model':>15} {'Nonlinear Model':>15}")
     print("-"*60)
-    print(f"{'Mean Error':<20} {lin_mean:15.4f} {nonlin_mean:15.4f}")
-    print(f"{'Max Error':<20} {max(linear_errors):15.4f} {max(nonlinear_errors):15.4f}")
-    print(f"{'Min Error':<20} {min(linear_errors):15.4f} {min(nonlinear_errors):15.4f}")
-    print(f"{'RMSE':<20} {lin_rmse:15.4f} {nonlin_rmse:15.4f}")
+    print(f"{'Mean Error':<20} {lin_stats['mean_error']:15.4f} {nonlin_stats['mean_error']:15.4f}")
+    print(f"{'Max Error':<20} {lin_stats['max_error']:15.4f} {nonlin_stats['max_error']:15.4f}")
+    print(f"{'Min Error':<20} {lin_stats['min_error']:15.4f} {nonlin_stats['min_error']:15.4f}")
+    print(f"{'RMSE':<20} {lin_stats['rmse']:15.4f} {nonlin_stats['rmse']:15.4f}")
     print(f"{'Data Points':<20} {len(data['Step']):15d} {len(data['Step']):15d}")
 
 def main():
