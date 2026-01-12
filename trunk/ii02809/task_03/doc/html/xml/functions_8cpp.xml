@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="functions_8cpp" kind="file" language="C++">
+    <compoundname>functions.cpp</compoundname>
+    <includes local="no">cmath</includes>
+    <includes refid="functions_8h" local="yes">functions.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>functions.cpp</label>
+        <link refid="functions_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>functions.h</label>
+        <link refid="functions_8h"/>
+      </node>
+      <node id="2">
+        <label>cmath</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="functions_8cpp_1a82cf4dbd2f60c32e470774b41c7f7ad7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double linear</definition>
+        <argsstring>(double y, double u, double a, double b)</argsstring>
+        <name>linear</name>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Calculates the next state for the linear model. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current state. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Control input. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model parameter a. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model parameter b. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Next state y_next. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="functions.cpp" line="4" column="8" bodyfile="functions.cpp" bodystart="4" bodyend="6"/>
+      </memberdef>
+      <memberdef kind="function" id="functions_8cpp_1a431f59bed8809b9d6486bd8eabeff383" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double nonlinear</definition>
+        <argsstring>(double y, double u, double a, double b, double c, double d)</argsstring>
+        <name>nonlinear</name>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+<para>Calculates the next state for the nonlinear model. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current state. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Control input. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model parameter a. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model parameter b. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model parameter c. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model parameter d. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Next state y_next. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="functions.cpp" line="8" column="8" bodyfile="functions.cpp" bodystart="8" bodyend="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="functions_8h" kindref="compound">functions.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="functions_8cpp_1a82cf4dbd2f60c32e470774b41c7f7ad7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="functions_8cpp_1a82cf4dbd2f60c32e470774b41c7f7ad7" kindref="member">linear</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b)<sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a<sp/>*<sp/>y<sp/>+<sp/>b<sp/>*<sp/>u;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="functions_8cpp_1a431f59bed8809b9d6486bd8eabeff383" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="functions_8cpp_1a431f59bed8809b9d6486bd8eabeff383" kindref="member">nonlinear</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>c,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>d)<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a<sp/>*<sp/>y<sp/>-<sp/>b<sp/>*<sp/>pow(y,<sp/>2)<sp/>+<sp/>c<sp/>*<sp/>u<sp/>+<sp/>d<sp/>*<sp/>sin(u);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="classPID_1ae116b856a05d5a17e94a8c8fa6228949" refkind="member"><highlight class="normal"><ref refid="classPID_1ae116b856a05d5a17e94a8c8fa6228949" kindref="member">PID::PID</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>K,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Ti,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Td,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>To)<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>q0<sp/>=<sp/>K<sp/>*<sp/>(1<sp/>+<sp/>Td<sp/>/<sp/>To);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>q1<sp/>=<sp/>-K<sp/>*<sp/>(1<sp/>+<sp/>2<sp/>*<sp/>Td<sp/>/<sp/>To<sp/>-<sp/>To<sp/>/<sp/>Ti);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>q2<sp/>=<sp/>K<sp/>*<sp/>Td<sp/>/<sp/>To;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>e_prev<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>e_prev2<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>u_prev<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="classPID_1a980f21e5c28912b5c968e60c8ddfa089" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classPID_1a980f21e5c28912b5c968e60c8ddfa089" kindref="member">PID::compute</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>delta_u<sp/>=<sp/>q0<sp/>*<sp/>e<sp/>+<sp/>q1<sp/>*<sp/>e_prev<sp/>+<sp/>q2<sp/>*<sp/>e_prev2;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u<sp/>=<sp/>u_prev<sp/>+<sp/>delta_u;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>e_prev2<sp/>=<sp/>e_prev;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>e_prev<sp/>=<sp/>e;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>u_prev<sp/>=<sp/>u;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>u;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="functions.cpp"/>
+  </compounddef>
+</doxygen>

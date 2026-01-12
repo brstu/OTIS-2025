@@ -1,0 +1,49 @@
+# Workflow для сборки и деплоя Jekyll-сайта на GitHub Pages
+name: Deploy Jekyll with GitHub Pages ii02809_task_03
+
+on:
+  push:
+    branches: ["task_03"]
+  workflow_dispatch:
+
+# Управление concurrency остаётся на уровне workflow
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Job для сборки сайта
+  build:
+    # Permissions только для этой job
+    permissions:
+      contents: read   # нужно для checkout исходников
+      pages: write     # нужно для загрузки артефакта
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./trunk/ii02815/task_03/docs/html
+          destination: ./_site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+
+  # Job для деплоя
+  deploy:
+    # Permissions только для этой job
+    permissions:
+      pages: write    # нужно для деплоя на Pages
+      id-token: write # нужно для environment/github-pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
