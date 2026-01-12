@@ -245,7 +245,7 @@ def generate_html_report(data):
     with open('pid_report.html', 'w', encoding='utf-8') as f:
         f.write(html_content)
     
-    print(f"\nHTML report generated: pid_report.html")
+    print("\nHTML report generated: pid_report.html")
     print("Open this file in your web browser to view the report.")
 
 def print_text_summary(data):
