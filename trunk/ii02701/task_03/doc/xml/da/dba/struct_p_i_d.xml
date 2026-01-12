@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="da/dba/struct_p_i_d" kind="struct" language="C++" prot="public">
+    <compoundname>PID</compoundname>
+    <includes refid="da/df0/pid_8h" local="no">pid.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="da/dba/struct_p_i_d_1ac6f4a7e29f84d9eb60e7f672a3665a65" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q0</definition>
+        <argsstring></argsstring>
+        <name>q0</name>
+        <qualifiedname>PID::q0</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="5" column="12" bodyfile="src/pid.h" bodystart="5" bodyend="-1"/>
+        <referencedby refid="d8/dcb/pid_8cpp_1a1bfa28135d708de923736e4d546bced2" compoundref="d8/dcb/pid_8cpp" startline="3" endline="11">initPID</referencedby>
+        <referencedby refid="d8/dcb/pid_8cpp_1a06d33d4317438f0fefa00494b29d3afe" compoundref="d8/dcb/pid_8cpp" startline="13" endline="24">updatePID</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="da/dba/struct_p_i_d_1a84c6ee207e6449ee6082094f697f701a" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q1</definition>
+        <argsstring></argsstring>
+        <name>q1</name>
+        <qualifiedname>PID::q1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="6" column="12" bodyfile="src/pid.h" bodystart="6" bodyend="-1"/>
+        <referencedby refid="d8/dcb/pid_8cpp_1a1bfa28135d708de923736e4d546bced2" compoundref="d8/dcb/pid_8cpp" startline="3" endline="11">initPID</referencedby>
+        <referencedby refid="d8/dcb/pid_8cpp_1a06d33d4317438f0fefa00494b29d3afe" compoundref="d8/dcb/pid_8cpp" startline="13" endline="24">updatePID</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="da/dba/struct_p_i_d_1addf8b9728e070dc19ddbc5e80b44c550" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q2</definition>
+        <argsstring></argsstring>
+        <name>q2</name>
+        <qualifiedname>PID::q2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="7" column="12" bodyfile="src/pid.h" bodystart="7" bodyend="-1"/>
+        <referencedby refid="d8/dcb/pid_8cpp_1a1bfa28135d708de923736e4d546bced2" compoundref="d8/dcb/pid_8cpp" startline="3" endline="11">initPID</referencedby>
+        <referencedby refid="d8/dcb/pid_8cpp_1a06d33d4317438f0fefa00494b29d3afe" compoundref="d8/dcb/pid_8cpp" startline="13" endline="24">updatePID</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="da/dba/struct_p_i_d_1ab7d24c057c566a8128a654f933c2610f" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::u_prev</definition>
+        <argsstring></argsstring>
+        <name>u_prev</name>
+        <qualifiedname>PID::u_prev</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="9" column="12" bodyfile="src/pid.h" bodystart="9" bodyend="-1"/>
+        <referencedby refid="d8/dcb/pid_8cpp_1a1bfa28135d708de923736e4d546bced2" compoundref="d8/dcb/pid_8cpp" startline="3" endline="11">initPID</referencedby>
+        <referencedby refid="d8/dcb/pid_8cpp_1a06d33d4317438f0fefa00494b29d3afe" compoundref="d8/dcb/pid_8cpp" startline="13" endline="24">updatePID</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="da/dba/struct_p_i_d_1a9e9287696502b7183b65e52cfe165848" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::e_prev1</definition>
+        <argsstring></argsstring>
+        <name>e_prev1</name>
+        <qualifiedname>PID::e_prev1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="10" column="12" bodyfile="src/pid.h" bodystart="10" bodyend="-1"/>
+        <referencedby refid="d8/dcb/pid_8cpp_1a1bfa28135d708de923736e4d546bced2" compoundref="d8/dcb/pid_8cpp" startline="3" endline="11">initPID</referencedby>
+        <referencedby refid="d8/dcb/pid_8cpp_1a06d33d4317438f0fefa00494b29d3afe" compoundref="d8/dcb/pid_8cpp" startline="13" endline="24">updatePID</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="da/dba/struct_p_i_d_1af5539d613fcb09081d26ede79d6ecae6" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::e_prev2</definition>
+        <argsstring></argsstring>
+        <name>e_prev2</name>
+        <qualifiedname>PID::e_prev2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="11" column="12" bodyfile="src/pid.h" bodystart="11" bodyend="-1"/>
+        <referencedby refid="d8/dcb/pid_8cpp_1a1bfa28135d708de923736e4d546bced2" compoundref="d8/dcb/pid_8cpp" startline="3" endline="11">initPID</referencedby>
+        <referencedby refid="d8/dcb/pid_8cpp_1a06d33d4317438f0fefa00494b29d3afe" compoundref="d8/dcb/pid_8cpp" startline="13" endline="24">updatePID</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/pid.h" line="4" column="1" bodyfile="src/pid.h" bodystart="4" bodyend="12"/>
+    <listofallmembers>
+      <member refid="da/dba/struct_p_i_d_1a9e9287696502b7183b65e52cfe165848" prot="public" virt="non-virtual"><scope>PID</scope><name>e_prev1</name></member>
+      <member refid="da/dba/struct_p_i_d_1af5539d613fcb09081d26ede79d6ecae6" prot="public" virt="non-virtual"><scope>PID</scope><name>e_prev2</name></member>
+      <member refid="da/dba/struct_p_i_d_1ac6f4a7e29f84d9eb60e7f672a3665a65" prot="public" virt="non-virtual"><scope>PID</scope><name>q0</name></member>
+      <member refid="da/dba/struct_p_i_d_1a84c6ee207e6449ee6082094f697f701a" prot="public" virt="non-virtual"><scope>PID</scope><name>q1</name></member>
+      <member refid="da/dba/struct_p_i_d_1addf8b9728e070dc19ddbc5e80b44c550" prot="public" virt="non-virtual"><scope>PID</scope><name>q2</name></member>
+      <member refid="da/dba/struct_p_i_d_1ab7d24c057c566a8128a654f933c2610f" prot="public" virt="non-virtual"><scope>PID</scope><name>u_prev</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
