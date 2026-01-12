@@ -4,7 +4,7 @@ project(lab3)
 set(CMAKE_CXX_STANDARD 17)
 
 # Основная программа
-add_executable(lab3_ii02816 main_lab3.cpp pid.cpp mdl.cpp)
+add_executable(lab3_ii02816 main_lab3.cpp plot_utils.cpp pid.cpp mdl.cpp)
 
 # Тестовая программа
 add_executable(test_runner ../test/testlab_3.cpp pid.cpp mdl.cpp)
@@ -23,7 +23,3 @@ target_link_libraries(test_runner gtest_main)
 enable_testing()
 add_test(NAME lab3_tests COMMAND test_runner)
 
-add_executable(lab3_ii02816
-    main_lab3.cpp
-    plot_utils.cpp  # файл с реализацией generatePythonPlotScript
-)
