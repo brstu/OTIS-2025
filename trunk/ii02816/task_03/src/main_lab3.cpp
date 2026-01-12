@@ -1,22 +1,20 @@
-// Добавьте в main_lab3.cpp после вывода в консоль:
-
 #include <iostream>
 #include <vector>
 #include <fstream>
 #include <iomanip>
-#include "pid.h"
-#include "mdl.h"
-#include "plot_utils.h"
+#include "pid.h"       // Для PIDController
+#include "mdl.h"       // Для ProcessModel (или "model.h")
+#include "plot_utils.h" // Для generatePythonPlotScript()
 
 std::vector<double> simulateSystem(PIDController& pid, ProcessModel& process, 
                                   const std::vector<double>& setpoints, bool use_nonlinear = false) {
     std::vector<double> results;
-    std::vector<double> control_signals; // Сохраняем управляющие воздействия
     
     for (double setpoint : setpoints) {
         double current_value = (results.empty()) ? 0.0 : results.back();
+        
+        // Вычисляем управляющее воздействие
         double control_signal = pid.calculate(setpoint, current_value);
-        control_signals.push_back(control_signal);
         
         double new_value;
         if (use_nonlinear) {
@@ -33,27 +31,33 @@ std::vector<double> simulateSystem(PIDController& pid, ProcessModel& process,
 
 int main() {
     setlocale(LC_ALL, "");
+    
+    // Параметры модели объекта
     std::vector<double> model_params = {0.85, 0.01, 0.15, 0.01};
     ProcessModel process(model_params, 10.0);
     
+    // Параметры ПИД-регулятора
     double K = 0.8;   
     double T = 4.0;   
     double Td = 0.05;  
     double T0 = 1.0;  
     
     PIDController pid(K, T, Td, T0);
-    std::vector<double> setpoints(100, 20.0);  // Увеличим количество шагов
+    
+    // Задание для системы (100 шагов с уставкой 20.0)
+    std::vector<double> setpoints(100, 20.0);
     
     // Симуляция линейной модели
     auto linear_results = simulateSystem(pid, process, setpoints, false);
     
+    // Сброс регулятора и модели для нелинейной симуляции
     pid.reset();
     process.setInitialValue(0.0);
     
     // Симуляция нелинейной модели
     auto nonlinear_results = simulateSystem(pid, process, setpoints, true);
     
-    // Сохранение в CSV файл
+    // Сохранение результатов в CSV файл
     std::ofstream csv_file("simulation_results.csv");
     csv_file << "Step,Setpoint,Linear_Output,Nonlinear_Output\n";
     
@@ -69,7 +73,6 @@ int main() {
     
     // Генерация Python скрипта для визуализации
     generatePythonPlotScript();
-    system("python3 plot_pid_results.py");
+    
     return 0;
 }
-
