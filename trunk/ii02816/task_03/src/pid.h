@@ -1,62 +1,29 @@
-/**
- * @file pid.h
- * @brief Заголовочный файл для класса ПИД-регулятора
- */
-
 #ifndef PID_CONTROLLER_H
 #define PID_CONTROLLER_H
 
-#include <vector>
+#include <array>
 
-/**
- * @class PIDController
- * @brief Класс, реализующий дискретный ПИД-регулятор
- * 
- * Данный класс реализует дискретный ПИД-регулятор с использованием 
- * рекуррентного алгоритма для вычисления управляющего воздействия.
- */
-class PIDController {
+class PIDRegulator {
 private:
-    double K;          ///< Коэффициент передачи
-    double T;          ///< Постоянная интегрирования
-    double Td;         ///< Постоянная дифференцирования
-    double T0;         ///< Время квантования
+    struct Gains {
+        double P, I, D, Ts;
+    } gains;
     
-    double q0;         ///< Коэффициент q0
-    double q1;         ///< Коэффициент q1  
-    double q2;         ///< Коэффициент q2
+    struct Coefficients {
+        double a0, a1, a2;
+    } coeffs;
     
-    std::vector<double> prev_error;  ///< Предыдущие ошибки e(k-1) и e(k-2)
-    double prev_output;    ///< Предыдущее выходное значение u(k-1)
+    struct Memory {
+        double ek1, ek2, uk1;
+    } memory;
+    
+    void computeCoeffs();
 
 public:
-    /**
-     * @brief Конструктор ПИД-регулятора
-     * @param K Коэффициент передачи
-     * @param T Постоянная интегрирования
-     * @param Td Постоянная дифференцирования
-     * @param T0 Время квантования
-     */
-    PIDController(double K, double T, double Td, double T0);
-    
-    /**
-     * @brief Вычисляет управляющее воздействие
-     * @param setpoint Заданное значение
-     * @param current_value Текущее значение процесса
-     * @return Управляющее воздействие
-     */
-    double calculate(double setpoint, double current_value);
-    
-    /**
-     * @brief Сбрасывает состояние регулятора
-     */
-    void reset();
-    
-    /**
-     * @brief Возвращает коэффициенты регулятора
-     * @return Вектор коэффициентов [q0, q1, q2]
-     */
-    std::vector<double> getCoefficients() const;
+    PIDRegulator(double P_gain, double I_time, double D_time, double sample_time);
+    double update(double target, double measurement);
+    void clear();
+    std::array<double, 3> getCoeffs() const;
 };
 
 #endif
