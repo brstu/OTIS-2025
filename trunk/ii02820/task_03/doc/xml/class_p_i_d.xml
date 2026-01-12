@@ -1,0 +1,460 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_p_i_d" kind="class" language="C++" prot="public">
+    <compoundname>PID</compoundname>
+    <includes refid="pid__controller_8h" local="no">pid_controller.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_p_i_d_1a0b7cf5ad8d3913f6dc570d0917fa1fd3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::K</definition>
+        <argsstring></argsstring>
+        <name>K</name>
+        <qualifiedname>PID::K</qualifiedname>
+        <briefdescription>
+<para>Коэффициент усиления. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lin_model.cpp" line="23" column="8" bodyfile="src/lin_model.cpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1acf6dff362a7dd74e543ec9c9ec60a3ab" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::T</definition>
+        <argsstring></argsstring>
+        <name>T</name>
+        <qualifiedname>PID::T</qualifiedname>
+        <briefdescription>
+<para>Время интегрирования. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lin_model.cpp" line="24" column="8" bodyfile="src/lin_model.cpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1af69630823959fdbc57637cbc7e69c9c7" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::T0</definition>
+        <argsstring></argsstring>
+        <name>T0</name>
+        <qualifiedname>PID::T0</qualifiedname>
+        <briefdescription>
+<para>Период дискретизации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lin_model.cpp" line="25" column="8" bodyfile="src/lin_model.cpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a6d3306e34c941e0a0858c7d9844ad34a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::Td</definition>
+        <argsstring></argsstring>
+        <name>Td</name>
+        <qualifiedname>PID::Td</qualifiedname>
+        <briefdescription>
+<para>Время дифференцирования. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lin_model.cpp" line="26" column="8" bodyfile="src/lin_model.cpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1ac6f4a7e29f84d9eb60e7f672a3665a65" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q0</definition>
+        <argsstring></argsstring>
+        <name>q0</name>
+        <qualifiedname>PID::q0</qualifiedname>
+        <briefdescription>
+<para>Дискретный коэффициент q0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lin_model.cpp" line="28" column="8" bodyfile="src/lin_model.cpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a84c6ee207e6449ee6082094f697f701a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q1</definition>
+        <argsstring></argsstring>
+        <name>q1</name>
+        <qualifiedname>PID::q1</qualifiedname>
+        <briefdescription>
+<para>Дискретный коэффициент q1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lin_model.cpp" line="29" column="8" bodyfile="src/lin_model.cpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1addf8b9728e070dc19ddbc5e80b44c550" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::q2</definition>
+        <argsstring></argsstring>
+        <name>q2</name>
+        <qualifiedname>PID::q2</qualifiedname>
+        <briefdescription>
+<para>Дискретный коэффициент q2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lin_model.cpp" line="30" column="8" bodyfile="src/lin_model.cpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1ab7d24c057c566a8128a654f933c2610f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::u_prev</definition>
+        <argsstring></argsstring>
+        <name>u_prev</name>
+        <qualifiedname>PID::u_prev</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+<para>Предыдущее значение управляющего воздействия. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lin_model.cpp" line="32" column="8" bodyfile="src/lin_model.cpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1ad89aaeb94de92257732cd86b7594b817" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::e_prev_1</definition>
+        <argsstring></argsstring>
+        <name>e_prev_1</name>
+        <qualifiedname>PID::e_prev_1</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+<para>Ошибка предыдущего шага. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lin_model.cpp" line="33" column="8" bodyfile="src/lin_model.cpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a57da74f7f370ab798aa8f20da78bbf87" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::e_prev_2</definition>
+        <argsstring></argsstring>
+        <name>e_prev_2</name>
+        <qualifiedname>PID::e_prev_2</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+<para>Ошибка шага k-2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lin_model.cpp" line="34" column="8" bodyfile="src/lin_model.cpp" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a932183d42127f94186fee86a97a5aa1d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PID::valid</definition>
+        <argsstring></argsstring>
+        <name>valid</name>
+        <qualifiedname>PID::valid</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Флаг корректности состояния. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lin_model.cpp" line="35" column="6" bodyfile="src/lin_model.cpp" bodystart="35" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_p_i_d_1a4e3e78aeba86e842d0dc1b66d489f55f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PID::PID</definition>
+        <argsstring>(double in_K, double in_T, double in_T0, double in_Td)</argsstring>
+        <name>PID</name>
+        <qualifiedname>PID::PID</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>in_K</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>in_T</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>in_T0</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>in_Td</declname>
+        </param>
+        <briefdescription>
+<para>Конструктор PID-регулятора. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>in_K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент усиления. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>in_T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Период интегрирования. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>in_Td</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Время дифференцирования. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>in_T0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Период дискретизации. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lin_model.cpp" line="48" column="1" bodyfile="src/pid_controller.cpp" bodystart="9" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1a18ad640cecad68bc30c3956a8fb4feff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PID::u_calc</definition>
+        <argsstring>(double e)</argsstring>
+        <name>u_calc</name>
+        <qualifiedname>PID::u_calc</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Вычисляет управляющее воздействие по текущей ошибке. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ошибка регулирования. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Новое значение управляющего сигнала. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lin_model.cpp" line="56" column="8" bodyfile="src/pid_controller.cpp" bodystart="17" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1a9ba3d7e1eb718cb419f547dacf3f31ed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PID::invalidate</definition>
+        <argsstring>()</argsstring>
+        <name>invalidate</name>
+        <qualifiedname>PID::invalidate</qualifiedname>
+        <briefdescription>
+<para>Делает коэффициенты недействительными (для тестов). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lin_model.cpp" line="61" column="6" bodyfile="src/lin_model.cpp" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1acf00e3c3f9b79aab9e548fe67bc06be2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PID::~PID</definition>
+        <argsstring>()=default</argsstring>
+        <name>~PID</name>
+        <qualifiedname>PID::~PID</qualifiedname>
+        <briefdescription>
+<para>Деструктор. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lin_model.cpp" line="66" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1a4e3e78aeba86e842d0dc1b66d489f55f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PID::PID</definition>
+        <argsstring>(double in_K, double in_T, double in_T0, double in_Td)</argsstring>
+        <name>PID</name>
+        <qualifiedname>PID::PID</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>in_K</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>in_T</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>in_T0</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>in_Td</declname>
+        </param>
+        <briefdescription>
+<para>Конструктор PID-регулятора. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>in_K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Коэффициент усиления. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>in_T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Период интегрирования. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>in_Td</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Время дифференцирования. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>in_T0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Период дискретизации. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="48" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1a18ad640cecad68bc30c3956a8fb4feff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PID::u_calc</definition>
+        <argsstring>(double e)</argsstring>
+        <name>u_calc</name>
+        <qualifiedname>PID::u_calc</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Вычисляет управляющее воздействие по текущей ошибке. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ошибка регулирования. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Новое значение управляющего сигнала. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="56" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1a9ba3d7e1eb718cb419f547dacf3f31ed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PID::invalidate</definition>
+        <argsstring>()</argsstring>
+        <name>invalidate</name>
+        <qualifiedname>PID::invalidate</qualifiedname>
+        <briefdescription>
+<para>Делает коэффициенты недействительными (для тестов). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="61" column="6" bodyfile="src/pid_controller.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1acf00e3c3f9b79aab9e548fe67bc06be2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PID::~PID</definition>
+        <argsstring>()=default</argsstring>
+        <name>~PID</name>
+        <qualifiedname>PID::~PID</qualifiedname>
+        <briefdescription>
+<para>Деструктор. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid_controller.h" line="66" column="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Класс дискретного PID-регулятора. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Поддерживает работу с ошибками текущего шага, предыдущего и предпредыдущего. </para>
+    </detaileddescription>
+    <location file="src/lin_model.cpp" line="21" column="1" bodyfile="src/lin_model.cpp" bodystart="21" bodyend="67"/>
+    <listofallmembers>
+      <member refid="class_p_i_d_1ad89aaeb94de92257732cd86b7594b817" prot="private" virt="non-virtual"><scope>PID</scope><name>e_prev_1</name></member>
+      <member refid="class_p_i_d_1a57da74f7f370ab798aa8f20da78bbf87" prot="private" virt="non-virtual"><scope>PID</scope><name>e_prev_2</name></member>
+      <member refid="class_p_i_d_1a9ba3d7e1eb718cb419f547dacf3f31ed" prot="public" virt="non-virtual"><scope>PID</scope><name>invalidate</name></member>
+      <member refid="class_p_i_d_1a9ba3d7e1eb718cb419f547dacf3f31ed" prot="public" virt="non-virtual"><scope>PID</scope><name>invalidate</name></member>
+      <member refid="class_p_i_d_1a0b7cf5ad8d3913f6dc570d0917fa1fd3" prot="private" virt="non-virtual"><scope>PID</scope><name>K</name></member>
+      <member refid="class_p_i_d_1a4e3e78aeba86e842d0dc1b66d489f55f" prot="public" virt="non-virtual"><scope>PID</scope><name>PID</name></member>
+      <member refid="class_p_i_d_1a4e3e78aeba86e842d0dc1b66d489f55f" prot="public" virt="non-virtual"><scope>PID</scope><name>PID</name></member>
+      <member refid="class_p_i_d_1ac6f4a7e29f84d9eb60e7f672a3665a65" prot="private" virt="non-virtual"><scope>PID</scope><name>q0</name></member>
+      <member refid="class_p_i_d_1a84c6ee207e6449ee6082094f697f701a" prot="private" virt="non-virtual"><scope>PID</scope><name>q1</name></member>
+      <member refid="class_p_i_d_1addf8b9728e070dc19ddbc5e80b44c550" prot="private" virt="non-virtual"><scope>PID</scope><name>q2</name></member>
+      <member refid="class_p_i_d_1acf6dff362a7dd74e543ec9c9ec60a3ab" prot="private" virt="non-virtual"><scope>PID</scope><name>T</name></member>
+      <member refid="class_p_i_d_1af69630823959fdbc57637cbc7e69c9c7" prot="private" virt="non-virtual"><scope>PID</scope><name>T0</name></member>
+      <member refid="class_p_i_d_1a6d3306e34c941e0a0858c7d9844ad34a" prot="private" virt="non-virtual"><scope>PID</scope><name>Td</name></member>
+      <member refid="class_p_i_d_1a18ad640cecad68bc30c3956a8fb4feff" prot="public" virt="non-virtual"><scope>PID</scope><name>u_calc</name></member>
+      <member refid="class_p_i_d_1a18ad640cecad68bc30c3956a8fb4feff" prot="public" virt="non-virtual"><scope>PID</scope><name>u_calc</name></member>
+      <member refid="class_p_i_d_1ab7d24c057c566a8128a654f933c2610f" prot="private" virt="non-virtual"><scope>PID</scope><name>u_prev</name></member>
+      <member refid="class_p_i_d_1a932183d42127f94186fee86a97a5aa1d" prot="private" virt="non-virtual"><scope>PID</scope><name>valid</name></member>
+      <member refid="class_p_i_d_1acf00e3c3f9b79aab9e548fe67bc06be2" prot="public" virt="non-virtual"><scope>PID</scope><name>~PID</name></member>
+      <member refid="class_p_i_d_1acf00e3c3f9b79aab9e548fe67bc06be2" prot="public" virt="non-virtual"><scope>PID</scope><name>~PID</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

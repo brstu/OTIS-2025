@@ -5,6 +5,7 @@
 <br><br><br><br><br><br><br>
 <p align="center">Лабораторная работа №1</p>
 <p align="center">По дисциплине “Общая теория интеллектуальных систем”</p>
+<p align="center">Тема: “Моделирования температуры объекта”</p>
 <p align="center">Тема: “Моделирование температуры объекта”</p>
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
@@ -57,6 +58,7 @@ int main()
 	y1 = y_temp;
 	y0 = y1;
 	int n = 10;
+	cout << endl << "Liner"<<endl;
 	cout << endl << "Linear"<<endl;
 	for (int i = 0; i < n; i++)
 	{
@@ -67,6 +69,7 @@ int main()
 		y1 = y2;
 	}
 
+	cout << endl << "unliner:" << endl;
 	cout << endl << "Nonlinear:" << endl;
 	for (int i = 0; i < n; i++)
 	{
@@ -82,6 +85,30 @@ int main()
 ```
 
 ## Результат программы:
+Enter y (starting temperature) and u (input warmth at first step) values (space-separated):  1 10
+Enter a, b, c, d (constants) values: 0.01 0.03 0.05 0.01
+Enter number of steps n: 7
+Result of the 1 step of linear model: 0.31
+Result of the 2 step of linear model: 0.3031
+Result of the 3 step of linear model: 0.303031
+Result of the 4 step of linear model: 0.30303
+Result of the 5 step of linear model: 0.30303
+Result of the 6 step of linear model: 0.30303
+Result of the 7 step of linear model: 0.30303
+Result of the 1 step of non-linear model: 1
+Enter u for the 2 step: 10
+Result of the 2 step of non-linear model: 0.50456
+Enter u for the 3 step: 10
+Result of the 3 step of non-linear model: 0.469605
+Enter u for the 4 step: 10
+Result of the 4 step of non-linear model: 0.491618
+Enter u for the 5 step: 10
+Result of the 5 step of non-linear model: 0.49286
+Enter u for the 6 step: 10
+Result of the 6 step of non-linear model: 0.492238
+Enter u for the 7 step: 10
+Result of the 7 step of non-linear model: 0.492195
+
 y1 = ?
 1
 
