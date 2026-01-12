@@ -6,6 +6,7 @@
 #include <iomanip>
 #include "pid.h"
 #include "mdl.h"
+#include "plot_utils.h"
 
 std::vector<double> simulateSystem(PIDController& pid, ProcessModel& process, 
                                   const std::vector<double>& setpoints, bool use_nonlinear = false) {
@@ -68,7 +69,7 @@ int main() {
     
     // Генерация Python скрипта для визуализации
     generatePythonPlotScript();
-    
+    system("python3 plot_pid_results.py");
     return 0;
 }
 

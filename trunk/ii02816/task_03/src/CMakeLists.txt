@@ -22,3 +22,8 @@ target_link_libraries(test_runner gtest_main)
 # Простой тест вместо gtest_discover_tests
 enable_testing()
 add_test(NAME lab3_tests COMMAND test_runner)
+
+add_executable(your_target
+    main_lab3.cpp
+    plot_utils.cpp  # файл с реализацией generatePythonPlotScript
+)
