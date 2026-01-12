@@ -6,14 +6,13 @@
 <p align="center">Лабораторная работа №1</p>
 <p align="center">По дисциплине “Общая теория интеллектуальных систем”</p>
 <p align="center">Тема: “Моделирования температуры объекта”</p>
-<p align="center">Тема: “Моделирование температуры объекта”</p>
 <br><br><br><br><br>
 <p align="right">Выполнил:</p>
 <p align="right">Студент 2 курса</p>
 <p align="right">Группы ИИ-27</p>
-<p align="right">Туз Г.С.</p>
+<p align="right">Хотенко В.В.</p>
 <p align="right">Проверил:</p>
-<p align="right">Иванюк Д.С.</p>
+<p align="right">Дворанинович Д.А.</p>
 <br><br><br><br><br>
 <p align="center">Брест 2025</p>
 
@@ -28,7 +27,7 @@ Let's get some object to be controlled. We want to control its temperature, whic
 
 $$\Large\frac{dy(\tau)}{d\tau}=\frac{u(\tau)}{C}+\frac{Y_0-y(\tau)}{RC} $$ (1)
 
-where $\tau$ – time; $y(\tau)$ – input temperature; $u(\tau)$ – input warmth; $Y_0$ – room temperature; $C,RC$ – some constants.
+where $\tau$ – time; $y(\tau)$ – input temperature; $u(\tau)$ – input warm; $Y_0$ – room temperature; $C,RC$ – some constants.
 
 After transformation we get these linear (2) and nonlinear (3) models:
 
@@ -41,97 +40,78 @@ Task is to write program (**С++**), which simulates this object temperature.
 
 
 ## Код программы:
-```C++
-#include<iostream>
-using namespace std;
-
-float a=0.5,
-	b = 0.2,
-	c= 0.15,
-	d = 0.3,
-	u = 1.2;
-int main()
+struct LinearModelParams 
 {
-	float y0, y1, y2 ,y_temp;
-	cout << "y1 = ?";
-	cin >> y_temp;
-	y1 = y_temp;
-	y0 = y1;
-	int n = 10;
-	cout << endl << "Liner"<<endl;
-	cout << endl << "Linear"<<endl;
-	for (int i = 0; i < n; i++)
-	{
-		cout << "t" << i + 1 << " = ";
-		y2 = a * y1 + b * u;
-		cout << y2 << endl;
-		y0 = y1;
-		y1 = y2;
-	}
+    double a; // Coefficient for previous output (y)
+    double b; // Coefficient for input (u)
+};
+struct NonLinearModelParams 
+{
+	double yOffset;      // Initial offset for previous output value (prevY = y - yOffset)
+	double uOffset;      // Initial offset for previous input value (prevU = u - uOffset)
+    double a;            // Linear coefficient for current output (y)
+    double b;            // Nonlinear coefficient for squared previous output (prevY²)
+    double c;            // Linear coefficient for input (u)
+    double d;            // Nonlinear coefficient for sinusoidal input term
+    double u_step;       // Step size for input signal increment
+};
 
-	cout << endl << "unliner:" << endl;
-	cout << endl << "Nonlinear:" << endl;
-	for (int i = 0; i < n; i++)
+void simulateLinear(double y, double u, int t, const LinearModelParams& params)
+#include <iostream>
+#include <cmath>
+{
+    for (int i = 0; i <= t; i++) 
 	{
-		cout << "t" << i + 1 << " = ";
-		y2 = a * y1 - b * y0 * y0 + c * u + d * sin(u);
-		cout << y2 << endl;
-		y0 = y1;
-		y1 = y2;
-	}
-
+        std::cout << i << ' ' << y << '\n';
+        y = params.a * y + params.b * u;
+        }
+}
+void simulateNonLinear(double y, double u, int t, const NonLinearModelParams& params) 
+{
+    double prevY = y - params.yOffset; // calculate prevY to differentiate it from the initial y
+    double prevU = u - params.uOffset; // calculate prevU to differentiate it from the initial u
+    for (int i = 0; i <= t; i++) 
+	{
+        std::cout << i << ' ' << y << '\n';
+        double nextY = params.a * y - params.b * prevY * prevY + params.c * u + params.d * std::sin(prevU);
+        prevU += params.u_step;
+        prevY = y;
+        y = nextY;
+    }
 }
 
-```
+LinearModelParams createLinearModel()
+{
+	LinearModelParams params;
+	params.a = 0.5;
+	params.b = 0.3;
+    return params;
+}
+NonLinearModelParams createNonLinearModel() 
+{
+	NonLinearModelParams params;
+	params.yOffset = 0.2;  
+    params.uOffset = 1;      
+	params.a = 0.6;
+	params.b = 0.4;
+	params.c = 0.5;
+	params.d = 0.3;
+	params.u_step = 0.35;
+    return params;
+}
 
-## Результат программы:
-Enter y (starting temperature) and u (input warmth at first step) values (space-separated):  1 10
-Enter a, b, c, d (constants) values: 0.01 0.03 0.05 0.01
-Enter number of steps n: 7
-Result of the 1 step of linear model: 0.31
-Result of the 2 step of linear model: 0.3031
-Result of the 3 step of linear model: 0.303031
-Result of the 4 step of linear model: 0.30303
-Result of the 5 step of linear model: 0.30303
-Result of the 6 step of linear model: 0.30303
-Result of the 7 step of linear model: 0.30303
-Result of the 1 step of non-linear model: 1
-Enter u for the 2 step: 10
-Result of the 2 step of non-linear model: 0.50456
-Enter u for the 3 step: 10
-Result of the 3 step of non-linear model: 0.469605
-Enter u for the 4 step: 10
-Result of the 4 step of non-linear model: 0.491618
-Enter u for the 5 step: 10
-Result of the 5 step of non-linear model: 0.49286
-Enter u for the 6 step: 10
-Result of the 6 step of non-linear model: 0.492238
-Enter u for the 7 step: 10
-Result of the 7 step of non-linear model: 0.492195
-
-y1 = ?
-1
-
-Linear
-t1 = 1.3
-t2 = 0.91
-t3 = 0.757
-t4 = 0.6785
-t5 = 0.63925
-t6 = 0.619625
-t7 = 0.609812
-t8 = 0.604906
-t9 = 0.602453
-t10 = 0.601227
-
-Nonlinear
-t1 = 1.3
-t2 = 0.8775
-t3 = 0.697019
-t4 = 0.613212
-t5 = 0.573222
-t6 = 0.553837
-t7 = 0.544073
-t8 = 0.539191
-t9 = 0.536751
-t10 = 0.535531
+int main() 
+{
+    const double y = 1.0; // Initial output value
+    const double u = 0.8; // Input signal value
+    const int t = 15;     // Simulation time steps
+    std::cout << "Linear simulation:\n";
+    LinearModelParams linearParams = createLinearModel();
+    simulateLinear(y, u, t, linearParams);
+    std::cout << '\n';
+    std::cout << "Nonlinear simulation:\n";
+    NonLinearModelParams nonLinearParams = createNonLinearModel();
+    simulateNonLinear(y, u, t, nonLinearParams);
+    std::cout << '\n';
+    return 0;
+}

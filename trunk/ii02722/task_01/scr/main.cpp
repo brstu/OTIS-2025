@@ -1,3 +1,9 @@
+﻿#include<iostream>
+using namespace std;
+
+float a=0.5,
+	b = 0.2,
+	c= 0.15,
 #include <iostream>
 using namespace std;
 
@@ -8,6 +14,13 @@ float a = 0.5,
 	u = 1.2;
 int main()
 {
+	float y0, y1, y2 ,y_temp;
+	cout << "y1 = ?";
+	cin >> y_temp;
+	y1 = y_temp;
+	y0 = y1;
+	int n = 10;
+	cout << endl << "Liner"<<endl;
 	float y0, y1, y2;
 	cout << "y1 = ?";
 	cin >> y1;
@@ -23,6 +36,7 @@ int main()
 		y1 = y2;
 	}
 
+	cout << endl << "unliner:" << endl;
 	cout << endl << "Nonlinear:" << endl;
 	for (int i = 0; i < n; i++)
 	{
