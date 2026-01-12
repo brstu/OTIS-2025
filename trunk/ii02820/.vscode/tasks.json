@@ -1,0 +1,54 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "cmake configure",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-B",
+                "build",
+                "-S",
+                ".",
+                "-DCMAKE_BUILD_TYPE=Debug"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "build tests",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build",
+                "--target",
+                "run_tests"
+            ],
+            "group": "build",
+            "dependsOn": "cmake configure",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "build main",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build",
+                "--target",
+                "main_app"
+            ],
+            "group": "build",
+            "dependsOn": "cmake configure",
+            "presentation": {
+                "reveal": "always"
+            }
+        }
+    ]
+}

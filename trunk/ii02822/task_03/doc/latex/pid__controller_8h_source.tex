@@ -1,0 +1,33 @@
+\doxysection{pid\+\_\+controller.\+h}
+\hypertarget{pid__controller_8h_source}{}\label{pid__controller_8h_source}\index{src/pid\_controller.h@{src/pid\_controller.h}}
+\mbox{\hyperlink{pid__controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PID\_CONTROLLER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PID\_CONTROLLER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_p_i_d_controller_a8abdcd87030facec712a9fd102999f71}{PIDController}}\ \{}
+\DoxyCodeLine{00005\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keywordtype}{double}\ K;}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{double}\ Ti;}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{double}\ Td;}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{double}\ T;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{double}\ q0;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{double}\ q1;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{double}\ q2;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{double}\ u\_prev;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{double}\ e\_prev1;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{double}\ e\_prev2;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ calculateCoefficients();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_p_i_d_controller_a8abdcd87030facec712a9fd102999f71}{PIDController}}(\textcolor{keywordtype}{double}\ K\ =\ 1.0,\ \textcolor{keywordtype}{double}\ Ti\ =\ 0.0,\ \textcolor{keywordtype}{double}\ Td\ =\ 0.0,\ \textcolor{keywordtype}{double}\ T\ =\ 0.01);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_p_i_d_controller_a64a55d7634ebed47fdd75da1195ad019}{calculate}}(\textcolor{keywordtype}{double}\ setpoint,\ \textcolor{keywordtype}{double}\ current\_value);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_p_i_d_controller_ab6adfbffa30414f0a83b95ba999a2fea}{reset}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_p_i_d_controller_ada2c09c46c8a05464785039343af4b8d}{setParameters}}(\textcolor{keywordtype}{double}\ K,\ \textcolor{keywordtype}{double}\ Ti,\ \textcolor{keywordtype}{double}\ Td,\ \textcolor{keywordtype}{double}\ T);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_p_i_d_controller_a07a99a69cb2f6d4970e1bdceb3fe425f}{getParameters}}(\textcolor{keywordtype}{double}\&\ K,\ \textcolor{keywordtype}{double}\&\ Ti,\ \textcolor{keywordtype}{double}\&\ Td,\ \textcolor{keywordtype}{double}\&\ T)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
