@@ -1,36 +1,30 @@
 # Лабораторная работа №3: Моделирование ПИД-регулятора для теплового объекта
 
-<p align="center">
-  <strong>Министерство образования Республики Беларусь</strong><br>
-  <strong>Учреждение образования «Брестский Государственный технический университет»</strong><br>
-  <strong>Кафедра ИИТ</strong>
-</p>
+**Министерство образования Республики Беларусь**  
+**Учреждение образования «Брестский Государственный технический университет»**  
+**Кафедра ИИТ**
 
-<br><br><br><br>
+---
 
-<p align="center">
-  <strong>Лабораторная работа №3</strong><br>
-  <strong>По дисциплине «Общая теория интеллектуальных систем»</strong><br>
-  <strong>Тема: «Моделирование системы автоматического управления с ПИД-регулятором для объекта теплового класса»</strong>
-</p>
+**Лабораторная работа №3**  
+**По дисциплине «Общая теория интеллектуальных систем»**  
+**Тема: «Моделирование системы автоматического управления с ПИД-регулятором для объекта теплового класса»**
 
-<br><br><br>
+---
 
-<p align="right">
-  <strong>Выполнил:</strong><br>
-  Студент 2 курса<br>
-  Группы ИИ-28/24<br>
-  Литвинчук И.М.<br>
-  <br>
-  <strong>Проверил:</strong><br>
-  Дворанинович Д.А.
-</p>
+**Выполнил:**  
+Студент 2 курса  
+Группы ИИ-28/24  
+Литвинчук И.М.
 
-<br><br><br>
+**Проверил:**  
+Дворанинович Д.А.
 
-<p align="center">
-  <strong>Брест 2025</strong>
-</p>
+---
+
+**Брест 2025**
+
+---
 
 ## Содержание
 1. [Цель работы](#цель-работы)
@@ -42,9 +36,13 @@
 7. [Тестирование](#тестирование)
 8. [Выводы](#выводы)
 
+---
+
 ## Цель работы
 
 Разработка и моделирование системы автоматического управления с ПИД-регулятором для объекта теплового класса. Исследование влияния параметров регулятора на качество управления линейной и нелинейной моделями объекта.
+
+---
 
 ## Теоретические сведения
 
@@ -59,8 +57,10 @@
 ### Уравнение ПИД-регулятора
 
 Идеализированное уравнение непрерывного ПИД-регулятора:
+u(t) = K * [e(t) + 1/T * ∫e(τ)dτ + Td * de(t)/dt]
 
-u(t) = K * [e(t) + 1/T * ∫e(τ)dτ + Td * de(t)/dt]где:
+
+где:
 - **K** — коэффициент усиления
 - **T** — постоянная времени интегрирования
 - **Td** — постоянная времени дифференцирования
@@ -68,11 +68,16 @@ u(t) = K * [e(t) + 1/T * ∫e(τ)dτ + Td * de(t)/dt]где:
 ### Дискретная реализация
 
 Для реализации на компьютере используется дискретная форма:
-u(k) = u(k-1) + q0*e(k) + q1*e(k-1) + q2*e(k-2)где:
+u(k) = u(k-1) + q0*e(k) + q1*e(k-1) + q2*e(k-2)
+
+
+где:
 - **q0 = K * (1 + T0/T + Td/T0)**
 - **q1 = -K * (1 + 2*Td/T0)**
 - **q2 = K * Td/T0**
 - **T0** — шаг квантования
+
+---
 
 ## Реализация программы
 
@@ -97,6 +102,8 @@ public:
     double calculate(double setpoint, double current_value);
     void reset();
 };
+
+Класс ProcessModel (model.h, model.cpp)
 /**
  * @class ProcessModel
  * @brief Модель объекта управления теплового класса
@@ -112,8 +119,7 @@ public:
     double nonlinearModel(double u);
     void setInitialValue(double value);
 };
-
-````
+. Главная программа (lab3main.cpp)
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -183,5 +189,55 @@ int main() {
     
     return 0;
 }
+ Утилиты визуализации (plot_utils.h, plot_utils.cpp)
+ void generatePythonPlotScript() {
+    std::ofstream py_script("plot_results.py");
+    py_script << R"(
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
 
-````
+# Загрузка данных
+data = pd.read_csv('simulation_results.csv')
+
+# Создание графиков
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 10))
+
+# График линейной модели
+ax1.plot(data['Step'], data['Setpoint'], 'r--', label='Задание')
+ax1.plot(data['Step'], data['Linear_Output'], 'b-', label='Линейная модель')
+ax1.set_xlabel('Шаг времени')
+ax1.set_ylabel('Температура')
+ax1.set_title('Линейная модель ПИД-регулирования')
+ax1.legend()
+ax1.grid(True)
+
+# График нелинейной модели
+ax2.plot(data['Step'], data['Setpoint'], 'r--', label='Задание')
+ax2.plot(data['Step'], data['Nonlinear_Output'], 'g-', label='Нелинейная модель')
+ax2.set_xlabel('Шаг времени')
+ax2.set_ylabel('Температура')
+ax2.set_title('Нелинейная модель ПИД-регулирования')
+ax2.legend()
+ax2.grid(True)
+
+plt.tight_layout()
+plt.savefig('pid_simulation_results.png', dpi=300)
+plt.show()
+
+# Вывод статистики
+print("=== Статистика результатов ===")
+print(f"Линейная модель:")
+print(f"  Среднее значение: {data['Linear_Output'].mean():.3f}")
+print(f"  Стандартное отклонение: {data['Linear_Output'].std():.3f}")
+print(f"  Установившееся значение: {data['Linear_Output'].iloc[-10:].mean():.3f}")
+print()
+print(f"Нелинейная модель:")
+print(f"  Среднее значение: {data['Nonlinear_Output'].mean():.3f}")
+print(f"  Стандартное отклонение: {data['Nonlinear_Output'].std():.3f}")
+print(f"  Установившееся значение: {data['Nonlinear_Output'].iloc[-10:].mean():.3f}")
+)";
+    py_script.close();
+    
+    system("python plot_results.py");
+}
