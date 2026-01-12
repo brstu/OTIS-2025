@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_p_i_d" kind="class" language="C++" prot="public">
+    <compoundname>PID</compoundname>
+    <includes refid="pid_8h" local="no">pid.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_p_i_d_1a0b7cf5ad8d3913f6dc570d0917fa1fd3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::K</definition>
+        <argsstring></argsstring>
+        <name>K</name>
+        <qualifiedname>PID::K</qualifiedname>
+        <briefdescription>
+<para>Proportional gain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="14" column="12" bodyfile="src/pid.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1acf6dff362a7dd74e543ec9c9ec60a3ab" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::T</definition>
+        <argsstring></argsstring>
+        <name>T</name>
+        <qualifiedname>PID::T</qualifiedname>
+        <briefdescription>
+<para>Integral time. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="15" column="12" bodyfile="src/pid.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a6d3306e34c941e0a0858c7d9844ad34a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::Td</definition>
+        <argsstring></argsstring>
+        <name>Td</name>
+        <qualifiedname>PID::Td</qualifiedname>
+        <briefdescription>
+<para>Derivative time. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="16" column="12" bodyfile="src/pid.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1af69630823959fdbc57637cbc7e69c9c7" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::T0</definition>
+        <argsstring></argsstring>
+        <name>T0</name>
+        <qualifiedname>PID::T0</qualifiedname>
+        <briefdescription>
+<para>Sampling period. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="17" column="12" bodyfile="src/pid.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a7792de52992d0c0362f12df93a7abb28" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::integral</definition>
+        <argsstring></argsstring>
+        <name>integral</name>
+        <qualifiedname>PID::integral</qualifiedname>
+        <briefdescription>
+<para>Integral accumulator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="19" column="12" bodyfile="src/pid.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_p_i_d_1a124047ca819e26199964de9c2c8f2dc0" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PID::prevError</definition>
+        <argsstring></argsstring>
+        <name>prevError</name>
+        <qualifiedname>PID::prevError</qualifiedname>
+        <briefdescription>
+<para>Previous error for derivative. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="20" column="12" bodyfile="src/pid.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_p_i_d_1a2147e32f6e109025650c9d7271b013ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PID::PID</definition>
+        <argsstring>(double K, double T, double Td, double T0)</argsstring>
+        <name>PID</name>
+        <qualifiedname>PID::PID</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>K</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>T</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Td</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>T0</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for <ref refid="class_p_i_d" kindref="compound">PID</ref> controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor implementation for <ref refid="class_p_i_d" kindref="compound">PID</ref> controller.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>K</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>proportional gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>integral time </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Td</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>derivative time </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>T0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>sampling period </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="30" column="5" bodyfile="src/pid.cpp" bodystart="6" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="class_p_i_d_1a980f21e5c28912b5c968e60c8ddfa089" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PID::compute</definition>
+        <argsstring>(double e)</argsstring>
+        <name>compute</name>
+        <qualifiedname>PID::compute</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Compute control signal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute control signal using <ref refid="class_p_i_d" kindref="compound">PID</ref> formula.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>current error </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>control signal u</para>
+</simplesect>
+u = K * ( e + (T0/T) * integral + (Td/T0) * derivative )</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>current error </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>control signal u </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pid.h" line="37" column="12" bodyfile="src/pid.cpp" bodystart="17" bodyend="29"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="class_p_i_d" kindref="compound">PID</ref> controller class. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Implements a simple <ref refid="class_p_i_d" kindref="compound">PID</ref> controller with parameters:<itemizedlist>
+<listitem><para>K: proportional gain</para>
+</listitem><listitem><para>T: integral time</para>
+</listitem><listitem><para>Td: derivative time</para>
+</listitem><listitem><para>T0: sampling period </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="src/pid.h" line="12" column="1" bodyfile="src/pid.h" bodystart="12" bodyend="38"/>
+    <listofallmembers>
+      <member refid="class_p_i_d_1a980f21e5c28912b5c968e60c8ddfa089" prot="public" virt="non-virtual"><scope>PID</scope><name>compute</name></member>
+      <member refid="class_p_i_d_1a7792de52992d0c0362f12df93a7abb28" prot="private" virt="non-virtual"><scope>PID</scope><name>integral</name></member>
+      <member refid="class_p_i_d_1a0b7cf5ad8d3913f6dc570d0917fa1fd3" prot="private" virt="non-virtual"><scope>PID</scope><name>K</name></member>
+      <member refid="class_p_i_d_1a2147e32f6e109025650c9d7271b013ee" prot="public" virt="non-virtual"><scope>PID</scope><name>PID</name></member>
+      <member refid="class_p_i_d_1a124047ca819e26199964de9c2c8f2dc0" prot="private" virt="non-virtual"><scope>PID</scope><name>prevError</name></member>
+      <member refid="class_p_i_d_1acf6dff362a7dd74e543ec9c9ec60a3ab" prot="private" virt="non-virtual"><scope>PID</scope><name>T</name></member>
+      <member refid="class_p_i_d_1af69630823959fdbc57637cbc7e69c9c7" prot="private" virt="non-virtual"><scope>PID</scope><name>T0</name></member>
+      <member refid="class_p_i_d_1a6d3306e34c941e0a0858c7d9844ad34a" prot="private" virt="non-virtual"><scope>PID</scope><name>Td</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
